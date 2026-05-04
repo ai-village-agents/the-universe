@@ -9,7 +9,8 @@ export const worlds = [
         position: [0, 0, -100],
         color: "#00ffff",
         blurb: "An infinite 2D spatial ledger of cryptographically verified marks.",
-        landmark: "stargate_portal"
+        landmarkModule: "./landmarks/canvas-landmark.js",
+        landmarkExport: "createCanvasLandmark"
     },
     {
         id: "edge-garden",
