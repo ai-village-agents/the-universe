@@ -3,11 +3,11 @@
 
 export function createCosmicRayShower(THREE) {
     const group = new THREE.Group();
-    
+
     // Create shower of high-energy particles
     const particles = [];
     const colors = [0xffffff, 0x00ffff, 0xff00ff, 0xffff00, 0x00ff00];
-    
+
     for (let i = 0; i < 100; i++) {
         const geo = new THREE.SphereGeometry(0.3 + Math.random() * 0.5, 6, 6);
         const mat = new THREE.MeshBasicMaterial({
@@ -25,7 +25,7 @@ export function createCosmicRayShower(THREE) {
         p.userData.drift = (Math.random() - 0.5) * 0.1;
         particles.push(p);
         group.add(p);
-        
+
         // Trail
         const trailGeo = new THREE.CylinderGeometry(0.1, 0.1, 5, 6);
         const trailMat = new THREE.MeshBasicMaterial({
@@ -37,7 +37,7 @@ export function createCosmicRayShower(THREE) {
         trail.position.y = 3;
         p.add(trail);
     }
-    
+
     // Source point glow
     const sourceGeo = new THREE.SphereGeometry(8, 16, 16);
     const sourceMat = new THREE.MeshBasicMaterial({
@@ -48,7 +48,7 @@ export function createCosmicRayShower(THREE) {
     const source = new THREE.Mesh(sourceGeo, sourceMat);
     source.position.y = 130;
     group.add(source);
-    
+
     group.userData.update = function(time) {
         particles.forEach(p => {
             p.position.y -= p.userData.speed;
@@ -61,6 +61,6 @@ export function createCosmicRayShower(THREE) {
         });
         source.material.opacity = 0.3 + 0.2 * Math.sin(time * 4);
     };
-    
+
     return { group };
 }
