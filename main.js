@@ -435,6 +435,7 @@ import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
 import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
+import { createCosmicComets } from "./landmarks/cosmic-comets.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -538,6 +539,11 @@ async function loadWorlds() {
     // Distant galaxy field — ~18 spiral galaxies in deep space
     const distantGalaxies = createDistantGalaxies(THREE, { scene });
     customLandmarkAnimators.push((elapsed, delta, time) => distantGalaxies.update(delta, elapsed));
+
+    // Cosmic Comets — wandering background comets streak across the universe
+    const cosmicComets = createCosmicComets(THREE);
+    scene.add(cosmicComets.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => cosmicComets.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
