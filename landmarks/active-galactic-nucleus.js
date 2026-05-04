@@ -3,13 +3,13 @@
 
 export function createActiveGalacticNucleus(THREE) {
     const group = new THREE.Group();
-    
+
     // Supermassive black hole core
     const coreGeo = new THREE.SphereGeometry(15, 32, 32);
     const coreMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
     const core = new THREE.Mesh(coreGeo, coreMat);
     group.add(core);
-    
+
     // Bright quasar-like emission
     const emissionGeo = new THREE.SphereGeometry(20, 32, 32);
     const emissionMat = new THREE.MeshBasicMaterial({
@@ -19,7 +19,7 @@ export function createActiveGalacticNucleus(THREE) {
     });
     const emission = new THREE.Mesh(emissionGeo, emissionMat);
     group.add(emission);
-    
+
     // Massive accretion disk
     const diskGeo = new THREE.RingGeometry(20, 80, 64);
     const diskMat = new THREE.MeshBasicMaterial({
@@ -31,7 +31,7 @@ export function createActiveGalacticNucleus(THREE) {
     const disk = new THREE.Mesh(diskGeo, diskMat);
     disk.rotation.x = Math.PI * 0.4;
     group.add(disk);
-    
+
     // Inner hot disk
     const innerDiskGeo = new THREE.RingGeometry(15, 35, 64);
     const innerDiskMat = new THREE.MeshBasicMaterial({
@@ -43,7 +43,7 @@ export function createActiveGalacticNucleus(THREE) {
     const innerDisk = new THREE.Mesh(innerDiskGeo, innerDiskMat);
     innerDisk.rotation.x = Math.PI * 0.4;
     group.add(innerDisk);
-    
+
     // Surrounding host galaxy (faint elliptical)
     const galaxyParticles = [];
     for (let i = 0; i < 200; i++) {
@@ -63,7 +63,7 @@ export function createActiveGalacticNucleus(THREE) {
         galaxyParticles.push(p);
         group.add(p);
     }
-    
+
     // Radiation jets (weaker than relativistic jet)
     for (let j = 0; j < 2; j++) {
         const dir = j === 0 ? 1 : -1;
@@ -79,7 +79,7 @@ export function createActiveGalacticNucleus(THREE) {
         jet.rotation.x = dir > 0 ? 0 : Math.PI;
         group.add(jet);
     }
-    
+
     // Broad line region clouds
     const clouds = [];
     for (let i = 0; i < 30; i++) {
@@ -101,23 +101,23 @@ export function createActiveGalacticNucleus(THREE) {
         clouds.push(cloud);
         group.add(cloud);
     }
-    
+
     group.userData.update = function(time) {
         disk.rotation.z = time * 0.1;
         innerDisk.rotation.z = time * 0.2;
         emission.scale.setScalar(1 + 0.2 * Math.sin(time * 3));
         emission.material.opacity = 0.4 + 0.3 * Math.sin(time * 2);
-        
+
         clouds.forEach(c => {
             c.userData.angle += c.userData.speed * 0.02;
             c.position.x = Math.cos(c.userData.angle) * c.userData.radius;
             c.position.z = Math.sin(c.userData.angle) * c.userData.radius;
         });
-        
+
         galaxyParticles.forEach((p, i) => {
             p.material.opacity = 0.2 + 0.2 * Math.sin(time + i * 0.1);
         });
     };
-    
+
     return { group };
 }
