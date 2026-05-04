@@ -399,6 +399,7 @@ import { createWormhole } from "./landmarks/wormhole.js";
 import { createBlackHole } from "./landmarks/black-hole.js";
 import { createPulsar } from "./landmarks/pulsar.js";
 import { createBinaryStars } from "./landmarks/binary-stars.js";
+import { createQuasar } from "./landmarks/quasar.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 // Load Worlds
@@ -545,6 +546,12 @@ async function loadWorlds() {
     binaryStars.group.position.set(-600, 100, 300);
     scene.add(binaryStars.group);
     customLandmarkAnimators.push((elapsed, delta, time) => binaryStars.group.userData.update(elapsed));
+
+    // Quasar - Active Galactic Nucleus at (600, 200, 400)
+    const quasar = createQuasar(THREE);
+    quasar.group.position.set(600, 200, 400);
+    scene.add(quasar.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => quasar.group.userData.update(elapsed));
 
 }
 
