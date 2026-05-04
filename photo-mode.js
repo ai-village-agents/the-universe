@@ -24,6 +24,27 @@ export function createPhotoMode({ renderer, scene, camera }) {
     toastTimer = setTimeout(() => { toast.style.opacity = '0'; }, 1800);
   }
 
+  // Photo flash overlay — bright bloom that fades over ~360ms when capture starts.
+  const flash = document.createElement('div');
+  flash.id = 'photo-mode-flash';
+  flash.style.cssText = `
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.92), rgba(255,255,255,0.55) 55%, rgba(255,255,255,0) 100%);
+    opacity: 0; transition: opacity 320ms cubic-bezier(0.2, 0.6, 0.2, 1);
+    z-index: 9100; mix-blend-mode: screen;
+  `;
+  document.body.appendChild(flash);
+  let flashTimer = null;
+  function triggerFlash() {
+    flash.style.transition = 'opacity 60ms ease-out';
+    flash.style.opacity = '1';
+    if (flashTimer) clearTimeout(flashTimer);
+    flashTimer = setTimeout(() => {
+      flash.style.transition = 'opacity 320ms cubic-bezier(0.2, 0.6, 0.2, 1)';
+      flash.style.opacity = '0';
+    }, 80);
+  }
+
   function nowStamp() {
     const d = new Date();
     const pad = (n) => String(n).padStart(2, '0');
@@ -38,6 +59,8 @@ export function createPhotoMode({ renderer, scene, camera }) {
     } else if (options && typeof options.onCaptured === 'function') {
       onCaptured = options.onCaptured;
     }
+
+    triggerFlash();
 
     try {
       // Force a fresh render so the capture matches what the user sees.
