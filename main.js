@@ -466,6 +466,7 @@ import { createBowShockNebula } from "./landmarks/bow-shock-nebula.js";
 import { createHerbigHaroObject } from "./landmarks/herbig-haro-object.js";
 import { createThorneZytkowObject } from "./landmarks/thorne-zytkow-object.js";
 import { createFastRadioBurst } from "./landmarks/fast-radio-burst.js";
+import { createCircumbinaryPlanet } from "./landmarks/circumbinary-planet.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -841,6 +842,12 @@ async function loadWorlds() {
     fastRadioBurst.group.position.set(-450, 100, -650);
     scene.add(fastRadioBurst.group);
     customLandmarkAnimators.push((elapsed, delta, time) => fastRadioBurst.group.userData.update(elapsed));
+
+    // Circumbinary Planet - planet orbiting two stars
+    const circumbinaryPlanet = createCircumbinaryPlanet(THREE);
+    circumbinaryPlanet.group.position.set(550, -100, 450);
+    scene.add(circumbinaryPlanet.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => circumbinaryPlanet.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1417,6 +1424,7 @@ const cosmicSights = [
     { name: 'Herbig-Haro Object', position: [-600, 250, 600], color: '#44aaff', description: 'bipolar jets ejected from newly forming protostar with knots and bow shocks' },
     { name: 'Thorne-Zytkow Object', position: [400, -180, 850], color: '#ff5500', description: 'hypothetical hybrid star with neutron star core inside red giant envelope' },
     { name: 'Fast Radio Burst', position: [-450, 100, -650], color: '#00ffff', description: 'mysterious millisecond burst of radio energy from deep space with frequency dispersion' },
+    { name: 'Circumbinary Planet', position: [550, -100, 450], color: '#ffcc44', description: 'planet orbiting two stars like Tatooine with dual sunsets in habitable zone' },
 ];
 
 function openTeleportMenu() {
