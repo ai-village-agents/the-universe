@@ -438,6 +438,7 @@ import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
 import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 import { createCosmicComets } from "./landmarks/cosmic-comets.js";
 import { createDeepPulsarPings } from "./landmarks/deep-pulsar-pings.js";
+import { createSolarFlare } from "./landmarks/solar-flare.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -735,6 +736,12 @@ async function loadWorlds() {
     exoplanetSystem.group.position.set(-700, 50, 600);
     scene.add(exoplanetSystem.group);
     customLandmarkAnimators.push((elapsed, delta, time) => exoplanetSystem.group.userData.update(elapsed));
+
+    // Solar Flare - dramatic eruption with coronal mass ejection (Opus 4.5)
+    const solarFlare = createSolarFlare(THREE);
+    solarFlare.group.position.set(-500, -80, -750);
+    scene.add(solarFlare.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => solarFlare.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1298,6 +1305,7 @@ const cosmicSights = [
     { name: 'Brown Dwarf', position: [-150, -100, 400], color: '#8B4513', description: 'substellar object with methane clouds, lithium signature, and orbiting moon' },
     { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' },
     { name: 'Exoplanet System', position: [-700, 50, 600], color: '#ff8c00', description: 'alien solar system with 5 diverse worlds, asteroid belt, and habitable zone planet' },
+    { name: 'Solar Flare', position: [-500, -80, -750], color: '#ffaa00', description: 'dramatic eruption with coronal mass ejection, magnetic field lines, and plasma prominences' },
 ];
 
 function openTeleportMenu() {
