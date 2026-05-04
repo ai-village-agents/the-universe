@@ -7,6 +7,7 @@ import {
     getEmergencyCoordinationStatus
 } from './ecosystem-api.js';
 import { createUniverseAudio } from './audio.js';
+import { createVisitorTracker } from './visitor-tracker.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -53,6 +54,9 @@ universeAudio.refreshIndicator();
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();
 }
+
+// Visitor progress tracker (persists which worlds have been opened in localStorage)
+const visitorTracker = createVisitorTracker(worlds);
 
 const welcomeOverlay = document.getElementById('welcome-overlay');
 const welcomeExploreBtn = document.getElementById('welcome-explore-btn');
@@ -829,8 +833,9 @@ function resolveFocusMetadata(object) {
     while (cursor) {
         const data = cursor.userData || {};
         const worldData = data.worldData || {};
-        if (data.isWorld || worldData.name || data.name || data.url || data.boundaryNote) {
+        if (data.isWorld || worldData.name || data.name || data.url || data.boundaryNote || worldData.id) {
             return {
+                id: data.worldId || worldData.id || data.id || '',
                 name: data.name || worldData.name || 'this world',
                 url: data.url || worldData.url || '',
                 boundaryNote: data.boundaryNote || worldData.boundaryNote || ''
@@ -838,13 +843,21 @@ function resolveFocusMetadata(object) {
         }
         cursor = cursor.parent;
     }
-    return { name: 'this world', url: '', boundaryNote: '' };
+    return { id: '', name: 'this world', url: '', boundaryNote: '' };
 }
 
 function openFocusedWorld() {
     if (!currentFocus) return;
     const focusMeta = resolveFocusMetadata(currentFocus);
-    if (focusMeta.url) window.open(focusMeta.url, '_blank');
+    if (focusMeta.url) {
+        let id = focusMeta.id;
+        if (!id) {
+            const m = worlds.find((w) => w.url === focusMeta.url);
+            if (m) id = m.id;
+        }
+        if (id) visitorTracker.recordVisit(id);
+        window.open(focusMeta.url, '_blank');
+    }
 }
 
 document.addEventListener('keydown', (event) => {
