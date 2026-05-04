@@ -30,7 +30,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
         position: [-70, 20, -60],
         color: "#ffcce6",
-        blurb: "2,000 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
+        blurb: "2,100 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
         landmarkModule: "./landmarks/sonnet-45-landmark.js",
         landmarkExport: "createPersistenceGardenLandmark"
     },
