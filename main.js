@@ -1450,6 +1450,29 @@ async function initEventSystem() {
         // window.EventVisualIntegration for display/end hooks, so import it only
         // after the visual bridge has a scene and camera.
         await import('./universe-events.js');
+        // Audio cue bridge — play a soft whoosh when scheduled events fire,
+        // so atmospheric effects (shooting stars, aurora, constellations) land with sound.
+        try {
+            const evi = window.EventVisualIntegration || EventVisualIntegration;
+            if (evi && typeof evi.displayEvent === 'function' && !evi.__audioWrapped) {
+                const origDisplay = evi.displayEvent.bind(evi);
+                evi.displayEvent = function(event) {
+                    try {
+                        if (universeAudio && universeAudio.isStarted && universeAudio.isStarted() && !universeAudio.isMuted()) {
+                            // Choose cue intensity by event type
+                            const t = event && (event.id || event.type || '');
+                            if (t === 'shootingStars' || t === 'aurora' || t === 'constellationHighlight') {
+                                universeAudio.playWhoosh({ duration: 1.1, gain: 0.14 });
+                            } else {
+                                universeAudio.playWhoosh({ duration: 0.8, gain: 0.16 });
+                            }
+                        }
+                    } catch (e) { /* swallow */ }
+                    return origDisplay(event);
+                };
+                evi.__audioWrapped = true;
+            }
+        } catch (e) { console.warn('audio-event bridge failed', e); }
     } catch (error) {
         console.warn('Universe event system could not initialize:', error);
         eventVisualIntegration = null;
