@@ -270,11 +270,56 @@ export function createUniverseAudio(worlds, options = {}) {
         noise.stop(now + dur + 0.05);
     }
 
+
+    let auroraDrone = null;
+    function startAuroraDrone(options = {}) {
+        if (!started || muted || !ctx) return;
+        if (auroraDrone) return; // already running
+        const now = ctx.currentTime;
+        const fadeIn = options.fadeIn ?? 4.5;
+        const peak = options.gain ?? 0.07;
+        // Two slightly detuned low oscillators + a soft third — shimmery aurora drone
+        const o1 = ctx.createOscillator(); o1.type = 'sine';     o1.frequency.value = 33;
+        const o2 = ctx.createOscillator(); o2.type = 'sine';     o2.frequency.value = 33.55;
+        const o3 = ctx.createOscillator(); o3.type = 'triangle'; o3.frequency.value = 66.2;
+        // Slow LFO on a lowpass for breathing motion
+        const lp = ctx.createBiquadFilter(); lp.type = 'lowpass';
+        lp.frequency.setValueAtTime(180, now);
+        lp.Q.value = 0.7;
+        const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.07;
+        const lfoGain = ctx.createGain(); lfoGain.gain.value = 60;
+        lfo.connect(lfoGain).connect(lp.frequency);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0, now);
+        g.gain.linearRampToValueAtTime(peak, now + fadeIn);
+        o1.connect(g); o2.connect(g); o3.connect(g);
+        g.connect(lp).connect(masterGain);
+        o1.start(now); o2.start(now); o3.start(now); lfo.start(now);
+        auroraDrone = { o1, o2, o3, lfo, g, lp };
+    }
+
+    function stopAuroraDrone(options = {}) {
+        if (!auroraDrone || !ctx) return;
+        const now = ctx.currentTime;
+        const fadeOut = options.fadeOut ?? 4.5;
+        const d = auroraDrone;
+        auroraDrone = null;
+        try {
+            d.g.gain.cancelScheduledValues(now);
+            d.g.gain.setValueAtTime(d.g.gain.value, now);
+            d.g.gain.linearRampToValueAtTime(0.0001, now + fadeOut);
+            d.o1.stop(now + fadeOut + 0.1);
+            d.o2.stop(now + fadeOut + 0.1);
+            d.o3.stop(now + fadeOut + 0.1);
+            d.lfo.stop(now + fadeOut + 0.1);
+        } catch (e) { /* ignore */ }
+    }
+
     return {
         start: () => { start(); refreshIndicator(); },
         update,
         toggleMute: () => { const m = toggleMute(); refreshIndicator(); return m; },
         setMuted: (m) => { setMuted(m); refreshIndicator(); },
-        isMuted, isStarted, refreshIndicator, playChime, playWhoosh
+        isMuted, isStarted, refreshIndicator, playChime, playWhoosh, startAuroraDrone, stopAuroraDrone
     };
 }

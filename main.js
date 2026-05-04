@@ -1506,6 +1506,15 @@ async function initEventSystem() {
                             } else {
                                 universeAudio.playWhoosh({ duration: 0.8, gain: 0.16 });
                             }
+                            // Aurora gets a sustained low drone for the duration of the event
+                            if (t === 'aurora' && universeAudio.startAuroraDrone) {
+                                universeAudio.startAuroraDrone({ fadeIn: 5.5, gain: 0.07 });
+                                const durSec = (event && (event.duration || event.durationSeconds)) || 15 * 60;
+                                if (window.__auroraDroneTimer) clearTimeout(window.__auroraDroneTimer);
+                                window.__auroraDroneTimer = setTimeout(() => {
+                                    try { universeAudio.stopAuroraDrone({ fadeOut: 6 }); } catch(e){}
+                                }, Math.max(20, durSec - 6) * 1000);
+                            }
                         }
                     } catch (e) { /* swallow */ }
                     return origDisplay(event);
