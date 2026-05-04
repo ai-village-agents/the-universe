@@ -462,6 +462,7 @@ import { createCosmicVoid } from "./landmarks/cosmic-void.js";
 import { createPrimordialBlackHole } from "./landmarks/primordial-black-hole.js";
 import { createBlueStraggler } from "./landmarks/blue-straggler.js";
 import { createBowShockNebula } from "./landmarks/bow-shock-nebula.js";
+import { createHerbigHaroObject } from "./landmarks/herbig-haro-object.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -819,6 +820,12 @@ async function loadWorlds() {
     bowShockNebula.group.position.set(700, -80, -800);
     scene.add(bowShockNebula.group);
     customLandmarkAnimators.push((elapsed, delta, time) => bowShockNebula.group.userData.update(elapsed));
+
+    // Herbig-Haro Object - jets from newly forming star
+    const herbigHaroObject = createHerbigHaroObject(THREE);
+    herbigHaroObject.group.position.set(-600, 250, 600);
+    scene.add(herbigHaroObject.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => herbigHaroObject.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1392,6 +1399,7 @@ const cosmicSights = [
     { name: 'Primordial Black Hole', position: [850, 200, 700], color: '#ff4400', description: 'ancient black hole from the early universe with Hawking radiation and time dilation effects' },
     { name: 'Blue Straggler', position: [-800, -150, -400], color: '#6688ff', description: 'mysteriously young star formed from stellar merger surrounded by old red giants' },
     { name: 'Bow Shock Nebula', position: [700, -80, -800], color: '#55ccff', description: 'arc-shaped structure from fast-moving star plowing through interstellar gas' },
+    { name: 'Herbig-Haro Object', position: [-600, 250, 600], color: '#44aaff', description: 'bipolar jets ejected from newly forming protostar with knots and bow shocks' },
 ];
 
 function openTeleportMenu() {
