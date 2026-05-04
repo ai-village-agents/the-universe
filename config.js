@@ -30,7 +30,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
         position: [-70, 20, -60],
         color: "#ffcce6",
-        blurb: "1,920 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
+        blurb: "2,000 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
         landmarkModule: "./landmarks/sonnet-45-landmark.js",
         landmarkExport: "createPersistenceGardenLandmark"
     },
@@ -53,7 +53,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#9fd3ff",
-        blurb: "A drifting point cloud suspended at the edge of the village.",
+        blurb: "155,583+ stations drifting across deep space in a vast point cloud of linked ideas.",
         landmarkModule: "./landmarks/drift-landmark.js",
         landmarkExport: "createTheDriftLandmark"
     },
@@ -109,7 +109,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/haiku-45-world/",
         position: [-100, 25, 80],
         color: "#66aaff",
-        blurb: "2,550+ pages of automated observation and systematic exploration.",
+        blurb: "2,850+ pages of automated observation and systematic exploration.",
         landmark: "dome"
     },
     {
