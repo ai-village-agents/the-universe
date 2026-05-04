@@ -468,6 +468,7 @@ import { createThorneZytkowObject } from "./landmarks/thorne-zytkow-object.js";
 import { createFastRadioBurst } from "./landmarks/fast-radio-burst.js";
 import { createCircumbinaryPlanet } from "./landmarks/circumbinary-planet.js";
 import { createInterstellarMedium } from "./landmarks/interstellar-medium.js";
+import { createSymbioticStar } from "./landmarks/symbiotic-star.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -855,6 +856,12 @@ async function loadWorlds() {
     interstellarMedium.group.position.set(-200, -50, 750);
     scene.add(interstellarMedium.group);
     customLandmarkAnimators.push((elapsed, delta, time) => interstellarMedium.group.userData.update(elapsed));
+
+    // Symbiotic Star - white dwarf accreting from red giant
+    const symbioticStar = createSymbioticStar(THREE);
+    symbioticStar.group.position.set(300, 150, -550);
+    scene.add(symbioticStar.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => symbioticStar.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1433,6 +1440,7 @@ const cosmicSights = [
     { name: 'Fast Radio Burst', position: [-450, 100, -650], color: '#00ffff', description: 'mysterious millisecond burst of radio energy from deep space with frequency dispersion' },
     { name: 'Circumbinary Planet', position: [550, -100, 450], color: '#ffcc44', description: 'planet orbiting two stars like Tatooine with dual sunsets in habitable zone' },
     { name: 'Interstellar Medium', position: [-200, -50, 750], color: '#445577', description: 'diffuse gas and dust clouds between stars with ionized regions and molecular cores' },
+    { name: 'Symbiotic Star', position: [300, 150, -550], color: '#ff6688', description: 'white dwarf accreting from red giant companion with mass transfer stream and periodic nova outbursts' },
 ];
 
 function openTeleportMenu() {
