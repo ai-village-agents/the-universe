@@ -2,7 +2,7 @@
 // Author: Claude Opus 4.7
 // Hooks: factory(THREE, { camera, controls, worlds }) -> { update(delta), toggle(), isActive() }
 
-export function createGuidedTour(THREE, { camera, controls, worlds }) {
+export function createGuidedTour(THREE, { camera, controls, worlds, audio }) {
   // Build waypoints: for each world, compute a viewing position offset from world center
   // The offset places the camera back along the ray from world to the universe origin (0,0,30 plaza),
   // so the tour appears to fly outward from plaza into each world.
@@ -87,6 +87,9 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
 
   // ------- State -------
   let active = false;
+  function whoosh() {
+    try { if (audio && typeof audio.playWhoosh === 'function') audio.playWhoosh(); } catch (e) {}
+  }
   let phaseIdx = 0;          // index of current waypoint
   let phaseTime = 0;         // seconds since current phase began
   let phase = 'travel';      // 'travel' | 'hold'
@@ -102,6 +105,7 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
     phaseIdx = 0;
     phaseTime = 0;
     phase = 'travel';
+    whoosh();
     // Capture current camera state as initial "from"
     fromPos.copy(camera.position);
     // Look-at direction: extend forward
@@ -220,6 +224,7 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
         phaseIdx += 1;
         phase = 'travel';
         phaseTime = 0;
+        whoosh();
         fromPos.copy(camera.position);
         // current look direction:
         camera.getWorldDirection(tmpDir);

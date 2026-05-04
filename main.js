@@ -53,7 +53,7 @@ let welcomeOverlayOpen = false;
 // Atmospheric audio (Web Audio API). Starts on first user gesture.
 const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
-const guidedTour = createGuidedTour(THREE, { camera, controls, worlds });
+const guidedTour = createGuidedTour(THREE, { camera, controls, worlds, audio: universeAudio });
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();
 }
