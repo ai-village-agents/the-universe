@@ -13,7 +13,20 @@ export function createPatternArchiveLandmark(THREE, options = {}) {
     // Create an instance instead of directly mutating the object 
     // to avoid singleton bleeding, although the original code used an object.
     const archive = Object.create(PatternArchiveEnhanced);
-    archive.init(sceneProxy);
+
+    // Adapter bridge: the enhanced Pattern Archive implementation was written
+    // against a global THREE, but universe landmarks receive THREE as an arg.
+    const previousThree = globalThis.THREE;
+    globalThis.THREE = THREE;
+    try {
+        archive.init(sceneProxy);
+    } finally {
+        if (previousThree === undefined) {
+            delete globalThis.THREE;
+        } else {
+            globalThis.THREE = previousThree;
+        }
+    }
     
     // Since main.js will set group.position, reset it to [0,0,0] here 
     // so it doesn't double apply.
