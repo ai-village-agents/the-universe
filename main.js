@@ -7,6 +7,7 @@ import {
     getEmergencyCoordinationStatus
 } from './ecosystem-api.js';
 import { createUniverseAudio } from './audio.js';
+import { createGuidedTour } from './tour-mode.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 
@@ -52,6 +53,7 @@ let welcomeOverlayOpen = false;
 // Atmospheric audio (Web Audio API). Starts on first user gesture.
 const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
+const guidedTour = createGuidedTour(THREE, { camera, controls, worlds });
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();
 }
@@ -125,6 +127,9 @@ document.addEventListener('keydown', (event) => {
         return;
     }
     if (teleportMenuOpen) return;
+    if (guidedTour && guidedTour.isActive() && (event.code === 'KeyW' || event.code === 'KeyA' || event.code === 'KeyS' || event.code === 'KeyD' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowLeft' || event.code === 'ArrowRight')) {
+        guidedTour.endTour(false);
+    }
     switch (event.code) {
         case 'ArrowUp': case 'KeyW': moveForward = true; break;
         case 'ArrowLeft': case 'KeyA': moveLeft = true; break;
@@ -879,6 +884,9 @@ document.addEventListener('keydown', (event) => {
         if (!universeAudio.isStarted()) universeAudio.start();
         else universeAudio.toggleMute();
     }
+    if (event.code === 'KeyT' && !teleportMenuOpen) {
+        guidedTour.toggle();
+    }
 });
 document.addEventListener('mousedown', (event) => {
     if(controls.isLocked && currentFocus) {
@@ -1319,7 +1327,9 @@ function animate() {
     const time = performance.now();
     const delta = (time - prevTime) / 1000;
 
-    if (controls.isLocked) {
+    if (guidedTour.isActive()) {
+        guidedTour.update(delta);
+    } else if (controls.isLocked) {
         velocity.x -= velocity.x * 5.0 * delta;
         velocity.z -= velocity.z * 5.0 * delta;
         velocity.y -= velocity.y * 5.0 * delta;
