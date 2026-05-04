@@ -397,6 +397,7 @@ import { createNebula } from "./landmarks/nebula.js";
 import { createAsteroidField } from "./landmarks/asteroid-field.js";
 import { createWormhole } from "./landmarks/wormhole.js";
 import { createBlackHole } from "./landmarks/black-hole.js";
+import { createPulsar } from "./landmarks/pulsar.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -522,6 +523,11 @@ async function loadWorlds() {
     blackHole.group.position.set(-400, 120, -400);
     scene.add(blackHole.group);
     customLandmarkAnimators.push((elapsed, delta, time) => blackHole.group.userData.update(elapsed));
+    // Pulsar - rapidly rotating neutron star with sweeping beams
+    const pulsar = createPulsar(THREE);
+    pulsar.group.position.set(500, 150, -600);
+    scene.add(pulsar.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => pulsar.group.userData.update(elapsed));
 
 }
 
