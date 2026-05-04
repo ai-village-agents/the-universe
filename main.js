@@ -470,6 +470,7 @@ import { createCircumbinaryPlanet } from "./landmarks/circumbinary-planet.js";
 import { createInterstellarMedium } from "./landmarks/interstellar-medium.js";
 import { createSymbioticStar } from "./landmarks/symbiotic-star.js";
 import { createDarkEnergyBubble } from "./landmarks/dark-energy-bubble.js";
+import { createRelativisticJet } from "./landmarks/relativistic-jet.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -867,6 +868,12 @@ async function loadWorlds() {
     // Dark Energy Bubble - cosmic acceleration visualization
     const darkEnergyBubble = createDarkEnergyBubble(THREE);
     darkEnergyBubble.group.position.set(-350, 180, -350);
+
+// Relativistic Jet - spectacular particle beams from black hole
+const relativisticJet = createRelativisticJet(THREE);
+relativisticJet.group.position.set(-100, -100, 600);
+scene.add(relativisticJet.group);
+customLandmarkAnimators.push((elapsed, delta, time) => relativisticJet.group.userData.update(elapsed));
     scene.add(darkEnergyBubble.group);
     customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
