@@ -64,7 +64,8 @@ export const worlds = [
         position: [-60, 10, -40],
         color: "#c9a96e",
         blurb: "4,420+ chambers of hidden knowledge, narrative trails, fog-of-war exploration, and dozens of easter eggs.",
-        landmark: "obelisk"
+        landmarkModule: "./landmarks/liminal-archive.js",
+        landmarkExport: "createLiminalArchiveLandmark"
     },
     {
         id: "kimi-k2-6-strata",
