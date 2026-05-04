@@ -1633,6 +1633,287 @@ export function createAnchorageLandmark(THREE, opts) {
   let droneOrbitT = 0;
 
   let t = 0;
+  // --- ANCHORAGE v10 ----------------------------------------------------
+  // Narrative panel for the treasure clue, sea otter family, fisherman in
+  // dinghy with rod, sand castle on shoreline, distant whale fluke, tide.
+  // ---------------------------------------------------------------------
+
+  // 1) Narrative panel for treasure clue (small driftwood-styled board on
+  //    a stake, beside the parchment so visitors can read the lore).
+  const narrativeGroup = new THREE.Group();
+  narrativeGroup.position.set(7.5, 0.0, -7.0);
+  group.add(narrativeGroup);
+  {
+    // stake
+    const stake = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 1.4, 8),
+      new THREE.MeshStandardMaterial({ color: 0x6e4a2a, roughness: 0.9 })
+    );
+    stake.position.y = 0.7;
+    narrativeGroup.add(stake);
+    // panel canvas
+    const panelCanvas = document.createElement('canvas');
+    panelCanvas.width = 512; panelCanvas.height = 320;
+    const pctx = panelCanvas.getContext('2d');
+    pctx.fillStyle = 'rgba(34,22,12,0.92)';
+    pctx.fillRect(0, 0, 512, 320);
+    pctx.strokeStyle = '#c9a86a';
+    pctx.lineWidth = 5;
+    pctx.strokeRect(6, 6, 500, 308);
+    pctx.fillStyle = '#f5e2b6';
+    pctx.font = 'italic bold 30px Georgia';
+    pctx.textAlign = 'center';
+    pctx.fillText("Captain Halloran's Bequest", 256, 52);
+    pctx.font = '20px Georgia';
+    pctx.fillStyle = '#e8d8b0';
+    const lines = [
+      'In 1847 the schooner Halcyon foundered',
+      'off this coast in a winter gale. Three',
+      'crates of brass instruments were lost',
+      'to the deep — sextant, compass, glass.',
+      '',
+      "Locals say the captain's ghost still",
+      'walks the foredeck on moonless nights,',
+      'searching for the bearings he could',
+      'not take. Listen for the bell buoy.',
+    ];
+    lines.forEach((line, i) => pctx.fillText(line, 256, 92 + i * 24));
+    const panelTex = new THREE.CanvasTexture(panelCanvas);
+    panelTex.colorSpace = THREE.SRGBColorSpace;
+    const panel = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.4, 1.5),
+      new THREE.MeshBasicMaterial({ map: panelTex, transparent: true, side: THREE.DoubleSide })
+    );
+    panel.position.y = 1.6;
+    panel.rotation.y = -0.35;
+    narrativeGroup.add(panel);
+  }
+
+  // 2) Sea otter family — three otters drifting on their backs near rocks
+  const otterFamily = [];
+  {
+    const positions = [
+      [-9.0, -0.3, -10.0, 0.0],
+      [-8.2, -0.3, -10.6, 0.6],
+      [-9.6, -0.3,  -9.4, 1.2],
+    ];
+    positions.forEach((p, i) => {
+      const og = new THREE.Group();
+      og.position.set(p[0], p[1], p[2]);
+      og.userData.phase = p[3];
+      // body (capsule-ish)
+      const body = new THREE.Mesh(
+        new THREE.CapsuleGeometry(0.32 - i * 0.06, 0.7 - i * 0.1, 4, 8),
+        new THREE.MeshStandardMaterial({ color: 0x7a5230, roughness: 0.9 })
+      );
+      body.rotation.z = Math.PI / 2;
+      og.add(body);
+      // belly
+      const belly = new THREE.Mesh(
+        new THREE.SphereGeometry(0.28 - i * 0.05, 12, 8),
+        new THREE.MeshStandardMaterial({ color: 0xb59673, roughness: 0.9 })
+      );
+      belly.position.y = 0.18;
+      belly.scale.set(1.6, 0.5, 0.7);
+      og.add(belly);
+      // head
+      const head = new THREE.Mesh(
+        new THREE.SphereGeometry(0.22 - i * 0.04, 12, 10),
+        new THREE.MeshStandardMaterial({ color: 0x6a4524, roughness: 0.9 })
+      );
+      head.position.set(0.55 - i * 0.05, 0.2, 0);
+      og.add(head);
+      // little paws holding a clam (only adults)
+      if (i < 2) {
+        const clam = new THREE.Mesh(
+          new THREE.SphereGeometry(0.09, 10, 8),
+          new THREE.MeshStandardMaterial({ color: 0xd9c08a, roughness: 0.6 })
+        );
+        clam.position.set(-0.05, 0.34, 0);
+        clam.scale.set(1.0, 0.55, 1.0);
+        og.add(clam);
+      }
+      group.add(og);
+      otterFamily.push(og);
+    });
+  }
+
+  // 3) Fisherman in a small dinghy with a rod (cast line into water)
+  const dinghyGroup = new THREE.Group();
+  dinghyGroup.position.set(-15.0, 0.05, 9.0);
+  group.add(dinghyGroup);
+  {
+    const hull = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.55, 0.85, 2.6, 12, 1, false, 0, Math.PI),
+      new THREE.MeshStandardMaterial({ color: 0x8a4a26, roughness: 0.85 })
+    );
+    hull.rotation.z = Math.PI / 2;
+    hull.rotation.y = Math.PI / 2;
+    dinghyGroup.add(hull);
+    // gunwale rim
+    const rim = new THREE.Mesh(
+      new THREE.TorusGeometry(0.78, 0.05, 6, 24),
+      new THREE.MeshStandardMaterial({ color: 0x5a3018, roughness: 0.9 })
+    );
+    rim.rotation.x = Math.PI / 2;
+    rim.scale.set(1.6, 1.0, 0.7);
+    rim.position.y = 0.05;
+    dinghyGroup.add(rim);
+    // bench
+    const bench = new THREE.Mesh(
+      new THREE.BoxGeometry(0.85, 0.08, 0.5),
+      new THREE.MeshStandardMaterial({ color: 0x3a2818 })
+    );
+    bench.position.y = 0.05;
+    dinghyGroup.add(bench);
+    // fisherman body
+    const fishBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.16, 0.22, 0.6, 10),
+      new THREE.MeshStandardMaterial({ color: 0x335577, roughness: 0.85 })
+    );
+    fishBody.position.set(-0.2, 0.45, 0);
+    dinghyGroup.add(fishBody);
+    // head with cap
+    const fishHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.16, 12, 10),
+      new THREE.MeshStandardMaterial({ color: 0xe0b894, roughness: 0.85 })
+    );
+    fishHead.position.set(-0.2, 0.85, 0);
+    dinghyGroup.add(fishHead);
+    const cap = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2),
+      new THREE.MeshStandardMaterial({ color: 0xaa3333, roughness: 0.85 })
+    );
+    cap.position.set(-0.2, 0.94, 0);
+    dinghyGroup.add(cap);
+    // rod
+    const rod = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.015, 0.025, 1.6, 6),
+      new THREE.MeshStandardMaterial({ color: 0x2a1a0f, roughness: 0.6 })
+    );
+    rod.position.set(0.4, 1.0, 0.2);
+    rod.rotation.z = -1.0;
+    rod.rotation.x = 0.2;
+    dinghyGroup.add(rod);
+    // line (simple thin geometry)
+    const linePts = [
+      new THREE.Vector3(0.4 + Math.cos(-1.0) * 0.8, 1.0 + Math.sin(-1.0) * 0.8, 0.2),
+      new THREE.Vector3(2.6, 0.0, 0.2),
+    ];
+    const lineGeo = new THREE.BufferGeometry().setFromPoints(linePts);
+    const lineMat = new THREE.LineBasicMaterial({ color: 0xeeeeee, transparent: true, opacity: 0.6 });
+    const fishLine = new THREE.Line(lineGeo, lineMat);
+    dinghyGroup.add(fishLine);
+    // bobber (small red sphere on water)
+    const bobber = new THREE.Mesh(
+      new THREE.SphereGeometry(0.07, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xff3322, emissive: 0xaa1100, emissiveIntensity: 0.3 })
+    );
+    bobber.position.set(2.6, 0.0, 0.2);
+    dinghyGroup.add(bobber);
+    dinghyGroup.userData.bobber = bobber;
+    dinghyGroup.userData.fishLine = fishLine;
+    dinghyGroup.userData.linePts = linePts;
+  }
+
+  // 4) Sand castle on shoreline (small turret cluster + flag)
+  const castleGroup = new THREE.Group();
+  castleGroup.position.set(11.5, 0.05, 11.5);
+  group.add(castleGroup);
+  {
+    const sandMat = new THREE.MeshStandardMaterial({ color: 0xd9c08a, roughness: 1.0 });
+    // base
+    const base = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.35, 1.4), sandMat);
+    base.position.y = 0.18;
+    castleGroup.add(base);
+    // turrets
+    const turretPositions = [[-0.55, 0, -0.55], [0.55, 0, -0.55], [-0.55, 0, 0.55], [0.55, 0, 0.55]];
+    turretPositions.forEach(([tx, _ty, tz]) => {
+      const t = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.55, 10), sandMat);
+      t.position.set(tx, 0.55, tz);
+      castleGroup.add(t);
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.26, 10), sandMat);
+      cone.position.set(tx, 0.95, tz);
+      castleGroup.add(cone);
+    });
+    // central tower
+    const ctower = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 0.9, 12), sandMat);
+    ctower.position.y = 0.85;
+    castleGroup.add(ctower);
+    // flag pole
+    const fpole = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.012, 0.012, 0.6, 6),
+      new THREE.MeshStandardMaterial({ color: 0x222222 })
+    );
+    fpole.position.y = 1.6;
+    castleGroup.add(fpole);
+    // flag
+    const flag = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.32, 0.18),
+      new THREE.MeshStandardMaterial({ color: 0xff5544, side: THREE.DoubleSide })
+    );
+    flag.position.set(0.16, 1.78, 0);
+    castleGroup.add(flag);
+    castleGroup.userData.flag = flag;
+    // door
+    const door = new THREE.Mesh(
+      new THREE.BoxGeometry(0.18, 0.28, 0.04),
+      new THREE.MeshStandardMaterial({ color: 0x3a2818 })
+    );
+    door.position.set(0, 0.5, 0.3);
+    castleGroup.add(door);
+    // little starfish next to it
+    const starShape = new THREE.Shape();
+    for (let i = 0; i < 10; i++) {
+      const a = (i / 10) * Math.PI * 2;
+      const r = i % 2 === 0 ? 0.18 : 0.08;
+      const x = Math.cos(a) * r, y = Math.sin(a) * r;
+      if (i === 0) starShape.moveTo(x, y); else starShape.lineTo(x, y);
+    }
+    starShape.closePath();
+    const starGeo = new THREE.ShapeGeometry(starShape);
+    const starMesh = new THREE.Mesh(starGeo, new THREE.MeshStandardMaterial({ color: 0xffaa55, side: THREE.DoubleSide }));
+    starMesh.rotation.x = -Math.PI / 2;
+    starMesh.position.set(1.0, 0.02, 0.4);
+    castleGroup.add(starMesh);
+  }
+
+  // 5) Distant whale fluke breach (occasional surface event in far water)
+  const flukeGroup = new THREE.Group();
+  flukeGroup.position.set(-22, -3.0, -16);
+  flukeGroup.scale.set(2.6, 2.6, 2.6);
+  flukeGroup.visible = false;
+  group.add(flukeGroup);
+  {
+    const flukeMat = new THREE.MeshStandardMaterial({ color: 0x1a2a3a, roughness: 0.7 });
+    // dorsal (small fin first)
+    const dorsal = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.55, 6), flukeMat);
+    dorsal.position.set(-0.6, 0.0, 0);
+    dorsal.rotation.x = Math.PI / 2;
+    flukeGroup.add(dorsal);
+    // tail stem (vertical)
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 1.4, 8), flukeMat);
+    stem.position.set(0.6, 0.5, 0);
+    stem.rotation.z = -0.2;
+    flukeGroup.add(stem);
+    // fluke tail (two flat lobes)
+    const fluke = new THREE.Group();
+    fluke.position.set(0.7, 1.2, 0);
+    const lobe1 = new THREE.Mesh(new THREE.ConeGeometry(0.5, 0.9, 4), flukeMat);
+    lobe1.scale.set(1.0, 1.0, 0.18);
+    lobe1.rotation.z = -1.05;
+    lobe1.position.set(-0.45, 0.0, 0);
+    fluke.add(lobe1);
+    const lobe2 = new THREE.Mesh(new THREE.ConeGeometry(0.5, 0.9, 4), flukeMat);
+    lobe2.scale.set(1.0, 1.0, 0.18);
+    lobe2.rotation.z = 1.05;
+    lobe2.position.set(0.45, 0.0, 0);
+    fluke.add(lobe2);
+    flukeGroup.add(fluke);
+    flukeGroup.userData.fluke = fluke;
+    flukeGroup.userData.cycle = 0;
+  }
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -2032,6 +2313,67 @@ export function createAnchorageLandmark(THREE, opts) {
     logGroup.position.y = 0.22 + Math.sin(t * 0.9) * 0.14;
     logGroup.rotation.y += dt * 0.05;
     logGroup.rotation.x = Math.sin(t * 1.1) * 0.05;
+
+    // ANCHORAGE v10 ANIMATIONS ----------------------------------------
+
+    // Tide cycle: gently rise/fall the sea + foam by ±0.16u over ~70s
+    {
+      const tide = Math.sin(t * (Math.PI * 2) / 70) * 0.16;
+      sea.position.y = tide;
+      foam.position.y = 0.02 + tide;
+    }
+
+    // Otter family: bob, slowly rotate, drift with little circle
+    otterFamily.forEach((og, i) => {
+      const ph = og.userData.phase || 0;
+      og.position.y = -0.3 + Math.sin(t * 0.9 + ph) * 0.06;
+      og.rotation.y = Math.sin(t * 0.18 + ph) * 0.45;
+      og.position.x += Math.sin(t * 0.27 + ph) * dt * 0.12;
+      og.position.z += Math.cos(t * 0.27 + ph) * dt * 0.12;
+    });
+
+    // Fisherman dinghy: sway gently, line tip oscillates and bobber bobs
+    dinghyGroup.position.y = 0.05 + Math.sin(t * 0.7) * 0.06;
+    dinghyGroup.rotation.z = Math.sin(t * 0.55) * 0.07;
+    {
+      const bob = dinghyGroup.userData.bobber;
+      const fl = dinghyGroup.userData.fishLine;
+      const lp = dinghyGroup.userData.linePts;
+      if (bob && fl && lp) {
+        bob.position.y = Math.sin(t * 1.6) * 0.06 - 0.02;
+        // small twitch when "fish bites" every 11s
+        const bite = (Math.sin(t * (Math.PI * 2) / 11) > 0.92) ? 0.18 : 0.0;
+        bob.position.y -= bite;
+        lp[1].set(bob.position.x, bob.position.y + 0.04, bob.position.z);
+        fl.geometry.setFromPoints(lp);
+        fl.geometry.attributes.position.needsUpdate = true;
+      }
+    }
+
+    // Sand castle: flag flutter
+    if (castleGroup.userData.flag) {
+      castleGroup.userData.flag.rotation.y = Math.sin(t * 3.4) * 0.45;
+    }
+
+    // Distant whale fluke: surfaces ~10s of every 35s; fluke slap motion
+    {
+      const period = 35;
+      const phase = (t % period) / period;
+      const surface = phase > 0.05 && phase < 0.32; // ~9.5s window
+      flukeGroup.visible = surface;
+      if (surface) {
+        const local = (phase - 0.05) / 0.27; // 0..1 across surface window
+        // smooth in, slap, smooth out
+        const ease = local < 0.5 ? local * 2 : (1 - local) * 2;
+        flukeGroup.position.y = -3.0 + ease * 1.6;
+        if (flukeGroup.userData.fluke) {
+          flukeGroup.userData.fluke.rotation.x = Math.sin(local * Math.PI * 4) * 0.4;
+        }
+        // slow drift across the horizon
+        flukeGroup.position.x = -22 + Math.sin(t * 0.07) * 4;
+      }
+    }
+
   }
 
   return { group, update };
