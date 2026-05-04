@@ -400,6 +400,7 @@ import { createBlackHole } from "./landmarks/black-hole.js";
 import { createPulsar } from "./landmarks/pulsar.js";
 import { createBinaryStars } from "./landmarks/binary-stars.js";
 import { createQuasar } from "./landmarks/quasar.js";
+import { createSupernovaRemnant } from "./landmarks/supernova-remnant.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 // Load Worlds
@@ -552,6 +553,12 @@ async function loadWorlds() {
     quasar.group.position.set(600, 200, 400);
     scene.add(quasar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => quasar.group.userData.update(elapsed));
+
+    // Supernova Remnant at (-200, 180, -500)
+    const supernovaRemnant = createSupernovaRemnant(THREE);
+    supernovaRemnant.group.position.set(-200, 180, -500);
+    scene.add(supernovaRemnant.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => supernovaRemnant.group.userData.update(elapsed));
 
 }
 
