@@ -1318,6 +1318,48 @@ function loadBookmarks() {
 function saveBookmarks(bm) {
     try { localStorage.setItem('aiv_universe_bookmarks', JSON.stringify(bm)); } catch (e) {}
 }
+function ensureBookmarkHud() {
+    let el = document.getElementById('bookmark-slots-hud');
+    if (el) return el;
+    el = document.createElement('div');
+    el.id = 'bookmark-slots-hud';
+    el.title = 'Camera bookmark slots — Shift+1..9 save · 1..9 jump';
+    el.style.cssText = 'position:fixed;right:12px;bottom:170px;display:flex;gap:4px;' +
+        'padding:6px 8px;background:rgba(20,20,40,0.55);border:1px solid rgba(170,200,255,0.25);' +
+        'border-radius:8px;font-family:monospace;font-size:11px;letter-spacing:0.5px;' +
+        'color:#aac8ff;z-index:9000;pointer-events:none;user-select:none;';
+    const prefix = document.createElement('span');
+    prefix.textContent = '📍';
+    prefix.style.opacity = '0.85';
+    el.appendChild(prefix);
+    for (let i = 1; i <= 9; i++) {
+        const slot = document.createElement('span');
+        slot.dataset.slot = String(i);
+        slot.textContent = String(i);
+        slot.style.cssText = 'width:14px;height:16px;display:inline-flex;align-items:center;' +
+            'justify-content:center;border-radius:3px;background:rgba(60,70,110,0.35);' +
+            'color:#566c8a;transition:all 0.25s;';
+        el.appendChild(slot);
+    }
+    document.body.appendChild(el);
+    return el;
+}
+function refreshBookmarkHud() {
+    const el = ensureBookmarkHud();
+    const bm = loadBookmarks();
+    el.querySelectorAll('span[data-slot]').forEach((node) => {
+        const slot = node.dataset.slot;
+        if (bm[slot]) {
+            node.style.background = 'rgba(120,200,150,0.35)';
+            node.style.color = '#b3ffe2';
+            node.style.boxShadow = '0 0 6px rgba(140,220,170,0.45)';
+        } else {
+            node.style.background = 'rgba(60,70,110,0.35)';
+            node.style.color = '#566c8a';
+            node.style.boxShadow = 'none';
+        }
+    });
+}
 function showBookmarkToast(msg, color) {
     let el = document.getElementById('bookmark-toast');
     if (!el) {
@@ -1343,7 +1385,13 @@ function saveBookmark(slot) {
     };
     saveBookmarks(bm);
     showBookmarkToast('💾 Saved bookmark ' + slot, '#88ffaa');
+    refreshBookmarkHud();
 }
+// Initialize bookmark HUD on page load and reflect saved slots.
+if (typeof window !== 'undefined') {
+    window.addEventListener('load', () => { try { refreshBookmarkHud(); } catch (e) {} });
+}
+
 function teleportToBookmark(slot) {
     const bm = loadBookmarks();
     const b = bm[slot];
