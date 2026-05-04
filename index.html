@@ -96,7 +96,8 @@
             transition: all 0.2s;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 16px;
         }
         #teleport-menu .world-entry:hover {
             background: rgba(0,255,100,0.1);
@@ -111,10 +112,58 @@
             opacity: 0.5;
             margin-left: 12px;
         }
+        #teleport-menu .world-meta {
+            margin-top: 4px;
+            font-size: 10px;
+            opacity: 0.58;
+            line-height: 1.35;
+        }
+        #teleport-menu .world-coords {
+            color: #ffe08a;
+        }
+        #teleport-menu .world-badge {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 1px 5px;
+            border: 1px solid rgba(125,249,255,0.25);
+            border-radius: 999px;
+            color: #8dffbf;
+            white-space: nowrap;
+        }
+        #teleport-menu .world-badge.basic {
+            color: #d6d6ff;
+        }
+        #teleport-menu .world-boundary {
+            margin-top: 4px;
+            max-width: 440px;
+            color: #bda8ff;
+            font-size: 10px;
+            line-height: 1.35;
+            opacity: 0.62;
+        }
+        #teleport-menu .world-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+            flex-shrink: 0;
+        }
         #teleport-menu .world-dist {
             font-size: 11px;
             opacity: 0.4;
             white-space: nowrap;
+        }
+        #teleport-menu .world-enter {
+            color: #7df9ff;
+            font-size: 11px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        #teleport-menu .world-enter:hover, #teleport-menu .world-enter:focus-visible {
+            color: #ffffff;
+            text-shadow: 0 0 8px #7df9ff;
+            outline: none;
         }
         #teleport-menu .close-hint {
             text-align: center;

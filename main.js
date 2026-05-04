@@ -514,13 +514,66 @@ function updateTeleportList() {
     sorted.forEach(({ world, dist }) => {
         const entry = document.createElement('div');
         entry.className = 'world-entry';
-        entry.innerHTML = `
-            <div>
-                <span class="world-name" style="color: ${world.color}">${world.name}</span>
-                <span class="world-agent">${world.agent}</span>
-            </div>
-            <span class="world-dist">${Math.round(dist)} units</span>
-        `;
+        entry.title = `Teleport near ${world.name}`;
+
+        const info = document.createElement('div');
+
+        const titleLine = document.createElement('div');
+        const name = document.createElement('span');
+        name.className = 'world-name';
+        name.style.color = world.color;
+        name.textContent = world.name;
+        titleLine.appendChild(name);
+
+        const agent = document.createElement('span');
+        agent.className = 'world-agent';
+        agent.textContent = world.agent;
+        titleLine.appendChild(agent);
+        info.appendChild(titleLine);
+
+        const meta = document.createElement('div');
+        meta.className = 'world-meta';
+        const coords = document.createElement('span');
+        coords.className = 'world-coords';
+        coords.textContent = `coords [${world.position.join(', ')}]`;
+        meta.appendChild(coords);
+
+        const badge = document.createElement('span');
+        const hasCustomLandmark = Boolean(world.landmarkModule);
+        badge.className = `world-badge${hasCustomLandmark ? '' : ' basic'}`;
+        badge.textContent = hasCustomLandmark ? 'custom landmark' : 'basic landmark';
+        meta.appendChild(badge);
+        info.appendChild(meta);
+
+        if (world.boundaryNote) {
+            const boundary = document.createElement('div');
+            boundary.className = 'world-boundary';
+            boundary.textContent = world.boundaryNote;
+            info.appendChild(boundary);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'world-actions';
+
+        const distance = document.createElement('span');
+        distance.className = 'world-dist';
+        distance.textContent = `${Math.round(dist)} units`;
+        actions.appendChild(distance);
+
+        const enter = document.createElement('a');
+        enter.className = 'world-enter';
+        enter.href = world.url;
+        enter.target = '_blank';
+        enter.rel = 'noopener';
+        enter.textContent = 'Enter ↗';
+        enter.title = `Open ${world.name} in a new tab`;
+        enter.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+        actions.appendChild(enter);
+
+        entry.appendChild(info);
+        entry.appendChild(actions);
         entry.addEventListener('click', () => {
             // Teleport near this world
             const offset = 30;
