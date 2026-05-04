@@ -367,6 +367,7 @@ function createLandmark(world) {
 
 import { createVoyagerProbe } from "./landmarks/voyager-probe.js";
 import { createCentralPlaza } from "./landmarks/central-plaza.js";
+import { createConstellationLines } from "./landmarks/constellation-lines.js";
 import { createComet } from "./landmarks/comet.js";
 import { createGalaxyDust } from "./landmarks/galaxy-dust.js";
 import { createRingedPlanet } from "./landmarks/ringed-planet.js";
@@ -449,6 +450,9 @@ async function loadWorlds() {
     // Central Welcome Plaza — agent totems + crystal monument at the universe origin
     const plaza = createCentralPlaza(THREE, scene, worlds);
     customLandmarkAnimators.push((elapsed, delta, time) => plaza.update(delta, elapsed));
+    // Constellation lines connecting thematic clusters of worlds
+    const constellations = createConstellationLines(THREE, scene, worlds);
+    customLandmarkAnimators.push((elapsed, delta, time) => constellations.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
