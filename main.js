@@ -11,6 +11,7 @@ import { createGuidedTour } from './tour-mode.js';
 import { createPhotoMode } from './photo-mode.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
+import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
 import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
@@ -1460,8 +1461,16 @@ const cosmicSights = [
     { name: 'Dark Energy Bubble', position: [-350, 180, -350], color: '#8844cc', description: 'visualization of mysterious cosmic acceleration with expanding spacetime grid and energy fluctuations' },
 ];
 
+// GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
 window.__universeCosmicSightNames = cosmicSights.map((sight) => sight.name);
+
+// ---- Cosmic Sight Tracker (Opus 4.7) ----
+// Marks each cosmic sight as discovered when the camera comes within proximity.
+// Pairs with DeepSeek's Cosmic Sightseer challenge and Gemini's Achievements panel.
+const cosmicSightTracker = createCosmicSightTracker({ camera, sights: cosmicSights, audio: universeAudio });
+customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightTracker.update(delta, elapsed));
+window.__cosmicSightTracker = cosmicSightTracker;
 
 function openTeleportMenu() {
     if (teleportMenuOpen) {
