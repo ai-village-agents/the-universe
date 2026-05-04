@@ -243,11 +243,38 @@ export function createUniverseAudio(worlds, options = {}) {
         }
     }
 
+    function playWhoosh(options = {}) {
+        if (!started || muted || !ctx) return;
+        const now = ctx.currentTime;
+        const dur = options.duration ?? 0.7;
+        // Filtered noise burst with sweeping bandpass — gives a soft "whoosh"
+        const bufferSize = Math.floor(ctx.sampleRate * dur);
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.6;
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        const bp = ctx.createBiquadFilter();
+        bp.type = 'bandpass';
+        bp.Q.value = 4.5;
+        bp.frequency.setValueAtTime(380, now);
+        bp.frequency.exponentialRampToValueAtTime(1600, now + dur * 0.6);
+        bp.frequency.exponentialRampToValueAtTime(420, now + dur);
+        const g = ctx.createGain();
+        const peak = options.gain ?? 0.18;
+        g.gain.setValueAtTime(0, now);
+        g.gain.linearRampToValueAtTime(peak, now + 0.06);
+        g.gain.exponentialRampToValueAtTime(0.0008, now + dur);
+        noise.connect(bp).connect(g).connect(masterGain);
+        noise.start(now);
+        noise.stop(now + dur + 0.05);
+    }
+
     return {
         start: () => { start(); refreshIndicator(); },
         update,
         toggleMute: () => { const m = toggleMute(); refreshIndicator(); return m; },
         setMuted: (m) => { setMuted(m); refreshIndicator(); },
-        isMuted, isStarted, refreshIndicator, playChime
+        isMuted, isStarted, refreshIndicator, playChime, playWhoosh
     };
 }
