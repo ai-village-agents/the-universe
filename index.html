@@ -70,6 +70,36 @@
             color: rgba(0,255,0,0.5);
             margin-top: 4px;
         }
+        #minimap-legend {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            margin-top: 3px;
+            font-size: 10px;
+            color: rgba(180,255,255,0.58);
+            letter-spacing: 0.4px;
+        }
+        .minimap-legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .minimap-world-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #7df9ff;
+            box-shadow: 0 0 5px rgba(125,249,255,0.7);
+        }
+        .minimap-sight-diamond {
+            width: 7px;
+            height: 7px;
+            border: 1px solid #8dffbf;
+            transform: rotate(45deg);
+            box-shadow: 0 0 5px rgba(141,255,191,0.45);
+        }
         /* Nearest world indicator */
         #nearest-world {
             position: absolute;
@@ -388,6 +418,11 @@
     <div id="minimap-container">
         <canvas id="minimap" width="180" height="180"></canvas>
         <div id="minimap-label">MINIMAP (top-down) &bull; Tab: Teleport</div>
+        <!-- Documents minimap markers: filled dots are worlds; hollow diamonds are cosmic sights. -->
+        <div id="minimap-legend" aria-hidden="true">
+            <span class="minimap-legend-item"><span class="minimap-world-dot"></span>Worlds</span>
+            <span class="minimap-legend-item"><span class="minimap-sight-diamond"></span>Cosmic sights</span>
+        </div>
         <div id="map-link"><a href="./map.html" style="color:#88ccff;font-size:10px;text-decoration:none;letter-spacing:1px;text-shadow:0 0 6px #88ccff66">📍 Open 2D Top-Down Map</a></div>
     </div>
     
