@@ -871,6 +871,7 @@ function openFocusedWorld() {
             if (m) id = m.id;
         }
         if (id) visitorTracker.recordVisit(id);
+        if (universeAudio.playChime) universeAudio.playChime(id || 'plaza');
         window.open(focusMeta.url, '_blank');
     }
 }

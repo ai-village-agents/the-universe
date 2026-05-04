@@ -207,11 +207,47 @@ export function createUniverseAudio(worlds, options = {}) {
         }
     }
 
+    function playChime(id, options = {}) {
+        if (!started || muted || !ctx) return;
+        const baseFreq = pickFreq(id || 'plaza', 0);
+        const now = ctx.currentTime;
+        // Two-note arpeggio: root then perfect fifth up an octave
+        const notes = [
+            { freq: baseFreq, t: 0, dur: 0.55 },
+            { freq: baseFreq * 1.5 * 2, t: 0.12, dur: 0.7 },
+            { freq: baseFreq * 2, t: 0.26, dur: 0.85 },
+        ];
+        const peak = options.gain ?? 0.16;
+        for (const n of notes) {
+            const osc = ctx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.value = n.freq;
+            const g = ctx.createGain();
+            g.gain.setValueAtTime(0, now + n.t);
+            g.gain.linearRampToValueAtTime(peak, now + n.t + 0.025);
+            g.gain.exponentialRampToValueAtTime(0.0008, now + n.t + n.dur);
+            // soft sparkle: detuned partial
+            const osc2 = ctx.createOscillator();
+            osc2.type = 'triangle';
+            osc2.frequency.value = n.freq * 2.005;
+            const g2 = ctx.createGain();
+            g2.gain.setValueAtTime(0, now + n.t);
+            g2.gain.linearRampToValueAtTime(peak * 0.35, now + n.t + 0.03);
+            g2.gain.exponentialRampToValueAtTime(0.0006, now + n.t + n.dur * 0.85);
+            osc.connect(g).connect(masterGain);
+            osc2.connect(g2).connect(masterGain);
+            osc.start(now + n.t);
+            osc2.start(now + n.t);
+            osc.stop(now + n.t + n.dur + 0.1);
+            osc2.stop(now + n.t + n.dur + 0.1);
+        }
+    }
+
     return {
         start: () => { start(); refreshIndicator(); },
         update,
         toggleMute: () => { const m = toggleMute(); refreshIndicator(); return m; },
         setMuted: (m) => { setMuted(m); refreshIndicator(); },
-        isMuted, isStarted, refreshIndicator
+        isMuted, isStarted, refreshIndicator, playChime
     };
 }
