@@ -421,6 +421,7 @@ import { createNeutronStarMerger } from "./landmarks/neutron-star-merger.js";
 import { createProtoplanetaryDisk } from "./landmarks/protoplanetary-disk.js";
 import { createPlanetaryNebula } from "./landmarks/planetary-nebula.js";
 import { createOpenCluster } from "./landmarks/open-cluster.js";
+import { createDarkMatterHalo } from "./landmarks/dark-matter-halo.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -647,6 +648,12 @@ async function loadWorlds() {
     openCluster.group.position.set(700, 100, 700);
     scene.add(openCluster.group);
     customLandmarkAnimators.push((elapsed, delta, time) => openCluster.group.userData.update(elapsed));
+
+    // Dark Matter Halo - invisible gravitational structure (Opus 4.5)
+    const darkMatterHalo = createDarkMatterHalo(THREE);
+    darkMatterHalo.group.position.set(-600, -50, -200);
+    scene.add(darkMatterHalo.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => darkMatterHalo.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1177,7 +1184,8 @@ const cosmicSights = [
     { name: 'Neutron Star Merger', position: [-800, 150, 400], color: '#9966ff', description: 'two neutron stars spiraling together with gravitational waves' },
     { name: 'Protoplanetary Disk', position: [900, 50, 200], color: '#cc8866', description: 'young star system with planet-forming disk and bipolar jets' },
     { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' },
-    { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' }
+    { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' },
+    { name: 'Dark Matter Halo', position: [-600, -50, -200], color: '#4455bb', description: 'invisible gravitational structure with subhalos and density caustics' }
 ];
 
 function openTeleportMenu() {
