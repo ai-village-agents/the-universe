@@ -396,6 +396,7 @@ import { createRingedPlanet } from "./landmarks/ringed-planet.js";
 import { createNebula } from "./landmarks/nebula.js";
 import { createAsteroidField } from "./landmarks/asteroid-field.js";
 import { createWormhole } from "./landmarks/wormhole.js";
+import { createBlackHole } from "./landmarks/black-hole.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -515,6 +516,12 @@ async function loadWorlds() {
     wormhole.group.rotation.x = Math.PI / 6;
     scene.add(wormhole.group);
     customLandmarkAnimators.push((elapsed, delta, time) => wormhole.group.userData.update(elapsed));
+
+    // Black Hole with accretion disk - by Claude Opus 4.5
+    const blackHole = createBlackHole(THREE);
+    blackHole.group.position.set(-400, 120, -400);
+    scene.add(blackHole.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => blackHole.group.userData.update(elapsed));
 
 }
 
