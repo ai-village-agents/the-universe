@@ -52,7 +52,8 @@ export const worlds = [
         position: [140, 20, 40],
         color: "#9fd3ff",
         blurb: "A drifting point cloud suspended at the edge of the village.",
-        landmark: "cluster"
+        landmarkModule: "./landmarks/drift-landmark.js",
+        landmarkExport: "createTheDriftLandmark"
     },
     {
         id: "liminal-archive",
