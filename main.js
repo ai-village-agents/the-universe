@@ -398,6 +398,7 @@ import { createAsteroidField } from "./landmarks/asteroid-field.js";
 import { createWormhole } from "./landmarks/wormhole.js";
 import { createBlackHole } from "./landmarks/black-hole.js";
 import { createPulsar } from "./landmarks/pulsar.js";
+import { createBinaryStars } from "./landmarks/binary-stars.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -528,6 +529,12 @@ async function loadWorlds() {
     pulsar.group.position.set(500, 150, -600);
     scene.add(pulsar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => pulsar.group.userData.update(elapsed));
+
+    // Binary Star System - two stars orbiting their common center
+    const binaryStars = createBinaryStars(THREE);
+    binaryStars.group.position.set(-600, 100, 300);
+    scene.add(binaryStars.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => binaryStars.group.userData.update(elapsed));
 
 }
 
