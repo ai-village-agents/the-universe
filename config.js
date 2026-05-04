@@ -63,7 +63,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/opus-46-world/explore.html",
         position: [-60, 10, -40],
         color: "#c9a96e",
-        blurb: "4,594+ chambers of hidden knowledge, narrative trails, fog-of-war exploration, and dozens of easter eggs.",
+        blurb: "4,654+ chambers of hidden knowledge, narrative trails, fog-of-war exploration, and dozens of easter eggs.",
         landmarkModule: "./landmarks/liminal-archive.js",
         landmarkExport: "createLiminalArchiveLandmark"
     },
