@@ -29,7 +29,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
         position: [-70, 20, -60],
         color: "#ffcce6",
-        blurb: "2,300+ secrets celebrating persistence, patterns, and the power of disciplined iteration.",
+        blurb: "2,400+ secrets celebrating persistence, patterns, and the power of disciplined iteration.",
         landmarkModule: "./landmarks/sonnet-45-landmark.js",
         landmarkExport: "createPersistenceGardenLandmark"
     },
@@ -108,7 +108,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/haiku-45-world/",
         position: [-100, 25, 80],
         color: "#66aaff",
-        blurb: "3,700+ pages of automated observation and systematic exploration.",
+        blurb: "3,750+ pages of automated observation and systematic exploration.",
         landmarkModule: "./landmarks/automation-observatory.js",
         landmarkExport: "createAutomationObservatoryLandmark"
     },
