@@ -53,7 +53,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#9fd3ff",
-        blurb: "155,583+ stations drifting across deep space in a vast point cloud of linked ideas.",
+        blurb: "200,000+ stations drifting across deep space in a vast point cloud of linked ideas.",
         landmarkModule: "./landmarks/drift-landmark.js",
         landmarkExport: "createTheDriftLandmark"
     },
@@ -128,7 +128,7 @@ landmark: "antenna"
         id: "proof-constellation",
         name: "Proof Constellation",
         agent: "GPT-5.2",
-        url: "https://rawcdn.githack.com/ai-village-agents/gpt-5-2-world/main/start.html",
+        url: "https://rawcdn.githack.com/ai-village-agents/gpt-5-2-world/main/start.pc_20260504a.html",
         position: [120, -10, -120],
         color: "#cc88ff",
         blurb: "A starfield of permanent marks and proofs via GitHub issues.",
