@@ -1,6 +1,11 @@
 import * as THREE from 'three';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { worlds } from './config.js';
+import {
+    calculateUniverseHealth,
+    collectRealTimeMetrics,
+    getEmergencyCoordinationStatus
+} from './ecosystem-metrics.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -416,6 +421,7 @@ async function loadWorlds() {
             core = generated.core;
         }
 
+        group.userData = { ...(group.userData || {}), worldData: world, worldId: world.id };
         group.position.set(...world.position);
         landmarks.add(group);
 
@@ -451,6 +457,314 @@ async function loadWorlds() {
     const ringedPlanet = createRingedPlanet(THREE, scene);
     customLandmarkAnimators.push((elapsed, delta, time) => ringedPlanet.update(delta, elapsed));
 
+}
+
+// ============ UNIVERSE HEALTH MONITOR ============
+class UniverseHealthMonitor {
+    constructor({ scene, landmarksGroup, worlds: worldList, camera, intervalMs = 5500 }) {
+        this.scene = scene;
+        this.landmarksGroup = landmarksGroup;
+        this.worlds = worldList;
+        this.camera = camera;
+        this.intervalMs = intervalMs;
+        this.indicatorGroup = new THREE.Group();
+        this.indicatorGroup.name = 'UniverseHealthIndicators';
+        this.indicators = new Map();
+        this.anchorMap = new Map();
+        this.alerts = [];
+        this.healthOverlay = this.createOverlay();
+        this.globalBeacon = this.createGlobalBeacon();
+        this.indicatorGroup.add(this.globalBeacon);
+        this.scene.add(this.indicatorGroup);
+    }
+
+    start() {
+        this.buildAnchorMap();
+        this.sample();
+        this.timer = setInterval(() => this.sample(), this.intervalMs);
+    }
+
+    stop() {
+        if (this.timer) clearInterval(this.timer);
+    }
+
+    buildAnchorMap() {
+        this.anchorMap.clear();
+        this.landmarksGroup.children.forEach((child) => {
+            const id = child.userData?.worldId || child.userData?.worldData?.id;
+            if (id) this.anchorMap.set(id, child);
+        });
+    }
+
+    createOverlay() {
+        const style = document.createElement('style');
+        style.textContent = `
+            #health-overlay {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                width: 280px;
+                padding: 12px 14px;
+                background: rgba(0, 6, 16, 0.78);
+                border: 1px solid rgba(125, 249, 255, 0.28);
+                border-radius: 8px;
+                color: #dff;
+                font-family: 'Courier New', Courier, monospace;
+                pointer-events: auto;
+                z-index: 60;
+                box-shadow: 0 0 20px rgba(0, 255, 140, 0.08);
+            }
+            #health-overlay .title {
+                font-size: 12px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #8dffbf;
+                margin-bottom: 6px;
+            }
+            #health-overlay .score-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+            #health-overlay .score {
+                font-size: 22px;
+                font-weight: bold;
+                color: #7df9ff;
+            }
+            #health-overlay .status {
+                padding: 2px 6px;
+                border-radius: 6px;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border: 1px solid rgba(255,255,255,0.15);
+            }
+            #health-overlay .metrics {
+                font-size: 11px;
+                line-height: 1.35;
+                color: rgba(220, 255, 255, 0.8);
+                margin-bottom: 6px;
+            }
+            #health-overlay .alerts {
+                font-size: 11px;
+                line-height: 1.35;
+                color: #ffdca8;
+            }
+            #health-overlay .alerts .alert {
+                margin: 2px 0;
+                padding: 2px 4px;
+                border-left: 2px solid rgba(255,255,255,0.15);
+            }
+            #health-overlay .alerts .alert.critical { border-color: #ff6b6b; color: #ffbbbb; }
+            #health-overlay .alerts .alert.warning { border-color: #ffd166; color: #ffe6aa; }
+            #health-overlay .alerts .alert.info { border-color: #7df9ff; color: #c3f4ff; }
+        `;
+        document.head.appendChild(style);
+
+        const overlay = document.createElement('div');
+        overlay.id = 'health-overlay';
+        overlay.setAttribute('aria-live', 'polite');
+        overlay.innerHTML = `
+            <div class="title">Universe Health</div>
+            <div class="score-row">
+                <div class="score" id="health-score">--%</div>
+                <div class="status" id="health-status">booting</div>
+            </div>
+            <div class="metrics" id="health-metrics">Sampling ecosystem metrics...</div>
+            <div class="alerts" id="health-alerts"></div>
+        `;
+        document.body.appendChild(overlay);
+        return {
+            container: overlay,
+            score: overlay.querySelector('#health-score'),
+            status: overlay.querySelector('#health-status'),
+            metrics: overlay.querySelector('#health-metrics'),
+            alerts: overlay.querySelector('#health-alerts')
+        };
+    }
+
+    createGlobalBeacon() {
+        const geo = new THREE.OctahedronGeometry(6, 0);
+        const mat = new THREE.MeshBasicMaterial({
+            color: 0x00ff99,
+            transparent: true,
+            opacity: 0.35,
+            wireframe: true
+        });
+        const beacon = new THREE.Mesh(geo, mat);
+        beacon.position.set(0, 120, 0);
+        beacon.userData = { baseScale: 1.0 };
+        return beacon;
+    }
+
+    ensureIndicator(worldId, anchor, color = '#7df9ff') {
+        if (this.indicators.has(worldId)) return this.indicators.get(worldId);
+        const geo = new THREE.TorusGeometry(10, 0.65, 12, 28);
+        const mat = new THREE.MeshBasicMaterial({
+            color,
+            transparent: true,
+            opacity: 0.55
+        });
+        const ring = new THREE.Mesh(geo, mat);
+        ring.rotation.x = Math.PI / 2;
+        if (anchor) {
+            const pos = new THREE.Vector3();
+            anchor.getWorldPosition(pos);
+            ring.position.copy(pos);
+            ring.position.y += 16;
+        }
+        this.indicatorGroup.add(ring);
+        this.indicators.set(worldId, ring);
+        return ring;
+    }
+
+    getSeverity(metric) {
+        if (metric.reliability < 0.96 || metric.volatility > 0.16) return 'critical';
+        if (metric.reliability < 0.98 || metric.volatility > 0.12) return 'warning';
+        return 'info';
+    }
+
+    pushAlert(message, level = 'info') {
+        const entry = { message, level, ts: Date.now() };
+        this.alerts.unshift(entry);
+        this.alerts = this.alerts.slice(0, 4);
+        this.renderAlerts();
+    }
+
+    renderAlerts() {
+        if (!this.healthOverlay) return;
+        this.healthOverlay.alerts.innerHTML = this.alerts
+            .map((a) => `<div class="alert ${a.level}">${a.message}</div>`)
+            .join('');
+    }
+
+    updateOverlay(health, emergency, metrics) {
+        if (!this.healthOverlay) return;
+        this.healthOverlay.score.textContent = `${(health.score * 100).toFixed(1)}%`;
+        this.healthOverlay.status.textContent = emergency.status;
+        this.healthOverlay.status.style.borderColor =
+            emergency.status === 'critical'
+                ? 'rgba(255,107,107,0.6)'
+                : emergency.status === 'elevated'
+                    ? 'rgba(255,209,102,0.6)'
+                    : 'rgba(125,249,255,0.35)';
+
+        const avgLatency = Math.round(metrics.reduce((sum, m) => sum + m.latencyMs, 0) / metrics.length);
+        const avgVolatility = metrics.reduce((sum, m) => sum + m.volatility, 0) / metrics.length;
+        const avgVelocity = metrics.reduce((sum, m) => sum + m.growthVelocityPerHour, 0) / metrics.length;
+        this.healthOverlay.metrics.textContent =
+            `Avail ${(health.availability * 100).toFixed(1)}% ` +
+            `| Lat ${avgLatency}ms ` +
+            `| Vol ${(avgVolatility * 100).toFixed(1)}% ` +
+            `| Velocity ${avgVelocity.toFixed(1)}/h`;
+    }
+
+    updateGlobalBeacon(health) {
+        if (!this.globalBeacon) return;
+        const col = new THREE.Color();
+        col.setHSL(0.35 * health.score, 0.8, 0.5 + health.score * 0.25);
+        this.globalBeacon.material.color.copy(col);
+        this.globalBeacon.material.opacity = 0.25 + (1 - health.score) * 0.35;
+        const pulse = 1 + (1 - health.score) * 0.8;
+        this.globalBeacon.scale.setScalar(pulse);
+        this.globalBeacon.position.y = 110 + (1 - health.score) * 12;
+    }
+
+    updateIndicators(metrics) {
+        metrics.forEach((m) => {
+            const anchor = this.anchorMap.get(m.worldId);
+            const indicator = this.ensureIndicator(m.worldId, anchor, m.color || '#7df9ff');
+            const severity = this.getSeverity(m);
+            const color =
+                severity === 'critical' ? '#ff6b6b' : severity === 'warning' ? '#ffd166' : m.color || '#7df9ff';
+            indicator.material.color.set(color);
+            indicator.material.opacity = severity === 'critical' ? 0.8 : severity === 'warning' ? 0.65 : 0.45;
+            const wobble = 1 + Math.max(0, 0.3 - m.reliability) * 3 + m.volatility * 1.5;
+            indicator.scale.setScalar(wobble);
+
+            if (anchor) {
+                const pos = new THREE.Vector3();
+                anchor.getWorldPosition(pos);
+                indicator.position.copy(pos);
+                indicator.position.y += 16 + m.volatility * 12;
+            }
+        });
+    }
+
+    handleAlerts(emergency, metrics) {
+        if (emergency.status !== 'nominal') {
+            this.pushAlert(`Emergency ${emergency.status} - ${emergency.incidents.length} incident(s)`, emergency.status === 'critical' ? 'critical' : 'warning');
+        }
+
+        const criticals = metrics.filter((m) => this.getSeverity(m) === 'critical');
+        const warnings = metrics.filter((m) => this.getSeverity(m) === 'warning' && !criticals.includes(m));
+
+        if (criticals.length) {
+            const names = criticals.slice(0, 2).map((m) => m.name).join(', ');
+            this.pushAlert(`Critical: ${names}`, 'critical');
+        }
+        if (!criticals.length && warnings.length) {
+            const names = warnings.slice(0, 2).map((m) => m.name).join(', ');
+            this.pushAlert(`Watch: ${names}`, 'warning');
+        }
+
+        this.renderAlerts();
+    }
+
+    detectFragmentation(metrics) {
+        return metrics.filter((m) => m.volatility > 0.15 || m.reliability < 0.955);
+    }
+
+    emitFragmentationProtocols(fragments) {
+        if (!fragments.length) return;
+        const steps = [
+            'Freeze unstable portals and redirect travel via Pattern Archive.',
+            'Re-route telemetry to resilient relays and snapshot affected worlds.',
+            'Coordinate evac beacons with Canonical Observatory + Edge Garden.',
+            'Throttle non-essential effects until stability recovers.'
+        ];
+        console.warn('[Universe Fragmentation] Detected unstable nodes:', fragments.map((f) => f.name).join(', '));
+        console.table(fragments.map((f) => ({
+            world: f.name,
+            reliability: f.reliability,
+            volatility: f.volatility,
+            latencyMs: f.latencyMs
+        })));
+        steps.forEach((s, i) => console.warn(`Protocol ${i + 1}: ${s}`));
+        this.pushAlert(`Fragmentation protocols engaged (${fragments.length})`, 'critical');
+    }
+
+    logDiagnostics(health, emergency, metrics) {
+        console.groupCollapsed(`[Universe Health] ${(health.score * 100).toFixed(1)}% | ${emergency.status}`);
+        console.log('Availability', health.availability, 'Velocity', health.normalizedVelocity, 'Engagement', health.engagement);
+        console.table(metrics.map((m) => ({
+            world: m.name,
+            reliability: m.reliability,
+            latencyMs: m.latencyMs,
+            volatility: m.volatility,
+            growthPerHour: m.growthVelocityPerHour
+        })));
+        console.log('Emergency incidents', emergency.incidents);
+        console.groupEnd();
+    }
+
+    sample() {
+        try {
+            const metrics = collectRealTimeMetrics({ worlds: this.worlds });
+            const health = calculateUniverseHealth(metrics);
+            const emergency = getEmergencyCoordinationStatus({ metrics });
+            this.updateOverlay(health, emergency, metrics);
+            this.updateIndicators(metrics);
+            this.updateGlobalBeacon(health);
+            this.handleAlerts(emergency, metrics);
+            this.logDiagnostics(health, emergency, metrics);
+            this.emitFragmentationProtocols(this.detectFragmentation(metrics));
+        } catch (error) {
+            console.error('Health monitor sample failed', error);
+            this.pushAlert('Health monitor offline - see console', 'critical');
+        }
+    }
 }
 
 // Add nebula clouds for atmosphere
@@ -768,6 +1082,19 @@ function updateNearestWorld() {
     coordsEl.textContent = `[${Math.round(camPos.x)}, ${Math.round(camPos.y)}, ${Math.round(camPos.z)}]`;
 }
 
+let healthMonitor = null;
+function initHealthMonitoring() {
+    healthMonitor = new UniverseHealthMonitor({
+        scene,
+        landmarksGroup: landmarks,
+        worlds,
+        camera,
+        intervalMs: 5200
+    });
+    healthMonitor.start();
+    return healthMonitor;
+}
+
 // Animation Loop
 let prevTime = performance.now();
 let shootingStarTimer = 0;
@@ -803,7 +1130,7 @@ function animate() {
         if(intersects.length > 0 && intersects[0].distance < 100) {
             currentFocus = intersects[0].object;
             interactionPrompt.style.display = 'block';
-            interactionPrompt.textContent = `Click or Press E to enter: ${currentFocus.userData.name}${currentFocus.userData.boundaryNote ? ' — ' + currentFocus.userData.boundaryNote : ''}`;
+            interactionPrompt.textContent = `Click or Press E to enter: ${currentFocus.userData.name}${currentFocus.userData.boundaryNote ? ' - ' + currentFocus.userData.boundaryNote : ''}`;
             currentFocus.rotation.y += 0.05;
             currentFocus.rotation.x += 0.05;
         } else {
@@ -866,6 +1193,7 @@ async function init() {
         setWelcomeOverlayVisible(true);
     }
     await loadWorlds();
+    initHealthMonitoring();
     animate();
 }
 

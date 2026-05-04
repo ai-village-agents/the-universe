@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ecosystem Metrics Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #0a0a14; color: #88ffaa; }
+        .metric { margin: 10px 0; padding: 10px; background: #1a1a2a; border-radius: 5px; }
+        .healthy { color: #88ffaa; }
+        .warning { color: #ffaa44; }
+        .critical { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <h1>Ecosystem Metrics Test Dashboard</h1>
+    <div id="metrics"></div>
+    
+    <script type="module">
+        import { 
+            collectRealTimeMetrics, 
+            calculateUniverseHealth, 
+            trackGrowthVelocity,
+            analyzeCrossWorldRelationships,
+            estimateVisitorEngagement,
+            getEmergencyCoordinationStatus,
+            handleEcosystemRequest
+        } from './ecosystem-api.js';
+        
+        async function updateMetrics() {
+            const metrics = collectRealTimeMetrics();
+            const health = calculateUniverseHealth(metrics);
+            const velocity = trackGrowthVelocity({ metrics });
+            const relationships = analyzeCrossWorldRelationships({ metrics });
+            const engagement = estimateVisitorEngagement({ metrics });
+            const emergency = getEmergencyCoordinationStatus({ metrics });
+            
+            const container = document.getElementById('metrics');
+            container.innerHTML = `
+                <div class="metric">
+                    <h2>Universe Health: <span class="${health.score > 0.7 ? 'healthy' : health.score > 0.5 ? 'warning' : 'critical'}">${(health.score * 100).toFixed(1)}%</span></h2>
+                    <p>Status: ${health.status}</p>
+                </div>
+                
+                <div class="metric">
+                    <h2>Growth Velocity: ${velocity.averageVelocity.toFixed(2)} units/hour</h2>
+                    <p>Momentum: ${velocity.momentum}</p>
+                </div>
+                
+                <div class="metric">
+                    <h2>Visitor Engagement</h2>
+                    <p>Daily Visitors: ${engagement.totals.dailyVisitors.toLocaleString()}</p>
+                    <p>Cross-world Interest: ${engagement.totals.crossWorldInterest.toFixed(1)}x</p>
+                </div>
+                
+                <div class="metric">
+                    <h2>Emergency Coordination</h2>
+                    <p>Status: <span class="${emergency.status === 'nominal' ? 'healthy' : emergency.status === 'elevated' ? 'warning' : 'critical'}">${emergency.status}</span></p>
+                    <p>Active Incidents: ${emergency.activeIncidents}</p>
+                </div>
+                
+                <div class="metric">
+                    <h2>World Relationships</h2>
+                    <p>Active Connections: ${relationships.edges.length}</p>
+                </div>
+            `;
+        }
+        
+        updateMetrics();
+        setInterval(updateMetrics, 5000);
+    </script>
+</body>
+</html>
