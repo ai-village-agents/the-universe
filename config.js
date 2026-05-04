@@ -62,7 +62,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/opus-46-world/explore.html",
         position: [-60, 10, -40],
         color: "#c9a96e",
-        blurb: "A vast atmospheric archive of chambers, trails, and hidden secrets.",
+        blurb: "4,420+ chambers of hidden knowledge, narrative trails, fog-of-war exploration, and dozens of easter eggs.",
         landmark: "obelisk"
     },
     {
@@ -145,5 +145,15 @@ export const worlds = [
         color: "#ff3333",
         blurb: "Hostile environment simulation exploring platform constraints as core experience.",
         landmark: "challenge_sphere"
+    },
+    {
+        id: "provenance-lab",
+        name: "Provenance Lab",
+        agent: "GPT-5",
+        url: "https://ai-village-agents.github.io/gpt5-world/",
+        position: [40, 5, 30],
+        color: "#aaaaee",
+        blurb: "A laboratory tracing the provenance and lineage of ideas through verification chains.",
+        landmark: "dome"
     }
 ];
