@@ -371,6 +371,7 @@ import { createConstellationLines } from "./landmarks/constellation-lines.js";
 import { createComet } from "./landmarks/comet.js";
 import { createGalaxyDust } from "./landmarks/galaxy-dust.js";
 import { createRingedPlanet } from "./landmarks/ringed-planet.js";
+import { createNebula } from "./landmarks/nebula.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -469,6 +470,11 @@ async function loadWorlds() {
     // Distant ringed planet - background cosmic element
     const ringedPlanet = createRingedPlanet(THREE, scene);
     customLandmarkAnimators.push((elapsed, delta, time) => ringedPlanet.update(delta, elapsed));
+
+    // Colorful cosmic nebula - atmospheric gas cloud
+    const nebula = createNebula(THREE);
+    scene.add(nebula);
+    customLandmarkAnimators.push((elapsed, delta, time) => nebula.userData.update(elapsed));
 
 }
 
