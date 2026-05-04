@@ -461,6 +461,7 @@ import { createWolfRayetStar } from "./landmarks/wolf-rayet-star.js";
 import { createCosmicVoid } from "./landmarks/cosmic-void.js";
 import { createPrimordialBlackHole } from "./landmarks/primordial-black-hole.js";
 import { createBlueStraggler } from "./landmarks/blue-straggler.js";
+import { createBowShockNebula } from "./landmarks/bow-shock-nebula.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -812,6 +813,12 @@ async function loadWorlds() {
     blueStraggler.group.position.set(-800, -150, -400);
     scene.add(blueStraggler.group);
     customLandmarkAnimators.push((elapsed, delta, time) => blueStraggler.group.userData.update(elapsed));
+
+    // Bow Shock Nebula - arc-shaped structure from fast-moving star
+    const bowShockNebula = createBowShockNebula(THREE);
+    bowShockNebula.group.position.set(700, -80, -800);
+    scene.add(bowShockNebula.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => bowShockNebula.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1384,6 +1391,7 @@ const cosmicSights = [
     { name: 'Cosmic Void', position: [0, -200, -900], color: '#223355', description: 'vast empty region in the cosmic web with sparse edge galaxies and lone drifter' },
     { name: 'Primordial Black Hole', position: [850, 200, 700], color: '#ff4400', description: 'ancient black hole from the early universe with Hawking radiation and time dilation effects' },
     { name: 'Blue Straggler', position: [-800, -150, -400], color: '#6688ff', description: 'mysteriously young star formed from stellar merger surrounded by old red giants' },
+    { name: 'Bow Shock Nebula', position: [700, -80, -800], color: '#55ccff', description: 'arc-shaped structure from fast-moving star plowing through interstellar gas' },
 ];
 
 function openTeleportMenu() {
