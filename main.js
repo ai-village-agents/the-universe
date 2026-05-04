@@ -436,6 +436,7 @@ import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
 import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 import { createCosmicComets } from "./landmarks/cosmic-comets.js";
+import { createDeepPulsarPings } from "./landmarks/deep-pulsar-pings.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -544,6 +545,11 @@ async function loadWorlds() {
     const cosmicComets = createCosmicComets(THREE);
     scene.add(cosmicComets.group);
     customLandmarkAnimators.push((elapsed, delta, time) => cosmicComets.update(delta, elapsed));
+
+    // Deep Pulsar Pings — 12 distant pulsars flash periodically across the deep sky
+    const deepPulsars = createDeepPulsarPings(THREE);
+    scene.add(deepPulsars.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => deepPulsars.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
