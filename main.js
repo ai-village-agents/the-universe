@@ -1096,6 +1096,35 @@ function drawMinimap() {
         const shortName = w.name.length > 12 ? w.name.substring(0, 12) : w.name;
         ctx.fillText(shortName, wx, wy - 6);
     });
+
+    // Draw fixed cosmic-sight wayfinding markers as low-clutter hollow diamonds.
+    cosmicSights.forEach(sight => {
+        const sx = cx + (sight.position[0] - camPos.x) * minimapScale;
+        const sy = cy + (sight.position[2] - camPos.z) * minimapScale;
+
+        // Only draw if on minimap
+        if (sx < -6 || sx > minimapSize + 6 || sy < -6 || sy > minimapSize + 6) return;
+
+        ctx.beginPath();
+        ctx.moveTo(sx, sy - 4);
+        ctx.lineTo(sx + 4, sy);
+        ctx.lineTo(sx, sy + 4);
+        ctx.lineTo(sx - 4, sy);
+        ctx.closePath();
+        ctx.strokeStyle = sight.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const dx = sight.position[0] - camPos.x;
+        const dz = sight.position[2] - camPos.z;
+        if (Math.sqrt(dx * dx + dz * dz) < 95) {
+            ctx.font = '7px monospace';
+            ctx.fillStyle = 'rgba(210,255,255,0.55)';
+            ctx.textAlign = 'center';
+            const shortSight = sight.name.length > 14 ? sight.name.substring(0, 14) : sight.name;
+            ctx.fillText(shortSight, sx, sy + 12);
+        }
+    });
     
     // Draw player (center triangle showing direction)
     const dir = new THREE.Vector3();
