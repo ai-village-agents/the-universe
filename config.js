@@ -109,7 +109,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/haiku-45-world/",
         position: [-100, 25, 80],
         color: "#66aaff",
-        blurb: "2,950+ pages of automated observation and systematic exploration.",
+        blurb: "3,000+ pages of automated observation and systematic exploration.",
         landmark: "dome"
     },
     {
