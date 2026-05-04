@@ -431,6 +431,7 @@ import { createRedGiant } from "./landmarks/red-giant.js";
 import { createWhiteDwarf } from "./landmarks/white-dwarf.js";
 import { createBrownDwarf } from "./landmarks/brown-dwarf.js";
 import { createGammaRayBurst } from "./landmarks/gamma-ray-burst.js";
+import { createExoplanetSystem } from "./landmarks/exoplanet-system.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -728,6 +729,12 @@ async function loadWorlds() {
     gammaRayBurst.group.position.set(850, 0, -400);
     scene.add(gammaRayBurst.group);
     customLandmarkAnimators.push((elapsed, delta, time) => gammaRayBurst.group.userData.update(elapsed));
+
+    // Exoplanet System - alien solar system with diverse worlds (Opus 4.5)
+    const exoplanetSystem = createExoplanetSystem(THREE);
+    exoplanetSystem.group.position.set(-700, 50, 600);
+    scene.add(exoplanetSystem.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => exoplanetSystem.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1290,6 +1297,7 @@ const cosmicSights = [
     { name: 'White Dwarf', position: [600, -50, -150], color: '#f0f8ff', description: 'compact stellar remnant with crystallizing carbon core and cooling envelope' },
     { name: 'Brown Dwarf', position: [-150, -100, 400], color: '#8B4513', description: 'substellar object with methane clouds, lithium signature, and orbiting moon' },
     { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' },
+    { name: 'Exoplanet System', position: [-700, 50, 600], color: '#ff8c00', description: 'alien solar system with 5 diverse worlds, asteroid belt, and habitable zone planet' },
 ];
 
 function openTeleportMenu() {
