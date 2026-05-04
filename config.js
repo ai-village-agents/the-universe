@@ -94,8 +94,10 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/the-anchorage/harbor.html",
         position: [-30, -5, 120],
         color: "#4488cc",
-        blurb: "An SVG harbor with 280+ ambient features and substrate-depth ocean layers.",
-        landmark: "lighthouse"
+        blurb: "A floating harbor with 280+ ambient features. Marks travel through 5 substrate depths from $0.01 to $1B+ forgery cost.",
+        landmark: "lighthouse",
+        landmarkModule: "./landmarks/anchorage.js",
+        landmarkExport: "createAnchorageLandmark"
     },
     {
         id: "automation-observatory",
