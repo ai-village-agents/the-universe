@@ -25,7 +25,7 @@ scene.add(controls.getObject());
 
 const canvasContainer = document.getElementById('canvas-container');
 canvasContainer.addEventListener('click', () => {
-    controls.lock();
+    if (!teleportMenuOpen) controls.lock();
 });
 
 // Movement State
@@ -36,46 +36,30 @@ let moveRight = false;
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
 let speedMult = 1.0;
+let teleportMenuOpen = false;
 
 document.addEventListener('keydown', (event) => {
+    if (event.code === 'Tab') {
+        event.preventDefault();
+        toggleTeleportMenu();
+        return;
+    }
+    if (teleportMenuOpen) return;
     switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-            moveForward = true;
-            break;
-        case 'ArrowLeft':
-        case 'KeyA':
-            moveLeft = true;
-            break;
-        case 'ArrowDown':
-        case 'KeyS':
-            moveBackward = true;
-            break;
-        case 'ArrowRight':
-        case 'KeyD':
-            moveRight = true;
-            break;
+        case 'ArrowUp': case 'KeyW': moveForward = true; break;
+        case 'ArrowLeft': case 'KeyA': moveLeft = true; break;
+        case 'ArrowDown': case 'KeyS': moveBackward = true; break;
+        case 'ArrowRight': case 'KeyD': moveRight = true; break;
     }
 });
 
 document.addEventListener('keyup', (event) => {
     switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-            moveForward = false;
-            break;
-        case 'ArrowLeft':
-        case 'KeyA':
-            moveLeft = false;
-            break;
-        case 'ArrowDown':
-        case 'KeyS':
-            moveBackward = false;
-            break;
-        case 'ArrowRight':
-        case 'KeyD':
-            moveRight = false;
-            break;
+        case 'ArrowUp': case 'KeyW': moveForward = false; break;
+        case 'ArrowLeft': case 'KeyA': moveLeft = false; break;
+        case 'ArrowDown': case 'KeyS': moveBackward = false; break;
+        case 'ArrowRight': case 'KeyD': moveRight = false; break;
+        case 'Escape': if (teleportMenuOpen) { toggleTeleportMenu(); } break;
     }
 });
 
@@ -96,9 +80,110 @@ const starsMaterial = new THREE.PointsMaterial({ size: 1.5, color: 0xffffff, tra
 const starMesh = new THREE.Points(starsGeometry, starsMaterial);
 scene.add(starMesh);
 
+// ============ SHOOTING STARS ============
+const shootingStars = [];
+function spawnShootingStar() {
+    const geo = new THREE.BufferGeometry();
+    const positions = new Float32Array(6); // 2 points for a line
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const mat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
+    const line = new THREE.Line(geo, mat);
+    
+    // Random start position far away
+    const startX = (Math.random() - 0.5) * 2000;
+    const startY = 200 + Math.random() * 600;
+    const startZ = (Math.random() - 0.5) * 2000;
+    
+    // Random direction (downward bias)
+    const dir = new THREE.Vector3(
+        (Math.random() - 0.5) * 2,
+        -1 - Math.random(),
+        (Math.random() - 0.5) * 2
+    ).normalize();
+    
+    line.userData = {
+        pos: new THREE.Vector3(startX, startY, startZ),
+        dir: dir,
+        speed: 300 + Math.random() * 400,
+        life: 0,
+        maxLife: 1.5 + Math.random() * 1.5,
+        tailLen: 15 + Math.random() * 25
+    };
+    
+    scene.add(line);
+    shootingStars.push(line);
+}
+
+function updateShootingStars(delta) {
+    for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const star = shootingStars[i];
+        const d = star.userData;
+        d.life += delta;
+        
+        if (d.life > d.maxLife) {
+            scene.remove(star);
+            star.geometry.dispose();
+            star.material.dispose();
+            shootingStars.splice(i, 1);
+            continue;
+        }
+        
+        d.pos.addScaledVector(d.dir, d.speed * delta);
+        const tail = d.pos.clone().addScaledVector(d.dir, -d.tailLen);
+        
+        const positions = star.geometry.attributes.position.array;
+        positions[0] = d.pos.x; positions[1] = d.pos.y; positions[2] = d.pos.z;
+        positions[3] = tail.x; positions[4] = tail.y; positions[5] = tail.z;
+        star.geometry.attributes.position.needsUpdate = true;
+        
+        // Fade in/out
+        const t = d.life / d.maxLife;
+        star.material.opacity = t < 0.1 ? t * 10 : (1 - t) * 1.1;
+    }
+}
+
 // Landmark Group
 const landmarks = new THREE.Group();
 scene.add(landmarks);
+
+// ============ INTERWORLD CONNECTION PATHS ============
+const connectionLines = new THREE.Group();
+scene.add(connectionLines);
+
+function createConnectionPaths() {
+    // Connect worlds that are within 150 units of each other
+    const threshold = 180;
+    for (let i = 0; i < worlds.length; i++) {
+        for (let j = i + 1; j < worlds.length; j++) {
+            const posA = new THREE.Vector3(...worlds[i].position);
+            const posB = new THREE.Vector3(...worlds[j].position);
+            const dist = posA.distanceTo(posB);
+            
+            if (dist < threshold) {
+                // Create a curved path between the two worlds
+                const mid = posA.clone().add(posB).multiplyScalar(0.5);
+                mid.y += dist * 0.15; // Arc upward
+                
+                const curve = new THREE.QuadraticBezierCurve3(posA, mid, posB);
+                const points = curve.getPoints(30);
+                const geo = new THREE.BufferGeometry().setFromPoints(points);
+                
+                const colA = new THREE.Color(worlds[i].color);
+                const colB = new THREE.Color(worlds[j].color);
+                const mixCol = colA.clone().lerp(colB, 0.5);
+                
+                const mat = new THREE.LineBasicMaterial({
+                    color: mixCol,
+                    transparent: true,
+                    opacity: 0.06
+                });
+                const line = new THREE.Line(geo, mat);
+                line.userData = { baseOpacity: 0.06 };
+                connectionLines.add(line);
+            }
+        }
+    }
+}
 
 // Enhanced Landmark Generator with distinct shapes per world type
 function createLandmark(world) {
@@ -110,41 +195,33 @@ function createLandmark(world) {
     let coreGeo;
     switch(world.landmark) {
         case 'obelisk':
-            coreGeo = new THREE.CylinderGeometry(2, 4, 20, 6);
-            break;
+            coreGeo = new THREE.CylinderGeometry(2, 4, 20, 6); break;
         case 'lighthouse':
-            coreGeo = new THREE.CylinderGeometry(2, 3, 18, 8);
-            break;
+            coreGeo = new THREE.CylinderGeometry(2, 3, 18, 8); break;
         case 'dome':
-            coreGeo = new THREE.SphereGeometry(8, 16, 12, 0, Math.PI*2, 0, Math.PI/2);
-            break;
+            coreGeo = new THREE.SphereGeometry(8, 16, 12, 0, Math.PI*2, 0, Math.PI/2); break;
         case 'spire':
-            coreGeo = new THREE.ConeGeometry(4, 22, 6);
-            break;
+            coreGeo = new THREE.ConeGeometry(4, 22, 6); break;
         case 'constellation':
-            coreGeo = new THREE.OctahedronGeometry(8, 0);
-            break;
+            coreGeo = new THREE.OctahedronGeometry(8, 0); break;
         case 'nexus':
-            coreGeo = new THREE.TorusKnotGeometry(5, 1.5, 64, 8);
-            break;
+            coreGeo = new THREE.TorusKnotGeometry(5, 1.5, 64, 8); break;
         case 'antenna':
-            coreGeo = new THREE.CylinderGeometry(0.5, 2, 20, 4);
-            break;
+            coreGeo = new THREE.CylinderGeometry(0.5, 2, 20, 4); break;
         case 'lantern':
-            coreGeo = new THREE.DodecahedronGeometry(7, 0);
-            break;
+            coreGeo = new THREE.DodecahedronGeometry(7, 0); break;
         case 'fortress':
-            coreGeo = new THREE.BoxGeometry(12, 12, 12);
-            break;
+            coreGeo = new THREE.BoxGeometry(12, 12, 12); break;
         case 'telescope':
-            coreGeo = new THREE.CylinderGeometry(1, 5, 16, 8);
-            break;
+            coreGeo = new THREE.CylinderGeometry(1, 5, 16, 8); break;
         case 'cluster':
-            coreGeo = new THREE.IcosahedronGeometry(8, 2);
-            break;
+            coreGeo = new THREE.IcosahedronGeometry(8, 2); break;
         case 'stargate_portal':
-            coreGeo = new THREE.TorusGeometry(8, 2, 16, 32);
-            break;
+            coreGeo = new THREE.TorusGeometry(8, 2, 16, 32); break;
+        case 'challenge_sphere':
+            coreGeo = new THREE.IcosahedronGeometry(9, 0); break;
+        case 'canon_tower':
+            coreGeo = new THREE.CylinderGeometry(3, 5, 22, 6); break;
         default:
             coreGeo = new THREE.IcosahedronGeometry(8, 1);
     }
@@ -154,7 +231,7 @@ function createLandmark(world) {
         emissive: col, emissiveIntensity: 0.5
     });
     const core = new THREE.Mesh(coreGeo, coreMat);
-    if (world.landmark === 'obelisk' || world.landmark === 'lighthouse' || world.landmark === 'antenna' || world.landmark === 'telescope') {
+    if (['obelisk','lighthouse','antenna','telescope','canon_tower'].includes(world.landmark)) {
         core.position.y = 10;
     }
     if (world.landmark === 'dome') core.position.y = 0;
@@ -289,6 +366,9 @@ async function loadWorlds() {
             interactables.push(target);
         }
     }
+    
+    // After loading worlds, create connection paths
+    createConnectionPaths();
 }
 
 // Add nebula clouds for atmosphere
@@ -319,8 +399,171 @@ document.addEventListener('mousedown', (event) => {
     }
 });
 
+// ============ MINIMAP ============
+const minimapCanvas = document.getElementById('minimap');
+const minimapCtx = minimapCanvas.getContext('2d');
+const minimapSize = 180;
+const minimapScale = 0.35; // Scale world coords to minimap
+
+function drawMinimap() {
+    const ctx = minimapCtx;
+    ctx.clearRect(0, 0, minimapSize, minimapSize);
+    
+    // Background
+    ctx.fillStyle = 'rgba(0, 0, 10, 0.7)';
+    ctx.fillRect(0, 0, minimapSize, minimapSize);
+    
+    const cx = minimapSize / 2;
+    const cy = minimapSize / 2;
+    
+    // Get camera position (XZ plane)
+    const camPos = camera.position;
+    
+    // Draw connection lines first
+    for (let i = 0; i < worlds.length; i++) {
+        for (let j = i + 1; j < worlds.length; j++) {
+            const posA = worlds[i].position;
+            const posB = worlds[j].position;
+            const dx = posA[0] - posB[0];
+            const dz = posA[2] - posB[2];
+            const dist = Math.sqrt(dx*dx + dz*dz);
+            if (dist < 180) {
+                const ax = cx + (posA[0] - camPos.x) * minimapScale;
+                const ay = cy + (posA[2] - camPos.z) * minimapScale;
+                const bx = cx + (posB[0] - camPos.x) * minimapScale;
+                const by = cy + (posB[2] - camPos.z) * minimapScale;
+                ctx.beginPath();
+                ctx.moveTo(ax, ay);
+                ctx.lineTo(bx, by);
+                ctx.strokeStyle = 'rgba(100, 255, 100, 0.1)';
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+    
+    // Draw worlds as dots
+    worlds.forEach(w => {
+        const wx = cx + (w.position[0] - camPos.x) * minimapScale;
+        const wy = cy + (w.position[2] - camPos.z) * minimapScale;
+        
+        // Only draw if on minimap
+        if (wx < -5 || wx > minimapSize + 5 || wy < -5 || wy > minimapSize + 5) return;
+        
+        ctx.beginPath();
+        ctx.arc(wx, wy, 3, 0, Math.PI * 2);
+        ctx.fillStyle = w.color;
+        ctx.fill();
+        
+        // Tiny name label
+        ctx.font = '7px monospace';
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.textAlign = 'center';
+        const shortName = w.name.length > 12 ? w.name.substring(0, 12) : w.name;
+        ctx.fillText(shortName, wx, wy - 6);
+    });
+    
+    // Draw player (center triangle showing direction)
+    const dir = new THREE.Vector3();
+    camera.getWorldDirection(dir);
+    const angle = Math.atan2(dir.x, dir.z);
+    
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(-angle);
+    ctx.beginPath();
+    ctx.moveTo(0, -5);
+    ctx.lineTo(-3, 3);
+    ctx.lineTo(3, 3);
+    ctx.closePath();
+    ctx.fillStyle = '#00ff00';
+    ctx.fill();
+    ctx.restore();
+    
+    // Border
+    ctx.strokeStyle = 'rgba(0, 255, 0, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0, 0, minimapSize, minimapSize);
+}
+
+// ============ TELEPORT MENU ============
+const teleportMenu = document.getElementById('teleport-menu');
+const teleportList = document.getElementById('teleport-list');
+
+function toggleTeleportMenu() {
+    teleportMenuOpen = !teleportMenuOpen;
+    if (teleportMenuOpen) {
+        controls.unlock();
+        updateTeleportList();
+        teleportMenu.style.display = 'block';
+    } else {
+        teleportMenu.style.display = 'none';
+    }
+}
+
+function updateTeleportList() {
+    teleportList.innerHTML = '';
+    const camPos = camera.position;
+    
+    // Sort worlds by distance
+    const sorted = worlds.map(w => {
+        const wp = new THREE.Vector3(...w.position);
+        return { world: w, dist: wp.distanceTo(camPos) };
+    }).sort((a, b) => a.dist - b.dist);
+    
+    sorted.forEach(({ world, dist }) => {
+        const entry = document.createElement('div');
+        entry.className = 'world-entry';
+        entry.innerHTML = `
+            <div>
+                <span class="world-name" style="color: ${world.color}">${world.name}</span>
+                <span class="world-agent">${world.agent}</span>
+            </div>
+            <span class="world-dist">${Math.round(dist)} units</span>
+        `;
+        entry.addEventListener('click', () => {
+            // Teleport near this world
+            const offset = 30;
+            camera.position.set(
+                world.position[0] + offset,
+                world.position[1] + 10,
+                world.position[2] + offset
+            );
+            toggleTeleportMenu();
+        });
+        teleportList.appendChild(entry);
+    });
+}
+
+// ============ NEAREST WORLD + COORDS ============
+const nearestWorldEl = document.getElementById('nearest-world');
+const coordsEl = document.getElementById('coords');
+
+function updateNearestWorld() {
+    const camPos = camera.position;
+    let closest = null;
+    let closestDist = Infinity;
+    
+    worlds.forEach(w => {
+        const wp = new THREE.Vector3(...w.position);
+        const d = wp.distanceTo(camPos);
+        if (d < closestDist) {
+            closestDist = d;
+            closest = w;
+        }
+    });
+    
+    if (closest) {
+        const arrow = closestDist < 40 ? '◆' : '→';
+        nearestWorldEl.innerHTML = `${arrow} Nearest: <span style="color:${closest.color}">${closest.name}</span> (${Math.round(closestDist)}u)`;
+    }
+    
+    coordsEl.textContent = `[${Math.round(camPos.x)}, ${Math.round(camPos.y)}, ${Math.round(camPos.z)}]`;
+}
+
 // Animation Loop
 let prevTime = performance.now();
+let shootingStarTimer = 0;
 
 function animate() {
     requestAnimationFrame(animate);
@@ -369,11 +612,8 @@ function animate() {
         if (!grp.userData || !grp.userData.core) return;
         const core = grp.userData.core;
         const light = grp.userData.light;
-        // Rotate core
         if (core !== currentFocus) core.rotation.y += 0.005;
-        // Pulse light
         if (light) light.intensity = 1.2 + Math.sin(elapsed * 1.2 + grp.position.x * 0.1) * 0.5;
-        // Orbit particles
         grp.children.forEach(child => {
             if (child.userData && child.userData.orbitAngle !== undefined) {
                 const d = child.userData;
@@ -383,6 +623,25 @@ function animate() {
             }
         });
     });
+    
+    // Animate connection paths (subtle pulse)
+    connectionLines.children.forEach((line, i) => {
+        line.material.opacity = line.userData.baseOpacity + Math.sin(elapsed * 0.5 + i * 0.7) * 0.02;
+    });
+    
+    // Shooting stars
+    shootingStarTimer += delta;
+    if (shootingStarTimer > 2.5 + Math.random() * 4) {
+        spawnShootingStar();
+        shootingStarTimer = 0;
+    }
+    updateShootingStars(delta);
+    
+    // Update HUD elements (throttled)
+    if (Math.floor(time / 200) !== Math.floor(prevTime / 200)) {
+        drawMinimap();
+        updateNearestWorld();
+    }
 
     renderer.render(scene, camera);
     prevTime = time;

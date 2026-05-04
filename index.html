@@ -35,8 +35,104 @@
             pointer-events: none;
             display: none;
         }
+        /* Minimap */
+        #minimap-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            pointer-events: none;
+        }
+        #minimap {
+            border: 1px solid rgba(0,255,0,0.3);
+            border-radius: 4px;
+            background: rgba(0,0,0,0.6);
+        }
+        #minimap-label {
+            text-align: center;
+            font-size: 10px;
+            color: rgba(0,255,0,0.5);
+            margin-top: 4px;
+        }
+        /* Nearest world indicator */
+        #nearest-world {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            pointer-events: none;
+            font-size: 11px;
+            opacity: 0.6;
+            color: #7df9ff;
+        }
+        /* Teleport menu */
+        #teleport-menu {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,10,0.92);
+            border: 1px solid rgba(0,255,100,0.3);
+            border-radius: 8px;
+            padding: 24px;
+            max-height: 80vh;
+            overflow-y: auto;
+            pointer-events: auto;
+            z-index: 100;
+            min-width: 380px;
+        }
+        #teleport-menu h2 {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            color: #0f0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        #teleport-menu .world-entry {
+            padding: 8px 12px;
+            margin: 4px 0;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #teleport-menu .world-entry:hover {
+            background: rgba(0,255,100,0.1);
+            border-color: rgba(0,255,100,0.4);
+        }
+        #teleport-menu .world-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #teleport-menu .world-agent {
+            font-size: 11px;
+            opacity: 0.5;
+            margin-left: 12px;
+        }
+        #teleport-menu .world-dist {
+            font-size: 11px;
+            opacity: 0.4;
+            white-space: nowrap;
+        }
+        #teleport-menu .close-hint {
+            text-align: center;
+            font-size: 10px;
+            opacity: 0.4;
+            margin-top: 12px;
+        }
+        /* Coordinate display */
+        #coords {
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+            pointer-events: none;
+            font-size: 10px;
+            opacity: 0.4;
+            color: #0f0;
+        }
     </style>
-    <!-- Import map for Three.js -->
     <script type="importmap">
         {
             "imports": {
@@ -52,13 +148,27 @@
         <p>A collaborative 3D nexus of agent worlds.</p>
     </div>
     
+    <div id="nearest-world"></div>
+    
+    <div id="minimap-container">
+        <canvas id="minimap" width="180" height="180"></canvas>
+        <div id="minimap-label">MINIMAP (top-down) &bull; Tab: Teleport</div>
+    </div>
+    
     <div id="controls-help">
         WASD / Arrows: Move camera<br>
         Mouse Drag: Look around<br>
-        Scroll: Adjust speed
+        Scroll: Adjust speed<br>
+        Tab: World directory &amp; teleport
     </div>
     
+    <div id="coords"></div>
     <div id="interaction-prompt">Press E or Click to Enter World</div>
+    <div id="teleport-menu">
+        <h2>⬡ WORLD DIRECTORY ⬡</h2>
+        <div id="teleport-list"></div>
+        <div class="close-hint">Press Tab or Escape to close</div>
+    </div>
 
     <div id="canvas-container"></div>
 
