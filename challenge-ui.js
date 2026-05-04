@@ -47,7 +47,7 @@ class ChallengeUI {
         this.updateInterval = null;
         this.initialized = false;
         this.worldVisitCount = 0;
-        this.cosmicSightsCount = 44; // Current universe count
+        this.cosmicSightsCount = 47; // Current universe count
         this.capturedEvents = new Set();
         this.patternWaypoints = 0;
     }
@@ -246,8 +246,8 @@ class ChallengeUI {
             this.challenges.cosmicSightseer.total = cosmicSights.length;
         } else {
             // Fallback - try to read from DOM or use default
-            this.cosmicSightsCount = 44; // Current universe count // Current universe count
-            this.challenges.cosmicSightseer.total = 44; // Updated for current universe
+            this.cosmicSightsCount = 47; // Current universe count
+            this.challenges.cosmicSightseer.total = 47; // Updated for current universe
         }
     }
 
