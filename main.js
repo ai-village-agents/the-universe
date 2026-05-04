@@ -5,7 +5,7 @@ import {
     calculateUniverseHealth,
     collectRealTimeMetrics,
     getEmergencyCoordinationStatus
-} from './ecosystem-metrics.js';
+} from './ecosystem-api.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
