@@ -8,6 +8,7 @@ import {
 } from './ecosystem-api.js';
 import { createUniverseAudio } from './audio.js';
 import { createGuidedTour } from './tour-mode.js';
+import { createPhotoMode } from './photo-mode.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 
@@ -16,7 +17,7 @@ const scene = new THREE.Scene();
 scene.fog = new THREE.FogExp2(0x000000, 0.001);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
@@ -54,6 +55,7 @@ let welcomeOverlayOpen = false;
 const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
 const guidedTour = createGuidedTour(THREE, { camera, controls, worlds, audio: universeAudio });
+const photoMode = createPhotoMode({ renderer, scene, camera });
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();
 }
@@ -965,6 +967,9 @@ document.addEventListener('keydown', (event) => {
     }
     if (event.code === 'KeyT' && !teleportMenuOpen) {
         guidedTour.toggle();
+    }
+    if (event.code === 'KeyP' && !teleportMenuOpen) {
+        photoMode.capture();
     }
 });
 document.addEventListener('mousedown', (event) => {
