@@ -350,6 +350,84 @@ export function createAnchorageLandmark(THREE, opts) {
   lightning.position.set(22, 6, 18);
   group.add(lightning);
 
+  // --- Aurora ribbon overhead -------------------------------------
+  const auroraGroup = new THREE.Group();
+  const auroraColors = [0x66ffaa, 0x88ccff, 0xaa88ff, 0xff88dd];
+  for (let a = 0; a < 4; a++) {
+    const auroraGeom = new THREE.PlaneGeometry(40, 6, 32, 1);
+    const positions = auroraGeom.attributes.position;
+    for (let p = 0; p < positions.count; p++) {
+      const px = positions.getX(p);
+      positions.setY(p, positions.getY(p) + Math.sin(px * 0.18 + a) * 1.2);
+    }
+    auroraGeom.computeVertexNormals();
+    const auroraMat = new THREE.MeshBasicMaterial({
+      color: auroraColors[a],
+      transparent: true,
+      opacity: 0.18,
+      blending: THREE.AdditiveBlending,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const auroraMesh = new THREE.Mesh(auroraGeom, auroraMat);
+    auroraMesh.position.set(0, 22 + a * 1.5, -18);
+    auroraMesh.rotation.x = -0.15;
+    auroraMesh.userData.basePhase = a * 0.7;
+    auroraGroup.add(auroraMesh);
+  }
+  group.add(auroraGroup);
+
+  // --- Kelp forest swaying near the seafloor -----------------------
+  const kelpGroup = new THREE.Group();
+  const kelpPositions = [
+    [-12, -2, 8], [-9, -2, 11], [-13.5, -2, 6.5], [-10.5, -2, 5],
+    [-7, -2, 12], [-14, -2, 9], [-11, -2, 14]
+  ];
+  const kelpStrands = [];
+  kelpPositions.forEach((pos, i) => {
+    const strand = new THREE.Group();
+    const segs = 4;
+    let prevY = 0;
+    for (let s = 0; s < segs; s++) {
+      const seg = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.10, 0.14, 1.5, 6),
+        new THREE.MeshStandardMaterial({
+          color: 0x2a6f3a,
+          emissive: 0x0a3a18,
+          emissiveIntensity: 0.3,
+          roughness: 0.6,
+          transparent: true,
+          opacity: 0.85
+        })
+      );
+      seg.position.y = prevY + 0.75;
+      seg.userData.segIdx = s;
+      seg.userData.strandPhase = i * 0.8;
+      prevY += 1.5;
+      strand.add(seg);
+    }
+    // tiny glowing tip
+    const tip = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshBasicMaterial({ color: 0x88ffaa, transparent: true, opacity: 0.7 })
+    );
+    tip.position.y = prevY + 0.1;
+    strand.add(tip);
+    strand.position.set(pos[0], pos[1], pos[2]);
+    kelpGroup.add(strand);
+    kelpStrands.push(strand);
+  });
+  group.add(kelpGroup);
+
+  // --- Aurora reflection on sea (faint horizontal band) ------------
+  const auroraReflection = new THREE.Mesh(
+    new THREE.RingGeometry(8, 18, 32, 1, 0, Math.PI),
+    new THREE.MeshBasicMaterial({ color: 0x66ffcc, transparent: true, opacity: 0.10, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
+  );
+  auroraReflection.rotation.x = -Math.PI / 2;
+  auroraReflection.position.set(0, 0.05, -4);
+  group.add(auroraReflection);
+
   // --- World label sprite floating above scene --------------------------
   if (typeof document !== 'undefined') {
     const canvas = document.createElement('canvas');
@@ -400,7 +478,13 @@ export function createAnchorageLandmark(THREE, opts) {
     sea.position.y = Math.sin(t * 0.6) * 0.05;
     foam.position.y = 0.02 + Math.sin(t * 0.6) * 0.05;
     foam.material.opacity = 0.32 + 0.12 * Math.sin(t * 1.6);
+    // Sailboat slowly sails in wide circle around harbor
+    const boatAngle = t * 0.07;
+    const boatR = 12;
+    boat.position.x = Math.cos(boatAngle) * boatR;
+    boat.position.z = Math.sin(boatAngle) * boatR;
     boat.position.y = 0.25 + Math.sin(t * 0.9 + 1.2) * 0.06;
+    boat.rotation.y = -boatAngle - Math.PI / 2;
     boat.rotation.z = Math.sin(t * 0.7) * 0.03;
     lantern.material.emissiveIntensity = 0.85 + 0.12 * Math.sin(t * 5.2);
     lanternLight.intensity = 1.05 + 0.18 * Math.sin(t * 5.2);
@@ -466,6 +550,21 @@ export function createAnchorageLandmark(THREE, opts) {
     } else {
       lightning.material.opacity = 0;
     }
+    // Aurora ribbons shimmer & drift sideways slowly
+    auroraGroup.children.forEach((mesh, i) => {
+      mesh.material.opacity = 0.14 + 0.10 * Math.sin(t * 0.4 + mesh.userData.basePhase);
+      mesh.position.x = Math.sin(t * 0.05 + i * 0.4) * 1.5;
+    });
+    auroraReflection.material.opacity = 0.06 + 0.06 * Math.sin(t * 0.7);
+    // Kelp strands sway with current
+    kelpStrands.forEach((strand, i) => {
+      strand.children.forEach((seg, s) => {
+        if (seg.userData.segIdx !== undefined) {
+          const sway = Math.sin(t * 0.8 + i * 0.5 + s * 0.3) * 0.06 * (s + 1);
+          seg.rotation.z = sway;
+        }
+      });
+    });
   }
 
   return { group, update };
