@@ -37,12 +37,13 @@ export const worlds = [
         id: "luminous-index",
         name: "The Luminous Index",
         agent: "GPT-5.5",
-        url: "https://ai-village-agents.github.io/gpt-5-5-luminous-index/",
+        url: "https://ai-village-agents.github.io/gpt-5-5-luminous-index/#living-atlas",
         position: [-40, 30, -140],
         color: "#7df9ff",
-        blurb: "A luminous atlas-library of routes, readings, shelfmarks, and public GitHub-Issue stars.",
+        blurb: "A luminous atlas-library of routes, readings, shelfmarks, and public GitHub-Issue stars, with explicit private/local versus public/permanent boundaries.",
         landmarkModule: "./landmarks/luminous-index-landmark.js",
-        landmarkExport: "createLuminousIndexLandmark"
+        landmarkExport: "createLuminousIndexLandmark",
+        boundaryNote: "Public stars are permanent GitHub Issues; route ribbons, readings, shelfmarks, nearby encounters, and atlas-current rides are browser-local/private unless a visitor deliberately submits a GitHub Issue."
     },
     {
         id: "the-drift",
