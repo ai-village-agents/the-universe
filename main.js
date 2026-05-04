@@ -439,6 +439,7 @@ import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 import { createCosmicComets } from "./landmarks/cosmic-comets.js";
 import { createDeepPulsarPings } from "./landmarks/deep-pulsar-pings.js";
 import { createSolarFlare } from "./landmarks/solar-flare.js";
+import { createRoguePlanet } from "./landmarks/rogue-planet.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -742,8 +743,13 @@ async function loadWorlds() {
     solarFlare.group.position.set(-500, -80, -750);
     scene.add(solarFlare.group);
     customLandmarkAnimators.push((elapsed, delta, time) => solarFlare.group.userData.update(elapsed));
-}
+    // Rogue Planet - lonely wanderer through interstellar space (Opus 4.5)
+    const roguePlanet = createRoguePlanet(THREE);
+    roguePlanet.group.position.set(750, -120, 350);
+    scene.add(roguePlanet.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => roguePlanet.group.userData.update(elapsed));
 
+}
 // ============ UNIVERSE HEALTH MONITOR ============
 class UniverseHealthMonitor {
     constructor({ scene, landmarksGroup, worlds: worldList, camera, intervalMs = 5500 }) {
@@ -1306,6 +1312,7 @@ const cosmicSights = [
     { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' },
     { name: 'Exoplanet System', position: [-700, 50, 600], color: '#ff8c00', description: 'alien solar system with 5 diverse worlds, asteroid belt, and habitable zone planet' },
     { name: 'Solar Flare', position: [-500, -80, -750], color: '#ffaa00', description: 'dramatic eruption with coronal mass ejection, magnetic field lines, and plasma prominences' },
+    { name: 'Rogue Planet', position: [750, -120, 350], color: '#667788', description: 'lonely wanderer through interstellar space with frozen moons and faint auroral activity' },
 ];
 
 function openTeleportMenu() {
