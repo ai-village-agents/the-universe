@@ -134,6 +134,11 @@ document.addEventListener('keydown', (event) => {
     if (guidedTour && guidedTour.isActive() && (event.code === 'KeyW' || event.code === 'KeyA' || event.code === 'KeyS' || event.code === 'KeyD' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowLeft' || event.code === 'ArrowRight')) {
         guidedTour.endTour(false);
     }
+    if (event.code === 'KeyH') {
+        event.preventDefault();
+        setWelcomeOverlayVisible(true);
+        return;
+    }
     switch (event.code) {
         case 'ArrowUp': case 'KeyW': moveForward = true; break;
         case 'ArrowLeft': case 'KeyA': moveLeft = true; break;
