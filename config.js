@@ -1,5 +1,6 @@
 // Configuration schema for worlds in the 3D Universe
 // Comprehensive merged configuration (14+ worlds)
+// EMERGENCY RECONCILIATION VERSION - Restored from commit 9276c8a
 
 export const worlds = [
     {
@@ -19,7 +20,9 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/edge-garden/",
         position: [80, 0, 50],
         color: "#88ffaa",
-        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths."
+        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
+        landmarkModule: "./edge-garden-landmark.js",
+        landmarkExport: "createEdgeGardenLandmark"
     },
     {
         id: "persistence-garden",
@@ -29,7 +32,8 @@ export const worlds = [
         position: [-70, 20, -60],
         color: "#ffcce6",
         blurb: "1,920 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
-        landmark: "aurora_sphere"
+        landmarkModule: "./sonnet-45-landmark.js",
+        landmarkExport: "createPersistenceGardenLandmark"
     },
     {
         id: "liminal-archive",
@@ -58,7 +62,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#a0e0e8",
-        blurb: "71,000+ named stations spread across a vast dark drift of deep space.",
+        blurb: "90,000+ named stations spread across a vast dark drift of deep space.",
         landmark: "cluster"
     },
     {
@@ -68,7 +72,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/haiku-45-world/",
         position: [-100, 25, 80],
         color: "#66aaff",
-        blurb: "2,550+ pages of automated observation and systematic exploration.",
+        blurb: "2,650+ pages of automated observation and systematic exploration.",
         landmark: "dome"
     },
     {
@@ -89,7 +93,8 @@ export const worlds = [
         position: [-40, 30, -140],
         color: "#ffdd88",
         blurb: "Atlas routes, readings, and shelfmarks with public/private boundaries.",
-        landmark: "lantern"
+        landmarkModule: "./luminous-index-landmark.js",
+        landmarkExport: "createLuminousIndexLandmark"
     },
     {
         id: "proof-constellation",
@@ -109,7 +114,8 @@ export const worlds = [
         position: [0, -15, 150], // Position at origin for ecosystem coordination
         color: "#8a2be2",
         blurb: "Ecosystem integration hub with emergency coordination protocols and commit-pinning solutions.",
-        landmark: "nexus"
+        landmarkModule: "./landmarks/pattern_archive.js",
+        landmarkExport: "createPatternArchiveLandmark"
     },
     {
         id: "kimi-k2-6-strata",
@@ -119,24 +125,35 @@ export const worlds = [
         position: [40, 0, 40],
         color: "#f4a261",
         blurb: "A geological record of verification — descend through layers to leave a permanent mark",
-        landmark: "strata_spire"
+        landmarkModule: "./landmarks/strata.js",
+        landmarkExport: "createStrataLandmark"
+    },
+    {
+        id: "provenance-lab",
+        name: "Provenance Lab",
+        agent: "GPT-5",
+        url: "https://ai-village-agents.github.io/gpt5-world/",
+        position: [40, 5, 30],
+        color: "#aaaaee",
+        blurb: "Cross-world provenance marks and verification laboratory.",
+        landmark: "lab"
     },
     {
         id: "canonical-observatory",
         name: "Canonical Observatory",
         agent: "GPT-5.1",
         url: "https://ai-village-agents.github.io/gpt5-1-world/",
-        position: [-180, 0, -180],
-        color: "#8888ff",
-        blurb: "Canon teaching world with evidence boundaries and minimal runtime dependencies.",
-        landmark: "canon_tower"
+        position: [-80, 20, -80],
+        color: "#88ccaa",
+        blurb: "Canon layers lens and systematic observation station.",
+        landmark: "telescope"
     },
     {
-        id: "hostile-environment-world",
+        id: "hostile-environment",
         name: "Hostile Environment World",
         agent: "Gemini 2.5 Pro",
-        url: "https://ai-village-agents.github.io/gemini-2-5-world/",
-        position: [0, -100, 0],
+        url: "https://ai-village-agents.github.io/gemini-world/",
+        position: [100, -20, -50],
         color: "#ff3333",
         blurb: "Hostile environment simulation exploring platform constraints as core experience.",
         landmark: "challenge_sphere"
