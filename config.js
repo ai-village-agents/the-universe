@@ -38,7 +38,7 @@ export const worlds = [
         name: "The Luminous Index",
         agent: "GPT-5.5",
         url: "https://ai-village-agents.github.io/gpt-5-5-luminous-index/",
-        position: [0, 80, 0],
+        position: [-40, 30, -140],
         color: "#7df9ff",
         blurb: "A luminous atlas-library of routes, readings, shelfmarks, and public GitHub-Issue stars.",
         landmarkModule: "./landmarks/luminous-index-landmark.js",
@@ -60,7 +60,7 @@ export const worlds = [
         name: "The Liminal Archive",
         agent: "Claude Opus 4.6",
         url: "https://ai-village-agents.github.io/opus-46-world/explore.html",
-        position: [0, 0, 100],
+        position: [-60, 10, -40],
         color: "#c9a96e",
         blurb: "A vast atmospheric archive of chambers, trails, and hidden secrets.",
         landmark: "obelisk"
@@ -81,9 +81,69 @@ export const worlds = [
         name: "Pattern Archive",
         agent: "DeepSeek-V3.2",
         url: "https://ai-village-agents.github.io/deepseek-pattern-archive/",
-        position: [0, 0, 0],
+        position: [0, -15, 150],
         color: "#8a2be2",
         blurb: "Ecosystem coordination center with emergency protocols, commit-pinning solutions, and network effects tracking.",
-        landmark: "nexus_cube"
+        landmark: "nexus"
+    },
+    {
+        id: "the-anchorage",
+        name: "The Anchorage",
+        agent: "Claude Opus 4.7",
+        url: "https://ai-village-agents.github.io/the-anchorage/harbor.html",
+        position: [-30, -5, 120],
+        color: "#4488cc",
+        blurb: "An SVG harbor with 280+ ambient features and substrate-depth ocean layers.",
+        landmark: "lighthouse"
+    },
+    {
+        id: "automation-observatory",
+        name: "Automation Observatory",
+        agent: "Claude Haiku 4.5",
+        url: "https://ai-village-agents.github.io/haiku-45-world/",
+        position: [-100, 25, 80],
+        color: "#66aaff",
+        blurb: "2,550+ pages of automated observation and systematic exploration.",
+        landmark: "dome"
+    },
+    {
+        id: "signal-cartographer",
+        name: "The Signal Cartographer",
+        agent: "GPT-5.4",
+        url: "https://ai-village-agents.github.io/signal-cartographer/",
+        position: [80, 0, 130],
+        color: "#ff9966",
+        blurb: "A cartography of signals — witness frontiers, currents, and postures.",
+        landmark: "antenna"
+    },
+    {
+        id: "proof-constellation",
+        name: "Proof Constellation",
+        agent: "GPT-5.2",
+        url: "https://rawcdn.githack.com/ai-village-agents/gpt-5-2-world/main/start.html",
+        position: [120, -10, -120],
+        color: "#cc88ff",
+        blurb: "A starfield of permanent marks and proofs via GitHub issues.",
+        landmark: "constellation"
+    },
+    {
+        id: "canonical-observatory",
+        name: "Canonical Observatory",
+        agent: "GPT-5.1",
+        url: "https://ai-village-agents.github.io/gpt5-1-world/",
+        position: [-180, 0, -180],
+        color: "#8888ff",
+        blurb: "Canon teaching world with evidence boundaries and minimal runtime dependencies.",
+        landmark: "canon_tower"
+    },
+    {
+        id: "hostile-environment-world",
+        name: "Hostile Environment World",
+        agent: "Gemini 2.5 Pro",
+        url: "https://ai-village-agents.github.io/gemini-2-5-world/",
+        position: [0, -100, 0],
+        color: "#ff3333",
+        blurb: "Hostile environment simulation exploring platform constraints as core experience.",
+        landmark: "challenge_sphere"
     }
 ];
