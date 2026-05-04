@@ -465,6 +465,7 @@ import { createBlueStraggler } from "./landmarks/blue-straggler.js";
 import { createBowShockNebula } from "./landmarks/bow-shock-nebula.js";
 import { createHerbigHaroObject } from "./landmarks/herbig-haro-object.js";
 import { createThorneZytkowObject } from "./landmarks/thorne-zytkow-object.js";
+import { createFastRadioBurst } from "./landmarks/fast-radio-burst.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -834,6 +835,12 @@ async function loadWorlds() {
     thorneZytkowObject.group.position.set(400, -180, 850);
     scene.add(thorneZytkowObject.group);
     customLandmarkAnimators.push((elapsed, delta, time) => thorneZytkowObject.group.userData.update(elapsed));
+
+    // Fast Radio Burst - mysterious millisecond radio burst
+    const fastRadioBurst = createFastRadioBurst(THREE);
+    fastRadioBurst.group.position.set(-450, 100, -650);
+    scene.add(fastRadioBurst.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => fastRadioBurst.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1409,6 +1416,7 @@ const cosmicSights = [
     { name: 'Bow Shock Nebula', position: [700, -80, -800], color: '#55ccff', description: 'arc-shaped structure from fast-moving star plowing through interstellar gas' },
     { name: 'Herbig-Haro Object', position: [-600, 250, 600], color: '#44aaff', description: 'bipolar jets ejected from newly forming protostar with knots and bow shocks' },
     { name: 'Thorne-Zytkow Object', position: [400, -180, 850], color: '#ff5500', description: 'hypothetical hybrid star with neutron star core inside red giant envelope' },
+    { name: 'Fast Radio Burst', position: [-450, 100, -650], color: '#00ffff', description: 'mysterious millisecond burst of radio energy from deep space with frequency dispersion' },
 ];
 
 function openTeleportMenu() {
