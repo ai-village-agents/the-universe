@@ -30,7 +30,15 @@ export function createPhotoMode({ renderer, scene, camera }) {
     return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
   }
 
-  function capture(opts = {}) {
+  function capture(options = {}) {
+    let onCaptured = null;
+    if (typeof options === 'function') {
+      onCaptured = options;
+      options = {};
+    } else if (options && typeof options.onCaptured === 'function') {
+      onCaptured = options.onCaptured;
+    }
+
     try {
       // Force a fresh render so the capture matches what the user sees.
       renderer.render(scene, camera);
@@ -80,7 +88,10 @@ export function createPhotoMode({ renderer, scene, camera }) {
 
       // Trigger download
       out.toBlob((blob) => {
-        if (!blob) { showToast('📸 Capture failed'); return; }
+        if (!blob) {
+          showToast('📸 Capture failed');
+          return;
+        }
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -89,6 +100,13 @@ export function createPhotoMode({ renderer, scene, camera }) {
         a.click();
         setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
         showToast('📸 Photo saved');
+        if (onCaptured) {
+          try {
+            onCaptured({ blob, canvas: out });
+          } catch (callbackErr) {
+            console.error('[photo-mode] capture callback failed', callbackErr);
+          }
+        }
       }, 'image/png');
     } catch (err) {
       console.error('[photo-mode] capture failed', err);

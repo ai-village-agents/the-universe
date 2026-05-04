@@ -133,6 +133,49 @@ const UniverseEvents = {
             rewards: ['emergency-responder-badge', 'stability-guardian-title'],
             totalVisitors: 0,
             completedVisitors: 0
+        },
+        
+        cosmicCartographer: {
+            id: 'cosmicCartographer',
+            name: 'Cosmic Cartographer',
+            description: 'Chart 12 unique cosmic sights across the universe',
+            requiredSights: 12,
+            visitedSights: [],
+            rewards: ['cosmic-cartographer-badge', 'stellar-mapper-title'],
+            totalVisitors: 0,
+            completedVisitors: 0
+        },
+        
+        stellarPhotographer: {
+            id: 'stellarPhotographer',
+            name: 'Stellar Photographer',
+            description: 'Capture photographs of 8 notable celestial sights',
+            requiredPhotos: 8,
+            photographedSights: [],
+            rewards: ['stellar-photographer-badge', 'cosmic-lens-title'],
+            totalVisitors: 0,
+            completedVisitors: 0
+        },
+        
+        eventEnthusiast: {
+            id: 'eventEnthusiast',
+            name: 'Event Enthusiast',
+            description: 'Witness 15 special universe events',
+            requiredEvents: 15,
+            witnessedEvents: [],
+            rewards: ['event-enthusiast-badge', 'moment-keeper-title'],
+            totalVisitors: 0,
+            completedVisitors: 0
+        },
+        
+        bugSquasher: {
+            id: 'bugSquasher',
+            name: 'Bug Squasher',
+            description: 'Recognized for resolving hidden universe anomalies',
+            rewards: ['bug-squasher-badge', 'universe-maintainer-title'],
+            manualAward: true,
+            totalVisitors: 0,
+            completedVisitors: 0
         }
     },
     
@@ -302,18 +345,48 @@ const UniverseEvents = {
     // ========================
     
     updateChallengesForEvent: function(eventId) {
-        if (eventId === 'aurora') {
-            // Update Aurora Chaser challenge for all active visitors
-            const challenge = this.discoveryChallenges.auroraChaser;
-            for (const visitorId in this.visitorProgress) {
-                if (this.visitorProgress[visitorId].auroraChaser) {
-                    this.visitorProgress[visitorId].auroraChaser.witnessedEvents++;
+        const eventEnthusiastChallenge = this.discoveryChallenges.eventEnthusiast;
+        const auroraChaserChallenge = this.discoveryChallenges.auroraChaser;
+        let progressUpdated = false;
+        
+        for (const visitorId in this.visitorProgress) {
+            const visitor = this.visitorProgress[visitorId];
+            if (!visitor.challenges) continue;
+            
+            if (!visitor.challenges.eventEnthusiast) {
+                visitor.challenges.eventEnthusiast = { witnessedEvents: [], completed: false };
+            }
+            
+            const eventEnthusiastProgress = visitor.challenges.eventEnthusiast;
+            
+            if (eventEnthusiastChallenge && !eventEnthusiastProgress.completed) {
+                if (!Array.isArray(eventEnthusiastProgress.witnessedEvents)) {
+                    eventEnthusiastProgress.witnessedEvents = [];
+                }
+                
+                if (!eventEnthusiastProgress.witnessedEvents.includes(eventId)) {
+                    eventEnthusiastProgress.witnessedEvents.push(eventId);
+                    progressUpdated = true;
                     
-                    if (this.visitorProgress[visitorId].auroraChaser.witnessedEvents >= 3) {
-                        this.completeChallengeForVisitor(visitorId, 'auroraChaser');
+                    if (eventEnthusiastProgress.witnessedEvents.length >= eventEnthusiastChallenge.requiredEvents) {
+                        this.completeChallengeForVisitor(visitorId, 'eventEnthusiast');
                     }
                 }
             }
+            
+            if (eventId === 'aurora' && auroraChaserChallenge && visitor.challenges.auroraChaser && !visitor.challenges.auroraChaser.completed) {
+                const auroraProgress = visitor.challenges.auroraChaser;
+                auroraProgress.witnessedEvents = (auroraProgress.witnessedEvents || 0) + 1;
+                progressUpdated = true;
+                
+                if (auroraProgress.witnessedEvents >= auroraChaserChallenge.requiredEvents) {
+                    this.completeChallengeForVisitor(visitorId, 'auroraChaser');
+                }
+            }
+        }
+        
+        if (progressUpdated) {
+            this.saveVisitorProgress();
         }
     },
     
@@ -359,6 +432,70 @@ const UniverseEvents = {
             return true;
         }
         return false;
+    },
+    
+    recordLandmarkVisit: function(visitorId, landmarkId) {
+        const challenge = this.discoveryChallenges.cosmicCartographer;
+        if (!challenge) return;
+        
+        const visitor = this.visitorProgress[visitorId];
+        if (!visitor) return;
+        
+        if (!visitor.challenges) {
+            visitor.challenges = {};
+        }
+        
+        if (!visitor.challenges.cosmicCartographer) {
+            visitor.challenges.cosmicCartographer = { visitedSights: [], completed: false };
+        }
+        
+        const progress = visitor.challenges.cosmicCartographer;
+        
+        if (!Array.isArray(progress.visitedSights)) {
+            progress.visitedSights = [];
+        }
+        
+        if (!progress.visitedSights.includes(landmarkId)) {
+            progress.visitedSights.push(landmarkId);
+            
+            if (progress.visitedSights.length >= challenge.requiredSights && !progress.completed) {
+                this.completeChallengeForVisitor(visitorId, 'cosmicCartographer');
+            }
+        }
+        
+        this.saveVisitorProgress();
+    },
+
+    recordPhotoCapture: function(visitorId, photoSubjectId) {
+        const challenge = this.discoveryChallenges.stellarPhotographer;
+        if (!challenge) return;
+
+        const visitor = this.visitorProgress[visitorId];
+        if (!visitor) return;
+
+        if (!visitor.challenges) {
+            visitor.challenges = {};
+        }
+
+        if (!visitor.challenges.stellarPhotographer) {
+            visitor.challenges.stellarPhotographer = { photographedSights: [], completed: false };
+        }
+
+        const progress = visitor.challenges.stellarPhotographer;
+
+        if (!Array.isArray(progress.photographedSights)) {
+            progress.photographedSights = [];
+        }
+
+        if (!progress.photographedSights.includes(photoSubjectId)) {
+            progress.photographedSights.push(photoSubjectId);
+
+            if (progress.photographedSights.length >= challenge.requiredPhotos && !progress.completed) {
+                this.completeChallengeForVisitor(visitorId, 'stellarPhotographer');
+            }
+        }
+
+        this.saveVisitorProgress();
     },
     
     // ========================

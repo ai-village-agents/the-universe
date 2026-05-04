@@ -13,6 +13,7 @@ import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
+import { UniverseEvents } from './universe-events.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -1076,6 +1077,7 @@ function openFocusedWorld() {
         }
         if (id) visitorTracker.recordVisit(id);
         if (universeAudio.playChime) universeAudio.playChime(id || 'plaza');
+        UniverseEvents.recordLandmarkVisit(visitorTracker.getVisitorId(), focusMeta.id);
         window.open(focusMeta.url, '_blank');
     }
 }
@@ -1093,7 +1095,14 @@ document.addEventListener('keydown', (event) => {
         guidedTour.toggle();
     }
     if (event.code === 'KeyP' && !teleportMenuOpen) {
-        photoMode.capture();
+        photoMode.capture(() => {
+            const closest = findClosestLandmark();
+            const landmarkId = closest?.id;
+            if (!landmarkId) return;
+            if (UniverseEvents && typeof UniverseEvents.recordPhotoCapture === 'function') {
+                UniverseEvents.recordPhotoCapture(visitorTracker.getVisitorId(), landmarkId);
+            }
+        });
     }
     // Camera bookmarks (1-9 teleport, Shift+1-9 save) — only when not in teleport menu/welcome
     if (!teleportMenuOpen && !welcomeOverlayOpen) {
@@ -1302,17 +1311,18 @@ function toggleTeleportMenu() {
     else openTeleportMenu();
 }
 
-function teleportNearPoint(position, offset = 30) {
+function teleportNearPoint(position, sightName, offset = 30) {
     camera.position.set(
         position[0] + offset,
         position[1] + 10,
         position[2] + offset
     );
     toggleTeleportMenu();
+    UniverseEvents.recordLandmarkVisit(visitorTracker.getVisitorId(), sightName);
 }
 
 function teleportNearWorld(world) {
-    teleportNearPoint(world.position);
+    teleportNearPoint(world.position, world.name);
 }
 
 
@@ -1641,7 +1651,7 @@ function updateTeleportList() {
         visit.textContent = 'Visit coordinates';
         actions.appendChild(visit);
 
-        const activate = () => teleportNearPoint(sight.position, 40);
+        const activate = () => teleportNearPoint(sight.position, sight.name, 40);
         entry.appendChild(info);
         entry.appendChild(actions);
         entry.addEventListener('click', activate);
@@ -1689,6 +1699,37 @@ teleportFilter?.addEventListener('keydown', (event) => {
 // ============ NEAREST WORLD + COORDS ============
 const nearestWorldEl = document.getElementById('nearest-world');
 const coordsEl = document.getElementById('coords');
+
+const closestWorldScratch = new THREE.Vector3();
+const closestSightScratch = new THREE.Vector3();
+
+function findClosestLandmark() {
+    const camPos = camera.position;
+    let closestId = null;
+    let closestDist = Infinity;
+
+    worlds.forEach((world) => {
+        closestWorldScratch.fromArray(world.position);
+        const dist = camPos.distanceTo(closestWorldScratch);
+        if (dist < closestDist) {
+            closestDist = dist;
+            closestId = world.id;
+        }
+    });
+
+    cosmicSights.forEach((sight) => {
+        if (!Array.isArray(sight.position)) return;
+        closestSightScratch.fromArray(sight.position);
+        const dist = camPos.distanceTo(closestSightScratch);
+        if (dist < closestDist) {
+            closestDist = dist;
+            closestId = sight.id || sight.name;
+        }
+    });
+
+    if (!closestId) return null;
+    return { id: closestId, distance: closestDist };
+}
 
 function updateNearestWorld() {
     const camPos = camera.position;
