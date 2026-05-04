@@ -388,6 +388,7 @@ import { createGalaxyDust } from "./landmarks/galaxy-dust.js";
 import { createRingedPlanet } from "./landmarks/ringed-planet.js";
 import { createNebula } from "./landmarks/nebula.js";
 import { createAsteroidField } from "./landmarks/asteroid-field.js";
+import { createWormhole } from "./landmarks/wormhole.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -500,6 +501,13 @@ async function loadWorlds() {
     asteroidField.group.position.set(-300, 50, 200);
     scene.add(asteroidField.group);
     customLandmarkAnimators.push((elapsed, delta, time) => asteroidField.group.userData.update(elapsed));
+
+    // Wormhole - swirling interdimensional portal
+    const wormhole = createWormhole(THREE);
+    wormhole.group.position.set(350, 80, -150);
+    wormhole.group.rotation.x = Math.PI / 6;
+    scene.add(wormhole.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => wormhole.group.userData.update(elapsed));
 
 }
 
