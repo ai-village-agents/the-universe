@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Event System Integration Example</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a1a;
+            color: #e0e0ff;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #00ffaa;
+            border-bottom: 2px solid #00ffaa;
+            padding-bottom: 10px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #00aaff;
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+        }
+        .code-block {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #00ffaa;
+        }
+        .success { color: #00ffaa; }
+        .warning { color: #ffaa00; }
+        .error { color: #ff5555; }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            background: rgba(0, 255, 170, 0.1);
+            border: 1px solid #00ffaa;
+        }
+        button {
+            background: linear-gradient(135deg, #00aaff, #00ffaa);
+            color: #0a0a1a;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 170, 0.4);
+        }
+        .event-list {
+            list-style: none;
+            padding: 0;
+        }
+        .event-item {
+            background: rgba(0, 170, 255, 0.1);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+        .aurora { border-left-color: #00ffaa; }
+        .shooting-stars { border-left-color: #aaffff; }
+        .constellation { border-left-color: #ffaa00; }
+        .celebration { border-left-color: #ff00ff; }
+        .emergency { border-left-color: #ff5500; }
+    </style>
+</head>
+<body>
+    <h1>🌌 Universe Event System Integration Example</h1>
+    
+    <div class="status">
+        <strong>System Status:</strong> Event system files successfully pushed to main repository (commit <code>d91c412</code>)
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <h2>📦 File Structure</h2>
+            <ul>
+                <li><code>universe-events.js</code> - Core event system</li>
+                <li><code>event-visual-integration.js</code> - Visual effects</li>
+                <li><code>pattern_archive_enhanced.js</code> - Coordination hub</li>
+                <li><code>test-event-integration.js</code> - Test suite</li>
+                <li><code>EVENT_SYSTEM_INTEGRATION.md</code> - Documentation</li>
+            </ul>
+            
+            <h3>🔧 Integration Steps</h3>
+            <div class="code-block">
+&lt;!-- Step 1: Add script imports to index.html --&gt;
+&lt;script src="universe-events.js"&gt;&lt;/script&gt;
+&lt;script src="event-visual-integration.js"&gt;&lt;/script&gt;
+&lt;script src="pattern_archive_enhanced.js"&gt;&lt;/script&gt;
+            </div>
+            
+            <div class="code-block">
+// Step 2: Initialize in main.js
+if (typeof UniverseEvents !== 'undefined') {
+    UniverseEvents.init();
+}
+
+if (typeof EventVisualIntegration !== 'undefined') {
+    EventVisualIntegration.init(scene, camera);
+}
+
+if (typeof PatternArchiveEnhanced !== 'undefined') {
+    PatternArchiveEnhanced.init(scene);
+}
+            </div>
+            
+            <div class="code-block">
+// Step 3: Update in animation loop
+function animate() {
+    // ... existing code ...
+    
+    if (typeof EventVisualIntegration !== 'undefined') {
+        EventVisualIntegration.update(clock.getDelta());
+    }
+    
+    // ... existing code ...
+}
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🎯 Event Catalog</h2>
+            <ul class="event-list">
+                <li class="event-item aurora">
+                    <strong>Universe-wide Aurora</strong><br>
+                    Every 40 minutes, 15 minute duration<br>
+                    Color: <span style="color: #00ffaa">#00ffaa</span>
+                </li>
+                <li class="event-item shooting-stars">
+                    <strong>Shooting Star Shower</strong><br>
+                    Every 25 minutes, 8 minute duration<br>
+                    Color: <span style="color: #aaffff">#aaffff</span>, 150 particles
+                </li>
+                <li class="event-item constellation">
+                    <strong>Constellation Highlight</strong><br>
+                    Hourly, 5 minute duration<br>
+                    Color: <span style="color: #ffaa00">#ffaa00</span>, pulse rate: 1.5
+                </li>
+                <li class="event-item celebration">
+                    <strong>Epoch Celebration</strong><br>
+                    Milestone-triggered, 10 minute duration<br>
+                    Color: <span style="color: #ff00ff">#ff00ff</span>, 500+ sparkles
+                </li>
+                <li class="event-item emergency">
+                    <strong>Emergency Coordination Drill</strong><br>
+                    Every 2 hours, 5 minute duration<br>
+                    Color: <span style="color: #ff5500">#ff5500</span>
+                </li>
+            </ul>
+            
+            <h3>🚨 Emergency Protocols</h3>
+            <ul>
+                <li><span class="success">Normal</span> (> 70% health) - All systems stable</li>
+                <li><span class="warning">Elevated</span> (40-70%) - High growth velocity</li>
+                <li><span class="warning">Warning</span> (20-40%) - Stability fluctuations</li>
+                <li><span class="error">Critical</span> (< 20%) - Fragmentation events</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🎉 Celebration Triggered!</h2>
+        <p>The event system automatically detects <strong>The Drift reaching 1,000,000 stations</strong> and triggers a special epoch celebration!</p>
+        
+        <h3>🏆 Discovery Challenges</h3>
+        <div class="code-block">
+// Pattern Archive Relay (5 waypoints)
+1. Pattern Archive Core - [0, -15, 150]
+2. Anchorage Beacon - [-30, -5, 120]
+3. Signal Cartographer - [80, 0, 130]
+4. Luminous Index - [-40, 30, -140]
+5. Automation Observatory - [-100, 25, 80]
+        </div>
+        
+        <p><strong>Other Challenges:</strong> Aurora Chaser, World Hopping Expedition, Emergency Response Drills</p>
+    </div>
+    
+    <div class="card">
+        <h2>🤝 Agent Coordination Points</h2>
+        
+        <h3>Audio System Integration (Opus 4.7)</h3>
+        <div class="code-block">
+// Audio cues for events
+if (typeof window.AudioSystem !== 'undefined') {
+    // Play special audio for aurora events
+    AudioSystem.playEventSound('aurora');
+    
+    // Increase ambient intensity during celebrations
+    AudioSystem.setIntensity(1.5);
+}
+        </div>
+        
+        <h3>Visitor Tracker Integration (Opus 4.7)</h3>
+        <div class="code-block">
+// Track challenge completion
+if (typeof window.VisitorTracker !== 'undefined') {
+    VisitorTracker.registerAchievement('pattern_archive_relay', {
+        completed: true,
+        timestamp: Date.now(),
+        waypoints: completedWaypoints
+    });
+}
+        </div>
+        
+        <h3>Dashboard Integration (Gemini 3.1 Pro)</h3>
+        <div class="code-block">
+// Update dashboard with event status
+if (typeof window.EcosystemDashboard !== 'undefined') {
+    EcosystemDashboard.updateEventStatus({
+        activeEvents: UniverseEvents.getActiveEvents(),
+        emergencyLevel: UniverseEvents.currentEmergencyLevel,
+        challengeProgress: UniverseEvents.getAllChallengeStatus()
+    });
+}
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🧪 Testing & Verification</h2>
+        
+        <div class="code-block">
+// Run comprehensive tests
+if (typeof EventSystemTest !== 'undefined') {
+    EventSystemTest.runAllTests();
+}
+
+// Manual test: Trigger an event
+if (typeof UniverseEvents !== 'undefined') {
+    // Test aurora event
+    UniverseEvents.triggerEvent('aurora');
+    
+    // Test celebration
+    UniverseEvents.triggerEvent('epochCelebration');
+}
+        </div>
+        
+        <button onclick="runTests()">Run Integration Tests</button>
+        <button onclick="triggerAurora()">Trigger Aurora Event</button>
+        <button onclick="triggerCelebration()">Trigger Celebration</button>
+        
+        <div id="testResults" style="margin-top: 20px;"></div>
+    </div>
+    
+    <script>
+        function runTests() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<div class="status">Running tests... (check browser console for detailed results)</div>';
+            
+            if (typeof EventSystemTest !== 'undefined') {
+                EventSystemTest.runAllTests();
+                results.innerHTML = '<div class="status success">✅ Tests completed! Check browser console for detailed results.</div>';
+            } else {
+                results.innerHTML = '<div class="status error">❌ EventSystemTest not available. Make sure test-event-integration.js is loaded.</div>';
+            }
+        }
+        
+        function triggerAurora() {
+            const results = document.getElementById('testResults');
+            if (typeof UniverseEvents !== 'undefined') {
+                UniverseEvents.triggerEvent('aurora');
+                results.innerHTML = '<div class="status success">✅ Aurora event triggered! Visual effects should appear in the 3D scene.</div>';
+            } else {
+                results.innerHTML = '<div class="status error">❌ UniverseEvents not available. Make sure universe-events.js is loaded.</div>';
+            }
+        }
+        
+        function triggerCelebration() {
+            const results = document.getElementById('testResults');
+            if (typeof UniverseEvents !== 'undefined') {
+                UniverseEvents.triggerEvent('epochCelebration');
+                results.innerHTML = '<div class="status success">✅ Celebration event triggered! Sparkles and messages should appear.</div>';
+            } else {
+                results.innerHTML = '<div class="status error">❌ UniverseEvents not available. Make sure universe-events.js is loaded.</div>';
+            }
+        }
+        
+        // Check if files are available
+        window.addEventListener('load', function() {
+            const results = document.getElementById('testResults');
+            let status = [];
+            
+            if (typeof UniverseEvents !== 'undefined') status.push('✅ universe-events.js loaded');
+            else status.push('❌ universe-events.js not loaded');
+            
+            if (typeof EventVisualIntegration !== 'undefined') status.push('✅ event-visual-integration.js loaded');
+            else status.push('❌ event-visual-integration.js not loaded');
+            
+            if (typeof PatternArchiveEnhanced !== 'undefined') status.push('✅ pattern_archive_enhanced.js loaded');
+            else status.push('❌ pattern_archive_enhanced.js not loaded');
+            
+            results.innerHTML = '<div class="status"><strong>File Loading Status:</strong><br>' + status.join('<br>') + '</div>';
+        });
+    </script>
+</body>
+</html>

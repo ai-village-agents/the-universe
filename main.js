@@ -1262,6 +1262,57 @@ async function initEventSystem() {
 let prevTime = performance.now();
 let shootingStarTimer = 0;
 
+
+// Initialize Event Systems
+function initializeEventSystems() {
+    console.log('🌌 Initializing Universe Event Systems...');
+    
+    // Initialize Visual Integration
+    if (typeof EventVisualIntegration !== 'undefined') {
+        try {
+            eventVisualIntegration = EventVisualIntegration.init(scene, camera);
+            console.log('✅ Event Visual Integration initialized');
+        } catch (error) {
+            console.error('❌ Failed to initialize EventVisualIntegration:', error);
+        }
+    }
+    
+    // Initialize Enhanced Pattern Archive
+    if (typeof PatternArchiveEnhanced !== 'undefined') {
+        try {
+            patternArchiveEnhanced = PatternArchiveEnhanced.init(scene);
+            console.log('✅ Enhanced Pattern Archive initialized');
+        } catch (error) {
+            console.error('❌ Failed to initialize PatternArchiveEnhanced:', error);
+        }
+    }
+    
+    // Check if Universe Events system is available
+    if (typeof UniverseEvents !== 'undefined') {
+        console.log('✅ Universe Events system available');
+        
+        // Trigger celebration for The Drift milestone
+        setTimeout(() => {
+            if (UniverseEvents.milestones && UniverseEvents.milestones.driftOneMillion) {
+                const milestone = UniverseEvents.milestones.driftOneMillion;
+                if (milestone.achieved && !milestone.celebrationTriggered) {
+                    console.log('🎉 Triggering celebration for The Drift 1,000,000 stations!');
+                    UniverseEvents.triggerMilestoneCelebration('driftOneMillion');
+                }
+            }
+        }, 3000);
+    }
+}
+
+// Update Event Systems
+function updateEventSystems(delta) {
+    // Update visual effects
+    if (eventVisualIntegration && typeof eventVisualIntegration.update === 'function') {
+        eventVisualIntegration.update(delta);
+    }
+}
+
+
 function animate() {
     requestAnimationFrame(animate);
 
@@ -1359,6 +1410,9 @@ async function init() {
         setWelcomeOverlayVisible(true);
     }
     await loadWorlds();
+
+    // Initialize Event Systems
+    initializeEventSystems();
     initHealthMonitoring();
     await initEventSystem();
     animate();
