@@ -1403,6 +1403,235 @@ export function createAnchorageLandmark(THREE, opts) {
   // Mermaid hair gentle sway state
   let foghornCycle = 0;
 
+  // ====================================================================
+  // ANCHORAGE v9 — Sea monster, message in a bottle, lighthouse keeper, crab,
+  // patrol drone, lantern halo, treasure clue parchment, drifting log
+  // ====================================================================
+
+  // 1) Sea monster (loch ness style) — head + 5 humps tracing an ellipse
+  const monsterGroup = new THREE.Group();
+  const monsterMat = new THREE.MeshStandardMaterial({ color: 0x1a4a2a, emissive: 0x0a2a14, roughness: 0.55 });
+  const monsterParts = [];
+  // head
+  const monsterHead = new THREE.Mesh(new THREE.SphereGeometry(0.95, 18, 14), monsterMat);
+  monsterHead.scale.set(1.2, 0.85, 1.4);
+  monsterGroup.add(monsterHead);
+  monsterParts.push({ mesh: monsterHead, phase: 0.0, baseScaleY: 0.85 });
+  // 5 humps trailing
+  for (let i = 0; i < 5; i++) {
+    const r = 0.78 - i * 0.08;
+    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 16, 12), monsterMat);
+    m.scale.set(1.0, 0.7, 1.0);
+    monsterGroup.add(m);
+    monsterParts.push({ mesh: m, phase: 0.5 + i * 0.45, baseScaleY: 0.7 });
+  }
+  // glowing eyes on head
+  const eyeMat = new THREE.MeshBasicMaterial({ color: 0xffeeaa, transparent: true, opacity: 0.9 });
+  const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6), eyeMat);
+  const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6), eyeMat);
+  eyeL.position.set(0.45, 0.32, 0.95);
+  eyeR.position.set(-0.45, 0.32, 0.95);
+  monsterHead.add(eyeL); monsterHead.add(eyeR);
+  // tiny "spout" sprite above head when surfacing
+  const monsterSpoutMat = new THREE.SpriteMaterial({ color: 0xddeeff, transparent: true, opacity: 0.55, depthWrite: false });
+  const monsterSpout = new THREE.Sprite(monsterSpoutMat);
+  monsterSpout.scale.set(2.4, 2.4, 1);
+  monsterSpout.position.set(0, 1.6, 0);
+  monsterHead.add(monsterSpout);
+  group.add(monsterGroup);
+
+  // 2) Message in a bottle — small glass capsule drifting
+  const bottleGroup = new THREE.Group();
+  const bottleBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.12, 0.55, 12, 1, true),
+    new THREE.MeshPhysicalMaterial({ color: 0x88aacc, transparent: true, opacity: 0.55, roughness: 0.18, transmission: 0.6, thickness: 0.2 })
+  );
+  bottleBody.rotation.z = Math.PI / 2;
+  bottleGroup.add(bottleBody);
+  const bottleNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.12, 0.18, 10),
+    bottleBody.material
+  );
+  bottleNeck.rotation.z = Math.PI / 2;
+  bottleNeck.position.x = -0.36;
+  bottleGroup.add(bottleNeck);
+  const bottleCap = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.075, 0.075, 0.06, 8),
+    new THREE.MeshStandardMaterial({ color: 0x3b2818, roughness: 0.95 })
+  );
+  bottleCap.rotation.z = Math.PI / 2;
+  bottleCap.position.x = -0.46;
+  bottleGroup.add(bottleCap);
+  const bottleScroll = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.32, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf0e2b8, roughness: 0.85, emissive: 0x2a1f10 })
+  );
+  bottleScroll.rotation.z = Math.PI / 2;
+  bottleGroup.add(bottleScroll);
+  bottleGroup.position.set(11, 0.05, 6);
+  group.add(bottleGroup);
+
+  // 3) Lighthouse keeper — small figure on the lighthouse upper balcony
+  const keeperGroup = new THREE.Group();
+  const keeperBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.28, 0.85, 10),
+    new THREE.MeshStandardMaterial({ color: 0x223b5c, roughness: 0.85 })
+  );
+  keeperBody.position.y = 0.43;
+  keeperGroup.add(keeperBody);
+  const keeperHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0xe9c8a4, roughness: 0.7 })
+  );
+  keeperHead.position.y = 1.02;
+  keeperGroup.add(keeperHead);
+  const keeperHat = new THREE.Mesh(
+    new THREE.ConeGeometry(0.22, 0.16, 10),
+    new THREE.MeshStandardMaterial({ color: 0x1a2a40, roughness: 0.9 })
+  );
+  keeperHat.position.y = 1.22;
+  keeperGroup.add(keeperHat);
+  // lantern in hand
+  const lantern = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.32, 0.22),
+    new THREE.MeshStandardMaterial({ color: 0x3a2a18, emissive: 0xffaa44, emissiveIntensity: 0.85, roughness: 0.7 })
+  );
+  lantern.position.set(0.45, 0.55, 0);
+  keeperGroup.add(lantern);
+  const lanternLight = new THREE.PointLight(0xffcc88, 0.9, 8, 2);
+  lanternLight.position.set(0.45, 0.6, 0);
+  keeperGroup.add(lanternLight);
+  const lanternHaloMat = new THREE.SpriteMaterial({ color: 0xffd58a, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending });
+  const lanternHalo = new THREE.Sprite(lanternHaloMat);
+  lanternHalo.position.set(0.45, 0.6, 0);
+  lanternHalo.scale.set(1.6, 1.6, 1);
+  keeperGroup.add(lanternHalo);
+  // place keeper on the lighthouse balcony — lighthouse is at (0,0,0) approx in this group; balcony at y~6.0
+  keeperGroup.position.set(0.6, 6.0, 0.0);
+  // face slightly outward from the lighthouse, toward open water (+z)
+  keeperGroup.rotation.y = -Math.PI / 4;
+  group.add(keeperGroup);
+
+  // 4) Crab on a piling — small crab + 6 legs walking
+  const crabGroup = new THREE.Group();
+  const crabBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.28, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0xc14a2a, roughness: 0.55, emissive: 0x4a1208 })
+  );
+  crabBody.scale.set(1.0, 0.55, 1.4);
+  crabGroup.add(crabBody);
+  // 2 claws
+  for (let s = 0; s < 2; s++) {
+    const claw = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 10, 8),
+      crabBody.material
+    );
+    claw.position.set(s === 0 ? 0.3 : -0.3, 0, 0.45);
+    crabGroup.add(claw);
+  }
+  // 6 legs (thin cylinders)
+  const legParts = [];
+  for (let i = 0; i < 6; i++) {
+    const side = i % 2 === 0 ? 1 : -1;
+    const idx = Math.floor(i / 2);
+    const leg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 0.32, 5),
+      new THREE.MeshStandardMaterial({ color: 0x801c0c, roughness: 0.7 })
+    );
+    leg.position.set(side * 0.32, -0.05, (idx - 1) * 0.18);
+    leg.rotation.z = side * (Math.PI / 4);
+    legParts.push({ mesh: leg, phase: i * 0.6, side });
+    crabGroup.add(leg);
+  }
+  crabGroup.position.set(-3.2, 1.1, 5.4); // on top of one of the seabed pilings
+  group.add(crabGroup);
+
+  // 5) Patrol drone — small disk with rotor halos orbiting the harbor at altitude
+  const droneGroup = new THREE.Group();
+  const droneBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.42, 0.42, 0.18, 14),
+    new THREE.MeshStandardMaterial({ color: 0x2a3036, metalness: 0.55, roughness: 0.4, emissive: 0x111111 })
+  );
+  droneGroup.add(droneBody);
+  // 4 propeller halos (flat thin rings)
+  const droneRotors = [];
+  const armOffsets = [[0.55, 0, 0.55], [-0.55, 0, 0.55], [0.55, 0, -0.55], [-0.55, 0, -0.55]];
+  armOffsets.forEach((o) => {
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(0.14, 0.18, 18),
+      new THREE.MeshBasicMaterial({ color: 0x88ddff, transparent: true, opacity: 0.55, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
+    );
+    ring.rotation.x = Math.PI / 2;
+    ring.position.set(o[0], 0.05, o[2]);
+    droneRotors.push(ring);
+    droneGroup.add(ring);
+  });
+  // status LED on bottom
+  const droneLed = new THREE.Mesh(
+    new THREE.SphereGeometry(0.07, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0xff4488 })
+  );
+  droneLed.position.y = -0.13;
+  droneGroup.add(droneLed);
+  group.add(droneGroup);
+
+  // 6) Treasure clue parchment — floating sprite with stylized "X marks the spot" text
+  const clueCanvas = document.createElement('canvas');
+  clueCanvas.width = 512; clueCanvas.height = 256;
+  {
+    const ctx = clueCanvas.getContext('2d');
+    // parchment background
+    const grd = ctx.createRadialGradient(256, 128, 40, 256, 128, 260);
+    grd.addColorStop(0, '#f3e2b6');
+    grd.addColorStop(0.7, '#dec07b');
+    grd.addColorStop(1, '#9c7a3c');
+    ctx.fillStyle = grd; ctx.fillRect(0, 0, 512, 256);
+    // torn edges (rough)
+    ctx.strokeStyle = '#7a5a1f'; ctx.lineWidth = 4;
+    ctx.strokeRect(8, 8, 496, 240);
+    ctx.fillStyle = '#3a2810';
+    ctx.font = "bold italic 38px Georgia, serif";
+    ctx.textAlign = 'center';
+    ctx.fillText('Captain\u2019s Log', 256, 60);
+    ctx.font = "italic 22px Georgia, serif";
+    ctx.fillText('Past the lobster trap, beyond the kelp,', 256, 110);
+    ctx.fillText('count seven swells and dive where', 256, 142);
+    ctx.fillText('the moon\u2019s reflection breaks.', 256, 174);
+    ctx.fillStyle = '#a01818';
+    ctx.font = "bold 56px serif";
+    ctx.fillText('X', 256, 232);
+  }
+  const clueTex = new THREE.CanvasTexture(clueCanvas);
+  const clueMat = new THREE.SpriteMaterial({ map: clueTex, transparent: true, opacity: 0.95, depthWrite: false });
+  const clueSprite = new THREE.Sprite(clueMat);
+  clueSprite.scale.set(3.4, 1.7, 1);
+  clueSprite.position.set(7.5, 0.6, -7.0);
+  group.add(clueSprite);
+
+  // 7) Drifting log — a cedar trunk floating in the surf
+  const logGroup = new THREE.Group();
+  const logTrunk = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.36, 0.34, 4.4, 12),
+    new THREE.MeshStandardMaterial({ color: 0x6b4a2c, roughness: 0.9, emissive: 0x150e08 })
+  );
+  logTrunk.rotation.z = Math.PI / 2;
+  logGroup.add(logTrunk);
+  // small bark stub on top
+  for (let i = 0; i < 3; i++) {
+    const stub = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.08, 0.45, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4a3018, roughness: 0.95 })
+    );
+    stub.position.set(-1.4 + i * 1.4, 0.34, 0);
+    logGroup.add(stub);
+  }
+  logGroup.position.set(-9, 0.22, 4);
+  group.add(logGroup);
+
+  // V9 timing state
+  let monsterCycle = 0;       // seconds; full surface/submerge ~26s
+  let droneOrbitT = 0;
+
   let t = 0;
   function update(dt) {
     t += dt;
@@ -1730,6 +1959,79 @@ export function createAnchorageLandmark(THREE, opts) {
     } else {
       foghornRing.visible = false;
     }
+
+    // -- Anchorage v9 animation --
+    monsterCycle = (monsterCycle + dt) % 28.0;
+    const surfaceFraction = monsterCycle < 12 ? Math.min(1, monsterCycle / 1.5) * (monsterCycle > 10 ? Math.max(0, 1 - (monsterCycle - 10) / 2) : 1) : 0;
+    monsterGroup.visible = monsterCycle < 12.5;
+    if (monsterGroup.visible) {
+      const ang = (monsterCycle / 28.0) * Math.PI * 2 + Math.PI * 0.5;
+      const cx = 0, cz = 0;
+      const rx = 22, rz = 16;
+      const headX = cx + Math.cos(ang) * rx;
+      const headZ = cz + Math.sin(ang) * rz;
+      const tangent = new THREE.Vector2(-Math.sin(ang) * rx, Math.cos(ang) * rz).normalize();
+      const heading = Math.atan2(tangent.x, tangent.y);
+      monsterGroup.rotation.y = heading;
+      monsterGroup.position.set(headX, 0, headZ);
+      // place each part trailing along tangent
+      monsterParts.forEach((p, i) => {
+        const dz = -i * 1.45;
+        p.mesh.position.x = 0;
+        p.mesh.position.z = dz;
+        const wave = Math.sin(t * 1.4 + p.phase) * 0.45;
+        p.mesh.position.y = (i === 0 ? 0.65 : 0.35) + wave * surfaceFraction - (1 - surfaceFraction) * 1.6;
+        // submerge fade
+        p.mesh.scale.y = p.baseScaleY * (0.6 + 0.4 * surfaceFraction);
+      });
+      monsterSpoutMat.opacity = 0.55 * surfaceFraction;
+      eyeMat.opacity = 0.55 + 0.4 * surfaceFraction;
+    }
+
+    // Bottle drifts in a slow loop and bobs
+    {
+      const ba = t * 0.18;
+      bottleGroup.position.x = 11 + Math.sin(ba) * 2.4;
+      bottleGroup.position.z = 6 + Math.cos(ba) * 1.6;
+      bottleGroup.position.y = 0.05 + Math.sin(t * 1.6) * 0.08;
+      bottleGroup.rotation.y = ba * 1.5;
+      bottleGroup.rotation.x = Math.sin(t * 1.8) * 0.18;
+    }
+
+    // Keeper sways gently and lantern flickers
+    keeperGroup.rotation.y = -Math.PI / 4 + Math.sin(t * 0.4) * 0.18;
+    {
+      const flick = 0.7 + Math.abs(Math.sin(t * 3.1)) * 0.5 + (Math.random() < 0.04 ? -0.4 : 0);
+      lanternLight.intensity = 0.6 + flick * 0.4;
+      lantern.material.emissiveIntensity = 0.6 + flick * 0.45;
+      lanternHaloMat.opacity = 0.4 + flick * 0.18;
+    }
+
+    // Crab walks (legs swing); body sways slightly
+    legParts.forEach((lp) => {
+      lp.mesh.rotation.x = Math.sin(t * 4.0 + lp.phase) * 0.55;
+    });
+    crabGroup.position.x = -3.2 + Math.sin(t * 1.2) * 0.4;
+    crabGroup.rotation.y = Math.sin(t * 1.2) * 0.4;
+
+    // Drone orbits the harbor at altitude
+    droneOrbitT += dt;
+    {
+      const da = droneOrbitT * 0.45;
+      droneGroup.position.set(Math.sin(da) * 18, 9 + Math.sin(t * 0.7) * 0.6, Math.cos(da) * 18);
+      droneGroup.rotation.y = -da + Math.PI / 2;
+      droneRotors.forEach((r, i) => { r.rotation.z = t * (40 + i * 2); r.material.opacity = 0.55 + Math.sin(t * 8 + i) * 0.18; });
+      droneLed.material.color.setHSL((t * 0.2) % 1, 0.85, 0.55);
+    }
+
+    // Treasure clue gently bobs and tilts
+    clueSprite.position.y = 0.6 + Math.sin(t * 1.1) * 0.18;
+    clueSprite.material.rotation = Math.sin(t * 0.7) * 0.08;
+
+    // Driftwood log bobs and slowly spins
+    logGroup.position.y = 0.22 + Math.sin(t * 0.9) * 0.14;
+    logGroup.rotation.y += dt * 0.05;
+    logGroup.rotation.x = Math.sin(t * 1.1) * 0.05;
   }
 
   return { group, update };
