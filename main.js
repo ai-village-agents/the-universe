@@ -8,6 +8,7 @@ import {
 } from './ecosystem-api.js';
 import { createUniverseAudio } from './audio.js';
 import { createVisitorTracker } from './visitor-tracker.js';
+import { EventVisualIntegration } from './event-visual-integration.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -57,6 +58,7 @@ function startAudioOnGesture() {
 
 // Visitor progress tracker (persists which worlds have been opened in localStorage)
 const visitorTracker = createVisitorTracker(worlds);
+let eventVisualIntegration = null;
 
 const welcomeOverlay = document.getElementById('welcome-overlay');
 const welcomeExploreBtn = document.getElementById('welcome-explore-btn');
@@ -1243,6 +1245,19 @@ function initHealthMonitoring() {
     return healthMonitor;
 }
 
+async function initEventSystem() {
+    try {
+        eventVisualIntegration = EventVisualIntegration.init(scene, camera);
+        // universe-events.js intentionally initializes itself on import and uses
+        // window.EventVisualIntegration for display/end hooks, so import it only
+        // after the visual bridge has a scene and camera.
+        await import('./universe-events.js');
+    } catch (error) {
+        console.warn('Universe event system could not initialize:', error);
+        eventVisualIntegration = null;
+    }
+}
+
 // Animation Loop
 let prevTime = performance.now();
 let shootingStarTimer = 0;
@@ -1292,6 +1307,7 @@ function animate() {
     const elapsed = time * 0.001;
     customLandmarkAnimators.forEach((update) => update(elapsed, delta, time));
     universeAudio.update(camera, delta);
+    eventVisualIntegration?.update(delta);
     landmarks.children.forEach(grp => {
         if (!grp.userData || !grp.userData.core) return;
         const core = grp.userData.core;
@@ -1344,6 +1360,7 @@ async function init() {
     }
     await loadWorlds();
     initHealthMonitoring();
+    await initEventSystem();
     animate();
 }
 

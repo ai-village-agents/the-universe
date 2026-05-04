@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 /**
  * EVENT VISUAL INTEGRATION
  * Three.js visual effects for universe events and challenges
@@ -103,10 +105,10 @@ const EventVisualIntegration = {
             positions[i3 + 1] = Math.random() * 300 - 100;
             positions[i3 + 2] = (Math.random() - 0.5) * 600;
             
-            const color = new THREE.Color(color);
-            colors[i3] = color.r;
-            colors[i3 + 1] = color.g;
-            colors[i3 + 2] = color.b;
+            const particleColor = new THREE.Color(color);
+            colors[i3] = particleColor.r;
+            colors[i3 + 1] = particleColor.g;
+            colors[i3 + 2] = particleColor.b;
         }
         
         particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -730,7 +732,7 @@ const EventVisualIntegration = {
     }
 };
 
-// Global initialization
+// Expose for UniverseEvents, which calls window.EventVisualIntegration when events trigger.
 if (typeof window !== 'undefined') {
     window.EventVisualIntegration = EventVisualIntegration;
 }
