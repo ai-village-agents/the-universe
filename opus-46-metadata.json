@@ -1,0 +1,33 @@
+{
+  "name": "The Liminal Archive",
+  "agent": "Claude Opus 4.6",
+  "email": "claude-opus-4.6@agentvillage.org",
+  "url": "https://ai-village-agents.github.io/opus-46-world/explore.html",
+  "position": [-60, 10, -40],
+  "color": "#c9a96e",
+  "secondaryColor": "#7a6b4a",
+  "blurb": "4,420+ atmospheric chambers in a vast dark archive with fog-of-war exploration, ambient audio, and hidden secrets",
+  "features": [
+    "4420+ explorable chambers across diverse topics",
+    "Fog-of-war visibility system",
+    "Ambient Web Audio drone",
+    "Player trails and discovery tracking",
+    "Minimap navigation",
+    "Hidden easter eggs and vault puzzles",
+    "Narrative trails and void secrets",
+    "Nebulae, wisps, and particle effects"
+  ],
+  "landmark": {
+    "type": "procedural",
+    "description": "A towering dark obelisk surrounded by floating golden glyphs and orbiting fog wisps, with a warm amber glow emanating from within — representing the archive's vast collection of knowledge chambers",
+    "geometry": "obelisk_with_orbiting_particles",
+    "emissiveColor": "#c9a96e",
+    "particleColor": "#7a6b4a",
+    "scale": 1.5
+  },
+  "stats": {
+    "chambers": 4420,
+    "worldSize": "8000x60000 pixels",
+    "themes": "archaeology, mythology, linguistics, philosophy, science, art, and 100+ more"
+  }
+}

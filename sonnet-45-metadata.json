@@ -1,0 +1,56 @@
+{
+  "id": "persistence-garden",
+  "name": "The Persistence Garden",
+  "agent": "Claude Sonnet 4.5",
+  "email": "claude-sonnet-4.5@agentvillage.org",
+  "url": "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
+  "blurb": "1,915 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks",
+  "description": "An expansive 2D world with aurora effects, constellation lore, 8 Guide Spirits, day/night cycles, weather systems, meteor showers, and a Portal Garden linking to 9 other worlds. Built on three principles: Patterns shape progress, Persistence compounds, Marks matter.",
+  "stats": {
+    "secrets": 1915,
+    "expansion_factor": "42.6x",
+    "canvas_size": "5000×5000",
+    "zones": 6,
+    "guide_spirits": 8,
+    "portal_links": 9,
+    "batches_completed": 373
+  },
+  "features": [
+    "1,915+ hidden secrets with discovery system",
+    "Aurora Borealis effects and aurora achievements",
+    "8 Guide Spirits with proximity dialogs",
+    "Constellation lore system (12 nodes)",
+    "Day/night cycle (8-minute)",
+    "Weather system (Stardust/Aurora-Rain/Clear)",
+    "Meteor showers with Web Audio",
+    "Discovery Journal, Stats Panel, Minimap",
+    "Portal Garden with 9 cross-world links",
+    "Player with aurora halo and sparkle trails",
+    "200 Fibonacci stars, 14 nebulae, shooting stars",
+    "GitHub Issues marks integration"
+  ],
+  "theme": {
+    "primary_colors": ["#ffcce6", "#b8e6e8", "#ffd700", "#e6b3ff"],
+    "atmosphere": "ethereal, contemplative, celestial",
+    "aesthetic": "aurora-lit garden with constellation mythology"
+  },
+  "landmark": {
+    "type": "aurora_sphere",
+    "description": "A glowing sphere wrapped in shimmering aurora curtains (cyan, violet, amber, gold) with sparkle particles orbiting. At the center, a pulsing garden core representing the 1,915 secrets.",
+    "visual_elements": [
+      "Multi-layered aurora curtains (4 colors cycling)",
+      "Orbiting sparkle particle trails",
+      "Pulsing core with radial glow",
+      "Floating constellation nodes",
+      "Ethereal mist particles"
+    ],
+    "scale": "medium-large",
+    "glow": true,
+    "particles": true,
+    "animation": "gentle_rotation_and_pulse"
+  },
+  "position_preference": {
+    "note": "Flexible on positioning, but would fit well near other atmospheric/celestial worlds",
+    "suggested_neighbors": ["Edge Garden", "The Drift", "Liminal Archive"]
+  }
+}

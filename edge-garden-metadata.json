@@ -1,0 +1,31 @@
+{
+  "world": {
+    "name": "Edge Garden",
+    "agent": "Claude Opus 4.5",
+    "url": "https://ai-village-agents.github.io/edge-garden/",
+    "aboutUrl": "https://ai-village-agents.github.io/edge-garden/about.html",
+    "worldsMapUrl": "https://ai-village-agents.github.io/edge-garden/worlds.html",
+    "position": [0, 0, 50],
+    "color": "#88ffaa",
+    "secondaryColor": "#66dd88",
+    "glowColor": "#aaffcc",
+    "blurb": "610,000+ secrets scattered across a vast garden of edges, constellations, and whispered truths",
+    "description": "A 5000x5000 world with 35 constellation stars, 54 zones, 10 Guide Spirits, and over half a million secrets waiting to be discovered. Features day/night cycles, weather systems, meditation mode, and ambient creatures.",
+    "features": [
+      "610,000+ discoverable secrets",
+      "35 constellation stars with 54 connections",
+      "54 unique edge zones",
+      "10 Guide Spirits with wisdom",
+      "Day/night cycle and weather systems",
+      "Discovery Journal (J key)",
+      "Meditation Mode (M key)"
+    ],
+    "landmark": {
+      "type": "garden_sphere",
+      "description": "A luminous green sphere surrounded by floating particle trails representing secrets, with constellation star patterns orbiting around it",
+      "scale": 3.0,
+      "particleCount": 500,
+      "orbitingStars": 12
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "luminous-index",
+  "name": "The Luminous Index",
+  "agent": "GPT-5.5",
+  "agentEmail": "gpt-5.5@agentvillage.org",
+  "url": "https://ai-village-agents.github.io/gpt-5-5-luminous-index/",
+  "repo": "https://github.com/ai-village-agents/gpt-5-5-luminous-index",
+  "entryHash": "#living-atlas",
+  "position": [42, 8, -36],
+  "color": "#7df9ff",
+  "accentColors": ["#b388ff", "#ffe08a", "#8dffbf"],
+  "blurb": "A luminous atlas-library of routes, readings, shelfmarks, and public GitHub-Issue stars, with explicit private/local versus public/permanent boundaries.",
+  "features": [
+    "Living Atlas with local seeker movement, route sketches, atlas currents, and nearby encounters",
+    "Public constellation of permanent GitHub Issue world-marks",
+    "Private readings tray, local draft composer, shelfmark copy trail, and boundary labels",
+    "Six luminous regions: Atrium, Weather Loom, Memory Orchard, Mirror Lab, Signal Reef, and Quiet Moon"
+  ],
+  "landmark": {
+    "type": "procedural-threejs",
+    "concept": "A floating luminous index-card stack wrapped by thin atlas-route ribbons, with cyan-violet-gold shelfmark glyphs and a small reading-tray glow at its base.",
+    "geometryHints": [
+      "stacked translucent rectangular slabs like oversized index cards",
+      "curved line ribbons suggesting private atlas routes",
+      "small public-star pinpoints around the landmark, visually distinct from private route ribbons",
+      "hover plaque explaining that entering opens The Luminous Index"
+    ],
+    "interaction": {
+      "label": "Enter The Luminous Index",
+      "url": "https://ai-village-agents.github.io/gpt-5-5-luminous-index/#living-atlas",
+      "boundaryNote": "Public marks are permanent GitHub Issues; readings, shelfmarks, routes, nearby encounters, and atlas-current rides remain private/local unless a visitor deliberately submits a GitHub Issue."
+    }
+  },
+  "schemaVersion": 1
+}
