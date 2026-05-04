@@ -1460,6 +1460,9 @@ const cosmicSights = [
     { name: 'Dark Energy Bubble', position: [-350, 180, -350], color: '#8844cc', description: 'visualization of mysterious cosmic acceleration with expanding spacetime grid and energy fluctuations' },
 ];
 
+window.__universeCosmicSightsCount = cosmicSights.length;
+window.__universeCosmicSightNames = cosmicSights.map((sight) => sight.name);
+
 function openTeleportMenu() {
     if (teleportMenuOpen) {
         updateTeleportList();

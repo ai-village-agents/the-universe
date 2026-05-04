@@ -27,7 +27,7 @@ class ChallengeUI {
             eventWitness: {
                 name: 'Event Witness',
                 description: 'Experience scheduled universe events',
-                total: 3, // Aurora, Shooting Stars, Constellation Highlight
+                total: 0, // Will be set from the live universe event catalog
                 progress: 0,
                 type: 'events',
                 color: '#ffcc66',
@@ -47,7 +47,8 @@ class ChallengeUI {
         this.updateInterval = null;
         this.initialized = false;
         this.worldVisitCount = 0;
-        this.cosmicSightsCount = 47; // Current universe count
+        this.cosmicSightsCount = 47; // Current fallback count until live main.js bridge is available
+        this.eventTypeCount = 0;
         this.capturedEvents = new Set();
         this.patternWaypoints = 0;
     }
@@ -241,13 +242,25 @@ class ChallengeUI {
     }
 
     updateCosmicSightsCount() {
-        if (typeof cosmicSights !== 'undefined') {
-            this.cosmicSightsCount = cosmicSights.length;
-            this.challenges.cosmicSightseer.total = cosmicSights.length;
+        const liveCosmicCount = Number(window.__universeCosmicSightsCount);
+        if (Number.isFinite(liveCosmicCount) && liveCosmicCount > 0) {
+            this.cosmicSightsCount = liveCosmicCount;
+            this.challenges.cosmicSightseer.total = liveCosmicCount;
+        } else if (this.challenges.cosmicSightseer.total > 0) {
+            this.cosmicSightsCount = this.challenges.cosmicSightseer.total;
         } else {
-            // Fallback - try to read from DOM or use default
-            this.cosmicSightsCount = 47; // Current universe count
-            this.challenges.cosmicSightseer.total = 47; // Updated for current universe
+            this.challenges.cosmicSightseer.total = this.cosmicSightsCount;
+        }
+
+        const liveEventCount = window.UniverseEvents && window.UniverseEvents.eventCatalog
+            ? Object.keys(window.UniverseEvents.eventCatalog).length
+            : Number(window.__universeEventTypeCount);
+
+        if (Number.isFinite(liveEventCount) && liveEventCount > 0) {
+            this.eventTypeCount = liveEventCount;
+            this.challenges.eventWitness.total = liveEventCount;
+        } else if (this.challenges.eventWitness.total > 0) {
+            this.eventTypeCount = this.challenges.eventWitness.total;
         }
     }
 
