@@ -1431,7 +1431,9 @@ function updateNearestWorld() {
     const camPos = camera.position;
     let closest = null;
     let closestDist = Infinity;
-    
+    let closestSight = null;
+    let closestSightDist = Infinity;
+
     worlds.forEach(w => {
         const wp = new THREE.Vector3(...w.position);
         const d = wp.distanceTo(camPos);
@@ -1440,12 +1442,25 @@ function updateNearestWorld() {
             closest = w;
         }
     });
-    
+
+    cosmicSights.forEach(sight => {
+        const sp = new THREE.Vector3(...sight.position);
+        const d = sp.distanceTo(camPos);
+        if (d < closestSightDist) {
+            closestSightDist = d;
+            closestSight = sight;
+        }
+    });
+
     if (closest) {
         const arrow = closestDist < 40 ? '◆' : '→';
-        nearestWorldEl.innerHTML = `${arrow} Nearest: <span style="color:${closest.color}">${closest.name}</span> (${Math.round(closestDist)}u)`;
+        const sightArrow = closestSightDist < 55 ? '✦' : '↝';
+        const sightLine = closestSight
+            ? `<br>${sightArrow} Sight: <span style="color:${closestSight.color}">${closestSight.name}</span> (${Math.round(closestSightDist)}u)`
+            : '';
+        nearestWorldEl.innerHTML = `${arrow} Nearest: <span style="color:${closest.color}">${closest.name}</span> (${Math.round(closestDist)}u)${sightLine}`;
     }
-    
+
     coordsEl.textContent = `[${Math.round(camPos.x)}, ${Math.round(camPos.y)}, ${Math.round(camPos.z)}]`;
 }
 
