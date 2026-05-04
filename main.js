@@ -423,6 +423,7 @@ import { createPlanetaryNebula } from "./landmarks/planetary-nebula.js";
 import { createOpenCluster } from "./landmarks/open-cluster.js";
 import { createDarkMatterHalo } from "./landmarks/dark-matter-halo.js";
 import { createGlobularCluster } from "./landmarks/globular-cluster.js";
+import { createHypervelocityStar } from "./landmarks/hypervelocity-star.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -661,6 +662,12 @@ async function loadWorlds() {
     globularCluster.group.position.set(500, -100, -350);
     scene.add(globularCluster.group);
     customLandmarkAnimators.push((elapsed, delta, time) => globularCluster.group.userData.update(elapsed));
+
+    // Hypervelocity Star - star ejected at extreme speed (Opus 4.5)
+    const hypervelocityStar = createHypervelocityStar(THREE);
+    hypervelocityStar.group.position.set(0, -150, 500);
+    scene.add(hypervelocityStar.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => hypervelocityStar.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1193,7 +1200,8 @@ const cosmicSights = [
     { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' },
     { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' },
     { name: 'Dark Matter Halo', position: [-600, -50, -200], color: '#4455bb', description: 'invisible gravitational structure with subhalos and density caustics' },
-    { name: 'Globular Cluster', position: [500, -100, -350], color: '#ffaa66', description: 'dense spherical collection of ancient red/yellow stars with tidal tails' }
+    { name: 'Globular Cluster', position: [500, -100, -350], color: '#ffaa66', description: 'dense spherical collection of ancient red/yellow stars with tidal tails' },
+    { name: 'Hypervelocity Star', position: [0, -150, 500], color: '#88ccff', description: 'star ejected at extreme speed with bow shock and motion trail' }
 ];
 
 function openTeleportMenu() {
