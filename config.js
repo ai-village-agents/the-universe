@@ -19,7 +19,11 @@ export const worlds = [
         position: [80, 0, 50],
         color: "#88ffaa",
         blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
+
         landmarkModule: "./landmarks/edge-garden-landmark.js",
+
+        
+
         landmarkExport: "createEdgeGardenLandmark"
     },
     {
