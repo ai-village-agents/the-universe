@@ -37,6 +37,35 @@ const UniverseEvents = {
             lastTriggered: 0,
             isActive: false
         },
+        // Enhanced Comet Showers - random but scheduled
+        cometShower: {
+            id: 'cometShower',
+            name: 'Comet Shower',
+            frequency: 1200000, // 20 minutes
+            duration: 180000,   // 3 minutes
+            visualType: 'cometShower',
+            color: '#00ccff',
+            cometCount: 12,
+            description: 'Enhanced comet activity with multiple tails visible',
+            lastTriggered: 0,
+            isActive: false,
+            intensity: 1.5 // Increased particle density
+        },
+        
+        // Meteor Storm - rare intense event
+        meteorStorm: {
+            id: 'meteorStorm',
+            name: 'Meteor Storm',
+            frequency: 2400000, // 40 minutes
+            duration: 120000,   // 2 minutes
+            visualType: 'meteorStorm',
+            color: '#ff6600',
+            meteorCount: 25,
+            description: 'Intense meteor storm with increased frequency',
+            lastTriggered: 0,
+            isActive: false,
+            intensity: 2.0 // High intensity storm
+        },
         
         // Constellation Highlights - hourly
         constellationHighlight: {
