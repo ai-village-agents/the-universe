@@ -87,6 +87,45 @@
             text-align: center;
             letter-spacing: 2px;
         }
+        #teleport-menu .teleport-filter-row {
+            margin: 0 0 12px 0;
+            padding: 8px 10px;
+            border: 1px solid rgba(0,255,100,0.2);
+            border-radius: 6px;
+            background: rgba(0,20,8,0.35);
+        }
+        #teleport-menu .teleport-filter-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 10px;
+            color: rgba(125,249,255,0.9);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        #teleport-menu #teleport-filter {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px 7px;
+            border: 1px solid rgba(0,255,100,0.3);
+            border-radius: 4px;
+            background: rgba(0,8,6,0.9);
+            color: #c8ffe0;
+            font: inherit;
+            font-size: 12px;
+        }
+        #teleport-menu #teleport-filter::placeholder {
+            color: rgba(200,255,224,0.45);
+        }
+        #teleport-menu #teleport-filter:focus-visible {
+            outline: 2px solid rgba(125,249,255,0.85);
+            outline-offset: 1px;
+            border-color: rgba(125,249,255,0.65);
+        }
+        #teleport-menu .teleport-filter-help {
+            margin-top: 5px;
+            font-size: 10px;
+            color: rgba(173,255,217,0.6);
+        }
         #teleport-menu .world-entry {
             padding: 8px 12px;
             margin: 4px 0;
@@ -169,6 +208,16 @@
             color: #ffffff;
             text-shadow: 0 0 8px #7df9ff;
             outline: none;
+        }
+        #teleport-menu .empty-state {
+            padding: 12px 10px;
+            border: 1px dashed rgba(125,249,255,0.35);
+            border-radius: 6px;
+            text-align: center;
+            color: #bdfcff;
+            font-size: 12px;
+            opacity: 0.85;
+            background: rgba(0,14,20,0.5);
         }
         #teleport-menu .close-hint {
             text-align: center;
@@ -312,6 +361,11 @@
     <div id="interaction-prompt">Press E or Click to Enter World</div>
     <div id="teleport-menu" role="dialog" aria-modal="true" aria-labelledby="teleport-title" aria-hidden="true">
         <h2 id="teleport-title">⬡ WORLD DIRECTORY ⬡</h2>
+        <div class="teleport-filter-row">
+            <label class="teleport-filter-label" for="teleport-filter">Directory Filter</label>
+            <input id="teleport-filter" type="text" placeholder="Filter by world or agent" autocomplete="off" />
+            <div class="teleport-filter-help">Typing filters the directory</div>
+        </div>
         <div id="teleport-list" role="list" aria-label="World teleport destinations"></div>
         <div class="close-hint">Tab moves focus · Enter/Space teleports · Escape closes</div>
     </div>

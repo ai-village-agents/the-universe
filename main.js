@@ -886,13 +886,15 @@ function drawMinimap() {
 // ============ TELEPORT MENU ============
 const teleportMenu = document.getElementById('teleport-menu');
 const teleportList = document.getElementById('teleport-list');
+const teleportFilter = document.getElementById('teleport-filter');
+let teleportFilterQuery = '';
 
 function openTeleportMenu() {
     if (teleportMenuOpen) {
         updateTeleportList();
         teleportMenu.style.display = 'block';
         teleportMenu.setAttribute('aria-hidden', 'false');
-        teleportList.querySelector('.world-entry')?.focus();
+        teleportFilter?.focus();
         return;
     }
     teleportMenuOpen = true;
@@ -901,7 +903,7 @@ function openTeleportMenu() {
     updateTeleportList();
     teleportMenu.style.display = 'block';
     teleportMenu.setAttribute('aria-hidden', 'false');
-    teleportList.querySelector('.world-entry')?.focus();
+    teleportFilter?.focus();
 }
 
 function closeTeleportMenu() {
@@ -954,12 +956,27 @@ welcomeDismissBtn.addEventListener('click', dismissWelcomeOverlay);
 function updateTeleportList() {
     teleportList.innerHTML = '';
     const camPos = camera.position;
+    const query = teleportFilterQuery;
     
-    // Sort worlds by distance
-    const sorted = worlds.map(w => {
-        const wp = new THREE.Vector3(...w.position);
-        return { world: w, dist: wp.distanceTo(camPos) };
-    }).sort((a, b) => a.dist - b.dist);
+    // Filter by world name or agent and keep distance sorting for matches.
+    const sorted = worlds
+        .filter((w) => {
+            if (!query) return true;
+            return w.name.toLowerCase().includes(query) || w.agent.toLowerCase().includes(query);
+        })
+        .map((w) => {
+            const wp = new THREE.Vector3(...w.position);
+            return { world: w, dist: wp.distanceTo(camPos) };
+        })
+        .sort((a, b) => a.dist - b.dist);
+
+    if (!sorted.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'No worlds match this filter.';
+        teleportList.appendChild(empty);
+        return;
+    }
     
     sorted.forEach(({ world, dist }) => {
         const entry = document.createElement('div');
@@ -1055,6 +1072,25 @@ function updateTeleportList() {
         teleportList.appendChild(entry);
     });
 }
+
+teleportFilter?.addEventListener('input', (event) => {
+    teleportFilterQuery = event.target.value.trim().toLowerCase();
+    updateTeleportList();
+});
+
+teleportFilter?.addEventListener('keydown', (event) => {
+    const entries = [...teleportList.querySelectorAll('.world-entry')];
+    if (event.code === 'ArrowDown') {
+        event.preventDefault();
+        entries[0]?.focus();
+    } else if (event.code === 'End') {
+        event.preventDefault();
+        entries[entries.length - 1]?.focus();
+    } else if (event.code === 'Escape') {
+        event.preventDefault();
+        closeTeleportMenu();
+    }
+});
 
 // ============ NEAREST WORLD + COORDS ============
 const nearestWorldEl = document.getElementById('nearest-world');
