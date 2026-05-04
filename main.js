@@ -356,6 +356,7 @@ function createLandmark(world) {
     return { group, core };
 }
 
+import { createVoyagerProbe } from "./landmarks/voyager-probe.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -430,6 +431,11 @@ async function loadWorlds() {
     
     // After loading worlds, create connection paths
     createConnectionPaths();
+
+    // Add Voyager Probe Easter Egg
+    const voyager = createVoyagerProbe(THREE, scene);
+    customLandmarkAnimators.push((elapsed, delta, time) => voyager.update(delta, elapsed));
+
 }
 
 // Add nebula clouds for atmosphere
