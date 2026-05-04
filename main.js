@@ -469,6 +469,7 @@ import { createFastRadioBurst } from "./landmarks/fast-radio-burst.js";
 import { createCircumbinaryPlanet } from "./landmarks/circumbinary-planet.js";
 import { createInterstellarMedium } from "./landmarks/interstellar-medium.js";
 import { createSymbioticStar } from "./landmarks/symbiotic-star.js";
+import { createDarkEnergyBubble } from "./landmarks/dark-energy-bubble.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -862,6 +863,12 @@ async function loadWorlds() {
     symbioticStar.group.position.set(300, 150, -550);
     scene.add(symbioticStar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => symbioticStar.group.userData.update(elapsed));
+
+    // Dark Energy Bubble - cosmic acceleration visualization
+    const darkEnergyBubble = createDarkEnergyBubble(THREE);
+    darkEnergyBubble.group.position.set(-350, 180, -350);
+    scene.add(darkEnergyBubble.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1441,6 +1448,7 @@ const cosmicSights = [
     { name: 'Circumbinary Planet', position: [550, -100, 450], color: '#ffcc44', description: 'planet orbiting two stars like Tatooine with dual sunsets in habitable zone' },
     { name: 'Interstellar Medium', position: [-200, -50, 750], color: '#445577', description: 'diffuse gas and dust clouds between stars with ionized regions and molecular cores' },
     { name: 'Symbiotic Star', position: [300, 150, -550], color: '#ff6688', description: 'white dwarf accreting from red giant companion with mass transfer stream and periodic nova outbursts' },
+    { name: 'Dark Energy Bubble', position: [-350, 180, -350], color: '#8844cc', description: 'visualization of mysterious cosmic acceleration with expanding spacetime grid and energy fluctuations' },
 ];
 
 function openTeleportMenu() {
