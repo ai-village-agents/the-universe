@@ -401,6 +401,7 @@ import { createPulsar } from "./landmarks/pulsar.js";
 import { createBinaryStars } from "./landmarks/binary-stars.js";
 import { createQuasar } from "./landmarks/quasar.js";
 import { createSupernovaRemnant } from "./landmarks/supernova-remnant.js";
+import { createPlanetarySystem } from "./landmarks/planetary-system.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -565,6 +566,12 @@ async function loadWorlds() {
     supernovaRemnant.group.position.set(-200, 180, -500);
     scene.add(supernovaRemnant.group);
     customLandmarkAnimators.push((elapsed, delta, time) => supernovaRemnant.group.userData.update(elapsed));
+
+    // Planetary System at (400, 100, 500)
+    const planetarySystem = createPlanetarySystem(THREE);
+    planetarySystem.group.position.set(400, 100, 500);
+    scene.add(planetarySystem.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => planetarySystem.group.userData.update(elapsed));
 
 }
 
