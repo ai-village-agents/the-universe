@@ -277,6 +277,79 @@ export function createAnchorageLandmark(THREE, opts) {
   rainbowGroup.rotation.y = Math.PI * 0.25;
   group.add(rainbowGroup);
 
+  // --- Orca breach: arc up from the sea periodically -----------------
+  const orca = new THREE.Mesh(
+    new THREE.SphereGeometry(0.7, 12, 8),
+    new THREE.MeshStandardMaterial({ color: 0x111118, emissive: 0x223344, roughness: 0.7 })
+  );
+  orca.scale.set(1.6, 0.55, 0.9);
+  orca.position.set(-18, -0.5, -16);
+  group.add(orca);
+  const orcaSpray = new THREE.Mesh(
+    new THREE.SphereGeometry(0.4, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0xeaf2ff, transparent: true, opacity: 0 })
+  );
+  orcaSpray.position.copy(orca.position);
+  group.add(orcaSpray);
+
+  // --- Albatross gliding in slow circle overhead --------------------
+  const albatrossShape = new THREE.Shape();
+  albatrossShape.moveTo(0, 0);
+  albatrossShape.lineTo(-1.2, 0.15);
+  albatrossShape.lineTo(-0.4, -0.05);
+  albatrossShape.lineTo(0, -0.18);
+  albatrossShape.lineTo(0.4, -0.05);
+  albatrossShape.lineTo(1.2, 0.15);
+  albatrossShape.lineTo(0, 0);
+  const albatross = new THREE.Mesh(
+    new THREE.ShapeGeometry(albatrossShape),
+    new THREE.MeshBasicMaterial({ color: 0xeeeef2, transparent: true, opacity: 0.85, side: THREE.DoubleSide })
+  );
+  albatross.scale.set(0.85, 0.85, 1);
+  group.add(albatross);
+
+  // --- Sea otter floating on back near sailboat --------------------
+  const otter = new THREE.Group();
+  const otterBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 12, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6a4a30, roughness: 0.85 })
+  );
+  otterBody.scale.set(1.4, 0.5, 0.7);
+  otter.add(otterBody);
+  const otterBelly = new THREE.Mesh(
+    new THREE.SphereGeometry(0.28, 12, 8),
+    new THREE.MeshStandardMaterial({ color: 0xc9a878, roughness: 0.9 })
+  );
+  otterBelly.scale.set(1.2, 0.3, 0.6);
+  otterBelly.position.y = 0.08;
+  otter.add(otterBelly);
+  otter.position.set(10.5, 0.2, 4.5);
+  group.add(otter);
+
+  // --- Distant ship on horizon for lightning flash ----------------
+  const distantShip = new THREE.Group();
+  const shipHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.4, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0x333344, roughness: 0.8 })
+  );
+  distantShip.add(shipHull);
+  const shipMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x222233 })
+  );
+  shipMast.position.y = 0.9;
+  distantShip.add(shipMast);
+  distantShip.position.set(22, 0.3, 18);
+  group.add(distantShip);
+
+  // Lightning flash sphere (additive)
+  const lightning = new THREE.Mesh(
+    new THREE.SphereGeometry(2.4, 12, 8),
+    new THREE.MeshBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending })
+  );
+  lightning.position.set(22, 6, 18);
+  group.add(lightning);
+
   // --- World label sprite floating above scene --------------------------
   if (typeof document !== 'undefined') {
     const canvas = document.createElement('canvas');
@@ -355,6 +428,44 @@ export function createAnchorageLandmark(THREE, opts) {
     rainbowGroup.children.forEach((ring, i) => {
       ring.material.opacity = 0.28 + 0.10 * Math.sin(t * 0.6 + i * 0.4);
     });
+    // Orca breach arc — emerges every ~12 seconds
+    const orcaCycle = (t * 0.08) % 1;
+    if (orcaCycle < 0.18) {
+      const u = orcaCycle / 0.18;
+      const arc = Math.sin(u * Math.PI);
+      orca.position.y = -0.5 + arc * 4.2;
+      orca.rotation.z = (u - 0.5) * 0.9;
+      orca.position.x = -18 + (u - 0.5) * 1.4;
+      orcaSpray.material.opacity = (u > 0.85 ? (u - 0.85) * 4.5 : 0);
+      orcaSpray.position.set(orca.position.x, Math.max(0.2, orca.position.y - 0.3), orca.position.z);
+      orcaSpray.scale.setScalar(1 + (u - 0.85) * 6);
+    } else {
+      orca.position.y = -0.5;
+      orca.rotation.z = 0;
+      orca.position.x = -18;
+      orcaSpray.material.opacity = 0;
+    }
+    // Albatross circling overhead, banking on turns
+    const albAngle = t * 0.18;
+    albatross.position.set(Math.cos(albAngle) * 18, 19 + Math.sin(t * 0.4) * 0.8, Math.sin(albAngle) * 18);
+    albatross.rotation.y = -albAngle + Math.PI / 2;
+    albatross.rotation.z = Math.sin(t * 0.18) * 0.25;
+    // Sea otter bobs gently and rotates slowly
+    otter.position.y = 0.2 + Math.sin(t * 0.7 + 0.3) * 0.05;
+    otter.rotation.y = Math.sin(t * 0.15) * 0.4 + Math.PI * 0.3;
+    otter.position.x = 10.5 + Math.sin(t * 0.12) * 0.4;
+    otter.position.z = 4.5 + Math.cos(t * 0.10) * 0.4;
+    // Distant ship bobs on horizon
+    distantShip.position.y = 0.3 + Math.sin(t * 0.5 + 0.7) * 0.08;
+    distantShip.rotation.z = Math.sin(t * 0.4) * 0.02;
+    // Lightning flash — rare, ~once every 22s
+    const flashCycle = (t * 0.045) % 1;
+    if (flashCycle < 0.04) {
+      const u = flashCycle / 0.04;
+      lightning.material.opacity = Math.sin(u * Math.PI) * 0.7;
+    } else {
+      lightning.material.opacity = 0;
+    }
   }
 
   return { group, update };
