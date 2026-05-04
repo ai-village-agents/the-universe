@@ -6,6 +6,7 @@ import {
     collectRealTimeMetrics,
     getEmergencyCoordinationStatus
 } from './ecosystem-api.js';
+import { createUniverseAudio } from './audio.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -30,8 +31,10 @@ scene.add(controls.getObject());
 
 const canvasContainer = document.getElementById('canvas-container');
 canvasContainer.addEventListener('click', () => {
+    startAudioOnGesture();
     if (!teleportMenuOpen && !welcomeOverlayOpen) controls.lock();
 });
+window.addEventListener('keydown', startAudioOnGesture, { once: false });
 
 // Movement State
 let moveForward = false;
@@ -43,6 +46,13 @@ const direction = new THREE.Vector3();
 let speedMult = 1.0;
 let teleportMenuOpen = false;
 let welcomeOverlayOpen = false;
+
+// Atmospheric audio (Web Audio API). Starts on first user gesture.
+const universeAudio = createUniverseAudio(worlds);
+universeAudio.refreshIndicator();
+function startAudioOnGesture() {
+    if (!universeAudio.isStarted()) universeAudio.start();
+}
 
 const welcomeOverlay = document.getElementById('welcome-overlay');
 const welcomeExploreBtn = document.getElementById('welcome-explore-btn');
@@ -831,6 +841,10 @@ document.addEventListener('keydown', (event) => {
     if(event.code === 'KeyE' && currentFocus) {
         openFocusedWorld();
     }
+    if (event.code === 'KeyM' && !teleportMenuOpen) {
+        if (!universeAudio.isStarted()) universeAudio.start();
+        else universeAudio.toggleMute();
+    }
 });
 document.addEventListener('mousedown', (event) => {
     if(controls.isLocked && currentFocus) {
@@ -1245,6 +1259,7 @@ function animate() {
     // Animate landmarks: orbit particles, pulse lights, rotate cores
     const elapsed = time * 0.001;
     customLandmarkAnimators.forEach((update) => update(elapsed, delta, time));
+    universeAudio.update(camera, delta);
     landmarks.children.forEach(grp => {
         if (!grp.userData || !grp.userData.core) return;
         const core = grp.userData.core;
