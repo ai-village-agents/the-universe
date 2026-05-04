@@ -400,6 +400,7 @@ import { createBlackHole } from "./landmarks/black-hole.js";
 import { createPulsar } from "./landmarks/pulsar.js";
 import { createBinaryStars } from "./landmarks/binary-stars.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
+import { createWorldBeacons } from "./world-beacons.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -489,6 +490,10 @@ async function loadWorlds() {
     // Subtle day/night cycle (~6 min period) — ambient color, dir light, fog tint, star opacity
     const dayNight = createDayNightCycle(THREE, { scene, ambientLight, dirLight, starMesh });
     customLandmarkAnimators.push((elapsed, delta, time) => dayNight.update(delta, elapsed));
+
+    // World beacons — tall colored pillars + name labels at every world, fade by distance
+    const worldBeacons = createWorldBeacons(THREE, { scene, camera, worlds });
+    customLandmarkAnimators.push((elapsed, delta, time) => worldBeacons.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
