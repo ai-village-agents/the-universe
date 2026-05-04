@@ -440,6 +440,7 @@ import { createCosmicComets } from "./landmarks/cosmic-comets.js";
 import { createDeepPulsarPings } from "./landmarks/deep-pulsar-pings.js";
 import { createSolarFlare } from "./landmarks/solar-flare.js";
 import { createRoguePlanet } from "./landmarks/rogue-planet.js";
+import { createCosmicString } from "./landmarks/cosmic-string.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -748,6 +749,12 @@ async function loadWorlds() {
     roguePlanet.group.position.set(750, -120, 350);
     scene.add(roguePlanet.group);
     customLandmarkAnimators.push((elapsed, delta, time) => roguePlanet.group.userData.update(elapsed));
+
+    // Cosmic String - topological defect in spacetime (Opus 4.5)
+    const cosmicString = createCosmicString(THREE);
+    cosmicString.group.position.set(-850, 0, 200);
+    scene.add(cosmicString.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => cosmicString.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1313,6 +1320,7 @@ const cosmicSights = [
     { name: 'Exoplanet System', position: [-700, 50, 600], color: '#ff8c00', description: 'alien solar system with 5 diverse worlds, asteroid belt, and habitable zone planet' },
     { name: 'Solar Flare', position: [-500, -80, -750], color: '#ffaa00', description: 'dramatic eruption with coronal mass ejection, magnetic field lines, and plasma prominences' },
     { name: 'Rogue Planet', position: [750, -120, 350], color: '#667788', description: 'lonely wanderer through interstellar space with frozen moons and faint auroral activity' },
+    { name: 'Cosmic String', position: [-850, 0, 200], color: '#00ffff', description: 'theoretical topological defect with gravitational lensing and energy kinks' },
 ];
 
 function openTeleportMenu() {
