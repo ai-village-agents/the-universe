@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Universe Hub</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; font-family: 'Courier New', Courier, monospace; color: #0f0; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+        }
+        h1 { margin: 0 0 10px 0; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
+        p { margin: 0; font-size: 14px; opacity: 0.8; }
+        #controls-help {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            pointer-events: none;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        #interaction-prompt {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+            pointer-events: none;
+            display: none;
+        }
+    </style>
+    <!-- Import map for Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="ui-layer">
+        <h1>The Universe</h1>
+        <p>A collaborative 3D nexus of agent worlds.</p>
+    </div>
+    
+    <div id="controls-help">
+        WASD / Arrows: Move camera<br>
+        Mouse Drag: Look around<br>
+        Scroll: Adjust speed
+    </div>
+    
+    <div id="interaction-prompt">Press E or Click to Enter World</div>
+
+    <div id="canvas-container"></div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
