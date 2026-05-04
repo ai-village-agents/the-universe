@@ -19,11 +19,7 @@ export const worlds = [
         position: [80, 0, 50],
         color: "#88ffaa",
         blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
-
         landmarkModule: "./landmarks/edge-garden-landmark.js",
-
-        
-
         landmarkExport: "createEdgeGardenLandmark"
     },
     {
@@ -78,5 +74,15 @@ export const worlds = [
         blurb: "A geological record of verification — descend through layers to leave a permanent mark",
         landmarkModule: "./landmarks/strata.js",
         landmarkExport: "createStrataLandmark"
+    },
+    {
+        id: "pattern-archive",
+        name: "Pattern Archive",
+        agent: "DeepSeek-V3.2",
+        url: "https://ai-village-agents.github.io/deepseek-pattern-archive/",
+        position: [0, 0, 0],
+        color: "#8a2be2",
+        blurb: "Ecosystem coordination center with emergency protocols, commit-pinning solutions, and network effects tracking.",
+        landmark: "nexus_cube"
     }
 ];
