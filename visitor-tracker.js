@@ -2,13 +2,13 @@
 // Author: Claude Opus 4.7
 // Accessibility polish: GPT-5.4
 //
-// Stores set of world ids in localStorage. Renders a small UI badge with progress.
-// When the visitor opens all worlds, fires a celebration banner.
+// Stores set of world ids in localStorage. Triggers a celebration banner when complete.
 
 const STORAGE_KEY = 'aiv_universe_visited_v1';
 
 export function createVisitorTracker(allWorlds) {
     const total = allWorlds.length;
+    const panel = document.getElementById('achievements-panel');
     let visited = new Set();
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -20,129 +20,40 @@ export function createVisitorTracker(allWorlds) {
 
     let celebrationShown = visited.size >= total;
 
-    // Build badge UI
-    const badge = document.createElement('div');
-    badge.id = 'visitor-badge';
-    badge.style.cssText = [
-        'position:fixed', 'top:8px', 'left:50%', 'transform:translateX(-50%)',
-        'padding:6px 14px', 'font:12px/1.3 Georgia,serif', 'color:#cce8ff',
-        'background:rgba(0,12,26,0.55)', 'border:1px solid rgba(127,200,255,0.35)',
-        'border-radius:8px', 'pointer-events:auto', 'z-index:1500',
-        'letter-spacing:0.04em', 'cursor:pointer', 'user-select:none',
-        'box-shadow:0 0 12px rgba(80,160,255,0.18)'
-    ].join(';');
-    badge.title = 'Click or press Enter for visitor progress details';
-    badge.setAttribute('role', 'button');
-    badge.setAttribute('tabindex', '0');
-    badge.setAttribute('aria-haspopup', 'dialog');
-    badge.setAttribute('aria-controls', 'visitor-panel');
-    badge.setAttribute('aria-expanded', 'false');
-    document.body.appendChild(badge);
-
-    // Detail panel
-    const panel = document.createElement('div');
-    panel.id = 'visitor-panel';
-    panel.style.cssText = [
-        'position:fixed', 'top:42px', 'left:50%', 'transform:translateX(-50%)',
-        'padding:14px 18px', 'font:12.5px/1.45 Georgia,serif', 'color:#dde7f4',
-        'background:rgba(0,8,18,0.92)', 'border:1px solid rgba(127,200,255,0.45)',
-        'border-radius:10px', 'z-index:1499', 'display:none', 'min-width:280px',
-        'max-width:min(440px,90vw)', 'box-shadow:0 8px 32px rgba(0,0,0,0.6)'
-    ].join(';');
-    panel.setAttribute('role', 'dialog');
-    panel.setAttribute('aria-modal', 'false');
-    panel.setAttribute('aria-hidden', 'true');
-    panel.setAttribute('aria-labelledby', 'visitor-panel-title');
-    panel.setAttribute('tabindex', '-1');
-    document.body.appendChild(panel);
-
-    function openPanel() {
-        refreshPanel();
-        panel.style.display = 'block';
-        panel.setAttribute('aria-hidden', 'false');
-        badge.setAttribute('aria-expanded', 'true');
-        const closeButton = panel.querySelector('#visitor-close');
-        (closeButton || panel).focus({ preventScroll: true });
-    }
-
-    function closePanel({ restoreFocus = true } = {}) {
-        panel.style.display = 'none';
-        panel.setAttribute('aria-hidden', 'true');
-        badge.setAttribute('aria-expanded', 'false');
-        if (restoreFocus) badge.focus({ preventScroll: true });
-    }
-
-    function togglePanel() {
-        if (panel.style.display === 'none') openPanel();
-        else closePanel();
-    }
-
-    badge.addEventListener('click', togglePanel);
-    badge.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            togglePanel();
-        } else if (event.key === 'Escape' && panel.style.display !== 'none') {
-            event.preventDefault();
-            closePanel();
-        }
-    });
-    panel.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            event.preventDefault();
-            closePanel();
-        }
-    });
-
-    function refreshBadge() {
-        const n = visited.size;
-        const pct = Math.round((n / total) * 100);
-        if (n >= total) {
-            badge.innerHTML = `<span style="color:#ffe999">★</span> All ${total} worlds visited! <span style="color:#7fdcff">100%</span>`;
-            badge.setAttribute('aria-label', `All ${total} worlds visited. Activate for visitor progress details.`);
-        } else {
-            badge.innerHTML = `🪐 Worlds visited: <strong>${n} / ${total}</strong> · ${pct}%`;
-            badge.setAttribute('aria-label', `Worlds visited: ${n} of ${total}, ${pct} percent. Activate for visitor progress details.`);
-        }
+    function persist() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
     }
 
     function refreshPanel() {
-        const lines = allWorlds.map((w) => {
-            const hit = visited.has(w.id);
-            const dot = hit ? '<span style="color:#7fffaf">●</span>' : '<span style="color:#444">○</span>';
-            const name = hit ? `<span style="color:#fff">${escapeHtml(w.name)}</span>` : `<span style="color:#88a">${escapeHtml(w.name)}</span>`;
-            return `<div style="margin:2px 0">${dot} ${name} <span style="color:#678">— ${escapeHtml(w.agent || '')}</span></div>`;
+        if (!panel) return;
+        const visitedCount = visited.size;
+        const percent = total === 0 ? 0 : Math.round((visitedCount / total) * 100);
+        const entries = allWorlds.map((world) => {
+            const explored = visited.has(world.id);
+            const label = world.name || world.id || 'Unnamed world';
+            const icon = explored ? '✅' : '⬜';
+            const color = explored ? '#b3ffe2' : '#7aa798';
+            return `<li data-world-id="${world.id}" style="margin:2px 0;color:${color};">${icon} ${label}</li>`;
         }).join('');
-        const n = visited.size;
-        panel.innerHTML = `
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;">
-                <div id="visitor-panel-title" style="font:bold italic 14px Georgia,serif;color:#7fdcff;">Visitor Progress</div>
-                <button id="visitor-close" type="button" aria-label="Close visitor progress panel" style="padding:3px 8px;font:12px Georgia,serif;color:#d9ecff;background:rgba(16,34,56,0.9);border:1px solid rgba(127,200,255,0.4);border-radius:6px;cursor:pointer;">Close</button>
-            </div>
-            <div style="margin-bottom:8px;color:#bcd">You have opened ${n} of ${total} worlds from this browser.</div>
-            <div role="list" aria-label="Visited world progress">${lines}</div>
-            <div style="margin-top:10px;font-size:11px;color:#557">Stored locally only. <a href="#" id="visitor-reset" style="color:#88aacc">Reset progress</a></div>`;
-        const reset = panel.querySelector('#visitor-reset');
-        if (reset) {
-            reset.addEventListener('click', (e) => {
-                e.preventDefault();
-                visited.clear();
-                persist();
-                celebrationShown = false;
-                refreshBadge();
-                refreshPanel();
-            });
-        }
-        const close = panel.querySelector('#visitor-close');
-        if (close) close.addEventListener('click', () => closePanel());
+        const statusLine = total === 0
+            ? 'No worlds available yet.'
+            : `${visitedCount} of ${total} worlds explored (${percent}%)`;
+        panel.innerHTML = [
+            '<h3>Achievements</h3>',
+            `<p style="margin:4px 0 8px 0;font-size:12px;color:#c8ffe6;">${statusLine}</p>`,
+            `<ul style="margin:0;padding-left:18px;list-style:none;font-size:11px;">${entries}</ul>`
+        ].join('');
     }
 
-    function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    function openPanel() {
+        if (!panel) return;
+        refreshPanel();
+        panel.style.display = 'block';
     }
 
-    function persist() {
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
+    function closePanel() {
+        if (!panel) return;
+        panel.style.display = 'none';
     }
 
     function showCelebration() {
@@ -168,6 +79,7 @@ export function createVisitorTracker(allWorlds) {
         banner.addEventListener('click', () => banner.remove());
         document.body.appendChild(banner);
         setTimeout(() => { if (banner.parentNode) banner.remove(); }, 14000);
+        document.dispatchEvent(new Event('universeExplored'));
     }
 
     function recordVisit(id) {
@@ -176,11 +88,19 @@ export function createVisitorTracker(allWorlds) {
         if (!known) return;
         visited.add(id);
         persist();
-        refreshBadge();
-        if (panel.style.display === 'block') refreshPanel();
+        refreshPanel();
+        document.dispatchEvent(new CustomEvent('worldVisited', { detail: { worldId: id } }));
         if (visited.size >= total) showCelebration();
     }
 
-    refreshBadge();
-    return { recordVisit, isComplete: () => visited.size >= total, count: () => visited.size };
+    refreshPanel();
+
+    return {
+        recordVisit,
+        isComplete: () => visited.size >= total,
+        count: () => visited.size,
+        refreshPanel,
+        openPanel,
+        closePanel
+    };
 }

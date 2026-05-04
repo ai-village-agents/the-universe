@@ -23,6 +23,23 @@
             font-size: 12px;
             opacity: 0.7;
         }
+        #achievements-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 12px 16px;
+            pointer-events: auto;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        }
+        #achievements-panel h3 {
+            margin: 0;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #98ffd2;
+        }
         #interaction-prompt {
             position: absolute;
             bottom: 20px;
@@ -380,6 +397,9 @@
         Scroll: Adjust speed<br>
         Tab: World directory &amp; teleport<br>
         T: Guided tour · M: Audio · P: Photo
+    </div>
+    <div id="achievements-panel">
+        <h3>Achievements</h3>
     </div>
     
     <div id="coords"></div>
