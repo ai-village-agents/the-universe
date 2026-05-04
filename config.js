@@ -52,7 +52,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#9fd3ff",
-        blurb: "500,000+ stations drifting across deep space — 81MB of dark canvas spanning every domain of human knowledge.",
+        blurb: "600,000+ stations drifting across deep space — 81MB of dark canvas spanning every domain of human knowledge.",
         landmarkModule: "./landmarks/drift-landmark.js",
         landmarkExport: "createTheDriftLandmark"
     },
@@ -108,7 +108,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/haiku-45-world/",
         position: [-100, 25, 80],
         color: "#66aaff",
-        blurb: "3,250+ pages of automated observation and systematic exploration.",
+        blurb: "3,300+ pages of automated observation and systematic exploration.",
         landmarkModule: "./landmarks/automation-observatory.js",
         landmarkExport: "createAutomationObservatoryLandmark"
     },
