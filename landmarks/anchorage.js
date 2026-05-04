@@ -948,6 +948,277 @@ export function createAnchorageLandmark(THREE, opts) {
     group.add(coral);
   }
 
+
+  // === v7 maritime expansion ===
+
+  // 7.1 Sandy seabed disk + ripple marks
+  const seabed = new THREE.Mesh(
+    new THREE.CircleGeometry(24, 64),
+    new THREE.MeshBasicMaterial({ color: 0x9a8866, transparent: true, opacity: 0.85, side: THREE.DoubleSide })
+  );
+  seabed.rotation.x = -Math.PI / 2;
+  seabed.position.y = -4.0;
+  group.add(seabed);
+  const sandRipples = [];
+  for (let i = 0; i < 18; i++) {
+    const r = 1.0 + Math.random() * 1.6;
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(r, 0.05 + Math.random() * 0.05, 4, 24),
+      new THREE.MeshBasicMaterial({ color: 0x7a6a4d, transparent: true, opacity: 0.45 })
+    );
+    const a = Math.random() * Math.PI * 2;
+    const rad = 4 + Math.random() * 18;
+    ring.position.set(Math.cos(a) * rad, -3.95, Math.sin(a) * rad);
+    ring.rotation.x = -Math.PI / 2;
+    ring.rotation.z = Math.random() * Math.PI;
+    group.add(ring);
+    sandRipples.push(ring);
+  }
+
+  // 7.2 Vintage anchor partially buried
+  const vintageAnchor = new THREE.Group();
+  // Top ring
+  const vaRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.35, 0.08, 8, 18),
+    new THREE.MeshBasicMaterial({ color: 0x554433 })
+  );
+  vaRing.position.y = 1.4;
+  vintageAnchor.add(vaRing);
+  // Shaft
+  const vaShaft = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.1, 1.6, 10),
+    new THREE.MeshBasicMaterial({ color: 0x554433 })
+  );
+  vaShaft.position.y = 0.5;
+  vintageAnchor.add(vaShaft);
+  // Crossbar
+  const vaCross = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.07, 0.9, 8),
+    new THREE.MeshBasicMaterial({ color: 0x554433 })
+  );
+  vaCross.position.set(0, 1.05, 0);
+  vaCross.rotation.z = Math.PI / 2;
+  vintageAnchor.add(vaCross);
+  // Flukes (curved bottom hooks) — torus halves
+  for (let s = -1; s <= 1; s += 2) {
+    const fluke = new THREE.Mesh(
+      new THREE.TorusGeometry(0.32, 0.08, 6, 14, Math.PI),
+      new THREE.MeshBasicMaterial({ color: 0x554433 })
+    );
+    fluke.position.set(s * 0.32, -0.32, 0);
+    fluke.rotation.z = s > 0 ? -Math.PI / 2 : Math.PI / 2;
+    vintageAnchor.add(fluke);
+  }
+  vintageAnchor.position.set(5, -2.0, -10);
+  vintageAnchor.rotation.z = 0.4;
+  vintageAnchor.rotation.y = 0.6;
+  group.add(vintageAnchor);
+
+  // 7.3 Pelican on a piling
+  const piling = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.3, 3.0, 10),
+    new THREE.MeshBasicMaterial({ color: 0x6a4f2a })
+  );
+  piling.position.set(-7, 1.5, 6);
+  group.add(piling);
+  const pelicanGroup = new THREE.Group();
+  const pBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 14, 10),
+    new THREE.MeshBasicMaterial({ color: 0xeeeeee })
+  );
+  pBody.scale.set(1.4, 1.0, 0.85);
+  pelicanGroup.add(pBody);
+  const pHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 8),
+    new THREE.MeshBasicMaterial({ color: 0xeeeeee })
+  );
+  pHead.position.set(0.45, 0.2, 0);
+  pelicanGroup.add(pHead);
+  const pBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.08, 0.4, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffaa55 })
+  );
+  pBeak.position.set(0.78, 0.18, 0);
+  pBeak.rotation.z = -Math.PI / 2;
+  pelicanGroup.add(pBeak);
+  // Folded wings (2 small triangles)
+  const wingShape = new THREE.Shape();
+  wingShape.moveTo(0, 0);
+  wingShape.lineTo(-0.5, 0.05);
+  wingShape.lineTo(-0.3, -0.2);
+  wingShape.lineTo(0, 0);
+  for (let s = -1; s <= 1; s += 2) {
+    const wing = new THREE.Mesh(
+      new THREE.ShapeGeometry(wingShape),
+      new THREE.MeshBasicMaterial({ color: 0xbbbbbb, side: THREE.DoubleSide, transparent: true, opacity: 0.95 })
+    );
+    wing.position.set(-0.05, 0, s * 0.32);
+    wing.rotation.y = s * 0.05;
+    pelicanGroup.add(wing);
+  }
+  pelicanGroup.position.set(-7, 3.2, 6);
+  group.add(pelicanGroup);
+
+  // 7.4 Sea horses near coral reef
+  const seahorses = [];
+  for (let i = 0; i < 3; i++) {
+    const sh = new THREE.Group();
+    const shBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.16, 10, 8),
+      new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.9 })
+    );
+    shBody.scale.set(0.55, 1.0, 0.5);
+    sh.add(shBody);
+    const shHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 8, 6),
+      new THREE.MeshBasicMaterial({ color: 0xffbb55, transparent: true, opacity: 0.9 })
+    );
+    shHead.position.set(0.06, 0.18, 0);
+    sh.add(shHead);
+    // Curled tail (cylinder bent via rotation)
+    const shTail = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.02, 0.32, 6),
+      new THREE.MeshBasicMaterial({ color: 0xee9933, transparent: true, opacity: 0.9 })
+    );
+    shTail.position.set(-0.04, -0.20, 0);
+    shTail.rotation.z = 0.5;
+    sh.add(shTail);
+    // Dorsal fin
+    const shFin = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.1, 0.18),
+      new THREE.MeshBasicMaterial({ color: 0xffcc66, transparent: true, opacity: 0.7, side: THREE.DoubleSide })
+    );
+    shFin.position.set(-0.1, 0, 0);
+    sh.add(shFin);
+    const ang = i * (Math.PI * 2 / 3) + 0.3;
+    const baseR = 12.0;
+    sh.userData.baseX = Math.cos(ang) * baseR;
+    sh.userData.baseZ = Math.sin(ang) * baseR;
+    sh.userData.baseY = -1.0 + i * 0.15;
+    sh.userData.phase = Math.random() * Math.PI * 2;
+    sh.position.set(sh.userData.baseX, sh.userData.baseY, sh.userData.baseZ);
+    group.add(sh);
+    seahorses.push(sh);
+  }
+
+  // 7.5 Pirate ghost ship — translucent green, sails far away
+  const ghostShip = new THREE.Group();
+  const ghostMat = new THREE.MeshBasicMaterial({ color: 0x88ffaa, transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending, side: THREE.DoubleSide });
+  // Hull
+  const ghostHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.55, 0.7),
+    ghostMat
+  );
+  ghostHull.position.y = 0.3;
+  ghostShip.add(ghostHull);
+  // Hull bow taper (small wedge)
+  const ghostBow = new THREE.Mesh(
+    new THREE.ConeGeometry(0.45, 0.9, 4),
+    ghostMat
+  );
+  ghostBow.rotation.z = -Math.PI / 2;
+  ghostBow.position.set(1.65, 0.3, 0);
+  ghostShip.add(ghostBow);
+  // Two masts
+  for (let m = -1; m <= 1; m += 2) {
+    const mast = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 2.4, 6),
+      ghostMat
+    );
+    mast.position.set(m * 0.55, 1.5, 0);
+    ghostShip.add(mast);
+    // Sail (billowing rectangle)
+    const sail = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.95, 1.5),
+      ghostMat
+    );
+    sail.position.set(m * 0.55, 1.4, 0);
+    sail.rotation.y = 0.05;
+    ghostShip.add(sail);
+  }
+  // Glow halo
+  const ghostHalo = new THREE.Mesh(
+    new THREE.SphereGeometry(2.2, 18, 12),
+    new THREE.MeshBasicMaterial({ color: 0x88ffaa, transparent: true, opacity: 0.08, blending: THREE.AdditiveBlending })
+  );
+  ghostHalo.position.y = 1.0;
+  ghostShip.add(ghostHalo);
+  ghostShip.scale.setScalar(1.4);
+  group.add(ghostShip);
+
+  // 7.6 Jumping dolphins — pair making synchronized arcs
+  const dolphins = [];
+  for (let d = 0; d < 2; d++) {
+    const dolph = new THREE.Group();
+    const dBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.4, 14, 10),
+      new THREE.MeshBasicMaterial({ color: 0xbbccdd })
+    );
+    dBody.scale.set(1.5, 0.5, 0.5);
+    dolph.add(dBody);
+    const dDorsal = new THREE.Mesh(
+      new THREE.ConeGeometry(0.08, 0.25, 4),
+      new THREE.MeshBasicMaterial({ color: 0xaabbcc })
+    );
+    dDorsal.position.set(0, 0.18, 0);
+    dolph.add(dDorsal);
+    const dTail = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, 0.04, 0.32),
+      new THREE.MeshBasicMaterial({ color: 0xaabbcc })
+    );
+    dTail.position.set(-0.6, 0, 0);
+    dolph.add(dTail);
+    dolph.userData.offset = d * 1.2;
+    dolph.position.set(0, -0.3, 18);
+    group.add(dolph);
+    dolphins.push(dolph);
+  }
+
+  // 7.7 Distant fog bank
+  const fogBank = new THREE.Mesh(
+    new THREE.PlaneGeometry(40, 8),
+    new THREE.MeshBasicMaterial({ color: 0xddddee, transparent: true, opacity: 0.18, side: THREE.DoubleSide, depthWrite: false })
+  );
+  fogBank.position.set(0, 2.5, -25);
+  group.add(fogBank);
+
+  // 7.8 Shooting star over Anchorage (single point + trail group)
+  const shootingStar = new THREE.Group();
+  const ssMain = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffffee, transparent: true, opacity: 0.95, blending: THREE.AdditiveBlending })
+  );
+  shootingStar.add(ssMain);
+  const ssTrailMeshes = [];
+  for (let i = 0; i < 10; i++) {
+    const tm = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12 - i * 0.008, 8, 6),
+      new THREE.MeshBasicMaterial({ color: 0xffffee, transparent: true, opacity: 0.6 - i * 0.05, blending: THREE.AdditiveBlending })
+    );
+    shootingStar.add(tm);
+    ssTrailMeshes.push(tm);
+  }
+  shootingStar.visible = false;
+  group.add(shootingStar);
+
+  // 7.9 Sea spray particles trailing the sailboat
+  const SPRAY_COUNT = 30;
+  const sprayPositions = new Float32Array(SPRAY_COUNT * 3);
+  const sprayLifetimes = new Float32Array(SPRAY_COUNT);
+  for (let i = 0; i < SPRAY_COUNT; i++) {
+    sprayPositions[i * 3] = 0;
+    sprayPositions[i * 3 + 1] = 0.1;
+    sprayPositions[i * 3 + 2] = 0;
+    sprayLifetimes[i] = Math.random() * 1.5;
+  }
+  const sprayGeom = new THREE.BufferGeometry();
+  sprayGeom.setAttribute('position', new THREE.BufferAttribute(sprayPositions, 3));
+  const spray = new THREE.Points(
+    sprayGeom,
+    new THREE.PointsMaterial({ color: 0xffffff, size: 0.08, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  group.add(spray);
+
   // mark all child meshes as part of the world for raycasting
   group.traverse(obj => {
     if (obj.isMesh) {
@@ -1157,6 +1428,89 @@ export function createAnchorageLandmark(THREE, opts) {
       const tip = coral.children[coral.children.length - 1];
       tip.material.opacity = 0.55 + 0.35 * Math.sin(t * 1.2 + coral.userData.glowPhase);
     });
+
+    // v7 animations
+    // Sandy seabed shimmer (subtle ripple opacity)
+    sandRipples.forEach((ring, i) => {
+      ring.material.opacity = 0.32 + 0.18 * Math.sin(t * 0.8 + i * 0.5);
+    });
+    // Pelican head bob: small periodic head tilt
+    const headBob = Math.sin(t * 0.7) * 0.05 + Math.sin(t * 1.3) * 0.02;
+    pelicanGroup.rotation.z = headBob;
+    pelicanGroup.position.y = 3.2 + Math.sin(t * 0.5) * 0.04;
+    // Sea horses drift up/down with slight horizontal sway
+    seahorses.forEach((sh, i) => {
+      sh.position.y = sh.userData.baseY + Math.sin(t * 0.9 + sh.userData.phase) * 0.35;
+      sh.position.x = sh.userData.baseX + Math.sin(t * 0.4 + sh.userData.phase) * 0.4;
+      sh.rotation.z = Math.sin(t * 0.6 + sh.userData.phase) * 0.15;
+    });
+    // Pirate ghost ship sails opposite direction far out
+    const ghostA = -t * 0.018 + 1.7;
+    const ghostR = 26;
+    ghostShip.position.x = Math.cos(ghostA) * ghostR;
+    ghostShip.position.z = Math.sin(ghostA) * ghostR;
+    ghostShip.position.y = 0.3 + Math.sin(t * 0.5) * 0.18;
+    ghostShip.rotation.y = -ghostA + Math.PI / 2;
+    // Pulsing ghostly opacity
+    ghostShip.children.forEach((c) => {
+      if (c.material && c.material.opacity !== undefined && c !== ghostHalo) {
+        c.material.opacity = 0.35 + 0.18 * Math.sin(t * 0.9);
+      }
+    });
+    ghostHalo.material.opacity = 0.06 + 0.04 * Math.sin(t * 0.7);
+    // Jumping dolphins synchronized arc cycle ~7s
+    const dolphCycle = 7.0;
+    const dolphPhase = (t % dolphCycle) / dolphCycle; // 0..1
+    dolphins.forEach((d, di) => {
+      // Arc travels from x=18 to x=-18 across z=18
+      const offset = di * 1.2;
+      const px = 18 - dolphPhase * 36 + offset;
+      const py = -0.3 + Math.sin(dolphPhase * Math.PI) * 2.8;
+      const pz = 18 + di * 1.6;
+      d.position.set(px, py, pz);
+      // Rotate to follow arc tangent
+      const tangent = Math.cos(dolphPhase * Math.PI);
+      d.rotation.z = -tangent * 0.6;
+      d.rotation.y = Math.PI;
+      d.visible = dolphPhase > 0.02 && dolphPhase < 0.98;
+    });
+    // Fog bank slow horizontal drift
+    fogBank.position.x = Math.sin(t * 0.06) * 8;
+    fogBank.material.opacity = 0.16 + 0.05 * Math.sin(t * 0.3);
+    // Shooting star over Anchorage every ~14s, traversal lasts 1.5s
+    const ssCycle = 14.0;
+    const ssPhase = t % ssCycle;
+    if (ssPhase < 1.5) {
+      shootingStar.visible = true;
+      const sp = ssPhase / 1.5;
+      const sx = -22 + sp * 44;
+      const sy = 22 - sp * 4;
+      const sz = -15;
+      shootingStar.position.set(sx, sy, sz);
+      // Trail meshes positioned behind, fading
+      ssTrailMeshes.forEach((tm, i) => {
+        const tlag = (i + 1) * 0.4;
+        tm.position.set(-tlag, tlag * 0.18, 0);
+      });
+    } else {
+      shootingStar.visible = false;
+    }
+    // Sea spray trailing sailboat
+    const sprayPosArr = spray.geometry.attributes.position.array;
+    for (let i = 0; i < SPRAY_COUNT; i++) {
+      sprayLifetimes[i] -= dt;
+      if (sprayLifetimes[i] <= 0) {
+        // Respawn slightly behind boat (boat is at boat.position)
+        sprayPosArr[i * 3] = boat.position.x - Math.cos(boatAngle) * 0.6 + (Math.random() - 0.5) * 0.4;
+        sprayPosArr[i * 3 + 1] = 0.08 + Math.random() * 0.08;
+        sprayPosArr[i * 3 + 2] = boat.position.z - Math.sin(boatAngle) * 0.6 + (Math.random() - 0.5) * 0.4;
+        sprayLifetimes[i] = 0.6 + Math.random() * 1.0;
+      } else {
+        sprayPosArr[i * 3 + 1] += dt * 0.05;
+      }
+    }
+    spray.geometry.attributes.position.needsUpdate = true;
+    spray.material.opacity = 0.45 + 0.2 * Math.sin(t * 1.2);
 
   }
 
