@@ -1199,7 +1199,8 @@ function animate() {
         if(intersects.length > 0 && intersects[0].distance < 100) {
             currentFocus = intersects[0].object;
             interactionPrompt.style.display = 'block';
-            interactionPrompt.textContent = `Click or Press E to enter: ${currentFocus.userData.name}${currentFocus.userData.boundaryNote ? ' - ' + currentFocus.userData.boundaryNote : ''}`;
+            const worldName = currentFocus.userData.name || currentFocus.userData.worldData?.name || currentFocus.parent?.userData?.worldData?.name || "this world";
+            interactionPrompt.textContent = `Click or Press E to enter: ${worldName}${currentFocus.userData.boundaryNote ? " - " + currentFocus.userData.boundaryNote : ""}`;
             currentFocus.rotation.y += 0.05;
             currentFocus.rotation.x += 0.05;
         } else {
