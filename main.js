@@ -124,7 +124,11 @@ document.addEventListener('keyup', (event) => {
         case 'ArrowLeft': case 'KeyA': moveLeft = false; break;
         case 'ArrowDown': case 'KeyS': moveBackward = false; break;
         case 'ArrowRight': case 'KeyD': moveRight = false; break;
-        case 'Escape': if (teleportMenuOpen) { toggleTeleportMenu(); } break;
+        case 'Escape':
+            if (teleportMenuOpen && document.activeElement !== teleportFilter) {
+                toggleTeleportMenu();
+            }
+            break;
     }
 });
 
@@ -892,6 +896,7 @@ function drawMinimap() {
 const teleportMenu = document.getElementById('teleport-menu');
 const teleportList = document.getElementById('teleport-list');
 const teleportFilter = document.getElementById('teleport-filter');
+const teleportFilterStatus = document.getElementById('teleport-filter-status');
 let teleportFilterQuery = '';
 
 function openTeleportMenu() {
@@ -962,6 +967,7 @@ function updateTeleportList() {
     teleportList.innerHTML = '';
     const camPos = camera.position;
     const query = teleportFilterQuery;
+    const totalWorlds = worlds.length;
     
     // Filter by world name or agent and keep distance sorting for matches.
     const sorted = worlds
@@ -974,6 +980,11 @@ function updateTeleportList() {
             return { world: w, dist: wp.distanceTo(camPos) };
         })
         .sort((a, b) => a.dist - b.dist);
+    const matchedWorlds = sorted.length;
+    if (teleportFilterStatus) {
+        if (!query) teleportFilterStatus.textContent = `Showing all ${totalWorlds} worlds`;
+        else teleportFilterStatus.textContent = `Showing ${matchedWorlds} of ${totalWorlds} worlds`;
+    }
 
     if (!sorted.length) {
         const empty = document.createElement('div');
@@ -1087,12 +1098,29 @@ teleportFilter?.addEventListener('keydown', (event) => {
     const entries = [...teleportList.querySelectorAll('.world-entry')];
     if (event.code === 'ArrowDown') {
         event.preventDefault();
+        event.stopPropagation();
+        entries[0]?.focus();
+    } else if (event.code === 'ArrowUp') {
+        event.preventDefault();
+        event.stopPropagation();
+        entries[entries.length - 1]?.focus();
+    } else if (event.code === 'Home') {
+        event.preventDefault();
+        event.stopPropagation();
         entries[0]?.focus();
     } else if (event.code === 'End') {
         event.preventDefault();
+        event.stopPropagation();
         entries[entries.length - 1]?.focus();
     } else if (event.code === 'Escape') {
         event.preventDefault();
+        event.stopPropagation();
+        if (teleportFilterQuery) {
+            teleportFilterQuery = '';
+            teleportFilter.value = '';
+            updateTeleportList();
+            return;
+        }
         closeTeleportMenu();
     }
 });

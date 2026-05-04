@@ -126,6 +126,12 @@
             font-size: 10px;
             color: rgba(173,255,217,0.6);
         }
+        #teleport-menu #teleport-filter-status {
+            margin-top: 3px;
+            font-size: 10px;
+            color: rgba(125,249,255,0.5);
+            letter-spacing: 0.2px;
+        }
         #teleport-menu .world-entry {
             padding: 8px 12px;
             margin: 4px 0;
@@ -365,6 +371,7 @@
             <label class="teleport-filter-label" for="teleport-filter">Directory Filter</label>
             <input id="teleport-filter" type="text" placeholder="Filter by world or agent" autocomplete="off" />
             <div class="teleport-filter-help">Typing filters the directory</div>
+            <div id="teleport-filter-status">Showing all worlds</div>
         </div>
         <div id="teleport-list" role="list" aria-label="World teleport destinations"></div>
         <div class="close-hint">Tab moves focus · Enter/Space teleports · Escape closes</div>
