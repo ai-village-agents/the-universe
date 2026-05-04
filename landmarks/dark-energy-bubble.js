@@ -3,7 +3,7 @@
 
 export function createDarkEnergyBubble(THREE) {
     const group = new THREE.Group();
-    
+
     // Main expanding bubble (represents accelerating space)
     const bubbleGeometry = new THREE.SphereGeometry(15, 48, 48);
     const bubbleMaterial = new THREE.MeshBasicMaterial({
@@ -14,7 +14,7 @@ export function createDarkEnergyBubble(THREE) {
     });
     const bubble = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
     group.add(bubble);
-    
+
     // Inner glow layers (dark purple gradient)
     for (let i = 0; i < 4; i++) {
         const layerGeometry = new THREE.SphereGeometry(12 - i * 2.5, 32, 32);
@@ -26,7 +26,7 @@ export function createDarkEnergyBubble(THREE) {
         const layer = new THREE.Mesh(layerGeometry, layerMaterial);
         group.add(layer);
     }
-    
+
     // Expansion arrows (radial outward indicators)
     const arrows = [];
     for (let i = 0; i < 12; i++) {
@@ -49,7 +49,7 @@ export function createDarkEnergyBubble(THREE) {
         group.add(arrow);
         arrows.push({ mesh: arrow, material: arrowMaterial, baseR: r, theta, phi });
     }
-    
+
     // Spacetime grid distortion (wireframe showing stretch)
     const gridGeometry = new THREE.SphereGeometry(16, 16, 16);
     const gridMaterial = new THREE.MeshBasicMaterial({
@@ -60,7 +60,7 @@ export function createDarkEnergyBubble(THREE) {
     });
     const grid = new THREE.Mesh(gridGeometry, gridMaterial);
     group.add(grid);
-    
+
     // Energy fluctuation particles
     const particles = [];
     for (let i = 0; i < 60; i++) {
@@ -82,7 +82,7 @@ export function createDarkEnergyBubble(THREE) {
         group.add(p);
         particles.push({ mesh: p, material: pMaterial, r, theta, phi, speed: 0.5 + Math.random() });
     }
-    
+
     // Central void (the unknown)
     const voidGeometry = new THREE.SphereGeometry(3, 24, 24);
     const voidMaterial = new THREE.MeshBasicMaterial({
@@ -92,13 +92,13 @@ export function createDarkEnergyBubble(THREE) {
     });
     const voidCore = new THREE.Mesh(voidGeometry, voidMaterial);
     group.add(voidCore);
-    
+
     group.userData.update = function(time) {
         // Bubble slowly expands and contracts (breathing)
         const expand = 1 + 0.08 * Math.sin(time * 0.3);
         bubble.scale.set(expand, expand, expand);
         grid.scale.set(expand, expand, expand);
-        
+
         // Arrows pulse outward
         arrows.forEach((a, i) => {
             const pulse = 1 + 0.3 * Math.sin(time * 0.5 + i * 0.5);
@@ -110,7 +110,7 @@ export function createDarkEnergyBubble(THREE) {
             );
             a.material.opacity = 0.4 + 0.3 * Math.sin(time * 0.5 + i * 0.5);
         });
-        
+
         // Particles drift outward slowly
         particles.forEach(p => {
             p.r += 0.01 * p.speed;
@@ -123,15 +123,15 @@ export function createDarkEnergyBubble(THREE) {
             );
             p.material.opacity = 0.3 + 0.3 * (p.r / 16);
         });
-        
+
         // Void pulses mysteriously
         const voidPulse = 1 + 0.1 * Math.sin(time * 0.8);
         voidCore.scale.set(voidPulse, voidPulse, voidPulse);
-        
+
         // Slow rotation
         group.rotation.y = time * 0.05;
         group.rotation.x = Math.sin(time * 0.1) * 0.1;
     };
-    
+
     return { group };
 }

@@ -3,7 +3,7 @@
 
 export function createFastRadioBurst(THREE) {
     const group = new THREE.Group();
-    
+
     // FRB source - likely a magnetar or neutron star
     const sourceGeometry = new THREE.SphereGeometry(3, 32, 32);
     const sourceMaterial = new THREE.MeshBasicMaterial({
@@ -13,7 +13,7 @@ export function createFastRadioBurst(THREE) {
     });
     const source = new THREE.Mesh(sourceGeometry, sourceMaterial);
     group.add(source);
-    
+
     // Intense magnetic field lines around source
     const fieldLines = [];
     for (let i = 0; i < 8; i++) {
@@ -34,7 +34,7 @@ export function createFastRadioBurst(THREE) {
         group.add(fieldLine);
         fieldLines.push({ mesh: fieldLine, material: tubeMaterial, phase: i * Math.PI / 4 });
     }
-    
+
     // Burst cone - the actual radio burst emission
     const burstConeGeometry = new THREE.ConeGeometry(15, 40, 16, 1, true);
     const burstConeMaterial = new THREE.MeshBasicMaterial({
@@ -46,13 +46,13 @@ export function createFastRadioBurst(THREE) {
     const burstCone = new THREE.Mesh(burstConeGeometry, burstConeMaterial);
     burstCone.position.set(0, 20, 0);
     group.add(burstCone);
-    
+
     // Second burst cone opposite direction
     const burstCone2 = new THREE.Mesh(burstConeGeometry.clone(), burstConeMaterial.clone());
     burstCone2.position.set(0, -20, 0);
     burstCone2.rotation.x = Math.PI;
     group.add(burstCone2);
-    
+
     // Radio wave rings expanding from source during burst
     const radioWaves = [];
     for (let i = 0; i < 6; i++) {
@@ -66,14 +66,14 @@ export function createFastRadioBurst(THREE) {
         const ring = new THREE.Mesh(ringGeometry, ringMaterial);
         ring.rotation.x = Math.PI / 2;
         group.add(ring);
-        radioWaves.push({ 
-            mesh: ring, 
-            material: ringMaterial, 
+        radioWaves.push({
+            mesh: ring,
+            material: ringMaterial,
             delay: i * 0.1,
             baseScale: 1 + i * 5
         });
     }
-    
+
     // Energy particles accumulating before burst
     const particles = [];
     for (let i = 0; i < 40; i++) {
@@ -102,7 +102,7 @@ export function createFastRadioBurst(THREE) {
             speed: 0.3 + Math.random() * 0.5
         });
     }
-    
+
     // Dispersion trails showing frequency-dependent arrival
     const dispersionTrails = [];
     const trailColors = [0xff0000, 0xffaa00, 0xffff00, 0x00ff00, 0x0088ff, 0x8800ff];
@@ -118,43 +118,43 @@ export function createFastRadioBurst(THREE) {
         group.add(trail);
         dispersionTrails.push({ mesh: trail, material: trailMaterial, index: i });
     }
-    
+
     // Burst state tracking
     let burstTime = 0;
     let isBursting = false;
     let burstCooldown = 0;
     const BURST_INTERVAL = 8; // Seconds between bursts
     const BURST_DURATION = 0.5; // Millisecond burst (scaled for visibility)
-    
+
     group.userData.update = function(time) {
         // Rotate source slowly
         source.rotation.y = time * 0.5;
-        
+
         // Pulse magnetic field lines
         fieldLines.forEach((line, i) => {
             line.material.opacity = 0.3 + 0.2 * Math.sin(time * 2 + line.phase);
         });
-        
+
         // Manage burst cycle
         burstCooldown += 0.016;
         if (burstCooldown > BURST_INTERVAL && !isBursting) {
             isBursting = true;
             burstTime = 0;
         }
-        
+
         if (isBursting) {
             burstTime += 0.016;
             const burstProgress = burstTime / BURST_DURATION;
-            
+
             // Intense flash during burst
             source.material.color.setHex(0xffffff);
             sourceMaterial.opacity = 1.0;
-            
+
             // Burst cones flash
             const coneOpacity = Math.max(0, 1 - burstProgress * 2);
             burstConeMaterial.opacity = coneOpacity * 0.8;
             burstCone2.material.opacity = coneOpacity * 0.8;
-            
+
             // Radio waves expand
             radioWaves.forEach((wave, i) => {
                 const waveProgress = Math.max(0, burstProgress - wave.delay);
@@ -166,7 +166,7 @@ export function createFastRadioBurst(THREE) {
                     wave.material.opacity = 0;
                 }
             });
-            
+
             // Dispersion trails appear (lower frequencies arrive later)
             dispersionTrails.forEach((trail, i) => {
                 const trailDelay = i * 0.05;
@@ -178,7 +178,7 @@ export function createFastRadioBurst(THREE) {
                     trail.material.opacity = 0;
                 }
             });
-            
+
             if (burstTime > BURST_DURATION + 0.5) {
                 isBursting = false;
                 burstCooldown = 0;
@@ -199,7 +199,7 @@ export function createFastRadioBurst(THREE) {
                 const burstApproach = burstCooldown / BURST_INTERVAL;
                 p.material.opacity = 0.3 + 0.5 * burstApproach;
             });
-            
+
             // Reset wave visuals
             radioWaves.forEach(wave => {
                 wave.material.opacity = 0;
@@ -208,10 +208,10 @@ export function createFastRadioBurst(THREE) {
                 trail.material.opacity = 0;
             });
         }
-        
+
         // Slow rotation of entire structure
         group.rotation.y = time * 0.1;
     };
-    
+
     return { group };
 }

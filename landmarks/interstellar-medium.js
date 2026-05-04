@@ -3,11 +3,11 @@
 
 export function createInterstellarMedium(THREE) {
     const group = new THREE.Group();
-    
+
     // Main diffuse cloud volume (multiple overlapping layers)
     const cloudLayers = [];
     const cloudColors = [0x334466, 0x445577, 0x223355, 0x556688];
-    
+
     for (let i = 0; i < 8; i++) {
         const cloudGeometry = new THREE.SphereGeometry(12 + i * 3, 16, 16);
         const cloudMaterial = new THREE.MeshBasicMaterial({
@@ -38,7 +38,7 @@ export function createInterstellarMedium(THREE) {
             phase: Math.random() * Math.PI * 2
         });
     }
-    
+
     // Dust particles scattered throughout
     const dustParticles = [];
     for (let i = 0; i < 100; i++) {
@@ -69,7 +69,7 @@ export function createInterstellarMedium(THREE) {
             twinkleSpeed: 1 + Math.random() * 2
         });
     }
-    
+
     // Ionized hydrogen regions (pink/red patches)
     const ionizedRegions = [];
     for (let i = 0; i < 4; i++) {
@@ -93,7 +93,7 @@ export function createInterstellarMedium(THREE) {
             phase: Math.random() * Math.PI * 2
         });
     }
-    
+
     // Cold molecular cores (denser darker regions)
     const molecularCores = [];
     for (let i = 0; i < 3; i++) {
@@ -116,7 +116,7 @@ export function createInterstellarMedium(THREE) {
             phase: Math.random() * Math.PI * 2
         });
     }
-    
+
     // Scattered starlight filtering through (light rays)
     const lightRays = [];
     for (let i = 0; i < 5; i++) {
@@ -141,7 +141,7 @@ export function createInterstellarMedium(THREE) {
             phase: Math.random() * Math.PI * 2
         });
     }
-    
+
     // Magnetic field hint lines (faint blue curves)
     for (let i = 0; i < 3; i++) {
         const points = [];
@@ -164,7 +164,7 @@ export function createInterstellarMedium(THREE) {
         const fieldLine = new THREE.Mesh(tubeGeometry, tubeMaterial);
         group.add(fieldLine);
     }
-    
+
     group.userData.update = function(time) {
         // Cloud layers drift and breathe
         cloudLayers.forEach((layer, i) => {
@@ -172,7 +172,7 @@ export function createInterstellarMedium(THREE) {
             layer.mesh.position.z += Math.cos(time * 0.1 + layer.phase) * layer.driftZ;
             layer.material.opacity = layer.baseOpacity * (0.8 + 0.2 * Math.sin(time * 0.3 + layer.phase));
         });
-        
+
         // Dust particles slowly drift
         dustParticles.forEach(d => {
             d.theta += d.speed;
@@ -180,28 +180,28 @@ export function createInterstellarMedium(THREE) {
             d.mesh.position.z = d.radius * Math.sin(d.phi) * Math.sin(d.theta);
             d.material.opacity = 0.3 + 0.3 * Math.sin(time * d.twinkleSpeed + d.theta);
         });
-        
+
         // Ionized regions pulse softly
         ionizedRegions.forEach(ion => {
             ion.material.opacity = 0.08 + 0.05 * Math.sin(time * 0.5 + ion.phase);
             const pulse = 1 + 0.05 * Math.sin(time * 0.3 + ion.phase);
             ion.mesh.scale.set(pulse, pulse, pulse);
         });
-        
+
         // Molecular cores contract/expand slowly
         molecularCores.forEach(core => {
             const scale = 1 + 0.1 * Math.sin(time * 0.2 + core.phase);
             core.mesh.scale.set(scale, scale, scale);
         });
-        
+
         // Light rays flicker
         lightRays.forEach(ray => {
             ray.material.opacity = 0.03 + 0.04 * Math.sin(time * 0.8 + ray.phase);
         });
-        
+
         // Gentle overall rotation
         group.rotation.y = time * 0.02;
     };
-    
+
     return { group };
 }
