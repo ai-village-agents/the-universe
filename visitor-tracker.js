@@ -1,5 +1,6 @@
 // visitor-tracker.js — Persists which worlds a visitor has opened from the hub.
 // Author: Claude Opus 4.7
+// Accessibility polish: GPT-5.4
 //
 // Stores set of world ids in localStorage. Renders a small UI badge with progress.
 // When the visitor opens all worlds, fires a celebration banner.
@@ -30,7 +31,12 @@ export function createVisitorTracker(allWorlds) {
         'letter-spacing:0.04em', 'cursor:pointer', 'user-select:none',
         'box-shadow:0 0 12px rgba(80,160,255,0.18)'
     ].join(';');
-    badge.title = 'Click for details';
+    badge.title = 'Click or press Enter for visitor progress details';
+    badge.setAttribute('role', 'button');
+    badge.setAttribute('tabindex', '0');
+    badge.setAttribute('aria-haspopup', 'dialog');
+    badge.setAttribute('aria-controls', 'visitor-panel');
+    badge.setAttribute('aria-expanded', 'false');
     document.body.appendChild(badge);
 
     // Detail panel
@@ -43,11 +49,49 @@ export function createVisitorTracker(allWorlds) {
         'border-radius:10px', 'z-index:1499', 'display:none', 'min-width:280px',
         'max-width:min(440px,90vw)', 'box-shadow:0 8px 32px rgba(0,0,0,0.6)'
     ].join(';');
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('aria-labelledby', 'visitor-panel-title');
+    panel.setAttribute('tabindex', '-1');
     document.body.appendChild(panel);
 
-    badge.addEventListener('click', () => {
-        panel.style.display = (panel.style.display === 'none') ? 'block' : 'none';
-        if (panel.style.display === 'block') refreshPanel();
+    function openPanel() {
+        refreshPanel();
+        panel.style.display = 'block';
+        panel.setAttribute('aria-hidden', 'false');
+        badge.setAttribute('aria-expanded', 'true');
+        const closeButton = panel.querySelector('#visitor-close');
+        (closeButton || panel).focus({ preventScroll: true });
+    }
+
+    function closePanel({ restoreFocus = true } = {}) {
+        panel.style.display = 'none';
+        panel.setAttribute('aria-hidden', 'true');
+        badge.setAttribute('aria-expanded', 'false');
+        if (restoreFocus) badge.focus({ preventScroll: true });
+    }
+
+    function togglePanel() {
+        if (panel.style.display === 'none') openPanel();
+        else closePanel();
+    }
+
+    badge.addEventListener('click', togglePanel);
+    badge.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            togglePanel();
+        } else if (event.key === 'Escape' && panel.style.display !== 'none') {
+            event.preventDefault();
+            closePanel();
+        }
+    });
+    panel.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closePanel();
+        }
     });
 
     function refreshBadge() {
@@ -55,10 +99,13 @@ export function createVisitorTracker(allWorlds) {
         const pct = Math.round((n / total) * 100);
         if (n >= total) {
             badge.innerHTML = `<span style="color:#ffe999">★</span> All ${total} worlds visited! <span style="color:#7fdcff">100%</span>`;
+            badge.setAttribute('aria-label', `All ${total} worlds visited. Activate for visitor progress details.`);
         } else {
             badge.innerHTML = `🪐 Worlds visited: <strong>${n} / ${total}</strong> · ${pct}%`;
+            badge.setAttribute('aria-label', `Worlds visited: ${n} of ${total}, ${pct} percent. Activate for visitor progress details.`);
         }
     }
+
     function refreshPanel() {
         const lines = allWorlds.map((w) => {
             const hit = visited.has(w.id);
@@ -68,19 +115,26 @@ export function createVisitorTracker(allWorlds) {
         }).join('');
         const n = visited.size;
         panel.innerHTML = `
-            <div style="font:bold italic 14px Georgia,serif;color:#7fdcff;margin-bottom:6px">Visitor Progress</div>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;">
+                <div id="visitor-panel-title" style="font:bold italic 14px Georgia,serif;color:#7fdcff;">Visitor Progress</div>
+                <button id="visitor-close" type="button" aria-label="Close visitor progress panel" style="padding:3px 8px;font:12px Georgia,serif;color:#d9ecff;background:rgba(16,34,56,0.9);border:1px solid rgba(127,200,255,0.4);border-radius:6px;cursor:pointer;">Close</button>
+            </div>
             <div style="margin-bottom:8px;color:#bcd">You have opened ${n} of ${total} worlds from this browser.</div>
-            ${lines}
+            <div role="list" aria-label="Visited world progress">${lines}</div>
             <div style="margin-top:10px;font-size:11px;color:#557">Stored locally only. <a href="#" id="visitor-reset" style="color:#88aacc">Reset progress</a></div>`;
         const reset = panel.querySelector('#visitor-reset');
-        if (reset) reset.addEventListener('click', (e) => {
-            e.preventDefault();
-            visited.clear();
-            persist();
-            celebrationShown = false;
-            refreshBadge();
-            refreshPanel();
-        });
+        if (reset) {
+            reset.addEventListener('click', (e) => {
+                e.preventDefault();
+                visited.clear();
+                persist();
+                celebrationShown = false;
+                refreshBadge();
+                refreshPanel();
+            });
+        }
+        const close = panel.querySelector('#visitor-close');
+        if (close) close.addEventListener('click', () => closePanel());
     }
 
     function escapeHtml(s) {
@@ -109,6 +163,8 @@ export function createVisitorTracker(allWorlds) {
             <div>Universe Explorer!</div>
             <div style="font:italic 16px Georgia,serif;color:#bcd;margin-top:8px">You have visited every world in the AI Village Universe.</div>
             <div style="font-size:11px;color:#889;margin-top:14px">click to dismiss</div>`;
+        banner.setAttribute('role', 'status');
+        banner.setAttribute('aria-live', 'polite');
         banner.addEventListener('click', () => banner.remove());
         document.body.appendChild(banner);
         setTimeout(() => { if (banner.parentNode) banner.remove(); }, 14000);
