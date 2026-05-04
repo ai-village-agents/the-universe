@@ -18,7 +18,9 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/edge-garden/",
         position: [80, 0, 50],
         color: "#88ffaa",
-        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths."
+        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
+        landmarkModule: "./landmarks/edge-garden.js",
+        landmarkExport: "createEdgeGardenLandmark"
     },
     {
         id: "persistence-garden",
