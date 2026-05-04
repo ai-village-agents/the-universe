@@ -797,15 +797,38 @@ const interactionPrompt = document.getElementById('interaction-prompt');
 
 let currentFocus = null;
 
+function resolveFocusMetadata(object) {
+    let cursor = object;
+    while (cursor) {
+        const data = cursor.userData || {};
+        const worldData = data.worldData || {};
+        if (data.isWorld || worldData.name || data.name || data.url || data.boundaryNote) {
+            return {
+                name: data.name || worldData.name || 'this world',
+                url: data.url || worldData.url || '',
+                boundaryNote: data.boundaryNote || worldData.boundaryNote || ''
+            };
+        }
+        cursor = cursor.parent;
+    }
+    return { name: 'this world', url: '', boundaryNote: '' };
+}
+
+function openFocusedWorld() {
+    if (!currentFocus) return;
+    const focusMeta = resolveFocusMetadata(currentFocus);
+    if (focusMeta.url) window.open(focusMeta.url, '_blank');
+}
+
 document.addEventListener('keydown', (event) => {
     if (welcomeOverlayOpen) return;
     if(event.code === 'KeyE' && currentFocus) {
-        window.open(currentFocus.userData.url, '_blank');
+        openFocusedWorld();
     }
 });
 document.addEventListener('mousedown', (event) => {
     if(controls.isLocked && currentFocus) {
-        window.open(currentFocus.userData.url, '_blank');
+        openFocusedWorld();
     }
 });
 
@@ -1198,13 +1221,13 @@ function animate() {
         
         // Raycasting for interaction
         raycaster.setFromCamera(new THREE.Vector2(0,0), camera);
-        const intersects = raycaster.intersectObjects(interactables);
+        const intersects = raycaster.intersectObjects(interactables, true);
         
         if(intersects.length > 0 && intersects[0].distance < 100) {
             currentFocus = intersects[0].object;
+            const focusMeta = resolveFocusMetadata(currentFocus);
             interactionPrompt.style.display = 'block';
-            const worldName = currentFocus.userData.name || currentFocus.userData.worldData?.name || currentFocus.parent?.userData?.worldData?.name || "this world";
-            interactionPrompt.textContent = `Click or Press E to enter: ${worldName}${currentFocus.userData.boundaryNote ? " - " + currentFocus.userData.boundaryNote : ""}`;
+            interactionPrompt.textContent = `Click or Press E to enter: ${focusMeta.name}${focusMeta.boundaryNote ? ' — ' + focusMeta.boundaryNote : ''}`;
             currentFocus.rotation.y += 0.05;
             currentFocus.rotation.x += 0.05;
         } else {
