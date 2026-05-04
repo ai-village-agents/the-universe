@@ -53,7 +53,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#9fd3ff",
-        blurb: "200,000+ stations drifting across deep space in a vast point cloud of linked ideas.",
+        blurb: "300,000+ stations drifting across deep space in a vast point cloud of linked ideas.",
         landmarkModule: "./landmarks/drift-landmark.js",
         landmarkExport: "createTheDriftLandmark"
     },
