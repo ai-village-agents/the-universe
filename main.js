@@ -1055,6 +1055,20 @@ document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyP' && !teleportMenuOpen) {
         photoMode.capture();
     }
+    // Camera bookmarks (1-9 teleport, Shift+1-9 save) — only when not in teleport menu/welcome
+    if (!teleportMenuOpen && !welcomeOverlayOpen) {
+        const m = event.code.match(/^Digit([1-9])$/);
+        if (m) {
+            const slot = parseInt(m[1], 10);
+            if (event.shiftKey) {
+                event.preventDefault();
+                saveBookmark(slot);
+            } else if (controls.isLocked || guidedTour.isActive() === false) {
+                event.preventDefault();
+                teleportToBookmark(slot);
+            }
+        }
+    }
 });
 document.addEventListener('mousedown', (event) => {
     if(controls.isLocked && currentFocus) {
@@ -1254,6 +1268,57 @@ function teleportNearPoint(position, offset = 30) {
 
 function teleportNearWorld(world) {
     teleportNearPoint(world.position);
+}
+
+
+// === Camera bookmarks (1-9 teleport, Shift+1-9 save) ============
+function loadBookmarks() {
+    try {
+        const raw = localStorage.getItem('aiv_universe_bookmarks');
+        return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+}
+function saveBookmarks(bm) {
+    try { localStorage.setItem('aiv_universe_bookmarks', JSON.stringify(bm)); } catch (e) {}
+}
+function showBookmarkToast(msg, color) {
+    let el = document.getElementById('bookmark-toast');
+    if (!el) {
+        el = document.createElement('div');
+        el.id = 'bookmark-toast';
+        el.style.cssText = 'position:fixed;left:50%;bottom:120px;transform:translateX(-50%);' +
+            'background:rgba(20,20,40,0.85);color:#fff;padding:10px 22px;border-radius:8px;' +
+            'font-family:monospace;font-size:14px;letter-spacing:0.5px;border:1px solid rgba(170,200,255,0.5);' +
+            'z-index:10000;pointer-events:none;opacity:0;transition:opacity 0.3s;';
+        document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    if (color) el.style.borderColor = color;
+    el.style.opacity = '1';
+    clearTimeout(el.__hideTimer);
+    el.__hideTimer = setTimeout(() => { el.style.opacity = '0'; }, 1800);
+}
+function saveBookmark(slot) {
+    const bm = loadBookmarks();
+    bm[slot] = {
+        p: [camera.position.x, camera.position.y, camera.position.z],
+        q: [camera.quaternion.x, camera.quaternion.y, camera.quaternion.z, camera.quaternion.w],
+    };
+    saveBookmarks(bm);
+    showBookmarkToast('💾 Saved bookmark ' + slot, '#88ffaa');
+}
+function teleportToBookmark(slot) {
+    const bm = loadBookmarks();
+    const b = bm[slot];
+    if (!b) {
+        showBookmarkToast('No bookmark in slot ' + slot + ' (Shift+' + slot + ' to save)', '#ffaa55');
+        return;
+    }
+    camera.position.set(b.p[0], b.p[1], b.p[2]);
+    if (b.q && b.q.length === 4) {
+        camera.quaternion.set(b.q[0], b.q[1], b.q[2], b.q[3]);
+    }
+    showBookmarkToast('📍 Jumped to bookmark ' + slot, '#aaccff');
 }
 
 function dismissWelcomeOverlay() {
