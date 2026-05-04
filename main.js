@@ -51,6 +51,7 @@ let moveRight = false;
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
 let speedMult = 1.0;
+let autoFlyEnabled = false;
 let teleportMenuOpen = false;
 let welcomeOverlayOpen = false;
 
@@ -139,6 +140,15 @@ document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyH') {
         event.preventDefault();
         setWelcomeOverlayVisible(true);
+        return;
+    }
+    if (event.code === 'KeyF') {
+        event.preventDefault();
+        autoFlyEnabled = !autoFlyEnabled;
+        refreshAutoFlyHud();
+        if (typeof showBookmarkToast === 'function') {
+            showBookmarkToast(autoFlyEnabled ? '✈️ Auto-fly ON (F to toggle, scroll to set speed)' : '✈️ Auto-fly OFF', autoFlyEnabled ? '#aaffcc' : '#ffaa88');
+        }
         return;
     }
     switch (event.code) {
@@ -1421,6 +1431,20 @@ function refreshBookmarkHud() {
         }
     });
 }
+function ensureAutoFlyHud() {
+    let el = document.getElementById('autofly-hud');
+    if (el) return el;
+    el = document.createElement('div');
+    el.id = 'autofly-hud';
+    el.style.cssText = 'position:fixed;left:50%;bottom:104px;transform:translateX(-50%);padding:6px 14px;border-radius:14px;background:rgba(15,30,40,0.62);color:#aaffcc;font-family:monospace;font-size:13px;letter-spacing:0.06em;border:1px solid rgba(170,255,204,0.5);box-shadow:0 0 14px rgba(120,220,170,0.35);pointer-events:none;z-index:42;display:none;';
+    el.textContent = '✈️ AUTO-FLY · F to disable · scroll to set speed';
+    document.body.appendChild(el);
+    return el;
+}
+function refreshAutoFlyHud() {
+    const el = ensureAutoFlyHud();
+    el.style.display = autoFlyEnabled ? 'block' : 'none';
+}
 function showBookmarkToast(msg, color) {
     let el = document.getElementById('bookmark-toast');
     if (!el) {
@@ -1901,6 +1925,10 @@ function animate() {
 
         if (moveForward || moveBackward) velocity.z -= direction.z * currentSpeed * delta;
         if (moveLeft || moveRight) velocity.x -= direction.x * currentSpeed * delta;
+        if (autoFlyEnabled && !moveForward && !moveBackward) {
+            // Continuous forward drift in cinematic mode at half base speed
+            velocity.z -= currentSpeed * 0.5 * delta;
+        }
 
         controls.moveRight(-velocity.x * delta);
         controls.moveForward(-velocity.z * delta);
