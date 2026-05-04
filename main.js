@@ -456,6 +456,7 @@ import { createSolarFlare } from "./landmarks/solar-flare.js";
 import { createRoguePlanet } from "./landmarks/rogue-planet.js";
 import { createCosmicString } from "./landmarks/cosmic-string.js";
 import { createCosmicMaelstrom } from "./landmarks/cosmic-maelstrom.js";
+import { createMagnetarBurst } from "./landmarks/magnetar-burst.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -777,6 +778,12 @@ async function loadWorlds() {
     customLandmarkAnimators.push((elapsed, delta, time) => cosmicString.group.userData.update(elapsed));
     const cosmicMaelstrom = createCosmicMaelstrom(scene);
     customLandmarkAnimators.push((elapsed, delta, time) => cosmicMaelstrom.update(delta, elapsed));
+
+    // Magnetar Burst - ultra-magnetized neutron star with X-ray flares
+    const magnetarBurst = createMagnetarBurst(THREE);
+    magnetarBurst.group.position.set(950, 100, -200);
+    scene.add(magnetarBurst.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => magnetarBurst.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1344,6 +1351,7 @@ const cosmicSights = [
     { name: 'Rogue Planet', position: [750, -120, 350], color: '#667788', description: 'lonely wanderer through interstellar space with frozen moons and faint auroral activity' },
     { name: 'Cosmic String', position: [-850, 0, 200], color: '#00ffff', description: 'theoretical topological defect with gravitational lensing and energy kinks' },
     { name: 'Cosmic Maelstrom', position: [200, 100, 500], color: '#ff3300', description: 'violent vortex of infalling stars and exotic matter with relativistic jets and event horizon' },
+    { name: 'Magnetar Burst', position: [950, 100, -200], color: '#00ffff', description: 'ultra-magnetized neutron star with intense X-ray flares and starquake aftershocks' },
 ];
 
 function openTeleportMenu() {
