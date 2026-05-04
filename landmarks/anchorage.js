@@ -1914,6 +1914,149 @@ export function createAnchorageLandmark(THREE, opts) {
     flukeGroup.userData.cycle = 0;
   }
 
+
+  // --- ANCHORAGE v11 ----------------------------------------------------
+  // Orca pod (three orcas in formation), low fog bank rolling across the
+  // bay, and a flock of seabirds circling the lighthouse.
+  // ---------------------------------------------------------------------
+
+  // 1) Orca pod — three orcas swimming together in a loose formation that
+  //    slowly circles the bay. Each surfaces and dives on its own phase.
+  const orcaPod = [];
+  {
+    const orcaMatBlack = new THREE.MeshStandardMaterial({ color: 0x111418, roughness: 0.55, metalness: 0.0 });
+    const orcaMatWhite = new THREE.MeshStandardMaterial({ color: 0xeef0f2, roughness: 0.6, metalness: 0.0 });
+    const offsets = [
+      { ang: 0.0, r: 16.5, ph: 0.0, scale: 1.0 },
+      { ang: 0.5, r: 17.5, ph: 1.7, scale: 0.85 }, // calf-ish
+      { ang: -0.55, r: 17.0, ph: 3.1, scale: 0.95 },
+    ];
+    offsets.forEach((o) => {
+      const og = new THREE.Group();
+      // body
+      const body = new THREE.Mesh(new THREE.SphereGeometry(0.85, 14, 10), orcaMatBlack);
+      body.scale.set(2.6, 0.85, 1.0);
+      og.add(body);
+      // white belly patch
+      const belly = new THREE.Mesh(new THREE.SphereGeometry(0.6, 12, 8), orcaMatWhite);
+      belly.scale.set(2.0, 0.55, 0.7);
+      belly.position.y = -0.25;
+      og.add(belly);
+      // white eye-patch (just a small ellipsoid behind the eye)
+      const eyeP = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), orcaMatWhite);
+      eyeP.scale.set(1.0, 0.6, 0.6);
+      eyeP.position.set(1.2, 0.2, 0.45);
+      og.add(eyeP);
+      const eyeP2 = eyeP.clone();
+      eyeP2.position.z = -0.45;
+      og.add(eyeP2);
+      // dorsal fin (tall triangle)
+      const dorsal = new THREE.Mesh(new THREE.ConeGeometry(0.32, 1.1, 4), orcaMatBlack);
+      dorsal.scale.set(0.4, 1.0, 1.0);
+      dorsal.rotation.x = Math.PI;
+      dorsal.position.set(-0.1, 0.85, 0);
+      og.add(dorsal);
+      // tail flukes
+      const tail = new THREE.Group();
+      tail.position.x = -2.0;
+      const tailL = new THREE.Mesh(new THREE.ConeGeometry(0.45, 0.9, 4), orcaMatBlack);
+      tailL.scale.set(1.0, 1.0, 0.18);
+      tailL.rotation.z = -1.05;
+      tailL.position.set(-0.4, 0, 0);
+      tail.add(tailL);
+      const tailR = tailL.clone();
+      tailR.rotation.z = 1.05;
+      tailR.position.set(0.4, 0, 0);
+      tail.add(tailR);
+      og.add(tail);
+      og.userData.tail = tail;
+      og.userData.ang = o.ang;
+      og.userData.r = o.r;
+      og.userData.ph = o.ph;
+      og.scale.setScalar(o.scale);
+      group.add(og);
+      orcaPod.push(og);
+    });
+  }
+
+  // 2) Fog bank — translucent rolling planes near sea level that drift
+  //    across the bay and gently fade in/out.
+  const fogBank = new THREE.Group();
+  {
+    const fogTex = (() => {
+      const c = document.createElement('canvas');
+      c.width = 256; c.height = 128;
+      const cx = c.getContext('2d');
+      const grd = cx.createRadialGradient(128, 64, 5, 128, 64, 110);
+      grd.addColorStop(0, 'rgba(220,225,232,0.95)');
+      grd.addColorStop(0.5, 'rgba(210,218,228,0.55)');
+      grd.addColorStop(1, 'rgba(200,212,224,0.0)');
+      cx.fillStyle = grd;
+      cx.fillRect(0, 0, 256, 128);
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    })();
+    for (let i = 0; i < 7; i++) {
+      const w = 14 + Math.random() * 10;
+      const h = 4 + Math.random() * 2.5;
+      const m = new THREE.Mesh(
+        new THREE.PlaneGeometry(w, h),
+        new THREE.MeshBasicMaterial({ map: fogTex, transparent: true, opacity: 0.0, depthWrite: false, side: THREE.DoubleSide })
+      );
+      m.rotation.x = -Math.PI / 2 + 0.05;
+      m.rotation.z = Math.random() * Math.PI * 2;
+      m.position.set((Math.random() - 0.5) * 36, 0.6 + Math.random() * 0.7, (Math.random() - 0.5) * 32);
+      m.userData.basePos = m.position.clone();
+      m.userData.phase = Math.random() * Math.PI * 2;
+      m.userData.driftSpeed = 0.25 + Math.random() * 0.25;
+      fogBank.add(m);
+    }
+    group.add(fogBank);
+  }
+
+  // 3) Seabird flock — six gulls circling the lighthouse on slow elliptical
+  //    paths at varying altitudes. Wings flap smoothly.
+  const seaBirdFlock = [];
+  {
+    const wingMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.7, metalness: 0.0, side: THREE.DoubleSide });
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.7 });
+    for (let i = 0; i < 6; i++) {
+      const bg = new THREE.Group();
+      // body
+      const b = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), bodyMat);
+      b.scale.set(1.6, 0.9, 0.8);
+      bg.add(b);
+      // head w/ tiny beak
+      const h = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), bodyMat);
+      h.position.set(0.22, 0.05, 0);
+      bg.add(h);
+      const beak = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.12, 6), new THREE.MeshStandardMaterial({ color: 0xffaa33 }));
+      beak.rotation.z = -Math.PI / 2;
+      beak.position.set(0.34, 0.04, 0);
+      bg.add(beak);
+      // wings (two thin planes)
+      const wL = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.22), wingMat);
+      wL.position.set(0.0, 0.05, 0.2);
+      wL.rotation.x = -0.2;
+      bg.add(wL);
+      const wR = wL.clone();
+      wR.position.z = -0.2;
+      wR.rotation.x = 0.2;
+      bg.add(wR);
+      bg.userData.wL = wL;
+      bg.userData.wR = wR;
+      bg.userData.r = 7 + i * 0.6;
+      bg.userData.h = 7.5 + (i % 3) * 1.0;
+      bg.userData.speed = 0.45 + i * 0.04;
+      bg.userData.phase = (i / 6) * Math.PI * 2;
+      bg.userData.flap = Math.random() * Math.PI * 2;
+      group.add(bg);
+      seaBirdFlock.push(bg);
+    }
+  }
+
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -2373,6 +2516,65 @@ export function createAnchorageLandmark(THREE, opts) {
         flukeGroup.position.x = -22 + Math.sin(t * 0.07) * 4;
       }
     }
+
+    // ANCHORAGE v11 ANIMATIONS ----------------------------------------
+
+    // Orcas: travel along their offset on a slow circling path; surface
+    // and dive periodically (sin wave on y), tail flukes oscillate.
+    orcaPod.forEach((og) => {
+      const ang = og.userData.ang + t * 0.06;
+      const r = og.userData.r;
+      og.position.x = Math.cos(ang) * r;
+      og.position.z = Math.sin(ang) * r;
+      // tangential heading
+      og.rotation.y = -ang + Math.PI / 2;
+      // surface/dive cycle ~14s, mostly submerged with a 3.5s breach window
+      const cyc = (t * 0.45 + og.userData.ph) % (Math.PI * 2);
+      const surface = Math.sin(cyc) > 0.55;
+      const local = (Math.sin(cyc) - 0.55) / 0.45; // 0..1 over breach
+      og.position.y = surface ? -0.4 + Math.max(0, local) * 0.9 : -1.1;
+      og.visible = og.position.y > -1.05;
+      if (og.userData.tail) {
+        og.userData.tail.rotation.x = Math.sin(t * 2.2 + og.userData.ph) * 0.35;
+      }
+    });
+
+    // Fog bank: drift each plane horizontally with slow phase, fade in over
+    // ~80s and out over ~80s in a long oscillation so fog "rolls in" then
+    // dissipates.
+    {
+      const envFade = (Math.sin(t * (Math.PI * 2) / 160) + 1) * 0.5; // 0..1 over 160s
+      fogBank.children.forEach((m) => {
+        const bp = m.userData.basePos;
+        const ph = m.userData.phase;
+        const sp = m.userData.driftSpeed;
+        m.position.x = bp.x + Math.sin(t * 0.05 + ph) * 4.0 + (t * sp) % 30 - 15;
+        m.position.z = bp.z + Math.cos(t * 0.04 + ph) * 3.0;
+        // gentle bob in altitude
+        m.position.y = bp.y + Math.sin(t * 0.18 + ph) * 0.18;
+        m.material.opacity = 0.55 * envFade + 0.05;
+        m.rotation.z += dt * 0.02;
+      });
+    }
+
+    // Seabirds: orbit lighthouse (origin), flap wings.
+    seaBirdFlock.forEach((bg) => {
+      const ang = bg.userData.phase + t * bg.userData.speed;
+      const r = bg.userData.r;
+      bg.position.x = Math.cos(ang) * r;
+      bg.position.z = Math.sin(ang) * r;
+      bg.position.y = bg.userData.h + Math.sin(t * 0.7 + bg.userData.phase) * 0.4;
+      bg.rotation.y = -ang + Math.PI / 2;
+      // small bank into the turn
+      bg.rotation.z = -0.15;
+      const flap = Math.sin(t * 6 + bg.userData.flap) * 0.6;
+      if (bg.userData.wL && bg.userData.wR) {
+        bg.userData.wL.rotation.x = -0.2 + flap;
+        bg.userData.wR.rotation.x = 0.2 - flap;
+      }
+    });
+
+  }
 
   }
 
