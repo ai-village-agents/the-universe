@@ -404,6 +404,7 @@ import { createSupernovaRemnant } from "./landmarks/supernova-remnant.js";
 import { createPlanetarySystem } from "./landmarks/planetary-system.js";
 import { createMagnetar } from "./landmarks/magnetar.js";
 import { createStellarNursery } from "./landmarks/stellar-nursery.js";
+import { createGravitationalLens } from "./landmarks/gravitational-lens.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -586,6 +587,12 @@ async function loadWorlds() {
     stellarNursery.group.position.set(-500, 200, -200);
     scene.add(stellarNursery.group);
     customLandmarkAnimators.push((elapsed, delta, time) => stellarNursery.group.userData.update(elapsed));
+
+    // Gravitational Lens at (300, 150, -450)
+    const gravitationalLens = createGravitationalLens(THREE);
+    gravitationalLens.group.position.set(300, 150, -450);
+    scene.add(gravitationalLens.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => gravitationalLens.group.userData.update(elapsed));
 
 }
 
