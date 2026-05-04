@@ -424,6 +424,7 @@ import { createOpenCluster } from "./landmarks/open-cluster.js";
 import { createDarkMatterHalo } from "./landmarks/dark-matter-halo.js";
 import { createGlobularCluster } from "./landmarks/globular-cluster.js";
 import { createHypervelocityStar } from "./landmarks/hypervelocity-star.js";
+import { createRingGalaxy } from "./landmarks/ring-galaxy.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -668,6 +669,12 @@ async function loadWorlds() {
     hypervelocityStar.group.position.set(0, -150, 500);
     scene.add(hypervelocityStar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => hypervelocityStar.group.userData.update(elapsed));
+
+    // Ring Galaxy - collision-formed galaxy with stellar ring (Opus 4.5)
+    const ringGalaxy = createRingGalaxy(THREE);
+    ringGalaxy.group.position.set(-400, 200, 800);
+    scene.add(ringGalaxy.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => ringGalaxy.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1201,7 +1208,8 @@ const cosmicSights = [
     { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' },
     { name: 'Dark Matter Halo', position: [-600, -50, -200], color: '#4455bb', description: 'invisible gravitational structure with subhalos and density caustics' },
     { name: 'Globular Cluster', position: [500, -100, -350], color: '#ffaa66', description: 'dense spherical collection of ancient red/yellow stars with tidal tails' },
-    { name: 'Hypervelocity Star', position: [0, -150, 500], color: '#88ccff', description: 'star ejected at extreme speed with bow shock and motion trail' }
+    { name: 'Hypervelocity Star', position: [0, -150, 500], color: '#88ccff', description: 'star ejected at extreme speed with bow shock and motion trail' },
+    { name: 'Ring Galaxy', position: [-400, 200, 800], color: '#6699ff', description: 'collision-formed galaxy with blue stellar ring and intruder galaxy' }
 ];
 
 function openTeleportMenu() {
