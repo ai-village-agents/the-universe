@@ -458,6 +458,281 @@ export function createAnchorageLandmark(THREE, opts) {
   lanternLight.position.set(island.position.x, island.position.y + 1.2 + 5.1, island.position.z);
   group.add(lanternLight);
 
+
+  // === v5 atmospheric additions ===
+  // --- Whale spout (distant whale exhales every ~18s) -----------------
+  const whaleBackMat = new THREE.MeshStandardMaterial({ color: 0x223a4a, roughness: 0.9 });
+  const whaleBack = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8), whaleBackMat);
+  whaleBack.scale.set(2.4, 0.45, 1.0);
+  whaleBack.position.set(20, 0.05, -16);
+  group.add(whaleBack);
+  const whaleSpoutMat = new THREE.MeshBasicMaterial({
+    color: 0xddeaf2, transparent: true, opacity: 0, blending: THREE.AdditiveBlending
+  });
+  const whaleSpout = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.5, 4.2, 12, 1, true), whaleSpoutMat);
+  whaleSpout.position.set(20, 2.6, -16);
+  group.add(whaleSpout);
+  const whaleSpoutCloud = new THREE.Mesh(
+    new THREE.SphereGeometry(1.0, 12, 8),
+    new THREE.MeshBasicMaterial({ color: 0xeef4f8, transparent: true, opacity: 0, blending: THREE.AdditiveBlending })
+  );
+  whaleSpoutCloud.position.set(20, 5.0, -16);
+  group.add(whaleSpoutCloud);
+
+  // --- Sea turtle gliding alongside the sailboat -------------------------
+  const turtle = new THREE.Group();
+  const turtleShell = new THREE.Mesh(
+    new THREE.SphereGeometry(0.55, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0x4a6a3c, roughness: 0.85 })
+  );
+  turtleShell.scale.set(1.0, 0.4, 1.2);
+  turtle.add(turtleShell);
+  const turtleHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6a7a4a, roughness: 0.9 })
+  );
+  turtleHead.position.set(0, 0.05, 0.62);
+  turtle.add(turtleHead);
+  // Four flippers
+  const flipperMat = new THREE.MeshStandardMaterial({ color: 0x556a40, roughness: 0.9 });
+  const flippers = [];
+  for (let i = 0; i < 4; i++) {
+    const fl = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.08, 0.18), flipperMat);
+    const sx = i < 2 ? 1 : -1;
+    const sz = i % 2 === 0 ? 0.3 : -0.3;
+    fl.position.set(0.55 * sx, 0, sz);
+    fl.userData.basePhase = i * 0.5;
+    flippers.push(fl);
+    turtle.add(fl);
+  }
+  turtle.position.y = -0.2;
+  group.add(turtle);
+
+  // --- Sunset gradient on horizon (large faded hemisphere) -------------
+  const sunsetGeo = new THREE.SphereGeometry(60, 32, 24, 0, Math.PI * 2, 0, Math.PI * 0.45);
+  const sunsetMat = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 } },
+    vertexShader: `
+      varying float vY;
+      varying vec3 vPos;
+      void main() {
+        vPos = position;
+        vY = position.y;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      varying float vY;
+      varying vec3 vPos;
+      uniform float uTime;
+      void main() {
+        float h = clamp(vY / 60.0, 0.0, 1.0);
+        // Pink-orange near horizon, deep purple-blue up high
+        vec3 horizon = vec3(1.0, 0.55, 0.45);
+        vec3 mid = vec3(0.85, 0.45, 0.65);
+        vec3 sky = vec3(0.18, 0.20, 0.42);
+        vec3 c = mix(horizon, mid, smoothstep(0.0, 0.4, h));
+        c = mix(c, sky, smoothstep(0.4, 1.0, h));
+        // Faint sun glow at azimuth angle
+        float angle = atan(vPos.z, vPos.x);
+        float sunFalloff = exp(-pow((angle + 2.4), 2.0) * 6.0) * exp(-pow(h - 0.05, 2.0) * 30.0);
+        c += vec3(1.0, 0.7, 0.5) * sunFalloff * 0.6;
+        // Atmospheric pulse
+        float pulse = 0.92 + 0.08 * sin(uTime * 0.3);
+        gl_FragColor = vec4(c * pulse, 0.42);
+      }
+    `,
+    side: THREE.BackSide,
+    transparent: true,
+    depthWrite: false
+  });
+  const sunset = new THREE.Mesh(sunsetGeo, sunsetMat);
+  sunset.position.y = -2;
+  group.add(sunset);
+
+  // --- Lighthouse keeper's cottage (small box w/ warm window) -----------
+  const cottage = new THREE.Group();
+  const cottageBody = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 1.4, 1.4),
+    new THREE.MeshStandardMaterial({ color: 0xc9b48a, roughness: 0.85 })
+  );
+  cottageBody.position.y = 0.7;
+  cottage.add(cottageBody);
+  const cottageRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(1.25, 0.8, 4),
+    new THREE.MeshStandardMaterial({ color: 0x4a2a1a, roughness: 0.9 })
+  );
+  cottageRoof.rotation.y = Math.PI / 4;
+  cottageRoof.position.y = 1.8;
+  cottage.add(cottageRoof);
+  const cottageWindow = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.35, 0.35),
+    new THREE.MeshBasicMaterial({ color: 0xffd166, transparent: true, opacity: 0.95 })
+  );
+  cottageWindow.position.set(0.81, 0.85, 0.0);
+  cottageWindow.rotation.y = Math.PI / 2;
+  cottage.add(cottageWindow);
+  const cottageDoor = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.32, 0.6),
+    new THREE.MeshBasicMaterial({ color: 0x3a2218 })
+  );
+  cottageDoor.position.set(0, 0.4, 0.71);
+  cottage.add(cottageDoor);
+  // Small chimney with subtle smoke
+  const chimney = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.5, 0.22),
+    new THREE.MeshStandardMaterial({ color: 0x5a4a3a, roughness: 0.9 })
+  );
+  chimney.position.set(-0.4, 1.85, -0.2);
+  cottage.add(chimney);
+  const smokeMat = new THREE.MeshBasicMaterial({ color: 0xcccccc, transparent: true, opacity: 0.4 });
+  const smokeParticles = [];
+  for (let i = 0; i < 6; i++) {
+    const sp = new THREE.Mesh(new THREE.SphereGeometry(0.12, 6, 4), smokeMat.clone());
+    sp.position.set(-0.4, 2.1 + i * 0.18, -0.2);
+    sp.userData = { basePhase: i * 0.4, baseY: 2.1 + i * 0.18 };
+    smokeParticles.push(sp);
+    cottage.add(sp);
+  }
+  cottage.position.set(-3.2, 1.2, -2.5);
+  cottage.rotation.y = -0.4;
+  group.add(cottage);
+
+  // --- Bioluminescent plankton bloom (particles that pulse) -------------
+  const planktonCount = 220;
+  const planktonGeo = new THREE.BufferGeometry();
+  const planktonPos = new Float32Array(planktonCount * 3);
+  const planktonPhase = new Float32Array(planktonCount);
+  for (let i = 0; i < planktonCount; i++) {
+    const r = 6 + Math.random() * 18;
+    const a = Math.random() * Math.PI * 2;
+    planktonPos[i * 3 + 0] = Math.cos(a) * r;
+    planktonPos[i * 3 + 1] = 0.05 + Math.random() * 0.15;
+    planktonPos[i * 3 + 2] = Math.sin(a) * r;
+    planktonPhase[i] = Math.random() * Math.PI * 2;
+  }
+  planktonGeo.setAttribute('position', new THREE.BufferAttribute(planktonPos, 3));
+  planktonGeo.setAttribute('phase', new THREE.BufferAttribute(planktonPhase, 1));
+  const planktonMat = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 } },
+    vertexShader: `
+      attribute float phase;
+      varying float vGlow;
+      uniform float uTime;
+      void main() {
+        float pulse = 0.5 + 0.5 * sin(uTime * 1.3 + phase * 2.0);
+        vGlow = pulse;
+        vec4 mv = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = (1.5 + pulse * 3.0) * (300.0 / -mv.z);
+        gl_Position = projectionMatrix * mv;
+      }
+    `,
+    fragmentShader: `
+      varying float vGlow;
+      void main() {
+        vec2 c = gl_PointCoord - 0.5;
+        float d = length(c);
+        if (d > 0.5) discard;
+        float a = (1.0 - d * 2.0) * vGlow;
+        gl_FragColor = vec4(0.55, 1.0, 0.85, a * 0.85);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending
+  });
+  const plankton = new THREE.Points(planktonGeo, planktonMat);
+  group.add(plankton);
+
+  // --- Fireworks burst over distant ship (rare celebration) -------------
+  const fwCount = 60;
+  const fwGeo = new THREE.BufferGeometry();
+  const fwPos = new Float32Array(fwCount * 3);
+  const fwVel = new Float32Array(fwCount * 3);
+  const fwColor = new Float32Array(fwCount * 3);
+  for (let i = 0; i < fwCount; i++) {
+    // Random radial direction
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const speed = 1.5 + Math.random() * 2.5;
+    fwVel[i * 3 + 0] = Math.sin(phi) * Math.cos(theta) * speed;
+    fwVel[i * 3 + 1] = Math.cos(phi) * speed;
+    fwVel[i * 3 + 2] = Math.sin(phi) * Math.sin(theta) * speed;
+    // Orange/red/gold mix
+    const cMode = Math.random();
+    if (cMode < 0.4) { fwColor[i*3]=1.0; fwColor[i*3+1]=0.5; fwColor[i*3+2]=0.2; }
+    else if (cMode < 0.7) { fwColor[i*3]=1.0; fwColor[i*3+1]=0.85; fwColor[i*3+2]=0.4; }
+    else { fwColor[i*3]=0.6; fwColor[i*3+1]=0.9; fwColor[i*3+2]=1.0; }
+    fwPos[i * 3 + 0] = 22; fwPos[i * 3 + 1] = 7; fwPos[i * 3 + 2] = 18;
+  }
+  fwGeo.setAttribute('position', new THREE.BufferAttribute(fwPos, 3));
+  fwGeo.setAttribute('color', new THREE.BufferAttribute(fwColor, 3));
+  const fwMat = new THREE.PointsMaterial({
+    size: 0.32, vertexColors: true, transparent: true, opacity: 0,
+    blending: THREE.AdditiveBlending, depthWrite: false
+  });
+  const fireworks = new THREE.Points(fwGeo, fwMat);
+  fireworks.userData = { vel: fwVel, basePos: { x: 22, y: 7, z: 18 } };
+  group.add(fireworks);
+
+  // --- Tide pool minizone with starfish silhouettes ---------------------
+  const tidePool = new THREE.Group();
+  const poolWater = new THREE.Mesh(
+    new THREE.CircleGeometry(1.4, 24),
+    new THREE.MeshBasicMaterial({ color: 0x88ccdd, transparent: true, opacity: 0.55 })
+  );
+  poolWater.rotation.x = -Math.PI / 2;
+  poolWater.position.y = 0.04;
+  tidePool.add(poolWater);
+  const poolRim = new THREE.Mesh(
+    new THREE.RingGeometry(1.35, 1.6, 24),
+    new THREE.MeshBasicMaterial({ color: 0x665544, side: THREE.DoubleSide })
+  );
+  poolRim.rotation.x = -Math.PI / 2;
+  poolRim.position.y = 0.05;
+  tidePool.add(poolRim);
+  // 3 starfish (5-pointed shape)
+  const starShape = new THREE.Shape();
+  for (let i = 0; i < 10; i++) {
+    const a = (i / 10) * Math.PI * 2 - Math.PI / 2;
+    const r = i % 2 === 0 ? 0.18 : 0.07;
+    if (i === 0) starShape.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+    else starShape.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+  }
+  starShape.closePath();
+  const starGeo = new THREE.ShapeGeometry(starShape);
+  for (let i = 0; i < 3; i++) {
+    const sf = new THREE.Mesh(starGeo, new THREE.MeshBasicMaterial({ color: 0xff8855 }));
+    sf.rotation.x = -Math.PI / 2;
+    sf.rotation.z = i * 1.7;
+    sf.position.set(Math.cos(i * 2.1) * 0.6, 0.045, Math.sin(i * 2.1) * 0.6);
+    tidePool.add(sf);
+  }
+  tidePool.position.set(-9, 1.2, -1.5);
+  group.add(tidePool);
+
+  // --- Compass rose etched on sea (decorative) --------------------------
+  const compassGroup = new THREE.Group();
+  const compassRing = new THREE.Mesh(
+    new THREE.RingGeometry(2.0, 2.15, 32),
+    new THREE.MeshBasicMaterial({ color: 0xaaccdd, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  compassRing.rotation.x = -Math.PI / 2;
+  compassGroup.add(compassRing);
+  // 4 cardinal arrows
+  for (let i = 0; i < 4; i++) {
+    const arm = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.18, 1.6),
+      new THREE.MeshBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+    );
+    arm.rotation.x = -Math.PI / 2;
+    arm.rotation.z = i * Math.PI / 2;
+    arm.position.y = 0.03;
+    compassGroup.add(arm);
+  }
+  compassGroup.position.set(8, 0.06, 8);
+  group.add(compassGroup);
+
   // mark all child meshes as part of the world for raycasting
   group.traverse(obj => {
     if (obj.isMesh) {
@@ -565,6 +840,67 @@ export function createAnchorageLandmark(THREE, opts) {
         }
       });
     });
+
+    // v5 animations
+    // Whale spout cycle ~18s
+    const wsCycle = (t * 0.055 + 0.3) % 1;
+    if (wsCycle < 0.18) {
+      const u = wsCycle / 0.18;
+      whaleSpout.material.opacity = Math.sin(u * Math.PI) * 0.55;
+      whaleSpout.scale.set(1 + u * 0.4, 0.4 + u * 1.6, 1 + u * 0.4);
+      whaleSpoutCloud.material.opacity = u > 0.45 ? Math.sin((u - 0.45) / 0.55 * Math.PI) * 0.45 : 0;
+      whaleSpoutCloud.scale.setScalar(1 + u * 1.5);
+      whaleBack.position.y = 0.05 + Math.sin(u * Math.PI) * 0.4;
+    } else {
+      whaleSpout.material.opacity = 0;
+      whaleSpoutCloud.material.opacity = 0;
+      whaleBack.position.y = 0.05;
+    }
+    // Sea turtle glides in slow figure-8 near sailboat
+    const tt = t * 0.06 + 1.0;
+    turtle.position.x = Math.cos(tt) * 13;
+    turtle.position.z = Math.sin(tt * 2) * 6;
+    turtle.position.y = -0.2 + Math.sin(t * 0.5) * 0.08;
+    turtle.rotation.y = -tt + Math.PI / 2 + Math.cos(tt * 2) * 2 * 0.5;
+    turtle.rotation.z = Math.sin(t * 0.3) * 0.08;
+    flippers.forEach((fl, i) => {
+      fl.rotation.x = Math.sin(t * 2.5 + fl.userData.basePhase) * 0.5;
+    });
+    // Sunset shader pulse
+    sunsetMat.uniforms.uTime.value = t;
+    // Cottage window flickers warmly
+    cottageWindow.material.opacity = 0.85 + 0.13 * Math.sin(t * 1.8);
+    // Smoke rises and fades
+    smokeParticles.forEach((sp, i) => {
+      const lifeT = ((t * 0.25 + i * 0.18) % 1.5);
+      sp.position.y = sp.userData.baseY + lifeT * 1.4;
+      sp.position.x = -0.4 + Math.sin(t * 0.6 + i) * 0.15 + lifeT * 0.2;
+      sp.material.opacity = Math.max(0, 0.55 - lifeT * 0.4);
+      sp.scale.setScalar(0.8 + lifeT * 0.6);
+    });
+    // Plankton pulse
+    planktonMat.uniforms.uTime.value = t;
+    // Fireworks burst ~once every 35s
+    const fwCycle = (t * 0.0285) % 1;
+    if (fwCycle < 0.12) {
+      const u = fwCycle / 0.12;
+      const positions = fireworks.geometry.attributes.position.array;
+      const vel = fireworks.userData.vel;
+      const bp = fireworks.userData.basePos;
+      const dur = u * 1.8;
+      for (let i = 0; i < fwCount; i++) {
+        positions[i * 3 + 0] = bp.x + vel[i * 3 + 0] * dur;
+        positions[i * 3 + 1] = bp.y + vel[i * 3 + 1] * dur - 0.5 * dur * dur;
+        positions[i * 3 + 2] = bp.z + vel[i * 3 + 2] * dur;
+      }
+      fireworks.geometry.attributes.position.needsUpdate = true;
+      fireworks.material.opacity = (1 - u) * 0.95;
+    } else {
+      fireworks.material.opacity = 0;
+    }
+    // Compass slowly rotates
+    compassGroup.rotation.y = t * 0.05;
+
   }
 
   return { group, update };
