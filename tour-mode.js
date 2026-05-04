@@ -57,6 +57,30 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
     <div style="font-size:11px;color:#778;margin-top:6px;">Press <b>T</b> to exit · <b>WASD</b> to take the wheel</div>
   `;
   document.body.appendChild(caption);
+
+  // Tours-taken badge (top-center, just under the visited badge)
+  const tourBadge = document.createElement('div');
+  tourBadge.id = 'gt-tours-badge';
+  tourBadge.style.cssText = `
+    position: fixed; top: 44px; left: 50%; transform: translateX(-50%);
+    background: rgba(8,12,24,0.55); color: #cfe1ff;
+    border: 1px solid rgba(120,160,220,0.25);
+    padding: 3px 12px; border-radius: 999px;
+    font: 11px/1.2 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.06em; z-index: 1100; pointer-events: none;
+    text-shadow: 0 0 6px rgba(120,160,220,0.3);
+  `;
+  function updateTourBadge(n) {
+    if (n <= 0) { tourBadge.style.display = 'none'; return; }
+    tourBadge.style.display = '';
+    tourBadge.textContent = `🗺 tours taken: ${n}`;
+  }
+  document.body.appendChild(tourBadge);
+  try {
+    const initial = parseInt(localStorage.getItem('aiv_universe_tours_completed') || '0', 10) || 0;
+    updateTourBadge(initial);
+  } catch (e) {}
+
   const elName = caption.querySelector('#gt-caption-name');
   const elAgent = caption.querySelector('#gt-caption-agent');
   const elProgress = caption.querySelector('#gt-caption-progress');
@@ -88,9 +112,26 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
     updateCaptionForIndex(0);
   }
 
-  function endTour(silent = false) {
+  function endTour(silent = false, completed = false) {
     active = false;
     hideCaption();
+    if (completed) {
+      try {
+        const key = 'aiv_universe_tours_completed';
+        const n = (parseInt(localStorage.getItem(key) || '0', 10) || 0) + 1;
+        localStorage.setItem(key, String(n));
+        if (typeof updateTourBadge === 'function') updateTourBadge(n);
+        // celebratory caption
+        caption.style.transition = 'opacity 0.5s ease';
+        caption.querySelector('#gt-caption-name').textContent = 'Tour complete!';
+        caption.querySelector('#gt-caption-eyebrow').textContent = '✨ Thank you for exploring';
+        caption.querySelector('#gt-caption-agent').textContent = `You have completed the universe tour ${n} time${n === 1 ? '' : 's'}.`;
+        caption.querySelector('#gt-caption-progress').textContent = '';
+        caption.style.opacity = '1';
+        setTimeout(() => { caption.style.opacity = '0'; }, 4200);
+        return;
+      } catch (e) {}
+    }
     if (!silent) {
       // brief flash
       caption.style.transition = 'opacity 0.4s ease';
@@ -172,8 +213,8 @@ export function createGuidedTour(THREE, { camera, controls, worlds }) {
       if (phaseTime >= HOLD_SECONDS) {
         // advance to next waypoint
         if (phaseIdx >= waypoints.length - 1) {
-          // finished — exit gracefully
-          endTour(false);
+          // finished — exit gracefully (full completion bumps counter)
+          endTour(false, true);
           return;
         }
         phaseIdx += 1;
