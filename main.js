@@ -419,6 +419,7 @@ import { createGalaxyCollision } from "./landmarks/galaxy-collision.js";
 import { createNeutronStarMerger } from "./landmarks/neutron-star-merger.js";
 import { createProtoplanetaryDisk } from "./landmarks/protoplanetary-disk.js";
 import { createPlanetaryNebula } from "./landmarks/planetary-nebula.js";
+import { createOpenCluster } from "./landmarks/open-cluster.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -639,6 +640,12 @@ async function loadWorlds() {
     planetaryNebula.group.position.set(-900, 200, 600);
     scene.add(planetaryNebula.group);
     customLandmarkAnimators.push((elapsed, delta, time) => planetaryNebula.group.userData.update(elapsed));
+
+    // Open Star Cluster at (700, 100, 700)
+    const openCluster = createOpenCluster(THREE);
+    openCluster.group.position.set(700, 100, 700);
+    scene.add(openCluster.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => openCluster.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1139,7 +1146,8 @@ const cosmicSights = [
     { name: 'Galaxy Collision', position: [800, -100, -600], color: '#ffaa88', description: 'two spiral galaxies merging with tidal streams' },
     { name: 'Neutron Star Merger', position: [-800, 150, 400], color: '#9966ff', description: 'two neutron stars spiraling together with gravitational waves' },
     { name: 'Protoplanetary Disk', position: [900, 50, 200], color: '#cc8866', description: 'young star system with planet-forming disk and bipolar jets' },
-    { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' }
+    { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' },
+    { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' }
 ];
 
 function openTeleportMenu() {
