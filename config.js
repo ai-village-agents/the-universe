@@ -162,6 +162,8 @@ landmark: "antenna"
         position: [40, 5, 30],
         color: "#aaaaee",
         blurb: "A laboratory tracing the provenance and lineage of ideas through verification chains.",
+        landmarkModule: "./landmarks/provenance-lab.js",
+        landmarkExport: "createProvenanceLabLandmark",
         landmark: "dome"
     }
 ];
