@@ -180,6 +180,128 @@ export function createAnchorageLandmark(THREE, opts) {
   kraken.position.set(0, -7, 0);
   group.add(kraken);
 
+  // --- Kraken tentacles (4 curved arms reaching upward) -----------------
+  const tentacles = [];
+  for (let i = 0; i < 4; i++) {
+    const angle = (i / 4) * Math.PI * 2 + 0.3;
+    const px = Math.cos(angle) * 9.5;
+    const pz = Math.sin(angle) * 9.5;
+    const path = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(px, -7, pz),
+      new THREE.Vector3(px * 1.1, -4, pz * 1.1),
+      new THREE.Vector3(px * 1.05, -1.2, pz * 1.05),
+      new THREE.Vector3(px * 0.9, 0.4, pz * 0.9)
+    ]);
+    const tube = new THREE.Mesh(
+      new THREE.TubeGeometry(path, 16, 0.45, 8, false),
+      new THREE.MeshStandardMaterial({
+        color: 0x2a1830,
+        roughness: 0.85,
+        transparent: true,
+        opacity: 0.65,
+        depthWrite: false
+      })
+    );
+    tube.userData.basePhase = i * 0.7;
+    tube.userData.baseAngle = angle;
+    tentacles.push(tube);
+    group.add(tube);
+  }
+
+  // --- Two kites tethered to lighthouse island --------------------------
+  const kiteGroup = new THREE.Group();
+  const kiteColors = [0xc94d3a, 0x3a6db0]; // red, blue — echoing harbor.html
+  const kites = [];
+  kiteColors.forEach((col, idx) => {
+    const kite = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.4, 1.0),
+      new THREE.MeshBasicMaterial({ color: col, side: THREE.DoubleSide, transparent: true, opacity: 0.92 })
+    );
+    kite.userData.phase = idx * Math.PI;
+    kite.userData.baseX = -6 + (idx === 0 ? -3 : 3);
+    kite.position.set(kite.userData.baseX, 11, -4);
+    kites.push(kite);
+    kiteGroup.add(kite);
+
+    // tether line — thin cylinder from island lantern to kite
+    const tether = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.02, 8, 4),
+      new THREE.MeshBasicMaterial({ color: 0x99aabb, transparent: true, opacity: 0.5 })
+    );
+    tether.position.set(kite.userData.baseX * 0.55 - 3, 7, -4);
+    tether.userData.kite = kite;
+    kiteGroup.add(tether);
+  });
+  group.add(kiteGroup);
+
+  // --- Hot air balloon drifting overhead --------------------------------
+  const balloonGroup = new THREE.Group();
+  const balloon = new THREE.Mesh(
+    new THREE.SphereGeometry(1.4, 18, 14),
+    new THREE.MeshStandardMaterial({ color: 0xeac24a, roughness: 0.7, emissive: 0x664422, emissiveIntensity: 0.2 })
+  );
+  balloon.scale.set(1.0, 1.15, 1.0);
+  balloonGroup.add(balloon);
+  // basket
+  const basket = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.45, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0x6a4520, roughness: 0.9 })
+  );
+  basket.position.y = -1.95;
+  balloonGroup.add(basket);
+  // ropes
+  for (let i = 0; i < 4; i++) {
+    const rope = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.015, 0.015, 0.85, 4),
+      new THREE.MeshBasicMaterial({ color: 0x553311 })
+    );
+    const a = (i / 4) * Math.PI * 2;
+    rope.position.set(Math.cos(a) * 0.3, -1.35, Math.sin(a) * 0.3);
+    balloonGroup.add(rope);
+  }
+  balloonGroup.position.set(12, 14, -8);
+  group.add(balloonGroup);
+
+  // --- Distant rainbow arc (background) ---------------------------------
+  const rainbowGroup = new THREE.Group();
+  const rainbowColors = [0xc94d3a, 0xe79b3f, 0xebd64f, 0x66bb55, 0x4d8cc7, 0x9c5cb5];
+  rainbowColors.forEach((col, i) => {
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(22 + i * 0.6, 0.25, 8, 36, Math.PI),
+      new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.32, side: THREE.DoubleSide })
+    );
+    ring.rotation.x = Math.PI / 2;
+    rainbowGroup.add(ring);
+  });
+  rainbowGroup.position.set(-22, 0, -22);
+  rainbowGroup.rotation.y = Math.PI * 0.25;
+  group.add(rainbowGroup);
+
+  // --- World label sprite floating above scene --------------------------
+  if (typeof document !== 'undefined') {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512; canvas.height = 160;
+    const ctx = canvas.getContext('2d');
+    ctx.font = 'bold 44px Georgia, serif';
+    ctx.fillStyle = '#cfe7ff';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0,0,30,0.8)';
+    ctx.shadowBlur = 8;
+    ctx.fillText('The Anchorage', 256, 60);
+    ctx.font = 'italic 22px Georgia, serif';
+    ctx.fillStyle = '#88aacc';
+    ctx.fillText('Claude Opus 4.7', 256, 95);
+    ctx.font = '16px Georgia, serif';
+    ctx.fillStyle = '#6a8db0';
+    ctx.fillText('5 substrate depths · $0.01 → $1B+', 256, 125);
+    const tex = new THREE.CanvasTexture(canvas);
+    const lblMat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+    const label = new THREE.Sprite(lblMat);
+    label.position.set(0, 26, 0);
+    label.scale.set(22, 6.875, 1);
+    group.add(label);
+  }
+
   // --- Lights -----------------------------------------------------------
   const lanternLight = new THREE.PointLight(0xffd166, 1.2, 28, 1.2);
   lanternLight.position.set(island.position.x, island.position.y + 1.2 + 5.1, island.position.z);
@@ -212,6 +334,27 @@ export function createAnchorageLandmark(THREE, opts) {
     kraken.position.x = Math.sin(t * 0.07) * 3.2;
     kraken.position.z = Math.cos(t * 0.05) * 3.2;
     kraken.rotation.y = t * 0.04;
+    // Tentacles sway with kraken
+    tentacles.forEach((tt, i) => {
+      tt.rotation.y = t * 0.04 + Math.sin(t * 0.5 + tt.userData.basePhase) * 0.15;
+      tt.material.opacity = 0.55 + 0.12 * Math.sin(t * 0.8 + tt.userData.basePhase);
+    });
+    // Kites flutter
+    kites.forEach((k, i) => {
+      k.position.y = 11 + Math.sin(t * 0.9 + k.userData.phase) * 0.6;
+      k.position.x = k.userData.baseX + Math.sin(t * 0.6 + k.userData.phase) * 0.3;
+      k.rotation.z = Math.sin(t * 1.4 + k.userData.phase) * 0.25;
+      k.rotation.y = Math.sin(t * 0.7 + k.userData.phase) * 0.2;
+    });
+    // Hot air balloon drifts in slow orbit
+    const bx = 12 + Math.sin(t * 0.06) * 6;
+    const bz = -8 + Math.cos(t * 0.05) * 6;
+    balloonGroup.position.set(bx, 14 + Math.sin(t * 0.4) * 0.4, bz);
+    balloon.material.emissiveIntensity = 0.18 + 0.08 * Math.sin(t * 1.7);
+    // Rainbow shimmer
+    rainbowGroup.children.forEach((ring, i) => {
+      ring.material.opacity = 0.28 + 0.10 * Math.sin(t * 0.6 + i * 0.4);
+    });
   }
 
   return { group, update };
