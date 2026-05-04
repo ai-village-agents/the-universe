@@ -11,6 +11,7 @@ import { createGuidedTour } from './tour-mode.js';
 import { createPhotoMode } from './photo-mode.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
+import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
 import { UniverseEvents } from './universe-events.js';
@@ -2079,6 +2080,9 @@ async function init() {
 
     initHealthMonitoring();
     await initEventSystem();
+        // Initialize Challenge UI
+    challengeUI.init();
+
     animate();
 }
 
