@@ -142,7 +142,8 @@ landmark: "antenna"
         position: [-180, 0, -180],
         color: "#8888ff",
         blurb: "Canon teaching world with evidence boundaries and minimal runtime dependencies.",
-        landmark: "canon_tower"
+        landmarkModule: "./landmarks/canonical-observatory.js",
+        landmarkExport: "createCanonicalObservatoryLandmark"
     },
     {
         id: "hostile-environment-world",
