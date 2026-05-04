@@ -100,28 +100,142 @@ scene.add(starMesh);
 const landmarks = new THREE.Group();
 scene.add(landmarks);
 
-// Basic Landmark Generator (Fallback)
-function createBasicLandmark(world) {
-    const geometry = new THREE.IcosahedronGeometry(10, 1);
-    const material = new THREE.MeshStandardMaterial({ 
-        color: new THREE.Color(world.color || 0xffffff),
-        wireframe: true,
-        emissive: new THREE.Color(world.color || 0xffffff),
-        emissiveIntensity: 0.5
+// Enhanced Landmark Generator with distinct shapes per world type
+function createLandmark(world) {
+    const group = new THREE.Group();
+    group.position.set(...world.position);
+    const col = new THREE.Color(world.color || '#ffffff');
+    
+    // Core geometry varies by landmark type
+    let coreGeo;
+    switch(world.landmark) {
+        case 'obelisk':
+            coreGeo = new THREE.CylinderGeometry(2, 4, 20, 6);
+            break;
+        case 'lighthouse':
+            coreGeo = new THREE.CylinderGeometry(2, 3, 18, 8);
+            break;
+        case 'dome':
+            coreGeo = new THREE.SphereGeometry(8, 16, 12, 0, Math.PI*2, 0, Math.PI/2);
+            break;
+        case 'spire':
+            coreGeo = new THREE.ConeGeometry(4, 22, 6);
+            break;
+        case 'constellation':
+            coreGeo = new THREE.OctahedronGeometry(8, 0);
+            break;
+        case 'nexus':
+            coreGeo = new THREE.TorusKnotGeometry(5, 1.5, 64, 8);
+            break;
+        case 'antenna':
+            coreGeo = new THREE.CylinderGeometry(0.5, 2, 20, 4);
+            break;
+        case 'lantern':
+            coreGeo = new THREE.DodecahedronGeometry(7, 0);
+            break;
+        case 'fortress':
+            coreGeo = new THREE.BoxGeometry(12, 12, 12);
+            break;
+        case 'telescope':
+            coreGeo = new THREE.CylinderGeometry(1, 5, 16, 8);
+            break;
+        case 'cluster':
+            coreGeo = new THREE.IcosahedronGeometry(8, 2);
+            break;
+        case 'stargate_portal':
+            coreGeo = new THREE.TorusGeometry(8, 2, 16, 32);
+            break;
+        default:
+            coreGeo = new THREE.IcosahedronGeometry(8, 1);
+    }
+    
+    const coreMat = new THREE.MeshStandardMaterial({
+        color: col, wireframe: true,
+        emissive: col, emissiveIntensity: 0.5
     });
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(...world.position);
-    mesh.userData = { isWorld: true, url: world.url, name: world.name };
-    return mesh;
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    if (world.landmark === 'obelisk' || world.landmark === 'lighthouse' || world.landmark === 'antenna' || world.landmark === 'telescope') {
+        core.position.y = 10;
+    }
+    if (world.landmark === 'dome') core.position.y = 0;
+    group.add(core);
+    
+    // Glow sphere
+    const glowGeo = new THREE.SphereGeometry(12, 12, 12);
+    const glowMat = new THREE.MeshBasicMaterial({
+        color: col, transparent: true, opacity: 0.08, side: THREE.BackSide
+    });
+    group.add(new THREE.Mesh(glowGeo, glowMat));
+    
+    // Point light
+    const light = new THREE.PointLight(col, 1.5, 60);
+    light.position.y = 5;
+    group.add(light);
+    
+    // Orbiting particles
+    for (let j = 0; j < 15; j++) {
+        const pGeo = new THREE.SphereGeometry(0.3, 4, 4);
+        const pMat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.6 });
+        const p = new THREE.Mesh(pGeo, pMat);
+        const angle = (j / 15) * Math.PI * 2;
+        const r = 10 + Math.random() * 5;
+        const h = (Math.random() - 0.5) * 10;
+        p.userData = { orbitAngle: angle, orbitR: r, orbitH: h, orbitSpeed: 0.15 + Math.random() * 0.2 };
+        group.add(p);
+    }
+    
+    // Text label (sprite)
+    const canvas = document.createElement('canvas');
+    canvas.width = 512; canvas.height = 160;
+    const ctx = canvas.getContext('2d');
+    ctx.font = 'bold 36px Georgia, serif';
+    ctx.fillStyle = world.color;
+    ctx.textAlign = 'center';
+    ctx.fillText(world.name, 256, 50);
+    ctx.font = '22px Georgia, serif';
+    ctx.fillStyle = '#aaaacc';
+    ctx.fillText(world.agent, 256, 85);
+    ctx.font = '16px Georgia, serif';
+    ctx.fillStyle = '#777799';
+    const words = world.blurb.split(' ');
+    let line = '', ly = 115;
+    words.forEach(w => {
+        if (ctx.measureText(line + w).width > 450) { ctx.fillText(line.trim(), 256, ly); ly += 20; line = ''; }
+        line += w + ' ';
+    });
+    if (line.trim()) ctx.fillText(line.trim(), 256, ly);
+    const tex = new THREE.CanvasTexture(canvas);
+    const lblMat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+    const lbl = new THREE.Sprite(lblMat);
+    lbl.position.y = 22;
+    lbl.scale.set(20, 6.25, 1);
+    group.add(lbl);
+    
+    // Make core raycaster-targetable
+    core.userData = { isWorld: true, url: world.url, name: world.name };
+    group.userData = { worldData: world, core: core, light: light };
+    
+    return { group, core };
 }
 
 // Load Worlds
 const interactables = [];
 worlds.forEach(world => {
-    const mesh = createBasicLandmark(world);
-    landmarks.add(mesh);
-    interactables.push(mesh);
+    const { group, core } = createLandmark(world);
+    landmarks.add(group);
+    interactables.push(core);
 });
+
+// Add nebula clouds for atmosphere
+for (let i = 0; i < 15; i++) {
+    const nebulaGeo = new THREE.SphereGeometry(20 + Math.random() * 40, 12, 12);
+    const hue = Math.random();
+    const nebCol = new THREE.Color().setHSL(hue, 0.4, 0.08);
+    const nebMat = new THREE.MeshBasicMaterial({ color: nebCol, transparent: true, opacity: 0.03, side: THREE.BackSide });
+    const nebula = new THREE.Mesh(nebulaGeo, nebMat);
+    nebula.position.set((Math.random()-0.5)*500, (Math.random()-0.5)*200, (Math.random()-0.5)*500);
+    scene.add(nebula);
+}
 
 // Raycaster for interaction
 const raycaster = new THREE.Raycaster();
@@ -183,11 +297,25 @@ function animate() {
         }
     }
 
-    // Slowly rotate all landmarks
-    interactables.forEach(obj => {
-        if(obj !== currentFocus) {
-            obj.rotation.y += 0.005;
-        }
+    // Animate landmarks: orbit particles, pulse lights, rotate cores
+    const elapsed = time * 0.001;
+    landmarks.children.forEach(grp => {
+        if (!grp.userData || !grp.userData.core) return;
+        const core = grp.userData.core;
+        const light = grp.userData.light;
+        // Rotate core
+        if (core !== currentFocus) core.rotation.y += 0.005;
+        // Pulse light
+        if (light) light.intensity = 1.2 + Math.sin(elapsed * 1.2 + grp.position.x * 0.1) * 0.5;
+        // Orbit particles
+        grp.children.forEach(child => {
+            if (child.userData && child.userData.orbitAngle !== undefined) {
+                const d = child.userData;
+                const a = d.orbitAngle + elapsed * d.orbitSpeed;
+                child.position.set(Math.cos(a)*d.orbitR, d.orbitH + Math.sin(elapsed*0.5+d.orbitAngle)*2, Math.sin(a)*d.orbitR);
+                child.material.opacity = 0.4 + Math.sin(elapsed + d.orbitAngle) * 0.3;
+            }
+        });
     });
 
     renderer.render(scene, camera);
