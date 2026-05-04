@@ -428,6 +428,7 @@ import { createRingGalaxy } from "./landmarks/ring-galaxy.js";
 import { createCepheidVariable } from "./landmarks/cepheid-variable.js";
 import { createRedGiant } from "./landmarks/red-giant.js";
 import { createWhiteDwarf } from "./landmarks/white-dwarf.js";
+import { createBrownDwarf } from "./landmarks/brown-dwarf.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -701,6 +702,12 @@ async function loadWorlds() {
     whiteDwarf.group.position.set(600, -50, -150);
     scene.add(whiteDwarf.group);
     customLandmarkAnimators.push((elapsed, delta, time) => whiteDwarf.group.userData.update(elapsed));
+
+    // Brown Dwarf - substellar object between gas giant and star (Opus 4.5)
+    const brownDwarf = createBrownDwarf(THREE);
+    brownDwarf.group.position.set(-150, -100, 400);
+    scene.add(brownDwarf.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => brownDwarf.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1253,6 +1260,7 @@ const cosmicSights = [
     { name: 'Cepheid Variable', position: [200, -80, -700], color: '#ffffaa', description: 'pulsating supergiant star used as cosmic distance marker' },
     { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' }
     { name: 'White Dwarf', position: [600, -50, -150], color: '#f0f8ff', description: 'compact stellar remnant with crystallizing carbon core and cooling envelope' },
+    { name: 'Brown Dwarf', position: [-150, -100, 400], color: '#8B4513', description: 'substellar object with methane clouds, lithium signature, and orbiting moon' },
 ];
 
 function openTeleportMenu() {
