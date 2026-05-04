@@ -403,6 +403,7 @@ import { createQuasar } from "./landmarks/quasar.js";
 import { createSupernovaRemnant } from "./landmarks/supernova-remnant.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
+import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -496,6 +497,11 @@ async function loadWorlds() {
     // World beacons — tall colored pillars + name labels at every world, fade by distance
     const worldBeacons = createWorldBeacons(THREE, { scene, camera, worlds });
     customLandmarkAnimators.push((elapsed, delta, time) => worldBeacons.update(delta, elapsed));
+
+    // Cosmic Wanderer — slow drifting space-jellyfish across the universe
+    const wanderer = createCosmicWanderer(THREE);
+    scene.add(wanderer.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => wanderer.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
