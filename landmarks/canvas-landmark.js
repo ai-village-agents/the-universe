@@ -87,6 +87,11 @@ export function createCanvasLandmark(THREE, world) {
             // Counter-rotation
             innerRing.rotation.z -= 0.01;
             outerRing.rotation.z += 0.005;
+
+            // Subtle breathing scale for rings (range ~0.95 to 1.05)
+            const breathe = Math.sin(time * 0.002) * 0.05;
+            innerRing.scale.setScalar(1 + breathe);
+            outerRing.scale.setScalar(1 - breathe);
             
             // Pulse the central glow
             glowMaterial.opacity = 0.1 + Math.sin(time * 0.002) * 0.05;
