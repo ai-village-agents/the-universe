@@ -1228,6 +1228,181 @@ export function createAnchorageLandmark(THREE, opts) {
     }
   });
 
+
+  // ===== v8 features =====
+
+  // Mermaid silhouette on rocks at (-7, 0.8, -8)
+  const mermaid = new THREE.Group();
+  mermaid.position.set(-7.4, 0.7, -8.1);
+  const mermaidMat = new THREE.MeshBasicMaterial({ color: 0x081428, transparent: true, opacity: 0.78 });
+  const mermaidTorso = new THREE.Mesh(new THREE.SphereGeometry(0.34, 12, 10), mermaidMat);
+  mermaidTorso.scale.set(0.7, 1.2, 0.55);
+  mermaidTorso.position.set(0, 0.5, 0);
+  mermaid.add(mermaidTorso);
+  const mermaidHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), mermaidMat);
+  mermaidHead.position.set(0.04, 1.05, 0);
+  mermaid.add(mermaidHead);
+  const mermaidHair = new THREE.Mesh(new THREE.SphereGeometry(0.26, 10, 8), new THREE.MeshBasicMaterial({ color: 0x4a2818, transparent: true, opacity: 0.7 }));
+  mermaidHair.scale.set(1.1, 1.2, 0.7);
+  mermaidHair.position.set(-0.06, 1.04, -0.05);
+  mermaid.add(mermaidHair);
+  const tailCurve = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(0, 0.2, 0),
+    new THREE.Vector3(0.18, -0.1, 0.05),
+    new THREE.Vector3(0.42, -0.32, 0.1),
+    new THREE.Vector3(0.7, -0.5, 0.0),
+    new THREE.Vector3(0.95, -0.55, -0.15),
+  ]);
+  const tailGeom = new THREE.TubeGeometry(tailCurve, 24, 0.18, 8, false);
+  const tailMesh = new THREE.Mesh(tailGeom, new THREE.MeshBasicMaterial({ color: 0x0a1a36, transparent: true, opacity: 0.82 }));
+  mermaid.add(tailMesh);
+  const tailFin = new THREE.Mesh(new THREE.ConeGeometry(0.34, 0.5, 8), new THREE.MeshBasicMaterial({ color: 0x0a1a36, transparent: true, opacity: 0.78 }));
+  tailFin.scale.set(1, 0.4, 1.2);
+  tailFin.position.set(1.05, -0.5, -0.18);
+  tailFin.rotation.z = Math.PI / 2.4;
+  mermaid.add(tailFin);
+  group.add(mermaid);
+
+  // Lobster trap on seabed with rope to bobbing surface buoy
+  const trapGroup = new THREE.Group();
+  const trapBox = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.5, 0.6),
+    new THREE.MeshBasicMaterial({ color: 0x6b4f2a, wireframe: true, transparent: true, opacity: 0.85 })
+  );
+  trapBox.position.set(0, 0, 0);
+  trapGroup.add(trapBox);
+  const trapBase = new THREE.Mesh(
+    new THREE.BoxGeometry(0.95, 0.05, 0.65),
+    new THREE.MeshBasicMaterial({ color: 0x3a2814, transparent: true, opacity: 0.9 })
+  );
+  trapBase.position.set(0, -0.25, 0);
+  trapGroup.add(trapBase);
+  trapGroup.position.set(15.5, -3.4, -2.6);
+  group.add(trapGroup);
+  // Rope from trap to buoy
+  const ropeCurve = new THREE.LineCurve3(
+    new THREE.Vector3(15.5, -3.2, -2.6),
+    new THREE.Vector3(15.7, 0.1, -2.4)
+  );
+  const ropeGeom = new THREE.TubeGeometry(ropeCurve, 1, 0.025, 6, false);
+  const rope = new THREE.Mesh(ropeGeom, new THREE.MeshBasicMaterial({ color: 0x8a7048 }));
+  group.add(rope);
+  // Surface buoy (bobbing)
+  const lobsterBuoy = new THREE.Group();
+  const buoyBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0xff5533 })
+  );
+  lobsterBuoy.add(buoyBody);
+  const buoyStripe = new THREE.Mesh(
+    new THREE.TorusGeometry(0.22, 0.05, 8, 16),
+    new THREE.MeshBasicMaterial({ color: 0xffffff })
+  );
+  buoyStripe.rotation.x = Math.PI / 2;
+  lobsterBuoy.add(buoyStripe);
+  lobsterBuoy.position.set(15.7, 0.1, -2.4);
+  group.add(lobsterBuoy);
+
+  // Bioluminescent jellies (3) — translucent domes with trailing tentacles
+  const jellies = [];
+  const jellyData = [
+    { x: -3.5, baseY: -0.6, z: 7, color: 0x88ddff, scale: 1.0, phase: 0 },
+    { x: 4.2, baseY: -0.9, z: 5.5, color: 0xffaaee, scale: 0.85, phase: 1.7 },
+    { x: -1.5, baseY: -1.1, z: 9.5, color: 0xaaffcc, scale: 1.15, phase: 3.4 },
+  ];
+  jellyData.forEach((d) => {
+    const jelly = new THREE.Group();
+    const dome = new THREE.Mesh(
+      new THREE.SphereGeometry(0.4 * d.scale, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2),
+      new THREE.MeshBasicMaterial({ color: d.color, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending })
+    );
+    jelly.add(dome);
+    const halo = new THREE.Mesh(
+      new THREE.SphereGeometry(0.55 * d.scale, 12, 10),
+      new THREE.MeshBasicMaterial({ color: d.color, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending })
+    );
+    jelly.add(halo);
+    // Tentacles — 5 vertical lines below dome
+    const tentaclesGroup = new THREE.Group();
+    for (let i = 0; i < 5; i++) {
+      const ang = (i / 5) * Math.PI * 2;
+      const ox = Math.cos(ang) * 0.18 * d.scale;
+      const oz = Math.sin(ang) * 0.18 * d.scale;
+      const tcurve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(ox, 0, oz),
+        new THREE.Vector3(ox * 1.1, -0.25 * d.scale, oz * 1.1),
+        new THREE.Vector3(ox * 0.9, -0.5 * d.scale, oz * 0.9),
+        new THREE.Vector3(ox * 1.2, -0.8 * d.scale, oz * 1.2),
+      ]);
+      const tgeom = new THREE.TubeGeometry(tcurve, 8, 0.012, 5, false);
+      const tmesh = new THREE.Mesh(tgeom, new THREE.MeshBasicMaterial({
+        color: d.color, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending
+      }));
+      tentaclesGroup.add(tmesh);
+    }
+    jelly.add(tentaclesGroup);
+    jelly.position.set(d.x, d.baseY, d.z);
+    jelly.userData = { baseY: d.baseY, phase: d.phase, scale: d.scale };
+    group.add(jelly);
+    jellies.push(jelly);
+  });
+
+  // Moon with halo above lighthouse
+  const moonGroup = new THREE.Group();
+  const moon = new THREE.Mesh(
+    new THREE.SphereGeometry(1.4, 24, 18),
+    new THREE.MeshBasicMaterial({ color: 0xfff4d0, transparent: true, opacity: 0.92 })
+  );
+  moonGroup.add(moon);
+  const moonHalo = new THREE.Mesh(
+    new THREE.RingGeometry(1.7, 2.4, 64),
+    new THREE.MeshBasicMaterial({ color: 0xffffe0, transparent: true, opacity: 0.18, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
+  );
+  moonHalo.rotation.x = Math.PI / 2;
+  moonGroup.add(moonHalo);
+  const moonGlow = new THREE.Mesh(
+    new THREE.SphereGeometry(2.2, 16, 12),
+    new THREE.MeshBasicMaterial({ color: 0xffffe0, transparent: true, opacity: 0.1, blending: THREE.AdditiveBlending })
+  );
+  moonGroup.add(moonGlow);
+  moonGroup.position.set(-12, 14, -16);
+  group.add(moonGroup);
+
+  // Distant island mountain silhouette at (28, ?, -22)
+  const islandMtn = new THREE.Mesh(
+    new THREE.ConeGeometry(7, 11, 24),
+    new THREE.MeshBasicMaterial({ color: 0x12182a, transparent: true, opacity: 0.92 })
+  );
+  islandMtn.position.set(28, 3.5, -22);
+  islandMtn.scale.set(1, 1, 0.5);
+  group.add(islandMtn);
+  const islandMtn2 = new THREE.Mesh(
+    new THREE.ConeGeometry(4.5, 7, 18),
+    new THREE.MeshBasicMaterial({ color: 0x0e1428, transparent: true, opacity: 0.9 })
+  );
+  islandMtn2.position.set(34, 1.5, -20);
+  islandMtn2.scale.set(1, 1, 0.55);
+  group.add(islandMtn2);
+  const islandSnow = new THREE.Mesh(
+    new THREE.ConeGeometry(2.4, 3.5, 18),
+    new THREE.MeshBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0.55 })
+  );
+  islandSnow.position.set(28, 7.4, -22);
+  islandSnow.scale.set(1, 1, 0.5);
+  group.add(islandSnow);
+
+  // Foghorn ring pulse from lighthouse — emerges every ~7s
+  const foghornRing = new THREE.Mesh(
+    new THREE.RingGeometry(0.6, 0.7, 64),
+    new THREE.MeshBasicMaterial({ color: 0xfff4c8, transparent: true, opacity: 0.0, side: THREE.DoubleSide, blending: THREE.AdditiveBlending })
+  );
+  foghornRing.rotation.x = Math.PI / 2;
+  foghornRing.position.set(0, 5.2, 0); // lighthouse approx position relative to group; will be set in update
+  group.add(foghornRing);
+
+  // Mermaid hair gentle sway state
+  let foghornCycle = 0;
+
   let t = 0;
   function update(dt) {
     t += dt;
@@ -1512,6 +1687,49 @@ export function createAnchorageLandmark(THREE, opts) {
     spray.geometry.attributes.position.needsUpdate = true;
     spray.material.opacity = 0.45 + 0.2 * Math.sin(t * 1.2);
 
+
+    // ===== v8 update =====
+    // Mermaid hair gentle sway
+    mermaidHair.rotation.z = Math.sin(t * 1.2) * 0.05;
+    mermaidHair.position.x = -0.06 + Math.sin(t * 1.2) * 0.01;
+    // Tail subtle flick
+    tailFin.rotation.z = Math.PI / 2.4 + Math.sin(t * 0.9) * 0.08;
+
+    // Lobster buoy bobbing
+    lobsterBuoy.position.y = 0.1 + Math.sin(t * 1.1 + 0.3) * 0.08;
+    lobsterBuoy.rotation.z = Math.sin(t * 1.1) * 0.18;
+
+    // Bioluminescent jellies pulse + drift
+    jellies.forEach((jelly, idx) => {
+      const phase = jelly.userData.phase;
+      const baseY = jelly.userData.baseY;
+      jelly.position.y = baseY + Math.sin(t * 0.6 + phase) * 0.35;
+      const pulse = 1 + Math.sin(t * 1.4 + phase) * 0.1;
+      jelly.scale.set(pulse, pulse, pulse);
+      // dome opacity pulses
+      const dome = jelly.children[0];
+      dome.material.opacity = 0.45 + 0.15 * Math.sin(t * 1.4 + phase);
+      const halo = jelly.children[1];
+      halo.material.opacity = 0.14 + 0.08 * Math.sin(t * 1.4 + phase);
+    });
+
+    // Moon orbits slowly around lighthouse
+    const moonAng = t * 0.04;
+    moonGroup.position.x = -12 + Math.sin(moonAng) * 1.2;
+    moonGroup.position.y = 14 + Math.cos(moonAng) * 0.6;
+    moonHalo.rotation.z = t * 0.08;
+
+    // Foghorn ring pulse — every 7 seconds, expands to radius ~6
+    foghornCycle = (foghornCycle + dt) % 7.0;
+    if (foghornCycle < 2.4) {
+      const fp = foghornCycle / 2.4;
+      const fr = 0.6 + fp * 6.0;
+      foghornRing.scale.set(fr, fr, 1);
+      foghornRing.material.opacity = (1 - fp) * 0.55;
+      foghornRing.visible = true;
+    } else {
+      foghornRing.visible = false;
+    }
   }
 
   return { group, update };
