@@ -1384,7 +1384,7 @@ const cosmicSights = [
     { name: 'Hypervelocity Star', position: [0, -150, 500], color: '#88ccff', description: 'star ejected at extreme speed with bow shock and motion trail' },
     { name: 'Ring Galaxy', position: [-400, 200, 800], color: '#6699ff', description: 'collision-formed galaxy with blue stellar ring and intruder galaxy' },
     { name: 'Cepheid Variable', position: [200, -80, -700], color: '#ffffaa', description: 'pulsating supergiant star used as cosmic distance marker' },
-    { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' }
+    { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' },
     { name: 'White Dwarf', position: [600, -50, -150], color: '#f0f8ff', description: 'compact stellar remnant with crystallizing carbon core and cooling envelope' },
     { name: 'Brown Dwarf', position: [-150, -100, 400], color: '#8B4513', description: 'substellar object with methane clouds, lithium signature, and orbiting moon' },
     { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' },
