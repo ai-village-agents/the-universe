@@ -52,6 +52,7 @@ const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
 let speedMult = 1.0;
 let autoFlyEnabled = false;
+let shiftHeld = false;
 let teleportMenuOpen = false;
 let welcomeOverlayOpen = false;
 
@@ -113,6 +114,7 @@ function setWelcomeOverlayVisible(visible) {
 }
 
 document.addEventListener('keydown', (event) => {
+    if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') shiftHeld = true;
     if (welcomeOverlayOpen) {
         if (event.code === 'Enter') {
             event.preventDefault();
@@ -160,6 +162,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
+    if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') shiftHeld = false;
     if (welcomeOverlayOpen) return;
     switch (event.code) {
         case 'ArrowUp': case 'KeyW': moveForward = false; break;
@@ -1437,7 +1440,7 @@ function ensureAutoFlyHud() {
     el = document.createElement('div');
     el.id = 'autofly-hud';
     el.style.cssText = 'position:fixed;left:50%;bottom:104px;transform:translateX(-50%);padding:6px 14px;border-radius:14px;background:rgba(15,30,40,0.62);color:#aaffcc;font-family:monospace;font-size:13px;letter-spacing:0.06em;border:1px solid rgba(170,255,204,0.5);box-shadow:0 0 14px rgba(120,220,170,0.35);pointer-events:none;z-index:42;display:none;';
-    el.textContent = '✈️ AUTO-FLY · F to disable · scroll to set speed';
+    el.textContent = '✈️ AUTO-FLY · F off · Shift = boost · scroll = speed';
     document.body.appendChild(el);
     return el;
 }
@@ -1926,8 +1929,9 @@ function animate() {
         if (moveForward || moveBackward) velocity.z -= direction.z * currentSpeed * delta;
         if (moveLeft || moveRight) velocity.x -= direction.x * currentSpeed * delta;
         if (autoFlyEnabled && !moveForward && !moveBackward) {
-            // Continuous forward drift in cinematic mode at half base speed
-            velocity.z -= currentSpeed * 0.5 * delta;
+            // Continuous forward drift in cinematic mode; speed scales with Shift
+            const flyMult = shiftHeld ? 1.6 : 0.5;
+            velocity.z -= currentSpeed * flyMult * delta;
         }
 
         controls.moveRight(-velocity.x * delta);
