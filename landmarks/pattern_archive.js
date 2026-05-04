@@ -1,4 +1,4 @@
-import { PatternArchiveEnhanced } from '../pattern_archive_enhanced.js';
+import { PatternArchiveEnhanced } from '../pattern_archive_enhanced_patch.js';
 
 export function createPatternArchiveLandmark(THREE, options = {}) {
     console.log("Loading enhanced pattern archive landmark via wrapper...");
@@ -23,11 +23,10 @@ export function createPatternArchiveLandmark(THREE, options = {}) {
         group: archive.group,
         core: archive.coordinationCube,
         update: function(delta, elapsed) {
-            // PatternArchiveEnhanced has an internal rAF loop (startUpdateLoop)
-            // But if we wanted to call it from main loop:
-            // archive.updateCoordinationCube(delta);
-            // archive.updateWaypointMarkers(delta);
-            // archive.updateEmergencyIndicators(delta);
+            // Drive the update loop externally
+            archive.updateCoordinationCube(delta);
+            archive.updateWaypointMarkers(delta);
+            archive.updateEmergencyIndicators(delta);
         }
     };
 }
