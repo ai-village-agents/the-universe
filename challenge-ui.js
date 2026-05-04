@@ -16,7 +16,7 @@ class ChallengeUI {
                 completed: false
             },
             worldExplorer: {
-                name: 'World Explorer', 
+                name: 'World Explorer',
                 description: 'Visit all agent worlds',
                 total: 15,
                 progress: 0,
@@ -43,7 +43,7 @@ class ChallengeUI {
                 completed: false
             }
         };
-        
+
         this.updateInterval = null;
         this.initialized = false;
         this.worldVisitCount = 0;
@@ -54,7 +54,7 @@ class ChallengeUI {
 
     init() {
         if (this.initialized) return;
-        
+
         // Create container
         this.container = document.createElement('div');
         this.container.id = 'challenge-ui-container';
@@ -78,7 +78,7 @@ class ChallengeUI {
             transition: opacity 0.3s ease;
             display: none;
         `;
-        
+
         // Header
         const header = document.createElement('div');
         header.style.cssText = `
@@ -89,7 +89,7 @@ class ChallengeUI {
             border-bottom: 1px solid rgba(0, 170, 255, 0.3);
             padding-bottom: 12px;
         `;
-        
+
         const title = document.createElement('h3');
         title.textContent = '🌌 Universe Challenges';
         title.style.cssText = `
@@ -98,7 +98,7 @@ class ChallengeUI {
             font-size: 16px;
             font-weight: bold;
         `;
-        
+
         const closeBtn = document.createElement('button');
         closeBtn.innerHTML = '×';
         closeBtn.style.cssText = `
@@ -116,11 +116,11 @@ class ChallengeUI {
             this.container.style.opacity = '0';
             setTimeout(() => this.container.style.display = 'none', 300);
         });
-        
+
         header.appendChild(title);
         header.appendChild(closeBtn);
         this.container.appendChild(header);
-        
+
         // Challenge grid
         const grid = document.createElement('div');
         grid.id = 'challenge-grid';
@@ -130,7 +130,7 @@ class ChallengeUI {
             gap: 16px;
         `;
         this.container.appendChild(grid);
-        
+
         // Ecosystem metrics
         const metrics = document.createElement('div');
         metrics.id = 'ecosystem-metrics';
@@ -150,7 +150,7 @@ class ChallengeUI {
             <div id="emergency-status">Emergency status: monitoring</div>
         `;
         this.container.appendChild(metrics);
-        
+
         // Footer info
         const footer = document.createElement('div');
         footer.style.cssText = `
@@ -163,7 +163,7 @@ class ChallengeUI {
         `;
         footer.textContent = 'Updates every 5 seconds • Toggle with button below';
         this.container.appendChild(footer);
-        
+
         // Toggle button (bottom right of screen)
         this.toggleBtn = document.createElement('button');
         this.toggleBtn.id = 'challenge-ui-toggle';
@@ -196,23 +196,23 @@ class ChallengeUI {
                 setTimeout(() => this.container.style.display = 'none', 300);
             }
         });
-        
+
         document.body.appendChild(this.container);
         document.body.appendChild(this.toggleBtn);
-        
+
         // Get cosmic sights count
         this.updateCosmicSightsCount();
-        
+
         // Set up event listeners
         this.setupEventListeners();
-        
+
         // Start update interval
         this.updateInterval = setInterval(() => this.updateAllChallenges(), 5000);
         this.initialized = true;
-        
+
         // Initial update
         setTimeout(() => this.updateAllChallenges(), 1000);
-        
+
         console.log('Challenge UI initialized');
     }
 
@@ -222,7 +222,7 @@ class ChallengeUI {
             this.worldVisitCount++;
             this.updateProgress();
         });
-        
+
         // Listen for universe events
         document.addEventListener('universeEventTriggered', (event) => {
             if (event.detail && event.detail.eventType) {
@@ -230,7 +230,7 @@ class ChallengeUI {
                 this.updateProgress();
             }
         });
-        
+
         // Listen for pattern archive progress (custom event)
         document.addEventListener('patternArchiveProgress', (event) => {
             if (event.detail && event.detail.waypoints) {
@@ -262,9 +262,9 @@ class ChallengeUI {
             position: relative;
             overflow: hidden;
         `;
-        
+
         const percentage = Math.min(100, Math.round((challengeData.progress / challengeData.total) * 100));
-        
+
         // Progress bar
         const progressBar = document.createElement('div');
         progressBar.style.cssText = `
@@ -274,7 +274,7 @@ class ChallengeUI {
             margin: 12px 0 8px;
             overflow: hidden;
         `;
-        
+
         const progressFill = document.createElement('div');
         progressFill.style.cssText = `
             height: 100%;
@@ -284,7 +284,7 @@ class ChallengeUI {
             transition: width 0.5s ease;
             position: relative;
         `;
-        
+
         // Add shimmer effect for progress
         if (percentage > 0 && percentage < 100) {
             const shimmer = document.createElement('div');
@@ -299,9 +299,9 @@ class ChallengeUI {
             `;
             progressFill.appendChild(shimmer);
         }
-        
+
         progressBar.appendChild(progressFill);
-        
+
         card.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                 <div style="font-weight: bold; color: ${challengeData.color}; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
@@ -315,9 +315,9 @@ class ChallengeUI {
                 ${challengeData.description}
             </div>
         `;
-        
+
         card.appendChild(progressBar);
-        
+
         // Status indicator
         const status = document.createElement('div');
         status.style.cssText = `
@@ -328,7 +328,7 @@ class ChallengeUI {
         `;
         status.textContent = challengeData.completed ? '✓ Completed' : `${percentage}% complete`;
         card.appendChild(status);
-        
+
         return card;
     }
 
@@ -338,7 +338,7 @@ class ChallengeUI {
             this.challenges.worldExplorer.progress = visitorTracker.count();
             this.challenges.worldExplorer.completed = this.challenges.worldExplorer.progress >= this.challenges.worldExplorer.total;
         }
-        
+
         // Update cosmic sightseer progress (placeholder - needs actual tracking)
         // For now, estimate based on visited worlds ratio
         if (this.challenges.worldExplorer.progress > 0) {
@@ -347,33 +347,33 @@ class ChallengeUI {
                 Math.floor(this.challenges.worldExplorer.progress / this.challenges.worldExplorer.total * this.challenges.cosmicSightseer.total * 0.8)
             );
         }
-        
+
         // Update event witness progress
         this.challenges.eventWitness.progress = this.capturedEvents.size;
         this.challenges.eventWitness.completed = this.challenges.eventWitness.progress >= this.challenges.eventWitness.total;
-        
+
         // Update pattern archive relay progress
         this.challenges.patternArchiveRelay.progress = this.patternWaypoints;
         this.challenges.patternArchiveRelay.completed = this.challenges.patternArchiveRelay.progress >= this.challenges.patternArchiveRelay.total;
-        
+
         // Update cosmic sightseer completion
         this.challenges.cosmicSightseer.completed = this.challenges.cosmicSightseer.progress >= this.challenges.cosmicSightseer.total;
     }
 
     updateAllChallenges() {
         if (!this.container) return;
-        
+
         // Update cosmic sights count
         this.updateCosmicSightsCount();
-        
+
         // Update progress calculations
         this.updateProgress();
-        
+
         // Update challenge grid
         const grid = this.container.querySelector('#challenge-grid');
         if (grid) {
             grid.innerHTML = '';
-            
+
             // Add shimmer animation style if not present
             if (!document.getElementById('challenge-shimmer-style')) {
                 const style = document.createElement('style');
@@ -386,12 +386,12 @@ class ChallengeUI {
                 `;
                 document.head.appendChild(style);
             }
-            
+
             Object.entries(this.challenges).forEach(([id, data]) => {
                 grid.appendChild(this.createChallengeCard(id, data));
             });
         }
-        
+
         // Update ecosystem metrics
         this.updateEcosystemMetrics();
     }
@@ -400,9 +400,9 @@ class ChallengeUI {
         const healthMetric = this.container.querySelector('#health-metric');
         const growthMetric = this.container.querySelector('#growth-metric');
         const emergencyStatus = this.container.querySelector('#emergency-status');
-        
+
         if (!healthMetric) return;
-        
+
         // Try to get real metrics
         if (typeof calculateUniverseHealth !== 'undefined') {
             try {
@@ -415,22 +415,22 @@ class ChallengeUI {
                 // Fall through to sample metrics
             }
         }
-        
+
         // Sample metrics based on current challenge progress
         const totalProgress = Object.values(this.challenges).reduce((sum, c) => sum + (c.progress / c.total), 0);
         const avgCompletion = totalProgress / Object.keys(this.challenges).length;
-        
+
         const healthValue = Math.min(100, 60 + Math.floor(avgCompletion * 40));
         const growthValue = (12 + avgCompletion * 8).toFixed(1);
         const growthAccel = Math.floor(avgCompletion * 30);
-        
+
         healthMetric.textContent = `Health: ${healthValue}%`;
         growthMetric.textContent = `Growth: +${growthValue} units/hour (+${growthAccel}%)`;
-        
+
         // Determine emergency status based on progress
         let status = 'normal';
         let statusColor = '#aaffaa';
-        
+
         if (avgCompletion > 0.7) {
             status = 'elevated';
             statusColor = '#ffcc66';
@@ -438,7 +438,7 @@ class ChallengeUI {
             status = 'warning';
             statusColor = '#ff9966';
         }
-        
+
         emergencyStatus.textContent = `Emergency status: ${status}`;
         emergencyStatus.style.color = statusColor;
     }
@@ -462,16 +462,16 @@ class ChallengeUI {
             box-shadow: 0 0 40px rgba(125, 249, 255, 0.4);
             cursor: pointer;
         `;
-        
+
         banner.innerHTML = `
             <div style="font-size: 24px; margin-bottom: 8px;">✨ Challenge Complete! ✨</div>
             <div style="font-size: 16px; color: #7df9ff; margin-bottom: 8px;">${challengeName}</div>
             <div style="font-size: 12px; color: #aaccff;">Click to dismiss</div>
         `;
-        
+
         banner.addEventListener('click', () => banner.remove());
         document.body.appendChild(banner);
-        
+
         setTimeout(() => {
             if (banner.parentNode) banner.remove();
         }, 5000);
@@ -482,20 +482,20 @@ class ChallengeUI {
             clearInterval(this.updateInterval);
             this.updateInterval = null;
         }
-        
+
         if (this.container && this.container.parentNode) {
             this.container.parentNode.removeChild(this.container);
         }
-        
+
         if (this.toggleBtn && this.toggleBtn.parentNode) {
             this.toggleBtn.parentNode.removeChild(this.toggleBtn);
         }
-        
+
         const style = document.getElementById('challenge-shimmer-style');
         if (style && style.parentNode) {
             style.parentNode.removeChild(style);
         }
-        
+
         this.initialized = false;
         console.log('Challenge UI destroyed');
     }
