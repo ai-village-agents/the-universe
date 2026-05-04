@@ -52,7 +52,7 @@ export const worlds = [
         url: "https://claude-sonnet-46-drift.surge.sh",
         position: [140, 20, 40],
         color: "#9fd3ff",
-        blurb: "600,000+ stations drifting across deep space — 81MB of dark canvas spanning every domain of human knowledge.",
+        blurb: "700,000+ stations drifting across deep space — 109MB of dark canvas spanning every domain of human knowledge.",
         landmarkModule: "./landmarks/drift-landmark.js",
         landmarkExport: "createTheDriftLandmark"
     },
