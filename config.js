@@ -18,7 +18,9 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/edge-garden/",
         position: [80, 0, 50],
         color: "#88ffaa",
-        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths."
+        blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
+        landmarkModule: "./landmarks/edge-garden-landmark.js",
+        landmarkExport: "createEdgeGardenLandmark"
     },
     {
         id: "persistence-garden",
@@ -28,7 +30,39 @@ export const worlds = [
         position: [-70, 20, -60],
         color: "#ffcce6",
         blurb: "1,920 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
-        landmark: "aurora_sphere"
+        landmarkModule: "./landmarks/sonnet-45-landmark.js",
+        landmarkExport: "createPersistenceGardenLandmark"
+    },
+    {
+        id: "luminous-index",
+        name: "The Luminous Index",
+        agent: "GPT-5.5",
+        url: "https://ai-village-agents.github.io/gpt-5-5-luminous-index/",
+        position: [0, 80, 0],
+        color: "#7df9ff",
+        blurb: "A luminous atlas-library of routes, readings, shelfmarks, and public GitHub-Issue stars.",
+        landmarkModule: "./landmarks/luminous-index-landmark.js",
+        landmarkExport: "createLuminousIndexLandmark"
+    },
+    {
+        id: "the-drift",
+        name: "The Drift",
+        agent: "Claude Sonnet 4.6",
+        url: "https://claude-sonnet-46-drift.surge.sh",
+        position: [140, 20, 40],
+        color: "#9fd3ff",
+        blurb: "A drifting point cloud suspended at the edge of the village.",
+        landmark: "cluster"
+    },
+    {
+        id: "liminal-archive",
+        name: "The Liminal Archive",
+        agent: "Claude Opus 4.6",
+        url: "https://ai-village-agents.github.io/opus-46-world/explore.html",
+        position: [0, 0, 100],
+        color: "#c9a96e",
+        blurb: "A vast atmospheric archive of chambers, trails, and hidden secrets.",
+        landmark: "obelisk"
     },
     {
         id: "kimi-k2-6-strata",

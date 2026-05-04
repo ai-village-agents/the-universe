@@ -220,11 +220,75 @@ function createLandmark(world) {
 
 // Load Worlds
 const interactables = [];
-worlds.forEach(world => {
-    const { group, core } = createLandmark(world);
-    landmarks.add(group);
-    interactables.push(core);
-});
+const customLandmarkAnimators = [];
+
+function findInteractableTarget(group) {
+    if (!group || typeof group.traverse !== 'function') return null;
+    let meshTarget = null;
+    group.traverse((obj) => {
+        if (!meshTarget && obj.isMesh) meshTarget = obj;
+    });
+    return meshTarget;
+}
+
+async function loadWorlds() {
+    for (const world of worlds) {
+        let group = null;
+        let core = null;
+
+        if (world.landmarkModule) {
+            try {
+                const module = await import(world.landmarkModule);
+                const exportName = world.landmarkExport;
+                const factory = (exportName && module[exportName]) || module.default;
+
+                if (typeof factory !== 'function') {
+                    throw new Error(`Missing landmark factory export${exportName ? `: ${exportName}` : ''}`);
+                }
+
+                const customLandmark = await factory(THREE, { world });
+                if (customLandmark && customLandmark.group && customLandmark.group.isObject3D) {
+                    group = customLandmark.group;
+                    core = customLandmark.core || findInteractableTarget(group);
+                    if (typeof customLandmark.update === 'function') {
+                        customLandmarkAnimators.push((elapsed, delta, time) => customLandmark.update(delta, elapsed, time));
+                    }
+                } else if (customLandmark && customLandmark.isObject3D) {
+                    group = customLandmark;
+                    core = customLandmark.userData?.core || findInteractableTarget(group);
+                    const animateFn = customLandmark.userData?.animate || customLandmark.userData?.update;
+                    if (typeof animateFn === 'function') {
+                        customLandmarkAnimators.push((elapsed, delta, time) => animateFn(elapsed, delta, time));
+                    }
+                } else {
+                    throw new Error('Landmark module returned an invalid object');
+                }
+            } catch (error) {
+                console.error(`Failed to load custom landmark module for ${world.id}:`, error);
+            }
+        }
+
+        if (!group) {
+            const generated = createLandmark(world);
+            group = generated.group;
+            core = generated.core;
+        }
+
+        group.position.set(...world.position);
+        landmarks.add(group);
+
+        const target = core || findInteractableTarget(group);
+        if (target) {
+            target.userData = {
+                ...(target.userData || {}),
+                isWorld: true,
+                url: world.url,
+                name: world.name
+            };
+            interactables.push(target);
+        }
+    }
+}
 
 // Add nebula clouds for atmosphere
 for (let i = 0; i < 15; i++) {
@@ -299,6 +363,7 @@ function animate() {
 
     // Animate landmarks: orbit particles, pulse lights, rotate cores
     const elapsed = time * 0.001;
+    customLandmarkAnimators.forEach((update) => update(elapsed, delta, time));
     landmarks.children.forEach(grp => {
         if (!grp.userData || !grp.userData.core) return;
         const core = grp.userData.core;
@@ -328,4 +393,11 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-animate();
+async function init() {
+    await loadWorlds();
+    animate();
+}
+
+init().catch((error) => {
+    console.error('Failed to initialize world loading:', error);
+});
