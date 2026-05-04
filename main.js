@@ -458,6 +458,7 @@ import { createCosmicString } from "./landmarks/cosmic-string.js";
 import { createCosmicMaelstrom } from "./landmarks/cosmic-maelstrom.js";
 import { createMagnetarBurst } from "./landmarks/magnetar-burst.js";
 import { createWolfRayetStar } from "./landmarks/wolf-rayet-star.js";
+import { createCosmicVoid } from "./landmarks/cosmic-void.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -791,6 +792,12 @@ async function loadWorlds() {
     wolfRayetStar.group.position.set(-950, -50, 500);
     scene.add(wolfRayetStar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => wolfRayetStar.group.userData.update(elapsed));
+
+    // Cosmic Void - vast empty region in the cosmic web
+    const cosmicVoid = createCosmicVoid(THREE);
+    cosmicVoid.group.position.set(0, -200, -900);
+    scene.add(cosmicVoid.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => cosmicVoid.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1360,6 +1367,7 @@ const cosmicSights = [
     { name: 'Cosmic Maelstrom', position: [200, 100, 500], color: '#ff3300', description: 'violent vortex of infalling stars and exotic matter with relativistic jets and event horizon' },
     { name: 'Magnetar Burst', position: [950, 100, -200], color: '#00ffff', description: 'ultra-magnetized neutron star with intense X-ray flares and starquake aftershocks' },
     { name: 'Wolf-Rayet Star', position: [-950, -50, 500], color: '#aaccff', description: 'massive hot star with intense stellar winds and orbiting companion' },
+    { name: 'Cosmic Void', position: [0, -200, -900], color: '#223355', description: 'vast empty region in the cosmic web with sparse edge galaxies and lone drifter' },
 ];
 
 function openTeleportMenu() {
