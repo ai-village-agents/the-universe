@@ -410,6 +410,7 @@ import { createMagnetar } from "./landmarks/magnetar.js";
 import { createStellarNursery } from "./landmarks/stellar-nursery.js";
 import { createGravitationalLens } from "./landmarks/gravitational-lens.js";
 import { createCosmicWeb } from "./landmarks/cosmic-web.js";
+import { createGalaxyCollision } from "./landmarks/galaxy-collision.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -604,6 +605,12 @@ async function loadWorlds() {
     cosmicWeb.group.position.set(-700, 300, -800);
     scene.add(cosmicWeb.group);
     customLandmarkAnimators.push((elapsed, delta, time) => cosmicWeb.group.userData.update(elapsed));
+
+    // Galaxy Collision at (800, -100, -600)
+    const galaxyCollision = createGalaxyCollision(THREE);
+    galaxyCollision.group.position.set(800, -100, -600);
+    scene.add(galaxyCollision.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => galaxyCollision.group.userData.update(elapsed));
 
 }
 
@@ -1096,7 +1103,8 @@ const cosmicSights = [
     { name: 'Magnetar', position: [0, 250, -700], color: '#88ccff', description: 'magnetized neutron star with X-ray bursts' },
     { name: 'Stellar Nursery', position: [-500, 200, -200], color: '#ff9bd2', description: 'star-forming region with protostars' },
     { name: 'Gravitational Lens', position: [300, 150, -450], color: '#ffffaa', description: 'Einstein ring and distorted galaxies' },
-    { name: 'Cosmic Web', position: [-700, 300, -800], color: '#4466aa', description: 'large-scale structure with galaxy clusters and filaments' }
+    { name: 'Cosmic Web', position: [-700, 300, -800], color: '#4466aa', description: 'large-scale structure with galaxy clusters and filaments' },
+    { name: 'Galaxy Collision', position: [800, -100, -600], color: '#ffaa88', description: 'two spiral galaxies merging with tidal streams' }
 ];
 
 function openTeleportMenu() {
