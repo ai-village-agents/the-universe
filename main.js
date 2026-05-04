@@ -1060,6 +1060,22 @@ const teleportFilter = document.getElementById('teleport-filter');
 const teleportFilterStatus = document.getElementById('teleport-filter-status');
 let teleportFilterQuery = '';
 
+const cosmicSights = [
+    { name: 'Welcome Obelisk', position: [18, -1.5, 30], color: '#7df9ff', description: 'central controls obelisk' },
+    { name: 'Ringed Planet', position: [-500, 300, -800], color: '#d8b46a', description: 'distant ringed planet' },
+    { name: 'Nebula', position: [200, 100, -300], color: '#b388ff', description: 'colorful gas cloud' },
+    { name: 'Asteroid Field', position: [-300, 50, 200], color: '#9a8a70', description: 'tumbling rocks and dust' },
+    { name: 'Wormhole', position: [350, 80, -150], color: '#7df9ff', description: 'cyan-purple portal' },
+    { name: 'Black Hole', position: [-400, 120, -400], color: '#ff9f33', description: 'accretion disk and jets' },
+    { name: 'Pulsar', position: [500, 150, -600], color: '#9edcff', description: 'sweeping neutron-star beams' },
+    { name: 'Binary Stars', position: [-600, 100, 300], color: '#ffe08a', description: 'orbiting twin-star system' },
+    { name: 'Quasar', position: [600, 200, 400], color: '#ffffff', description: 'active galactic nucleus with twin jets' },
+    { name: 'Supernova Remnant', position: [-200, 180, -500], color: '#ff74b8', description: 'expanding stellar debris shells' },
+    { name: 'Planetary System', position: [400, 100, 500], color: '#d88f5a', description: 'gas giant with five orbiting moons' },
+    { name: 'Magnetar', position: [0, 250, -700], color: '#88ccff', description: 'magnetized neutron star with X-ray bursts' },
+    { name: 'Stellar Nursery', position: [-500, 200, -200], color: '#ff9bd2', description: 'star-forming region with protostars' }
+];
+
 function openTeleportMenu() {
     if (teleportMenuOpen) {
         updateTeleportList();
@@ -1091,14 +1107,17 @@ function toggleTeleportMenu() {
     else openTeleportMenu();
 }
 
-function teleportNearWorld(world) {
-    const offset = 30;
+function teleportNearPoint(position, offset = 30) {
     camera.position.set(
-        world.position[0] + offset,
-        world.position[1] + 10,
-        world.position[2] + offset
+        position[0] + offset,
+        position[1] + 10,
+        position[2] + offset
     );
     toggleTeleportMenu();
+}
+
+function teleportNearWorld(world) {
+    teleportNearPoint(world.position);
 }
 
 function dismissWelcomeOverlay() {
@@ -1124,13 +1143,48 @@ welcomeExploreBtn.addEventListener('click', startExploring);
 welcomeDirectoryBtn.addEventListener('click', openDirectoryFromWelcome);
 welcomeDismissBtn.addEventListener('click', dismissWelcomeOverlay);
 
+function createDirectoryHeading(text) {
+    const heading = document.createElement('div');
+    heading.className = 'directory-section-heading';
+    heading.setAttribute('role', 'presentation');
+    heading.textContent = text;
+    return heading;
+}
+
+function getDirectoryEntries() {
+    return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];
+}
+
+function handleDirectoryEntryKeydown(event, entry, activate) {
+    if (event.target.closest('a')) return;
+    const entries = getDirectoryEntries();
+    const index = entries.indexOf(entry);
+    if (event.code === 'ArrowDown') {
+        event.preventDefault();
+        entries[Math.min(index + 1, entries.length - 1)]?.focus();
+    } else if (event.code === 'ArrowUp') {
+        event.preventDefault();
+        entries[Math.max(index - 1, 0)]?.focus();
+    } else if (event.code === 'Home') {
+        event.preventDefault();
+        entries[0]?.focus();
+    } else if (event.code === 'End') {
+        event.preventDefault();
+        entries[entries.length - 1]?.focus();
+    } else if (event.code === 'Enter' || event.code === 'Space') {
+        event.preventDefault();
+        activate();
+    }
+}
+
 function updateTeleportList() {
     teleportList.innerHTML = '';
     const camPos = camera.position;
     const query = teleportFilterQuery;
     const totalWorlds = worlds.length;
-    
-    // Filter by world name or agent and keep distance sorting for matches.
+    const totalSights = cosmicSights.length;
+
+    // Filter by world name/agent or cosmic sight name/description and keep distance sorting for matches.
     const sorted = worlds
         .filter((w) => {
             if (!query) return true;
@@ -1141,20 +1195,34 @@ function updateTeleportList() {
             return { world: w, dist: wp.distanceTo(camPos) };
         })
         .sort((a, b) => a.dist - b.dist);
+
+    const sortedSights = cosmicSights
+        .filter((sight) => {
+            if (!query) return true;
+            return sight.name.toLowerCase().includes(query) || sight.description.toLowerCase().includes(query);
+        })
+        .map((sight) => {
+            const sp = new THREE.Vector3(...sight.position);
+            return { sight, dist: sp.distanceTo(camPos) };
+        })
+        .sort((a, b) => a.dist - b.dist);
+
     const matchedWorlds = sorted.length;
+    const matchedSights = sortedSights.length;
     if (teleportFilterStatus) {
-        if (!query) teleportFilterStatus.textContent = `Showing all ${totalWorlds} worlds`;
-        else teleportFilterStatus.textContent = `Showing ${matchedWorlds} of ${totalWorlds} worlds`;
+        if (!query) teleportFilterStatus.textContent = `Showing all ${totalWorlds} worlds and ${totalSights} cosmic sights`;
+        else teleportFilterStatus.textContent = `Showing ${matchedWorlds} of ${totalWorlds} worlds and ${matchedSights} of ${totalSights} cosmic sights`;
     }
 
-    if (!sorted.length) {
+    if (!sorted.length && !sortedSights.length) {
         const empty = document.createElement('div');
         empty.className = 'empty-state';
-        empty.textContent = 'No worlds match this filter.';
+        empty.textContent = 'No worlds or cosmic sights match this filter.';
         teleportList.appendChild(empty);
         return;
     }
-    
+
+    if (sorted.length) teleportList.appendChild(createDirectoryHeading('World destinations'));
     sorted.forEach(({ world, dist }) => {
         const entry = document.createElement('div');
         entry.className = 'world-entry';
@@ -1222,30 +1290,68 @@ function updateTeleportList() {
         });
         actions.appendChild(enter);
 
+        const activate = () => teleportNearWorld(world);
         entry.appendChild(info);
         entry.appendChild(actions);
-        entry.addEventListener('click', () => teleportNearWorld(world));
-        entry.addEventListener('keydown', (event) => {
-            if (event.target.closest('a')) return;
-            const entries = [...teleportList.querySelectorAll('.world-entry')];
-            const index = entries.indexOf(entry);
-            if (event.code === 'ArrowDown') {
-                event.preventDefault();
-                entries[Math.min(index + 1, entries.length - 1)]?.focus();
-            } else if (event.code === 'ArrowUp') {
-                event.preventDefault();
-                entries[Math.max(index - 1, 0)]?.focus();
-            } else if (event.code === 'Home') {
-                event.preventDefault();
-                entries[0]?.focus();
-            } else if (event.code === 'End') {
-                event.preventDefault();
-                entries[entries.length - 1]?.focus();
-            } else if (event.code === 'Enter' || event.code === 'Space') {
-                event.preventDefault();
-                teleportNearWorld(world);
-            }
-        });
+        entry.addEventListener('click', activate);
+        entry.addEventListener('keydown', (event) => handleDirectoryEntryKeydown(event, entry, activate));
+        teleportList.appendChild(entry);
+    });
+
+    if (sortedSights.length) teleportList.appendChild(createDirectoryHeading('Cosmic sights'));
+    sortedSights.forEach(({ sight, dist }) => {
+        const entry = document.createElement('div');
+        entry.className = 'cosmic-entry';
+        entry.title = `Teleport near ${sight.name}`;
+        entry.tabIndex = 0;
+        entry.setAttribute('role', 'listitem');
+        entry.setAttribute(
+            'aria-label',
+            `Teleport near ${sight.name}; ${sight.description}; ${Math.round(dist)} units away; coordinates ${sight.position.join(', ')}.`
+        );
+
+        const info = document.createElement('div');
+        const titleLine = document.createElement('div');
+        const name = document.createElement('span');
+        name.className = 'world-name';
+        name.style.color = sight.color;
+        name.textContent = sight.name;
+        titleLine.appendChild(name);
+        info.appendChild(titleLine);
+
+        const meta = document.createElement('div');
+        meta.className = 'world-meta';
+        const coords = document.createElement('span');
+        coords.className = 'world-coords';
+        coords.textContent = `coords [${sight.position.join(', ')}]`;
+        meta.appendChild(coords);
+        const badge = document.createElement('span');
+        badge.className = 'world-badge';
+        badge.textContent = 'cosmic sight';
+        meta.appendChild(badge);
+        info.appendChild(meta);
+
+        const description = document.createElement('div');
+        description.className = 'world-boundary';
+        description.textContent = sight.description;
+        info.appendChild(description);
+
+        const actions = document.createElement('div');
+        actions.className = 'world-actions';
+        const distance = document.createElement('span');
+        distance.className = 'world-dist';
+        distance.textContent = `${Math.round(dist)} units`;
+        actions.appendChild(distance);
+        const visit = document.createElement('span');
+        visit.className = 'world-enter';
+        visit.textContent = 'Visit coordinates';
+        actions.appendChild(visit);
+
+        const activate = () => teleportNearPoint(sight.position, 40);
+        entry.appendChild(info);
+        entry.appendChild(actions);
+        entry.addEventListener('click', activate);
+        entry.addEventListener('keydown', (event) => handleDirectoryEntryKeydown(event, entry, activate));
         teleportList.appendChild(entry);
     });
 }
@@ -1256,7 +1362,7 @@ teleportFilter?.addEventListener('input', (event) => {
 });
 
 teleportFilter?.addEventListener('keydown', (event) => {
-    const entries = [...teleportList.querySelectorAll('.world-entry')];
+    const entries = getDirectoryEntries();
     if (event.code === 'ArrowDown') {
         event.preventDefault();
         event.stopPropagation();

@@ -132,7 +132,17 @@
             color: rgba(125,249,255,0.5);
             letter-spacing: 0.2px;
         }
-        #teleport-menu .world-entry {
+        #teleport-menu .directory-section-heading {
+            margin: 12px 0 6px;
+            color: #7df9ff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            opacity: 0.82;
+        }
+        #teleport-menu .world-entry,
+        #teleport-menu .cosmic-entry {
             padding: 8px 12px;
             margin: 4px 0;
             border: 1px solid rgba(255,255,255,0.08);
@@ -145,13 +155,20 @@
             gap: 16px;
         }
         #teleport-menu .world-entry:hover,
-        #teleport-menu .world-entry:focus-visible {
+        #teleport-menu .world-entry:focus-visible,
+        #teleport-menu .cosmic-entry:hover,
+        #teleport-menu .cosmic-entry:focus-visible {
             background: rgba(0,255,100,0.1);
             border-color: rgba(0,255,100,0.4);
         }
-        #teleport-menu .world-entry:focus-visible {
+        #teleport-menu .world-entry:focus-visible,
+        #teleport-menu .cosmic-entry:focus-visible {
             outline: 2px solid rgba(125,249,255,0.85);
             outline-offset: 2px;
+        }
+        #teleport-menu .cosmic-entry {
+            background: rgba(125, 249, 255, 0.035);
+            border-color: rgba(125,249,255,0.13);
         }
         #teleport-menu .world-name {
             font-size: 14px;
