@@ -357,6 +357,7 @@ function createLandmark(world) {
 }
 
 import { createVoyagerProbe } from "./landmarks/voyager-probe.js";
+import { createComet } from "./landmarks/comet.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -434,6 +435,10 @@ async function loadWorlds() {
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
+    // Add roaming Comet Easter Egg
+    const comet = createComet(THREE, scene);
+    customLandmarkAnimators.push((elapsed, delta, time) => comet.update(delta, elapsed));
+
     customLandmarkAnimators.push((elapsed, delta, time) => voyager.update(delta, elapsed));
 
 }
