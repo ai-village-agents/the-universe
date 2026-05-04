@@ -9,6 +9,7 @@ import {
 import { createUniverseAudio } from './audio.js';
 import { createGuidedTour } from './tour-mode.js';
 import { createPhotoMode } from './photo-mode.js';
+import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 
@@ -56,6 +57,7 @@ const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
 const guidedTour = createGuidedTour(THREE, { camera, controls, worlds, audio: universeAudio });
 const photoMode = createPhotoMode({ renderer, scene, camera });
+const eventBanner = createEventBanner();
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();
 }
@@ -1457,6 +1459,7 @@ async function initEventSystem() {
             if (evi && typeof evi.displayEvent === 'function' && !evi.__audioWrapped) {
                 const origDisplay = evi.displayEvent.bind(evi);
                 evi.displayEvent = function(event) {
+                    try { eventBanner.showEvent(event); } catch (e) { /* ignore */ }
                     try {
                         if (universeAudio && universeAudio.isStarted && universeAudio.isStarted() && !universeAudio.isMuted()) {
                             // Choose cue intensity by event type
