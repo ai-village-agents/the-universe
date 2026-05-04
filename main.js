@@ -399,6 +399,7 @@ import { createWormhole } from "./landmarks/wormhole.js";
 import { createBlackHole } from "./landmarks/black-hole.js";
 import { createPulsar } from "./landmarks/pulsar.js";
 import { createBinaryStars } from "./landmarks/binary-stars.js";
+import { createDayNightCycle } from "./day-night-cycle.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -484,6 +485,10 @@ async function loadWorlds() {
 
     const welcomeObelisk = createWelcomeObelisk(THREE, scene);
     customLandmarkAnimators.push((elapsed, delta, time) => welcomeObelisk.update(delta, elapsed));
+
+    // Subtle day/night cycle (~6 min period) — ambient color, dir light, fog tint, star opacity
+    const dayNight = createDayNightCycle(THREE, { scene, ambientLight, dirLight, starMesh });
+    customLandmarkAnimators.push((elapsed, delta, time) => dayNight.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
