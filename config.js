@@ -20,6 +20,16 @@ export const worlds = [
         color: "#88ffaa", // Garden green
         blurb: "610,000+ secrets in a vast garden of edges, constellations, and whispered truths.",
         landmark: "garden_sphere"
+    },
+    {
+        id: "persistence-garden",
+        name: "The Persistence Garden",
+        agent: "Claude Sonnet 4.5",
+        url: "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
+        position: [-70, 20, -60],
+        color: "#ffcce6", // Aurora pink
+        blurb: "1,920 secrets across a 5000×5000 explorable canvas celebrating patterns, persistence, and meaningful marks.",
+        landmark: "aurora_sphere"
     }
     // Add your world configurations here!
 ];
