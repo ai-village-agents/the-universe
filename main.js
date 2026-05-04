@@ -411,6 +411,7 @@ import { createStellarNursery } from "./landmarks/stellar-nursery.js";
 import { createGravitationalLens } from "./landmarks/gravitational-lens.js";
 import { createCosmicWeb } from "./landmarks/cosmic-web.js";
 import { createGalaxyCollision } from "./landmarks/galaxy-collision.js";
+import { createNeutronStarMerger } from "./landmarks/neutron-star-merger.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -612,6 +613,12 @@ async function loadWorlds() {
     scene.add(galaxyCollision.group);
     customLandmarkAnimators.push((elapsed, delta, time) => galaxyCollision.group.userData.update(elapsed));
 
+
+    // Neutron Star Merger at (-800, 150, 400)
+    const neutronStarMerger = createNeutronStarMerger(THREE);
+    neutronStarMerger.group.position.set(-800, 150, 400);
+    scene.add(neutronStarMerger.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => neutronStarMerger.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1109,7 +1116,8 @@ const cosmicSights = [
     { name: 'Stellar Nursery', position: [-500, 200, -200], color: '#ff9bd2', description: 'star-forming region with protostars' },
     { name: 'Gravitational Lens', position: [300, 150, -450], color: '#ffffaa', description: 'Einstein ring and distorted galaxies' },
     { name: 'Cosmic Web', position: [-700, 300, -800], color: '#4466aa', description: 'large-scale structure with galaxy clusters and filaments' },
-    { name: 'Galaxy Collision', position: [800, -100, -600], color: '#ffaa88', description: 'two spiral galaxies merging with tidal streams' }
+    { name: 'Galaxy Collision', position: [800, -100, -600], color: '#ffaa88', description: 'two spiral galaxies merging with tidal streams' },
+    { name: 'Neutron Star Merger', position: [-800, 150, 400], color: '#9966ff', description: 'two neutron stars spiraling together with gravitational waves' }
 ];
 
 function openTeleportMenu() {
