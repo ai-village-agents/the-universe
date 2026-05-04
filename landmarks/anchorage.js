@@ -733,6 +733,221 @@ export function createAnchorageLandmark(THREE, opts) {
   compassGroup.position.set(8, 0.06, 8);
   group.add(compassGroup);
 
+
+  // === v6 deep-sea & celestial additions ===
+  // --- School of fish (15 small fish darting in formation) ---------------
+  const fishSchool = [];
+  const fishGeo = new THREE.ConeGeometry(0.18, 0.55, 6);
+  fishGeo.rotateZ(-Math.PI / 2);
+  for (let i = 0; i < 15; i++) {
+    const fish = new THREE.Mesh(fishGeo, new THREE.MeshStandardMaterial({
+      color: 0xc0c8d0, metalness: 0.6, roughness: 0.3, emissive: 0x445566, emissiveIntensity: 0.2
+    }));
+    fish.userData = {
+      offset: i / 15 * Math.PI * 2,
+      yBase: -0.2 + (i % 3) * 0.15,
+      radius: 7 + (i % 5) * 0.6,
+      speed: 0.5 + (i % 4) * 0.05
+    };
+    fishSchool.push(fish);
+    group.add(fish);
+  }
+
+  // --- Sunken treasure chest at seafloor with glowing gold aura ---------
+  const chestGroup = new THREE.Group();
+  const chestBase = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.45, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0x6a3a1a, roughness: 0.95 })
+  );
+  chestBase.position.y = 0.225;
+  chestGroup.add(chestBase);
+  const chestLid = new THREE.Mesh(
+    new THREE.BoxGeometry(0.92, 0.2, 0.62),
+    new THREE.MeshStandardMaterial({ color: 0x8a4a25, roughness: 0.9 })
+  );
+  chestLid.position.set(0, 0.55, -0.05);
+  chestLid.rotation.x = -0.4;
+  chestGroup.add(chestLid);
+  const chestBands = new THREE.Mesh(
+    new THREE.BoxGeometry(0.95, 0.08, 0.65),
+    new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.7, roughness: 0.5 })
+  );
+  chestBands.position.y = 0.225;
+  chestGroup.add(chestBands);
+  // Gold spilling from the open chest
+  const goldMat = new THREE.MeshBasicMaterial({ color: 0xffd166, transparent: true, opacity: 0.95 });
+  for (let i = 0; i < 8; i++) {
+    const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.02, 12), goldMat.clone());
+    coin.position.set(
+      (Math.random() - 0.5) * 0.7,
+      0.5 + Math.random() * 0.15,
+      0.05 + Math.random() * 0.15
+    );
+    coin.rotation.x = Math.random() * 0.6;
+    chestGroup.add(coin);
+  }
+  // Chest aura
+  const chestAura = new THREE.Mesh(
+    new THREE.SphereGeometry(1.2, 16, 12),
+    new THREE.MeshBasicMaterial({
+      color: 0xffaa44, transparent: true, opacity: 0.18,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    })
+  );
+  chestAura.position.y = 0.3;
+  chestGroup.add(chestAura);
+  chestGroup.position.set(14, -1.4, -10);
+  chestGroup.rotation.y = -0.5;
+  group.add(chestGroup);
+
+  // --- Anchor constellation overhead (5 named stars in anchor shape) ----
+  const constGroup = new THREE.Group();
+  // Anchor shape star positions (rough)
+  const anchorStars = [
+    { x: 0, y: 4.0, name: 'top' },       // ring top
+    { x: 0, y: 2.5, name: 'shaft' },     // shaft mid
+    { x: 0, y: 1.0, name: 'crown' },     // crown
+    { x: -2.5, y: 0.6, name: 'left' },   // left fluke
+    { x: 2.5, y: 0.6, name: 'right' }    // right fluke
+  ];
+  const starMat = new THREE.MeshBasicMaterial({
+    color: 0xffeeaa, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending
+  });
+  const constStars = [];
+  anchorStars.forEach((s) => {
+    const star = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), starMat.clone());
+    star.position.set(s.x * 1.6, s.y * 1.4 + 18, -22);
+    star.userData = { phase: Math.random() * Math.PI * 2 };
+    constStars.push(star);
+    constGroup.add(star);
+  });
+  // Connect lines: top→shaft→crown, crown→left, crown→right
+  const linePairs = [[0,1], [1,2], [2,3], [2,4]];
+  linePairs.forEach(([a,b]) => {
+    const sa = anchorStars[a], sb = anchorStars[b];
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(sa.x*1.6, sa.y*1.4 + 18, -22),
+      new THREE.Vector3(sb.x*1.6, sb.y*1.4 + 18, -22)
+    ]);
+    const line = new THREE.Line(lineGeo, new THREE.LineBasicMaterial({
+      color: 0xaaaadd, transparent: true, opacity: 0.4
+    }));
+    constGroup.add(line);
+  });
+  group.add(constGroup);
+
+  // --- Giant squid silhouette deep below (drifts slowly across) ---------
+  const squidGroup = new THREE.Group();
+  const squidBody = new THREE.Mesh(
+    new THREE.SphereGeometry(1.4, 14, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0x441a3a, roughness: 0.95, transparent: true, opacity: 0.7
+    })
+  );
+  squidBody.scale.set(0.7, 1.6, 0.7);
+  squidGroup.add(squidBody);
+  // Squid eye (red glow)
+  const squidEye = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshBasicMaterial({ color: 0xff3344 })
+  );
+  squidEye.position.set(0.45, 0.3, 0.55);
+  squidGroup.add(squidEye);
+  // 8 tentacles (TubeGeometry curves)
+  const squidTentacles = [];
+  for (let t = 0; t < 8; t++) {
+    const angle = (t / 8) * Math.PI * 2;
+    const cx = Math.cos(angle) * 0.4;
+    const cz = Math.sin(angle) * 0.4;
+    const curve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(cx, -1.5, cz),
+      new THREE.Vector3(cx * 1.5, -2.5, cz * 1.5),
+      new THREE.Vector3(cx * 2.2, -3.6, cz * 2.2),
+      new THREE.Vector3(cx * 2.6, -4.6, cz * 2.6)
+    ]);
+    const tubeGeo = new THREE.TubeGeometry(curve, 12, 0.12, 6, false);
+    const tube = new THREE.Mesh(tubeGeo, new THREE.MeshStandardMaterial({
+      color: 0x331a35, roughness: 0.95, transparent: true, opacity: 0.65
+    }));
+    tube.userData = { angle, basePhase: t * 0.4 };
+    squidTentacles.push(tube);
+    squidGroup.add(tube);
+  }
+  squidGroup.position.set(0, -3.5, 0);
+  group.add(squidGroup);
+
+  // --- Bell buoy bobbing in shallow water (red channel marker) ---------
+  const buoyGroup = new THREE.Group();
+  const buoyBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.45, 0.6, 1.2, 12),
+    new THREE.MeshStandardMaterial({ color: 0xc94d3a, roughness: 0.7, metalness: 0.3 })
+  );
+  buoyBody.position.y = 0.6;
+  buoyGroup.add(buoyBody);
+  const buoyTop = new THREE.Mesh(
+    new THREE.ConeGeometry(0.45, 0.55, 12),
+    new THREE.MeshStandardMaterial({ color: 0xa33e2c, roughness: 0.7 })
+  );
+  buoyTop.position.y = 1.45;
+  buoyGroup.add(buoyTop);
+  // Bell cage (4 vertical struts and bell)
+  const cageMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.8, roughness: 0.4 });
+  for (let i = 0; i < 4; i++) {
+    const a = (i / 4) * Math.PI * 2;
+    const strut = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 6), cageMat);
+    strut.position.set(Math.cos(a) * 0.3, 2.05, Math.sin(a) * 0.3);
+    buoyGroup.add(strut);
+  }
+  const bell = new THREE.Mesh(
+    new THREE.ConeGeometry(0.22, 0.4, 8),
+    new THREE.MeshStandardMaterial({ color: 0xddaa33, metalness: 0.9, roughness: 0.3 })
+  );
+  bell.position.y = 2.1;
+  buoyGroup.add(bell);
+  // Light on top (small green)
+  const buoyLight = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0x33ff66 })
+  );
+  buoyLight.position.y = 2.45;
+  buoyGroup.add(buoyLight);
+  buoyGroup.position.set(7, 0, -6);
+  group.add(buoyGroup);
+
+  // --- Coral reef cluster on seafloor (5 colorful corals) ----------------
+  const coralColors = [0xff6688, 0x66ddff, 0xffaa44, 0xaa88ff, 0xff4466];
+  const corals = [];
+  for (let i = 0; i < 5; i++) {
+    const coral = new THREE.Group();
+    // Branching coral as 3 cylinders at angles
+    for (let b = 0; b < 4; b++) {
+      const branch = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.05, 0.12, 0.7 + Math.random() * 0.4, 6),
+        new THREE.MeshStandardMaterial({
+          color: coralColors[i], roughness: 0.85,
+          emissive: coralColors[i], emissiveIntensity: 0.25
+        })
+      );
+      branch.position.y = 0.4;
+      branch.rotation.z = (Math.random() - 0.5) * 0.6;
+      branch.rotation.x = (Math.random() - 0.5) * 0.6;
+      branch.position.x = (Math.random() - 0.5) * 0.3;
+      coral.add(branch);
+    }
+    // Tip glow
+    const tip = new THREE.Mesh(
+      new THREE.SphereGeometry(0.15, 8, 6),
+      new THREE.MeshBasicMaterial({ color: coralColors[i], transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending })
+    );
+    tip.position.y = 0.85;
+    coral.add(tip);
+    const cAngle = (i / 5) * Math.PI * 2 + 0.3;
+    coral.position.set(Math.cos(cAngle) * 12, -1.5, Math.sin(cAngle) * 12);
+    coral.userData = { glowPhase: i * 0.7 };
+    corals.push(coral);
+    group.add(coral);
+  }
+
   // mark all child meshes as part of the world for raycasting
   group.traverse(obj => {
     if (obj.isMesh) {
@@ -900,6 +1115,48 @@ export function createAnchorageLandmark(THREE, opts) {
     }
     // Compass slowly rotates
     compassGroup.rotation.y = t * 0.05;
+
+
+    // v6 animations
+    // School of fish darting in figure-8 with wiggle
+    fishSchool.forEach((fish, i) => {
+      const fa = t * fish.userData.speed + fish.userData.offset;
+      fish.position.x = Math.cos(fa) * fish.userData.radius + Math.sin(fa * 2) * 1.2;
+      fish.position.z = Math.sin(fa * 2) * fish.userData.radius * 0.5 + Math.cos(fa) * 1.2;
+      fish.position.y = fish.userData.yBase + Math.sin(t * 1.5 + i) * 0.08;
+      fish.rotation.y = -fa - Math.PI / 2 + Math.cos(fa * 2) * 0.3;
+      fish.rotation.z = Math.sin(t * 4 + i * 0.5) * 0.15;
+    });
+    // Treasure aura pulse
+    chestAura.material.opacity = 0.14 + 0.08 * Math.sin(t * 1.6);
+    chestAura.scale.setScalar(1 + 0.1 * Math.sin(t * 1.6));
+    // Constellation stars twinkle
+    constStars.forEach((star) => {
+      star.material.opacity = 0.6 + 0.35 * Math.sin(t * 2 + star.userData.phase);
+      star.scale.setScalar(0.85 + 0.25 * Math.sin(t * 1.5 + star.userData.phase));
+    });
+    constGroup.rotation.y = Math.sin(t * 0.05) * 0.04;
+    // Giant squid drifts in slow wide ellipse, tentacles curl
+    const sqA = t * 0.025 + 2.0;
+    squidGroup.position.x = Math.cos(sqA) * 14;
+    squidGroup.position.z = Math.sin(sqA) * 9;
+    squidGroup.position.y = -3.5 + Math.sin(t * 0.3) * 0.3;
+    squidGroup.rotation.y = -sqA + Math.PI / 2;
+    squidTentacles.forEach((tube, ti) => {
+      tube.rotation.x = Math.sin(t * 0.7 + tube.userData.basePhase) * 0.2;
+      tube.rotation.z = Math.cos(t * 0.5 + tube.userData.basePhase) * 0.15;
+    });
+    squidEye.material.color.setHSL(0, 0.9, 0.4 + 0.15 * Math.sin(t * 3));
+    // Buoy bobs and rocks
+    buoyGroup.position.y = Math.sin(t * 1.1) * 0.2;
+    buoyGroup.rotation.z = Math.sin(t * 1.1) * 0.08;
+    buoyGroup.rotation.x = Math.cos(t * 0.9) * 0.06;
+    buoyLight.material.color.setRGB(0.2, 1.0 - 0.5 * Math.abs(Math.sin(t * 0.8)), 0.4);
+    // Coral tips pulse
+    corals.forEach((coral, i) => {
+      const tip = coral.children[coral.children.length - 1];
+      tip.material.opacity = 0.55 + 0.35 * Math.sin(t * 1.2 + coral.userData.glowPhase);
+    });
 
   }
 
