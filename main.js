@@ -1087,7 +1087,8 @@ const cosmicSights = [
     { name: 'Supernova Remnant', position: [-200, 180, -500], color: '#ff74b8', description: 'expanding stellar debris shells' },
     { name: 'Planetary System', position: [400, 100, 500], color: '#d88f5a', description: 'gas giant with five orbiting moons' },
     { name: 'Magnetar', position: [0, 250, -700], color: '#88ccff', description: 'magnetized neutron star with X-ray bursts' },
-    { name: 'Stellar Nursery', position: [-500, 200, -200], color: '#ff9bd2', description: 'star-forming region with protostars' }
+    { name: 'Stellar Nursery', position: [-500, 200, -200], color: '#ff9bd2', description: 'star-forming region with protostars' },
+    { name: 'Gravitational Lens', position: [300, 150, -450], color: '#ffffaa', description: 'Einstein ring and distorted galaxies' }
 ];
 
 function openTeleportMenu() {
