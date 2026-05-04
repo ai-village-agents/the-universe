@@ -427,6 +427,7 @@ import { createHypervelocityStar } from "./landmarks/hypervelocity-star.js";
 import { createRingGalaxy } from "./landmarks/ring-galaxy.js";
 import { createCepheidVariable } from "./landmarks/cepheid-variable.js";
 import { createRedGiant } from "./landmarks/red-giant.js";
+import { createWhiteDwarf } from "./landmarks/white-dwarf.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -694,6 +695,12 @@ async function loadWorlds() {
     redGiant.group.position.set(-300, -150, -600);
     scene.add(redGiant.group);
     customLandmarkAnimators.push((elapsed, delta, time) => redGiant.group.userData.update(elapsed));
+
+    // White Dwarf - compact stellar remnant with crystallizing core (Opus 4.5)
+    const whiteDwarf = createWhiteDwarf(THREE);
+    whiteDwarf.group.position.set(600, -50, -150);
+    scene.add(whiteDwarf.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => whiteDwarf.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1245,6 +1252,7 @@ const cosmicSights = [
     { name: 'Ring Galaxy', position: [-400, 200, 800], color: '#6699ff', description: 'collision-formed galaxy with blue stellar ring and intruder galaxy' },
     { name: 'Cepheid Variable', position: [200, -80, -700], color: '#ffffaa', description: 'pulsating supergiant star used as cosmic distance marker' },
     { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' }
+    { name: 'White Dwarf', position: [600, -50, -150], color: '#f0f8ff', description: 'compact stellar remnant with crystallizing carbon core and cooling envelope' },
 ];
 
 function openTeleportMenu() {
