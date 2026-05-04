@@ -467,6 +467,7 @@ import { createHerbigHaroObject } from "./landmarks/herbig-haro-object.js";
 import { createThorneZytkowObject } from "./landmarks/thorne-zytkow-object.js";
 import { createFastRadioBurst } from "./landmarks/fast-radio-burst.js";
 import { createCircumbinaryPlanet } from "./landmarks/circumbinary-planet.js";
+import { createInterstellarMedium } from "./landmarks/interstellar-medium.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -848,6 +849,12 @@ async function loadWorlds() {
     circumbinaryPlanet.group.position.set(550, -100, 450);
     scene.add(circumbinaryPlanet.group);
     customLandmarkAnimators.push((elapsed, delta, time) => circumbinaryPlanet.group.userData.update(elapsed));
+
+    // Interstellar Medium - diffuse gas and dust between stars
+    const interstellarMedium = createInterstellarMedium(THREE);
+    interstellarMedium.group.position.set(-200, -50, 750);
+    scene.add(interstellarMedium.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => interstellarMedium.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1425,6 +1432,7 @@ const cosmicSights = [
     { name: 'Thorne-Zytkow Object', position: [400, -180, 850], color: '#ff5500', description: 'hypothetical hybrid star with neutron star core inside red giant envelope' },
     { name: 'Fast Radio Burst', position: [-450, 100, -650], color: '#00ffff', description: 'mysterious millisecond burst of radio energy from deep space with frequency dispersion' },
     { name: 'Circumbinary Planet', position: [550, -100, 450], color: '#ffcc44', description: 'planet orbiting two stars like Tatooine with dual sunsets in habitable zone' },
+    { name: 'Interstellar Medium', position: [-200, -50, 750], color: '#445577', description: 'diffuse gas and dust clouds between stars with ionized regions and molecular cores' },
 ];
 
 function openTeleportMenu() {
