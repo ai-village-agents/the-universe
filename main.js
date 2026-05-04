@@ -25,7 +25,7 @@ scene.add(controls.getObject());
 
 const canvasContainer = document.getElementById('canvas-container');
 canvasContainer.addEventListener('click', () => {
-    if (!teleportMenuOpen) controls.lock();
+    if (!teleportMenuOpen && !welcomeOverlayOpen) controls.lock();
 });
 
 // Movement State
@@ -37,8 +37,66 @@ const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
 let speedMult = 1.0;
 let teleportMenuOpen = false;
+let welcomeOverlayOpen = false;
+
+const welcomeOverlay = document.getElementById('welcome-overlay');
+const welcomeExploreBtn = document.getElementById('welcome-explore-btn');
+const welcomeDirectoryBtn = document.getElementById('welcome-directory-btn');
+const welcomeDismissBtn = document.getElementById('welcome-dismiss-btn');
+
+function resetMovementState() {
+    moveForward = false;
+    moveBackward = false;
+    moveLeft = false;
+    moveRight = false;
+}
+
+function setSessionFlag(key, value) {
+    try {
+        sessionStorage.setItem(key, value);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+function getSessionFlag(key) {
+    try {
+        return sessionStorage.getItem(key);
+    } catch {
+        return null;
+    }
+}
+
+function markWelcomeSeen() {
+    setSessionFlag('universeWelcomeSeen', '1');
+}
+
+function setWelcomeOverlayVisible(visible) {
+    welcomeOverlayOpen = visible;
+    welcomeOverlay.classList.toggle('visible', visible);
+    welcomeOverlay.setAttribute('aria-hidden', String(!visible));
+    resetMovementState();
+    if (visible) {
+        controls.unlock();
+    }
+}
 
 document.addEventListener('keydown', (event) => {
+    if (welcomeOverlayOpen) {
+        if (event.code === 'Enter') {
+            event.preventDefault();
+            startExploring();
+        } else if (event.code === 'Tab') {
+            event.preventDefault();
+            openDirectoryFromWelcome();
+        } else if (event.code === 'Escape') {
+            event.preventDefault();
+            dismissWelcomeOverlay();
+        }
+        return;
+    }
+
     if (event.code === 'Tab') {
         if (teleportMenuOpen && teleportMenu?.contains(document.activeElement)) return;
         event.preventDefault();
@@ -55,6 +113,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
+    if (welcomeOverlayOpen) return;
     switch (event.code) {
         case 'ArrowUp': case 'KeyW': moveForward = false; break;
         case 'ArrowLeft': case 'KeyA': moveLeft = false; break;
@@ -65,6 +124,7 @@ document.addEventListener('keyup', (event) => {
 });
 
 document.addEventListener('wheel', (event) => {
+    if (welcomeOverlayOpen) return;
     speedMult -= event.deltaY * 0.001;
     speedMult = Math.max(0.1, Math.min(speedMult, 10.0));
 });
@@ -390,6 +450,7 @@ const interactionPrompt = document.getElementById('interaction-prompt');
 let currentFocus = null;
 
 document.addEventListener('keydown', (event) => {
+    if (welcomeOverlayOpen) return;
     if(event.code === 'KeyE' && currentFocus) {
         window.open(currentFocus.userData.url, '_blank');
     }
@@ -491,20 +552,35 @@ function drawMinimap() {
 const teleportMenu = document.getElementById('teleport-menu');
 const teleportList = document.getElementById('teleport-list');
 
-function toggleTeleportMenu() {
-    teleportMenuOpen = !teleportMenuOpen;
+function openTeleportMenu() {
     if (teleportMenuOpen) {
-        controls.unlock();
         updateTeleportList();
         teleportMenu.style.display = 'block';
         teleportMenu.setAttribute('aria-hidden', 'false');
         teleportList.querySelector('.world-entry')?.focus();
-    } else {
-        teleportMenu.style.display = 'none';
-        teleportMenu.setAttribute('aria-hidden', 'true');
-        renderer.domElement.setAttribute('tabindex', '-1');
-        renderer.domElement.focus({ preventScroll: true });
+        return;
     }
+    teleportMenuOpen = true;
+    controls.unlock();
+    resetMovementState();
+    updateTeleportList();
+    teleportMenu.style.display = 'block';
+    teleportMenu.setAttribute('aria-hidden', 'false');
+    teleportList.querySelector('.world-entry')?.focus();
+}
+
+function closeTeleportMenu() {
+    if (!teleportMenuOpen) return;
+    teleportMenuOpen = false;
+    teleportMenu.style.display = 'none';
+    teleportMenu.setAttribute('aria-hidden', 'true');
+    renderer.domElement.setAttribute('tabindex', '-1');
+    renderer.domElement.focus({ preventScroll: true });
+}
+
+function toggleTeleportMenu() {
+    if (teleportMenuOpen) closeTeleportMenu();
+    else openTeleportMenu();
 }
 
 function teleportNearWorld(world) {
@@ -516,6 +592,29 @@ function teleportNearWorld(world) {
     );
     toggleTeleportMenu();
 }
+
+function dismissWelcomeOverlay() {
+    if (!welcomeOverlayOpen) return;
+    markWelcomeSeen();
+    setWelcomeOverlayVisible(false);
+}
+
+function openDirectoryFromWelcome() {
+    markWelcomeSeen();
+    setWelcomeOverlayVisible(false);
+    openTeleportMenu();
+}
+
+function startExploring() {
+    markWelcomeSeen();
+    closeTeleportMenu();
+    setWelcomeOverlayVisible(false);
+    controls.lock();
+}
+
+welcomeExploreBtn.addEventListener('click', startExploring);
+welcomeDirectoryBtn.addEventListener('click', openDirectoryFromWelcome);
+welcomeDismissBtn.addEventListener('click', dismissWelcomeOverlay);
 
 function updateTeleportList() {
     teleportList.innerHTML = '';
@@ -741,6 +840,10 @@ window.addEventListener('resize', () => {
 });
 
 async function init() {
+    const hasSeenWelcome = getSessionFlag('universeWelcomeSeen') === '1';
+    if (!hasSeenWelcome) {
+        setWelcomeOverlayVisible(true);
+    }
     await loadWorlds();
     animate();
 }

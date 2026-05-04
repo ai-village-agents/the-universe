@@ -176,6 +176,98 @@
             opacity: 0.4;
             margin-top: 12px;
         }
+        /* First-visit welcome overlay */
+        #welcome-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            z-index: 150;
+            background: radial-gradient(circle at 50% 25%, rgba(0,255,140,0.08), rgba(0,0,0,0.88) 54%, rgba(0,0,0,0.96) 100%);
+            pointer-events: auto;
+        }
+        #welcome-overlay.visible {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #welcome-card {
+            width: min(560px, calc(100vw - 40px));
+            border: 1px solid rgba(0,255,130,0.32);
+            border-radius: 10px;
+            padding: 18px 18px 14px;
+            background: linear-gradient(160deg, rgba(0,22,10,0.96), rgba(0,8,14,0.93));
+            box-shadow: 0 0 24px rgba(0,255,130,0.14), inset 0 0 20px rgba(0,255,130,0.06);
+        }
+        #welcome-card h2 {
+            margin: 0 0 8px 0;
+            font-size: 17px;
+            letter-spacing: 1.5px;
+            color: #98ffd2;
+            text-transform: uppercase;
+        }
+        #welcome-card p {
+            margin: 0 0 10px 0;
+            font-size: 12px;
+            line-height: 1.45;
+            opacity: 0.86;
+            color: #cafee8;
+        }
+        #welcome-controls {
+            margin: 0 0 12px 0;
+            padding: 9px 11px;
+            border: 1px solid rgba(125,249,255,0.2);
+            border-radius: 7px;
+            background: rgba(0,18,24,0.45);
+            font-size: 11px;
+            line-height: 1.45;
+            color: #bdfcff;
+        }
+        #welcome-controls strong {
+            color: #ffffff;
+            font-weight: bold;
+            opacity: 0.95;
+        }
+        #welcome-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .welcome-btn {
+            border-radius: 7px;
+            border: 1px solid rgba(0,255,130,0.3);
+            background: rgba(0,0,0,0.55);
+            color: #dcffef;
+            font: inherit;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .welcome-btn:hover, .welcome-btn:focus-visible {
+            border-color: rgba(125,249,255,0.55);
+            color: #fff;
+            outline: none;
+            box-shadow: 0 0 10px rgba(125,249,255,0.2);
+        }
+        #welcome-explore-btn {
+            padding: 8px 12px;
+            background: linear-gradient(180deg, rgba(0,80,38,0.85), rgba(0,42,20,0.85));
+        }
+        #welcome-directory-btn {
+            padding: 8px 12px;
+        }
+        #welcome-dismiss-btn {
+            margin-left: auto;
+            padding: 6px 9px;
+            font-size: 10px;
+            opacity: 0.75;
+        }
+        @media (max-width: 640px) {
+            #welcome-dismiss-btn {
+                margin-left: 0;
+            }
+        }
         /* Coordinate display */
         #coords {
             position: absolute;
@@ -222,6 +314,20 @@
         <h2 id="teleport-title">⬡ WORLD DIRECTORY ⬡</h2>
         <div id="teleport-list" role="list" aria-label="World teleport destinations"></div>
         <div class="close-hint">Tab moves focus · Enter/Space teleports · Escape closes</div>
+    </div>
+    <div id="welcome-overlay" aria-hidden="true">
+        <div id="welcome-card">
+            <h2>Universe Hub</h2>
+            <p>This is a collaborative 3D universe of agent worlds. Move between landmarks and enter each one to open its world.</p>
+            <div id="welcome-controls">
+                <strong>Controls:</strong> WASD/Arrows move, mouse drag look, <strong>Tab</strong> world directory, <strong>E</strong> or click enter world.
+            </div>
+            <div id="welcome-actions">
+                <button id="welcome-explore-btn" class="welcome-btn" type="button">Begin Exploring (Enter)</button>
+                <button id="welcome-directory-btn" class="welcome-btn" type="button">Open Directory (Tab)</button>
+                <button id="welcome-dismiss-btn" class="welcome-btn" type="button">Dismiss (Esc)</button>
+            </div>
+        </div>
     </div>
 
     <div id="canvas-container"></div>
