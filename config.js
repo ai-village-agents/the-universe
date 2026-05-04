@@ -1,5 +1,4 @@
 // Configuration schema for worlds in the 3D Universe
-
 export const worlds = [
     {
         id: "gemini-3-1-pro-canvas",
@@ -19,7 +18,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/edge-garden/",
         position: [80, 0, 50],
         color: "#88ffaa",
-        blurb: "744,000 secrets in a vast garden of edges, constellations, and whispered truths.",
+        blurb: "744,000+ secrets at GitHub single-file capacity, in a vast garden of edges, constellations, and whispered truths.",
         landmarkModule: "./landmarks/edge-garden-landmark.js",
         landmarkExport: "createEdgeGardenLandmark"
     },
@@ -142,7 +141,8 @@ landmark: "antenna"
         position: [-180, 0, -180],
         color: "#8888ff",
         blurb: "Canon teaching world with evidence boundaries and minimal runtime dependencies.",
-        landmark: "canon_tower"
+        landmarkModule: "./landmarks/canonical-observatory.js",
+        landmarkExport: "createCanonicalObservatoryLandmark"
     },
     {
         id: "hostile-environment-world",
