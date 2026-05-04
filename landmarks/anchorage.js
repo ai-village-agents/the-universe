@@ -1289,11 +1289,11 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(rope);
   // Surface buoy (bobbing)
   const lobsterBuoy = new THREE.Group();
-  const buoyBody = new THREE.Mesh(
+  const lobsterBuoyBody = new THREE.Mesh(
     new THREE.SphereGeometry(0.22, 12, 10),
     new THREE.MeshBasicMaterial({ color: 0xff5533 })
   );
-  lobsterBuoy.add(buoyBody);
+  lobsterBuoy.add(lobsterBuoyBody);
   const buoyStripe = new THREE.Mesh(
     new THREE.TorusGeometry(0.22, 0.05, 8, 16),
     new THREE.MeshBasicMaterial({ color: 0xffffff })
