@@ -403,6 +403,7 @@ import { createQuasar } from "./landmarks/quasar.js";
 import { createSupernovaRemnant } from "./landmarks/supernova-remnant.js";
 import { createPlanetarySystem } from "./landmarks/planetary-system.js";
 import { createMagnetar } from "./landmarks/magnetar.js";
+import { createStellarNursery } from "./landmarks/stellar-nursery.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -579,6 +580,12 @@ async function loadWorlds() {
     magnetar.group.position.set(0, 250, -700);
     scene.add(magnetar.group);
     customLandmarkAnimators.push((elapsed, delta, time) => magnetar.group.userData.update(elapsed));
+
+    // Stellar Nursery at (-500, 200, -200)
+    const stellarNursery = createStellarNursery(THREE);
+    stellarNursery.group.position.set(-500, 200, -200);
+    scene.add(stellarNursery.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => stellarNursery.group.userData.update(elapsed));
 
 }
 
