@@ -383,6 +383,7 @@ import { createComet } from "./landmarks/comet.js";
 import { createGalaxyDust } from "./landmarks/galaxy-dust.js";
 import { createRingedPlanet } from "./landmarks/ringed-planet.js";
 import { createNebula } from "./landmarks/nebula.js";
+import { createAsteroidField } from "./landmarks/asteroid-field.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -489,6 +490,12 @@ async function loadWorlds() {
     const nebula = createNebula(THREE);
     scene.add(nebula);
     customLandmarkAnimators.push((elapsed, delta, time) => nebula.userData.update(elapsed));
+
+    // Asteroid field - belt of rocky debris
+    const asteroidField = createAsteroidField(THREE);
+    asteroidField.group.position.set(-300, 50, 200);
+    scene.add(asteroidField.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => asteroidField.group.userData.update(elapsed));
 
 }
 
