@@ -418,6 +418,7 @@ import { createCosmicWeb } from "./landmarks/cosmic-web.js";
 import { createGalaxyCollision } from "./landmarks/galaxy-collision.js";
 import { createNeutronStarMerger } from "./landmarks/neutron-star-merger.js";
 import { createProtoplanetaryDisk } from "./landmarks/protoplanetary-disk.js";
+import { createPlanetaryNebula } from "./landmarks/planetary-nebula.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -632,6 +633,12 @@ async function loadWorlds() {
     protoplanetaryDisk.group.position.set(900, 50, 200);
     scene.add(protoplanetaryDisk.group);
     customLandmarkAnimators.push((elapsed, delta, time) => protoplanetaryDisk.group.userData.update(elapsed));
+
+    // Planetary Nebula at (-900, 200, 600)
+    const planetaryNebula = createPlanetaryNebula(THREE);
+    planetaryNebula.group.position.set(-900, 200, 600);
+    scene.add(planetaryNebula.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => planetaryNebula.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1131,7 +1138,8 @@ const cosmicSights = [
     { name: 'Cosmic Web', position: [-700, 300, -800], color: '#4466aa', description: 'large-scale structure with galaxy clusters and filaments' },
     { name: 'Galaxy Collision', position: [800, -100, -600], color: '#ffaa88', description: 'two spiral galaxies merging with tidal streams' },
     { name: 'Neutron Star Merger', position: [-800, 150, 400], color: '#9966ff', description: 'two neutron stars spiraling together with gravitational waves' },
-    { name: 'Protoplanetary Disk', position: [900, 50, 200], color: '#cc8866', description: 'young star system with planet-forming disk and bipolar jets' }
+    { name: 'Protoplanetary Disk', position: [900, 50, 200], color: '#cc8866', description: 'young star system with planet-forming disk and bipolar jets' },
+    { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' }
 ];
 
 function openTeleportMenu() {
