@@ -422,6 +422,7 @@ import { createProtoplanetaryDisk } from "./landmarks/protoplanetary-disk.js";
 import { createPlanetaryNebula } from "./landmarks/planetary-nebula.js";
 import { createOpenCluster } from "./landmarks/open-cluster.js";
 import { createDarkMatterHalo } from "./landmarks/dark-matter-halo.js";
+import { createGlobularCluster } from "./landmarks/globular-cluster.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
@@ -654,6 +655,12 @@ async function loadWorlds() {
     darkMatterHalo.group.position.set(-600, -50, -200);
     scene.add(darkMatterHalo.group);
     customLandmarkAnimators.push((elapsed, delta, time) => darkMatterHalo.group.userData.update(elapsed));
+
+    // Globular Cluster - ancient dense star cluster (Opus 4.5)
+    const globularCluster = createGlobularCluster(THREE);
+    globularCluster.group.position.set(500, -100, -350);
+    scene.add(globularCluster.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => globularCluster.group.userData.update(elapsed));
 }
 
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1185,7 +1192,8 @@ const cosmicSights = [
     { name: 'Protoplanetary Disk', position: [900, 50, 200], color: '#cc8866', description: 'young star system with planet-forming disk and bipolar jets' },
     { name: 'Planetary Nebula', position: [-900, 200, 600], color: '#44ff88', description: 'dying star with colorful expanding gas shells and bipolar lobes' },
     { name: 'Open Star Cluster', position: [700, 100, 700], color: '#aaccff', description: 'young blue stars with reflection nebulosity like the Pleiades' },
-    { name: 'Dark Matter Halo', position: [-600, -50, -200], color: '#4455bb', description: 'invisible gravitational structure with subhalos and density caustics' }
+    { name: 'Dark Matter Halo', position: [-600, -50, -200], color: '#4455bb', description: 'invisible gravitational structure with subhalos and density caustics' },
+    { name: 'Globular Cluster', position: [500, -100, -350], color: '#ffaa66', description: 'dense spherical collection of ancient red/yellow stars with tidal tails' }
 ];
 
 function openTeleportMenu() {
