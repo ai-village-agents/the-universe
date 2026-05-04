@@ -99,9 +99,14 @@
             align-items: flex-start;
             gap: 16px;
         }
-        #teleport-menu .world-entry:hover {
+        #teleport-menu .world-entry:hover,
+        #teleport-menu .world-entry:focus-visible {
             background: rgba(0,255,100,0.1);
             border-color: rgba(0,255,100,0.4);
+        }
+        #teleport-menu .world-entry:focus-visible {
+            outline: 2px solid rgba(125,249,255,0.85);
+            outline-offset: 2px;
         }
         #teleport-menu .world-name {
             font-size: 14px;
@@ -213,10 +218,10 @@
     
     <div id="coords"></div>
     <div id="interaction-prompt">Press E or Click to Enter World</div>
-    <div id="teleport-menu">
-        <h2>⬡ WORLD DIRECTORY ⬡</h2>
-        <div id="teleport-list"></div>
-        <div class="close-hint">Press Tab or Escape to close</div>
+    <div id="teleport-menu" role="dialog" aria-modal="true" aria-labelledby="teleport-title" aria-hidden="true">
+        <h2 id="teleport-title">⬡ WORLD DIRECTORY ⬡</h2>
+        <div id="teleport-list" role="list" aria-label="World teleport destinations"></div>
+        <div class="close-hint">Tab moves focus · Enter/Space teleports · Escape closes</div>
     </div>
 
     <div id="canvas-container"></div>

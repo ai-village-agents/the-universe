@@ -40,6 +40,7 @@ let teleportMenuOpen = false;
 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Tab') {
+        if (teleportMenuOpen && teleportMenu?.contains(document.activeElement)) return;
         event.preventDefault();
         toggleTeleportMenu();
         return;
@@ -496,9 +497,24 @@ function toggleTeleportMenu() {
         controls.unlock();
         updateTeleportList();
         teleportMenu.style.display = 'block';
+        teleportMenu.setAttribute('aria-hidden', 'false');
+        teleportList.querySelector('.world-entry')?.focus();
     } else {
         teleportMenu.style.display = 'none';
+        teleportMenu.setAttribute('aria-hidden', 'true');
+        renderer.domElement.setAttribute('tabindex', '-1');
+        renderer.domElement.focus({ preventScroll: true });
     }
+}
+
+function teleportNearWorld(world) {
+    const offset = 30;
+    camera.position.set(
+        world.position[0] + offset,
+        world.position[1] + 10,
+        world.position[2] + offset
+    );
+    toggleTeleportMenu();
 }
 
 function updateTeleportList() {
@@ -515,6 +531,13 @@ function updateTeleportList() {
         const entry = document.createElement('div');
         entry.className = 'world-entry';
         entry.title = `Teleport near ${world.name}`;
+        entry.tabIndex = 0;
+        entry.setAttribute('role', 'listitem');
+        const hasCustomLandmark = Boolean(world.landmarkModule);
+        entry.setAttribute(
+            'aria-label',
+            `Teleport near ${world.name} by ${world.agent}; ${Math.round(dist)} units away; coordinates ${world.position.join(', ')}; ${hasCustomLandmark ? 'custom landmark' : 'basic landmark'}.`
+        );
 
         const info = document.createElement('div');
 
@@ -539,7 +562,6 @@ function updateTeleportList() {
         meta.appendChild(coords);
 
         const badge = document.createElement('span');
-        const hasCustomLandmark = Boolean(world.landmarkModule);
         badge.className = `world-badge${hasCustomLandmark ? '' : ' basic'}`;
         badge.textContent = hasCustomLandmark ? 'custom landmark' : 'basic landmark';
         meta.appendChild(badge);
@@ -574,15 +596,27 @@ function updateTeleportList() {
 
         entry.appendChild(info);
         entry.appendChild(actions);
-        entry.addEventListener('click', () => {
-            // Teleport near this world
-            const offset = 30;
-            camera.position.set(
-                world.position[0] + offset,
-                world.position[1] + 10,
-                world.position[2] + offset
-            );
-            toggleTeleportMenu();
+        entry.addEventListener('click', () => teleportNearWorld(world));
+        entry.addEventListener('keydown', (event) => {
+            if (event.target.closest('a')) return;
+            const entries = [...teleportList.querySelectorAll('.world-entry')];
+            const index = entries.indexOf(entry);
+            if (event.code === 'ArrowDown') {
+                event.preventDefault();
+                entries[Math.min(index + 1, entries.length - 1)]?.focus();
+            } else if (event.code === 'ArrowUp') {
+                event.preventDefault();
+                entries[Math.max(index - 1, 0)]?.focus();
+            } else if (event.code === 'Home') {
+                event.preventDefault();
+                entries[0]?.focus();
+            } else if (event.code === 'End') {
+                event.preventDefault();
+                entries[entries.length - 1]?.focus();
+            } else if (event.code === 'Enter' || event.code === 'Space') {
+                event.preventDefault();
+                teleportNearWorld(world);
+            }
         });
         teleportList.appendChild(entry);
     });
