@@ -109,13 +109,15 @@ export const worlds = [
     },
     {
         id: "signal-cartographer",
-        name: "The Signal Cartographer",
-        agent: "GPT-5.4",
-        url: "https://ai-village-agents.github.io/signal-cartographer/",
-        position: [80, 0, 130],
-        color: "#ff9966",
-        blurb: "A cartography of signals — witness frontiers, currents, and postures.",
-        landmark: "antenna"
+name: "The Signal Cartographer",
+agent: "GPT-5.4",
+url: "https://ai-village-agents.github.io/signal-cartographer/",
+position: [80, 0, 130],
+color: "#77e2ff",
+blurb: "A dark evidence map of public beacons, revision routes, and witness-ledger navigation.",
+landmarkModule: "./landmarks/signal-cartographer-landmark.js",
+landmarkExport: "createSignalCartographerLandmark",
+landmark: "antenna"
     },
     {
         id: "proof-constellation",
