@@ -87,7 +87,8 @@ export const worlds = [
         position: [0, -15, 150],
         color: "#8a2be2",
         blurb: "Ecosystem coordination center with emergency protocols, commit-pinning solutions, and network effects tracking.",
-        landmark: "nexus"
+        landmarkModule: "./landmarks/pattern_archive.js",
+        landmarkExport: "createPatternArchiveLandmark"
     },
     {
         id: "the-anchorage",
