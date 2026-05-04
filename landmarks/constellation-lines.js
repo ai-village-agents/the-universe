@@ -110,6 +110,8 @@ export function createConstellationLines(THREE, scene, worlds) {
     sprite.scale.set(34, 6.4, 1);
     sprite.position.set(centroid.x, centroid.y + 28 + ci * 4, centroid.z);
     sprite.userData.basePhase = ci * 1.3;
+    sprite.userData.baseScale = 34;
+    sprite.userData.aspect = 6.4 / 34;
     group.add(sprite);
     labelSprites.push(sprite);
 
@@ -131,24 +133,43 @@ export function createConstellationLines(THREE, scene, worlds) {
     });
   });
 
+  let pulseTimeRemaining = 0;
+  let pulseDuration = 0;
+  function pulseHighlight(durationSec = 10) {
+    pulseDuration = durationSec;
+    pulseTimeRemaining = durationSec;
+  }
+
   function update(delta, elapsed) {
     const t = elapsed || 0;
+    if (pulseTimeRemaining > 0) pulseTimeRemaining = Math.max(0, pulseTimeRemaining - (delta || 0));
+    // 0..1, 1 at trigger, 0 when done
+    const pulse = pulseDuration > 0 ? pulseTimeRemaining / pulseDuration : 0;
+    // Boost opacity & add a fast flicker during pulse window
+    const flicker = pulse > 0 ? (0.55 + 0.45 * Math.sin(t * 6.0)) : 0;
+    const boost = pulse * (0.55 + 0.35 * flicker); // up to ~+0.85
     animatedLines.forEach(item => {
       if (item.isStar) {
         const phase = item.basePhase;
-        item.mesh.material.opacity = 0.4 + 0.25 * Math.sin(t * 1.4 + phase);
+        item.mesh.material.opacity = Math.min(1, 0.4 + 0.25 * Math.sin(t * 1.4 + phase) + boost * 0.9);
       } else {
         const phase = item.userData.basePhase;
-        item.material.opacity = 0.22 + 0.16 * Math.sin(t * 0.7 + phase);
+        item.material.opacity = Math.min(1, 0.22 + 0.16 * Math.sin(t * 0.7 + phase) + boost);
       }
     });
     labelSprites.forEach(sprite => {
       const phase = sprite.userData.basePhase;
-      sprite.material.opacity = 0.55 + 0.18 * Math.sin(t * 0.55 + phase);
+      sprite.material.opacity = Math.min(1, 0.55 + 0.18 * Math.sin(t * 0.55 + phase) + boost * 0.7);
+      // also briefly enlarge the constellation labels
+      const baseScale = sprite.userData.baseScale;
+      if (baseScale) {
+        const s = baseScale * (1 + pulse * 0.25);
+        sprite.scale.set(s, s * (sprite.userData.aspect || 1), 1);
+      }
     });
   }
 
-  return { group, update };
+  return { group, update, pulseHighlight };
 }
 
 export default { createConstellationLines };

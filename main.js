@@ -497,6 +497,7 @@ async function loadWorlds() {
     // Constellation lines connecting thematic clusters of worlds
     const constellations = createConstellationLines(THREE, scene, worlds);
     customLandmarkAnimators.push((elapsed, delta, time) => constellations.update(delta, elapsed));
+    window.__constellations = constellations;
 
     const welcomeObelisk = createWelcomeObelisk(THREE, scene);
     customLandmarkAnimators.push((elapsed, delta, time) => welcomeObelisk.update(delta, elapsed));
@@ -1504,18 +1505,22 @@ async function initEventSystem() {
             if (evi && typeof evi.displayEvent === 'function' && !evi.__audioWrapped) {
                 const origDisplay = evi.displayEvent.bind(evi);
                 evi.displayEvent = function(event) {
+                    const evType = event && (event.id || event.type || '');
                     try { eventBanner.showEvent(event); } catch (e) { /* ignore */ }
+                    // Visual side-effects fire regardless of audio state
+                    try {
+                        if (evType === 'constellationHighlight' && window.__constellations && window.__constellations.pulseHighlight) {
+                            window.__constellations.pulseHighlight(12);
+                        }
+                    } catch (e) { /* swallow */ }
                     try {
                         if (universeAudio && universeAudio.isStarted && universeAudio.isStarted() && !universeAudio.isMuted()) {
-                            // Choose cue intensity by event type
-                            const t = event && (event.id || event.type || '');
-                            if (t === 'shootingStars' || t === 'aurora' || t === 'constellationHighlight') {
+                            if (evType === 'shootingStars' || evType === 'aurora' || evType === 'constellationHighlight') {
                                 universeAudio.playWhoosh({ duration: 1.1, gain: 0.14 });
                             } else {
                                 universeAudio.playWhoosh({ duration: 0.8, gain: 0.16 });
                             }
-                            // Aurora gets a sustained low drone for the duration of the event
-                            if (t === 'aurora' && universeAudio.startAuroraDrone) {
+                            if (evType === 'aurora' && universeAudio.startAuroraDrone) {
                                 universeAudio.startAuroraDrone({ fadeIn: 5.5, gain: 0.07 });
                                 const durSec = (event && (event.duration || event.durationSeconds)) || 15 * 60;
                                 if (window.__auroraDroneTimer) clearTimeout(window.__auroraDroneTimer);
