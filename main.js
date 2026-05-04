@@ -429,6 +429,7 @@ import { createCepheidVariable } from "./landmarks/cepheid-variable.js";
 import { createDayNightCycle } from "./day-night-cycle.js";
 import { createWorldBeacons } from "./world-beacons.js";
 import { createCosmicWanderer } from "./landmarks/cosmic-wanderer.js";
+import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -528,6 +529,10 @@ async function loadWorlds() {
     const wanderer = createCosmicWanderer(THREE);
     scene.add(wanderer.group);
     customLandmarkAnimators.push((elapsed, delta, time) => wanderer.update(delta, elapsed));
+
+    // Distant galaxy field — ~18 spiral galaxies in deep space
+    const distantGalaxies = createDistantGalaxies(THREE, { scene });
+    customLandmarkAnimators.push((elapsed, delta, time) => distantGalaxies.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
