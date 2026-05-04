@@ -273,11 +273,83 @@ export function createCentralPlaza(THREE, scene, worlds) {
         return sprite;
     }
 
+
+    // === Cycling Tip Card (sprite above plaza) ===
+    const tips = [
+        { line1: 'Press T', line2: 'to start the guided tour' },
+        { line1: 'Press M', line2: 'to enable atmospheric audio' },
+        { line1: 'Press P', line2: 'to capture a photo' },
+        { line1: 'Press B', line2: 'to toggle world beacons' },
+        { line1: 'Press H', line2: 'to reopen this help overlay' },
+        { line1: 'Press Tab', line2: 'for the world directory' },
+        { line1: 'Click a totem', line2: 'to enter that world' },
+        { line1: 'Scroll wheel', line2: 'to adjust flight speed' },
+        { line1: 'Open /map.html', line2: 'for a 2D top-down view' },
+    ];
+    const tipCanvas = document.createElement('canvas');
+    tipCanvas.width = 768;
+    tipCanvas.height = 256;
+    const tctx = tipCanvas.getContext('2d');
+    function drawTip(line1, line2, alpha) {
+        tctx.clearRect(0, 0, 768, 256);
+        tctx.fillStyle = `rgba(20, 18, 36, ${0.78 * alpha})`;
+        const r = 28;
+        tctx.beginPath();
+        tctx.moveTo(40 + r, 30);
+        tctx.lineTo(728 - r, 30);
+        tctx.quadraticCurveTo(728, 30, 728, 30 + r);
+        tctx.lineTo(728, 226 - r);
+        tctx.quadraticCurveTo(728, 226, 728 - r, 226);
+        tctx.lineTo(40 + r, 226);
+        tctx.quadraticCurveTo(40, 226, 40, 226 - r);
+        tctx.lineTo(40, 30 + r);
+        tctx.quadraticCurveTo(40, 30, 40 + r, 30);
+        tctx.fill();
+        tctx.strokeStyle = `rgba(170, 220, 255, ${0.65 * alpha})`;
+        tctx.lineWidth = 3;
+        tctx.stroke();
+        tctx.textAlign = 'center';
+        tctx.textBaseline = 'middle';
+        tctx.fillStyle = `rgba(160, 220, 255, ${alpha})`;
+        tctx.font = 'bold 56px Helvetica, Arial, sans-serif';
+        tctx.fillText(line1, 384, 92);
+        tctx.fillStyle = `rgba(230, 235, 250, ${alpha})`;
+        tctx.font = '36px Helvetica, Arial, sans-serif';
+        tctx.fillText(line2, 384, 168);
+    }
+    drawTip(tips[0].line1, tips[0].line2, 1);
+    const tipTex = new THREE.CanvasTexture(tipCanvas);
+    tipTex.colorSpace = THREE.SRGBColorSpace;
+    const tipSpriteMat = new THREE.SpriteMaterial({ map: tipTex, transparent: true, depthWrite: false });
+    const tipSprite = new THREE.Sprite(tipSpriteMat);
+    tipSprite.scale.set(9, 3, 1);
+    tipSprite.position.set(0, 11.4, 0);
+    group.add(tipSprite);
+
     // === Update animation ===
     let t = 0;
     function update(dt /*, elapsed */) {
         const d = (typeof dt === 'number' && isFinite(dt)) ? dt : 0.016;
         t += d;
+
+        // Tip card cycling: 5s display + 0.6s cross-fade per tip
+        {
+            const periodTotal = 5.6;
+            const fadeWin = 0.6;
+            const idx = Math.floor(t / periodTotal) % tips.length;
+            const localT = t % periodTotal;
+            let alpha = 1;
+            if (localT < fadeWin) {
+                // fade in (also handles transition into next tip)
+                alpha = localT / fadeWin;
+            } else if (localT > periodTotal - fadeWin) {
+                alpha = (periodTotal - localT) / fadeWin;
+            }
+            const tip = tips[idx];
+            drawTip(tip.line1, tip.line2, alpha);
+            tipTex.needsUpdate = true;
+            tipSprite.position.y = 11.4 + Math.sin(t * 0.6) * 0.18;
+        }
 
         // Slowly rotating pylon ring
         pylonRing.rotation.y = t * 0.08;
