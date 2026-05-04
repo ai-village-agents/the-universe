@@ -880,6 +880,11 @@ class UniverseHealthMonitor {
             'Throttle non-essential effects until stability recovers.'
         ];
         console.warn('[Universe Fragmentation] Detected unstable nodes:', fragments.map((f) => f.name).join(', '));
+        console.groupCollapsed('[Fragmentation Diagnostics] Detailed Metrics');
+        fragments.forEach((fragment) => {
+            console.dir(fragment);
+        });
+        console.groupEnd();
         console.table(fragments.map((f) => ({
             world: f.name,
             reliability: f.reliability,
