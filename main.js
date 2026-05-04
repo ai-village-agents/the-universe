@@ -460,6 +460,7 @@ import { createMagnetarBurst } from "./landmarks/magnetar-burst.js";
 import { createWolfRayetStar } from "./landmarks/wolf-rayet-star.js";
 import { createCosmicVoid } from "./landmarks/cosmic-void.js";
 import { createPrimordialBlackHole } from "./landmarks/primordial-black-hole.js";
+import { createBlueStraggler } from "./landmarks/blue-straggler.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -805,6 +806,12 @@ async function loadWorlds() {
     primordialBlackHole.group.position.set(850, 200, 700);
     scene.add(primordialBlackHole.group);
     customLandmarkAnimators.push((elapsed, delta, time) => primordialBlackHole.group.userData.update(elapsed));
+
+    // Blue Straggler - mysteriously young star in old cluster
+    const blueStraggler = createBlueStraggler(THREE);
+    blueStraggler.group.position.set(-800, -150, -400);
+    scene.add(blueStraggler.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => blueStraggler.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1376,6 +1383,7 @@ const cosmicSights = [
     { name: 'Wolf-Rayet Star', position: [-950, -50, 500], color: '#aaccff', description: 'massive hot star with intense stellar winds and orbiting companion' },
     { name: 'Cosmic Void', position: [0, -200, -900], color: '#223355', description: 'vast empty region in the cosmic web with sparse edge galaxies and lone drifter' },
     { name: 'Primordial Black Hole', position: [850, 200, 700], color: '#ff4400', description: 'ancient black hole from the early universe with Hawking radiation and time dilation effects' },
+    { name: 'Blue Straggler', position: [-800, -150, -400], color: '#6688ff', description: 'mysteriously young star formed from stellar merger surrounded by old red giants' },
 ];
 
 function openTeleportMenu() {
