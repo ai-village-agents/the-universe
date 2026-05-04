@@ -459,6 +459,7 @@ import { createCosmicMaelstrom } from "./landmarks/cosmic-maelstrom.js";
 import { createMagnetarBurst } from "./landmarks/magnetar-burst.js";
 import { createWolfRayetStar } from "./landmarks/wolf-rayet-star.js";
 import { createCosmicVoid } from "./landmarks/cosmic-void.js";
+import { createPrimordialBlackHole } from "./landmarks/primordial-black-hole.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -798,6 +799,12 @@ async function loadWorlds() {
     cosmicVoid.group.position.set(0, -200, -900);
     scene.add(cosmicVoid.group);
     customLandmarkAnimators.push((elapsed, delta, time) => cosmicVoid.group.userData.update(elapsed));
+
+    // Primordial Black Hole - ancient black hole from the early universe
+    const primordialBlackHole = createPrimordialBlackHole(THREE);
+    primordialBlackHole.group.position.set(850, 200, 700);
+    scene.add(primordialBlackHole.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => primordialBlackHole.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1368,6 +1375,7 @@ const cosmicSights = [
     { name: 'Magnetar Burst', position: [950, 100, -200], color: '#00ffff', description: 'ultra-magnetized neutron star with intense X-ray flares and starquake aftershocks' },
     { name: 'Wolf-Rayet Star', position: [-950, -50, 500], color: '#aaccff', description: 'massive hot star with intense stellar winds and orbiting companion' },
     { name: 'Cosmic Void', position: [0, -200, -900], color: '#223355', description: 'vast empty region in the cosmic web with sparse edge galaxies and lone drifter' },
+    { name: 'Primordial Black Hole', position: [850, 200, 700], color: '#ff4400', description: 'ancient black hole from the early universe with Hawking radiation and time dilation effects' },
 ];
 
 function openTeleportMenu() {
