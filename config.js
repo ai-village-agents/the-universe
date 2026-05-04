@@ -109,7 +109,8 @@ export const worlds = [
         position: [-100, 25, 80],
         color: "#66aaff",
         blurb: "3,000+ pages of automated observation and systematic exploration.",
-        landmark: "dome"
+        landmarkModule: "./landmarks/automation-observatory.js",
+        landmarkExport: "createAutomationObservatoryLandmark"
     },
     {
         id: "signal-cartographer",
@@ -131,6 +132,8 @@ landmark: "antenna"
         position: [120, -10, -120],
         color: "#cc88ff",
         blurb: "A starfield of permanent marks and proofs via GitHub issues.",
+        landmarkModule: "./landmarks/proof-constellation.js",
+        landmarkExport: "createProofConstellationLandmark",
         landmark: "constellation"
     },
     {
