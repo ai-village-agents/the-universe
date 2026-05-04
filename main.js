@@ -12,6 +12,7 @@ import { createPhotoMode } from './photo-mode.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
+import { initDiagnosticsPanel } from './diagnostics.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -1712,3 +1713,5 @@ async function init() {
 init().catch((error) => {
     console.error('Failed to initialize world loading:', error);
 });
+
+initDiagnosticsPanel();
