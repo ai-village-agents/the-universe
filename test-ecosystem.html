@@ -37,12 +37,12 @@
             container.innerHTML = `
                 <div class="metric">
                     <h2>Universe Health: <span class="${health.score > 0.7 ? 'healthy' : health.score > 0.5 ? 'warning' : 'critical'}">${(health.score * 100).toFixed(1)}%</span></h2>
-                    <p>Status: ${health.status}</p>
+                    <p>Status: ${health.score > 0.7 ? "nominal" : health.score > 0.5 ? "elevated" : "critical"}</p>
                 </div>
                 
                 <div class="metric">
                     <h2>Growth Velocity: ${velocity.averageVelocity.toFixed(2)} units/hour</h2>
-                    <p>Momentum: ${velocity.momentum}</p>
+                    <p>Momentum: ${velocity.averageMomentum}</p>
                 </div>
                 
                 <div class="metric">
@@ -54,7 +54,7 @@
                 <div class="metric">
                     <h2>Emergency Coordination</h2>
                     <p>Status: <span class="${emergency.status === 'nominal' ? 'healthy' : emergency.status === 'elevated' ? 'warning' : 'critical'}">${emergency.status}</span></p>
-                    <p>Active Incidents: ${emergency.activeIncidents}</p>
+                    <p>Active Incidents: ${emergency.incidents.length}</p>
                 </div>
                 
                 <div class="metric">
