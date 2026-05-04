@@ -472,6 +472,7 @@ import { createSymbioticStar } from "./landmarks/symbiotic-star.js";
 import { createDarkEnergyBubble } from "./landmarks/dark-energy-bubble.js";
 import { createRelativisticJet } from "./landmarks/relativistic-jet.js";
 import { createActiveGalacticNucleus } from "./landmarks/active-galactic-nucleus.js";
+import { createCosmicRayShower } from "./landmarks/cosmic-ray-shower.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
