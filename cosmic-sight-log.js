@@ -7,6 +7,8 @@
 //
 // Click any row to teleport via the cosmic sights atlas. Press L or Escape to close.
 
+import { categorize, CATEGORY_RULES } from './cosmic-sights-atlas.js';
+
 const LOG_KEY = 'aiv_cosmic_sights_log_v1';
 
 function loadLog() {
@@ -82,6 +84,58 @@ export function createCosmicSightLog({ audio } = {}) {
 
     panel.appendChild(header);
 
+    // Category filter row (Opus 4.7 v2)
+    let currentFilter = 'all';
+    const filterRow = document.createElement('div');
+    filterRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px;padding-bottom:6px;border-bottom:1px solid rgba(160,200,255,0.15);';
+    const filterDefs = [
+        { id: 'all', label: '✦ All' },
+        ...CATEGORY_RULES.map(r => ({ id: r.id, label: r.label }))
+    ];
+    const filterBtns = {};
+    filterDefs.forEach(def => {
+        const btn = document.createElement('button');
+        btn.textContent = def.label;
+        btn.dataset.filterId = def.id;
+        btn.style.cssText = [
+            'font:11px/1.2 monospace', 'color:#cfe6ff',
+            'background:rgba(40,60,100,0.45)',
+            'border:1px solid rgba(120,160,210,0.35)',
+            'border-radius:6px',
+            'padding:4px 8px',
+            'cursor:pointer',
+            'transition:all 0.12s ease'
+        ].join(';');
+        btn.addEventListener('mouseenter', () => {
+            if (currentFilter !== def.id) btn.style.background = 'rgba(60,90,140,0.6)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            if (currentFilter !== def.id) btn.style.background = 'rgba(40,60,100,0.45)';
+        });
+        btn.addEventListener('click', () => {
+            currentFilter = def.id;
+            updateFilterStyles();
+            render();
+        });
+        filterBtns[def.id] = btn;
+        filterRow.appendChild(btn);
+    });
+    function updateFilterStyles() {
+        Object.entries(filterBtns).forEach(([id, btn]) => {
+            if (id === currentFilter) {
+                btn.style.background = 'rgba(255,210,120,0.30)';
+                btn.style.borderColor = 'rgba(255,220,140,0.75)';
+                btn.style.color = '#fff7c8';
+            } else {
+                btn.style.background = 'rgba(40,60,100,0.45)';
+                btn.style.borderColor = 'rgba(120,160,210,0.35)';
+                btn.style.color = '#cfe6ff';
+            }
+        });
+    }
+    updateFilterStyles();
+    panel.appendChild(filterRow);
+
     const listWrap = document.createElement('div');
     listWrap.style.cssText = 'overflow-y:auto;max-height:60vh;padding-right:4px;display:flex;flex-direction:column;gap:5px;';
     panel.appendChild(listWrap);
@@ -113,16 +167,36 @@ export function createCosmicSightLog({ audio } = {}) {
     document.body.appendChild(overlay);
 
     function render() {
-        const entries = loadLog();
+        const allEntries = loadLog();
+        const entries = currentFilter === 'all'
+            ? allEntries
+            : allEntries.filter(e => categorize(e.name) === currentFilter);
         listWrap.innerHTML = '';
-        subtitle.textContent = entries.length === 0 ? '0 entries' : `${entries.length} entr${entries.length === 1 ? 'y' : 'ies'} · most recent first`;
-        if (entries.length === 0) {
+        if (allEntries.length === 0) {
+            subtitle.textContent = '0 entries';
+        } else if (currentFilter === 'all') {
+            subtitle.textContent = `${allEntries.length} entr${allEntries.length === 1 ? 'y' : 'ies'} · most recent first`;
+        } else {
+            subtitle.textContent = `${entries.length} of ${allEntries.length} (filtered)`;
+        }
+        if (allEntries.length === 0) {
             const empty = document.createElement('div');
             empty.style.cssText = 'padding:30px 12px;text-align:center;color:#8aa0c8;font:italic 13px/1.4 Georgia,serif;';
             empty.innerHTML = 'No cosmic sights discovered yet. Fly close to any glowing diamond!<br><br>'
                 + '<span style="font-style:normal;font-size:11px;color:#7da7d6">'
                 + 'Tip: <b style="color:#bcd7ff">C</b> opens the cosmic sights atlas · '
                 + '<b style="color:#bcd7ff">N</b> opens the compass to the nearest undiscovered sight.'
+                + '</span>';
+            listWrap.appendChild(empty);
+            return;
+        }
+        if (entries.length === 0) {
+            const empty = document.createElement('div');
+            empty.style.cssText = 'padding:30px 12px;text-align:center;color:#8aa0c8;font:italic 13px/1.4 Georgia,serif;';
+            const def = filterDefs.find(d => d.id === currentFilter);
+            empty.innerHTML = `No discoveries match <b style="color:#fff7c8">${def ? def.label : currentFilter}</b> yet.<br><br>`
+                + '<span style="font-style:normal;font-size:11px;color:#7da7d6">'
+                + 'Try a different filter, or fly close to undiscovered diamonds in this category.'
                 + '</span>';
             listWrap.appendChild(empty);
             return;
