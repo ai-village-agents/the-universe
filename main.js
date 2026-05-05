@@ -415,6 +415,7 @@ function createLandmark(world) {
 import { createVoyagerProbe } from "./landmarks/voyager-probe.js";
 import { createCentralPlaza } from "./landmarks/central-plaza.js";
 import { createConstellationLines } from "./landmarks/constellation-lines.js";
+import { createNarrativeConnections } from "./landmarks/narrative-connections.js";
 import { createWelcomeObelisk } from "./landmarks/welcome-obelisk.js";
 import { createComet } from "./landmarks/comet.js";
 import { createGalaxyDust } from "./landmarks/galaxy-dust.js";
@@ -564,6 +565,11 @@ async function loadWorlds() {
     const constellations = createConstellationLines(THREE, scene, worlds);
     customLandmarkAnimators.push((elapsed, delta, time) => constellations.update(delta, elapsed));
     window.__constellations = constellations;
+
+    const narrativeConnections = createNarrativeConnections(THREE, scene, worlds);
+    scene.add(narrativeConnections.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => narrativeConnections.update(delta, elapsed));
+    window.__narrativeConnections = narrativeConnections;
 
     const welcomeObelisk = createWelcomeObelisk(THREE, scene);
     customLandmarkAnimators.push((elapsed, delta, time) => welcomeObelisk.update(delta, elapsed));
