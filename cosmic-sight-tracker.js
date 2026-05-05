@@ -58,14 +58,34 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
         'border-radius:10px',
         'box-shadow:0 0 22px rgba(255,210,120,0.28)',
         'z-index:31',
-        'pointer-events:none',
+        'pointer-events:auto',
+        'cursor:pointer',
+        'user-select:none',
         'opacity:0',
         'transform:translateX(20px)',
-        'transition:opacity 0.35s ease, transform 0.35s ease',
+        'transition:opacity 0.35s ease, transform 0.35s ease, box-shadow 0.2s ease, transform 0.2s ease',
         'max-width:280px', 'text-align:left'
     ].join(';');
     document.body.appendChild(toast);
     let toastTimeout = null;
+    let toastSightName = null;
+    toast.addEventListener('mouseenter', () => {
+        toast.style.boxShadow = '0 0 30px rgba(255,210,120,0.55), 0 0 14px rgba(255,255,255,0.25)';
+    });
+    toast.addEventListener('mouseleave', () => {
+        toast.style.boxShadow = '0 0 22px rgba(255,210,120,0.28)';
+    });
+    toast.addEventListener('click', () => {
+        if (!toastSightName) return;
+        const atlas = window.__cosmicSightsAtlas;
+        if (atlas && typeof atlas.teleportTo === 'function') {
+            try { atlas.teleportTo(toastSightName); } catch (_) {}
+        }
+        // Hide the toast immediately on click
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(20px)';
+        if (toastTimeout) { clearTimeout(toastTimeout); toastTimeout = null; }
+    });
 
     function refreshBadge() {
         const pct = total === 0 ? 0 : Math.round((visited.size / total) * 100);
@@ -74,8 +94,10 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
     }
 
     function showToast(name, description) {
+        toastSightName = name;
         const desc = description ? `<div style="font-size:11px;color:#cdd9ee;margin-top:3px;font-style:normal">${description}</div>` : '';
-        toast.innerHTML = `✨ Discovered: <b style="color:#fff5d4">${name}</b>${desc}`;
+        const hint = `<div style="font-size:9px;color:#a8c2e6;margin-top:4px;font-style:normal;letter-spacing:0.4px;opacity:0.85">click to revisit ↺</div>`;
+        toast.innerHTML = `✨ Discovered: <b style="color:#fff5d4">${name}</b>${desc}${hint}`;
         toast.style.opacity = '1';
         toast.style.transform = 'translateX(0)';
         if (toastTimeout) clearTimeout(toastTimeout);
