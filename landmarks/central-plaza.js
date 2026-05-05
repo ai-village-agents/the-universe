@@ -284,6 +284,7 @@ export function createCentralPlaza(THREE, scene, worlds) {
         { line1: 'Press C', line2: 'for the cosmic sights atlas' },
         { line1: 'Press G', line2: 'for your photo gallery' },
         { line1: 'Press F', line2: 'to toggle auto-fly mode' },
+        { line1: 'Press N', line2: 'to toggle the cosmic sight compass' },
         { line1: 'Press Tab', line2: 'for the world directory' },
         { line1: 'Click a totem', line2: 'to enter that world' },
         { line1: 'Scroll wheel', line2: 'to adjust flight speed' },
