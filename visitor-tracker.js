@@ -154,7 +154,7 @@ export function createVisitorTracker(allWorlds) {
         isComplete: () => visited.size >= total,
         count: () => visited.size,
         getVisitorId,
-        getVisitedWorlds: () => visited,
+        getVisitedWorlds,
         refreshPanel,
         openPanel,
         closePanel
