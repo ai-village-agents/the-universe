@@ -8,6 +8,8 @@ const STORE_KEY = 'aiv_universe_photos_v1';
 
 export function createPhotoGallery({ audio } = {}) {
   let isOpen = false;
+  let gridCells = []; // [{cell, photo}]
+  let gridFocusIndex = -1;
 
   function loadPhotos() {
     try {
@@ -57,7 +59,7 @@ export function createPhotoGallery({ audio } = {}) {
 
   const hint = document.createElement('div');
   hint.style.cssText = 'font-size:11px; color:#7a91b6; margin-bottom:10px;';
-  hint.textContent = 'Press P in-universe to capture a photo. Click a thumbnail to view full size or download. Photos are stored in your browser only.';
+  hint.textContent = 'Press P in-universe to capture a photo. ←→↑↓ to navigate, Enter to open. Photos are stored in your browser only.';
   card.appendChild(hint);
 
   // Scroll grid
@@ -151,11 +153,13 @@ export function createPhotoGallery({ audio } = {}) {
     }
     empty.style.display = 'none';
     grid.style.display = 'grid';
-    photos.forEach((photo) => {
+    gridCells = [];
+    photos.forEach((photo, idx) => {
       const cell = document.createElement('div');
-      cell.style.cssText = 'cursor:pointer; border:1px solid rgba(180,210,255,0.18); border-radius:8px; overflow:hidden; background:rgba(10,16,32,0.6); transition:transform 0.15s ease, border-color 0.15s ease;';
-      cell.addEventListener('mouseenter', () => { cell.style.transform = 'translateY(-2px)'; cell.style.borderColor = 'rgba(180,210,255,0.5)'; });
-      cell.addEventListener('mouseleave', () => { cell.style.transform = 'translateY(0)'; cell.style.borderColor = 'rgba(180,210,255,0.18)'; });
+      cell.style.cssText = 'cursor:pointer; border:1px solid rgba(180,210,255,0.18); border-radius:8px; overflow:hidden; background:rgba(10,16,32,0.6); transition:transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;';
+      cell.dataset.gridIdx = String(idx);
+      cell.addEventListener('mouseenter', () => { if (gridFocusIndex !== idx) { cell.style.transform = 'translateY(-2px)'; cell.style.borderColor = 'rgba(180,210,255,0.5)'; } });
+      cell.addEventListener('mouseleave', () => { if (gridFocusIndex !== idx) { cell.style.transform = 'translateY(0)'; cell.style.borderColor = 'rgba(180,210,255,0.18)'; } });
       const img = document.createElement('img');
       img.src = photo.thumb;
       img.style.cssText = 'display:block; width:100%; height:auto; aspect-ratio:256/150; object-fit:cover;';
@@ -164,9 +168,48 @@ export function createPhotoGallery({ audio } = {}) {
       const date = new Date(photo.ts);
       cap.textContent = date.toLocaleString();
       cell.appendChild(img); cell.appendChild(cap);
-      cell.addEventListener('click', () => openLightbox(photo));
+      cell.addEventListener('click', () => { setGridFocus(idx, false); openLightbox(photo); });
       grid.appendChild(cell);
+      gridCells.push({ cell, photo });
     });
+    // Reset focus to first cell on every rebuild
+    gridFocusIndex = gridCells.length ? 0 : -1;
+    applyGridFocusStyles();
+  }
+
+  function applyGridFocusStyles() {
+    gridCells.forEach((entry, i) => {
+      const focused = (i === gridFocusIndex);
+      if (focused) {
+        entry.cell.style.borderColor = 'rgba(140,230,255,0.95)';
+        entry.cell.style.boxShadow = '0 0 14px rgba(140,230,255,0.55)';
+        entry.cell.style.transform = 'translateY(-2px)';
+      } else {
+        entry.cell.style.borderColor = 'rgba(180,210,255,0.18)';
+        entry.cell.style.boxShadow = 'none';
+        entry.cell.style.transform = 'translateY(0)';
+      }
+    });
+  }
+
+  function setGridFocus(idx, scroll = true) {
+    if (idx < 0 || idx >= gridCells.length) return;
+    gridFocusIndex = idx;
+    applyGridFocusStyles();
+    if (scroll) {
+      try { gridCells[idx].cell.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (_) {}
+    }
+  }
+
+  function getGridColumnCount() {
+    try {
+      const cs = getComputedStyle(grid);
+      const cols = cs.gridTemplateColumns;
+      if (!cols) return 1;
+      // Each column track is space-separated; count tokens.
+      const n = cols.trim().split(/\s+/).filter(Boolean).length;
+      return Math.max(1, n);
+    } catch (_) { return 1; }
   }
 
   function open() {
@@ -203,6 +246,17 @@ export function createPhotoGallery({ audio } = {}) {
     } else if (e.code === 'Escape' && isOpen) {
       if (lightbox.style.display === 'flex') closeLightbox();
       else close();
+    } else if (isOpen && lightbox.style.display !== 'flex') {
+      // Grid keyboard navigation when lightbox is closed
+      if (gridCells.length === 0) return;
+      if (e.code === 'ArrowRight') { e.preventDefault(); setGridFocus(Math.min(gridFocusIndex + 1, gridCells.length - 1)); }
+      else if (e.code === 'ArrowLeft') { e.preventDefault(); setGridFocus(Math.max(gridFocusIndex - 1, 0)); }
+      else if (e.code === 'ArrowDown') { e.preventDefault(); const c = getGridColumnCount(); setGridFocus(Math.min(gridFocusIndex + c, gridCells.length - 1)); }
+      else if (e.code === 'ArrowUp') { e.preventDefault(); const c = getGridColumnCount(); setGridFocus(Math.max(gridFocusIndex - c, 0)); }
+      else if (e.code === 'Enter') {
+        e.preventDefault();
+        if (gridFocusIndex >= 0 && gridCells[gridFocusIndex]) openLightbox(gridCells[gridFocusIndex].photo);
+      }
     } else if (isOpen && lightbox.style.display === 'flex') {
       if (e.code === 'ArrowLeft') { e.preventDefault(); gotoOffset(-1); }
       else if (e.code === 'ArrowRight') { e.preventDefault(); gotoOffset(1); }
