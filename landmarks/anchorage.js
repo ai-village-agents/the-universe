@@ -2529,6 +2529,171 @@ export function createAnchorageLandmark(THREE, opts) {
 
   // --- v14 init complete ----------------------------------------------------
 
+  // --- v15 features (Opus 4.7) -----------------------------------------------
+  // 1) Harbor seals lounging on a rock outcrop near shore
+  const sealRocks = new THREE.Group();
+  const sealRockMat = new THREE.MeshStandardMaterial({ color: 0x4a4538, roughness: 0.95, metalness: 0.04 });
+  const sealRockA = new THREE.Mesh(new THREE.SphereGeometry(1.2, 14, 10), sealRockMat);
+  sealRockA.scale.set(1.0, 0.45, 1.0);
+  sealRockA.position.set(0, 0.05, 0);
+  sealRocks.add(sealRockA);
+  const sealRockB = new THREE.Mesh(new THREE.SphereGeometry(0.85, 12, 8), sealRockMat);
+  sealRockB.scale.set(1.0, 0.4, 1.0);
+  sealRockB.position.set(1.3, 0.0, -0.4);
+  sealRocks.add(sealRockB);
+  // Seal helper
+  const sealMat = new THREE.MeshStandardMaterial({ color: 0x3a3a48, roughness: 0.7, metalness: 0.05 });
+  const sealMatLight = new THREE.MeshStandardMaterial({ color: 0x787888, roughness: 0.7, metalness: 0.05 });
+  function makeSeal(matChoice) {
+    const seal = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 9), matChoice);
+    body.scale.set(1.6, 0.5, 0.6);
+    seal.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 9), matChoice);
+    head.position.set(0.5, 0.06, 0);
+    seal.add(head);
+    // tiny flippers
+    const flipperGeo = new THREE.BoxGeometry(0.18, 0.04, 0.08);
+    const flA = new THREE.Mesh(flipperGeo, matChoice);
+    flA.position.set(-0.18, -0.02, 0.18); seal.add(flA);
+    const flB = new THREE.Mesh(flipperGeo, matChoice);
+    flB.position.set(-0.18, -0.02, -0.18); seal.add(flB);
+    return { group: seal, head };
+  }
+  const sealColony = [];
+  const seal1 = makeSeal(sealMat);
+  seal1.group.position.set(-0.2, 0.4, 0.2);
+  seal1.group.rotation.y = 0.6;
+  sealRocks.add(seal1.group); sealColony.push(seal1);
+  const seal2 = makeSeal(sealMatLight);
+  seal2.group.position.set(0.5, 0.45, -0.3);
+  seal2.group.rotation.y = -0.3;
+  sealRocks.add(seal2.group); sealColony.push(seal2);
+  const seal3 = makeSeal(sealMat);
+  seal3.group.position.set(1.4, 0.4, -0.4);
+  seal3.group.rotation.y = 1.2;
+  sealRocks.add(seal3.group); sealColony.push(seal3);
+  sealRocks.position.set(-13, -0.4, 8);
+  group.add(sealRocks);
+
+  // 2) Tide gauge post near the breakwater (vertical post with horizontal stripe markings)
+  const tideGauge = new THREE.Group();
+  const tideGaugePost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.14, 3.2, 8),
+    new THREE.MeshStandardMaterial({ color: 0xb0a890, roughness: 0.8, metalness: 0.1 })
+  );
+  tideGaugePost.position.y = 1.6;
+  tideGauge.add(tideGaugePost);
+  // Stripes (alternating red/white horizontal bands)
+  for (let i = 0; i < 8; i++) {
+    const stripe = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.16, 0.16, 0.18, 8),
+      new THREE.MeshStandardMaterial({ color: i % 2 === 0 ? 0xc04030 : 0xe8e0d0, roughness: 0.7, metalness: 0.1 })
+    );
+    stripe.position.y = 0.3 + i * 0.36;
+    tideGauge.add(stripe);
+  }
+  // Tiny cap
+  const tideGaugeCap = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.28, 6),
+    new THREE.MeshStandardMaterial({ color: 0x808080, roughness: 0.6, metalness: 0.4 })
+  );
+  tideGaugeCap.position.y = 3.3;
+  tideGauge.add(tideGaugeCap);
+  tideGauge.position.set(9.5, -0.3, 1.8);
+  group.add(tideGauge);
+
+  // 3) Distant fishing trawler with a small net dragging behind
+  const harborTrawler = new THREE.Group();
+  const trawlerHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.6, 0.9),
+    new THREE.MeshStandardMaterial({ color: 0x1f3850, roughness: 0.6, metalness: 0.2 })
+  );
+  trawlerHull.position.y = 0.3;
+  harborTrawler.add(trawlerHull);
+  const trawlerCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(0.8, 0.5, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0xe8e2d0, roughness: 0.7, metalness: 0.05 })
+  );
+  trawlerCabin.position.set(-0.3, 0.85, 0);
+  harborTrawler.add(trawlerCabin);
+  const trawlerMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x303030, roughness: 0.8 })
+  );
+  trawlerMast.position.set(-0.3, 1.7, 0);
+  harborTrawler.add(trawlerMast);
+  // Boom arm extending behind, with net
+  const trawlerBoom = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x303030, roughness: 0.8 })
+  );
+  trawlerBoom.rotation.z = Math.PI / 2;
+  trawlerBoom.position.set(1.6, 0.85, 0);
+  harborTrawler.add(trawlerBoom);
+  // Net (inverted cone-ish) trailing in water
+  const trawlerNet = new THREE.Mesh(
+    new THREE.ConeGeometry(0.5, 1.2, 8, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0x9bb6c2, transparent: true, opacity: 0.42, wireframe: true })
+  );
+  trawlerNet.rotation.x = Math.PI;
+  trawlerNet.position.set(2.3, 0.05, 0);
+  harborTrawler.add(trawlerNet);
+  harborTrawler.position.set(-22, 0.0, -18);
+  harborTrawler.rotation.y = -0.3;
+  group.add(harborTrawler);
+
+  // 4) Harbor master's house — small wooden cottage on the shore
+  const harborMaster = new THREE.Group();
+  const houseBody = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 1.6, 1.8),
+    new THREE.MeshStandardMaterial({ color: 0xd6c6a0, roughness: 0.8, metalness: 0.04 })
+  );
+  houseBody.position.y = 0.8;
+  harborMaster.add(houseBody);
+  // Pitched roof
+  const houseRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(2.0, 1.0, 4),
+    new THREE.MeshStandardMaterial({ color: 0x8a3a28, roughness: 0.85, metalness: 0.05 })
+  );
+  houseRoof.rotation.y = Math.PI / 4;
+  houseRoof.position.y = 2.1;
+  houseRoof.scale.set(1.0, 1.0, 0.78);
+  harborMaster.add(houseRoof);
+  // Window glow
+  const houseWindow = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 0.4),
+    new THREE.MeshBasicMaterial({ color: 0xffd980, transparent: true, opacity: 0.85 })
+  );
+  houseWindow.position.set(1.31, 0.95, 0);
+  houseWindow.rotation.y = Math.PI / 2;
+  harborMaster.add(houseWindow);
+  const houseWindow2 = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 0.4),
+    new THREE.MeshBasicMaterial({ color: 0xffd980, transparent: true, opacity: 0.7 })
+  );
+  houseWindow2.position.set(0, 0.95, 0.91);
+  harborMaster.add(houseWindow2);
+  // Chimney with smoke
+  const chimney = new THREE.Mesh(
+    new THREE.BoxGeometry(0.32, 0.7, 0.32),
+    new THREE.MeshStandardMaterial({ color: 0x8a8378, roughness: 0.9 })
+  );
+  chimney.position.set(-0.8, 2.2, 0.4);
+  harborMaster.add(chimney);
+  const chimneySmoke = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0xeae0d4, transparent: true, opacity: 0.45 })
+  );
+  chimneySmoke.position.set(-0.8, 2.9, 0.4);
+  harborMaster.add(chimneySmoke);
+  harborMaster.position.set(-9, -0.1, 11);
+  harborMaster.rotation.y = -0.4;
+  group.add(harborMaster);
+
+  // --- v15 init complete ----------------------------------------------------
+
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -3244,6 +3409,49 @@ export function createAnchorageLandmark(THREE, opts) {
           cliff.children[1].material.opacity = cliffMossOp;
         }
       });
+    }
+
+    // v15: Seal heads bob slightly (sleeping/breathing)
+    {
+      sealColony.forEach((seal, i) => {
+        seal.head.position.y = 0.06 + Math.sin(t * 0.9 + i * 1.7) * 0.02;
+      });
+    }
+    // v15: Tide gauge — water-mark stripes shift opacity slowly to simulate tide rising/falling
+    {
+      const tide = (Math.sin(t * 0.05) + 1) * 0.5; // 0..1
+      // Lower stripes brighter when tide is "up" (covered, glistening), upper stripes brighter when low
+      tideGauge.children.forEach((c, i) => {
+        if (i === 0 || i > 8) return; // skip post & cap
+        const stripeIdx = i - 1; // 0..7 from bottom
+        if (c.material) {
+          const wet = stripeIdx / 7 < tide;
+          c.material.emissive = c.material.emissive || new THREE.Color(0x000000);
+          c.material.emissive.setHex(wet ? 0x103040 : 0x000000);
+        }
+      });
+    }
+    // v15: Trawler slowly sails in a wide arc, net sways
+    {
+      const ta = t * 0.04;
+      const tx = -22 + Math.sin(ta) * 6;
+      const tz = -18 + Math.cos(ta) * 4;
+      harborTrawler.position.x = tx;
+      harborTrawler.position.z = tz;
+      harborTrawler.position.y = Math.sin(t * 1.1) * 0.06;
+      harborTrawler.rotation.y = -0.3 + Math.sin(ta) * 0.18;
+      trawlerNet.rotation.z = Math.sin(t * 0.7) * 0.08;
+      trawlerNet.material.opacity = 0.38 + 0.08 * Math.sin(t * 1.2);
+    }
+    // v15: Harbor master's window glow flickers like a hearth, smoke rises
+    {
+      const flicker = 0.78 + 0.18 * Math.sin(t * 6.0) + 0.05 * Math.sin(t * 11.0);
+      houseWindow.material.opacity = flicker;
+      houseWindow2.material.opacity = flicker * 0.85;
+      const sy = 2.9 + ((t * 0.4) % 1.4);
+      chimneySmoke.position.y = sy;
+      chimneySmoke.material.opacity = Math.max(0, 0.5 - ((t * 0.4) % 1.4) * 0.32);
+      chimneySmoke.scale.setScalar(1.0 + ((t * 0.4) % 1.4) * 0.6);
     }
 
   }
