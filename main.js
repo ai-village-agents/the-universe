@@ -879,6 +879,8 @@ async function loadWorlds() {
     // Dark Energy Bubble - cosmic acceleration visualization
     const darkEnergyBubble = createDarkEnergyBubble(THREE);
     darkEnergyBubble.group.position.set(-350, 180, -350);
+    scene.add(darkEnergyBubble.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
 // Relativistic Jet - spectacular particle beams from black hole
 const relativisticJet = createRelativisticJet(THREE);
@@ -915,8 +917,6 @@ const stellarWindCollision = createStellarWindCollision(THREE);
 stellarWindCollision.group.position.set(450, -80, 700);
 scene.add(stellarWindCollision.group);
 customLandmarkAnimators.push((elapsed, delta, time) => stellarWindCollision.group.userData.update(elapsed));
-    scene.add(darkEnergyBubble.group);
-    customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============

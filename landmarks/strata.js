@@ -33,7 +33,7 @@ export function createStrataLandmark(THREE) {
             roughness: 0.7,
             metalness: 0.3,
             emissive: layer.color,
-            emissiveIntensity: i === layers.length - 1 ? 0.6 : 0.1
+            emissiveIntensity: i === layers.length - 1 ? 0.6 : 0.25
         });
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.y = yOffset - layer.height / 2;
@@ -61,10 +61,54 @@ export function createStrataLandmark(THREE) {
         yOffset -= layer.height;
     });
     
+    // Tall beacon pillar rising from the top of the spire
+    const beaconGeo = new THREE.CylinderGeometry(0.2, 2, 80, 8, 1, true);
+    const beaconMat = new THREE.MeshBasicMaterial({
+        color: 0xf4a261,
+        transparent: true,
+        opacity: 0.15,
+        side: THREE.DoubleSide,
+        depthWrite: false
+    });
+    const beacon = new THREE.Mesh(beaconGeo, beaconMat);
+    beacon.position.y = 40;
+    group.add(beacon);
+    
+    // Large pulsing amber ring at eye level
+    const eyeRingGeo = new THREE.TorusGeometry(18, 0.4, 16, 64);
+    const eyeRingMat = new THREE.MeshBasicMaterial({
+        color: 0xf4a261,
+        transparent: true,
+        opacity: 0.35,
+        depthWrite: false
+    });
+    const eyeRing = new THREE.Mesh(eyeRingGeo, eyeRingMat);
+    eyeRing.position.y = 15;
+    eyeRing.rotation.x = Math.PI / 2;
+    group.add(eyeRing);
+    
+    // Secondary inner eye ring
+    const eyeRingInnerGeo = new THREE.TorusGeometry(12, 0.25, 16, 64);
+    const eyeRingInnerMat = new THREE.MeshBasicMaterial({
+        color: 0xf4a261,
+        transparent: true,
+        opacity: 0.2,
+        depthWrite: false
+    });
+    const eyeRingInner = new THREE.Mesh(eyeRingInnerGeo, eyeRingInnerMat);
+    eyeRingInner.position.y = 15;
+    eyeRingInner.rotation.x = Math.PI / 2;
+    group.add(eyeRingInner);
+    
     // Amber glow light at base (Deep Substrate)
-    const baseLight = new THREE.PointLight(0xf4a261, 2, 40);
+    const baseLight = new THREE.PointLight(0xf4a261, 3, 60);
     baseLight.position.y = yOffset + 2;
     group.add(baseLight);
+    
+    // Top beacon light
+    const topLight = new THREE.PointLight(0xf4a261, 1.5, 30);
+    topLight.position.y = 40;
+    group.add(topLight);
     
     // Floating rock fragments orbiting the spire
     const fragmentCount = 24;
@@ -125,6 +169,10 @@ export function createStrataLandmark(THREE) {
         fragments,
         particles,
         baseLight,
+        topLight,
+        beacon,
+        eyeRing,
+        eyeRingInner,
         animate: (time) => {
             // Orbit fragments
             fragments.forEach(f => {
@@ -137,7 +185,22 @@ export function createStrataLandmark(THREE) {
             });
             
             // Pulse base light
-            baseLight.intensity = 2 + Math.sin(time * 2) * 0.5;
+            baseLight.intensity = 3 + Math.sin(time * 2) * 0.5;
+            
+            // Pulse top beacon light
+            topLight.intensity = 1.5 + Math.sin(time * 3) * 0.5;
+            
+            // Pulse beacon pillar opacity
+            beacon.material.opacity = 0.1 + Math.sin(time * 1.5) * 0.05;
+            
+            // Pulse eye-level rings
+            const ringScale = 1.0 + Math.sin(time * 2) * 0.1;
+            eyeRing.scale.set(ringScale, ringScale, 1);
+            eyeRing.material.opacity = 0.3 + Math.sin(time * 2.5) * 0.08;
+            
+            const innerScale = 1.0 + Math.sin(time * 2.3 + 1) * 0.12;
+            eyeRingInner.scale.set(innerScale, innerScale, 1);
+            eyeRingInner.material.opacity = 0.18 + Math.sin(time * 3 + 1) * 0.06;
             
             // Slowly rotate particles
             particles.rotation.y += 0.002;
