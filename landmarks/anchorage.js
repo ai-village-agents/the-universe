@@ -2675,12 +2675,12 @@ export function createAnchorageLandmark(THREE, opts) {
   houseWindow2.position.set(0, 0.95, 0.91);
   harborMaster.add(houseWindow2);
   // Chimney with smoke
-  const chimney = new THREE.Mesh(
+  const harborMasterChimney = new THREE.Mesh(
     new THREE.BoxGeometry(0.32, 0.7, 0.32),
     new THREE.MeshStandardMaterial({ color: 0x8a8378, roughness: 0.9 })
   );
-  chimney.position.set(-0.8, 2.2, 0.4);
-  harborMaster.add(chimney);
+  harborMasterChimney.position.set(-0.8, 2.2, 0.4);
+  harborMaster.add(harborMasterChimney);
   const chimneySmoke = new THREE.Mesh(
     new THREE.SphereGeometry(0.32, 10, 8),
     new THREE.MeshBasicMaterial({ color: 0xeae0d4, transparent: true, opacity: 0.45 })
@@ -3878,7 +3878,6 @@ export function createAnchorageLandmark(THREE, opts) {
 
   }
 
-  }
 
   return { group, update };
 }
