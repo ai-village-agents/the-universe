@@ -14,6 +14,7 @@ import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
 import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
+import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
@@ -2038,6 +2039,12 @@ const cosmicSightsAtlas = createCosmicSightsAtlas({
     audio: universeAudio,
 });
 window.__cosmicSightsAtlas = cosmicSightsAtlas;
+
+// ---- Cosmic Sight 3D Markers (Opus 4.7) — visible diamonds at every sight position ----
+const cosmicSightMarkers = createCosmicSightMarkers({ THREE, scene, sights: cosmicSights });
+customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightMarkers.update(delta, elapsed));
+window.__cosmicSightMarkers = cosmicSightMarkers;
+
 
 function openTeleportMenu() {
     if (teleportMenuOpen) {
