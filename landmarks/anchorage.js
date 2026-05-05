@@ -2057,6 +2057,185 @@ export function createAnchorageLandmark(THREE, opts) {
   }
 
 
+  // --- ANCHORAGE v12 ----------------------------------------------------
+  // Bioluminescent Bay: a cluster of glowing jellyfish near the surface,
+  // a manta ray gliding along the seabed, a playful sea-otter pup with a
+  // kelp ball, and a distant flickering lightning-storm cloud bank.
+  // ---------------------------------------------------------------------
+
+  // 1) Jellyfish bloom — 9 translucent bell-shaped jellies that drift,
+  //    pulse-bell, and glow softly from within.
+  const jellyfishBloom = [];
+  {
+    const jellyColors = [0x88e5ff, 0xb88cff, 0x99ffd6, 0xffaaff, 0x88ccff];
+    const positions = [
+      [-7.5, -0.6, 8.5], [-6.2, -0.9, 9.3], [-8.8, -1.1, 9.0],
+      [-5.4, -0.5, 7.7], [-7.1, -1.4, 7.4], [-9.2, -0.7, 8.0],
+      [-6.0, -1.7, 8.8], [-8.0, -1.0, 6.6], [-7.6, -0.3, 9.6],
+    ];
+    positions.forEach((p, i) => {
+      const color = jellyColors[i % jellyColors.length];
+      const jelly = new THREE.Group();
+      // Bell — half-sphere, translucent, glowing
+      const bellMat = new THREE.MeshStandardMaterial({
+        color, emissive: color, emissiveIntensity: 0.65,
+        transparent: true, opacity: 0.55, roughness: 0.4
+      });
+      const bellGeo = new THREE.SphereGeometry(0.42, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2);
+      const bell = new THREE.Mesh(bellGeo, bellMat);
+      jelly.add(bell);
+      // Inner glow disk
+      const glowMat = new THREE.MeshBasicMaterial({
+        color, transparent: true, opacity: 0.5,
+        blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
+      });
+      const glow = new THREE.Mesh(new THREE.CircleGeometry(0.55, 16), glowMat);
+      glow.rotation.x = -Math.PI / 2;
+      glow.position.y = -0.05;
+      jelly.add(glow);
+      // Tentacles — a few thin trailing strands
+      const tentMat = new THREE.LineBasicMaterial({
+        color, transparent: true, opacity: 0.45
+      });
+      const tentaclePts = [];
+      for (let s = 0; s < 5; s++) {
+        const a = (s / 5) * Math.PI * 2;
+        const len = 0.7 + (s % 2) * 0.25;
+        const pts = [
+          new THREE.Vector3(Math.cos(a) * 0.2, 0, Math.sin(a) * 0.2),
+          new THREE.Vector3(Math.cos(a) * 0.25, -len * 0.5, Math.sin(a) * 0.25),
+          new THREE.Vector3(Math.cos(a) * 0.18, -len, Math.sin(a) * 0.18),
+        ];
+        const geo = new THREE.BufferGeometry().setFromPoints(pts);
+        const line = new THREE.Line(geo, tentMat);
+        tentaclePts.push(line);
+        jelly.add(line);
+      }
+      jelly.position.set(p[0], p[1], p[2]);
+      jelly.userData = {
+        basePos: { x: p[0], y: p[1], z: p[2] },
+        phase: i * 0.7 + Math.random() * 0.5,
+        bell, glow,
+        bellGeo, // for pulse
+        tentacles: tentaclePts
+      };
+      group.add(jelly);
+      jellyfishBloom.push(jelly);
+    });
+  }
+
+  // 2) Manta ray — a wide flat fish gliding low along the seabed in a
+  //    slow figure-8. Wing tips flap subtly.
+  const mantaRay = (() => {
+    const m = new THREE.Group();
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0x1a2530, roughness: 0.85, metalness: 0.0
+    });
+    const bellyMat = new THREE.MeshStandardMaterial({
+      color: 0xc8d6e2, roughness: 0.8
+    });
+    // Body: flat lozenge using a wide ellipsoid
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.7, 18, 8), mat);
+    body.scale.set(2.4, 0.18, 1.4);
+    m.add(body);
+    // Belly underside lighter
+    const belly = new THREE.Mesh(new THREE.SphereGeometry(0.65, 16, 8), bellyMat);
+    belly.scale.set(2.2, 0.16, 1.3);
+    belly.position.y = -0.04;
+    m.add(belly);
+    // Two pectoral fin tips that we'll flap
+    const wingL = new THREE.Mesh(new THREE.SphereGeometry(0.55, 12, 6), mat);
+    wingL.scale.set(1.4, 0.06, 0.8);
+    wingL.position.set(-1.6, 0, 0);
+    m.add(wingL);
+    const wingR = wingL.clone();
+    wingR.position.set(1.6, 0, 0);
+    m.add(wingR);
+    // Long whip tail
+    const tailMat = new THREE.LineBasicMaterial({ color: 0x111922, transparent: true, opacity: 0.85 });
+    const tailGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(0, 0, -1.2),
+      new THREE.Vector3(0, 0.05, -1.7),
+      new THREE.Vector3(0, 0.1, -2.5),
+      new THREE.Vector3(0, 0.15, -3.5),
+    ]);
+    const tail = new THREE.Line(tailGeo, tailMat);
+    m.add(tail);
+    m.userData = { wingL, wingR, tail };
+    m.position.set(2, -1.7, 4);
+    group.add(m);
+    return m;
+  })();
+
+  // 3) Sea-otter pup with kelp ball — a small playful otter that drifts on
+  //    the surface near the kelp forest, spinning a green kelp ball above
+  //    its belly.
+  const otterPup = (() => {
+    const og = new THREE.Group();
+    const furMat = new THREE.MeshStandardMaterial({ color: 0x6b4a30, roughness: 0.9 });
+    const bellyMat = new THREE.MeshStandardMaterial({ color: 0xb89272, roughness: 0.9 });
+    // Body
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.32, 14, 10), furMat);
+    body.scale.set(1.5, 0.55, 1.0);
+    og.add(body);
+    // Belly (otters float on their backs!)
+    const belly = new THREE.Mesh(new THREE.SphereGeometry(0.26, 12, 8), bellyMat);
+    belly.scale.set(1.3, 0.4, 0.85);
+    belly.position.y = 0.05;
+    og.add(belly);
+    // Head
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 8), furMat);
+    head.position.set(0.42, 0.05, 0);
+    og.add(head);
+    // Two small ears
+    const ear = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 4), furMat);
+    ear.position.set(0.45, 0.18, 0.1);
+    og.add(ear);
+    const ear2 = ear.clone();
+    ear2.position.z = -0.1;
+    og.add(ear2);
+    // Kelp ball above belly — tiny rotating green orb with bumps
+    const kelpMat = new THREE.MeshStandardMaterial({ color: 0x335a25, roughness: 0.7, emissive: 0x224418, emissiveIntensity: 0.18 });
+    const kelpBall = new THREE.Mesh(new THREE.IcosahedronGeometry(0.13, 0), kelpMat);
+    kelpBall.position.set(0, 0.2, 0);
+    og.add(kelpBall);
+    og.position.set(-3, 0.05, 11);
+    og.userData = { kelpBall };
+    group.add(og);
+    return og;
+  })();
+
+  // 4) Distant lightning-storm cloud — a far cloud bank that flickers
+  //    occasionally with internal lightning. Subtle and ambient.
+  const stormCloud = (() => {
+    const sg = new THREE.Group();
+    // Cloud puffs
+    const cloudMat = new THREE.MeshBasicMaterial({
+      color: 0x2c3344, transparent: true, opacity: 0.7, side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    for (let i = 0; i < 7; i++) {
+      const c = new THREE.Mesh(
+        new THREE.SphereGeometry(2.2 + Math.random() * 1.4, 10, 7),
+        cloudMat.clone()
+      );
+      c.position.set((i - 3) * 1.7 + Math.random() * 0.6, Math.random() * 0.8, Math.random() * 0.8);
+      c.scale.set(1.2, 0.6, 0.7);
+      sg.add(c);
+    }
+    // Internal flash sphere — invisible normally, brightens on flash
+    const flashMat = new THREE.MeshBasicMaterial({
+      color: 0xeae5ff, transparent: true, opacity: 0,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    });
+    const flash = new THREE.Mesh(new THREE.SphereGeometry(3.2, 12, 8), flashMat);
+    sg.add(flash);
+    sg.position.set(-32, 14, -28);
+    sg.userData = { flash, flashTime: 0, nextFlash: 4 + Math.random() * 6 };
+    group.add(sg);
+    return sg;
+  })();
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -2573,6 +2752,97 @@ export function createAnchorageLandmark(THREE, opts) {
         bg.userData.wR.rotation.x = 0.2 - flap;
       }
     });
+
+    // ANCHORAGE v12 ANIMATIONS ----------------------------------------
+
+    // 1) Jellyfish: gentle bell-pulse + slow vertical drift + subtle
+    //    horizontal sway. Bell scales down/up rhythmically; emissive glow
+    //    breathes; tentacles fade slightly with the pulse.
+    jellyfishBloom.forEach((jelly, idx) => {
+      const ud = jelly.userData;
+      const phase = ud.phase + t * 0.55;
+      const pulse = 0.5 + 0.5 * Math.sin(phase * Math.PI * 2 / 1.8);
+      const sx = 1 + pulse * 0.18;
+      const sy = 1 - pulse * 0.28; // bell flattens then puffs
+      ud.bell.scale.set(sx, sy, sx);
+      ud.bell.material.emissiveIntensity = 0.45 + pulse * 0.55;
+      ud.glow.material.opacity = 0.35 + pulse * 0.45;
+      // Drift
+      jelly.position.x = ud.basePos.x + Math.sin(t * 0.18 + idx) * 0.4;
+      jelly.position.y = ud.basePos.y + Math.sin(t * 0.32 + idx * 0.7) * 0.25;
+      jelly.position.z = ud.basePos.z + Math.cos(t * 0.16 + idx * 0.5) * 0.35;
+      // Tentacles fade with bell pulse
+      ud.tentacles.forEach((tn) => {
+        tn.material.opacity = 0.30 + pulse * 0.25;
+      });
+    });
+
+    // 2) Manta ray: figure-8 path along the seabed; wings flap slowly;
+    //    tail trails behind.
+    {
+      const ang = t * 0.10;
+      // Lemniscate parameterization
+      const denom = 1 + Math.sin(ang) * Math.sin(ang);
+      const lemX = (5.0 * Math.cos(ang)) / denom;
+      const lemZ = (5.0 * Math.sin(ang) * Math.cos(ang)) / denom;
+      mantaRay.position.x = 2 + lemX;
+      mantaRay.position.z = 4 + lemZ;
+      mantaRay.position.y = -1.55 + Math.sin(t * 0.4) * 0.12;
+      // Heading along path tangent
+      const lookAng = ang + Math.PI / 2;
+      mantaRay.rotation.y = -lookAng;
+      // Wing flap
+      const flap = Math.sin(t * 1.4) * 0.22;
+      if (mantaRay.userData.wingL && mantaRay.userData.wingR) {
+        mantaRay.userData.wingL.position.y = flap;
+        mantaRay.userData.wingR.position.y = -flap;
+      }
+    }
+
+    // 3) Otter pup: drifts gently in small loop, kelp ball spins, otter
+    //    rolls slightly on its back.
+    {
+      const baseX = -3 + Math.sin(t * 0.13) * 1.2;
+      const baseZ = 11 + Math.cos(t * 0.11) * 1.0;
+      otterPup.position.set(baseX, 0.05 + Math.sin(t * 0.7) * 0.04, baseZ);
+      otterPup.rotation.y = Math.sin(t * 0.08) * 0.7;
+      otterPup.rotation.z = Math.sin(t * 1.1) * 0.18;
+      if (otterPup.userData.kelpBall) {
+        otterPup.userData.kelpBall.rotation.x = t * 1.6;
+        otterPup.userData.kelpBall.rotation.y = t * 2.1;
+        otterPup.userData.kelpBall.position.y = 0.22 + Math.sin(t * 1.3) * 0.04;
+      }
+    }
+
+    // 4) Storm cloud: occasional silent flashes. Counts down from
+    //    nextFlash; when it reaches 0, spike opacity for ~0.4s, then
+    //    reset for next 5–11s window.
+    {
+      const ud = stormCloud.userData;
+      ud.flashTime -= dt;
+      ud.nextFlash -= dt;
+      if (ud.nextFlash <= 0 && ud.flashTime <= 0) {
+        ud.flashTime = 0.35 + Math.random() * 0.25;
+        ud.nextFlash = 5 + Math.random() * 6;
+      }
+      if (ud.flashTime > 0) {
+        // Flash envelope: fast rise, slow decay
+        const u = 1 - (ud.flashTime / 0.6);
+        const env = u < 0.15 ? (u / 0.15) : Math.max(0, 1 - (u - 0.15) / 0.85);
+        ud.flash.material.opacity = env * 0.85;
+        // Tint the dark cloud puffs slightly during flash
+        stormCloud.children.forEach((cm) => {
+          if (cm !== ud.flash && cm.material) {
+            cm.material.opacity = 0.7 + env * 0.2;
+          }
+        });
+      } else {
+        ud.flash.material.opacity = 0;
+      }
+      // Slow drift across horizon
+      stormCloud.position.x = -32 + Math.sin(t * 0.02) * 4;
+      stormCloud.rotation.y = Math.sin(t * 0.03) * 0.2;
+    }
 
   }
 
