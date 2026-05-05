@@ -2891,6 +2891,123 @@ export function createAnchorageLandmark(THREE, opts) {
   harborCatGroup.rotation.y = -0.4;
   group.add(harborCatGroup);
 
+
+  // ============================================================
+  // v18: Dolphin pod, port-side cafe, comet water reflections
+  // ============================================================
+
+  // --- Dolphin pod -- 3 dolphins arc above and below the water surface
+  const dolphinPodGroup = new THREE.Group();
+  const dolphinMat = new THREE.MeshStandardMaterial({ color: 0x6f8aa6, emissive: 0x14202a, roughness: 0.45, metalness: 0.18 });
+  const dolphinBellyMat = new THREE.MeshStandardMaterial({ color: 0xcfdcec, emissive: 0x202830, roughness: 0.6 });
+  const dolphinPodMembers = [];
+  for (let i = 0; i < 3; i++) {
+    const d = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.28, 0.95, 5, 10), dolphinMat);
+    body.rotation.z = Math.PI / 2;
+    d.add(body);
+    const belly = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.5, 5, 10), dolphinBellyMat);
+    belly.rotation.z = Math.PI / 2;
+    belly.position.y = -0.13;
+    d.add(belly);
+    // Snout cone
+    const snout = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.36, 8), dolphinMat);
+    snout.rotation.z = -Math.PI / 2;
+    snout.position.x = 0.78;
+    d.add(snout);
+    // Dorsal fin
+    const dorsal = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.34, 4), dolphinMat);
+    dorsal.position.set(-0.1, 0.32, 0);
+    dorsal.rotation.x = -0.2;
+    d.add(dorsal);
+    // Tail flukes
+    const fluke = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.04, 0.5), dolphinMat);
+    fluke.position.x = -0.78;
+    d.add(fluke);
+    d.userData.phaseOffset = i * 1.7;
+    dolphinPodGroup.add(d);
+    dolphinPodMembers.push(d);
+  }
+  dolphinPodGroup.position.set(6, 0, -8);
+  group.add(dolphinPodGroup);
+
+  // --- Port-side cafe -- small glowing building near the dock
+  const portCafeGroup = new THREE.Group();
+  const cafeWalls = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 1.6, 1.8),
+    new THREE.MeshStandardMaterial({ color: 0x74553a, emissive: 0x261810, roughness: 0.85 })
+  );
+  cafeWalls.position.y = 0.8;
+  portCafeGroup.add(cafeWalls);
+  const cafeRoofMesh = new THREE.Mesh(
+    new THREE.ConeGeometry(2.0, 0.9, 4),
+    new THREE.MeshStandardMaterial({ color: 0x4a2a18, emissive: 0x180a06, roughness: 0.85 })
+  );
+  cafeRoofMesh.rotation.y = Math.PI / 4;
+  cafeRoofMesh.position.y = 2.05;
+  portCafeGroup.add(cafeRoofMesh);
+  // Glowing windows (warm lamp light)
+  const cafeWindowMat = new THREE.MeshBasicMaterial({ color: 0xffdfa3, transparent: true, opacity: 0.95 });
+  const cafeWin1 = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.46), cafeWindowMat);
+  cafeWin1.position.set(1.31, 0.95, -0.45);
+  cafeWin1.rotation.y = Math.PI / 2;
+  portCafeGroup.add(cafeWin1);
+  const cafeWin2 = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.46), cafeWindowMat);
+  cafeWin2.position.set(1.31, 0.95, 0.45);
+  cafeWin2.rotation.y = Math.PI / 2;
+  portCafeGroup.add(cafeWin2);
+  // Door
+  const cafeDoor = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.55, 1.05),
+    new THREE.MeshBasicMaterial({ color: 0xffba6a, transparent: true, opacity: 0.85 })
+  );
+  cafeDoor.position.set(1.31, 0.55, -0.02);
+  cafeDoor.rotation.y = Math.PI / 2;
+  portCafeGroup.add(cafeDoor);
+  // Sign
+  const cafeSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.4, 0.32),
+    new THREE.MeshBasicMaterial({ color: 0xffe9b8, transparent: true, opacity: 0.7 })
+  );
+  cafeSign.position.set(1.32, 1.55, 0);
+  cafeSign.rotation.y = Math.PI / 2;
+  portCafeGroup.add(cafeSign);
+  // Warm lamp glow
+  const cafeLamp = new THREE.PointLight(0xffc78a, 0.9, 7, 1.6);
+  cafeLamp.position.set(2.2, 1.0, 0);
+  portCafeGroup.add(cafeLamp);
+  // Chimney smoke wisps
+  const cafeChimneyGroup = new THREE.Group();
+  const cafeSmokeMat = new THREE.MeshBasicMaterial({ color: 0xa8b0bc, transparent: true, opacity: 0.45 });
+  const cafeSmokePuffs = [];
+  for (let i = 0; i < 5; i++) {
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(0.16 + i * 0.04, 8, 6), cafeSmokeMat);
+    puff.position.set(0, 2.4 + i * 0.32, 0);
+    puff.userData.phase = i * 0.7;
+    cafeChimneyGroup.add(puff);
+    cafeSmokePuffs.push(puff);
+  }
+  portCafeGroup.add(cafeChimneyGroup);
+  portCafeGroup.position.set(-5.2, -0.05, 12.1);
+  portCafeGroup.rotation.y = -0.3;
+  group.add(portCafeGroup);
+
+  // --- Comet water reflections -- thin streaks shimmer on the water
+  const cometReflectionGroup = new THREE.Group();
+  const cometReflectionMat = new THREE.MeshBasicMaterial({ color: 0xb6dcff, transparent: true, opacity: 0.0, side: THREE.DoubleSide });
+  const cometReflectionStreaks = [];
+  for (let i = 0; i < 4; i++) {
+    const streak = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 4.6), cometReflectionMat.clone());
+    streak.rotation.x = -Math.PI / 2;
+    streak.position.set((Math.random() - 0.5) * 30, 0.04, (Math.random() - 0.5) * 24);
+    streak.rotation.z = Math.random() * Math.PI;
+    streak.userData.phase = Math.random() * Math.PI * 2;
+    streak.userData.cycleSpeed = 0.18 + Math.random() * 0.10;
+    cometReflectionGroup.add(streak);
+    cometReflectionStreaks.push(streak);
+  }
+  group.add(cometReflectionGroup);
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -3719,6 +3836,45 @@ export function createAnchorageLandmark(THREE, opts) {
       catBody.scale.set(1.4 * br, 0.8 * br, 1.0 * br);
     }
 
+    // v18: dolphin pod -- arc above water on a slow loop
+    {
+      dolphinPodMembers.forEach((d, i) => {
+        const baseT = t * 0.45 + d.userData.phaseOffset;
+        // Pod swims in a wide circle around (6,0,-8)
+        const podR = 9 + i * 0.6;
+        const angle = baseT * 0.18;
+        const cx = Math.cos(angle) * podR;
+        const cz = Math.sin(angle) * podR;
+        // Arc up out of water on a sin pulse — every ~5s rises and dives
+        const rise = Math.sin(baseT * 1.1);
+        const breach = Math.max(0, rise) * Math.max(0, rise);
+        d.position.x = cx;
+        d.position.z = cz;
+        d.position.y = -0.2 + breach * 0.95;
+        // Tilt nose up while breaching, down while diving
+        d.rotation.z = -rise * 0.7;
+        d.rotation.y = -angle - Math.PI / 2;
+      });
+    }
+
+    // v18: cafe windows pulse warmly + smoke rises and fades
+    cafeWindowMat.opacity = 0.85 + 0.10 * Math.sin(t * 1.6);
+    cafeLamp.intensity = 0.85 + 0.18 * Math.sin(t * 1.4 + 0.3);
+    cafeSmokePuffs.forEach((puff, i) => {
+      const ph = (t * 0.5 + puff.userData.phase) % 4;
+      puff.position.y = 2.4 + ph * 0.55;
+      puff.position.x = Math.sin(t * 0.6 + puff.userData.phase) * 0.18;
+      puff.material.opacity = Math.max(0, 0.45 - ph * 0.10);
+      puff.scale.setScalar(1.0 + ph * 0.20);
+    });
+
+    // v18: comet water reflections shimmer briefly on the harbor surface
+    cometReflectionStreaks.forEach((streak) => {
+      const ph = (t * streak.userData.cycleSpeed + streak.userData.phase) % (Math.PI * 2);
+      // Brief pulse: visible only ~25% of the cycle
+      const tri = ph < Math.PI * 0.5 ? Math.sin(ph * 2) : 0;
+      streak.material.opacity = Math.max(0, tri * 0.55);
+    });
 
   }
 
