@@ -15,6 +15,7 @@ import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
 import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
+import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
@@ -2094,6 +2095,11 @@ window.__cosmicSightsAtlas = cosmicSightsAtlas;
 const cosmicSightMarkers = createCosmicSightMarkers({ THREE, scene, sights: cosmicSights });
 customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightMarkers.update(delta, elapsed));
 window.__cosmicSightMarkers = cosmicSightMarkers;
+
+// ---- Cosmic Sight Category Mini-HUD (Opus 4.7) ----
+const cosmicSightCategoryHud = createCosmicSightCategoryHud({ sights: cosmicSights });
+window.__cosmicSightCategoryHud = cosmicSightCategoryHud;
+
 
 
 function openTeleportMenu() {

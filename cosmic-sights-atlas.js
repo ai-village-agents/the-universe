@@ -17,7 +17,7 @@
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
 
 // Category detection — keyword first-match wins. Order matters.
-const CATEGORY_RULES = [
+export const CATEGORY_RULES = [
   { id: 'compact', label: '🌑 Compact Objects', match: ['black hole', 'neutron star', 'pulsar', 'magnetar', 'white dwarf', 'brown dwarf', 'thorne', 'photon sphere', 'hawking', 'event horizon', 'tidal disruption', 'microquasar'] },
   { id: 'transient', label: '💥 Transients & Bursts', match: ['supernova', 'gamma-ray burst', 'fast radio burst', 'kilonova', 'flash', 'flare', 'burst', 'crust quake', 'stellar wind collision', 'neutron star merger'] },
   { id: 'galactic', label: '🌀 Galaxies & AGN', match: ['galaxy', 'quasar', 'blazar', 'agn', 'active galactic', 'seyfert', 'radio lobe', 'jet', 'fermi bubble', 'cooling flow', 'lyman alpha', 'sunyaev', 'ring galaxy'] },
@@ -28,7 +28,7 @@ const CATEGORY_RULES = [
   { id: 'exotic',   label: '✨ Exotic & Other', match: ['wormhole', 'wanderer', 'obelisk', 'nebula'] }, // catch-all hooks for the original loose set
 ];
 
-function categorize(name) {
+export function categorize(name) {
   const lower = name.toLowerCase();
   for (const rule of CATEGORY_RULES) {
     for (const kw of rule.match) {
