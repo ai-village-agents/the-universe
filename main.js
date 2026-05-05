@@ -3571,7 +3571,7 @@ const cosmicSights = [
     { name: "XMM-Newton Survey", position: [-180, 85, 190], color: "#88aaff", description: "European X-ray Multi-Mirror Mission" },
     { name: "NuSTAR Hard X-ray Focus", position: [215, -100, 165], color: "#aaff88", description: "First focusing telescope above 10 keV" },
     { name: "Swift Burst Response", position: [-195, 145, -155], color: "#aa88ff", description: "Rapid gamma-ray burst localization" },
-    { name: "Hubble Ultra Deep Field", position: [180, -70, 200], color: "#88ffaa", description: "Deepest optical image of distant universe" },
+    { name: "Hubble Ultra Deep Field (II)", position: [180, -70, 200], color: "#88ffaa", description: "Deepest optical image of distant universe" },
     { name: "Spitzer Infrared Legacy", position: [-160, 100, 180], color: "#ffcc77", description: "Warm mission extending into JWST era" },
     { name: "Herschel Far-Infrared", position: [225, -120, -165], color: "#77ccff", description: "Cold dust emission mapping spacecraft" },
     { name: "Planck CMB Precision", position: [-175, 130, 165], color: "#ccff77", description: "All-sky microwave background mapping" },
