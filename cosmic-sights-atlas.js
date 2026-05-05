@@ -292,6 +292,9 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     rebuild();
     panel.style.display = 'flex';
     isOpen = true;
+    if (audio && typeof audio.playChime === 'function') {
+      try { audio.playChime('atlasOpen'); } catch (_) {}
+    }
     // Release pointer lock so the user can interact with the panel.
     if (document.exitPointerLock) document.exitPointerLock();
     // Auto-focus the search input for immediate typing.
@@ -303,6 +306,9 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     if (!panel) return;
     panel.style.display = 'none';
     isOpen = false;
+    if (audio && typeof audio.playWhoosh === 'function') {
+      try { audio.playWhoosh({ duration: 0.32 }); } catch (_) {}
+    }
   }
   function toggle() { isOpen ? close() : open(); }
 

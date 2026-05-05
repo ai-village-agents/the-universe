@@ -82,6 +82,12 @@ export function createPhotoGallery({ audio } = {}) {
   lightCaption.style.cssText = 'margin-top:12px; color:#cfe6ff; font-family:Consolas,monospace; font-size:12px;';
   const lightControls = document.createElement('div');
   lightControls.style.cssText = 'margin-top:14px; display:flex; gap:10px;';
+  const lbPrev = document.createElement('button');
+  lbPrev.textContent = '◀ Prev';
+  lbPrev.style.cssText = 'background:rgba(40,60,90,0.85); color:#cfe6ff; border:1px solid rgba(180,210,255,0.4); border-radius:8px; padding:6px 14px; font-size:12px; cursor:pointer;';
+  const lbNext = document.createElement('button');
+  lbNext.textContent = 'Next ▶';
+  lbNext.style.cssText = 'background:rgba(40,60,90,0.85); color:#cfe6ff; border:1px solid rgba(180,210,255,0.4); border-radius:8px; padding:6px 14px; font-size:12px; cursor:pointer;';
   const lbDownload = document.createElement('button');
   lbDownload.textContent = '⬇ Download';
   lbDownload.style.cssText = 'background:rgba(40,80,60,0.85); color:#bdf5d4; border:1px solid rgba(140,255,180,0.45); border-radius:8px; padding:6px 14px; font-size:12px; cursor:pointer;';
@@ -91,7 +97,7 @@ export function createPhotoGallery({ audio } = {}) {
   const lbClose = document.createElement('button');
   lbClose.textContent = '✕ Close';
   lbClose.style.cssText = 'background:rgba(40,60,90,0.85); color:#cfe6ff; border:1px solid rgba(180,210,255,0.4); border-radius:8px; padding:6px 14px; font-size:12px; cursor:pointer;';
-  lightControls.appendChild(lbDownload); lightControls.appendChild(lbDelete); lightControls.appendChild(lbClose);
+  lightControls.appendChild(lbPrev); lightControls.appendChild(lbDownload); lightControls.appendChild(lbDelete); lightControls.appendChild(lbNext); lightControls.appendChild(lbClose);
   lightbox.appendChild(lightImg); lightbox.appendChild(lightCaption); lightbox.appendChild(lightControls);
   card.appendChild(lightbox);
 
@@ -108,6 +114,16 @@ export function createPhotoGallery({ audio } = {}) {
     lightbox.style.display = 'none';
   }
 
+  function gotoOffset(delta) {
+    const arr = loadPhotos();
+    if (!currentLightbox || arr.length === 0) return;
+    const idx = arr.findIndex(p => p.ts === currentLightbox.ts && p.name === currentLightbox.name);
+    if (idx === -1) return;
+    const next = arr[(idx + delta + arr.length) % arr.length];
+    openLightbox(next);
+  }
+  lbPrev.addEventListener('click', () => gotoOffset(-1));
+  lbNext.addEventListener('click', () => gotoOffset(1));
   lbClose.addEventListener('click', closeLightbox);
   lbDownload.addEventListener('click', () => {
     if (!currentLightbox) return;
@@ -165,6 +181,7 @@ export function createPhotoGallery({ audio } = {}) {
     isOpen = false;
     closeLightbox();
     root.style.display = 'none';
+    if (audio?.playWhoosh) { try { audio.playWhoosh({ duration: 0.3 }); } catch (_) {} }
   }
   function toggle() { isOpen ? close() : open(); }
 
@@ -186,6 +203,9 @@ export function createPhotoGallery({ audio } = {}) {
     } else if (e.code === 'Escape' && isOpen) {
       if (lightbox.style.display === 'flex') closeLightbox();
       else close();
+    } else if (isOpen && lightbox.style.display === 'flex') {
+      if (e.code === 'ArrowLeft') { e.preventDefault(); gotoOffset(-1); }
+      else if (e.code === 'ArrowRight') { e.preventDefault(); gotoOffset(1); }
     }
   });
 
