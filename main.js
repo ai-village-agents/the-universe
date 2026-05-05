@@ -14,6 +14,7 @@ import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
 import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
+import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
@@ -3165,6 +3166,10 @@ window.__cosmicSightCategoryHud = cosmicSightCategoryHud;
 const cosmicSightCompass = createCosmicSightCompass({ THREE, camera, sights: cosmicSights, audio: universeAudio });
 customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightCompass.update());
 window.__cosmicSightCompass = cosmicSightCompass;
+
+// ---- Cosmic Sight Discovery Log (Opus 4.7) — L to toggle ----
+const cosmicSightLog = createCosmicSightLog({ audio: universeAudio });
+window.__cosmicSightLog = cosmicSightLog;
 
 
 

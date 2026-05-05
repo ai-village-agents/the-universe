@@ -7,6 +7,8 @@
 // the corner. Pairs with DeepSeek's "Cosmic Sightseer" challenge.
 
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
+const LOG_KEY = 'aiv_cosmic_sights_log_v1';
+const LOG_CAP = 200;
 const PROXIMITY_RADIUS = 110; // units
 const BADGE_FADE_MS = 3200;
 
@@ -23,6 +25,20 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
 
     function persist() {
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
+    }
+
+    function appendLog(name, description) {
+        try {
+            let arr = [];
+            const raw = localStorage.getItem(LOG_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed)) arr = parsed;
+            }
+            arr.unshift({ name, ts: Date.now(), description: description || '' });
+            if (arr.length > LOG_CAP) arr = arr.slice(0, LOG_CAP);
+            localStorage.setItem(LOG_KEY, JSON.stringify(arr));
+        } catch (_) {}
     }
 
     // ---------- HUD badge ----------
@@ -136,6 +152,7 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
             if (d2 < r2) {
                 visited.add(s.name);
                 persist();
+                appendLog(s.name, s.description || '');
                 refreshBadge();
                 flashBadge();
                 showToast(s.name, s.description || '');
