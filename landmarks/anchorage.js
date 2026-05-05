@@ -3008,6 +3008,150 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(cometReflectionGroup);
 
+
+  // --- v19: Harbor crane, weather vane, festival lantern string -------------
+  // Harbor crane at the dock loading area
+  const harborCraneGroup = new THREE.Group();
+  harborCraneGroup.position.set(-12, -0.05, -2);
+  harborCraneGroup.rotation.y = 0.35;
+  const craneSteelMat = new THREE.MeshStandardMaterial({ color: 0xcf3a2e, roughness: 0.55, metalness: 0.4 });
+  const craneCableMat = new THREE.MeshStandardMaterial({ color: 0x222a31, roughness: 0.7, metalness: 0.5 });
+  const cranePadMat = new THREE.MeshStandardMaterial({ color: 0x95a0a8, roughness: 0.85 });
+  const cargoCrateMat = new THREE.MeshStandardMaterial({ color: 0x2f7aa3, roughness: 0.65, metalness: 0.2 });
+  const cargoStripeMat = new THREE.MeshStandardMaterial({ color: 0xeaeaea, roughness: 0.7, emissive: 0x556677, emissiveIntensity: 0.05 });
+  // Concrete pad
+  const cranePad = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.12, 2.2), cranePadMat);
+  cranePad.position.y = 0.06;
+  harborCraneGroup.add(cranePad);
+  // Mast (A-frame, two angled legs + cross brace)
+  const craneMast = new THREE.Group();
+  const legGeo = new THREE.CylinderGeometry(0.08, 0.10, 3.6, 8);
+  const legA = new THREE.Mesh(legGeo, craneSteelMat);
+  legA.position.set(0.5, 1.92, 0);
+  legA.rotation.z = 0.14;
+  craneMast.add(legA);
+  const legB = new THREE.Mesh(legGeo, craneSteelMat);
+  legB.position.set(-0.5, 1.92, 0);
+  legB.rotation.z = -0.14;
+  craneMast.add(legB);
+  const crossBrace = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.0, 6), craneSteelMat);
+  crossBrace.position.set(0, 2.4, 0);
+  crossBrace.rotation.z = Math.PI * 0.5;
+  craneMast.add(crossBrace);
+  harborCraneGroup.add(craneMast);
+  // Cab (operator box) atop mast
+  const craneCab = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.55), craneSteelMat);
+  craneCab.position.set(0, 3.85, 0);
+  harborCraneGroup.add(craneCab);
+  // Boom assembly (pivots horizontally around y axis)
+  const craneBoom = new THREE.Group();
+  craneBoom.position.set(0, 3.92, 0);
+  const boomArm = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.14, 0.18), craneSteelMat);
+  boomArm.position.set(1.6, 0, 0);
+  craneBoom.add(boomArm);
+  // Boom truss (visual under-stringer)
+  const boomTruss = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.2, 6), craneSteelMat);
+  boomTruss.position.set(1.6, -0.18, 0);
+  boomTruss.rotation.z = Math.PI * 0.5;
+  craneBoom.add(boomTruss);
+  // Counterweight (back end)
+  const craneCounterweight = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.32, 0.46), new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.85 }));
+  craneCounterweight.position.set(-0.7, 0, 0);
+  craneBoom.add(craneCounterweight);
+  // Tip warning red light
+  const craneTipLight = new THREE.Mesh(new THREE.SphereGeometry(0.10, 10, 8), new THREE.MeshStandardMaterial({ color: 0xff5a3a, emissive: 0xff5a3a, emissiveIntensity: 1.0, roughness: 0.5 }));
+  craneTipLight.position.set(3.7, 0.10, 0);
+  craneBoom.add(craneTipLight);
+  // Cable hanging from boom tip down to cargo
+  const craneCable = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 3.4, 6), craneCableMat);
+  craneCable.position.set(3.6, -1.7, 0);
+  craneBoom.add(craneCable);
+  // Cargo container at end of cable
+  const craneCargo = new THREE.Group();
+  craneCargo.position.set(3.6, -3.45, 0);
+  const cargoBox = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.7, 1.6), cargoCrateMat);
+  craneCargo.add(cargoBox);
+  // Decorative stripe along cargo container
+  const cargoStripe = new THREE.Mesh(new THREE.BoxGeometry(0.96, 0.10, 1.62), cargoStripeMat);
+  cargoStripe.position.y = 0.18;
+  craneCargo.add(cargoStripe);
+  craneBoom.add(craneCargo);
+  harborCraneGroup.add(craneBoom);
+  group.add(harborCraneGroup);
+
+  // Weather vane atop harbor master cottage at world (-9, 2.55, 11)
+  const weatherVaneGroup = new THREE.Group();
+  weatherVaneGroup.position.set(-9, 2.55, 11);
+  weatherVaneGroup.rotation.y = -0.4;
+  const vaneMat = new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.7, metalness: 0.3 });
+  const vaneAccentMat = new THREE.MeshStandardMaterial({ color: 0xc89a3a, roughness: 0.5, metalness: 0.7, emissive: 0x664a18, emissiveIntensity: 0.15 });
+  // Vertical pole
+  const vanePole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.6, 6), vaneMat);
+  vanePole.position.y = 0.30;
+  weatherVaneGroup.add(vanePole);
+  // Cardinal direction cross (N/S/E/W arms)
+  const armNS = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.36, 6), vaneMat);
+  armNS.rotation.x = Math.PI * 0.5;
+  armNS.position.y = 0.55;
+  weatherVaneGroup.add(armNS);
+  const armEW = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.36, 6), vaneMat);
+  armEW.rotation.z = Math.PI * 0.5;
+  armEW.position.y = 0.55;
+  weatherVaneGroup.add(armEW);
+  // North marker letter as a small decorative cube
+  const northMarker = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, 0.04), vaneAccentMat);
+  northMarker.position.set(0, 0.55, 0.20);
+  weatherVaneGroup.add(northMarker);
+  // Spinner (rotates) — arrowhead + tail fin
+  const weatherVaneSpinner = new THREE.Group();
+  weatherVaneSpinner.position.y = 0.62;
+  const arrowShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.42, 6), vaneAccentMat);
+  arrowShaft.rotation.z = Math.PI * 0.5;
+  weatherVaneSpinner.add(arrowShaft);
+  const arrowHead = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.13, 8), vaneAccentMat);
+  arrowHead.rotation.z = -Math.PI * 0.5;
+  arrowHead.position.x = 0.27;
+  weatherVaneSpinner.add(arrowHead);
+  const vaneTailFin = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.10, 0.01), vaneAccentMat);
+  vaneTailFin.position.x = -0.22;
+  weatherVaneSpinner.add(vaneTailFin);
+  weatherVaneGroup.add(weatherVaneSpinner);
+  group.add(weatherVaneGroup);
+
+  // Festival lantern string between two posts (warm glowing catenary above plaza)
+  const festivalLanternGroup = new THREE.Group();
+  const postMat = new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.85 });
+  // Post 1
+  const fpost1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 3.4, 8), postMat);
+  fpost1.position.set(-7.8, 1.65, 4.0);
+  festivalLanternGroup.add(fpost1);
+  // Post 2
+  const fpost2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 3.4, 8), postMat);
+  fpost2.position.set(2.2, 1.65, 4.0);
+  festivalLanternGroup.add(fpost2);
+  // String of lanterns (catenary-like sag along x between posts)
+  const festivalLanterns = [];
+  const lanternBulbGeo = new THREE.SphereGeometry(0.10, 8, 6);
+  for (let i = 0; i < 12; i++) {
+    const tt = (i + 0.5) / 12; // 0..1
+    const xx = -7.8 + tt * 10.0;
+    const sag = -0.55 * Math.sin(tt * Math.PI);
+    const lanternMat = new THREE.MeshStandardMaterial({ color: 0xffc070, emissive: 0xffa040, emissiveIntensity: 0.85, roughness: 0.5 });
+    const lantern = new THREE.Mesh(lanternBulbGeo, lanternMat);
+    lantern.position.set(xx, 3.05 + sag, 4.0);
+    lantern.userData.basePos = { x: xx, y: 3.05 + sag, z: 4.0 };
+    lantern.userData.phase = Math.random() * Math.PI * 2;
+    festivalLanternGroup.add(lantern);
+    festivalLanterns.push(lantern);
+  }
+  // Faint warm point light at midspan
+  const festivalLanternLight = new THREE.PointLight(0xffa040, 0.25, 7.5, 2.0);
+  festivalLanternLight.position.set(-2.8, 2.55, 4.0);
+  festivalLanternGroup.add(festivalLanternLight);
+  group.add(festivalLanternGroup);
+
+  // --- v19 init complete ----------------------------------------------------
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -3875,6 +4019,26 @@ export function createAnchorageLandmark(THREE, opts) {
       const tri = ph < Math.PI * 0.5 ? Math.sin(ph * 2) : 0;
       streak.material.opacity = Math.max(0, tri * 0.55);
     });
+
+    // v19: Harbor crane gentle boom rotation + cargo bob + tip warning blink
+    craneBoom.rotation.y = Math.sin(t * 0.18) * 0.85;
+    craneCargo.position.y = -3.45 + Math.sin(t * 1.8) * 0.05;
+    const craneBlink = (Math.sin(t * 4.0) + 1) * 0.5; // 0..1
+    craneTipLight.material.emissiveIntensity = 0.55 + craneBlink * 0.95;
+
+    // v19: Weather vane wind-driven spinner
+    weatherVaneSpinner.rotation.y = Math.sin(t * 0.21) * 0.9 + Math.sin(t * 0.63) * 0.4;
+
+    // v19: Festival lantern string sway + flicker
+    for (let i = 0; i < festivalLanterns.length; i++) {
+      const lantern = festivalLanterns[i];
+      const ph = lantern.userData.phase;
+      const base = lantern.userData.basePos;
+      lantern.position.x = base.x + Math.sin(t * 0.7 + ph) * 0.06;
+      lantern.position.z = base.z + Math.cos(t * 0.55 + ph) * 0.04;
+      lantern.material.emissiveIntensity = 0.86 + 0.12 * Math.sin(t * 2.4 + ph * 1.3);
+    }
+    festivalLanternLight.intensity = 0.22 + 0.06 * Math.sin(t * 2.0);
 
   }
 
