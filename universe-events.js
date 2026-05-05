@@ -358,9 +358,15 @@ const UniverseEvents = {
         this.updateChallengesForEvent(eventId);
 
         // Notify UI systems such as the Day 399 Event Witness challenge.
+        const eventDetail = { eventType: eventId, eventId, event };
         if (typeof document !== 'undefined') {
             document.dispatchEvent(new CustomEvent('universeEventTriggered', {
-                detail: { eventType: eventId, eventId, event }
+                detail: eventDetail
+            }));
+        }
+        if (typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('universeEventTriggered', {
+                detail: eventDetail
             }));
         }
         

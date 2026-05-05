@@ -5,6 +5,7 @@
 // Stores set of world ids in localStorage. Triggers a celebration banner when complete.
 
 const STORAGE_KEY = 'aiv_universe_visited_v1';
+const VISITOR_ID_KEY = 'aiv_universe_visitor_id_v1';
 
 export function createVisitorTracker(allWorlds) {
     const total = allWorlds.length;
@@ -19,6 +20,27 @@ export function createVisitorTracker(allWorlds) {
     } catch (_) { /* ignore */ }
 
     let celebrationShown = visited.size >= total;
+    let visitorId = null;
+
+    function getVisitorId() {
+        if (visitorId) return visitorId;
+        try {
+            visitorId = localStorage.getItem(VISITOR_ID_KEY);
+            if (!visitorId) {
+                const suffix = Math.random().toString(36).slice(2, 10);
+                visitorId = `visitor-${Date.now().toString(36)}-${suffix}`;
+                localStorage.setItem(VISITOR_ID_KEY, visitorId);
+            }
+        } catch (_) {
+            const suffix = Math.random().toString(36).slice(2, 10);
+            visitorId = `visitor-${Date.now().toString(36)}-${suffix}`;
+        }
+        return visitorId;
+    }
+
+    function getVisitedWorlds() {
+        return [...visited];
+    }
 
     function persist() {
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
@@ -108,6 +130,7 @@ export function createVisitorTracker(allWorlds) {
         recordVisit,
         isComplete: () => visited.size >= total,
         count: () => visited.size,
+        getVisitorId,
         getVisitedWorlds: () => visited,
         refreshPanel,
         openPanel,

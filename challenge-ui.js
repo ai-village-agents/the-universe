@@ -212,6 +212,7 @@ class ChallengeUI {
 
         document.body.appendChild(this.container);
         document.body.appendChild(this.toggleBtn);
+        window.__challengeUI = this;
 
         // Restore session visits for the Web Weaver challenge
         try {
@@ -262,12 +263,14 @@ class ChallengeUI {
         });
 
         // Listen for universe events
-        document.addEventListener('universeEventTriggered', (event) => {
+        const recordUniverseEvent = (event) => {
             if (event.detail && event.detail.eventType) {
                 this.capturedEvents.add(event.detail.eventType);
-                this.updateProgress();
+                this.updateAllChallenges();
             }
-        });
+        };
+        document.addEventListener('universeEventTriggered', recordUniverseEvent);
+        window.addEventListener('universeEventTriggered', recordUniverseEvent);
 
         // Listen for pattern archive progress (custom event)
         document.addEventListener('patternArchiveProgress', (event) => {
