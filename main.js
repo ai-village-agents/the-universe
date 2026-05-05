@@ -1846,6 +1846,36 @@ const cosmicSights = [
     { name: "Axion Cloud", position: [-205, 95, 155], color: "#f0fff0", description: "Hypothetical cloud of axion particles forming around spinning black holes" },
     { name: "Fuzzy Dark Matter Halo", position: [175, -85, 195], color: "#708090", description: "Ultralight axion dark matter forming wavelike interference patterns" },
     { name: "Mirror Star", position: [-225, 55, -165], color: "#c0c0c0", description: "Hypothetical star made of mirror matter from parity-symmetric dark sector" },
+    // 351-355: Planetary Atmospheres
+    { name: "Hadley Cell", position: [195, -65, 175], color: "#87ceeb", description: "Large-scale atmospheric circulation cell transporting heat from equator to midlatitudes" },
+    { name: "Polar Vortex", position: [-175, 85, -195], color: "#4169e1", description: "Persistent large-scale cyclonic circulation around planetary poles" },
+    { name: "Great Dark Spot", position: [235, -55, 155], color: "#191970", description: "Giant anticyclonic storm system on ice giant planets" },
+    { name: "Hexagonal Storm", position: [-205, 75, 185], color: "#daa520", description: "Saturns unique six-sided polar vortex maintained by jet stream dynamics" },
+    { name: "Superrotation", position: [165, -95, -165], color: "#ffa07a", description: "Atmospheric winds faster than planetary rotation speed" },
+    // 356-360: Galaxy Cluster Features
+    { name: "Cool Core Cluster", position: [-145, 65, 195], color: "#00ced1", description: "Galaxy cluster with rapidly cooling gas at center feeding AGN feedback" },
+    { name: "Radio Relic", position: [215, -75, 145], color: "#ff6347", description: "Elongated radio source at cluster outskirts from merger shock waves" },
+    { name: "Radio Halo", position: [-225, 85, -155], color: "#9370db", description: "Giant diffuse radio emission filling cluster volume from turbulent reacceleration" },
+    { name: "Cluster Cold Front", position: [185, -45, 215], color: "#40e0d0", description: "Sharp temperature discontinuity from sloshing gas in merging clusters" },
+    { name: "Ram Pressure Tail", position: [-165, 55, 175], color: "#98fb98", description: "Stripped gas trailing behind galaxy moving through cluster medium" },
+    // 361-365: Magnetohydrodynamics
+    { name: "Magnetar Flare", position: [245, -85, -175], color: "#ff1493", description: "Intense burst of gamma rays from starquake on highly magnetized neutron star" },
+    { name: "Magnetic Reconnection Site", position: [-195, 75, 155], color: "#ffd700", description: "Region where opposing magnetic field lines break and rejoin releasing energy" },
+    { name: "Alfven Wave", position: [175, -55, 195], color: "#87cefa", description: "Magnetohydrodynamic wave propagating along magnetic field lines in plasma" },
+    { name: "Flux Rope", position: [-215, 65, -185], color: "#ff8c00", description: "Helical magnetic field structure often ejected in coronal mass events" },
+    { name: "Current Sheet", position: [205, -95, 165], color: "#f0e68c", description: "Thin layer of intense electric current separating magnetic domains" },
+    // 366-370: High Energy Phenomena
+    { name: "Pulsar Wind Shock", position: [-155, 85, 195], color: "#00ffff", description: "Termination shock where relativistic pulsar wind meets surrounding medium" },
+    { name: "Bow Shock Nebula", position: [225, -65, -195], color: "#dda0dd", description: "Arc-shaped structure where fast-moving star compresses interstellar medium" },
+    { name: "Jet Knot", position: [-185, 55, 175], color: "#1e90ff", description: "Bright condensation in relativistic jet from internal shock or instability" },
+    { name: "Hot Spot", position: [175, -75, 155], color: "#ff4500", description: "Bright region where relativistic jet impacts intergalactic medium" },
+    { name: "Cocoon Shock", position: [-235, 95, -165], color: "#da70d6", description: "Expanding bubble of shocked gas surrounding active radio jets" },
+    // 371-375: More Stellar Phenomena
+    { name: "Chromospheric Network", position: [195, -45, 205], color: "#ffa500", description: "Magnetic field pattern visible in stellar chromosphere at supergranule boundaries" },
+    { name: "Stellar Flare", position: [-165, 75, 185], color: "#ff6347", description: "Sudden brightening from magnetic reconnection in stellar atmosphere" },
+    { name: "Starspot Cycle", position: [245, -85, -155], color: "#8b4513", description: "Periodic variation in starspot coverage revealing magnetic activity cycle" },
+    { name: "Convective Blueshift", position: [-205, 55, 165], color: "#6495ed", description: "Net Doppler shift from bright rising granules dominating spectral lines" },
+    { name: "Asteroseismic Mode", position: [175, -65, 195], color: "#e6e6fa", description: "Standing wave oscillation in stellar interior probed by brightness variations" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
