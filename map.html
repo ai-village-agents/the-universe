@@ -175,23 +175,116 @@
 <body>
   <header>
     <h1>THE UNIVERSE</h1>
-    <p>Top-down overview map · click a world or focus the map and use arrow keys</p>
+    <p>Top-down overview map · 15 worlds + 50+ cosmic sights · click for details</p>
+    <p id="sight-count" style="margin-top:6px;color:#9bb0d4;font-size:11px;font-style:normal;letter-spacing:1px">Cosmic sights: loading…</p>
   </header>
   <nav>
     <a href="./">← 3D Hub</a>
+    <a href="#" id="toggle-sights" role="button" aria-pressed="true">◇ Sights: ON</a>
     <a href="https://github.com/ai-village-agents/the-universe" target="_blank" rel="noopener">GitHub</a>
   </nav>
   <canvas id="map" tabindex="0" role="img" aria-label="Top-down universe map. Click a world dot, or use arrow keys to cycle worlds, Enter to visit the selected world, and Escape to clear the panel."></canvas>
   <div id="legend">
     <strong>Cluster Constellations</strong>
     <ul id="legend-items"></ul>
+    <div style="margin-top:8px;border-top:1px solid rgba(136,204,255,0.2);padding-top:6px">
+      <strong>Cosmic Sights</strong><br>
+      <span style="display:inline-block;width:8px;height:8px;background:#88ccff;transform:rotate(45deg);margin:0 6px 0 2px;vertical-align:middle"></span>discovered &nbsp;
+      <span style="display:inline-block;width:8px;height:8px;background:#3a4a6c;transform:rotate(45deg);margin:0 6px 0 2px;vertical-align:middle"></span>undiscovered
+    </div>
   </div>
   <div id="info" aria-live="polite"></div>
   <div id="map-status" class="sr-only" aria-live="polite">Top-down map loaded. Focus the map and use arrow keys to cycle worlds.</div>
-  <div class="help">Click a world dot, or Tab to the map and use ←/→/↑/↓ to cycle worlds, Enter to visit, Escape to clear. Center crosshair = the Welcome Plaza at (0,0,30).</div>
+  <div class="help">Click a world dot, or Tab to the map and use ←/→/↑/↓ to cycle worlds, Enter to visit, Escape to clear. Hover diamonds for cosmic sights. Center crosshair = the Welcome Plaza at (0,0,30).</div>
 
   <script type="module">
     import { worlds } from "./config.js";
+
+    // Cosmic sights — fetched from main.js and parsed.
+    let cosmicSights = [];
+    let showSights = true;
+    let discoveredSet = new Set();
+    try {
+      const stored = localStorage.getItem('aiv_cosmic_sights_v1');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) discoveredSet = new Set(parsed);
+      }
+    } catch (e) { /* ignore */ }
+
+    async function loadCosmicSights() {
+      try {
+        const res = await fetch('./main.js?map=' + Date.now());
+        const text = await res.text();
+        const startIdx = text.indexOf('const cosmicSights = [');
+        if (startIdx < 0) return;
+        // Find matching close bracket
+        let depth = 0;
+        let i = text.indexOf('[', startIdx);
+        const open = i;
+        for (; i < text.length; i++) {
+          if (text[i] === '[') depth++;
+          else if (text[i] === ']') {
+            depth--;
+            if (depth === 0) break;
+          }
+        }
+        const arrayText = text.slice(open + 1, i);
+        // Match each entry: { name: '...', position: [x,y,z], color: '...', description: '...' }
+        const entryRe = /\{\s*name:\s*['"]([^'"]+)['"]\s*,\s*position:\s*\[([^\]]+)\]\s*,\s*color:\s*['"]([^'"]+)['"]/g;
+        const list = [];
+        let m;
+        while ((m = entryRe.exec(arrayText)) !== null) {
+          const name = m[1];
+          const pos = m[2].split(',').map(s => parseFloat(s.trim()));
+          const color = m[3];
+          if (pos.length === 3 && pos.every(n => Number.isFinite(n))) {
+            list.push({ name, position: pos, color });
+          }
+        }
+        cosmicSights = list;
+        updateSightCount();
+        // Refresh discovered set in case it changed
+        try {
+          const stored = localStorage.getItem('aiv_cosmic_sights_v1');
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) discoveredSet = new Set(parsed);
+          }
+        } catch (e) { /* ignore */ }
+      } catch (e) {
+        console.warn('Could not load cosmic sights:', e);
+      }
+    }
+
+    function updateSightCount() {
+      const el = document.getElementById('sight-count');
+      if (!el) return;
+      const total = cosmicSights.length;
+      const found = cosmicSights.reduce((n, s) => n + (discoveredSet.has(s.name) ? 1 : 0), 0);
+      const pct = total ? Math.round(found * 100 / total) : 0;
+      el.textContent = total
+        ? `Cosmic sights: ${found} / ${total} discovered (${pct}%)`
+        : 'Cosmic sights: (none loaded)';
+    }
+
+    document.addEventListener('cosmicSightVisited', () => {
+      try {
+        const stored = localStorage.getItem('aiv_cosmic_sights_v1');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) discoveredSet = new Set(parsed);
+        }
+      } catch (e) {}
+      updateSightCount();
+    });
+
+    loadCosmicSights().then(() => {
+      if (cosmicSights.length) {
+        expandBoundsForSights();
+        if (typeof resize === 'function') resize();
+      }
+    });
 
     const canvas = document.getElementById('map');
     const ctx = canvas.getContext('2d');
@@ -216,7 +309,7 @@
       legendUl.appendChild(li);
     });
 
-    // Find world bounds
+    // Find world bounds (expanded by cosmic sights once loaded)
     const padding = 30;
     let minX = -150, maxX = 150, minZ = -150, maxZ = 150;
     worlds.forEach(w => {
@@ -226,6 +319,15 @@
       if (z < minZ) minZ = z;
       if (z > maxZ) maxZ = z;
     });
+    function expandBoundsForSights() {
+      cosmicSights.forEach(s => {
+        const [x,,z] = s.position;
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (z < minZ) minZ = z;
+        if (z > maxZ) maxZ = z;
+      });
+    }
 
     let scale = 1, offX = 0, offY = 0, w = 0, h = 0;
     const stars = [];
@@ -353,14 +455,16 @@
           ctx.arc(cx, cy, r + 7 + Math.sin(timeT * 3) * 1.5, 0, Math.PI*2);
           ctx.stroke();
         }
-        // label
+        // label (always show name, but agent only on hover/selected to reduce clutter)
         ctx.fillStyle = '#cfe1ff';
         ctx.font = '11px Georgia';
         ctx.textAlign = 'center';
         ctx.fillText(world.name, cx, cy + r + 14);
-        ctx.fillStyle = '#5d7299';
-        ctx.font = 'italic 9px Georgia';
-        ctx.fillText(world.agent || '', cx, cy + r + 25);
+        if (selectedWorld?.id === world.id || (currentMouse && Math.hypot(currentMouse.x - cx, currentMouse.y - cy) < r + 12)) {
+          ctx.fillStyle = '#5d7299';
+          ctx.font = 'italic 9px Georgia';
+          ctx.fillText(world.agent || '', cx, cy + r + 25);
+        }
 
         world._cx = cx; world._cy = cy; world._r = r;
         if (currentMouse && Math.hypot(currentMouse.x - cx, currentMouse.y - cy) < r + 6) {
@@ -368,8 +472,60 @@
         }
       });
 
+      // Cosmic sights (diamond markers)
+      let hoverSight = null;
+      if (showSights && cosmicSights.length) {
+        cosmicSights.forEach(sight => {
+          const [x,,z] = sight.position;
+          const [cx, cy] = worldToCanvas(x, z);
+          const discovered = discoveredSet.has(sight.name);
+          const baseR = discovered ? 4 : 3;
+          const r = baseR + Math.sin(timeT*1.8 + (x + z) * 0.04) * 0.6;
+          const color = sight.color || '#9bb0d4';
+          if (discovered) {
+            // Glow halo
+            ctx.fillStyle = color + '40';
+            ctx.beginPath();
+            ctx.arc(cx, cy, r * 3.5, 0, Math.PI*2);
+            ctx.fill();
+          }
+          // Diamond shape
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(Math.PI / 4);
+          ctx.fillStyle = discovered ? color : '#3a4a6c';
+          ctx.strokeStyle = discovered ? '#ffffffcc' : color + '88';
+          ctx.lineWidth = discovered ? 1.2 : 0.8;
+          ctx.beginPath();
+          ctx.rect(-r, -r, r*2, r*2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+          sight._cx = cx; sight._cy = cy; sight._r = r;
+          if (currentMouse && Math.hypot(currentMouse.x - cx, currentMouse.y - cy) < r + 5) {
+            hoverSight = sight;
+          }
+        });
+        // Hovered sight: show small label
+        if (hoverSight) {
+          const labelY = hoverSight._cy - 12;
+          ctx.fillStyle = 'rgba(8,14,28,0.85)';
+          const labelText = (discoveredSet.has(hoverSight.name) ? '◆ ' : '◇ ') + hoverSight.name;
+          ctx.font = '11px Georgia';
+          const metrics = ctx.measureText(labelText);
+          const lw = metrics.width + 12;
+          ctx.fillRect(hoverSight._cx - lw/2, labelY - 14, lw, 18);
+          ctx.strokeStyle = (hoverSight.color || '#9bb0d4') + 'aa';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(hoverSight._cx - lw/2, labelY - 14, lw, 18);
+          ctx.fillStyle = discoveredSet.has(hoverSight.name) ? (hoverSight.color || '#cfe1ff') : '#cfe1ff';
+          ctx.textAlign = 'center';
+          ctx.fillText(labelText, hoverSight._cx, labelY);
+        }
+      }
+
       // Hover tooltip
-      if (hoverWorld) {
+      if (hoverWorld || hoverSight) {
         canvas.style.cursor = 'pointer';
       } else {
         canvas.style.cursor = 'default';
@@ -447,6 +603,15 @@
       requestAnimationFrame(loop);
     }
 
+    const toggleBtn = document.getElementById('toggle-sights');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', e => {
+        e.preventDefault();
+        showSights = !showSights;
+        toggleBtn.textContent = showSights ? '◇ Sights: ON' : '◇ Sights: OFF';
+        toggleBtn.setAttribute('aria-pressed', showSights ? 'true' : 'false');
+      });
+    }
     window.addEventListener('resize', resize);
     resize();
     loop();
