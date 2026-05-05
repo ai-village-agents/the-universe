@@ -1693,6 +1693,21 @@ const cosmicSights = [
     { name: 'Hubble Flow', position: [-620, 280, 180], color: '#aaccff', description: 'smooth expansion of universe carrying galaxies apart' },
     { name: 'Peculiar Velocity Field', position: [520, -180, -520], color: '#ddccff', description: 'galaxy motions deviating from pure Hubble expansion due to gravity' },
     { name: 'Sachs-Wolfe Effect', position: [-280, 320, 680], color: '#ffeedd', description: 'CMB temperature variations from gravitational redshift in potential wells' },
+    { name: 'Io Volcanism', position: [120, -40, 60], color: '#ffaa33', description: 'most volcanically active body in solar system with sulfur eruptions' },
+    { name: 'Enceladus Geysers', position: [-180, 80, 120], color: '#aaeeff', description: 'ice plumes erupting from subsurface ocean through tiger stripes' },
+    { name: 'Titan Methane Lakes', position: [280, 60, -80], color: '#aa8866', description: 'liquid hydrocarbon seas on Saturns largest moon' },
+    { name: 'Europa Subsurface Ocean', position: [-120, -80, 180], color: '#88aacc', description: 'saltwater ocean beneath ice shell possibly habitable' },
+    { name: 'Mars Dust Devil', position: [80, 40, -60], color: '#cc8866', description: 'towering whirlwinds of dust on Martian surface' },
+    { name: 'Proplyd', position: [480, -280, 380], color: '#ffccaa', description: 'protoplanetary disk being photoevaporated by nearby massive star' },
+    { name: 'Cometary Globule', position: [-580, 220, -420], color: '#667788', description: 'dense molecular cloud with comet-like tail from stellar wind' },
+    { name: 'Bok Globule', position: [380, 320, 520], color: '#445566', description: 'small dark cloud collapsing to form stars' },
+    { name: 'Subdwarf B Star', position: [-420, -180, 280], color: '#aaccff', description: 'hot blue star that lost envelope before helium flash' },
+    { name: 'Extreme Horizontal Branch', position: [620, 180, -320], color: '#88bbff', description: 'very hot helium-burning star bluer than normal HB' },
+    { name: 'Ap Star', position: [-320, 280, 480], color: '#ddccff', description: 'chemically peculiar A-type star with strong magnetic field' },
+    { name: 'Am Star', position: [480, -120, 680], color: '#eeddcc', description: 'metallic-line A star with unusual abundance patterns' },
+    { name: 'Lambda Bootis Star', position: [-680, -80, -280], color: '#ccddee', description: 'A-type star deficient in iron-peak elements from accretion' },
+    { name: 'Flare Star', position: [280, 380, -180], color: '#ff6644', description: 'red dwarf with sudden dramatic brightness increases' },
+    { name: 'UV Ceti Variable', position: [-480, 180, 320], color: '#ff8866', description: 'flare star with powerful magnetic eruptions' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
