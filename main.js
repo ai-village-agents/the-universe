@@ -1628,6 +1628,16 @@ const cosmicSights = [
     { name: 'Observable Universe Horizon', position: [-100, 280, -200], color: '#ffffff', description: 'cosmic light horizon 46 billion light years marking visible universe edge' },
     { name: 'Particle Horizon', position: [200, -250, 350], color: '#ffeedd', description: 'boundary beyond which light has not had time to reach us since Big Bang' },
     { name: 'Event Horizon Cosmos', position: [-500, 100, 500], color: '#ddffff', description: 'boundary beyond which events will never be observable due to cosmic expansion' },
+    { name: 'Inflation Field', position: [450, -120, -650], color: '#ffee88', description: 'hypothetical scalar field driving exponential expansion in first fraction of second' },
+    { name: 'Reheating Epoch', position: [-650, 180, 350], color: '#ffaa66', description: 'moment when inflation ended and energy converted to hot particle plasma' },
+    { name: 'Electroweak Phase Transition', position: [300, -200, 750], color: '#88ffdd', description: 'symmetry breaking moment giving particles mass via Higgs mechanism' },
+    { name: 'QCD Phase Transition', position: [-400, 100, -500], color: '#ff6699', description: 'quarks confined into protons and neutrons as universe cooled' },
+    { name: 'Nucleosynthesis Epoch', position: [700, 150, 200], color: '#aaffaa', description: 'first three minutes when hydrogen helium and lithium nuclei formed' },
+    { name: 'Recombination Surface', position: [-550, -80, 650], color: '#ffeedd', description: 'moment when electrons joined nuclei creating transparent universe we see as CMB' },
+    { name: 'Dark Ages', position: [850, -150, -400], color: '#445566', description: 'era before first stars when universe was filled with neutral hydrogen fog' },
+    { name: 'First Light', position: [-750, 200, -150], color: '#ffffcc', description: 'moment when first stars ignited ending cosmic dark ages' },
+    { name: 'Population III Star', position: [500, 100, 550], color: '#aaddff', description: 'hypothetical first generation massive star made only of hydrogen and helium' },
+    { name: 'First Black Hole', position: [-300, -180, 800], color: '#aa44ff', description: 'earliest black holes forming from first massive star collapses' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
