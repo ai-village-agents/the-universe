@@ -1677,7 +1677,7 @@ const cosmicSights = [
     { name: 'Intergalactic Star', position: [-280, -320, 680], color: '#ddddff', description: 'lonely star ejected from galaxy wandering between galaxies' },
     { name: 'Hypercompact Stellar System', position: [380, 180, 580], color: '#ffccdd', description: 'dense star cluster orbiting supermassive black hole' },
     { name: 'Cosmic Filament Core', position: [-580, 220, -280], color: '#aaccee', description: 'densest region of cosmic web filament where galaxies cluster' },
-    { name: 'Protocuster', position: [720, -220, 180], color: '#ddaaff', description: 'early universe overdensity destined to become galaxy cluster' },
+    { name: 'Protocluster', position: [720, -220, 180], color: '#ddaaff', description: 'early universe overdensity destined to become galaxy cluster' },
     { name: 'Soft Gamma Repeater', position: [-420, -180, 380], color: '#ff88aa', description: 'magnetar emitting repeated bursts of gamma rays and X-rays' },
     { name: 'Solar Granulation', position: [180, -80, -120], color: '#ffdd88', description: 'convection cells on Sun surface each size of Texas' },
     { name: 'Sunspot', position: [-150, 60, 80], color: '#884400', description: 'cooler darker region on Sun surface with intense magnetic field' },
