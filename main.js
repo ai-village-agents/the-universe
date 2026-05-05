@@ -1786,6 +1786,36 @@ const cosmicSights = [
     { name: "Magnetic Monopole", position: [-205, 55, 195], color: "#ff69b4", description: "Hypothetical particle with isolated north or south magnetic pole" },
     { name: "Cosmic Texture", position: [175, -65, 155], color: "#9932cc", description: "Topological defect from symmetry breaking without stable localized structure" },
     { name: "Primordial Black Hole", position: [-145, 75, -215], color: "#000000", description: "Black hole formed in early universe density fluctuations, potential dark matter candidate" },
+    // 301-305: Galaxy Morphology
+    { name: "Barred Spiral Galaxy", position: [265, -55, 175], color: "#ffa07a", description: "Spiral galaxy with central bar-shaped stellar structure channeling gas inward" },
+    { name: "Ring Galaxy", position: [-235, 85, -185], color: "#40e0d0", description: "Rare galaxy with ring of young stars formed by collision through disk center" },
+    { name: "Polar Ring Galaxy", position: [185, -75, 215], color: "#dda0dd", description: "Galaxy with ring of gas and stars orbiting perpendicular to main disk" },
+    { name: "Shell Galaxy", position: [-195, 65, 155], color: "#f5deb3", description: "Elliptical galaxy with concentric arc structures from past merger events" },
+    { name: "Seyfert 2 Galaxy", position: [225, -85, -165], color: "#9acd32", description: "Active galaxy with obscured nucleus viewed edge-on through dusty torus" },
+    // 306-310: Interstellar Medium
+    { name: "Giant Molecular Cloud", position: [-175, 55, 195], color: "#4a4a4a", description: "Massive cold cloud of molecular hydrogen, birthplace of star clusters" },
+    { name: "HII Region", position: [205, -45, 145], color: "#ff6b6b", description: "Emission nebula of ionized hydrogen glowing from hot young star radiation" },
+    { name: "Superbubble", position: [-225, 75, -155], color: "#87cefa", description: "Giant cavity blown by combined stellar winds and supernovae from OB association" },
+    { name: "Chimney Structure", position: [165, -95, 185], color: "#c0c0c0", description: "Vertical channel in galactic disk venting hot gas into the halo" },
+    { name: "High Velocity Cloud", position: [-145, 85, 205], color: "#6495ed", description: "Gas cloud moving through galactic halo at speeds incompatible with disk rotation" },
+    // 311-315: More Stellar Types
+    { name: "Herbig Ae/Be Star", position: [245, -65, -195], color: "#ffd700", description: "Young intermediate-mass star with circumstellar disk still forming planets" },
+    { name: "FU Orionis Star", position: [-185, 55, 165], color: "#ff8c00", description: "Young star undergoing dramatic brightness increase from accretion outburst" },
+    { name: "EX Lupi Variable", position: [175, -75, 225], color: "#ffa500", description: "Young star with repetitive outbursts from episodic mass accretion" },
+    { name: "Vega-like Star", position: [-215, 95, -145], color: "#f0f8ff", description: "Main sequence star with infrared excess indicating debris disk" },
+    { name: "Barium Star", position: [195, -55, 155], color: "#daa520", description: "Giant star enriched in heavy elements from past companion mass transfer" },
+    // 316-320: Multiple Star Systems
+    { name: "Trapezium System", position: [-155, 65, 195], color: "#00bfff", description: "Young massive multiple star system ionizing the Orion Nebula" },
+    { name: "Hierarchical Triple", position: [235, -85, -175], color: "#98fb98", description: "Three-star system with close binary orbited by distant third companion" },
+    { name: "Quadruple Star System", position: [-195, 75, 145], color: "#dda0dd", description: "Four-star system typically as two binary pairs in mutual orbit" },
+    { name: "Quintuple Star System", position: [165, -45, 215], color: "#f0e68c", description: "Five-star system with complex hierarchical gravitational dance" },
+    { name: "Runaway Star", position: [-225, 85, -165], color: "#ff4500", description: "High-velocity star ejected from birthplace by supernova kick or dynamical interaction" },
+    // 321-325: Solar System Features
+    { name: "Trojan Asteroid", position: [205, -65, 175], color: "#a0522d", description: "Asteroid sharing planets orbit at stable Lagrange points L4 or L5" },
+    { name: "Centaur Object", position: [-175, 55, 185], color: "#808080", description: "Minor planet orbiting between Jupiter and Neptune with unstable chaotic orbit" },
+    { name: "Scattered Disk Object", position: [245, -75, -155], color: "#d2691e", description: "Distant icy body with highly elliptical orbit perturbed by Neptune" },
+    { name: "Detached Object", position: [-205, 95, 145], color: "#bc8f8f", description: "Trans-Neptunian object with perihelion too distant for Neptune influence" },
+    { name: "Sednoid", position: [175, -85, 205], color: "#8b4513", description: "Extreme trans-Neptunian object hinting at Planet Nine or stellar flyby" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
