@@ -882,6 +882,18 @@ const relativisticJet = createRelativisticJet(THREE);
 relativisticJet.group.position.set(-100, -100, 600);
 scene.add(relativisticJet.group);
 customLandmarkAnimators.push((elapsed, delta, time) => relativisticJet.group.userData.update(elapsed));
+
+// Active Galactic Nucleus - supermassive black hole at galaxy center
+const activeGalacticNucleus = createActiveGalacticNucleus(THREE);
+activeGalacticNucleus.group.position.set(600, 50, -700);
+scene.add(activeGalacticNucleus.group);
+customLandmarkAnimators.push((elapsed, delta, time) => activeGalacticNucleus.group.userData.update(elapsed));
+
+// Cosmic Ray Shower - high-energy particle cascade
+const cosmicRayShower = createCosmicRayShower(THREE);
+cosmicRayShower.group.position.set(-700, 100, 400);
+scene.add(cosmicRayShower.group);
+customLandmarkAnimators.push((elapsed, delta, time) => cosmicRayShower.group.userData.update(elapsed));
     scene.add(darkEnergyBubble.group);
     customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
@@ -1464,6 +1476,9 @@ const cosmicSights = [
     { name: 'Interstellar Medium', position: [-200, -50, 750], color: '#445577', description: 'diffuse gas and dust clouds between stars with ionized regions and molecular cores' },
     { name: 'Symbiotic Star', position: [300, 150, -550], color: '#ff6688', description: 'white dwarf accreting from red giant companion with mass transfer stream and periodic nova outbursts' },
     { name: 'Dark Energy Bubble', position: [-350, 180, -350], color: '#8844cc', description: 'visualization of mysterious cosmic acceleration with expanding spacetime grid and energy fluctuations' },
+    { name: 'Relativistic Jet', position: [-100, -100, 600], color: '#ff00ff', description: 'spectacular twin particle beams ejected at near-light speed from spinning black hole' },
+    { name: 'Active Galactic Nucleus', position: [600, 50, -700], color: '#ffffff', description: 'supermassive black hole at galaxy center outshining billions of stars with luminous accretion disk' },
+    { name: 'Cosmic Ray Shower', position: [-700, 100, 400], color: '#00ffff', description: 'high-energy particle cascade from deep space with ionization trails and secondary particles' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
