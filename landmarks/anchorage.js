@@ -2691,6 +2691,89 @@ export function createAnchorageLandmark(THREE, opts) {
   harborMaster.rotation.y = -0.4;
   group.add(harborMaster);
 
+  // --- v16 features (Opus 4.7) -----------------------------------------------
+  // Floating sea lanterns: 5 small drifting paper lanterns lit at night
+  const seaLanternGroup = new THREE.Group();
+  const seaLanternFloats = [];
+  const seaLanternMat = new THREE.MeshBasicMaterial({ color: 0xffd285, transparent: true, opacity: 0.92 });
+  const seaLanternBaseMat = new THREE.MeshStandardMaterial({ color: 0x8b5a2b, roughness: 0.7, metalness: 0.05 });
+  for (let i = 0; i < 5; i++) {
+    const fl = new THREE.Group();
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.06, 8), seaLanternBaseMat);
+    base.position.y = -0.25;
+    fl.add(base);
+    const shade = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.15, 0.22, 8, 1, true), seaLanternMat);
+    shade.position.y = -0.13;
+    fl.add(shade);
+    const top = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), seaLanternMat);
+    top.position.y = 0.0;
+    fl.add(top);
+    const angle = (i / 5) * Math.PI * 2;
+    fl.userData.baseAngle = angle;
+    fl.userData.radius = 6 + i * 0.6;
+    fl.userData.bobPhase = i * 0.7;
+    fl.userData.driftSpeed = 0.05 + i * 0.012;
+    fl.position.set(Math.cos(angle) * fl.userData.radius, -0.18, Math.sin(angle) * fl.userData.radius);
+    seaLanternGroup.add(fl);
+    seaLanternFloats.push(fl);
+  }
+  group.add(seaLanternGroup);
+
+  // Stargazing platform: wooden deck on stilts at -7,0,-2 with a small telescope
+  const stargazerPlatform = new THREE.Group();
+  const skyDeckBase = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.16, 2.4),
+    new THREE.MeshStandardMaterial({ color: 0x6b4a2c, roughness: 0.85 })
+  );
+  skyDeckBase.position.y = 0.6;
+  stargazerPlatform.add(skyDeckBase);
+  for (let sx = -1; sx <= 1; sx += 2) {
+    for (let sz = -1; sz <= 1; sz += 2) {
+      const stilt = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.07, 0.08, 0.7, 6),
+        new THREE.MeshStandardMaterial({ color: 0x4a3018, roughness: 0.9 })
+      );
+      stilt.position.set(sx * 1.0, 0.25, sz * 1.0);
+      stargazerPlatform.add(stilt);
+    }
+  }
+  // Telescope
+  const skyTelescopeMount = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.5, 8),
+    new THREE.MeshStandardMaterial({ color: 0x222a36, roughness: 0.5, metalness: 0.6 })
+  );
+  skyTelescopeMount.position.set(0.4, 0.92, 0);
+  stargazerPlatform.add(skyTelescopeMount);
+  const skyTelescopeTube = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.09, 0.09, 0.7, 8),
+    new THREE.MeshStandardMaterial({ color: 0x111820, roughness: 0.4, metalness: 0.7, emissive: 0x223344, emissiveIntensity: 0.18 })
+  );
+  skyTelescopeTube.rotation.z = -0.6;
+  skyTelescopeTube.position.set(0.55, 1.18, 0);
+  stargazerPlatform.add(skyTelescopeTube);
+  const skyTelescopeEyepiece = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.1, 8),
+    new THREE.MeshStandardMaterial({ color: 0x222a36, roughness: 0.5, metalness: 0.7 })
+  );
+  skyTelescopeEyepiece.rotation.z = -0.6;
+  skyTelescopeEyepiece.position.set(0.27, 1.0, 0);
+  stargazerPlatform.add(skyTelescopeEyepiece);
+  stargazerPlatform.position.set(-7, -0.2, -2);
+  stargazerPlatform.rotation.y = 0.4;
+  group.add(stargazerPlatform);
+
+  // Signal flare: an occasional rising glow (rocket flare) from far at sea
+  const signalFlareCore = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0xffe16a, transparent: true, opacity: 0 })
+  );
+  const signalFlareGlow = new THREE.PointLight(0xffd28a, 0, 35, 1.6);
+  const signalFlareGroup = new THREE.Group();
+  signalFlareGroup.add(signalFlareCore);
+  signalFlareGroup.add(signalFlareGlow);
+  signalFlareGroup.position.set(-25, 0, -22);
+  group.add(signalFlareGroup);
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -3453,6 +3536,32 @@ export function createAnchorageLandmark(THREE, opts) {
       chimneySmoke.material.opacity = Math.max(0, 0.5 - ((t * 0.4) % 1.4) * 0.32);
       chimneySmoke.scale.setScalar(1.0 + ((t * 0.4) % 1.4) * 0.6);
     }
+
+    // v16: floating sea lanterns drift slowly in circles, bob with waves
+    seaLanternFloats.forEach((fl) => {
+      const a = fl.userData.baseAngle + t * fl.userData.driftSpeed;
+      const r = fl.userData.radius + Math.sin(t * 0.4 + fl.userData.bobPhase) * 0.4;
+      fl.position.x = Math.cos(a) * r;
+      fl.position.z = Math.sin(a) * r;
+      fl.position.y = -0.18 + Math.sin(t * 1.3 + fl.userData.bobPhase) * 0.05;
+      fl.rotation.y += dt * 0.2;
+    });
+
+    // v16: signal flare — rises and fades roughly every 18s
+    const flareCycle = (t % 18) / 18;
+    if (flareCycle < 0.18) {
+      const phase = flareCycle / 0.18;
+      // rising arc
+      signalFlareGroup.position.y = phase * 6.5;
+      const intensity = Math.sin(phase * Math.PI);
+      signalFlareCore.material.opacity = intensity * 0.95;
+      signalFlareGlow.intensity = intensity * 1.6;
+    } else {
+      signalFlareCore.material.opacity = 0;
+      signalFlareGlow.intensity = 0;
+      signalFlareGroup.position.y = 0;
+    }
+
 
   }
 
