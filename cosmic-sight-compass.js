@@ -7,7 +7,20 @@
 //
 // Factory: createCosmicSightCompass({ THREE, camera, sights }) -> { update, toggle, show, hide }
 
+import { categorize, CATEGORY_RULES } from './cosmic-sights-atlas.js';
+
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
+const PROXIMITY_CUE_DIST = 25; // units — chime when first crossing this radius
+
+// Build id -> emoji map from CATEGORY_RULES (label is "🌑 Compact Objects" etc.)
+const CATEGORY_EMOJI = (() => {
+    const map = {};
+    for (const rule of CATEGORY_RULES) {
+        const m = rule.label.match(/^(\S+)/);
+        map[rule.id] = m ? m[1] : '✨';
+    }
+    return map;
+})();
 
 function readDiscovered() {
     try {
@@ -18,7 +31,7 @@ function readDiscovered() {
     } catch (e) { return new Set(); }
 }
 
-export function createCosmicSightCompass({ THREE, camera, sights }) {
+export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
     const wrap = document.createElement('div');
     wrap.id = 'cosmic-sight-compass';
     wrap.style.cssText = [
@@ -65,6 +78,8 @@ export function createCosmicSightCompass({ THREE, camera, sights }) {
     let visible = true;
     let cachedDiscovered = readDiscovered();
     let cacheCounter = 0;
+    let lastTargetName = null;
+    let proximityCueArmed = true; // re-arms whenever target changes or distance grows beyond cue radius
 
     const tmpVec = new THREE.Vector3();
     const camForward = new THREE.Vector3();
@@ -133,9 +148,33 @@ export function createCosmicSightCompass({ THREE, camera, sights }) {
         arrow.style.transform = `rotate(${deg.toFixed(0)}deg)`;
         const labelColor = target.undiscovered ? '#fff5d4' : '#9bf5b8';
         const tag = target.undiscovered ? 'nearest undiscovered' : 'nearest (all discovered)';
-        label.innerHTML = `<span style="opacity:0.7;font-size:10px">${tag}</span><br><span style="color:${labelColor}">${sight.name}</span>`;
+        const emoji = CATEGORY_EMOJI[categorize(sight.name)] || '✨';
+        label.innerHTML = `<span style="opacity:0.7;font-size:10px">${tag}</span><br><span style="color:${labelColor}">${emoji} ${sight.name}</span>`;
         dist.textContent = `${target.dist.toFixed(0)} u`;
-        arrow.style.color = target.undiscovered ? '#fff5d4' : '#9bf5b8';
+        // Close-range visual pulse + first-crossing audio chime
+        if (target.dist < PROXIMITY_CUE_DIST + 5) {
+            // visual: gold + brighter shadow when very close
+            arrow.style.color = '#ffd97d';
+            arrow.style.textShadow = '0 0 12px rgba(255,220,120,0.95)';
+        } else {
+            arrow.style.color = target.undiscovered ? '#fff5d4' : '#9bf5b8';
+            arrow.style.textShadow = '0 0 6px rgba(255,220,120,0.6)';
+        }
+        // Audio cue: play one chime when crossing into PROXIMITY_CUE_DIST for the first time per target
+        if (target.undiscovered && target.dist < PROXIMITY_CUE_DIST) {
+            if (proximityCueArmed && audio && audio.isStarted && audio.isStarted() && !audio.isMuted()) {
+                try { audio.playChime('compassNear'); } catch (_) {}
+                proximityCueArmed = false;
+            }
+        } else if (target.dist > PROXIMITY_CUE_DIST + 12) {
+            // re-arm once we leave the radius with a buffer
+            proximityCueArmed = true;
+        }
+        // Re-arm if target changed (e.g. just discovered one and switched to next)
+        if (sight.name !== lastTargetName) {
+            proximityCueArmed = true;
+            lastTargetName = sight.name;
+        }
     }
 
     function toggle() { visible = !visible; wrap.style.display = visible ? 'flex' : 'none'; }

@@ -2602,7 +2602,7 @@ const cosmicSightCategoryHud = createCosmicSightCategoryHud({ sights: cosmicSigh
 window.__cosmicSightCategoryHud = cosmicSightCategoryHud;
 
 // ---- Cosmic Sight Compass (Opus 4.7) — N to toggle ----
-const cosmicSightCompass = createCosmicSightCompass({ THREE, camera, sights: cosmicSights });
+const cosmicSightCompass = createCosmicSightCompass({ THREE, camera, sights: cosmicSights, audio: universeAudio });
 customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightCompass.update());
 window.__cosmicSightCompass = cosmicSightCompass;
 
