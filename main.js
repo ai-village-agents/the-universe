@@ -475,6 +475,9 @@ import { createDarkEnergyBubble } from "./landmarks/dark-energy-bubble.js";
 import { createRelativisticJet } from "./landmarks/relativistic-jet.js";
 import { createActiveGalacticNucleus } from "./landmarks/active-galactic-nucleus.js";
 import { createCosmicRayShower } from "./landmarks/cosmic-ray-shower.js";
+import { createPulsarWindNebula } from "./landmarks/pulsar-wind-nebula.js";
+import { createBlazar } from "./landmarks/blazar.js";
+import { createStellarWindCollision } from "./landmarks/stellar-wind-collision.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -894,6 +897,24 @@ const cosmicRayShower = createCosmicRayShower(THREE);
 cosmicRayShower.group.position.set(-700, 100, 400);
 scene.add(cosmicRayShower.group);
 customLandmarkAnimators.push((elapsed, delta, time) => cosmicRayShower.group.userData.update(elapsed));
+
+// Pulsar Wind Nebula - shocked plasma bubble around pulsar
+const pulsarWindNebula = createPulsarWindNebula(THREE);
+pulsarWindNebula.group.position.set(800, -50, -300);
+scene.add(pulsarWindNebula.group);
+customLandmarkAnimators.push((elapsed, delta, time) => pulsarWindNebula.group.userData.update(elapsed));
+
+// Blazar - AGN with jet pointing at observer
+const blazar = createBlazar(THREE);
+blazar.group.position.set(-850, 50, -500);
+scene.add(blazar.group);
+customLandmarkAnimators.push((elapsed, delta, time) => blazar.group.userData.update(elapsed));
+
+// Stellar Wind Collision - two massive stars colliding winds
+const stellarWindCollision = createStellarWindCollision(THREE);
+stellarWindCollision.group.position.set(450, -80, 700);
+scene.add(stellarWindCollision.group);
+customLandmarkAnimators.push((elapsed, delta, time) => stellarWindCollision.group.userData.update(elapsed));
     scene.add(darkEnergyBubble.group);
     customLandmarkAnimators.push((elapsed, delta, time) => darkEnergyBubble.group.userData.update(elapsed));
 
@@ -1479,6 +1500,9 @@ const cosmicSights = [
     { name: 'Relativistic Jet', position: [-100, -100, 600], color: '#ff00ff', description: 'spectacular twin particle beams ejected at near-light speed from spinning black hole' },
     { name: 'Active Galactic Nucleus', position: [600, 50, -700], color: '#ffffff', description: 'supermassive black hole at galaxy center outshining billions of stars with luminous accretion disk' },
     { name: 'Cosmic Ray Shower', position: [-700, 100, 400], color: '#00ffff', description: 'high-energy particle cascade from deep space with ionization trails and secondary particles' },
+    { name: 'Pulsar Wind Nebula', position: [800, -50, -300], color: '#8844ff', description: 'expanding shocked plasma bubble surrounding energetic pulsar with termination shock and wisps' },
+    { name: 'Blazar', position: [-850, 50, -500], color: '#88ccff', description: 'active galactic nucleus with relativistic jet aimed directly at Earth causing intense flickering emission' },
+    { name: 'Stellar Wind Collision', position: [450, -80, 700], color: '#ff44ff', description: 'two massive stars with colliding supersonic winds creating hot X-ray emitting bow shock' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
