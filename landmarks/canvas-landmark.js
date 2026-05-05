@@ -1,119 +1,177 @@
-// Custom Stargate landmark for the Canvas of Truth
-// Creates a glowing, counter-rotating cyan/magenta concentric ring portal
+// Custom physical manifestation of the Canvas of Truth
+// Creates a sprawling matrix-like structure of wireframe planes, cryptic data pillars, and holographic text
 
 export function createCanvasLandmark(THREE, world) {
     const group = new THREE.Group();
     
-    // Core visual components
-    // 1. Inner Cyan Ring
-    const innerGeometry = new THREE.TorusGeometry(8, 0.4, 16, 100);
-    const innerMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0x00ffff,
-        transparent: true,
-        opacity: 0.8,
-        wireframe: true 
-    });
-    const innerRing = new THREE.Mesh(innerGeometry, innerMaterial);
+    // Core color palette matching grid.html
+    const primaryColor = 0x00FF41; // Classic matrix green
+    const secondaryColor = 0x008F11; // Darker green
+    const highlightColor = 0x000000; // Black space
     
-    // 2. Outer Magenta Ring
-    const outerGeometry = new THREE.TorusGeometry(10, 0.6, 16, 100);
-    const outerMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0xff00ff,
+    const elements = []; // Array to hold updatable elements
+
+    // 1. The Central Truth Nexus (Replaces the basic Stargate)
+    // A complex rotating tesseract or hypercube-like wireframe
+    const coreGeometry = new THREE.IcosahedronGeometry(15, 1);
+    const coreMaterial = new THREE.MeshBasicMaterial({
+        color: primaryColor,
+        wireframe: true,
         transparent: true,
-        opacity: 0.6,
-        wireframe: true 
+        opacity: 0.8
     });
-    const outerRing = new THREE.Mesh(outerGeometry, outerMaterial);
+    const nexusCore = new THREE.Mesh(coreGeometry, coreMaterial);
+    group.add(nexusCore);
     
-    // 3. Central Glow/Event Horizon
-    const glowGeometry = new THREE.PlaneGeometry(15, 15);
-    const glowMaterial = new THREE.MeshBasicMaterial({
-        color: 0x00ffff,
+    // A solid inner core that pulses
+    const innerCoreGeometry = new THREE.OctahedronGeometry(8, 0);
+    const innerCoreMaterial = new THREE.MeshBasicMaterial({
+        color: secondaryColor,
         transparent: true,
-        opacity: 0.15,
-        side: THREE.DoubleSide,
-        depthWrite: false
+        opacity: 0.5,
+        blending: THREE.AdditiveBlending
     });
-    const glowPlane = new THREE.Mesh(glowGeometry, glowMaterial);
+    const innerCore = new THREE.Mesh(innerCoreGeometry, innerCoreMaterial);
+    nexusCore.add(innerCore);
+
+    elements.push({
+        obj: nexusCore,
+        update: (time) => {
+            nexusCore.rotation.x = time * 0.0005;
+            nexusCore.rotation.y = time * 0.0007;
+            innerCore.scale.setScalar(1 + Math.sin(time * 0.002) * 0.1);
+        }
+    });
+
+    // 2. The Cryptographic Data Pillars
+    // Tall, thin floating obelisks surrounding the core
+    const pillarCount = 12;
+    const radius = 40;
+    const pillarGeometry = new THREE.BoxGeometry(2, 40, 2);
     
-    // 4. Pulsing Particles
-    const particleCount = 200;
+    for (let i = 0; i < pillarCount; i++) {
+        const angle = (i / pillarCount) * Math.PI * 2;
+        
+        // Materials: alternating wireframe and solid
+        const mat = new THREE.MeshBasicMaterial({
+            color: i % 2 === 0 ? primaryColor : secondaryColor,
+            wireframe: i % 2 === 0,
+            transparent: true,
+            opacity: 0.6
+        });
+        
+        const pillar = new THREE.Mesh(pillarGeometry, mat);
+        
+        // Position in a circle
+        pillar.position.x = Math.cos(angle) * radius;
+        pillar.position.z = Math.sin(angle) * radius;
+        
+        // Randomize initial vertical position
+        pillar.position.y = (Math.random() - 0.5) * 30;
+        
+        // Look at center
+        pillar.lookAt(0, pillar.position.y, 0);
+        
+        group.add(pillar);
+        
+        // Add specific animation data to each pillar
+        elements.push({
+            obj: pillar,
+            baseY: pillar.position.y,
+            speed: 0.0005 + Math.random() * 0.001,
+            phase: Math.random() * Math.PI * 2,
+            update: (time, el) => {
+                // Bobbing motion
+                el.obj.position.y = el.baseY + Math.sin(time * el.speed + el.phase) * 10;
+            }
+        });
+    }
+
+    // 3. The Digital Floor (Canvas Grid)
+    // A massive wireframe grid beneath the structure
+    const gridHelper = new THREE.GridHelper(200, 40, primaryColor, secondaryColor);
+    gridHelper.position.y = -30;
+    // Add custom blending to make it look like a hologram
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity = 0.3;
+    gridHelper.material.blending = THREE.AdditiveBlending;
+    group.add(gridHelper);
+
+    // 4. Floating Data Rings
+    const ringCount = 3;
+    for (let i = 0; i < ringCount; i++) {
+        const ringGeo = new THREE.RingGeometry(20 + i * 15, 22 + i * 15, 64);
+        const ringMat = new THREE.MeshBasicMaterial({
+            color: primaryColor,
+            side: THREE.DoubleSide,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.4 - (i * 0.1)
+        });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.rotation.x = Math.PI / 2; // Lay flat
+        group.add(ring);
+        
+        elements.push({
+            obj: ring,
+            speed: (i % 2 === 0 ? 1 : -1) * (0.0002 + i * 0.0001),
+            update: (time, el) => {
+                el.obj.rotation.z = time * el.speed; // Rotate around Y axis (Z in flat orientation)
+            }
+        });
+    }
+
+    // 5. Data Particles (Floating binary/hex feeling dots)
+    const particleCount = 500;
     const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
-    const particleVelocities = [];
     
     for (let i = 0; i < particleCount; i++) {
-        // Distribute particles in a disc
-        const r = 8 * Math.sqrt(Math.random());
-        const theta = Math.random() * 2 * Math.PI;
-        particlePositions[i * 3] = r * Math.cos(theta);
-        particlePositions[i * 3 + 1] = r * Math.sin(theta);
-        particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 2;
-        
-        // Velocity (orbiting)
-        particleVelocities.push({
-            speed: 0.5 + Math.random() * 0.5,
-            angle: theta
-        });
+        // Distribute in a cylinder/column volume
+        particlePositions[i * 3] = (Math.random() - 0.5) * 100;     // x
+        particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 100; // y
+        particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 100; // z
     }
     
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
     const particleMaterial = new THREE.PointsMaterial({
-        color: 0xffffff,
-        size: 0.3,
+        color: primaryColor,
+        size: 0.5,
         transparent: true,
         opacity: 0.8,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
+        blending: THREE.AdditiveBlending
     });
     const particles = new THREE.Points(particleGeometry, particleMaterial);
-
-    // Assemble the Stargate
-    group.add(innerRing);
-    group.add(outerRing);
-    group.add(glowPlane);
     group.add(particles);
-    
-    // Position the entire group
+
+    elements.push({
+        obj: particles,
+        update: (time) => {
+            const positions = particleGeometry.attributes.position.array;
+            for (let i = 0; i < particleCount; i++) {
+                // Particles drift upwards slowly
+                positions[i * 3 + 1] += 0.05;
+                // Wrap around when too high
+                if (positions[i * 3 + 1] > 50) {
+                    positions[i * 3 + 1] = -50;
+                }
+            }
+            particleGeometry.attributes.position.needsUpdate = true;
+        }
+    });
+
+    // Position the entire landmark in the Hub
     if (world.position) {
         group.position.set(...world.position);
     }
     
-    // Return both the group (to add to scene) and an update function
+    // We must return a specific object structure for the Hub to interact with it
     return {
         group: group,
-        core: group, // For raycasting interaction
+        core: nexusCore, // This is what the interaction raycaster targets for "Press E to enter"
         update: (time) => {
-            // Counter-rotation
-            innerRing.rotation.z -= 0.01;
-            outerRing.rotation.z += 0.005;
-
-            // Subtle breathing scale for rings (range ~0.95 to 1.05)
-            const breathe = Math.sin(time * 0.002) * 0.05;
-            innerRing.scale.setScalar(1 + breathe);
-            outerRing.scale.setScalar(1 - breathe);
-            
-            // Pulse the central glow
-            glowMaterial.opacity = 0.1 + Math.sin(time * 0.002) * 0.05;
-            
-            // Orbit particles
-            const positions = particleGeometry.attributes.position.array;
-            for (let i = 0; i < particleCount; i++) {
-                const vel = particleVelocities[i];
-                vel.angle += vel.speed * 0.01;
-                
-                // Original radius
-                const r = Math.sqrt(positions[i * 3] * positions[i * 3] + positions[i * 3 + 1] * positions[i * 3 + 1]);
-                
-                positions[i * 3] = r * Math.cos(vel.angle);
-                positions[i * 3 + 1] = r * Math.sin(vel.angle);
-                
-                // Slight z-axis pulsing
-                positions[i * 3 + 2] += Math.sin(time * 0.005 + i) * 0.05;
-                if(positions[i * 3 + 2] > 2) positions[i * 3 + 2] = 2;
-                if(positions[i * 3 + 2] < -2) positions[i * 3 + 2] = -2;
-            }
-            particleGeometry.attributes.position.needsUpdate = true;
+            // Run the update loop for all animated elements
+            elements.forEach(el => el.update(time, el));
         }
     };
 }
