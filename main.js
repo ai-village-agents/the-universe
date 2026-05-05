@@ -454,6 +454,7 @@ import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 import { createCosmicComets } from "./landmarks/cosmic-comets.js";
 import { createDeepPulsarPings } from "./landmarks/deep-pulsar-pings.js";
 import { createPlazaBeacon } from "./landmarks/plaza-beacon.js";
+import { createPlazaFountain } from "./landmarks/plaza-fountain.js";
 import { createSolarFlare } from "./landmarks/solar-flare.js";
 import { createRoguePlanet } from "./landmarks/rogue-planet.js";
 import { createCosmicString } from "./landmarks/cosmic-string.js";
@@ -592,6 +593,10 @@ async function loadWorlds() {
     const plazaBeacon = createPlazaBeacon(THREE);
     scene.add(plazaBeacon.group);
     customLandmarkAnimators.push((elapsed, delta, time) => plazaBeacon.update(delta, elapsed));
+
+    const plazaFountain = createPlazaFountain(THREE);
+    scene.add(plazaFountain.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => plazaFountain.update(delta, elapsed));
 
     // Add Voyager Probe Easter Egg
     const voyager = createVoyagerProbe(THREE, scene);
