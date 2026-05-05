@@ -1638,6 +1638,21 @@ const cosmicSights = [
     { name: 'First Light', position: [-750, 200, -150], color: '#ffffcc', description: 'moment when first stars ignited ending cosmic dark ages' },
     { name: 'Population III Star', position: [500, 100, 550], color: '#aaddff', description: 'hypothetical first generation massive star made only of hydrogen and helium' },
     { name: 'First Black Hole', position: [-300, -180, 800], color: '#aa44ff', description: 'earliest black holes forming from first massive star collapses' },
+    { name: 'T Tauri Star', position: [600, -80, -300], color: '#ffcc77', description: 'young pre-main-sequence star still contracting with powerful stellar winds and jets' },
+    { name: 'Asymptotic Giant Branch', position: [-450, 220, 400], color: '#ff8844', description: 'late stellar evolution phase with thermal pulses and heavy element production' },
+    { name: 'Horizontal Branch Star', position: [350, -180, -550], color: '#aaccff', description: 'post-red-giant star burning helium in its core' },
+    { name: 'Carbon Star', position: [-600, 80, -200], color: '#ff4422', description: 'cool red giant with more carbon than oxygen creating sooty atmosphere' },
+    { name: 'Mira Variable', position: [750, 100, 300], color: '#ff6655', description: 'pulsating red giant varying dramatically in brightness over months' },
+    { name: 'Contact Binary', position: [-200, -150, 600], color: '#ffaaff', description: 'two stars so close they share outer atmosphere in figure-eight shape' },
+    { name: 'Cataclysmic Variable', position: [400, 180, -400], color: '#ff88dd', description: 'white dwarf accreting from companion star with dramatic outbursts' },
+    { name: 'Classical Nova', position: [-700, -50, 150], color: '#ffffff', description: 'thermonuclear explosion on white dwarf surface brightening million-fold' },
+    { name: 'Reflection Nebula', position: [550, -200, 450], color: '#88aaff', description: 'cloud illuminated by nearby star scattering blue light' },
+    { name: 'Dark Nebula', position: [-350, 150, -650], color: '#332211', description: 'dense molecular cloud blocking light from background stars' },
+    { name: 'Bipolar Nebula', position: [200, 250, 700], color: '#ff99cc', description: 'hourglass-shaped planetary nebula with polar jets' },
+    { name: 'Ultra Diffuse Galaxy', position: [-800, -100, -350], color: '#445577', description: 'galaxy-sized but extremely faint with very few stars' },
+    { name: 'Jellyfish Galaxy', position: [650, -80, -150], color: '#66ddff', description: 'galaxy with trailing streamers of gas stripped by cluster medium' },
+    { name: 'Cosmic Dawn', position: [-500, 280, 250], color: '#ffddaa', description: 'era 100-250 million years after Big Bang when first galaxies formed' },
+    { name: 'Reionization Bubble', position: [300, -300, -200], color: '#aaddff', description: 'expanding sphere of ionized hydrogen around early luminous sources' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
