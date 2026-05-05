@@ -1527,6 +1527,10 @@ const cosmicSights = [
     { name: 'Seyfert Galaxy', position: [-750, 80, -250], color: '#ffdd44', description: 'active spiral galaxy with extremely luminous nucleus powered by supermassive black hole accretion' },
     { name: 'Radio Lobe', position: [650, -120, 550], color: '#aa55ff', description: 'colossal bubble of synchrotron-emitting plasma ejected from active galactic nucleus' },
     { name: 'Neutron Star Crust Quake', position: [-550, -60, -680], color: '#ff6633', description: 'violent starquake releasing immense energy as crust fractures and resets' },
+    { name: 'Tidal Disruption Event', position: [750, 100, -450], color: '#ff3366', description: 'star shredded by supermassive black hole creating spiraling debris stream and luminous flare' },
+    { name: 'Microquasar', position: [-650, -100, 300], color: '#66ffcc', description: 'stellar-mass black hole with relativistic jets mimicking quasar behavior at smaller scale' },
+    { name: 'Coronal Mass Ejection', position: [200, -150, 800], color: '#ffaa00', description: 'massive plasma eruption from star propelling billions of tons of magnetized matter into space' },
+    { name: 'Magnetized Filament', position: [-400, 150, -800], color: '#8888ff', description: 'cosmic web strand threaded with magnetic fields channeling gas flows between galaxy clusters' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
