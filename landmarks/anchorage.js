@@ -3295,6 +3295,107 @@ export function createAnchorageLandmark(THREE, opts) {
 
   // --- v20 init complete ----------------------------------------------------
 
+  // --- v21: Shipwreck mast, lighthouse fireflies, message bottle ------------
+  // Old shipwreck mast at (-25, -0.5, -12) — broken & tilted with sail tatter
+  const shipwreckGroup = new THREE.Group();
+  shipwreckGroup.position.set(-25, -0.5, -12);
+  shipwreckGroup.rotation.y = -0.6;
+  const wreckMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.14, 4.4, 10),
+    new THREE.MeshStandardMaterial({ color: 0x6b4d2f, roughness: 0.95 })
+  );
+  wreckMast.position.set(0, 1.6, 0);
+  wreckMast.rotation.z = 0.45;
+  shipwreckGroup.add(wreckMast);
+  const wreckSail = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 1.8),
+    new THREE.MeshStandardMaterial({ color: 0xb8a880, roughness: 0.9, side: THREE.DoubleSide, transparent: true, opacity: 0.78 })
+  );
+  wreckSail.position.set(0.7, 1.7, 0);
+  wreckSail.rotation.z = 0.45;
+  wreckSail.rotation.y = 0.2;
+  shipwreckGroup.add(wreckSail);
+  const wreckHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.5, 1.0),
+    new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.9 })
+  );
+  wreckHull.position.set(-0.4, 0.05, 0);
+  wreckHull.rotation.z = 0.18;
+  shipwreckGroup.add(wreckHull);
+  // A few floating debris planks near the wreck
+  const wreckDebris = [];
+  for (let i = 0; i < 4; i++) {
+    const plank = new THREE.Mesh(
+      new THREE.BoxGeometry(0.5 + Math.random() * 0.5, 0.05, 0.16),
+      new THREE.MeshStandardMaterial({ color: 0x6b4d2f, roughness: 0.95 })
+    );
+    plank.position.set((Math.random() - 0.5) * 4, 0.35, (Math.random() - 0.5) * 3);
+    plank.rotation.y = Math.random() * Math.PI * 2;
+    plank.userData = { phase: Math.random() * Math.PI * 2, baseY: 0.32 };
+    wreckDebris.push(plank);
+    shipwreckGroup.add(plank);
+  }
+  group.add(shipwreckGroup);
+
+  // Lighthouse fireflies — warm yellow swarm drifting around lighthouse beam (-3.2, 1, -2.5)
+  const fireflyCount = 18;
+  const fireflyGeo = new THREE.BufferGeometry();
+  const fireflyPositions = new Float32Array(fireflyCount * 3);
+  const fireflyData = [];
+  for (let i = 0; i < fireflyCount; i++) {
+    const orbitR = 1.2 + Math.random() * 1.4;
+    const orbitH = 1.5 + Math.random() * 1.6;
+    const phase = Math.random() * Math.PI * 2;
+    const speed = 0.18 + Math.random() * 0.18;
+    fireflyData.push({ orbitR, orbitH, phase, speed });
+    fireflyPositions[i * 3 + 0] = -3.2 + Math.cos(phase) * orbitR;
+    fireflyPositions[i * 3 + 1] = orbitH;
+    fireflyPositions[i * 3 + 2] = -2.5 + Math.sin(phase) * orbitR;
+  }
+  fireflyGeo.setAttribute('position', new THREE.BufferAttribute(fireflyPositions, 3));
+  const fireflyMat = new THREE.PointsMaterial({
+    color: 0xffd070,
+    size: 0.13,
+    transparent: true,
+    opacity: 0.92,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+    sizeAttenuation: true,
+  });
+  const firefliesPoints = new THREE.Points(fireflyGeo, fireflyMat);
+  group.add(firefliesPoints);
+
+  // Message in a bottle bobbing in the harbor at (4.5, 0.18, -1)
+  const msgBottleGroup = new THREE.Group();
+  msgBottleGroup.position.set(4.5, 0.18, -1);
+  msgBottleGroup.rotation.z = Math.PI / 2;
+  const msgBottleBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.10, 0.42, 12),
+    new THREE.MeshStandardMaterial({ color: 0x88c5b0, transparent: true, opacity: 0.55, roughness: 0.2, metalness: 0.1 })
+  );
+  msgBottleGroup.add(msgBottleBody);
+  const msgBottleNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.08, 0.10, 10),
+    new THREE.MeshStandardMaterial({ color: 0x88c5b0, transparent: true, opacity: 0.55, roughness: 0.2 })
+  );
+  msgBottleNeck.position.set(0, 0.26, 0);
+  msgBottleGroup.add(msgBottleNeck);
+  const msgBottleCork = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.05, 8),
+    new THREE.MeshStandardMaterial({ color: 0xb38a55, roughness: 0.8 })
+  );
+  msgBottleCork.position.set(0, 0.34, 0);
+  msgBottleGroup.add(msgBottleCork);
+  // Tiny scroll inside (dim warm)
+  const msgBottleScroll = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.025, 0.025, 0.32, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3e6c8, emissive: 0xc8a060, emissiveIntensity: 0.25, roughness: 0.6 })
+  );
+  msgBottleGroup.add(msgBottleScroll);
+  group.add(msgBottleGroup);
+
+  // --- v21 init complete ----------------------------------------------------
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -4210,6 +4311,29 @@ export function createAnchorageLandmark(THREE, opts) {
       const eyeGlow = Math.sin(phase * Math.PI);
       krakenIris.material.emissiveIntensity = 0.6 + 1.2 * eyeGlow;
     }
+
+    // v21: Shipwreck debris planks gently bob with the sea
+    for (let i = 0; i < wreckDebris.length; i++) {
+      const pl = wreckDebris[i];
+      pl.position.y = pl.userData.baseY + Math.sin(t * 0.7 + pl.userData.phase) * 0.05;
+      pl.rotation.z = Math.sin(t * 0.5 + pl.userData.phase) * 0.04;
+    }
+    // v21: Fireflies orbit lighthouse with soft vertical drift
+    const fpAttr = firefliesPoints.geometry.attributes.position;
+    for (let i = 0; i < fireflyCount; i++) {
+      const fd = fireflyData[i];
+      const ang = fd.phase + t * fd.speed;
+      fpAttr.array[i * 3 + 0] = -3.2 + Math.cos(ang) * fd.orbitR;
+      fpAttr.array[i * 3 + 1] = fd.orbitH + Math.sin(t * 0.8 + fd.phase) * 0.18;
+      fpAttr.array[i * 3 + 2] = -2.5 + Math.sin(ang) * fd.orbitR;
+    }
+    fpAttr.needsUpdate = true;
+    firefliesPoints.material.opacity = 0.78 + 0.18 * Math.sin(t * 1.6);
+    // v21: Message bottle bobs in harbor and slowly drifts
+    msgBottleGroup.position.x = 4.5 + Math.cos(t * 0.06) * 1.8;
+    msgBottleGroup.position.z = -1 + Math.sin(t * 0.06) * 1.4;
+    msgBottleGroup.position.y = 0.18 + Math.sin(t * 1.3) * 0.025;
+    msgBottleGroup.rotation.y = t * 0.18;
 
   }
 
