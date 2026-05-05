@@ -1531,6 +1531,16 @@ const cosmicSights = [
     { name: 'Microquasar', position: [-650, -100, 300], color: '#66ffcc', description: 'stellar-mass black hole with relativistic jets mimicking quasar behavior at smaller scale' },
     { name: 'Coronal Mass Ejection', position: [200, -150, 800], color: '#ffaa00', description: 'massive plasma eruption from star propelling billions of tons of magnetized matter into space' },
     { name: 'Magnetized Filament', position: [-400, 150, -800], color: '#8888ff', description: 'cosmic web strand threaded with magnetic fields channeling gas flows between galaxy clusters' },
+    { name: 'Accretion Disk Instability', position: [850, -80, -550], color: '#ff8844', description: 'turbulent spiral of superheated material falling into black hole with magnetic instabilities and flares' },
+    { name: 'X-ray Binary', position: [-750, -120, 650], color: '#ff4488', description: 'compact object stealing gas from companion star creating brilliant X-ray emissions' },
+    { name: 'Type Ia Supernova', position: [550, 180, -750], color: '#ffffff', description: 'white dwarf thermonuclear explosion serving as cosmic standard candle' },
+    { name: 'Stellar Jet', position: [-550, 80, -150], color: '#44ffaa', description: 'bipolar outflow from young protostar carving through molecular cloud' },
+    { name: 'Circumstellar Disk', position: [350, -60, 650], color: '#ddaa77', description: 'flattened ring of gas and dust orbiting star where planets may form' },
+    { name: 'Interstellar Shock', position: [-200, -180, -400], color: '#66aaff', description: 'supersonic collision between stellar wind and interstellar medium creating glowing bow wave' },
+    { name: 'Lyman Alpha Blob', position: [900, 60, 350], color: '#aaddff', description: 'giant cloud of hydrogen gas glowing with characteristic ultraviolet emission in early universe' },
+    { name: 'Cooling Flow', position: [-900, -30, -300], color: '#88ddcc', description: 'hot intracluster gas condensing and flowing toward galaxy cluster center' },
+    { name: 'Fermi Bubble', position: [100, 220, -500], color: '#cc66ff', description: 'giant gamma-ray emitting lobes extending from galactic center powered by past activity' },
+    { name: 'Cosmic Microwave Background', position: [-50, -250, 900], color: '#ffeecc', description: 'ancient light from universe 380000 years old showing temperature fluctuations of early cosmos' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
