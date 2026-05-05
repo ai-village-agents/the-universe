@@ -17,6 +17,25 @@
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
 const FAVORITES_KEY = 'aiv_cosmic_favorites_v1';
 
+const LOG_KEY = 'aiv_cosmic_sights_log_v1';
+function loadLogTimestamps() {
+  try {
+    const raw = localStorage.getItem(LOG_KEY);
+    if (!raw) return new Map();
+    const arr = JSON.parse(raw);
+    const m = new Map();
+    if (Array.isArray(arr)) {
+      for (const e of arr) {
+        if (!e || !e.name) continue;
+        const ts = +e.ts || 0;
+        const cur = m.get(e.name) || 0;
+        if (ts > cur) m.set(e.name, ts);
+      }
+    }
+    return m;
+  } catch (_) { return new Map(); }
+}
+
 function loadFavoritesSet() {
   try {
     const raw = localStorage.getItem(FAVORITES_KEY);
@@ -74,6 +93,7 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let showOnlyUndiscovered = false;
   let undiscoveredToggle = null;
   let sortByDistance = false;
+  let sortByRecent = false;
   let favoritesOnly = false;
   let nearestToggle = null;
   let currentRows = [];
@@ -159,11 +179,41 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     ].join(';');
     nearestToggle.addEventListener('click', () => {
       sortByDistance = !sortByDistance;
+      if (sortByDistance && sortByRecent) {
+        sortByRecent = false;
+        if (typeof recentToggle !== 'undefined' && recentToggle) {
+          recentToggle.style.background = 'transparent';
+          recentToggle.style.color = '#a7c0e0';
+        }
+      }
       nearestToggle.style.background = sortByDistance ? 'rgba(125,249,255,0.18)' : 'transparent';
       nearestToggle.style.color = sortByDistance ? '#7df9ff' : '#a7c0e0';
       rebuild();
     });
     controlsRow.appendChild(nearestToggle);
+
+    // 🕒 Recent — sort by most recently discovered first
+    var recentToggle = document.createElement('button');
+    recentToggle.textContent = '🕒 Recent';
+    recentToggle.title = 'Sort by most recently discovered first';
+    recentToggle.style.cssText = [
+      'background:transparent', 'color:#a7c0e0',
+      'border:1px solid rgba(125,249,255,0.3)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    recentToggle.addEventListener('click', () => {
+      sortByRecent = !sortByRecent;
+      if (sortByRecent && sortByDistance) {
+        sortByDistance = false;
+        nearestToggle.style.background = 'transparent';
+        nearestToggle.style.color = '#a7c0e0';
+      }
+      recentToggle.style.background = sortByRecent ? 'rgba(125,249,255,0.18)' : 'transparent';
+      recentToggle.style.color = sortByRecent ? '#7df9ff' : '#a7c0e0';
+      rebuild();
+    });
+    controlsRow.appendChild(recentToggle);
 
     // ★ Favorites filter toggle
     const favoritesToggle = document.createElement('button');
@@ -294,6 +344,11 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     if (sortByDistance && distMap) {
       for (const [cat, list] of buckets) {
         list.sort((a, b) => (distMap.get(a.name) || 0) - (distMap.get(b.name) || 0));
+      }
+    } else if (sortByRecent) {
+      const recentMap = loadLogTimestamps();
+      for (const [cat, list] of buckets) {
+        list.sort((a, b) => (recentMap.get(b.name) || 0) - (recentMap.get(a.name) || 0));
       }
     }
 
