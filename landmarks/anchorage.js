@@ -3770,6 +3770,123 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(octopusTentacle);
 
+  // --- v26: Stargazer with telescope on cliff + moored sailboat ------------
+  // Stargazer figure perched on the cliff, peering through a telescope at the night sky
+  const stargazerGroup = new THREE.Group();
+  stargazerGroup.position.set(-16, 1.6, -10);
+  // Body
+  const stargazerBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.9, 12),
+    new THREE.MeshStandardMaterial({ color: 0x3a4a8a, roughness: 0.7 })
+  );
+  stargazerBody.position.y = 0.45;
+  stargazerGroup.add(stargazerBody);
+  // Head
+  const stargazerHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 16, 16),
+    new THREE.MeshStandardMaterial({ color: 0xefcfa8, roughness: 0.6 })
+  );
+  stargazerHead.position.y = 1.06;
+  stargazerGroup.add(stargazerHead);
+  // Scarf
+  const stargazerScarf = new THREE.Mesh(
+    new THREE.TorusGeometry(0.14, 0.06, 8, 16),
+    new THREE.MeshStandardMaterial({ color: 0xd03a3a, roughness: 0.7 })
+  );
+  stargazerScarf.position.y = 0.92;
+  stargazerScarf.rotation.x = Math.PI / 2;
+  stargazerGroup.add(stargazerScarf);
+  // Tripod legs
+  const tripodMat = new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.6, metalness: 0.4 });
+  for (let li = 0; li < 3; li++) {
+    const leg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 0.8, 6),
+      tripodMat
+    );
+    const ang = (li / 3) * Math.PI * 2;
+    leg.position.set(Math.cos(ang) * 0.18, 0.4, Math.sin(ang) * 0.18 + 0.45);
+    leg.rotation.z = Math.cos(ang) * 0.18;
+    leg.rotation.x = -Math.sin(ang) * 0.18;
+    stargazerGroup.add(leg);
+  }
+  // Telescope mount + barrel (animated)
+  const telescopeMount = new THREE.Group();
+  telescopeMount.position.set(0, 0.85, 0.45);
+  const telescopeBarrel = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.95, 16),
+    new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.4, metalness: 0.6 })
+  );
+  telescopeBarrel.rotation.z = Math.PI / 2;
+  telescopeMount.add(telescopeBarrel);
+  const telescopeLens = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.11, 0.11, 0.05, 16),
+    new THREE.MeshStandardMaterial({ color: 0x88ccee, roughness: 0.2, metalness: 0.7, emissive: 0x224466, emissiveIntensity: 0.3 })
+  );
+  telescopeLens.rotation.z = Math.PI / 2;
+  telescopeLens.position.x = 0.5;
+  telescopeMount.add(telescopeLens);
+  const telescopeEyepiece = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.12, 12),
+    new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.4, metalness: 0.5 })
+  );
+  telescopeEyepiece.rotation.z = Math.PI / 2;
+  telescopeEyepiece.position.x = -0.55;
+  telescopeMount.add(telescopeEyepiece);
+  stargazerGroup.add(telescopeMount);
+  group.add(stargazerGroup);
+
+  // Moored sailboat at (10, 0.2, -2)
+  const sailboatGroup = new THREE.Group();
+  sailboatGroup.position.set(10, 0.2, -2);
+  // Hull
+  const sailboatHull = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.5, 1.8, 6, 12),
+    new THREE.MeshStandardMaterial({ color: 0x6b3a1f, roughness: 0.7 })
+  );
+  sailboatHull.rotation.z = Math.PI / 2;
+  sailboatHull.scale.set(1, 1, 0.55);
+  sailboatGroup.add(sailboatHull);
+  // Deck
+  const sailboatDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.05, 0.8),
+    new THREE.MeshStandardMaterial({ color: 0xc8a878, roughness: 0.7 })
+  );
+  sailboatDeck.position.y = 0.32;
+  sailboatGroup.add(sailboatDeck);
+  // Mast
+  const sailboatMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.05, 2.6, 8),
+    new THREE.MeshStandardMaterial({ color: 0x4a2f18, roughness: 0.7 })
+  );
+  sailboatMast.position.set(0, 1.6, 0);
+  sailboatGroup.add(sailboatMast);
+  // Triangular sail
+  const sailGeo = new THREE.BufferGeometry();
+  sailGeo.setAttribute('position', new THREE.Float32BufferAttribute([
+    0, 2.7, 0,
+    0, 0.5, 0,
+    1.0, 0.5, 0
+  ], 3));
+  sailGeo.setIndex([0, 1, 2, 0, 2, 1]);
+  sailGeo.computeVertexNormals();
+  const sailMesh = new THREE.Mesh(
+    sailGeo,
+    new THREE.MeshStandardMaterial({ color: 0xfdfaf0, roughness: 0.9, side: THREE.DoubleSide, emissive: 0x222222, emissiveIntensity: 0.1 })
+  );
+  sailMesh.position.set(0, 0.32, 0);
+  sailboatGroup.add(sailMesh);
+  // Small lantern hanging from mast
+  const sailboatLantern = new THREE.Mesh(
+    new THREE.SphereGeometry(0.06, 8, 8),
+    new THREE.MeshStandardMaterial({ color: 0xffd060, emissive: 0xffaa30, emissiveIntensity: 1.4 })
+  );
+  sailboatLantern.position.set(0.05, 2.3, 0);
+  sailboatGroup.add(sailboatLantern);
+  const sailboatLanternLight = new THREE.PointLight(0xffaa44, 0.6, 5, 2.0);
+  sailboatLanternLight.position.copy(sailboatLantern.position);
+  sailboatGroup.add(sailboatLanternLight);
+  group.add(sailboatGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -4799,6 +4916,24 @@ export function createAnchorageLandmark(THREE, opts) {
         seg.position.x = sway * (ti / tentacleSegments.length);
         seg.position.z = curl * (ti / tentacleSegments.length);
       }
+    }
+
+    // v26: Telescope mount slowly scans the sky; sailboat gently rocks
+    if (typeof telescopeMount !== 'undefined') {
+      telescopeMount.rotation.y = Math.sin(t * 0.18) * 0.9;
+      telescopeMount.rotation.x = -0.55 + 0.2 * Math.sin(t * 0.24 + 0.7);
+    }
+    if (typeof stargazerHead !== 'undefined') {
+      stargazerHead.rotation.y = Math.sin(t * 0.18) * 0.4;
+    }
+    if (typeof sailboatGroup !== 'undefined') {
+      sailboatGroup.rotation.z = 0.06 * Math.sin(t * 0.7);
+      sailboatGroup.position.y = 0.2 + 0.04 * Math.sin(t * 0.9);
+      sailboatGroup.rotation.y = 0.05 * Math.sin(t * 0.35);
+    }
+    if (typeof sailboatLantern !== 'undefined') {
+      const lf = 1.3 + 0.3 * Math.sin(t * 4.2);
+      if (sailboatLantern.material) sailboatLantern.material.emissiveIntensity = lf;
     }
 
   }
