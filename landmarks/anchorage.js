@@ -2347,6 +2347,188 @@ export function createAnchorageLandmark(THREE, opts) {
     return rg;
   })();
 
+  // ===== ANCHORAGE v14: sea cliffs, far lighthouse reciprocal, sailing regatta, wind sock, fog beacon =====
+
+  // --- Sea cliffs along east + west horizons ----------------------------------
+  // Five jagged cliff faces per side (east x≈48..56, west x≈-48..-56), built
+  // from extruded BoxGeometry with random vertex displacement to look weathered.
+  const seaCliffs = new THREE.Group();
+  const cliffRockMat = new THREE.MeshStandardMaterial({
+    color: 0x4a4a52, roughness: 0.95, metalness: 0.05,
+    flatShading: true,
+  });
+  const cliffShadowMat = new THREE.MeshBasicMaterial({ color: 0x18181f, transparent: true, opacity: 0.55 });
+  function makeCliff(side, idx) {
+    const cliff = new THREE.Group();
+    const wd = 6 + Math.random() * 4;
+    const ht = 24 + Math.random() * 16;
+    const dp = 4 + Math.random() * 4;
+    const cliffGeo = new THREE.BoxGeometry(wd, ht, dp, 4, 6, 2);
+    const pos = cliffGeo.attributes.position;
+    for (let v = 0; v < pos.count; v++) {
+      pos.setX(v, pos.getX(v) + (Math.random() - 0.5) * 1.4);
+      pos.setY(v, pos.getY(v) + (Math.random() - 0.5) * 1.0);
+      pos.setZ(v, pos.getZ(v) + (Math.random() - 0.5) * 0.8);
+    }
+    cliffGeo.computeVertexNormals();
+    const cliffMesh = new THREE.Mesh(cliffGeo, cliffRockMat);
+    cliffMesh.position.y = ht / 2 - 2;
+    cliff.add(cliffMesh);
+    // moss/lichen patches: small green emissive sprite on top
+    const cliffMoss = new THREE.Mesh(
+      new THREE.PlaneGeometry(wd * 0.9, 1.4),
+      new THREE.MeshBasicMaterial({ color: 0x2e5a35, transparent: true, opacity: 0.7 })
+    );
+    cliffMoss.rotation.x = -Math.PI / 2;
+    cliffMoss.position.y = ht - 2.0;
+    cliff.add(cliffMoss);
+    // base shadow on water
+    const cliffBase = new THREE.Mesh(new THREE.PlaneGeometry(wd * 1.4, dp * 1.6), cliffShadowMat);
+    cliffBase.rotation.x = -Math.PI / 2;
+    cliffBase.position.y = -1.8;
+    cliff.add(cliffBase);
+    cliff.position.set(side * (44 + idx * 3.6), 0, -28 + idx * 14);
+    cliff.rotation.y = side * (Math.PI / 14) * (idx - 2);
+    seaCliffs.add(cliff);
+    return cliff;
+  }
+  for (let i = 0; i < 5; i++) makeCliff(1, i);   // east
+  for (let i = 0; i < 5; i++) makeCliff(-1, i);  // west
+  group.add(seaCliffs);
+
+  // --- Distant lighthouse reciprocal (across the bay, blinks offset) ----------
+  const farLighthouse = new THREE.Group();
+  farLighthouse.position.set(-46, 0, -52);
+  const farLhBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.4, 1.8, 5, 12),
+    new THREE.MeshStandardMaterial({ color: 0xb86038, roughness: 0.85, metalness: 0.05 })
+  );
+  farLhBase.position.y = 2.5;
+  farLighthouse.add(farLhBase);
+  const farLhTower = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.85, 1.4, 8, 12),
+    new THREE.MeshStandardMaterial({ color: 0xf0eedc, roughness: 0.7, metalness: 0.1 })
+  );
+  farLhTower.position.y = 9;
+  farLighthouse.add(farLhTower);
+  // red striping on tower
+  for (let i = 0; i < 3; i++) {
+    const farLhStripe = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.92, 0.92, 0.4, 12),
+      new THREE.MeshStandardMaterial({ color: 0xc0302a, roughness: 0.6, metalness: 0.05 })
+    );
+    farLhStripe.position.y = 6 + i * 2.4;
+    farLighthouse.add(farLhStripe);
+  }
+  const farLhRoom = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.0, 1.0, 1.6, 12),
+    new THREE.MeshStandardMaterial({ color: 0x2a3a48, roughness: 0.4, metalness: 0.6 })
+  );
+  farLhRoom.position.y = 13.8;
+  farLighthouse.add(farLhRoom);
+  const farLhCap = new THREE.Mesh(
+    new THREE.ConeGeometry(1.1, 1.2, 12),
+    new THREE.MeshStandardMaterial({ color: 0x802e20, roughness: 0.7 })
+  );
+  farLhCap.position.y = 15.2;
+  farLighthouse.add(farLhCap);
+  const farBeacon = new THREE.Mesh(
+    new THREE.SphereGeometry(0.7, 16, 12),
+    new THREE.MeshBasicMaterial({ color: 0xfff2a8, transparent: true, opacity: 0.0 })
+  );
+  farBeacon.position.y = 13.8;
+  farLighthouse.add(farBeacon);
+  const farBeacon2 = new THREE.Mesh(
+    new THREE.SphereGeometry(1.5, 16, 12),
+    new THREE.MeshBasicMaterial({ color: 0xfff2a8, transparent: true, opacity: 0.0, blending: THREE.AdditiveBlending })
+  );
+  farBeacon2.position.y = 13.8;
+  farLighthouse.add(farBeacon2);
+  group.add(farLighthouse);
+
+  // --- Sailing regatta on the horizon (5 distant boats) ------------------------
+  const regattaFleet = new THREE.Group();
+  const regattaMat = new THREE.MeshStandardMaterial({ color: 0x141822, roughness: 0.6 });
+  const regattaSailMat = new THREE.MeshBasicMaterial({ color: 0xfaf3e0, transparent: true, opacity: 0.95, side: THREE.DoubleSide });
+  const regattaSail2Mat = new THREE.MeshBasicMaterial({ color: 0xff7a3a, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
+  const regattaSail3Mat = new THREE.MeshBasicMaterial({ color: 0x4dc4ff, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
+  const regattaShips = [];
+  for (let i = 0; i < 5; i++) {
+    const ship = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.5, 0.7), regattaMat);
+    hull.position.y = 0.25;
+    ship.add(hull);
+    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.4, 6), regattaMat);
+    mast.position.set(0, 1.95, 0);
+    ship.add(mast);
+    const mainSailMat = i % 3 === 0 ? regattaSail2Mat : (i % 3 === 1 ? regattaSailMat : regattaSail3Mat);
+    const mainSail = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 2.4), mainSailMat);
+    mainSail.position.set(0.05, 2.0, 0);
+    mainSail.rotation.y = Math.PI / 2;
+    ship.add(mainSail);
+    const jib = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.8), mainSailMat);
+    jib.position.set(0.85, 1.7, 0);
+    jib.rotation.y = Math.PI / 2;
+    jib.scale.x = 0.7;
+    ship.add(jib);
+    ship.position.set(-22 + i * 11, 0.2, -42 - (i % 2) * 4);
+    ship.userData = { phase: Math.random() * Math.PI * 2, baseX: ship.position.x, baseZ: ship.position.z, speed: 0.04 + Math.random() * 0.03 };
+    regattaFleet.add(ship);
+    regattaShips.push(ship);
+  }
+  group.add(regattaFleet);
+
+  // --- Wind sock atop existing lighthouse spire (visual wind cue) -------------
+  const windSock = new THREE.Group();
+  const windSockPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.025, 0.025, 1.2, 6),
+    new THREE.MeshStandardMaterial({ color: 0x3a3a40, roughness: 0.5 })
+  );
+  windSockPole.position.y = 0.6;
+  windSock.add(windSockPole);
+  // cone-shaped sock (truncated cone) with stripes
+  const windSockBody = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.9, 10, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xff6028, transparent: true, opacity: 0.92, side: THREE.DoubleSide })
+  );
+  windSockBody.position.set(0.6, 1.1, 0);
+  windSockBody.rotation.z = -Math.PI / 2;
+  windSock.add(windSockBody);
+  const windSockStripe = new THREE.Mesh(
+    new THREE.ConeGeometry(0.165, 0.3, 10, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xfaf3e0, transparent: true, opacity: 0.94, side: THREE.DoubleSide })
+  );
+  windSockStripe.position.set(0.5, 1.1, 0);
+  windSockStripe.rotation.z = -Math.PI / 2;
+  windSock.add(windSockStripe);
+  windSock.position.set(0, 16.5, 0); // atop main lighthouse
+  group.add(windSock);
+
+  // --- Fog beacon: low pulsing horn-light at end of the breakwater ------------
+  const fogBeacon = new THREE.Group();
+  const fogBeaconPost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 1.6, 8),
+    new THREE.MeshStandardMaterial({ color: 0x2a2e36, roughness: 0.7 })
+  );
+  fogBeaconPost.position.y = 0.8;
+  fogBeacon.add(fogBeaconPost);
+  const fogBeaconLamp = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0xa8e8ff, transparent: true, opacity: 0.88 })
+  );
+  fogBeaconLamp.position.y = 1.7;
+  fogBeacon.add(fogBeaconLamp);
+  const fogBeaconHalo = new THREE.Mesh(
+    new THREE.SphereGeometry(0.85, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0xa8e8ff, transparent: true, opacity: 0.0, blending: THREE.AdditiveBlending })
+  );
+  fogBeaconHalo.position.y = 1.7;
+  fogBeacon.add(fogBeaconHalo);
+  fogBeacon.position.set(11, -0.6, -3);
+  group.add(fogBeacon);
+
+  // --- v14 init complete ----------------------------------------------------
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -3017,6 +3199,50 @@ export function createAnchorageLandmark(THREE, opts) {
       const op = cycle < 0.4 ? Math.sin((cycle / 0.4) * Math.PI) * 0.55 : 0;
       rainbow2.children.forEach((arc) => {
         arc.material.opacity = arc.userData.ring === 'primary' ? op : op * 0.45;
+      });
+    }
+
+    // ===== v14 ANIMATIONS =====
+    // Far lighthouse beacon: blinks every ~6.4s, OFFSET from main lighthouse for reciprocal feel
+    {
+      const phase = (t * 0.156 + 0.42) % 1;
+      const pulse = phase < 0.18 ? Math.sin((phase / 0.18) * Math.PI) : 0;
+      farBeacon.material.opacity = 0.4 + pulse * 0.55;
+      farBeacon2.material.opacity = pulse * 0.42;
+      farBeacon2.scale.setScalar(1 + pulse * 0.55);
+    }
+    // Sailing regatta: each ship drifts on its own gentle horizon arc with bobbing
+    regattaShips.forEach((ship, i) => {
+      const ud = ship.userData;
+      ship.position.x = ud.baseX + Math.sin(t * ud.speed + ud.phase) * 4.2;
+      ship.position.z = ud.baseZ + Math.cos(t * ud.speed * 0.8 + ud.phase) * 1.2;
+      ship.position.y = 0.18 + Math.sin(t * 1.4 + ud.phase) * 0.08;
+      ship.rotation.y = Math.cos(t * ud.speed + ud.phase) * 0.3;
+      ship.rotation.z = Math.sin(t * 1.6 + ud.phase) * 0.04;
+    });
+    // Wind sock: gently tilts based on a wind value, sock body sways
+    {
+      const windAng = Math.sin(t * 0.08) * 0.4 + 0.2;
+      windSock.rotation.y = windAng;
+      const sway = Math.sin(t * 1.7) * 0.08;
+      windSockBody.rotation.z = -Math.PI / 2 + sway;
+      windSockStripe.rotation.z = -Math.PI / 2 + sway;
+    }
+    // Fog beacon: slow pulse + halo
+    {
+      const fp = (Math.sin(t * 0.9) + 1) * 0.5;
+      fogBeaconLamp.material.opacity = 0.55 + fp * 0.4;
+      fogBeaconHalo.material.opacity = 0.18 + fp * 0.4;
+      fogBeaconHalo.scale.setScalar(1 + fp * 0.5);
+    }
+    // Sea cliffs: stable but small atmospheric color shift on moss patches
+    {
+      const cliffMossOp = 0.55 + 0.18 * Math.sin(t * 0.18);
+      seaCliffs.children.forEach((cliff) => {
+        // child[1] is moss
+        if (cliff.children[1] && cliff.children[1].material) {
+          cliff.children[1].material.opacity = cliffMossOp;
+        }
       });
     }
 
