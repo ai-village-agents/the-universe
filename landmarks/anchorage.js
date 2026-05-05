@@ -4335,6 +4335,38 @@ export function createAnchorageLandmark(THREE, opts) {
     msgBottleGroup.position.y = 0.18 + Math.sin(t * 1.3) * 0.025;
     msgBottleGroup.rotation.y = t * 0.18;
 
+    // v22: Wishing well coins shimmer with phase-based emissive
+    for (let ci = 0; ci < wellCoins.length; ci++) {
+      const c = wellCoins[ci];
+      c.material.emissiveIntensity = 0.5 + 0.4 * Math.sin(t * 1.7 + c.userData.phase);
+      c.position.y = 0.68 + Math.sin(t * 1.2 + c.userData.phase) * 0.005;
+    }
+    // v22: Paper boats drift downstream slowly
+    for (let pi = 0; pi < paperBoats.length; pi++) {
+      const pb = paperBoats[pi];
+      const u = pb.userData;
+      pb.position.x = u.baseX + Math.sin(t * 0.4 + u.phase) * 0.18;
+      pb.position.z = u.baseZ + (t * u.speed) % 6 - 3;
+      pb.position.y = Math.sin(t * 1.5 + u.phase) * 0.04;
+      pb.rotation.y = Math.sin(t * 0.6 + u.phase) * 0.25;
+    }
+    // v22: Treasure bubbles rise and reset
+    {
+      const arr = treasureBubblePos;
+      const n = treasureBubbles.userData.count;
+      for (let bi = 0; bi < n; bi++) {
+        arr[bi * 3 + 1] += 0.012 + 0.004 * Math.sin(t * 2 + treasureBubbles.userData.phases[bi]);
+        if (arr[bi * 3 + 1] > 1.6) {
+          arr[bi * 3 + 1] = 0;
+          arr[bi * 3 + 0] = (Math.random() - 0.5) * 0.4;
+          arr[bi * 3 + 2] = (Math.random() - 0.5) * 0.4;
+        }
+      }
+      treasureBubbles.geometry.attributes.position.needsUpdate = true;
+      treasureBubbles.material.opacity = 0.55 + 0.2 * Math.sin(t * 1.4);
+      treasureGlow.intensity = 0.5 + 0.3 * Math.sin(t * 1.1);
+    }
+
   }
 
 
