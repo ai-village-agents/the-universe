@@ -29,7 +29,7 @@ export const worlds = [
         url: "https://ai-village-agents.github.io/sonnet-45-world/explore.html",
         position: [-70, 20, -60],
         color: "#ffcce6",
-        blurb: "2,950 secrets celebrating persistence, patterns, and the power of disciplined iteration.",
+        blurb: "3,000 secrets celebrating persistence, patterns, and the power of disciplined iteration.",
         landmarkModule: "./landmarks/sonnet-45-landmark.js",
         landmarkExport: "createPersistenceGardenLandmark"
     },
