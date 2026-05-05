@@ -3977,6 +3977,82 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(flagpoleGroup);
 
+  // --- v28: Distant rocky outcrop with mini lighthouse + fishing rod -------
+  // Distant rocky outcrop with a small lighthouse (visible across the water)
+  const outcropGroup = new THREE.Group();
+  outcropGroup.position.set(28, 0, 22);
+  // Rocks (3 stacked)
+  for (let oi = 0; oi < 4; oi++) {
+    const rock = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(1.2 + oi * 0.3, 0),
+      new THREE.MeshStandardMaterial({ color: 0x4a4a4a, roughness: 0.95, flatShading: true })
+    );
+    rock.position.set((oi - 1.5) * 0.6, 0.6 + oi * 0.4, (oi % 2) * 0.4);
+    rock.rotation.set(oi * 0.4, oi * 0.7, 0);
+    outcropGroup.add(rock);
+  }
+  // Mini lighthouse on top
+  const miniLighthouse = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.35, 0.5, 2.6, 12),
+    new THREE.MeshStandardMaterial({ color: 0xf5f5f5, roughness: 0.6 })
+  );
+  miniLighthouse.position.set(0, 3.6, 0.4);
+  outcropGroup.add(miniLighthouse);
+  // Red stripes on lighthouse
+  for (let si = 0; si < 2; si++) {
+    const stripe = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.36, 0.45, 0.4, 12),
+      new THREE.MeshStandardMaterial({ color: 0xc02020, roughness: 0.6 })
+    );
+    stripe.position.set(0, 2.9 + si * 0.95, 0.4);
+    outcropGroup.add(stripe);
+  }
+  // Lantern room
+  const miniLanternRoom = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.42, 0.42, 0.4, 12),
+    new THREE.MeshStandardMaterial({ color: 0x202028, roughness: 0.4, metalness: 0.7, emissive: 0xffaa44, emissiveIntensity: 0.6 })
+  );
+  miniLanternRoom.position.set(0, 5.1, 0.4);
+  outcropGroup.add(miniLanternRoom);
+  // Cap
+  const miniLanternCap = new THREE.Mesh(
+    new THREE.ConeGeometry(0.46, 0.5, 12),
+    new THREE.MeshStandardMaterial({ color: 0x882020, roughness: 0.6 })
+  );
+  miniLanternCap.position.set(0, 5.55, 0.4);
+  outcropGroup.add(miniLanternCap);
+  // Beam light
+  const miniLanternLight = new THREE.PointLight(0xffcc66, 1.2, 30, 2.0);
+  miniLanternLight.position.set(0, 5.1, 0.4);
+  outcropGroup.add(miniLanternLight);
+  group.add(outcropGroup);
+
+  // Fishing rod with line going into water at (6.5, 0.95, -2)
+  const fishingRodGroup = new THREE.Group();
+  fishingRodGroup.position.set(6.5, 0.95, -2);
+  const fishingRod = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.015, 0.04, 1.8, 8),
+    new THREE.MeshStandardMaterial({ color: 0x3a2a18, roughness: 0.7 })
+  );
+  fishingRod.rotation.z = -Math.PI / 3;
+  fishingRod.position.set(0.6, 0.6, 0);
+  fishingRodGroup.add(fishingRod);
+  // Line
+  const fishingLine = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.005, 0.005, 1.6, 4),
+    new THREE.MeshStandardMaterial({ color: 0xeeeeee })
+  );
+  fishingLine.position.set(1.4, 0.4, 0);
+  fishingRodGroup.add(fishingLine);
+  // Bobber
+  const fishingBobber = new THREE.Mesh(
+    new THREE.SphereGeometry(0.06, 12, 8),
+    new THREE.MeshStandardMaterial({ color: 0xff3030, roughness: 0.5 })
+  );
+  fishingBobber.position.set(1.4, -0.4, 0);
+  fishingRodGroup.add(fishingBobber);
+  group.add(fishingRodGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5039,6 +5115,20 @@ export function createAnchorageLandmark(THREE, opts) {
     if (typeof pierCatBody !== 'undefined') {
       const breath = 1.0 + 0.05 * Math.sin(t * 1.5);
       pierCatBody.scale.set(1.4 * breath, 0.7 * breath, 1.0);
+    }
+
+    // v28: Mini lighthouse light pulses; fishing bobber bobs in water
+    if (typeof miniLanternLight !== 'undefined') {
+      miniLanternLight.intensity = 1.0 + 0.5 * Math.sin(t * 1.6);
+    }
+    if (typeof miniLanternRoom !== 'undefined' && miniLanternRoom.material) {
+      miniLanternRoom.material.emissiveIntensity = 0.55 + 0.25 * Math.sin(t * 1.6);
+    }
+    if (typeof fishingBobber !== 'undefined') {
+      fishingBobber.position.y = -0.4 + 0.06 * Math.sin(t * 1.8);
+      // Occasional 'bite' tug
+      const bite = Math.sin(t * 0.18);
+      if (bite > 0.97) fishingBobber.position.y -= 0.18;
     }
 
   }
