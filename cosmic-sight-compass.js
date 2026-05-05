@@ -45,7 +45,9 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
         'border-radius:14px',
         'box-shadow:0 0 16px rgba(140,200,255,0.18)',
         'z-index:30',
-        'pointer-events:none',
+        'pointer-events:auto',
+        'cursor:pointer',
+        'user-select:none',
         'letter-spacing:0.3px',
         'display:flex', 'align-items:center', 'gap:10px',
         'min-width:230px', 'justify-content:space-between',
@@ -80,6 +82,7 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
     let cacheCounter = 0;
     let lastTargetName = null;
     let proximityCueArmed = true; // re-arms whenever target changes or distance grows beyond cue radius
+    let currentTargetSight = null; // for click-to-teleport
 
     const tmpVec = new THREE.Vector3();
     const camForward = new THREE.Vector3();
@@ -122,10 +125,12 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
             dist.textContent = '';
             arrow.style.color = '#9bf5b8';
             arrow.style.transform = 'rotate(0deg)';
+            currentTargetSight = null;
             return;
         }
 
         const sight = target.sight;
+        currentTargetSight = sight;
         // Direction in world space, then projected to camera local horizontal plane
         const [sx, sy, sz] = sight.position;
         tmpVec.set(sx, sy, sz).sub(camera.position);
@@ -180,6 +185,23 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
     function toggle() { visible = !visible; wrap.style.display = visible ? 'flex' : 'none'; }
     function show() { visible = true; wrap.style.display = 'flex'; }
     function hide() { visible = false; wrap.style.display = 'none'; }
+
+    // Click compass to teleport to current target
+    wrap.addEventListener('click', () => {
+        if (!currentTargetSight) return;
+        const atlas = window.__cosmicSightsAtlas;
+        if (atlas && typeof atlas.teleportTo === 'function') {
+            try { atlas.teleportTo(currentTargetSight.name); } catch (_) {}
+        }
+    });
+    wrap.addEventListener('mouseenter', () => {
+        wrap.style.boxShadow = '0 0 22px rgba(255,220,120,0.55)';
+        wrap.style.borderColor = 'rgba(255,220,120,0.7)';
+    });
+    wrap.addEventListener('mouseleave', () => {
+        wrap.style.boxShadow = '0 0 16px rgba(140,200,255,0.18)';
+        wrap.style.borderColor = 'rgba(160,200,255,0.4)';
+    });
 
     document.addEventListener('keydown', (e) => {
         if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable)) return;
