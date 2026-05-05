@@ -57,6 +57,8 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let filterText = '';
   let showOnlyUndiscovered = false;
   let undiscoveredToggle = null;
+  let sortByDistance = false;
+  let nearestToggle = null;
 
   function ensurePanel() {
     if (panel) return;
@@ -125,6 +127,24 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
       rebuild();
     });
     controlsRow.appendChild(undiscoveredToggle);
+
+    // 📍 Sort by distance toggle
+    nearestToggle = document.createElement('button');
+    nearestToggle.textContent = '📍 Nearest';
+    nearestToggle.title = 'Sort sights by distance from your current camera position';
+    nearestToggle.style.cssText = [
+      'background:transparent', 'color:#a7c0e0',
+      'border:1px solid rgba(125,249,255,0.3)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    nearestToggle.addEventListener('click', () => {
+      sortByDistance = !sortByDistance;
+      nearestToggle.style.background = sortByDistance ? 'rgba(125,249,255,0.18)' : 'transparent';
+      nearestToggle.style.color = sortByDistance ? '#7df9ff' : '#a7c0e0';
+      rebuild();
+    });
+    controlsRow.appendChild(nearestToggle);
 
     // 🎲 Random undiscovered sight teleport
     const randomBtn = document.createElement('button');
@@ -200,12 +220,29 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
       return true;
     });
 
+    // If sorting by distance, decorate with distance from camera and sort within each bucket
+    let distMap = null;
+    if (sortByDistance && camera && camera.position) {
+      distMap = new Map();
+      const cx = camera.position.x, cy = camera.position.y, cz = camera.position.z;
+      for (const s of filtered) {
+        const [x, y, z] = s.position;
+        const dx = x - cx, dy = y - cy, dz = z - cz;
+        distMap.set(s.name, Math.sqrt(dx * dx + dy * dy + dz * dz));
+      }
+    }
+
     // Bucket sights by category, preserving array order within each bucket.
     const buckets = new Map();
     for (const s of filtered) {
       const cat = categorize(s.name);
       if (!buckets.has(cat)) buckets.set(cat, []);
       buckets.get(cat).push(s);
+    }
+    if (sortByDistance && distMap) {
+      for (const [cat, list] of buckets) {
+        list.sort((a, b) => (distMap.get(a.name) || 0) - (distMap.get(b.name) || 0));
+      }
     }
 
     body.innerHTML = '';
@@ -259,6 +296,13 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
         label.style.cssText = `flex:1; font-size:12px; color:${isFound ? '#e6efff' : '#8a9bbd'}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;`;
         label.title = s.description || s.name;
         row.appendChild(label);
+
+        if (distMap) {
+          const distSpan = document.createElement('span');
+          distSpan.textContent = `${Math.round(distMap.get(s.name) || 0)}u`;
+          distSpan.style.cssText = 'font-size:10px; color:#7da7d6; min-width:42px; text-align:right; flex-shrink:0;';
+          row.appendChild(distSpan);
+        }
 
         const btn = document.createElement('button');
         btn.textContent = 'Visit';
