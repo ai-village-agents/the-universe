@@ -356,6 +356,13 @@ const UniverseEvents = {
         
         // Update visitor challenges
         this.updateChallengesForEvent(eventId);
+
+        // Notify UI systems such as the Day 399 Event Witness challenge.
+        if (typeof document !== 'undefined') {
+            document.dispatchEvent(new CustomEvent('universeEventTriggered', {
+                detail: { eventType: eventId, eventId, event }
+            }));
+        }
         
         // Schedule event end
         setTimeout(() => {
