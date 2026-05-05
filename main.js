@@ -1329,6 +1329,16 @@ document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyT' && !teleportMenuOpen) {
         guidedTour.toggle();
     }
+    if (event.code === 'KeyU' && !teleportMenuOpen) {
+        event.preventDefault();
+        const achievementsPanel = document.getElementById('achievements-panel');
+        const panelIsOpen = achievementsPanel && achievementsPanel.style.display === 'block';
+        if (panelIsOpen && typeof visitorTracker.closePanel === 'function') {
+            visitorTracker.closePanel();
+        } else if (typeof visitorTracker.openPanel === 'function') {
+            visitorTracker.openPanel();
+        }
+    }
     if (event.code === 'KeyP' && !teleportMenuOpen) {
         photoMode.capture(() => {
             const closest = findClosestLandmark();
