@@ -1816,6 +1816,36 @@ const cosmicSights = [
     { name: "Scattered Disk Object", position: [245, -75, -155], color: "#d2691e", description: "Distant icy body with highly elliptical orbit perturbed by Neptune" },
     { name: "Detached Object", position: [-205, 95, 145], color: "#bc8f8f", description: "Trans-Neptunian object with perihelion too distant for Neptune influence" },
     { name: "Sednoid", position: [175, -85, 205], color: "#8b4513", description: "Extreme trans-Neptunian object hinting at Planet Nine or stellar flyby" },
+    // 326-330: Gravitational Lensing
+    { name: "Einstein Ring", position: [-165, 75, -185], color: "#ffd700", description: "Perfect circular image when source, lens, and observer align precisely" },
+    { name: "Einstein Cross", position: [215, -55, 195], color: "#f0e68c", description: "Four images of background quasar created by foreground galaxy lens" },
+    { name: "Gravitational Arc", position: [-195, 85, 155], color: "#87ceeb", description: "Stretched and magnified image of distant galaxy by cluster mass" },
+    { name: "Microlensing Event", position: [175, -65, -175], color: "#90ee90", description: "Temporary brightening when compact object passes in front of star" },
+    { name: "Strong Lensing Cluster", position: [-225, 55, 185], color: "#dda0dd", description: "Massive galaxy cluster creating multiple distorted images of background sources" },
+    // 331-335: Stellar End States
+    { name: "Planetary Nebula Nucleus", position: [245, -75, 145], color: "#00ffff", description: "Hot exposed core ionizing ejected envelope, future white dwarf" },
+    { name: "Thorne-Zytkow Object", position: [-175, 95, -165], color: "#ff6347", description: "Theoretical red giant with neutron star core from stellar collision" },
+    { name: "Iron Core Collapse", position: [195, -45, 215], color: "#cd853f", description: "Final moment when massive star iron core exceeds Chandrasekhar limit" },
+    { name: "Fallback Supernova", position: [-215, 65, 175], color: "#8b4513", description: "Failed explosion where material falls back creating black hole directly" },
+    { name: "Electron Capture Supernova", position: [165, -85, -195], color: "#deb887", description: "Collapse triggered by electron capture in degenerate ONeMg core" },
+    // 336-340: Astrochemistry
+    { name: "Hot Core", position: [-145, 75, 205], color: "#ff4500", description: "Warm dense region near protostars where icy mantles sublimate releasing complex molecules" },
+    { name: "Photodissociation Region", position: [235, -55, 155], color: "#ffa07a", description: "Interface where UV radiation destroys molecules at cloud boundary" },
+    { name: "Maser Source", position: [-185, 85, -145], color: "#00ff7f", description: "Natural microwave laser amplifying emission from water, methanol, or silicon monoxide" },
+    { name: "Polycyclic Aromatic Hydrocarbon Emission", position: [205, -65, 185], color: "#da70d6", description: "Infrared glow from complex carbon ring molecules in interstellar space" },
+    { name: "Diffuse Interstellar Band Source", position: [-235, 55, 165], color: "#778899", description: "Mysterious absorption features from unknown large carbon-bearing molecules" },
+    // 341-345: More Transients
+    { name: "Fast Blue Optical Transient", position: [175, -95, -175], color: "#1e90ff", description: "Rapidly evolving blue explosion possibly from failed supernovae or stellar mergers" },
+    { name: "Luminous Fast Cooler", position: [-155, 75, 195], color: "#4169e1", description: "Bright transient that fades and reddens quickly, uncertain origin" },
+    { name: "AT2018cow-like Event", position: [225, -45, 145], color: "#00bfff", description: "Extremely luminous fast transient possibly from star being shredded by black hole" },
+    { name: "Afterglow", position: [-195, 85, -155], color: "#ffa500", description: "Fading multiwavelength emission as gamma-ray burst jet decelerates" },
+    { name: "Orphan Afterglow", position: [185, -75, 215], color: "#f4a460", description: "Afterglow detected without accompanying gamma-ray burst due to jet angle" },
+    // 346-350: Exotic Phenomena
+    { name: "Boson Star", position: [-165, 65, 175], color: "#e6e6fa", description: "Hypothetical star made of self-gravitating bosonic particles" },
+    { name: "Q-Ball", position: [245, -55, -185], color: "#dda0dd", description: "Theoretical stable non-topological soliton of scalar field" },
+    { name: "Axion Cloud", position: [-205, 95, 155], color: "#f0fff0", description: "Hypothetical cloud of axion particles forming around spinning black holes" },
+    { name: "Fuzzy Dark Matter Halo", position: [175, -85, 195], color: "#708090", description: "Ultralight axion dark matter forming wavelike interference patterns" },
+    { name: "Mirror Star", position: [-225, 55, -165], color: "#c0c0c0", description: "Hypothetical star made of mirror matter from parity-symmetric dark sector" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
