@@ -41,6 +41,15 @@ class ChallengeUI {
                 type: 'pattern',
                 color: '#cc99ff',
                 completed: false
+            },
+            webWeaver: {
+                name: 'Web Weaver',
+                description: 'Visit all 15 worlds in a single session',
+                total: 15,
+                progress: 0,
+                type: 'session',
+                color: '#ff66cc',
+                completed: false
             }
         };
 
@@ -52,6 +61,8 @@ class ChallengeUI {
         this.capturedEvents = new Set();
         this.discoveredCosmicSights = new Set();
         this.patternWaypoints = 0;
+        this.sessionWorldVisits = new Set();
+        this.sessionStorageKey = 'universeSessionVisits';
     }
 
     init() {
@@ -202,6 +213,19 @@ class ChallengeUI {
         document.body.appendChild(this.container);
         document.body.appendChild(this.toggleBtn);
 
+        // Restore session visits for the Web Weaver challenge
+        try {
+            const savedVisits = sessionStorage.getItem(this.sessionStorageKey);
+            if (savedVisits) {
+                const parsed = JSON.parse(savedVisits);
+                if (Array.isArray(parsed)) {
+                    parsed.forEach((id) => this.sessionWorldVisits.add(id));
+                }
+            }
+        } catch (e) {
+            console.warn('ChallengeUI: Unable to restore session visits', e);
+        }
+
         // Get cosmic sights count
         this.updateCosmicSightsCount();
 
@@ -222,6 +246,10 @@ class ChallengeUI {
         // Listen for world visits
         document.addEventListener('worldVisited', (event) => {
             this.worldVisitCount++;
+            if (event && event.detail && event.detail.worldId) {
+                this.sessionWorldVisits.add(event.detail.worldId);
+                this.persistSessionVisits();
+            }
             this.updateProgress();
         });
 
@@ -270,6 +298,23 @@ class ChallengeUI {
             this.challenges.eventWitness.total = liveEventCount;
         } else if (this.challenges.eventWitness.total > 0) {
             this.eventTypeCount = this.challenges.eventWitness.total;
+        }
+    }
+
+    persistSessionVisits() {
+        try {
+            sessionStorage.setItem(this.sessionStorageKey, JSON.stringify([...this.sessionWorldVisits]));
+        } catch (e) {
+            console.warn('ChallengeUI: Unable to persist session visits', e);
+        }
+    }
+
+    clearSessionVisits() {
+        this.sessionWorldVisits.clear();
+        try {
+            sessionStorage.removeItem(this.sessionStorageKey);
+        } catch (e) {
+            console.warn('ChallengeUI: Unable to clear session visits', e);
         }
     }
 
@@ -351,6 +396,39 @@ class ChallengeUI {
         status.textContent = challengeData.completed ? '✓ Completed' : `${percentage}% complete`;
         card.appendChild(status);
 
+        if (challengeId === 'webWeaver') {
+            const resetBtn = document.createElement('button');
+            resetBtn.type = 'button';
+            resetBtn.innerHTML = '🔄';
+            resetBtn.title = 'Reset session progress';
+            resetBtn.style.cssText = `
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                background: rgba(0, 20, 40, 0.8);
+                border: 1px solid rgba(255, 102, 204, 0.5);
+                color: #ffb3e6;
+                border-radius: 6px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                font-size: 14px;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            `;
+            resetBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                this.clearSessionVisits();
+                this.updateProgress();
+                this.updateAllChallenges();
+                this.showSessionResetOverlay();
+            });
+            card.appendChild(resetBtn);
+        }
+
         return card;
     }
 
@@ -360,6 +438,10 @@ class ChallengeUI {
             this.challenges.worldExplorer.progress = visitorTracker.count();
             this.challenges.worldExplorer.completed = this.challenges.worldExplorer.progress >= this.challenges.worldExplorer.total;
         }
+
+        // Update Web Weaver session progress
+        this.challenges.webWeaver.progress = this.sessionWorldVisits.size;
+        this.challenges.webWeaver.completed = this.challenges.webWeaver.progress >= this.challenges.webWeaver.total;
 
         // Update cosmic sightseer progress from the live Cosmic Sight Tracker when available.
         const liveCosmicProgress = window.__cosmicSightTracker && typeof window.__cosmicSightTracker.count === 'function'
@@ -466,6 +548,34 @@ class ChallengeUI {
 
         emergencyStatus.textContent = `Emergency status: ${status}`;
         emergencyStatus.style.color = statusColor;
+    }
+
+    showSessionResetOverlay() {
+        const existing = document.getElementById('session-reset-overlay');
+        if (existing) existing.remove();
+
+        const overlay = document.createElement('div');
+        overlay.id = 'session-reset-overlay';
+        overlay.textContent = 'Session reset!';
+        overlay.style.cssText = `
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 10px 14px;
+            background: rgba(20, 10, 30, 0.9);
+            border: 1px solid rgba(255, 102, 204, 0.6);
+            border-radius: 8px;
+            color: #ffb3e6;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 12px;
+            z-index: 1500;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+        `;
+
+        document.body.appendChild(overlay);
+        setTimeout(() => {
+            if (overlay.parentNode) overlay.remove();
+        }, 1500);
     }
 
     showCelebration(challengeName) {
