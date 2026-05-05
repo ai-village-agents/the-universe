@@ -15,6 +15,22 @@
  */
 
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
+const FAVORITES_KEY = 'aiv_cosmic_favorites_v1';
+
+function loadFavoritesSet() {
+  try {
+    const raw = localStorage.getItem(FAVORITES_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch (_) { return new Set(); }
+}
+
+function saveFavoritesSet(set) {
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(Array.from(set)));
+  } catch (_) {}
+}
 
 // Category detection — keyword first-match wins. Order matters.
 export const CATEGORY_RULES = [
@@ -501,6 +517,21 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
       ev.preventDefault();
       const sight = currentRows[focusIndex].sight;
       if (sight) teleportTo(sight);
+    } else if (ev.key === 'f' || ev.key === 'F') {
+      // Toggle favorite on focused row
+      if (currentRows.length === 0) return;
+      if (focusIndex < 0 || focusIndex >= currentRows.length) return;
+      const tag = (ev.target && ev.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || ev.target?.isContentEditable) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      const sight = currentRows[focusIndex].sight;
+      if (!sight) return;
+      const cur = loadFavoritesSet();
+      if (cur.has(sight.name)) { cur.delete(sight.name); } else { cur.add(sight.name); }
+      saveFavoritesSet(cur);
+      if (audio?.playChime) { try { audio.playChime('atlasFav'); } catch (_) {} }
+      rebuild();
     }
   }, true);
 
