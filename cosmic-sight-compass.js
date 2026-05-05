@@ -10,6 +10,7 @@
 import { categorize, CATEGORY_RULES } from './cosmic-sights-atlas.js';
 
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
+const FAVORITES_KEY = 'aiv_cosmic_favorites_v1';
 const PROXIMITY_CUE_DIST = 25; // units — chime when first crossing this radius
 
 // Build id -> emoji map from CATEGORY_RULES (label is "🌑 Compact Objects" etc.)
@@ -25,6 +26,15 @@ const CATEGORY_EMOJI = (() => {
 function readDiscovered() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return new Set();
+        const arr = JSON.parse(raw);
+        return new Set(Array.isArray(arr) ? arr : []);
+    } catch (e) { return new Set(); }
+}
+
+function readFavorites() {
+    try {
+        const raw = localStorage.getItem(FAVORITES_KEY);
         if (!raw) return new Set();
         const arr = JSON.parse(raw);
         return new Set(Array.isArray(arr) ? arr : []);
@@ -72,6 +82,24 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
     dist.style.cssText = 'font-size:10px;color:#9ab9d6;min-width:60px;text-align:right';
     dist.textContent = '';
 
+    // Favorites toggle (★) — when on, point to nearest undiscovered favorite
+    const favBtn = document.createElement('span');
+    favBtn.textContent = '☆';
+    favBtn.title = 'Favorites mode (point to nearest favorite)';
+    favBtn.style.cssText = 'cursor:pointer;font-size:14px;color:#5a6f8c;user-select:none;transition:color 0.2s';
+    favBtn.addEventListener('mouseenter', () => { if (!favoritesMode) favBtn.style.color = '#9ab9d6'; });
+    favBtn.addEventListener('mouseleave', () => { favBtn.style.color = favoritesMode ? '#ffd97d' : '#5a6f8c'; });
+    favBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        favoritesMode = !favoritesMode;
+        favBtn.textContent = favoritesMode ? '★' : '☆';
+        favBtn.style.color = favoritesMode ? '#ffd97d' : '#5a6f8c';
+        cachedFavorites = readFavorites();
+        proximityCueArmed = true;
+        update();
+    });
+
+    wrap.appendChild(favBtn);
     wrap.appendChild(arrow);
     wrap.appendChild(label);
     wrap.appendChild(dist);
@@ -79,10 +107,12 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
 
     let visible = true;
     let cachedDiscovered = readDiscovered();
+    let cachedFavorites = readFavorites();
     let cacheCounter = 0;
     let lastTargetName = null;
     let proximityCueArmed = true; // re-arms whenever target changes or distance grows beyond cue radius
     let currentTargetSight = null; // for click-to-teleport
+    let favoritesMode = false;
 
     const tmpVec = new THREE.Vector3();
     const camForward = new THREE.Vector3();
@@ -91,25 +121,28 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
         const cx = camera.position.x, cy = camera.position.y, cz = camera.position.z;
         let best = null;
         let bestD2 = Infinity;
-        // Phase 1: undiscovered
+        const favOnly = favoritesMode && cachedFavorites.size > 0;
+        // Phase 1: undiscovered (filtered by favorites if mode on)
         for (let i = 0; i < sights.length; i++) {
             const s = sights[i];
             if (cachedDiscovered.has(s.name)) continue;
+            if (favOnly && !cachedFavorites.has(s.name)) continue;
             const [x, y, z] = s.position;
             const dx = x - cx, dy = y - cy, dz = z - cz;
             const d2 = dx * dx + dy * dy + dz * dz;
             if (d2 < bestD2) { bestD2 = d2; best = s; }
         }
-        if (best) return { sight: best, dist: Math.sqrt(bestD2), undiscovered: true };
-        // Phase 2: any
+        if (best) return { sight: best, dist: Math.sqrt(bestD2), undiscovered: true, favorite: favOnly };
+        // Phase 2: any (favorites if mode on, else any)
         for (let i = 0; i < sights.length; i++) {
             const s = sights[i];
+            if (favOnly && !cachedFavorites.has(s.name)) continue;
             const [x, y, z] = s.position;
             const dx = x - cx, dy = y - cy, dz = z - cz;
             const d2 = dx * dx + dy * dy + dz * dz;
             if (d2 < bestD2) { bestD2 = d2; best = s; }
         }
-        if (best) return { sight: best, dist: Math.sqrt(bestD2), undiscovered: false };
+        if (best) return { sight: best, dist: Math.sqrt(bestD2), undiscovered: false, favorite: favOnly };
         return null;
     }
 
@@ -117,7 +150,7 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
         if (!visible) return;
         // Refresh discovered set occasionally (every ~30 frames)
         cacheCounter++;
-        if (cacheCounter >= 30) { cachedDiscovered = readDiscovered(); cacheCounter = 0; }
+        if (cacheCounter >= 30) { cachedDiscovered = readDiscovered(); cachedFavorites = readFavorites(); cacheCounter = 0; }
 
         const target = findNearestUndiscovered();
         if (!target) {
@@ -152,7 +185,8 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
 
         arrow.style.transform = `rotate(${deg.toFixed(0)}deg)`;
         const labelColor = target.undiscovered ? '#fff5d4' : '#9bf5b8';
-        const tag = target.undiscovered ? 'nearest undiscovered' : 'nearest (all discovered)';
+        let tag = target.undiscovered ? 'nearest undiscovered' : 'nearest (all discovered)';
+        if (target.favorite) tag = '★ ' + tag;
         const emoji = CATEGORY_EMOJI[categorize(sight.name)] || '✨';
         label.innerHTML = `<span style="opacity:0.7;font-size:10px">${tag}</span><br><span style="color:${labelColor}">${emoji} ${sight.name}</span>`;
         dist.textContent = `${target.dist.toFixed(0)} u`;
