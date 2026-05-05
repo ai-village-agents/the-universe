@@ -89,6 +89,22 @@
         }
     }
     
+    // Check total count consistency and name uniqueness
+    if (Array.isArray(window.__universeCosmicSightNames)) {
+        const names = window.__universeCosmicSightNames;
+        const seen = new Map();
+        names.forEach((name) => seen.set(name, (seen.get(name) || 0) + 1));
+        const duplicates = [...seen.entries()].filter(([, count]) => count > 1);
+        if (duplicates.length === 0) {
+            console.log(`   ✓ Cosmic sight names unique: ${names.length}/${names.length}`);
+        } else {
+            console.log(`   ✗ Duplicate cosmic sight names: ${duplicates.length} duplicate labels across ${names.length} entries`);
+            console.log('     First duplicates:', duplicates.slice(0, 12).map(([name, count]) => `${name} ×${count}`).join(', '));
+        }
+    } else {
+        console.log('   ⚠ window.__universeCosmicSightNames not found for uniqueness check');
+    }
+
     // Check total count consistency
     const hudCount = document.querySelector('.cosmic-census')?.textContent;
     const sidebarCount = document.querySelector('.achievements-panel')?.textContent?.match(/Cosmic Sights discovered:\s*(\d+)\/(\d+)/);
