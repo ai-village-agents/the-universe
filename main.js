@@ -9,6 +9,7 @@ import {
 import { createUniverseAudio } from './audio.js';
 import { createGuidedTour } from './tour-mode.js';
 import { createPhotoMode } from './photo-mode.js';
+import { createPhotoGallery } from './photo-gallery.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
@@ -64,6 +65,8 @@ const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
 const guidedTour = createGuidedTour(THREE, { camera, controls, worlds, audio: universeAudio });
 const photoMode = createPhotoMode({ renderer, scene, camera });
+const photoGallery = createPhotoGallery({ audio: universeAudio });
+window.__photoGallery = photoGallery;
 const eventBanner = createEventBanner();
 function startAudioOnGesture() {
     if (!universeAudio.isStarted()) universeAudio.start();

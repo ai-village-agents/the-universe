@@ -51,6 +51,48 @@ export function createPhotoMode({ renderer, scene, camera }) {
     return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
   }
 
+
+  // Thumbnail + storage support for Photo Gallery
+  const PHOTO_STORE_KEY = 'aiv_universe_photos_v1';
+  const PHOTO_CAP = 50;
+  const THUMB_W = 256;
+  const THUMB_H = 150;
+
+  function saveThumbnail(canvas, name, ts) {
+    try {
+      const tc = document.createElement('canvas');
+      tc.width = THUMB_W; tc.height = THUMB_H;
+      const tctx = tc.getContext('2d');
+      // Cover-fit
+      const sw = canvas.width, sh = canvas.height;
+      const sr = sw / sh, dr = THUMB_W / THUMB_H;
+      let sx = 0, sy = 0, ssw = sw, ssh = sh;
+      if (sr > dr) { ssw = sh * dr; sx = (sw - ssw) / 2; }
+      else { ssh = sw / dr; sy = (sh - ssh) / 2; }
+      tctx.drawImage(canvas, sx, sy, ssw, ssh, 0, 0, THUMB_W, THUMB_H);
+      const thumb = tc.toDataURL('image/jpeg', 0.62);
+      let arr = [];
+      try { arr = JSON.parse(localStorage.getItem(PHOTO_STORE_KEY) || '[]') || []; } catch (_) { arr = []; }
+      arr.unshift({ name, ts, thumb });
+      if (arr.length > PHOTO_CAP) arr = arr.slice(0, PHOTO_CAP);
+      try { localStorage.setItem(PHOTO_STORE_KEY, JSON.stringify(arr)); }
+      catch (e) {
+        // Quota — drop oldest until it fits
+        while (arr.length > 4) {
+          arr.pop();
+          try { localStorage.setItem(PHOTO_STORE_KEY, JSON.stringify(arr)); break; } catch (_) {}
+        }
+      }
+      try {
+        document.dispatchEvent(new CustomEvent('photoCaptured', { detail: { name, ts, thumb } }));
+      } catch (_) {}
+      return thumb;
+    } catch (err) {
+      console.warn('[photo-mode] thumbnail failed', err);
+      return null;
+    }
+  }
+
   function capture(options = {}) {
     let onCaptured = null;
     if (typeof options === 'function') {
@@ -122,6 +164,9 @@ export function createPhotoMode({ renderer, scene, camera }) {
         document.body.appendChild(a);
         a.click();
         setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
+        const photoName = a.download;
+        const photoTs = Date.now();
+        saveThumbnail(out, photoName, photoTs);
         showToast('📸 Photo saved');
         if (onCaptured) {
           try {
