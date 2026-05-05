@@ -227,7 +227,9 @@ export function createCosmicSightLog({ audio } = {}) {
             left.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:2px;min-width:0;';
             const nameLine = document.createElement('div');
             nameLine.style.cssText = 'font:14px/1.2 Georgia,serif;color:#fff7c8;letter-spacing:0.3px;';
-            nameLine.textContent = e.name;
+            const _ecat = categorize(e.name);
+            const _eemoji = (CATEGORY_RULES.find(r => r.id === _ecat)?.label || '').split(' ')[0] || '✦';
+            nameLine.textContent = `${_eemoji} ${e.name}`;
             left.appendChild(nameLine);
             if (e.description) {
                 const desc = document.createElement('div');
