@@ -1906,6 +1906,36 @@ const cosmicSights = [
     { name: "Stochastic Background", position: [-185, 85, 195], color: "#778899", description: "Overlapping gravitational waves from countless unresolved sources" },
     { name: "Continuous Wave Source", position: [175, -45, 155], color: "#90ee90", description: "Persistent gravitational wave from spinning neutron star asymmetry" },
     { name: "Ringdown Signal", position: [-225, 75, -175], color: "#f0e68c", description: "Damped oscillation as merged black hole settles to Kerr solution" },
+    // 401-405: Extragalactic Features
+    { name: "Intracluster Light", position: [185, -55, 165], color: "#fffacd", description: "Diffuse stellar glow from stars stripped during galaxy interactions in clusters" },
+    { name: "Brightest Cluster Galaxy", position: [-215, 85, -185], color: "#ffd700", description: "Massive central elliptical formed from multiple mergers at cluster core" },
+    { name: "Coma Cluster Core", position: [225, -75, 195], color: "#f5deb3", description: "Dense concentration of ellipticals at heart of rich galaxy cluster" },
+    { name: "Void Galaxy", position: [-175, 65, 155], color: "#4682b4", description: "Isolated galaxy evolving in cosmic underdensity with minimal interactions" },
+    { name: "Backsplash Galaxy", position: [195, -95, -165], color: "#9370db", description: "Galaxy that passed through cluster and now orbits beyond virial radius" },
+    // 406-410: Binary Evolution
+    { name: "Roche Lobe Overflow", position: [-145, 55, 185], color: "#ff6b6b", description: "Mass transfer when star expands to fill gravitational equipotential surface" },
+    { name: "Accretion Stream", position: [245, -65, 145], color: "#00bfff", description: "Flow of matter from donor star toward compact companion" },
+    { name: "Accretion Disk Hot Spot", position: [-195, 85, -155], color: "#ff4500", description: "Bright region where stream impacts outer accretion disk edge" },
+    { name: "Circumbinary Disk", position: [175, -45, 205], color: "#deb887", description: "Gas disk orbiting around both components of binary system" },
+    { name: "Spiral Shock", position: [-235, 75, 175], color: "#87ceeb", description: "Density wave in accretion disk from tidal interaction with companion" },
+    // 411-415: Accretion Physics
+    { name: "Disk Corona", position: [205, -85, -175], color: "#ffa500", description: "Hot tenuous atmosphere above accretion disk producing X-ray emission" },
+    { name: "Slim Disk", position: [-165, 55, 195], color: "#ff8c00", description: "Thick advection-dominated disk at super-Eddington accretion rates" },
+    { name: "ADAF", position: [235, -75, 155], color: "#cd853f", description: "Advection-dominated accretion flow at very low accretion rates" },
+    { name: "Disk Instability", position: [-185, 95, -165], color: "#da70d6", description: "Thermal-viscous cycle causing dwarf nova outbursts" },
+    { name: "Propeller Effect", position: [165, -55, 185], color: "#00ced1", description: "Centrifugal barrier from rapidly spinning magnetosphere ejecting accreting matter" },
+    // 416-420: Spectroscopic Features
+    { name: "P Cygni Profile", position: [-225, 65, 165], color: "#4169e1", description: "Absorption plus emission line shape indicating expanding stellar wind" },
+    { name: "Double Peaked Emission", position: [195, -95, -185], color: "#ff69b4", description: "Line profile from rotating accretion disk with approaching and receding sides" },
+    { name: "Inverse P Cygni", position: [-155, 85, 195], color: "#6495ed", description: "Redshifted absorption indicating infalling material toward source" },
+    { name: "Emission Line Star", position: [245, -45, 155], color: "#98fb98", description: "Star showing hydrogen emission from circumstellar disk or wind" },
+    { name: "Absorption Line System", position: [-205, 55, -175], color: "#778899", description: "Intervening gas cloud imprinting absorption on background quasar spectrum" },
+    // 421-425: More Theoretical
+    { name: "Naked Singularity", position: [175, -75, 205], color: "#ffffff", description: "Hypothetical spacetime singularity visible to external observers" },
+    { name: "White Hole", position: [-235, 95, 165], color: "#f0f0f0", description: "Time-reversed black hole ejecting matter and light" },
+    { name: "Wormhole Throat", position: [215, -65, -155], color: "#dda0dd", description: "Hypothetical passage connecting distant regions of spacetime" },
+    { name: "Closed Timelike Curve", position: [-175, 55, 185], color: "#9932cc", description: "Spacetime path that loops back to same point in time" },
+    { name: "Firewall", position: [185, -85, 175], color: "#ff4500", description: "Proposed high-energy surface at black hole event horizon" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
