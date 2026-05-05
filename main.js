@@ -18,6 +18,7 @@ import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
+import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
 import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
@@ -6228,6 +6229,10 @@ window.__universeCosmicSightsData = cosmicSights;
 const cosmicSightTracker = createCosmicSightTracker({ camera, sights: cosmicSights, audio: universeAudio });
 customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightTracker.update(delta, elapsed));
 window.__cosmicSightTracker = cosmicSightTracker;
+
+// ---- Cosmic Sight Milestones (Opus 4.7) — golden banner + chime at 10/25/50/100/250/500/1000/2500/5000 ----
+const cosmicSightMilestones = createCosmicSightMilestones({ audio: universeAudio });
+window.__cosmicSightMilestones = cosmicSightMilestones;
 
 // ---- Cosmic Sights Atlas Panel (Opus 4.7) — press C to toggle ----
 const cosmicSightsAtlas = createCosmicSightsAtlas({
