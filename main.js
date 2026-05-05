@@ -1668,6 +1668,16 @@ const cosmicSights = [
     { name: 'Baryon Acoustic Peak', position: [180, 350, -650], color: '#ddccff', description: 'characteristic 500 million light year scale from sound waves in early universe' },
     { name: 'Cosmic Shear Field', position: [-480, -280, -180], color: '#ccddee', description: 'distortion pattern revealing dark matter distribution' },
     { name: 'Lyman Alpha Forest', position: [580, 220, 280], color: '#aabbff', description: 'absorption lines from intergalactic hydrogen clouds along quasar sightlines' },
+    { name: 'Supermassive Star', position: [-380, 280, -420], color: '#ffeeaa', description: 'primordial star over 100 solar masses possibly seeding first black holes' },
+    { name: 'Pair Instability Supernova', position: [620, -180, 520], color: '#ffaa44', description: 'complete stellar disruption leaving no remnant from very massive star' },
+    { name: 'Kilonova', position: [-520, 150, 280], color: '#ffddcc', description: 'neutron star merger explosion producing heavy elements like gold and platinum' },
+    { name: 'Superluminous Supernova', position: [280, -350, -580], color: '#ffffff', description: 'explosion 10-100 times brighter than normal supernova from magnetar or pair instability' },
+    { name: 'Tidal Stream', position: [-680, -80, 180], color: '#aaddcc', description: 'stellar debris stretched into arc from dwarf galaxy disruption' },
+    { name: 'Stellar Halo Substructure', position: [480, 280, -320], color: '#ccbbaa', description: 'ancient remnants of accreted dwarf galaxies in galactic halo' },
+    { name: 'Intergalactic Star', position: [-280, -320, 680], color: '#ddddff', description: 'lonely star ejected from galaxy wandering between galaxies' },
+    { name: 'Hypercompact Stellar System', position: [380, 180, 580], color: '#ffccdd', description: 'dense star cluster orbiting supermassive black hole' },
+    { name: 'Cosmic Filament Core', position: [-580, 220, -280], color: '#aaccee', description: 'densest region of cosmic web filament where galaxies cluster' },
+    { name: 'Protocuster', position: [720, -220, 180], color: '#ddaaff', description: 'early universe overdensity destined to become galaxy cluster' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
