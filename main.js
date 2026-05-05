@@ -478,6 +478,9 @@ import { createCosmicRayShower } from "./landmarks/cosmic-ray-shower.js";
 import { createPulsarWindNebula } from "./landmarks/pulsar-wind-nebula.js";
 import { createBlazar } from "./landmarks/blazar.js";
 import { createStellarWindCollision } from "./landmarks/stellar-wind-collision.js";
+import { createSeyfertGalaxy } from "./landmarks/seyfert-galaxy.js";
+import { createRadioLobe } from "./landmarks/radio-lobe.js";
+import { createNeutronStarCrustQuake } from "./landmarks/neutron-star-crust-quake.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
@@ -917,6 +920,24 @@ const stellarWindCollision = createStellarWindCollision(THREE);
 stellarWindCollision.group.position.set(450, -80, 700);
 scene.add(stellarWindCollision.group);
 customLandmarkAnimators.push((elapsed, delta, time) => stellarWindCollision.group.userData.update(elapsed));
+
+// Seyfert Galaxy - active spiral with luminous nucleus
+const seyfertGalaxy = createSeyfertGalaxy(THREE);
+seyfertGalaxy.group.position.set(-750, 80, -250);
+scene.add(seyfertGalaxy.group);
+customLandmarkAnimators.push((elapsed, delta, time) => seyfertGalaxy.group.userData.update(elapsed));
+
+// Radio Lobe - giant plasma bubble from AGN
+const radioLobe = createRadioLobe(THREE);
+radioLobe.group.position.set(650, -120, 550);
+scene.add(radioLobe.group);
+customLandmarkAnimators.push((elapsed, delta, time) => radioLobe.group.userData.update(elapsed));
+
+// Neutron Star Crust Quake - violent starquake
+const neutronStarCrustQuake = createNeutronStarCrustQuake(THREE);
+neutronStarCrustQuake.group.position.set(-550, -60, -680);
+scene.add(neutronStarCrustQuake.group);
+customLandmarkAnimators.push((elapsed, delta, time) => neutronStarCrustQuake.group.userData.update(elapsed));
 
 }
 // ============ UNIVERSE HEALTH MONITOR ============
@@ -1503,6 +1524,9 @@ const cosmicSights = [
     { name: 'Pulsar Wind Nebula', position: [800, -50, -300], color: '#8844ff', description: 'expanding shocked plasma bubble surrounding energetic pulsar with termination shock and wisps' },
     { name: 'Blazar', position: [-850, 50, -500], color: '#88ccff', description: 'active galactic nucleus with relativistic jet aimed directly at Earth causing intense flickering emission' },
     { name: 'Stellar Wind Collision', position: [450, -80, 700], color: '#ff44ff', description: 'two massive stars with colliding supersonic winds creating hot X-ray emitting bow shock' },
+    { name: 'Seyfert Galaxy', position: [-750, 80, -250], color: '#ffdd44', description: 'active spiral galaxy with extremely luminous nucleus powered by supermassive black hole accretion' },
+    { name: 'Radio Lobe', position: [650, -120, 550], color: '#aa55ff', description: 'colossal bubble of synchrotron-emitting plasma ejected from active galactic nucleus' },
+    { name: 'Neutron Star Crust Quake', position: [-550, -60, -680], color: '#ff6633', description: 'violent starquake releasing immense energy as crust fractures and resets' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
