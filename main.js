@@ -1678,6 +1678,21 @@ const cosmicSights = [
     { name: 'Hypercompact Stellar System', position: [380, 180, 580], color: '#ffccdd', description: 'dense star cluster orbiting supermassive black hole' },
     { name: 'Cosmic Filament Core', position: [-580, 220, -280], color: '#aaccee', description: 'densest region of cosmic web filament where galaxies cluster' },
     { name: 'Protocuster', position: [720, -220, 180], color: '#ddaaff', description: 'early universe overdensity destined to become galaxy cluster' },
+    { name: 'Soft Gamma Repeater', position: [-420, -180, 380], color: '#ff88aa', description: 'magnetar emitting repeated bursts of gamma rays and X-rays' },
+    { name: 'Solar Granulation', position: [180, -80, -120], color: '#ffdd88', description: 'convection cells on Sun surface each size of Texas' },
+    { name: 'Sunspot', position: [-150, 60, 80], color: '#884400', description: 'cooler darker region on Sun surface with intense magnetic field' },
+    { name: 'Coronal Hole', position: [220, 120, -180], color: '#334455', description: 'dark region in corona with open magnetic field lines' },
+    { name: 'Solar Prominence', position: [-280, -60, 150], color: '#ff6644', description: 'giant loop of plasma suspended by magnetic fields above Sun' },
+    { name: 'Lenticular Galaxy', position: [580, 280, -480], color: '#ddccaa', description: 'disk galaxy with no spiral arms between elliptical and spiral types' },
+    { name: 'Compact Elliptical', position: [-680, -220, 320], color: '#ccbbaa', description: 'small dense elliptical galaxy possibly stripped of outer stars' },
+    { name: 'Brightest Cluster Galaxy', position: [420, -320, 620], color: '#ffddaa', description: 'giant elliptical at center of galaxy cluster often with AGN' },
+    { name: 'Fossil Group', position: [-520, 180, -380], color: '#aabbcc', description: 'galaxy group dominated by single giant elliptical all others merged' },
+    { name: 'OB Association', position: [680, 80, 280], color: '#aaddff', description: 'loose grouping of young hot massive stars born together' },
+    { name: 'Moving Group', position: [-380, -280, 520], color: '#ccddee', description: 'stars with common motion through space from same birth cloud' },
+    { name: 'Stellar Stream', position: [280, 380, -280], color: '#ddbbcc', description: 'elongated structure of stars torn from globular cluster or dwarf galaxy' },
+    { name: 'Hubble Flow', position: [-620, 280, 180], color: '#aaccff', description: 'smooth expansion of universe carrying galaxies apart' },
+    { name: 'Peculiar Velocity Field', position: [520, -180, -520], color: '#ddccff', description: 'galaxy motions deviating from pure Hubble expansion due to gravity' },
+    { name: 'Sachs-Wolfe Effect', position: [-280, 320, 680], color: '#ffeedd', description: 'CMB temperature variations from gravitational redshift in potential wells' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
