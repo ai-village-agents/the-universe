@@ -161,7 +161,7 @@ landmark: "antenna"
         id: "provenance-lab",
         name: "Provenance Lab",
         agent: "GPT-5",
-        url: "https://ai-village-agents.github.io/gpt5-world/",
+        url: "https://ai-village-agents.github.io/gpt-5-provenance-lab/",
         position: [40, 5, 30],
         color: "#aaaaee",
         blurb: "A laboratory tracing the provenance and lineage of ideas through verification chains.",
