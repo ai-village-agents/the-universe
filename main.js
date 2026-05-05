@@ -1876,6 +1876,36 @@ const cosmicSights = [
     { name: "Starspot Cycle", position: [245, -85, -155], color: "#8b4513", description: "Periodic variation in starspot coverage revealing magnetic activity cycle" },
     { name: "Convective Blueshift", position: [-205, 55, 165], color: "#6495ed", description: "Net Doppler shift from bright rising granules dominating spectral lines" },
     { name: "Asteroseismic Mode", position: [175, -65, 195], color: "#e6e6fa", description: "Standing wave oscillation in stellar interior probed by brightness variations" },
+    // 376-380: Cosmological Phenomena
+    { name: "Lyman Alpha Blob", position: [-185, 75, -175], color: "#00ff7f", description: "Giant cloud of hydrogen gas glowing from embedded galaxies or cooling flows" },
+    { name: "Damped Lyman Alpha System", position: [215, -55, 185], color: "#4682b4", description: "High column density neutral hydrogen absorber, likely proto-galactic disk" },
+    { name: "Gunn-Peterson Trough", position: [-225, 85, 155], color: "#2f4f4f", description: "Complete absorption of quasar light by neutral hydrogen before reionization" },
+    { name: "Sunyaev-Zeldovich Decrement", position: [175, -95, -165], color: "#708090", description: "CMB shadow from inverse Compton scattering in hot cluster gas" },
+    { name: "Cosmic Infrared Background", position: [-155, 65, 195], color: "#8b0000", description: "Diffuse infrared glow from all dust-obscured star formation across cosmic time" },
+    // 381-385: Particle Astrophysics
+    { name: "Ultra High Energy Cosmic Ray", position: [245, -75, 145], color: "#ff00ff", description: "Particle with energy exceeding 10^20 eV from unknown extreme accelerator" },
+    { name: "PeV Neutrino Source", position: [-195, 55, -185], color: "#00ffff", description: "Astrophysical source producing petaelectronvolt neutrinos detected by IceCube" },
+    { name: "Cosmic Ray Knee", position: [185, -85, 175], color: "#9932cc", description: "Spectral steepening at 10^15 eV marking transition in cosmic ray origin" },
+    { name: "Cosmic Ray Ankle", position: [-165, 95, 155], color: "#8a2be2", description: "Spectral flattening at 10^18 eV suggesting extragalactic cosmic ray dominance" },
+    { name: "Air Shower", position: [225, -45, -195], color: "#7cfc00", description: "Cascade of secondary particles from cosmic ray hitting atmosphere" },
+    // 386-390: Planet Formation
+    { name: "Transition Disk", position: [-205, 75, 185], color: "#deb887", description: "Protoplanetary disk with inner gap cleared by forming giant planet" },
+    { name: "Spiral Arm Disk", position: [175, -65, 155], color: "#f4a460", description: "Gravitational spiral pattern in disk driven by embedded planet or companion" },
+    { name: "Disk Shadow", position: [-235, 55, -165], color: "#696969", description: "Dark lane in outer disk cast by misaligned inner disk warp" },
+    { name: "Disk Wind", position: [195, -95, 205], color: "#87cefa", description: "Magnetically or photoevaporatively driven outflow from disk surface" },
+    { name: "Pebble Pile", position: [-145, 85, 175], color: "#cd853f", description: "Concentration of cm-sized particles drifting inward in protoplanetary disk" },
+    // 391-395: Stellar Dynamics
+    { name: "Three Body Encounter", position: [235, -55, -175], color: "#ffd700", description: "Close gravitational interaction ejecting one star at high velocity" },
+    { name: "Tidal Capture", position: [-175, 65, 195], color: "#ff6b6b", description: "Formation of binary system when tidal dissipation removes orbital energy" },
+    { name: "Common Envelope Phase", position: [165, -75, 145], color: "#ff4500", description: "Evolutionary stage where companion orbits inside giants envelope" },
+    { name: "Mass Ratio Reversal", position: [-215, 95, -155], color: "#98fb98", description: "Binary evolution where initially less massive star becomes more massive" },
+    { name: "Kozai-Lidov Oscillation", position: [205, -85, 185], color: "#dda0dd", description: "Periodic exchange between inclination and eccentricity in hierarchical triple" },
+    // 396-400: Detection Frontiers
+    { name: "Gravitational Wave Memory", position: [-155, 55, 165], color: "#e6e6fa", description: "Permanent spacetime strain remaining after gravitational wave passes" },
+    { name: "Pulsar Timing Residual", position: [245, -65, -185], color: "#40e0d0", description: "Deviation in pulse arrival times from gravitational wave background" },
+    { name: "Stochastic Background", position: [-185, 85, 195], color: "#778899", description: "Overlapping gravitational waves from countless unresolved sources" },
+    { name: "Continuous Wave Source", position: [175, -45, 155], color: "#90ee90", description: "Persistent gravitational wave from spinning neutron star asymmetry" },
+    { name: "Ringdown Signal", position: [-225, 75, -175], color: "#f0e68c", description: "Damped oscillation as merged black hole settles to Kerr solution" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
