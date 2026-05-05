@@ -2272,7 +2272,7 @@ export function createAnchorageLandmark(THREE, opts) {
   })();
 
   // 2) Fish school — small triangle fishes swimming as a coordinated flock.
-  const fishSchool = (() => {
+  const reefFishSchool = (() => {
     const fg = new THREE.Group();
     const fishes = [];
     const N = 24;
@@ -2980,7 +2980,7 @@ export function createAnchorageLandmark(THREE, opts) {
     }
     // Fish school: coordinated flock orbit + jitter
     {
-      const ud = fishSchool.userData;
+      const ud = reefFishSchool.userData;
       const cx = Math.cos(t * 0.22) * 5.5;
       const cz = Math.sin(t * 0.22) * 5.5;
       const cy = -1.7 + Math.sin(t * 0.35) * 0.2;
