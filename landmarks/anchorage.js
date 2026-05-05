@@ -3682,6 +3682,94 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(campfireGroup);
 
+
+  // --- v25: Seagulls overhead + octopus tentacle peeking from rocks ---
+  // Three flying seagulls circling above harbor at varying heights/speeds
+  const seagullList = [];
+  const seagullSpecs = [
+    { r: 14, y: 6.5, speed: 0.35, phase: 0.0, color: 0xf5f5f5 },
+    { r: 9, y: 5.2, speed: -0.42, phase: 1.7, color: 0xeaeaea },
+    { r: 18, y: 7.8, speed: 0.28, phase: 3.4, color: 0xfafafa },
+  ];
+  seagullSpecs.forEach((spec) => {
+    const gull = new THREE.Group();
+    // Body
+    const gullBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.55 })
+    );
+    gullBody.scale.set(1.3, 0.7, 0.7);
+    gull.add(gullBody);
+    // Head
+    const gullHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 8, 6),
+      new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.55 })
+    );
+    gullHead.position.set(0.22, 0.04, 0);
+    gull.add(gullHead);
+    // Beak
+    const gullBeak = new THREE.Mesh(
+      new THREE.ConeGeometry(0.025, 0.09, 6),
+      new THREE.MeshStandardMaterial({ color: 0xffaa22 })
+    );
+    gullBeak.rotation.z = -Math.PI / 2;
+    gullBeak.position.set(0.31, 0.03, 0);
+    gull.add(gullBeak);
+    // Wings (two flat planes that flap)
+    const gullWingMat = new THREE.MeshStandardMaterial({ color: 0xdcdcdc, side: THREE.DoubleSide, roughness: 0.6 });
+    const gullWingL = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.02, 0.18), gullWingMat);
+    gullWingL.position.set(0, 0.05, 0.16);
+    gull.add(gullWingL);
+    const gullWingR = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.02, 0.18), gullWingMat);
+    gullWingR.position.set(0, 0.05, -0.16);
+    gull.add(gullWingR);
+    // Tail
+    const gullTail = new THREE.Mesh(
+      new THREE.ConeGeometry(0.07, 0.18, 6),
+      new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.6 })
+    );
+    gullTail.rotation.z = Math.PI / 2;
+    gullTail.position.set(-0.24, 0.0, 0);
+    gull.add(gullTail);
+    gull.userData = { spec, wingL: gullWingL, wingR: gullWingR };
+    group.add(gull);
+    seagullList.push(gull);
+  });
+
+  // Octopus tentacle peeking from rocks
+  const octopusTentacle = new THREE.Group();
+  octopusTentacle.position.set(7, -1.3, 14);
+  const tentacleSegments = [];
+  const tentColors = 0x8b3a62;
+  const tentSegCount = 8;
+  for (let ti = 0; ti < tentSegCount; ti++) {
+    const radius = 0.16 - ti * 0.012;
+    const seg = new THREE.Mesh(
+      new THREE.SphereGeometry(radius, 8, 6),
+      new THREE.MeshStandardMaterial({
+        color: tentColors,
+        roughness: 0.55,
+        emissive: 0x441122,
+        emissiveIntensity: 0.18
+      })
+    );
+    seg.position.set(0, ti * 0.18, 0);
+    octopusTentacle.add(seg);
+    tentacleSegments.push(seg);
+  }
+  // Suckers (tiny pale dots on segments)
+  for (let ti = 1; ti < tentSegCount; ti++) {
+    for (let su = 0; su < 2; su++) {
+      const sucker = new THREE.Mesh(
+        new THREE.SphereGeometry(0.025, 5, 4),
+        new THREE.MeshStandardMaterial({ color: 0xf6e0d8, roughness: 0.5 })
+      );
+      sucker.position.set(su === 0 ? 0.12 : -0.12, ti * 0.18, 0);
+      octopusTentacle.add(sucker);
+    }
+  }
+  group.add(octopusTentacle);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -4688,6 +4776,29 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       campfireEmbers.geometry.attributes.position.needsUpdate = true;
       campfireEmbers.material.opacity = 0.7 + 0.2 * Math.sin(t * 1.7);
+    }
+
+    // v25: Seagulls circling + octopus tentacle waving
+    if (typeof seagullList !== 'undefined' && seagullList.length) {
+      for (let gi = 0; gi < seagullList.length; gi++) {
+        const g = seagullList[gi];
+        const sp = g.userData.spec;
+        const ang = sp.phase + t * sp.speed;
+        g.position.set(Math.cos(ang) * sp.r, sp.y + 0.4 * Math.sin(t * 0.8 + sp.phase), Math.sin(ang) * sp.r);
+        g.rotation.y = -ang + (sp.speed > 0 ? Math.PI / 2 : -Math.PI / 2);
+        const flap = Math.sin(t * 9 + sp.phase) * 0.55;
+        g.userData.wingL.rotation.x = flap;
+        g.userData.wingR.rotation.x = -flap;
+      }
+    }
+    if (typeof octopusTentacle !== 'undefined' && tentacleSegments.length) {
+      for (let ti = 0; ti < tentacleSegments.length; ti++) {
+        const seg = tentacleSegments[ti];
+        const sway = 0.12 * Math.sin(t * 1.6 + ti * 0.42);
+        const curl = 0.08 * Math.sin(t * 1.1 + ti * 0.35);
+        seg.position.x = sway * (ti / tentacleSegments.length);
+        seg.position.z = curl * (ti / tentacleSegments.length);
+      }
     }
 
   }
