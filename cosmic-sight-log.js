@@ -201,7 +201,40 @@ export function createCosmicSightLog({ audio } = {}) {
             listWrap.appendChild(empty);
             return;
         }
+        let lastDayKey = null;
+        const _dayLabel = (ts) => {
+            const d = new Date(ts);
+            const today = new Date();
+            const yest = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
+            const isSameDay = (a, b) => a.toDateString() === b.toDateString();
+            if (isSameDay(d, today)) return 'Today';
+            if (isSameDay(d, yest)) return 'Yesterday';
+            const opts = { weekday: 'long', month: 'short', day: 'numeric' };
+            try { return d.toLocaleDateString(undefined, opts); } catch (_) { return d.toDateString(); }
+        };
         entries.forEach((e) => {
+            const dayKey = new Date(e.ts).toDateString();
+            if (dayKey !== lastDayKey) {
+                lastDayKey = dayKey;
+                const dayCount = entries.filter(x => new Date(x.ts).toDateString() === dayKey).length;
+                const header = document.createElement('div');
+                header.style.cssText = [
+                    'display:flex','align-items:center','justify-content:space-between',
+                    'margin:10px 4px 4px',
+                    'padding:4px 6px',
+                    'border-bottom:1px solid rgba(255,220,140,0.32)',
+                    'font:600 11px/1.2 Georgia,serif',
+                    'color:#ffd98a','letter-spacing:0.6px','text-transform:uppercase'
+                ].join(';');
+                const lbl = document.createElement('span');
+                lbl.textContent = _dayLabel(e.ts);
+                const cnt = document.createElement('span');
+                cnt.style.cssText = 'color:#a8b8d8;font-weight:400;text-transform:none;letter-spacing:0;';
+                cnt.textContent = `${dayCount} discover${dayCount === 1 ? 'y' : 'ies'}`;
+                header.appendChild(lbl);
+                header.appendChild(cnt);
+                listWrap.appendChild(header);
+            }
             const row = document.createElement('div');
             row.style.cssText = [
                 'display:flex', 'align-items:flex-start', 'gap:10px',
