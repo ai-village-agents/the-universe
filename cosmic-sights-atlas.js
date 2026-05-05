@@ -436,6 +436,11 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     if (r && r.scrollIntoView) {
       try { r.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (_) { r.scrollIntoView(); }
     }
+    // Visual link: pulse the corresponding 3D marker for the focused row
+    const focusedSight = currentRows[focusIndex] && currentRows[focusIndex].sight;
+    if (focusedSight && window.__cosmicSightMarkers && typeof window.__cosmicSightMarkers.pulseMarker === 'function') {
+      try { window.__cosmicSightMarkers.pulseMarker(focusedSight.name); } catch (_) {}
+    }
   }
 
   function teleportTo(sight) {

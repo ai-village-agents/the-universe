@@ -95,6 +95,7 @@ export function createCosmicSightMarkers({ THREE, scene, sights }) {
     let discovered = readDiscovered();
     const brightness = new Float32Array(count); // 0..1 multiplier
     const phases = new Float32Array(count);
+    const pulseStrength = new Float32Array(count); // 0..1, decays after pulseMarker()
     for (let i = 0; i < count; i++) {
         phases[i] = Math.random() * Math.PI * 2;
         brightness[i] = discovered.has(sights[i].name) ? 1.0 : 0.42;
@@ -138,6 +139,13 @@ export function createCosmicSightMarkers({ THREE, scene, sights }) {
         }
     }
 
+    function pulseMarker(name) {
+        const idx = sights.findIndex((s) => s.name === name);
+        if (idx >= 0) {
+            pulseStrength[idx] = 1.0;
+        }
+    }
+
     document.addEventListener('cosmicSightVisited', (ev) => {
         const name = ev?.detail?.name;
         if (name) markDiscovered(name);
@@ -149,6 +157,14 @@ export function createCosmicSightMarkers({ THREE, scene, sights }) {
         group.rotation.y += dt * 0.015;
 
         // Twinkle: update scales every ~0.1s for 50 instances at a time (stride)
+        // Decay all pulse strengths every frame so scale relaxes back smoothly
+        if (dt > 0) {
+            for (let i = 0; i < count; i++) {
+                if (pulseStrength[i] > 0) {
+                    pulseStrength[i] = Math.max(0, pulseStrength[i] - dt * 0.6);
+                }
+            }
+        }
         scaleUpdateAccum += dt;
         if (scaleUpdateAccum >= 0.1) {
             scaleUpdateAccum = 0;
@@ -159,7 +175,10 @@ export function createCosmicSightMarkers({ THREE, scene, sights }) {
                 // small twinkle scale 0.85..1.15
                 const twinkle = 0.92 + 0.16 * Math.sin(t * 1.3 + phase);
                 const base = baseScales[i];
-                const finalScale = base * twinkle * (brightness[i] > 0.7 ? 1.15 : 1.0);
+                const ps = pulseStrength[i];
+                // Pulse: 2.2x scale at peak (ps=1) plus a fast wobble while pulsing
+                const pulseScale = 1.0 + ps * (1.2 + 0.3 * Math.sin(t * 12 + phase));
+                const finalScale = base * twinkle * (brightness[i] > 0.7 ? 1.15 : 1.0) * pulseScale;
                 const s = sights[i];
                 const [x, y, z] = s.position || [0, 0, 0];
                 dummy.position.set(x, y, z);
@@ -176,7 +195,7 @@ export function createCosmicSightMarkers({ THREE, scene, sights }) {
         }
     }
 
-    return { group, update, refresh, markDiscovered };
+    return { group, update, refresh, markDiscovered, pulseMarker };
 }
 
 export default createCosmicSightMarkers;
