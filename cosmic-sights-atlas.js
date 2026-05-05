@@ -58,6 +58,7 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let showOnlyUndiscovered = false;
   let undiscoveredToggle = null;
   let sortByDistance = false;
+  let favoritesOnly = false;
   let nearestToggle = null;
   let currentRows = [];
   let focusIndex = -1;
@@ -148,6 +149,24 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     });
     controlsRow.appendChild(nearestToggle);
 
+    // ★ Favorites filter toggle
+    const favoritesToggle = document.createElement('button');
+    favoritesToggle.textContent = '★ Favorites';
+    favoritesToggle.title = 'Show only your starred favorite sights';
+    favoritesToggle.style.cssText = [
+      'background:transparent', 'color:#ffd97d',
+      'border:1px solid rgba(255,217,125,0.45)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    favoritesToggle.addEventListener('click', () => {
+      favoritesOnly = !favoritesOnly;
+      favoritesToggle.style.background = favoritesOnly ? 'rgba(255,217,125,0.22)' : 'transparent';
+      favoritesToggle.style.color = favoritesOnly ? '#ffe9a0' : '#ffd97d';
+      rebuild();
+    });
+    controlsRow.appendChild(favoritesToggle);
+
     // 🎲 Random undiscovered sight teleport
     const randomBtn = document.createElement('button');
     randomBtn.textContent = '🎲 Random';
@@ -221,7 +240,9 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     }
     const total = uniqueNames.size;
     const pct = total ? Math.round((found / total) * 100) : 0;
-    countLabel.textContent = `${found} of ${total} discovered (${pct}%)`;
+    const favoritesPre = loadFavoritesSet();
+    const favCount = favoritesPre.size;
+    countLabel.textContent = `${found} of ${total} discovered (${pct}%)` + (favCount > 0 ? `  ·  ★ ${favCount} favorite${favCount === 1 ? '' : 's'}` : '');
 
     // Apply filter (search text + undiscovered-only toggle).
     // Also dedupe by name so duplicate-named entries appear once in the list.
@@ -229,6 +250,7 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     const filtered = sights.filter((s) => {
       if (_seenInFiltered.has(s.name)) return false;
       if (showOnlyUndiscovered && discovered.has(s.name)) return false;
+      if (favoritesOnly && !favoritesPre.has(s.name)) return false;
       if (filterText && !s.name.toLowerCase().includes(filterText)) return false;
       _seenInFiltered.add(s.name);
       return true;
@@ -264,7 +286,7 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     if (filtered.length === 0) {
       const empty = document.createElement('div');
       empty.style.cssText = 'padding:40px 20px; text-align:center; color:#7d8ba8; font-style:italic; font-size:13px;';
-      empty.textContent = filterText ? `No sights match "${filterText}".` : 'No undiscovered sights — every cosmic sight has been discovered! ✨';
+      empty.textContent = filterText ? `No sights match "${filterText}".` : (favoritesOnly ? 'No favorites yet — click the ☆ next to a sight name to add it.' : 'No undiscovered sights — every cosmic sight has been discovered! ✨');
       body.appendChild(empty);
       return;
     }
@@ -318,6 +340,28 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
           distSpan.style.cssText = 'font-size:10px; color:#7da7d6; min-width:42px; text-align:right; flex-shrink:0;';
           row.appendChild(distSpan);
         }
+
+        // Star (favorite) toggle
+        const star = document.createElement('button');
+        const isFav0 = favoritesPre.has(s.name);
+        star.textContent = isFav0 ? '★' : '☆';
+        star.title = isFav0 ? 'Unfavorite' : 'Add to favorites';
+        star.style.cssText = [
+          'background:transparent', `color:${isFav0 ? '#ffd97d' : '#5a6f8c'}`,
+          'border:none', 'padding:0 4px', 'font-size:14px',
+          'cursor:pointer', 'flex-shrink:0', 'line-height:1',
+        ].join(';');
+        star.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const cur = loadFavoritesSet();
+          if (cur.has(s.name)) { cur.delete(s.name); } else { cur.add(s.name); }
+          saveFavoritesSet(cur);
+          if (audio?.playChime) { try { audio.playChime('atlasFav'); } catch (_) {} }
+          rebuild();
+        });
+        star.addEventListener('mouseenter', () => { star.style.color = '#ffd97d'; });
+        star.addEventListener('mouseleave', () => { star.style.color = favoritesPre.has(s.name) ? '#ffd97d' : '#5a6f8c'; });
+        row.appendChild(star);
 
         const btn = document.createElement('button');
         btn.textContent = 'Visit';
