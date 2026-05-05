@@ -2774,6 +2774,123 @@ export function createAnchorageLandmark(THREE, opts) {
   signalFlareGroup.position.set(-25, 0, -22);
   group.add(signalFlareGroup);
 
+  // --- v17 features (Opus 4.7) -----------------------------------------------
+  // 17a) Low sea fog: 6 thin translucent fog strips drifting just above the water
+  const seaFogGroup = new THREE.Group();
+  const seaFogMat = new THREE.MeshBasicMaterial({
+    color: 0xc8d6ee,
+    transparent: true,
+    opacity: 0.16,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  const seaFogPlanes = [];
+  for (let i = 0; i < 6; i++) {
+    const w = 14 + Math.random() * 12;
+    const h = 3.0 + Math.random() * 1.6;
+    const fog = new THREE.Mesh(new THREE.PlaneGeometry(w, h), seaFogMat.clone());
+    fog.rotation.x = -Math.PI / 2;
+    fog.position.set(
+      -10 + (Math.random() - 0.5) * 36,
+      0.18 + Math.random() * 0.18,
+      -10 + (Math.random() - 0.5) * 36,
+    );
+    fog.userData = {
+      driftSpeed: 0.08 + Math.random() * 0.05,
+      direction: Math.random() < 0.5 ? -1 : 1,
+      basePhase: Math.random() * Math.PI * 2,
+      baseOpacity: 0.12 + Math.random() * 0.10,
+    };
+    seaFogGroup.add(fog);
+    seaFogPlanes.push(fog);
+  }
+  group.add(seaFogGroup);
+
+  // 17b) Distant ferry boat with a row of lit windows, slowly sails an arc
+  const distantFerryGroup = new THREE.Group();
+  const ferryHull = new THREE.Mesh(
+    new THREE.BoxGeometry(5.2, 0.9, 1.6),
+    new THREE.MeshStandardMaterial({ color: 0x2a3550, roughness: 0.78 }),
+  );
+  ferryHull.position.y = 0.3;
+  distantFerryGroup.add(ferryHull);
+  const ferryDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(4.4, 0.3, 1.3),
+    new THREE.MeshStandardMaterial({ color: 0x445574, roughness: 0.7 }),
+  );
+  ferryDeck.position.y = 0.85;
+  distantFerryGroup.add(ferryDeck);
+  const ferryCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(3.4, 0.7, 1.0),
+    new THREE.MeshStandardMaterial({ color: 0xeae6d0, roughness: 0.6 }),
+  );
+  ferryCabin.position.y = 1.35;
+  distantFerryGroup.add(ferryCabin);
+  // Row of warm lit windows
+  const ferryWindowMat = new THREE.MeshBasicMaterial({
+    color: 0xfff1b8,
+    transparent: true,
+    opacity: 0.95,
+  });
+  for (let i = 0; i < 6; i++) {
+    const w = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.28), ferryWindowMat);
+    w.position.set(-1.45 + i * 0.58, 1.36, 0.51);
+    distantFerryGroup.add(w);
+    const wb = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.28), ferryWindowMat);
+    wb.position.set(-1.45 + i * 0.58, 1.36, -0.51);
+    wb.rotation.y = Math.PI;
+    distantFerryGroup.add(wb);
+  }
+  // Smokestack
+  const ferrySmokestack = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.95, 10),
+    new THREE.MeshStandardMaterial({ color: 0x5b3a2a, roughness: 0.85 }),
+  );
+  ferrySmokestack.position.set(1.2, 2.1, 0);
+  distantFerryGroup.add(ferrySmokestack);
+  // Bow accent (red trim) + masthead light
+  const ferryBowLight = new THREE.PointLight(0xfff1b8, 0.6, 6, 1.6);
+  ferryBowLight.position.set(0, 1.7, 0);
+  distantFerryGroup.add(ferryBowLight);
+  distantFerryGroup.position.set(-30, 0, 8);
+  group.add(distantFerryGroup);
+
+  // 17c) Harbor cat: small dozing tabby on the dock, with a slow tail flick
+  const harborCatGroup = new THREE.Group();
+  const catMat = new THREE.MeshStandardMaterial({ color: 0xb88a52, roughness: 0.9 });
+  const catBody = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 8), catMat);
+  catBody.scale.set(1.4, 0.8, 1.0);
+  catBody.position.y = 0.18;
+  harborCatGroup.add(catBody);
+  const catHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 12, 8), catMat);
+  catHead.position.set(0.3, 0.28, 0);
+  harborCatGroup.add(catHead);
+  // Ears
+  const catEarL = new THREE.Mesh(
+    new THREE.ConeGeometry(0.05, 0.10, 6),
+    catMat,
+  );
+  catEarL.position.set(0.34, 0.42, 0.07);
+  harborCatGroup.add(catEarL);
+  const catEarR = new THREE.Mesh(
+    new THREE.ConeGeometry(0.05, 0.10, 6),
+    catMat,
+  );
+  catEarR.position.set(0.34, 0.42, -0.07);
+  harborCatGroup.add(catEarR);
+  // Tail (curved cylinder approximated with thin elongated capsule via sphere chain)
+  const catTail = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.045, 0.035, 0.55, 8),
+    catMat,
+  );
+  catTail.rotation.z = Math.PI / 2;
+  catTail.position.set(-0.36, 0.20, 0);
+  harborCatGroup.add(catTail);
+  // Place on the dock near the harbor master cottage
+  harborCatGroup.position.set(-7.4, 0.28, 9.7);
+  harborCatGroup.rotation.y = -0.4;
+  group.add(harborCatGroup);
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -3560,6 +3677,46 @@ export function createAnchorageLandmark(THREE, opts) {
       signalFlareCore.material.opacity = 0;
       signalFlareGlow.intensity = 0;
       signalFlareGroup.position.y = 0;
+    }
+
+    // v17: low sea fog drifts slowly across the harbor, gentle opacity pulse
+    seaFogPlanes.forEach((fog) => {
+      const ud = fog.userData;
+      fog.position.x += ud.direction * ud.driftSpeed * dt;
+      // Wrap softly when drifted past the harbor extent
+      if (fog.position.x > 20) fog.position.x = -22;
+      if (fog.position.x < -22) fog.position.x = 20;
+      const breath = ud.baseOpacity + 0.05 * Math.sin(t * 0.35 + ud.basePhase);
+      fog.material.opacity = breath;
+    });
+
+    // v17: distant ferry sails a wide arc, lit windows pulse very faintly
+    {
+      const fa = t * 0.025 + 1.2;
+      distantFerryGroup.position.x = -30 + Math.sin(fa) * 10;
+      distantFerryGroup.position.z = 8 + Math.cos(fa) * 6;
+      distantFerryGroup.position.y = Math.sin(t * 0.9) * 0.07;
+      // Boat heads in direction of travel: derivative of position
+      const fdx = Math.cos(fa) * 10 * 0.025;
+      const fdz = -Math.sin(fa) * 6 * 0.025;
+      distantFerryGroup.rotation.y = Math.atan2(fdx, fdz);
+      ferryWindowMat.opacity = 0.88 + 0.10 * Math.sin(t * 0.7);
+    }
+
+    // v17: harbor cat — slow tail flick, occasional head turn
+    {
+      catTail.rotation.x = Math.sin(t * 1.2) * 0.18;
+      // Subtle head-turn every ~6 seconds
+      const headPhase = (t % 7) / 7;
+      if (headPhase > 0.55 && headPhase < 0.75) {
+        const k = (headPhase - 0.55) / 0.20;
+        catHead.rotation.y = Math.sin(k * Math.PI) * 0.6;
+      } else {
+        catHead.rotation.y *= 0.95;
+      }
+      // Breathing: scale tiny up/down
+      const br = 1.0 + 0.012 * Math.sin(t * 1.6);
+      catBody.scale.set(1.4 * br, 0.8 * br, 1.0 * br);
     }
 
 
