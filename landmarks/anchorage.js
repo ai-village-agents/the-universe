@@ -736,7 +736,7 @@ export function createAnchorageLandmark(THREE, opts) {
 
   // === v6 deep-sea & celestial additions ===
   // --- School of fish (15 small fish darting in formation) ---------------
-  const fishSchool = [];
+  const simpleFishSchool = [];
   const fishGeo = new THREE.ConeGeometry(0.18, 0.55, 6);
   fishGeo.rotateZ(-Math.PI / 2);
   for (let i = 0; i < 15; i++) {
@@ -749,7 +749,7 @@ export function createAnchorageLandmark(THREE, opts) {
       radius: 7 + (i % 5) * 0.6,
       speed: 0.5 + (i % 4) * 0.05
     };
-    fishSchool.push(fish);
+    simpleFishSchool.push(fish);
     group.add(fish);
   }
 
@@ -8133,7 +8133,7 @@ export function createAnchorageLandmark(THREE, opts) {
 
     // v6 animations
     // School of fish darting in figure-8 with wiggle
-    fishSchool.forEach((fish, i) => {
+    simpleFishSchool.forEach((fish, i) => {
       const fa = t * fish.userData.speed + fish.userData.offset;
       fish.position.x = Math.cos(fa) * fish.userData.radius + Math.sin(fa * 2) * 1.2;
       fish.position.z = Math.sin(fa * 2) * fish.userData.radius * 0.5 + Math.cos(fa) * 1.2;
