@@ -13,7 +13,10 @@ const PROXIMITY_RADIUS = 110; // units
 const BADGE_FADE_MS = 3200;
 
 export function createCosmicSightTracker({ camera, sights, audio }) {
-    const total = sights.length;
+    // Dedupe by name so Cosmic Census parity matches Atlas total
+    const uniqueNames = new Set();
+    for (const s of sights) { if (s && s.name) uniqueNames.add(s.name); }
+    const total = uniqueNames.size;
     let visited = new Set();
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
