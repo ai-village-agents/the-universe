@@ -1653,6 +1653,21 @@ const cosmicSights = [
     { name: 'Jellyfish Galaxy', position: [650, -80, -150], color: '#66ddff', description: 'galaxy with trailing streamers of gas stripped by cluster medium' },
     { name: 'Cosmic Dawn', position: [-500, 280, 250], color: '#ffddaa', description: 'era 100-250 million years after Big Bang when first galaxies formed' },
     { name: 'Reionization Bubble', position: [300, -300, -200], color: '#aaddff', description: 'expanding sphere of ionized hydrogen around early luminous sources' },
+    { name: 'Blue Supergiant', position: [480, -250, 380], color: '#88ccff', description: 'massive hot luminous star 10000 times brighter than Sun' },
+    { name: 'Red Supergiant', position: [-380, 200, -480], color: '#ff4400', description: 'evolved massive star expanded to hundreds of solar radii' },
+    { name: 'Yellow Hypergiant', position: [250, 320, -280], color: '#ffdd44', description: 'extremely rare luminous star among most massive known' },
+    { name: 'Luminous Blue Variable', position: [-550, -180, 320], color: '#aaddff', description: 'unstable massive star with dramatic brightness eruptions' },
+    { name: 'Be Star', position: [680, 50, -520], color: '#ccddff', description: 'rapidly rotating B-type star with circumstellar disk' },
+    { name: 'X-ray Pulsar', position: [-420, 280, 180], color: '#ff66aa', description: 'neutron star in binary emitting pulsed X-rays from accretion' },
+    { name: 'Millisecond Pulsar', position: [380, -320, 620], color: '#aaffff', description: 'neutron star spun up to hundreds of rotations per second' },
+    { name: 'Double Pulsar', position: [-680, 120, -280], color: '#ffaadd', description: 'rare binary system where both neutron stars are pulsars' },
+    { name: 'Pulsar Glitch', position: [520, 180, 480], color: '#ffff88', description: 'sudden spin-up event from neutron star interior rearrangement' },
+    { name: 'Galactic Fountain', position: [-280, -220, 550], color: '#88ddaa', description: 'hot gas ejected from disk falling back as galactic rain' },
+    { name: 'Galactic Wind', position: [720, -120, -380], color: '#aaccdd', description: 'outflow of gas driven by supernovae and stellar winds' },
+    { name: 'Starburst Region', position: [-620, 80, 420], color: '#ffaa77', description: 'area of intense star formation 10-100 times normal rate' },
+    { name: 'Baryon Acoustic Peak', position: [180, 350, -650], color: '#ddccff', description: 'characteristic 500 million light year scale from sound waves in early universe' },
+    { name: 'Cosmic Shear Field', position: [-480, -280, -180], color: '#ccddee', description: 'distortion pattern revealing dark matter distribution' },
+    { name: 'Lyman Alpha Forest', position: [580, 220, 280], color: '#aabbff', description: 'absorption lines from intergalactic hydrogen clouds along quasar sightlines' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
