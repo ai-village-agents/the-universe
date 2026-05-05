@@ -62,7 +62,7 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
         'opacity:0',
         'transform:translateX(20px)',
         'transition:opacity 0.35s ease, transform 0.35s ease',
-        'max-width:240px', 'text-align:center'
+        'max-width:280px', 'text-align:left'
     ].join(';');
     document.body.appendChild(toast);
     let toastTimeout = null;
@@ -73,8 +73,9 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
             + `<div style="font-size:9px;color:#9ab9d6;margin-top:2px">discovered ${pct}%</div>`;
     }
 
-    function showToast(name) {
-        toast.textContent = `✨ Discovered: ${name}`;
+    function showToast(name, description) {
+        const desc = description ? `<div style="font-size:11px;color:#cdd9ee;margin-top:3px;font-style:normal">${description}</div>` : '';
+        toast.innerHTML = `✨ Discovered: <b style="color:#fff5d4">${name}</b>${desc}`;
         toast.style.opacity = '1';
         toast.style.transform = 'translateX(0)';
         if (toastTimeout) clearTimeout(toastTimeout);
@@ -115,7 +116,7 @@ export function createCosmicSightTracker({ camera, sights, audio }) {
                 persist();
                 refreshBadge();
                 flashBadge();
-                showToast(s.name);
+                showToast(s.name, s.description || '');
                 if (audio && audio.isStarted && audio.isStarted() && !audio.isMuted()) {
                     try { audio.playChime('cosmicSight'); } catch (_) {}
                 }
