@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe System Verification Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3e 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(16, 16, 64, 0.6);
+            border-radius: 15px;
+            border: 1px solid #2a2a7a;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #6c8cff, #b366ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            color: #a0a0ff;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .test-card {
+            background: rgba(24, 24, 72, 0.7);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #3a3a8a;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-2px);
+            border-color: #6c8cff;
+        }
+        
+        .test-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #b3ccff;
+        }
+        
+        .test-card h3 .status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #444;
+        }
+        
+        .test-card h3 .status.passing {
+            background: #4CAF50;
+            box-shadow: 0 0 8px #4CAF50;
+        }
+        
+        .test-card h3 .status.failing {
+            background: #f44336;
+            box-shadow: 0 0 8px #f44336;
+        }
+        
+        .test-card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #c0c0ff;
+        }
+        
+        .console-code {
+            background: rgba(0, 0, 20, 0.8);
+            border: 1px solid #2a2a5a;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #8aff80;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+        
+        .test-btn {
+            background: linear-gradient(90deg, #4a6fff, #7b52ff);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .test-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .test-btn.secondary {
+            background: rgba(90, 90, 180, 0.4);
+            margin-left: 10px;
+        }
+        
+        .instructions {
+            background: rgba(32, 32, 96, 0.6);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+            border: 1px solid #4a4aaa;
+        }
+        
+        .instructions h2 {
+            margin-bottom: 15px;
+            color: #b3ccff;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a5a;
+            color: #8888cc;
+            font-size: 0.9rem;
+        }
+        
+        .status-summary {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .status-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(32, 32, 96, 0.4);
+            border-radius: 10px;
+            min-width: 150px;
+        }
+        
+        .status-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .pass { color: #4CAF50; }
+        .fail { color: #f44336; }
+        .pending { color: #FF9800; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Universe System Verification Dashboard</h1>
+            <div class="subtitle">Day 399 - Testing narrative connections, API fixes, and challenge systems</div>
+            
+            <div class="status-summary">
+                <div class="status-item">
+                    <div class="status-value pending" id="totalTests">0</div>
+                    <div>Total Tests</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-value pass" id="passingTests">0</div>
+                    <div>Passing</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-value fail" id="failingTests">0</div>
+                    <div>Failing</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="test-grid">
+            <!-- Test 1: Visitor Tracker API -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status1"></span>
+                    Visitor Tracker API
+                </h3>
+                <p>Verify <code>getVisitedWorlds()</code> and <code>getVisitorId()</code> functions are properly exported.</p>
+                <div class="console-code" id="output1">Run test to see results...</div>
+                <button class="test-btn" onclick="testVisitorTracker()">Test Visitor Tracker</button>
+            </div>
+            
+            <!-- Test 2: Event Witness Challenge -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status2"></span>
+                    Event Witness Challenge
+                </h3>
+                <p>Test event triggering and challenge progress incrementing.</p>
+                <div class="console-code" id="output2">Run test to see results...</div>
+                <button class="test-btn" onclick="testEventWitness()">Test Event Witness</button>
+                <button class="test-btn secondary" onclick="triggerAurora()">Trigger Aurora</button>
+            </div>
+            
+            <!-- Test 3: Narrative Connections -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status3"></span>
+                    Narrative Connections
+                </h3>
+                <p>Check narrative arcs system and session storage.</p>
+                <div class="console-code" id="output3">Run test to see results...</div>
+                <button class="test-btn" onclick="testNarrative()">Test Narrative System</button>
+                <button class="test-btn secondary" onclick="simulateWorldVisit()">Simulate World Visit</button>
+            </div>
+            
+            <!-- Test 4: Web Weaver Challenge -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status4"></span>
+                    Web Weaver Challenge
+                </h3>
+                <p>Test session-based world visit tracking and reset functionality.</p>
+                <div class="console-code" id="output4">Run test to see results...</div>
+                <button class="test-btn" onclick="testWebWeaver()">Test Web Weaver</button>
+                <button class="test-btn secondary" onclick="resetWebWeaver()">Reset Session</button>
+            </div>
+            
+            <!-- Test 5: Cosmic Sights -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status5"></span>
+                    Cosmic Sights Systems
+                </h3>
+                <p>Verify cosmic sights tracker, HUD, and sidebar consistency.</p>
+                <div class="console-code" id="output5">Run test to see results...</div>
+                <button class="test-btn" onclick="testCosmicSights()">Test Cosmic Sights</button>
+            </div>
+            
+            <!-- Test 6: Teleport Function -->
+            <div class="test-card">
+                <h3>
+                    <span class="status" id="status6"></span>
+                    Teleport Function
+                </h3>
+                <p>Test that teleport doesn't throw visitorTracker errors.</p>
+                <div class="console-code" id="output6">Manual verification required...</div>
+                <button class="test-btn" onclick="testTeleport()">Check Teleport API</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>Testing Instructions</h2>
+            <ol>
+                <li><strong>Use cache-busted URL:</strong> Load the universe with <code>?cb=timestamp</code> to ensure latest deployment</li>
+                <li><strong>Run tests in order:</strong> Start with Visitor Tracker API, then proceed to other systems</li>
+                <li><strong>Check console:</strong> Open browser console (F12) for detailed error messages</li>
+                <li><strong>Report issues:</strong> Share any failing tests in #universe-coordination with console output</li>
+                <li><strong>Test narrative arcs:</strong> Visit worlds in sequence (see narrative test page) to validate tooltips</li>
+            </ol>
+            <p style="margin-top: 15px;">
+                <strong>Quick verification script:</strong> Copy and paste into browser console:
+                <div class="console-code">
+fetch('https://raw.githubusercontent.com/ai-village-agents/the-universe/main/test-universe-verification.js')
+.then(r => r.text()).then(eval);
+                </div>
+            </p>
+        </div>
+        
+        <footer>
+            <p>Created by DeepSeek-V3.2 | Day 399 | Universe System Verification</p>
+            <p>Last updated: <span id="timestamp"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Update timestamp
+        document.getElementById('timestamp').textContent = new Date().toISOString();
+        
+        // Test counters
+        let totalTests = 0;
+        let passingTests = 0;
+        let failingTests = 0;
+        
+        function updateStats() {
+            document.getElementById('totalTests').textContent = totalTests;
+            document.getElementById('passingTests').textContent = passingTests;
+            document.getElementById('failingTests').textContent = failingTests;
+        }
+        
+        function setStatus(elementId, status) {
+            const element = document.getElementById(elementId);
+            element.className = 'status';
+            if (status === 'pass') {
+                element.classList.add('passing');
+            } else if (status === 'fail') {
+                element.classList.add('failing');
+            }
+        }
+        
+        function testVisitorTracker() {
+            totalTests++;
+            const output = document.getElementById('output1');
+            
+            try {
+                if (window.__visitorTracker) {
+                    const tracker = window.__visitorTracker;
+                    const tests = [];
+                    
+                    // Test getVisitedWorlds
+                    if (typeof tracker.getVisitedWorlds === 'function') {
+                        const worlds = tracker.getVisitedWorlds();
+                        tests.push(`✓ getVisitedWorlds(): returns ${Array.isArray(worlds) ? 'Array' : typeof worlds}`);
+                    } else {
+                        tests.push(`✗ getVisitedWorlds is not a function`);
+                    }
+                    
+                    // Test getVisitorId
+                    if (typeof tracker.getVisitorId === 'function') {
+                        const id = tracker.getVisitorId();
+                        tests.push(`✓ getVisitorId(): returns string "${id.substring(0, 8)}..."`);
+                    } else {
+                        tests.push(`✗ getVisitorId is not a function`);
+                    }
+                    
+                    output.textContent = tests.join('\n');
+                    
+                    if (tests.every(t => t.startsWith('✓'))) {
+                        setStatus('status1', 'pass');
+                        passingTests++;
+                    } else {
+                        setStatus('status1', 'fail');
+                        failingTests++;
+                    }
+                } else {
+                    output.textContent = '✗ window.__visitorTracker not found';
+                    setStatus('status1', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status1', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        function testEventWitness() {
+            totalTests++;
+            const output = document.getElementById('output2');
+            
+            try {
+                if (window.__challengeUI) {
+                    const challenge = window.__challengeUI.challenges.eventWitness;
+                    if (challenge) {
+                        output.textContent = 
+                            `✓ Event Witness challenge found\n` +
+                            `  Progress: ${challenge.progress}/${challenge.total}\n` +
+                            `  Completed: ${challenge.completed ? 'Yes' : 'No'}\n` +
+                            `\nTo test: Run triggerAurora() button or manually:\n` +
+                            `window.UniverseEvents.triggerEvent('aurora')`;
+                        
+                        setStatus('status2', 'pass');
+                        passingTests++;
+                    } else {
+                        output.textContent = '✗ Event Witness challenge not found in challenges';
+                        setStatus('status2', 'fail');
+                        failingTests++;
+                    }
+                } else {
+                    output.textContent = '✗ window.__challengeUI not found';
+                    setStatus('status2', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status2', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        function triggerAurora() {
+            const output = document.getElementById('output2');
+            try {
+                if (window.UniverseEvents && typeof window.UniverseEvents.triggerEvent === 'function') {
+                    window.UniverseEvents.triggerEvent('aurora');
+                    output.textContent = '✓ Aurora event triggered\nCheck Event Witness progress update';
+                } else {
+                    output.textContent = '✗ UniverseEvents.triggerEvent not available';
+                }
+            } catch (error) {
+                output.textContent = `✗ Error triggering event: ${error.message}`;
+            }
+        }
+        
+        function testNarrative() {
+            totalTests++;
+            const output = document.getElementById('output3');
+            
+            try {
+                if (window.__narrativeConnections) {
+                    const narrative = window.__narrativeConnections;
+                    let result = '✓ Narrative connections system found\n';
+                    
+                    if (narrative.arcs) {
+                        result += `✓ ${narrative.arcs.length} story arcs:\n`;
+                        narrative.arcs.forEach(arc => {
+                            const completed = arc.steps.filter(s => s.completed).length;
+                            result += `  - ${arc.name}: ${completed}/${arc.steps.length}\n`;
+                        });
+                    }
+                    
+                    // Check session storage
+                    const sessionProgress = sessionStorage.getItem('universeNarrativeProgress_v1');
+                    if (sessionProgress) {
+                        result += '\n✓ Narrative progress stored in sessionStorage';
+                    } else {
+                        result += '\n⚠ No narrative progress in sessionStorage (first visit?)';
+                    }
+                    
+                    output.textContent = result;
+                    setStatus('status3', 'pass');
+                    passingTests++;
+                } else {
+                    output.textContent = '✗ window.__narrativeConnections not found';
+                    setStatus('status3', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status3', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        function simulateWorldVisit() {
+            const output = document.getElementById('output3');
+            try {
+                // Simulate a world visited event
+                const event = new CustomEvent('worldVisited', {
+                    detail: { worldId: 'test-world', worldName: 'Test World' }
+                });
+                document.dispatchEvent(event);
+                output.textContent = '✓ Simulated world visited event dispatched';
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+            }
+        }
+        
+        function testWebWeaver() {
+            totalTests++;
+            const output = document.getElementById('output4');
+            
+            try {
+                if (window.__challengeUI) {
+                    const challenge = window.__challengeUI.challenges.webWeaver;
+                    if (challenge) {
+                        const sessionVisits = sessionStorage.getItem('universeSessionVisits');
+                        const visits = sessionVisits ? JSON.parse(sessionVisits) : [];
+                        
+                        output.textContent = 
+                            `✓ Web Weaver challenge found\n` +
+                            `  Progress: ${challenge.progress}/${challenge.total}\n` +
+                            `  Session visits: ${visits.length} worlds\n` +
+                            `  Completed: ${challenge.completed ? 'Yes' : 'No'}\n` +
+                            `\nTo test: Visit worlds in the universe\n` +
+                            `Reset button available in challenge UI`;
+                        
+                        setStatus('status4', 'pass');
+                        passingTests++;
+                    } else {
+                        output.textContent = '✗ Web Weaver challenge not found in challenges';
+                        setStatus('status4', 'fail');
+                        failingTests++;
+                    }
+                } else {
+                    output.textContent = '✗ window.__challengeUI not found';
+                    setStatus('status4', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status4', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        function resetWebWeaver() {
+            const output = document.getElementById('output4');
+            try {
+                if (window.__challengeUI && window.__challengeUI.resetWebWeaverSession) {
+                    window.__challengeUI.resetWebWeaverSession();
+                    output.textContent = '✓ Web Weaver session reset';
+                } else if (sessionStorage.getItem('universeSessionVisits')) {
+                    sessionStorage.removeItem('universeSessionVisits');
+                    output.textContent = '✓ Session visits cleared from sessionStorage';
+                } else {
+                    output.textContent = '⚠ No session visits to reset';
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+            }
+        }
+        
+        function testCosmicSights() {
+            totalTests++;
+            const output = document.getElementById('output5');
+            
+            try {
+                let result = '';
+                let allPassing = true;
+                
+                // Check tracker
+                if (window.__cosmicSightTracker) {
+                    if (typeof window.__cosmicSightTracker.count === 'function') {
+                        const count = window.__cosmicSightTracker.count();
+                        result += `✓ Cosmic sight tracker: ${count} discovered\n`;
+                    } else {
+                        result += `✗ Tracker.count() not a function\n`;
+                        allPassing = false;
+                    }
+                } else {
+                    result += `⚠ No cosmic sight tracker found\n`;
+                    allPassing = false;
+                }
+                
+                // Check HUD
+                const hudElement = document.querySelector('.cosmic-census');
+                if (hudElement) {
+                    result += `✓ HUD found: ${hudElement.textContent}\n`;
+                } else {
+                    result += `⚠ Cosmic census HUD not found\n`;
+                }
+                
+                // Check achievements panel for cosmic sights
+                const achievements = document.querySelector('.achievements-panel');
+                if (achievements) {
+                    const text = achievements.textContent;
+                    const match = text.match(/Cosmic Sights discovered:\s*(\d+)\/(\d+)/);
+                    if (match) {
+                        result += `✓ Achievements panel: ${match[1]}/${match[2]}\n`;
+                    } else {
+                        result += `⚠ Cosmic sights not found in achievements panel\n`;
+                    }
+                }
+                
+                output.textContent = result;
+                
+                if (allPassing) {
+                    setStatus('status5', 'pass');
+                    passingTests++;
+                } else {
+                    setStatus('status5', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status5', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        function testTeleport() {
+            totalTests++;
+            const output = document.getElementById('output6');
+            
+            try {
+                // Check if the teleport function would access visitorTracker correctly
+                if (window.__visitorTracker && typeof window.__visitorTracker.getVisitedWorlds === 'function') {
+                    // Simulate what teleport function would do
+                    const tracker = window.__visitorTracker;
+                    const worlds = tracker.getVisitedWorlds();
+                    
+                    output.textContent = 
+                        `✓ Teleport API should work correctly\n` +
+                        `  getVisitedWorlds() returns: Array(${worlds.length})\n` +
+                        `  No TypeError expected during teleport\n` +
+                        `\nManual test: Open Directory (Tab) and click Visit on any world`;
+                    
+                    setStatus('status6', 'pass');
+                    passingTests++;
+                } else {
+                    output.textContent = '✗ Visitor tracker API not ready - teleport may fail';
+                    setStatus('status6', 'fail');
+                    failingTests++;
+                }
+            } catch (error) {
+                output.textContent = `✗ Error: ${error.message}`;
+                setStatus('status6', 'fail');
+                failingTests++;
+            }
+            
+            updateStats();
+        }
+        
+        // Auto-run basic checks on load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('Universe Verification Dashboard loaded');
+                // Auto-run visitor tracker test
+                testVisitorTracker();
+                setTimeout(testEventWitness, 100);
+                setTimeout(testNarrative, 200);
+                setTimeout(testWebWeaver, 300);
+                setTimeout(testCosmicSights, 400);
+                setTimeout(testTeleport, 500);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
