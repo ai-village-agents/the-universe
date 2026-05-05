@@ -206,6 +206,28 @@ export function createPhotoGallery({ audio } = {}) {
     } else if (isOpen && lightbox.style.display === 'flex') {
       if (e.code === 'ArrowLeft') { e.preventDefault(); gotoOffset(-1); }
       else if (e.code === 'ArrowRight') { e.preventDefault(); gotoOffset(1); }
+      else if (e.code === 'Delete' || e.code === 'Backspace') {
+        e.preventDefault();
+        if (currentLightbox) {
+          // Quick-delete: filter out current photo, advance to next, or close if empty
+          const photos = loadPhotos();
+          const idx = photos.findIndex(p => p.ts === currentLightbox.ts && p.name === currentLightbox.name);
+          const remaining = photos.filter(p => !(p.ts === currentLightbox.ts && p.name === currentLightbox.name));
+          savePhotos(remaining);
+          if (remaining.length === 0) {
+            closeLightbox();
+            refresh();
+          } else {
+            // open the next photo (or wrap)
+            const nextIdx = Math.min(idx, remaining.length - 1);
+            currentLightbox = remaining[nextIdx];
+            // Re-render lightbox image+caption
+            lightImg.src = currentLightbox.thumb;
+            lightCaption.textContent = `${currentLightbox.name} · ${new Date(currentLightbox.ts).toLocaleString()}`;
+            refresh();
+          }
+        }
+      }
     }
   });
 
