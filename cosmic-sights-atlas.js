@@ -344,6 +344,14 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
         dot.style.cssText = `color:${s.color || '#aab8d6'}; font-size:14px; ${isFound ? `text-shadow:0 0 8px ${s.color || '#7df9ff'};` : ''} flex-shrink:0;`;
         row.appendChild(dot);
 
+        // Category emoji tag (1 char visual cue)
+        const catEmoji = (CATEGORY_RULES.find(r => r.id === categorize(s.name))?.label || '').split(' ')[0] || '✦';
+        const catTag = document.createElement('span');
+        catTag.textContent = catEmoji;
+        catTag.style.cssText = 'font-size:11px; opacity:0.78; flex-shrink:0; width:14px; text-align:center;';
+        catTag.title = (CATEGORY_RULES.find(r => r.id === categorize(s.name))?.label || '');
+        row.appendChild(catTag);
+
         const label = document.createElement('span');
         label.textContent = s.name;
         label.style.cssText = `flex:1; font-size:12px; color:${isFound ? '#e6efff' : '#8a9bbd'}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;`;
