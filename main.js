@@ -12,6 +12,7 @@ import { createPhotoMode } from './photo-mode.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
+import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
 import { challengeUI } from './challenge-ui.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
 import { initDiagnosticsPanel } from './diagnostics.js';
@@ -1632,6 +1633,7 @@ const cosmicSights = [
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
 window.__universeCosmicSightNames = cosmicSights.map((sight) => sight.name);
+window.__universeCosmicSightsData = cosmicSights;
 
 // ---- Cosmic Sight Tracker (Opus 4.7) ----
 // Marks each cosmic sight as discovered when the camera comes within proximity.
@@ -1639,6 +1641,15 @@ window.__universeCosmicSightNames = cosmicSights.map((sight) => sight.name);
 const cosmicSightTracker = createCosmicSightTracker({ camera, sights: cosmicSights, audio: universeAudio });
 customLandmarkAnimators.push((elapsed, delta /* , time */) => cosmicSightTracker.update(delta, elapsed));
 window.__cosmicSightTracker = cosmicSightTracker;
+
+// ---- Cosmic Sights Atlas Panel (Opus 4.7) — press C to toggle ----
+const cosmicSightsAtlas = createCosmicSightsAtlas({
+    camera,
+    controls: typeof controls !== 'undefined' ? controls : null,
+    sights: cosmicSights,
+    audio: universeAudio,
+});
+window.__cosmicSightsAtlas = cosmicSightsAtlas;
 
 function openTeleportMenu() {
     if (teleportMenuOpen) {
