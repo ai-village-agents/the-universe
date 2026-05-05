@@ -1936,6 +1936,36 @@ const cosmicSights = [
     { name: "Wormhole Throat", position: [215, -65, -155], color: "#dda0dd", description: "Hypothetical passage connecting distant regions of spacetime" },
     { name: "Closed Timelike Curve", position: [-175, 55, 185], color: "#9932cc", description: "Spacetime path that loops back to same point in time" },
     { name: "Firewall", position: [185, -85, 175], color: "#ff4500", description: "Proposed high-energy surface at black hole event horizon" },
+    // 426-430: Galactic Archaeology
+    { name: "Stellar Stream", position: [-195, 65, -175], color: "#ffd700", description: "Tidal debris from disrupted dwarf galaxy or globular cluster" },
+    { name: "Sagittarius Stream", position: [215, -55, 185], color: "#daa520", description: "Prominent stellar stream from tidally disrupting Sagittarius dwarf" },
+    { name: "Gaia Sausage", position: [-175, 85, 165], color: "#cd853f", description: "Remnant of massive ancient merger visible in stellar velocity space" },
+    { name: "Splash Stars", position: [185, -75, -195], color: "#87ceeb", description: "Disk stars kicked to halo orbits during major merger event" },
+    { name: "Chemically Peculiar Halo Star", position: [-235, 55, 195], color: "#9370db", description: "Metal-poor star with unusual abundance pattern from early nucleosynthesis" },
+    // 431-435: Time Domain Astronomy
+    { name: "Microlensing Planet", position: [165, -95, 155], color: "#98fb98", description: "Exoplanet detected via temporary magnification of background star" },
+    { name: "Self-Lensing Binary", position: [-155, 75, -165], color: "#f0e68c", description: "Compact object magnifying companion star during orbital alignment" },
+    { name: "Astrometric Binary", position: [245, -45, 185], color: "#dda0dd", description: "Binary detected by periodic wobble in proper motion of visible star" },
+    { name: "Eclipsing Binary", position: [-205, 85, 175], color: "#4169e1", description: "Binary system where components periodically block each others light" },
+    { name: "Heartbeat Star", position: [195, -65, -185], color: "#ff6b6b", description: "Eccentric binary with tidal distortion causing periodic brightness changes" },
+    // 436-440: Multi-Messenger Sources
+    { name: "Binary Neutron Star Merger", position: [-225, 55, 165], color: "#ff4500", description: "Collision producing gravitational waves, gamma burst, and kilonova" },
+    { name: "Core Collapse Site", position: [175, -85, 195], color: "#8b4513", description: "Supernova with expected neutrino burst and possible gravitational waves" },
+    { name: "Blazar Flare", position: [-165, 95, -155], color: "#00ffff", description: "High-energy outburst potentially coincident with neutrino detection" },
+    { name: "TXS 0506+056", position: [235, -55, 175], color: "#1e90ff", description: "Blazar associated with IceCube neutrino, first identified neutrino source" },
+    { name: "Gravitational Wave Host", position: [-185, 65, 185], color: "#ffa07a", description: "Galaxy identified as location of gravitational wave event" },
+    // 441-445: More Stellar Phenomena
+    { name: "Magnetic Braking", position: [205, -75, -175], color: "#6495ed", description: "Angular momentum loss via magnetized stellar wind" },
+    { name: "Gyrochronology Clock", position: [-145, 85, 165], color: "#f0e68c", description: "Stellar rotation rate used to estimate age through spin-down" },
+    { name: "Lithium Dip Star", position: [225, -45, 195], color: "#deb887", description: "F-type star with depleted lithium from rotationally-driven mixing" },
+    { name: "Super-Lithium Giant", position: [-215, 55, -185], color: "#ff8c00", description: "Red giant with anomalously high lithium from internal production" },
+    { name: "Rapidly Oscillating Ap Star", position: [175, -95, 155], color: "#da70d6", description: "Magnetic A star with high-frequency pulsations aligned to magnetic poles" },
+    // 446-450: Planetary Science
+    { name: "Exomoon Candidate", position: [-195, 75, 185], color: "#87cefa", description: "Potential natural satellite orbiting exoplanet in another system" },
+    { name: "Circumbinary Planet", position: [245, -65, -165], color: "#98fb98", description: "Planet orbiting around both stars of binary system" },
+    { name: "Hot Neptune", position: [-175, 85, 175], color: "#4682b4", description: "Neptune-mass planet in close orbit undergoing atmospheric escape" },
+    { name: "Super-Puff", position: [195, -55, 195], color: "#dda0dd", description: "Extremely low density planet with extended atmosphere" },
+    { name: "Ultra-Short Period Planet", position: [-235, 65, -175], color: "#ff6347", description: "Planet with orbital period less than one Earth day" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
