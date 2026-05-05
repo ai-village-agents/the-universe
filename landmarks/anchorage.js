@@ -3887,6 +3887,96 @@ export function createAnchorageLandmark(THREE, opts) {
   sailboatGroup.add(sailboatLanternLight);
   group.add(sailboatGroup);
 
+  // --- v27: Pier bench with sleeping cat + flagpole with flag --------------
+  const pierBenchGroup = new THREE.Group();
+  pierBenchGroup.position.set(4, 0.9, -3.6);
+  // Bench seat
+  const benchSeat = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.08, 0.4),
+    new THREE.MeshStandardMaterial({ color: 0x8d5a32, roughness: 0.8 })
+  );
+  pierBenchGroup.add(benchSeat);
+  // Bench backrest
+  const benchBack = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.5, 0.05),
+    new THREE.MeshStandardMaterial({ color: 0x8d5a32, roughness: 0.8 })
+  );
+  benchBack.position.set(0, 0.3, -0.18);
+  pierBenchGroup.add(benchBack);
+  // Bench legs
+  for (let bi = 0; bi < 2; bi++) {
+    const benchLeg = new THREE.Mesh(
+      new THREE.BoxGeometry(0.06, 0.85, 0.4),
+      new THREE.MeshStandardMaterial({ color: 0x4a2f18, roughness: 0.8 })
+    );
+    benchLeg.position.set(bi === 0 ? -0.85 : 0.85, -0.45, 0);
+    pierBenchGroup.add(benchLeg);
+  }
+  // Sleeping cat (curled up on bench)
+  const pierCatGroup = new THREE.Group();
+  pierCatGroup.position.set(-0.6, 0.13, 0);
+  const pierCatBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 14, 12),
+    new THREE.MeshStandardMaterial({ color: 0xd87830, roughness: 0.8 })
+  );
+  pierCatBody.scale.set(1.4, 0.7, 1.0);
+  pierCatGroup.add(pierCatBody);
+  const pierCatHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 12, 12),
+    new THREE.MeshStandardMaterial({ color: 0xd87830, roughness: 0.8 })
+  );
+  pierCatHead.position.set(0.18, 0.04, 0.05);
+  pierCatGroup.add(pierCatHead);
+  // Cat ears
+  for (let ei = 0; ei < 2; ei++) {
+    const pierCatEar = new THREE.Mesh(
+      new THREE.ConeGeometry(0.04, 0.08, 6),
+      new THREE.MeshStandardMaterial({ color: 0xc4651e, roughness: 0.8 })
+    );
+    pierCatEar.position.set(0.18, 0.13, ei === 0 ? -0.05 : 0.13);
+    pierCatGroup.add(pierCatEar);
+  }
+  // Cat tail (curled)
+  const pierCatTail = new THREE.Mesh(
+    new THREE.TorusGeometry(0.1, 0.025, 6, 14, Math.PI * 1.4),
+    new THREE.MeshStandardMaterial({ color: 0xd87830, roughness: 0.8 })
+  );
+  pierCatTail.position.set(-0.15, 0.0, 0.0);
+  pierCatTail.rotation.x = Math.PI / 2;
+  pierCatGroup.add(pierCatTail);
+  pierBenchGroup.add(pierCatGroup);
+  group.add(pierBenchGroup);
+
+  // Flagpole with flapping flag at (-7, 0, -8)
+  const flagpoleGroup = new THREE.Group();
+  flagpoleGroup.position.set(-7, 0, -8);
+  const flagpole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.08, 5.2, 10),
+    new THREE.MeshStandardMaterial({ color: 0xe8e8e8, roughness: 0.4, metalness: 0.5 })
+  );
+  flagpole.position.y = 2.6;
+  flagpoleGroup.add(flagpole);
+  const flagpoleCap = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 12, 12),
+    new THREE.MeshStandardMaterial({ color: 0xffd700, roughness: 0.3, metalness: 0.7 })
+  );
+  flagpoleCap.position.y = 5.25;
+  flagpoleGroup.add(flagpoleCap);
+  // Flag - segmented for animation
+  const flagSegments = [];
+  const flagMat = new THREE.MeshStandardMaterial({ color: 0xc6322a, roughness: 0.85, side: THREE.DoubleSide, emissive: 0x331111, emissiveIntensity: 0.15 });
+  const flagSegCount = 8;
+  for (let fi = 0; fi < flagSegCount; fi++) {
+    const seg = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.18, 0.9),
+      flagMat
+    );
+    seg.position.set(0.18 + fi * 0.18, 4.6, 0);
+    flagpoleGroup.add(seg);
+    flagSegments.push(seg);
+  }
+  group.add(flagpoleGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -4934,6 +5024,21 @@ export function createAnchorageLandmark(THREE, opts) {
     if (typeof sailboatLantern !== 'undefined') {
       const lf = 1.3 + 0.3 * Math.sin(t * 4.2);
       if (sailboatLantern.material) sailboatLantern.material.emissiveIntensity = lf;
+    }
+
+    // v27: Flag flutters in the wind; cat breathes
+    if (typeof flagSegments !== 'undefined' && flagSegments.length) {
+      for (let fi = 0; fi < flagSegments.length; fi++) {
+        const seg = flagSegments[fi];
+        const wave = Math.sin(t * 3.4 - fi * 0.7) * 0.18 * (fi / flagSegments.length);
+        seg.position.z = wave;
+        seg.rotation.y = Math.cos(t * 3.4 - fi * 0.7) * 0.45;
+        seg.position.y = 4.6 + 0.05 * Math.sin(t * 2.0 + fi * 0.5);
+      }
+    }
+    if (typeof pierCatBody !== 'undefined') {
+      const breath = 1.0 + 0.05 * Math.sin(t * 1.5);
+      pierCatBody.scale.set(1.4 * breath, 0.7 * breath, 1.0);
     }
 
   }
