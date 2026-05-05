@@ -1541,6 +1541,16 @@ const cosmicSights = [
     { name: 'Cooling Flow', position: [-900, -30, -300], color: '#88ddcc', description: 'hot intracluster gas condensing and flowing toward galaxy cluster center' },
     { name: 'Fermi Bubble', position: [100, 220, -500], color: '#cc66ff', description: 'giant gamma-ray emitting lobes extending from galactic center powered by past activity' },
     { name: 'Cosmic Microwave Background', position: [-50, -250, 900], color: '#ffeecc', description: 'ancient light from universe 380000 years old showing temperature fluctuations of early cosmos' },
+    { name: 'Pulsar Timing Array', position: [700, -150, -200], color: '#aaffcc', description: 'network of millisecond pulsars detecting gravitational waves rippling through spacetime' },
+    { name: 'Magnetohydrodynamic Wave', position: [-800, 100, 200], color: '#77aaff', description: 'plasma oscillation propagating along magnetic field lines in stellar corona' },
+    { name: 'Baryon Acoustic Oscillation', position: [250, -200, -850], color: '#ffccaa', description: 'ancient sound wave frozen in matter distribution revealing cosmic expansion history' },
+    { name: 'Epoch of Reionization', position: [-300, 280, 700], color: '#aaddee', description: 'cosmic dawn when first stars ionized neutral hydrogen flooding universe with light' },
+    { name: 'Supermassive Black Hole Binary', position: [950, 50, -100], color: '#ff55aa', description: 'two giants locked in gravitational dance destined to merge with space-shaking waves' },
+    { name: 'Cosmic Strings Wake', position: [-950, -80, -450], color: '#ffaaff', description: 'topological defect from early universe dragging matter into wake as it moves' },
+    { name: 'Photon Sphere', position: [400, 150, 400], color: '#ffffaa', description: 'region where light orbits black hole eternally trapped by extreme gravity' },
+    { name: 'Hawking Radiation', position: [-100, -220, -750], color: '#ff9966', description: 'quantum particles escaping black hole event horizon slowly evaporating the beast' },
+    { name: 'Dark Matter Annihilation', position: [650, -180, 250], color: '#dd88ff', description: 'hypothetical zone where dark matter particles collide releasing gamma rays' },
+    { name: 'Gravitational Wave Memory', position: [-450, 200, 550], color: '#88ffdd', description: 'permanent spacetime displacement left behind after gravitational wave passes' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
