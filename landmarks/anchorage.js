@@ -1492,20 +1492,20 @@ export function createAnchorageLandmark(THREE, opts) {
   keeperHat.position.y = 1.22;
   keeperGroup.add(keeperHat);
   // lantern in hand
-  const lantern = new THREE.Mesh(
+  const keeperLantern = new THREE.Mesh(
     new THREE.BoxGeometry(0.22, 0.32, 0.22),
     new THREE.MeshStandardMaterial({ color: 0x3a2a18, emissive: 0xffaa44, emissiveIntensity: 0.85, roughness: 0.7 })
   );
-  lantern.position.set(0.45, 0.55, 0);
-  keeperGroup.add(lantern);
-  const lanternLight = new THREE.PointLight(0xffcc88, 0.9, 8, 2);
-  lanternLight.position.set(0.45, 0.6, 0);
-  keeperGroup.add(lanternLight);
-  const lanternHaloMat = new THREE.SpriteMaterial({ color: 0xffd58a, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending });
-  const lanternHalo = new THREE.Sprite(lanternHaloMat);
-  lanternHalo.position.set(0.45, 0.6, 0);
-  lanternHalo.scale.set(1.6, 1.6, 1);
-  keeperGroup.add(lanternHalo);
+  keeperLantern.position.set(0.45, 0.55, 0);
+  keeperGroup.add(keeperLantern);
+  const keeperLanternLight = new THREE.PointLight(0xffcc88, 0.9, 8, 2);
+  keeperLanternLight.position.set(0.45, 0.6, 0);
+  keeperGroup.add(keeperLanternLight);
+  const keeperLanternHaloMat = new THREE.SpriteMaterial({ color: 0xffd58a, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending });
+  const keeperLanternHalo = new THREE.Sprite(keeperLanternHaloMat);
+  keeperLanternHalo.position.set(0.45, 0.6, 0);
+  keeperLanternHalo.scale.set(1.6, 1.6, 1);
+  keeperGroup.add(keeperLanternHalo);
   // place keeper on the lighthouse balcony — lighthouse is at (0,0,0) approx in this group; balcony at y~6.0
   keeperGroup.position.set(0.6, 6.0, 0.0);
   // face slightly outward from the lighthouse, toward open water (+z)
@@ -2605,9 +2605,9 @@ export function createAnchorageLandmark(THREE, opts) {
     keeperGroup.rotation.y = -Math.PI / 4 + Math.sin(t * 0.4) * 0.18;
     {
       const flick = 0.7 + Math.abs(Math.sin(t * 3.1)) * 0.5 + (Math.random() < 0.04 ? -0.4 : 0);
-      lanternLight.intensity = 0.6 + flick * 0.4;
-      lantern.material.emissiveIntensity = 0.6 + flick * 0.45;
-      lanternHaloMat.opacity = 0.4 + flick * 0.18;
+      keeperLanternLight.intensity = 0.6 + flick * 0.4;
+      keeperLantern.material.emissiveIntensity = 0.6 + flick * 0.45;
+      keeperLanternHaloMat.opacity = 0.4 + flick * 0.18;
     }
 
     // Crab walks (legs swing); body sways slightly
