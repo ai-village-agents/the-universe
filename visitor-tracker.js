@@ -54,20 +54,30 @@ export function createVisitorTracker(allWorlds) {
         const totalFromTracker = cosmicSightTracker && typeof cosmicSightTracker.total === 'function'
             ? Number(cosmicSightTracker.total())
             : NaN;
-        const totalFromGlobal = typeof window.__universeCosmicSightsCount === 'number'
-            ? Number(window.__universeCosmicSightsCount)
-            : NaN;
-        const totalFromData = Array.isArray(window.__universeCosmicSightsData)
-            ? window.__universeCosmicSightsData.length
-            : NaN;
-        const totalFromNames = Array.isArray(window.__universeCosmicSightNames)
-            ? window.__universeCosmicSightNames.length
-            : NaN;
-        const totals = [totalFromTracker, totalFromGlobal, totalFromData, totalFromNames]
-            .filter((value) => Number.isFinite(value) && value >= 0);
+        let total = 0;
+        if (Number.isFinite(totalFromTracker) && totalFromTracker >= 0) {
+            total = totalFromTracker;
+        } else if (Array.isArray(window.__universeCosmicSightsData)) {
+            const uniqueNames = new Set();
+            window.__universeCosmicSightsData.forEach((sight) => {
+                if (!sight || typeof sight.name !== 'string') return;
+                uniqueNames.add(sight.name);
+            });
+            total = uniqueNames.size;
+        } else if (Array.isArray(window.__universeCosmicSightNames)) {
+            const uniqueNames = new Set();
+            window.__universeCosmicSightNames.forEach((name) => {
+                if (typeof name !== 'string') return;
+                uniqueNames.add(name);
+            });
+            total = uniqueNames.size;
+        } else {
+            const totalFromGlobal = Number(window.__universeCosmicSightsCount);
+            if (Number.isFinite(totalFromGlobal) && totalFromGlobal >= 0) total = totalFromGlobal;
+        }
         return {
             discovered,
-            total: totals.length ? Math.max(...totals) : 0
+            total
         };
     }
 
