@@ -1756,6 +1756,36 @@ const cosmicSights = [
     { name: 'Cyg X-1 Analog', position: [680, 120, -180], color: '#aabbdd', description: 'stellar black hole in high mass X-ray binary' },
     { name: 'Low Mass X-ray Binary', position: [-420, 180, -320], color: '#ffaabb', description: 'neutron star or black hole fed by low mass companion' },
     { name: 'High Mass X-ray Binary', position: [320, -280, 520], color: '#aaccff', description: 'compact object fed by massive O or B star wind' },
+    // 276-280: Stellar Populations & Clusters
+    { name: "Globular Cluster Core", position: [-245, 85, -155], color: "#ffd700", description: "Dense stellar nucleus with up to a million ancient stars in gravitational embrace" },
+    { name: "Open Cluster Halo", position: [255, -45, 165], color: "#87ceeb", description: "Diffuse outer region of young stellar associations slowly dissolving into the galaxy" },
+    { name: "Blue Straggler", position: [-175, 55, 235], color: "#4169e1", description: "Anomalously young-looking star in old clusters, rejuvenated by stellar mergers" },
+    { name: "Extreme Horizontal Branch Star", position: [195, -75, -205], color: "#9370db", description: "Hot subluminous stars that lost most envelope mass during red giant phase" },
+    { name: "AGB Tip Star", position: [-225, 95, 145], color: "#ff6347", description: "Luminous cool giants undergoing thermal pulses before planetary nebula ejection" },
+    // 281-285: Exotic Compact Objects
+    { name: "Strange Star", position: [175, -65, -175], color: "#ff00ff", description: "Hypothetical quark star made of strange quark matter, denser than neutron stars" },
+    { name: "Quark Star", position: [-155, 85, 195], color: "#da70d6", description: "Theoretical ultra-dense remnant where neutrons dissolve into free quarks" },
+    { name: "Electroweak Star", position: [235, -55, 125], color: "#00ffff", description: "Hypothetical object powered by electroweak burning of quarks at extreme densities" },
+    { name: "Preon Star", position: [-195, 75, -165], color: "#ff1493", description: "Speculative object made of hypothetical preon subparticles" },
+    { name: "Dark Star", position: [145, -85, 215], color: "#2f4f4f", description: "Primordial star powered by dark matter annihilation rather than nuclear fusion" },
+    // 286-290: Variable Star Types
+    { name: "RR Lyrae Variable", position: [-165, 65, -185], color: "#ffa500", description: "Pulsating horizontal branch star, standard candle for measuring cosmic distances" },
+    { name: "Delta Scuti Variable", position: [205, -45, 155], color: "#f0e68c", description: "Short-period pulsating star on or near the main sequence instability strip" },
+    { name: "Gamma Doradus Variable", position: [-215, 55, 175], color: "#daa520", description: "Non-radially pulsating F-type star with gravity-mode oscillations" },
+    { name: "Beta Cephei Variable", position: [165, -95, -145], color: "#6495ed", description: "Massive pulsating star driven by iron opacity mechanism in stellar envelope" },
+    { name: "Slowly Pulsating B Star", position: [-185, 75, 205], color: "#b0c4de", description: "B-type star with long-period gravity-mode pulsations" },
+    // 291-295: White Dwarf Variables
+    { name: "ZZ Ceti Variable", position: [225, -65, -195], color: "#f5f5f5", description: "Pulsating white dwarf in hydrogen atmosphere instability strip" },
+    { name: "V777 Her Variable", position: [-145, 85, 165], color: "#e6e6fa", description: "Pulsating helium-atmosphere white dwarf, also called DB variable" },
+    { name: "PG 1159 Star", position: [185, -55, 185], color: "#dcdcdc", description: "Hot pre-white dwarf pulsator with carbon and oxygen dominated atmosphere" },
+    { name: "SX Phoenicis Variable", position: [-235, 65, -155], color: "#ffd700", description: "Metal-poor blue straggler with Delta Scuti-like pulsations" },
+    { name: "Spotted Rotator", position: [155, -75, 225], color: "#98fb98", description: "Star with brightness changes due to surface spots rotating in and out of view" },
+    // 296-300: Cosmological Defects
+    { name: "Cosmic String", position: [-175, 95, 145], color: "#ff4500", description: "Hypothetical topological defect from early universe phase transitions" },
+    { name: "Domain Wall", position: [215, -85, -175], color: "#8b0000", description: "Theoretical two-dimensional defect separating regions of different vacuum states" },
+    { name: "Magnetic Monopole", position: [-205, 55, 195], color: "#ff69b4", description: "Hypothetical particle with isolated north or south magnetic pole" },
+    { name: "Cosmic Texture", position: [175, -65, 155], color: "#9932cc", description: "Topological defect from symmetry breaking without stable localized structure" },
+    { name: "Primordial Black Hole", position: [-145, 75, -215], color: "#000000", description: "Black hole formed in early universe density fluctuations, potential dark matter candidate" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
