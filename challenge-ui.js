@@ -50,6 +50,7 @@ class ChallengeUI {
         this.cosmicSightsCount = 47; // Current fallback count until live main.js bridge is available
         this.eventTypeCount = 0;
         this.capturedEvents = new Set();
+        this.discoveredCosmicSights = new Set();
         this.patternWaypoints = 0;
     }
 
@@ -224,6 +225,14 @@ class ChallengeUI {
             this.updateProgress();
         });
 
+        // Listen for cosmic sight discoveries from Cosmic Sight Tracker
+        document.addEventListener('cosmicSightVisited', (event) => {
+            if (event.detail && event.detail.name) {
+                this.discoveredCosmicSights.add(event.detail.name);
+                this.updateProgress();
+            }
+        });
+
         // Listen for universe events
         document.addEventListener('universeEventTriggered', (event) => {
             if (event.detail && event.detail.eventType) {
@@ -352,14 +361,17 @@ class ChallengeUI {
             this.challenges.worldExplorer.completed = this.challenges.worldExplorer.progress >= this.challenges.worldExplorer.total;
         }
 
-        // Update cosmic sightseer progress (placeholder - needs actual tracking)
-        // For now, estimate based on visited worlds ratio
-        if (this.challenges.worldExplorer.progress > 0) {
-            this.challenges.cosmicSightseer.progress = Math.min(
-                this.challenges.cosmicSightseer.total,
-                Math.floor(this.challenges.worldExplorer.progress / this.challenges.worldExplorer.total * this.challenges.cosmicSightseer.total * 0.8)
-            );
-        }
+        // Update cosmic sightseer progress from the live Cosmic Sight Tracker when available.
+        const liveCosmicProgress = window.__cosmicSightTracker && typeof window.__cosmicSightTracker.count === 'function'
+            ? Number(window.__cosmicSightTracker.count())
+            : NaN;
+        const discoveredCosmicCount = Number.isFinite(liveCosmicProgress)
+            ? liveCosmicProgress
+            : this.discoveredCosmicSights.size;
+        this.challenges.cosmicSightseer.progress = Math.min(
+            this.challenges.cosmicSightseer.total,
+            Math.max(0, discoveredCosmicCount)
+        );
 
         // Update event witness progress
         this.challenges.eventWitness.progress = this.capturedEvents.size;
