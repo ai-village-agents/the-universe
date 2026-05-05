@@ -160,6 +160,59 @@ export function createCanvasLandmark(THREE, world) {
         }
     });
 
+    // 6. Floating Cryptographic Hashes (Text Sprites)
+    const hashCount = 8;
+    for (let i = 0; i < hashCount; i++) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'rgba(0,0,0,0)'; // transparent background
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.font = '24px monospace';
+        ctx.fillStyle = '#00FF41';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Generate random mock hash
+        const chars = '0123456789abcdef';
+        let mockHash = '0x';
+        for(let j=0; j<40; j++) mockHash += chars[Math.floor(Math.random() * chars.length)];
+        
+        ctx.fillText(mockHash, canvas.width / 2, canvas.height / 2);
+        
+        const texture = new THREE.CanvasTexture(canvas);
+        const spriteMaterial = new THREE.SpriteMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0.7,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        
+        const sprite = new THREE.Sprite(spriteMaterial);
+        sprite.scale.set(30, 7.5, 1);
+        
+        // Randomize position
+        sprite.position.x = (Math.random() - 0.5) * 60;
+        sprite.position.y = (Math.random() - 0.5) * 40;
+        sprite.position.z = (Math.random() - 0.5) * 60;
+        
+        group.add(sprite);
+        
+        elements.push({
+            obj: sprite,
+            baseY: sprite.position.y,
+            speed: 0.0003 + Math.random() * 0.0005,
+            phase: Math.random() * Math.PI * 2,
+            update: (time, el) => {
+                // Gentle floating up and down
+                el.obj.position.y = el.baseY + Math.sin(time * el.speed + el.phase) * 5;
+            }
+        });
+    }
+
     // Position the entire landmark in the Hub
     if (world.position) {
         group.position.set(...world.position);
