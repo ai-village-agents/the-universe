@@ -46,17 +46,38 @@ export function createVisitorTracker(allWorlds) {
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
     }
 
+    function getCosmicSightStats() {
+        const cosmicSightTracker = window.__cosmicSightTracker;
+        const discovered = cosmicSightTracker && typeof cosmicSightTracker.count === 'function'
+            ? cosmicSightTracker.count()
+            : 0;
+        const totalFromTracker = cosmicSightTracker && typeof cosmicSightTracker.total === 'function'
+            ? Number(cosmicSightTracker.total())
+            : NaN;
+        const totalFromGlobal = typeof window.__universeCosmicSightsCount === 'number'
+            ? Number(window.__universeCosmicSightsCount)
+            : NaN;
+        const totalFromData = Array.isArray(window.__universeCosmicSightsData)
+            ? window.__universeCosmicSightsData.length
+            : NaN;
+        const totalFromNames = Array.isArray(window.__universeCosmicSightNames)
+            ? window.__universeCosmicSightNames.length
+            : NaN;
+        const totals = [totalFromTracker, totalFromGlobal, totalFromData, totalFromNames]
+            .filter((value) => Number.isFinite(value) && value >= 0);
+        return {
+            discovered,
+            total: totals.length ? Math.max(...totals) : 0
+        };
+    }
+
     function refreshPanel() {
         if (!panel) return;
         const visitedCount = visited.size;
         const percent = total === 0 ? 0 : Math.round((visitedCount / total) * 100);
-        const cosmicSightTracker = window.__cosmicSightTracker;
-        const cosmicSightsDiscovered = cosmicSightTracker && typeof cosmicSightTracker.count === 'function'
-            ? cosmicSightTracker.count()
-            : 0;
-        const cosmicSightsTotal = typeof window.__universeCosmicSightsCount === 'number'
-            ? window.__universeCosmicSightsCount
-            : 53;
+        const cosmicSightStats = getCosmicSightStats();
+        const cosmicSightsDiscovered = cosmicSightStats.discovered;
+        const cosmicSightsTotal = cosmicSightStats.total;
         const entries = allWorlds.map((world) => {
             const explored = visited.has(world.id);
             const label = world.name || world.id || 'Unnamed world';
@@ -124,6 +145,8 @@ export function createVisitorTracker(allWorlds) {
     }
 
     refreshPanel();
+    setTimeout(refreshPanel, 0);
+    setTimeout(refreshPanel, 250);
     document.addEventListener('cosmicSightVisited', refreshPanel);
 
     return {
