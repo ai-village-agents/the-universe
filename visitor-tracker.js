@@ -28,6 +28,13 @@ export function createVisitorTracker(allWorlds) {
         if (!panel) return;
         const visitedCount = visited.size;
         const percent = total === 0 ? 0 : Math.round((visitedCount / total) * 100);
+        const cosmicSightTracker = window.__cosmicSightTracker;
+        const cosmicSightsDiscovered = cosmicSightTracker && typeof cosmicSightTracker.count === 'function'
+            ? cosmicSightTracker.count()
+            : 0;
+        const cosmicSightsTotal = typeof window.__universeCosmicSightsCount === 'number'
+            ? window.__universeCosmicSightsCount
+            : 53;
         const entries = allWorlds.map((world) => {
             const explored = visited.has(world.id);
             const label = world.name || world.id || 'Unnamed world';
@@ -41,7 +48,8 @@ export function createVisitorTracker(allWorlds) {
         panel.innerHTML = [
             '<h3>Achievements</h3>',
             `<p style="margin:4px 0 8px 0;font-size:12px;color:#c8ffe6;">${statusLine}</p>`,
-            `<ul style="margin:0;padding-left:18px;list-style:none;font-size:11px;">${entries}</ul>`
+            `<ul style="margin:0;padding-left:18px;list-style:none;font-size:11px;">${entries}</ul>`,
+            `<p style="margin:8px 0 0 0;font-size:12px;color:#c8ffe6;">Cosmic Sights discovered: ${cosmicSightsDiscovered}/${cosmicSightsTotal}</p>`
         ].join('');
     }
 
@@ -94,6 +102,7 @@ export function createVisitorTracker(allWorlds) {
     }
 
     refreshPanel();
+    document.addEventListener('cosmicSightVisited', refreshPanel);
 
     return {
         recordVisit,
