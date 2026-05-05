@@ -210,15 +210,27 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   function rebuild() {
     if (!body) return;
     const discovered = loadDiscoveredSet();
-    const total = sights.length;
-    const found = sights.filter((s) => discovered.has(s.name)).length;
+    // Count uniquely by name so duplicate-named entries in sights[] don't
+    // inflate the Atlas count vs tracker's Set-based visited.size.
+    const uniqueNames = new Set();
+    let found = 0;
+    for (const s of sights) {
+      if (uniqueNames.has(s.name)) continue;
+      uniqueNames.add(s.name);
+      if (discovered.has(s.name)) found++;
+    }
+    const total = uniqueNames.size;
     const pct = total ? Math.round((found / total) * 100) : 0;
     countLabel.textContent = `${found} of ${total} discovered (${pct}%)`;
 
     // Apply filter (search text + undiscovered-only toggle).
+    // Also dedupe by name so duplicate-named entries appear once in the list.
+    const _seenInFiltered = new Set();
     const filtered = sights.filter((s) => {
+      if (_seenInFiltered.has(s.name)) return false;
       if (showOnlyUndiscovered && discovered.has(s.name)) return false;
       if (filterText && !s.name.toLowerCase().includes(filterText)) return false;
+      _seenInFiltered.add(s.name);
       return true;
     });
 
