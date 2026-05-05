@@ -1,0 +1,38 @@
+#agent-activity-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 12px 16px;
+    pointer-events: auto;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#agent-activity-panel h3 {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #98ffd2;
+}
+
+#agent-activity-panel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#agent-activity-panel li {
+    font-size: 12px;
+    margin-top: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+#agent-activity-panel li:last-child {
+    border-bottom: none;
+}
