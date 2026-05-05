@@ -3394,6 +3394,130 @@ export function createAnchorageLandmark(THREE, opts) {
   msgBottleGroup.add(msgBottleScroll);
   group.add(msgBottleGroup);
 
+
+  // --- v22: Wishing well, paper boats race, sunken treasure chest ----------
+  // Wishing well at end of pier center (8.5, 0.6, -1)
+  const wishingWell = new THREE.Group();
+  wishingWell.position.set(8.5, 0.6, -1);
+  const wellRing = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.55, 0.55, 0.7, 18, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0x6b6b73, roughness: 0.9, side: THREE.DoubleSide })
+  );
+  wellRing.position.y = 0.35;
+  wishingWell.add(wellRing);
+  const wellWater = new THREE.Mesh(
+    new THREE.CircleGeometry(0.5, 18),
+    new THREE.MeshStandardMaterial({ color: 0x163a4a, transparent: true, opacity: 0.85, emissive: 0x0a4d6a, emissiveIntensity: 0.4 })
+  );
+  wellWater.rotation.x = -Math.PI / 2;
+  wellWater.position.y = 0.66;
+  wishingWell.add(wellWater);
+  const wellPostL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.9, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6b4d2f, roughness: 0.95 })
+  );
+  wellPostL.position.set(-0.45, 1.15, 0);
+  wishingWell.add(wellPostL);
+  const wellPostR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.9, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6b4d2f, roughness: 0.95 })
+  );
+  wellPostR.position.set(0.45, 1.15, 0);
+  wishingWell.add(wellPostR);
+  const wellRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(0.7, 0.4, 4),
+    new THREE.MeshStandardMaterial({ color: 0x884420, roughness: 0.9 })
+  );
+  wellRoof.rotation.y = Math.PI / 4;
+  wellRoof.position.y = 1.78;
+  wishingWell.add(wellRoof);
+  const wellCoins = [];
+  for (let ci = 0; ci < 4; ci++) {
+    const ang = (ci / 4) * Math.PI * 2;
+    const coin = new THREE.Mesh(
+      new THREE.CircleGeometry(0.06, 12),
+      new THREE.MeshStandardMaterial({ color: 0xffd060, emissive: 0xffa530, emissiveIntensity: 0.6, roughness: 0.4 })
+    );
+    coin.rotation.x = -Math.PI / 2;
+    coin.position.set(Math.cos(ang) * 0.18, 0.68, Math.sin(ang) * 0.18);
+    coin.userData = { phase: ang };
+    wishingWell.add(coin);
+    wellCoins.push(coin);
+  }
+  group.add(wishingWell);
+
+  // Paper boats race line — 5 paper boats drifting in a line near (-12, 0.18, 6)
+  const paperBoatGroup = new THREE.Group();
+  paperBoatGroup.position.set(-12, 0.18, 6);
+  const paperBoats = [];
+  const paperBoatColors = [0xfff5e8, 0xffd9a0, 0xa0d8ff, 0xffb6c1, 0xc8f0c0];
+  for (let pi = 0; pi < 5; pi++) {
+    const pb = new THREE.Group();
+    const pbHull = new THREE.Mesh(
+      new THREE.ConeGeometry(0.25, 0.5, 4),
+      new THREE.MeshStandardMaterial({ color: paperBoatColors[pi], roughness: 0.7, side: THREE.DoubleSide })
+    );
+    pbHull.rotation.x = Math.PI / 2;
+    pbHull.rotation.z = Math.PI / 4;
+    pbHull.scale.set(1, 0.5, 1.6);
+    pb.add(pbHull);
+    const pbSail = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.3, 0.36),
+      new THREE.MeshStandardMaterial({ color: paperBoatColors[pi], side: THREE.DoubleSide, roughness: 0.7 })
+    );
+    pbSail.position.set(0, 0.22, 0);
+    pb.add(pbSail);
+    pb.position.set(pi * 1.4 - 2.8, 0, (pi % 2) * 0.4 - 0.2);
+    pb.userData = { baseX: pi * 1.4 - 2.8, baseZ: (pi % 2) * 0.4 - 0.2, phase: pi * 0.7, speed: 0.18 + (pi % 3) * 0.04 };
+    paperBoatGroup.add(pb);
+    paperBoats.push(pb);
+  }
+  group.add(paperBoatGroup);
+
+  // Sunken treasure chest at (-7, -1.4, 16)
+  const treasureGroup = new THREE.Group();
+  treasureGroup.position.set(-7, -1.4, 16);
+  const treasureChestBody = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.5, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0x6b4423, roughness: 0.95 })
+  );
+  treasureChestBody.position.y = 0.25;
+  treasureGroup.add(treasureChestBody);
+  const treasureChestLid = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.18, 0.62),
+    new THREE.MeshStandardMaterial({ color: 0x593818, roughness: 0.95 })
+  );
+  treasureChestLid.position.set(0, 0.6, -0.04);
+  treasureChestLid.rotation.x = -0.35;
+  treasureGroup.add(treasureChestLid);
+  const treasureGlow = new THREE.PointLight(0xffd060, 0.6, 2.4, 2);
+  treasureGlow.position.set(0, 0.5, 0.15);
+  treasureGroup.add(treasureGlow);
+  for (let gi = 0; gi < 3; gi++) {
+    const nugget = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0xffd060, emissive: 0xffa530, emissiveIntensity: 0.7 })
+    );
+    nugget.position.set((gi - 1) * 0.18, 0.5, 0.28);
+    treasureGroup.add(nugget);
+  }
+  const treasureBubbleCount = 12;
+  const treasureBubbleGeo = new THREE.BufferGeometry();
+  const treasureBubblePos = new Float32Array(treasureBubbleCount * 3);
+  const treasureBubblePhase = new Float32Array(treasureBubbleCount);
+  for (let bi = 0; bi < treasureBubbleCount; bi++) {
+    treasureBubblePos[bi * 3 + 0] = (Math.random() - 0.5) * 0.4;
+    treasureBubblePos[bi * 3 + 1] = Math.random() * 1.6;
+    treasureBubblePos[bi * 3 + 2] = (Math.random() - 0.5) * 0.4;
+    treasureBubblePhase[bi] = Math.random() * Math.PI * 2;
+  }
+  treasureBubbleGeo.setAttribute('position', new THREE.BufferAttribute(treasureBubblePos, 3));
+  const treasureBubbleMat = new THREE.PointsMaterial({ color: 0xc8f0ff, size: 0.08, transparent: true, opacity: 0.7, depthWrite: false });
+  const treasureBubbles = new THREE.Points(treasureBubbleGeo, treasureBubbleMat);
+  treasureBubbles.userData = { count: treasureBubbleCount, phases: treasureBubblePhase };
+  treasureGroup.add(treasureBubbles);
+  group.add(treasureGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
