@@ -126,6 +126,31 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     });
     controlsRow.appendChild(undiscoveredToggle);
 
+    // 🎲 Random undiscovered sight teleport
+    const randomBtn = document.createElement('button');
+    randomBtn.textContent = '🎲 Random';
+    randomBtn.title = 'Teleport to a random undiscovered sight';
+    randomBtn.style.cssText = [
+      'background:transparent', 'color:#ffd97d',
+      'border:1px solid rgba(255,217,125,0.45)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    randomBtn.addEventListener('mouseenter', () => { randomBtn.style.background = 'rgba(255,217,125,0.18)'; });
+    randomBtn.addEventListener('mouseleave', () => { randomBtn.style.background = 'transparent'; });
+    randomBtn.addEventListener('click', () => {
+      const discoveredNow = loadDiscoveredSet();
+      const undisc = sights.filter((s) => !discoveredNow.has(s.name));
+      const pool = undisc.length > 0 ? undisc : sights;
+      if (pool.length === 0) return;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      // brief visual cue: button flashes
+      randomBtn.style.background = 'rgba(255,217,125,0.45)';
+      setTimeout(() => { randomBtn.style.background = 'transparent'; }, 260);
+      teleportTo(pick);
+    });
+    controlsRow.appendChild(randomBtn);
+
     header.appendChild(controlsRow);
     panel.appendChild(header);
 
