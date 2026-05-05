@@ -3518,6 +3518,89 @@ export function createAnchorageLandmark(THREE, opts) {
   treasureGroup.add(treasureBubbles);
   group.add(treasureGroup);
 
+
+  // --- v23: Harbor seal pup + driftwood pile + buoy bell ---
+  // Harbor seal pup playing in the cove
+  const sealPup = new THREE.Group();
+  sealPup.position.set(-4.5, 0.0, 8);
+  const sealBody = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.22, 0.55, 6, 10),
+    new THREE.MeshStandardMaterial({ color: 0x6b6b6b, roughness: 0.5 })
+  );
+  sealBody.rotation.z = Math.PI / 2;
+  sealPup.add(sealBody);
+  const sealHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0x6b6b6b, roughness: 0.5 })
+  );
+  sealHead.position.set(0.45, 0.05, 0);
+  sealPup.add(sealHead);
+  const sealNose = new THREE.Mesh(
+    new THREE.SphereGeometry(0.04, 6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x222222 })
+  );
+  sealNose.position.set(0.62, 0.05, 0);
+  sealPup.add(sealNose);
+  const sealEyeL = new THREE.Mesh(
+    new THREE.SphereGeometry(0.025, 6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x111111 })
+  );
+  sealEyeL.position.set(0.55, 0.13, 0.09);
+  sealPup.add(sealEyeL);
+  const sealEyeR = sealEyeL.clone();
+  sealEyeR.position.set(0.55, 0.13, -0.09);
+  sealPup.add(sealEyeR);
+  const sealTailFlipper = new THREE.Mesh(
+    new THREE.ConeGeometry(0.14, 0.22, 8),
+    new THREE.MeshStandardMaterial({ color: 0x5a5a5a, roughness: 0.6 })
+  );
+  sealTailFlipper.rotation.z = -Math.PI / 2;
+  sealTailFlipper.position.set(-0.45, 0.0, 0);
+  sealPup.add(sealTailFlipper);
+  group.add(sealPup);
+
+  // Driftwood pile on the beach
+  const driftwoodPile = new THREE.Group();
+  driftwoodPile.position.set(-15, 0.05, 2);
+  const driftwoodColors = [0xa68c6e, 0x8b7355, 0x6f5f43, 0xb5a07c, 0x927a59];
+  for (let i = 0; i < 6; i++) {
+    const log = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.08 + Math.random() * 0.05, 0.08 + Math.random() * 0.05, 0.7 + Math.random() * 0.4, 8),
+      new THREE.MeshStandardMaterial({ color: driftwoodColors[i % driftwoodColors.length], roughness: 0.95 })
+    );
+    log.rotation.z = Math.PI / 2 + (Math.random() - 0.5) * 0.4;
+    log.rotation.y = Math.random() * Math.PI;
+    log.position.set((Math.random() - 0.5) * 0.6, 0.08 + (i % 3) * 0.12, (Math.random() - 0.5) * 0.6);
+    driftwoodPile.add(log);
+  }
+  group.add(driftwoodPile);
+
+  // Floating buoy bell offshore
+  const buoyBell = new THREE.Group();
+  buoyBell.position.set(14, 0.4, -8);
+  const bellBuoyBody = new THREE.Mesh(
+    new THREE.ConeGeometry(0.4, 0.8, 12),
+    new THREE.MeshStandardMaterial({ color: 0xc92a2a, roughness: 0.55, emissive: 0x331111, emissiveIntensity: 0.4 })
+  );
+  buoyBell.add(bellBuoyBody);
+  const buoyTopRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.18, 0.04, 6, 12),
+    new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.7, roughness: 0.4 })
+  );
+  buoyTopRing.position.y = 0.45;
+  buoyTopRing.rotation.x = Math.PI / 2;
+  buoyBell.add(buoyTopRing);
+  const buoyBellShape = new THREE.Mesh(
+    new THREE.ConeGeometry(0.12, 0.18, 8, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0xc9b87a, metalness: 0.8, roughness: 0.3, side: THREE.DoubleSide })
+  );
+  buoyBellShape.position.y = 0.62;
+  buoyBell.add(buoyBellShape);
+  const bellBuoyLight = new THREE.PointLight(0xff6644, 0.6, 4.5);
+  bellBuoyLight.position.y = 0.5;
+  buoyBell.add(bellBuoyLight);
+  group.add(buoyBell);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -4489,6 +4572,19 @@ export function createAnchorageLandmark(THREE, opts) {
       treasureBubbles.geometry.attributes.position.needsUpdate = true;
       treasureBubbles.material.opacity = 0.55 + 0.2 * Math.sin(t * 1.4);
       treasureGlow.intensity = 0.5 + 0.3 * Math.sin(t * 1.1);
+    }
+
+    // v23: Seal pup bobs in the water + buoy bell rocks + light flickers
+    if (typeof sealPup !== 'undefined') {
+      sealPup.position.y = 0.0 + 0.06 * Math.sin(t * 1.6);
+      sealPup.rotation.z = 0.05 * Math.sin(t * 0.9);
+      sealPup.rotation.y = 0.18 * Math.sin(t * 0.4);
+    }
+    if (typeof buoyBell !== 'undefined') {
+      buoyBell.position.y = 0.4 + 0.12 * Math.sin(t * 0.9);
+      buoyBell.rotation.z = 0.15 * Math.sin(t * 1.2);
+      buoyBell.rotation.x = 0.08 * Math.sin(t * 0.7 + 0.4);
+      bellBuoyLight.intensity = 0.5 + 0.3 * (0.5 + 0.5 * Math.sin(t * 3.4));
     }
 
   }
