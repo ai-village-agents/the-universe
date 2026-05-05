@@ -3152,6 +3152,149 @@ export function createAnchorageLandmark(THREE, opts) {
 
   // --- v19 init complete ----------------------------------------------------
 
+  // --- v20: Tidal pool, sea cave, aurora, kraken eye -------------------------
+  // Tidal pool with starfish & hermit crabs at (3, -0.04, 14)
+  const tidalPoolGroup = new THREE.Group();
+  tidalPoolGroup.position.set(3, -0.04, 14);
+  const tidePoolWater = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 1.0),
+    new THREE.MeshBasicMaterial({ color: 0x4eb6c9, transparent: true, opacity: 0.62 })
+  );
+  tidePoolWater.rotation.x = -Math.PI / 2;
+  tidalPoolGroup.add(tidePoolWater);
+  const tidePoolRim = new THREE.Mesh(
+    new THREE.RingGeometry(0.55, 0.92, 28),
+    new THREE.MeshBasicMaterial({ color: 0x6a554a, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  tidePoolRim.rotation.x = -Math.PI / 2;
+  tidePoolRim.scale.set(1.0, 1.0, 0.7);
+  tidalPoolGroup.add(tidePoolRim);
+  const starfishList = [];
+  const starfishSpec = [
+    [-0.55, -0.20, 0xff7a55, 0.3],
+    [ 0.40,  0.30, 0xe05533, 0.2],
+    [ 0.10, -0.30, 0xff9466, 0.55],
+    [-0.30,  0.25, 0xd44a2a, 0.8],
+    [ 0.55, -0.05, 0xff8852, 1.2],
+    [-0.10,  0.05, 0xffa07a, 1.0],
+  ];
+  for (const sp of starfishSpec) {
+    const px = sp[0], pz = sp[1], col = sp[2], rot = sp[3];
+    const sf = new THREE.Group();
+    sf.position.set(px, 0.012, pz);
+    sf.rotation.y = rot;
+    for (let a = 0; a < 5; a++) {
+      const ang = (a / 5) * Math.PI * 2;
+      const arm = new THREE.Mesh(
+        new THREE.BoxGeometry(0.05, 0.012, 0.18),
+        new THREE.MeshStandardMaterial({ color: col, roughness: 0.8, emissive: col, emissiveIntensity: 0.18 })
+      );
+      arm.rotation.y = ang;
+      arm.position.set(Math.sin(ang) * 0.08, 0, Math.cos(ang) * 0.08);
+      sf.add(arm);
+    }
+    const sfCore = new THREE.Mesh(
+      new THREE.SphereGeometry(0.035, 8, 6),
+      new THREE.MeshStandardMaterial({ color: col, roughness: 0.7 })
+    );
+    sf.add(sfCore);
+    starfishList.push(sf);
+    tidalPoolGroup.add(sf);
+  }
+  const hermitCrabs = [];
+  for (let i = 0; i < 2; i++) {
+    const crab = new THREE.Group();
+    crab.position.set(i === 0 ? 0.62 : -0.45, 0.02, i === 0 ? 0.18 : -0.18);
+    const shell = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xa07050, roughness: 0.7 })
+    );
+    shell.scale.set(1.0, 0.85, 1.2);
+    crab.add(shell);
+    const crabEyeMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const crabEye1 = new THREE.Mesh(new THREE.SphereGeometry(0.012, 6, 4), crabEyeMat);
+    crabEye1.position.set(0.025, 0.05, 0.06);
+    crab.add(crabEye1);
+    const crabEye2 = new THREE.Mesh(new THREE.SphereGeometry(0.012, 6, 4), crabEyeMat);
+    crabEye2.position.set(-0.025, 0.05, 0.06);
+    crab.add(crabEye2);
+    crab.userData.phase = i * 1.7;
+    hermitCrabs.push(crab);
+    tidalPoolGroup.add(crab);
+  }
+  group.add(tidalPoolGroup);
+
+  // Sea cave at (-22, -0.5, -8) — dark archway with cyan inner glow
+  const seaCaveGroup = new THREE.Group();
+  seaCaveGroup.position.set(-22, -0.5, -8);
+  seaCaveGroup.rotation.y = 0.4;
+  const caveArch = new THREE.Mesh(
+    new THREE.TorusGeometry(1.3, 0.55, 10, 18, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0x2a2c33, roughness: 0.95 })
+  );
+  caveArch.rotation.x = -Math.PI / 2;
+  caveArch.position.y = 0.55;
+  seaCaveGroup.add(caveArch);
+  const caveBack = new THREE.Mesh(
+    new THREE.CircleGeometry(1.15, 16, 0, Math.PI),
+    new THREE.MeshBasicMaterial({ color: 0x080a12, side: THREE.DoubleSide })
+  );
+  caveBack.rotation.y = Math.PI / 2;
+  caveBack.position.set(0.15, 0.55, 0);
+  seaCaveGroup.add(caveBack);
+  const caveGlow = new THREE.PointLight(0x4ee0ff, 1.0, 6, 1.8);
+  caveGlow.position.set(-0.3, 0.6, 0);
+  seaCaveGroup.add(caveGlow);
+  const caveGlowSprite = new THREE.Mesh(
+    new THREE.SphereGeometry(0.42, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0x4ee0ff, transparent: true, opacity: 0.4 })
+  );
+  caveGlowSprite.position.set(-0.2, 0.6, 0);
+  seaCaveGroup.add(caveGlowSprite);
+  group.add(seaCaveGroup);
+
+  // Aurora ribbon over the sea
+  const auroraRibbon = new THREE.Group();
+  auroraRibbon.position.set(0, 18, -22);
+  const auroraGreen = new THREE.Mesh(
+    new THREE.PlaneGeometry(42, 5),
+    new THREE.MeshBasicMaterial({ color: 0x66ffaa, transparent: true, opacity: 0.18, side: THREE.DoubleSide, depthWrite: false })
+  );
+  auroraRibbon.add(auroraGreen);
+  const auroraViolet = new THREE.Mesh(
+    new THREE.PlaneGeometry(42, 4),
+    new THREE.MeshBasicMaterial({ color: 0xb0a0ff, transparent: true, opacity: 0.14, side: THREE.DoubleSide, depthWrite: false })
+  );
+  auroraViolet.position.set(0, 1.4, 0.3);
+  auroraRibbon.add(auroraViolet);
+  group.add(auroraRibbon);
+
+  // Kraken eye at (10, -2, -16)
+  const krakenEyeGroup = new THREE.Group();
+  krakenEyeGroup.position.set(10, -2, -16);
+  const krakenEyelid = new THREE.Mesh(
+    new THREE.SphereGeometry(0.72, 16, 12),
+    new THREE.MeshStandardMaterial({ color: 0x0a0e1a, roughness: 0.9 })
+  );
+  krakenEyeGroup.add(krakenEyelid);
+  const krakenIris = new THREE.Mesh(
+    new THREE.SphereGeometry(0.34, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0xfff099, emissive: 0xffd040, emissiveIntensity: 1.2 })
+  );
+  krakenIris.position.set(0, 0.05, 0.55);
+  krakenIris.visible = false;
+  krakenEyeGroup.add(krakenIris);
+  const krakenPupil = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0x000000 })
+  );
+  krakenPupil.position.set(0, 0.05, 0.80);
+  krakenPupil.visible = false;
+  krakenEyeGroup.add(krakenPupil);
+  group.add(krakenEyeGroup);
+
+  // --- v20 init complete ----------------------------------------------------
+
   // --- v15 init complete ----------------------------------------------------
 
 
@@ -4039,6 +4182,34 @@ export function createAnchorageLandmark(THREE, opts) {
       lantern.material.emissiveIntensity = 0.86 + 0.12 * Math.sin(t * 2.4 + ph * 1.3);
     }
     festivalLanternLight.intensity = 0.22 + 0.06 * Math.sin(t * 2.0);
+
+    // v20: Hermit crabs subtle bob + sway
+    for (let i = 0; i < hermitCrabs.length; i++) {
+      const c = hermitCrabs[i];
+      c.position.y = 0.02 + Math.sin(t * 0.9 + c.userData.phase) * 0.006;
+      c.rotation.y = Math.sin(t * 0.4 + c.userData.phase) * 0.4;
+    }
+    // v20: Starfish slow drift rotation
+    for (let i = 0; i < starfishList.length; i++) {
+      starfishList[i].rotation.y += dt * 0.05 * (i % 2 === 0 ? 1 : -1);
+    }
+    // v20: Sea cave inner cyan glow pulse
+    caveGlow.intensity = 0.85 + 0.4 * Math.sin(t * 0.6);
+    caveGlowSprite.material.opacity = 0.34 + 0.12 * Math.sin(t * 0.6);
+    // v20: Aurora drift + opacity wave
+    auroraRibbon.position.x = Math.sin(t * 0.06) * 4;
+    auroraGreen.material.opacity = 0.16 + 0.06 * Math.sin(t * 0.4);
+    auroraViolet.material.opacity = 0.12 + 0.05 * Math.sin(t * 0.4 + 1.5);
+    // v20: Kraken eye blinks open ~3s every 30s
+    const krakenCycle = t % 30;
+    const krakenOpen = krakenCycle > 27 && krakenCycle < 30;
+    krakenIris.visible = krakenOpen;
+    krakenPupil.visible = krakenOpen;
+    if (krakenOpen) {
+      const phase = (krakenCycle - 27) / 3;
+      const eyeGlow = Math.sin(phase * Math.PI);
+      krakenIris.material.emissiveIntensity = 0.6 + 1.2 * eyeGlow;
+    }
 
   }
 
