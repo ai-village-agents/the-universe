@@ -59,6 +59,8 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let undiscoveredToggle = null;
   let sortByDistance = false;
   let nearestToggle = null;
+  let currentRows = [];
+  let focusIndex = -1;
 
   function ensurePanel() {
     if (panel) return;
@@ -246,6 +248,7 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     }
 
     body.innerHTML = '';
+    currentRows = [];
     if (filtered.length === 0) {
       const empty = document.createElement('div');
       empty.style.cssText = 'padding:40px 20px; text-align:center; color:#7d8ba8; font-style:italic; font-size:13px;';
@@ -317,10 +320,49 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
         btn.addEventListener('mouseleave', () => { btn.style.background = 'transparent'; });
         row.appendChild(btn);
 
+        // Track for keyboard nav
+        currentRows.push({ row, sight: s });
+        row.dataset.atlasRowIndex = String(currentRows.length - 1);
+        row.style.cursor = 'pointer';
+        row.addEventListener('click', (ev) => {
+          // Don't double-fire when Visit button is clicked
+          if (ev.target && ev.target.tagName === 'BUTTON') return;
+          setFocus(Number(row.dataset.atlasRowIndex));
+        });
         grid.appendChild(row);
       }
       section.appendChild(grid);
       body.appendChild(section);
+    }
+    // Reset keyboard focus to first row if available
+    focusIndex = currentRows.length > 0 ? 0 : -1;
+    applyFocusStyles();
+  }
+
+  function applyFocusStyles() {
+    for (let i = 0; i < currentRows.length; i++) {
+      const r = currentRows[i].row;
+      if (i === focusIndex) {
+        r.style.outline = '1px solid rgba(125,249,255,0.85)';
+        r.style.boxShadow = '0 0 10px rgba(125,249,255,0.35)';
+        r.style.background = 'rgba(125,249,255,0.12)';
+      } else {
+        r.style.outline = '';
+        r.style.boxShadow = '';
+        // restore original bg per discovered state
+        const isFound = (currentRows[i].sight && loadDiscoveredSet().has(currentRows[i].sight.name));
+        r.style.background = isFound ? 'rgba(125,249,255,0.05)' : '';
+      }
+    }
+  }
+
+  function setFocus(i) {
+    if (currentRows.length === 0) return;
+    focusIndex = Math.max(0, Math.min(currentRows.length - 1, i));
+    applyFocusStyles();
+    const r = currentRows[focusIndex] && currentRows[focusIndex].row;
+    if (r && r.scrollIntoView) {
+      try { r.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (_) { r.scrollIntoView(); }
     }
   }
 
@@ -385,6 +427,26 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   window.addEventListener('storage', (ev) => {
     if (ev.key === STORAGE_KEY && isOpen) rebuild();
   });
+
+  // Keyboard navigation: ArrowUp/Down move focus, Enter teleports.
+  // Capture phase so it fires before searchInput's stopPropagation.
+  document.addEventListener('keydown', (ev) => {
+    if (!isOpen) return;
+    if (ev.shiftKey || ev.metaKey || ev.altKey || ev.ctrlKey) return;
+    if (ev.key === 'ArrowDown') {
+      ev.preventDefault();
+      setFocus(focusIndex + 1);
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      setFocus(focusIndex - 1);
+    } else if (ev.key === 'Enter') {
+      if (currentRows.length === 0) return;
+      if (focusIndex < 0 || focusIndex >= currentRows.length) return;
+      ev.preventDefault();
+      const sight = currentRows[focusIndex].sight;
+      if (sight) teleportTo(sight);
+    }
+  }, true);
 
   // Keybinding — 'C' toggles, Esc closes. Skip when typing in inputs.
   document.addEventListener('keydown', (ev) => {
