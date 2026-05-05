@@ -119,7 +119,11 @@ export function createCosmicSightLog({ audio } = {}) {
         if (entries.length === 0) {
             const empty = document.createElement('div');
             empty.style.cssText = 'padding:30px 12px;text-align:center;color:#8aa0c8;font:italic 13px/1.4 Georgia,serif;';
-            empty.textContent = 'No cosmic sights discovered yet. Fly close to any glowing diamond!';
+            empty.innerHTML = 'No cosmic sights discovered yet. Fly close to any glowing diamond!<br><br>'
+                + '<span style="font-style:normal;font-size:11px;color:#7da7d6">'
+                + 'Tip: <b style="color:#bcd7ff">C</b> opens the cosmic sights atlas · '
+                + '<b style="color:#bcd7ff">N</b> opens the compass to the nearest undiscovered sight.'
+                + '</span>';
             listWrap.appendChild(empty);
             return;
         }

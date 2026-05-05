@@ -3904,6 +3904,16 @@ function updateTeleportList() {
         enter.title = `Open ${world.name} in a new tab`;
         enter.addEventListener('click', (event) => {
             event.stopPropagation();
+            // Bridge: directory Enter ↗ should record a visit + dispatch event
+            // just like openFocusedWorld() does for the in-scene E key, so the
+            // Achievements panel and Web Weaver session challenge advance.
+            try { if (world.id) visitorTracker.recordVisit(world.id); } catch (_) {}
+            try {
+                if (universeAudio.playChime) universeAudio.playChime(world.id || 'plaza');
+            } catch (_) {}
+            try {
+                UniverseEvents.recordLandmarkVisit(visitorTracker.getVisitorId(), world.id);
+            } catch (_) {}
         });
         actions.appendChild(enter);
 
