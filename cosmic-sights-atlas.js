@@ -53,6 +53,10 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let body = null;
   let header = null;
   let countLabel = null;
+  let searchInput = null;
+  let filterText = '';
+  let showOnlyUndiscovered = false;
+  let undiscoveredToggle = null;
 
   function ensurePanel() {
     if (panel) return;
@@ -87,6 +91,42 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     header.appendChild(title);
     header.appendChild(countLabel);
     header.appendChild(tip);
+
+    const controlsRow = document.createElement('div');
+    controlsRow.style.cssText = 'display:flex; gap:8px; align-items:center; margin-top:6px;';
+    searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = '🔍 Filter sights by name...';
+    searchInput.style.cssText = [
+      'flex:1', 'padding:5px 10px',
+      'background:rgba(0,0,0,0.4)', 'border:1px solid rgba(125,249,255,0.3)',
+      'border-radius:5px', 'color:#dbe7ff', 'font-size:12px',
+      'font-family:"Trebuchet MS", sans-serif', 'outline:none',
+    ].join(';');
+    searchInput.addEventListener('input', () => {
+      filterText = searchInput.value.trim().toLowerCase();
+      rebuild();
+    });
+    searchInput.addEventListener('keydown', (ev) => { ev.stopPropagation(); });
+    controlsRow.appendChild(searchInput);
+
+    undiscoveredToggle = document.createElement('button');
+    undiscoveredToggle.textContent = '◇ Undiscovered only';
+    undiscoveredToggle.style.cssText = [
+      'background:transparent', 'color:#a7c0e0',
+      'border:1px solid rgba(125,249,255,0.3)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    undiscoveredToggle.addEventListener('click', () => {
+      showOnlyUndiscovered = !showOnlyUndiscovered;
+      undiscoveredToggle.style.background = showOnlyUndiscovered ? 'rgba(125,249,255,0.18)' : 'transparent';
+      undiscoveredToggle.style.color = showOnlyUndiscovered ? '#7df9ff' : '#a7c0e0';
+      rebuild();
+    });
+    controlsRow.appendChild(undiscoveredToggle);
+
+    header.appendChild(controlsRow);
     panel.appendChild(header);
 
     body = document.createElement('div');
@@ -128,15 +168,29 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     const pct = total ? Math.round((found / total) * 100) : 0;
     countLabel.textContent = `${found} of ${total} discovered (${pct}%)`;
 
+    // Apply filter (search text + undiscovered-only toggle).
+    const filtered = sights.filter((s) => {
+      if (showOnlyUndiscovered && discovered.has(s.name)) return false;
+      if (filterText && !s.name.toLowerCase().includes(filterText)) return false;
+      return true;
+    });
+
     // Bucket sights by category, preserving array order within each bucket.
     const buckets = new Map();
-    for (const s of sights) {
+    for (const s of filtered) {
       const cat = categorize(s.name);
       if (!buckets.has(cat)) buckets.set(cat, []);
       buckets.get(cat).push(s);
     }
 
     body.innerHTML = '';
+    if (filtered.length === 0) {
+      const empty = document.createElement('div');
+      empty.style.cssText = 'padding:40px 20px; text-align:center; color:#7d8ba8; font-style:italic; font-size:13px;';
+      empty.textContent = filterText ? `No sights match "${filterText}".` : 'No undiscovered sights — every cosmic sight has been discovered! ✨';
+      body.appendChild(empty);
+      return;
+    }
     for (const rule of CATEGORY_RULES) {
       const list = buckets.get(rule.id);
       if (!list || list.length === 0) continue;
@@ -240,6 +294,10 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     isOpen = true;
     // Release pointer lock so the user can interact with the panel.
     if (document.exitPointerLock) document.exitPointerLock();
+    // Auto-focus the search input for immediate typing.
+    if (searchInput) {
+      try { searchInput.focus(); searchInput.select(); } catch (_) {}
+    }
   }
   function close() {
     if (!panel) return;
