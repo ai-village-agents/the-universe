@@ -3601,6 +3601,87 @@ export function createAnchorageLandmark(THREE, opts) {
   buoyBell.add(bellBuoyLight);
   group.add(buoyBell);
 
+
+  // --- v24: Beach campfire + log seats + glowing embers ---
+  const campfireGroup = new THREE.Group();
+  campfireGroup.position.set(-12, 0.05, -3);
+  // Stone ring (8 small dark stones)
+  for (let si = 0; si < 8; si++) {
+    const ang = (si / 8) * Math.PI * 2;
+    const stone = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 6, 5),
+      new THREE.MeshStandardMaterial({ color: 0x4a4540, roughness: 0.95 })
+    );
+    stone.position.set(Math.cos(ang) * 0.55, 0.0, Math.sin(ang) * 0.55);
+    stone.scale.y = 0.55;
+    campfireGroup.add(stone);
+  }
+  // Crossed kindling logs (4 short cylinders)
+  for (let li = 0; li < 4; li++) {
+    const klog = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.7, 6),
+      new THREE.MeshStandardMaterial({ color: 0x3a2a1a, roughness: 0.95, emissive: 0x441100, emissiveIntensity: 0.25 })
+    );
+    klog.rotation.z = Math.PI / 2;
+    klog.rotation.y = (li / 4) * Math.PI;
+    klog.position.y = 0.06 + (li % 2) * 0.05;
+    campfireGroup.add(klog);
+  }
+  // Flame cone (translucent, animated)
+  const campflame = new THREE.Mesh(
+    new THREE.ConeGeometry(0.28, 0.7, 10),
+    new THREE.MeshStandardMaterial({
+      color: 0xffaa44, transparent: true, opacity: 0.78,
+      emissive: 0xff7a22, emissiveIntensity: 1.4, depthWrite: false
+    })
+  );
+  campflame.position.y = 0.45;
+  campfireGroup.add(campflame);
+  // Inner flame (smaller, hotter)
+  const campflameInner = new THREE.Mesh(
+    new THREE.ConeGeometry(0.16, 0.45, 8),
+    new THREE.MeshStandardMaterial({
+      color: 0xfff7a0, transparent: true, opacity: 0.85,
+      emissive: 0xfff7a0, emissiveIntensity: 1.6, depthWrite: false
+    })
+  );
+  campflameInner.position.y = 0.4;
+  campfireGroup.add(campflameInner);
+  // Warm point light
+  const campfireLight = new THREE.PointLight(0xffaa55, 1.4, 9);
+  campfireLight.position.set(0, 0.5, 0);
+  campfireGroup.add(campfireLight);
+  // Rising embers (Points)
+  const emberCount = 22;
+  const emberGeo = new THREE.BufferGeometry();
+  const emberPos = new Float32Array(emberCount * 3);
+  const emberPhase = new Float32Array(emberCount);
+  for (let ei = 0; ei < emberCount; ei++) {
+    emberPos[ei * 3 + 0] = (Math.random() - 0.5) * 0.3;
+    emberPos[ei * 3 + 1] = 0.2 + Math.random() * 1.4;
+    emberPos[ei * 3 + 2] = (Math.random() - 0.5) * 0.3;
+    emberPhase[ei] = Math.random() * Math.PI * 2;
+  }
+  emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPos, 3));
+  const emberMat = new THREE.PointsMaterial({ color: 0xffd07a, size: 0.06, transparent: true, opacity: 0.85, depthWrite: false });
+  const campfireEmbers = new THREE.Points(emberGeo, emberMat);
+  campfireEmbers.userData = { count: emberCount, phases: emberPhase };
+  campfireGroup.add(campfireEmbers);
+  // Two log seats around the fire
+  const logSeatColors = [0x6e5234, 0x5a4429];
+  for (let lsi = 0; lsi < 2; lsi++) {
+    const logSeat = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.16, 0.16, 1.1, 8),
+      new THREE.MeshStandardMaterial({ color: logSeatColors[lsi], roughness: 0.9 })
+    );
+    logSeat.rotation.z = Math.PI / 2;
+    const ang = lsi === 0 ? 0.6 : -0.6;
+    logSeat.position.set(Math.cos(ang) * 1.4, 0.16, Math.sin(ang) * 1.4);
+    logSeat.rotation.y = -ang + Math.PI / 2;
+    campfireGroup.add(logSeat);
+  }
+  group.add(campfireGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -4585,6 +4666,28 @@ export function createAnchorageLandmark(THREE, opts) {
       buoyBell.rotation.z = 0.15 * Math.sin(t * 1.2);
       buoyBell.rotation.x = 0.08 * Math.sin(t * 0.7 + 0.4);
       bellBuoyLight.intensity = 0.5 + 0.3 * (0.5 + 0.5 * Math.sin(t * 3.4));
+    }
+
+    // v24: Campfire flame flicker + rising embers
+    if (typeof campfireGroup !== 'undefined') {
+      const flick = 0.85 + 0.18 * Math.sin(t * 14) + 0.1 * Math.sin(t * 23.7);
+      campflame.scale.y = flick;
+      campflame.scale.x = 0.92 + 0.12 * Math.sin(t * 9.3);
+      campflameInner.scale.y = 0.9 + 0.18 * Math.sin(t * 17.2);
+      campfireLight.intensity = 1.2 + 0.4 * (0.5 + 0.5 * Math.sin(t * 11));
+      const arr = emberPos;
+      const n = campfireEmbers.userData.count;
+      for (let ei = 0; ei < n; ei++) {
+        arr[ei * 3 + 1] += 0.018 + 0.005 * Math.sin(t * 3 + campfireEmbers.userData.phases[ei]);
+        arr[ei * 3 + 0] += 0.0035 * Math.sin(t * 2 + campfireEmbers.userData.phases[ei] * 1.7);
+        if (arr[ei * 3 + 1] > 1.8) {
+          arr[ei * 3 + 0] = (Math.random() - 0.5) * 0.3;
+          arr[ei * 3 + 1] = 0.2;
+          arr[ei * 3 + 2] = (Math.random() - 0.5) * 0.3;
+        }
+      }
+      campfireEmbers.geometry.attributes.position.needsUpdate = true;
+      campfireEmbers.material.opacity = 0.7 + 0.2 * Math.sin(t * 1.7);
     }
 
   }
