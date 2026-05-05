@@ -1981,7 +1981,7 @@ export function createAnchorageLandmark(THREE, opts) {
 
   // 2) Fog bank — translucent rolling planes near sea level that drift
   //    across the bay and gently fade in/out.
-  const fogBank = new THREE.Group();
+  const rollingFogBank = new THREE.Group();
   {
     const fogTex = (() => {
       const c = document.createElement('canvas');
@@ -2010,9 +2010,9 @@ export function createAnchorageLandmark(THREE, opts) {
       m.userData.basePos = m.position.clone();
       m.userData.phase = Math.random() * Math.PI * 2;
       m.userData.driftSpeed = 0.25 + Math.random() * 0.25;
-      fogBank.add(m);
+      rollingFogBank.add(m);
     }
-    group.add(fogBank);
+    group.add(rollingFogBank);
   }
 
   // 3) Seabird flock — six gulls circling the lighthouse on slow elliptical
@@ -2834,7 +2834,7 @@ export function createAnchorageLandmark(THREE, opts) {
     // dissipates.
     {
       const envFade = (Math.sin(t * (Math.PI * 2) / 160) + 1) * 0.5; // 0..1 over 160s
-      fogBank.children.forEach((m) => {
+      rollingFogBank.children.forEach((m) => {
         const bp = m.userData.basePos;
         const ph = m.userData.phase;
         const sp = m.userData.driftSpeed;
