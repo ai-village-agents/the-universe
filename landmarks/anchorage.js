@@ -2236,6 +2236,117 @@ export function createAnchorageLandmark(THREE, opts) {
     return sg;
   })();
 
+
+  // === v13 marine & avian additions ===
+
+  // 1) Sea snake — long undulating body following an S-curve path along surface.
+  const seaSnake = (() => {
+    const sg = new THREE.Group();
+    const segs = [];
+    const N = 14;
+    const bodyMat = new THREE.MeshStandardMaterial({
+      color: 0x2d6038, emissive: 0x0e3018, emissiveIntensity: 0.4, roughness: 0.6, metalness: 0.2
+    });
+    for (let i = 0; i < N; i++) {
+      const r = 0.18 - (i / N) * 0.10;
+      const seg = new THREE.Mesh(new THREE.SphereGeometry(r, 8, 6), bodyMat);
+      seg.userData = { idx: i };
+      segs.push(seg);
+      sg.add(seg);
+    }
+    // Head — slightly bigger with eyes
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 10, 8), new THREE.MeshStandardMaterial({
+      color: 0x346a3f, emissive: 0x103820, emissiveIntensity: 0.6
+    }));
+    head.scale.set(1.3, 0.9, 1);
+    sg.add(head);
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0xffe48a });
+    const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 4), eyeMat);
+    const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 4), eyeMat);
+    head.add(eyeL); head.add(eyeR);
+    eyeL.position.set(0.18, 0.06, 0.12);
+    eyeR.position.set(0.18, 0.06, -0.12);
+    sg.userData = { segs, head };
+    group.add(sg);
+    return sg;
+  })();
+
+  // 2) Fish school — small triangle fishes swimming as a coordinated flock.
+  const fishSchool = (() => {
+    const fg = new THREE.Group();
+    const fishes = [];
+    const N = 24;
+    const fishMat = new THREE.MeshStandardMaterial({
+      color: 0xc8d8ff, emissive: 0x506080, emissiveIntensity: 0.45, side: THREE.DoubleSide
+    });
+    for (let i = 0; i < N; i++) {
+      const geo = new THREE.ConeGeometry(0.06, 0.24, 4);
+      geo.rotateZ(Math.PI / 2);
+      const f = new THREE.Mesh(geo, fishMat);
+      f.userData = {
+        offset: { x: (Math.random() - 0.5) * 1.6, y: (Math.random() - 0.5) * 0.6, z: (Math.random() - 0.5) * 1.6 },
+        phase: Math.random() * Math.PI * 2,
+      };
+      fishes.push(f);
+      fg.add(f);
+    }
+    fg.userData = { fishes };
+    group.add(fg);
+    return fg;
+  })();
+
+  // 3) Seabird flock — small dots circling lighthouse spire, occasionally diving.
+  const birdFlock = (() => {
+    const bg = new THREE.Group();
+    const birds = [];
+    const N = 7;
+    const bMat = new THREE.MeshBasicMaterial({ color: 0xfff5e0 });
+    for (let i = 0; i < N; i++) {
+      const geo = new THREE.ConeGeometry(0.05, 0.18, 3);
+      geo.rotateZ(Math.PI / 2);
+      const b = new THREE.Mesh(geo, bMat);
+      b.userData = {
+        radius: 4.5 + i * 0.4,
+        baseY: 12 + Math.random() * 2,
+        speed: 0.4 + Math.random() * 0.25,
+        phase: Math.random() * Math.PI * 2,
+      };
+      birds.push(b);
+      bg.add(b);
+    }
+    bg.userData = { birds };
+    group.add(bg);
+    return bg;
+  })();
+
+  // 4) Distant double rainbow — primary + faint secondary. Occasionally fades in.
+  const rainbow2 = (() => {
+    const rg = new THREE.Group();
+    const colors = [0xff5f5f, 0xffb84a, 0xfff272, 0x80ff8c, 0x6cb6ff, 0x9c7fff, 0xd06bff];
+    colors.forEach((c, i) => {
+      const arc = new THREE.Mesh(
+        new THREE.TorusGeometry(20 + i * 0.42, 0.18, 6, 50, Math.PI),
+        new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0, side: THREE.DoubleSide })
+      );
+      arc.rotation.z = Math.PI;
+      arc.userData = { idx: i, ring: 'primary' };
+      rg.add(arc);
+    });
+    // Secondary fainter, reversed order
+    [...colors].reverse().forEach((c, i) => {
+      const arc = new THREE.Mesh(
+        new THREE.TorusGeometry(28 + i * 0.46, 0.13, 6, 50, Math.PI),
+        new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0, side: THREE.DoubleSide })
+      );
+      arc.rotation.z = Math.PI;
+      arc.userData = { idx: i, ring: 'secondary' };
+      rg.add(arc);
+    });
+    rg.position.set(28, 0.5, -32);
+    group.add(rg);
+    return rg;
+  })();
+
   function update(dt) {
     t += dt;
     beamPivot.rotation.y = t * 0.6;
@@ -2842,6 +2953,71 @@ export function createAnchorageLandmark(THREE, opts) {
       // Slow drift across horizon
       stormCloud.position.x = -32 + Math.sin(t * 0.02) * 4;
       stormCloud.rotation.y = Math.sin(t * 0.03) * 0.2;
+    }
+
+    // v13 animations
+    // Sea snake: undulating S-curve path
+    {
+      const ud = seaSnake.userData;
+      const segs = ud.segs;
+      const baseX = Math.sin(t * 0.18) * 7;
+      const baseZ = Math.cos(t * 0.14) * 7;
+      const dir = { x: Math.cos(t * 0.18) * 7 * 0.18, z: -Math.sin(t * 0.14) * 7 * 0.14 };
+      const dirLen = Math.hypot(dir.x, dir.z) || 1;
+      const dx = dir.x / dirLen, dz = dir.z / dirLen;
+      const px = -dz, pz = dx; // perp
+      for (let i = 0; i < segs.length; i++) {
+        const wave = Math.sin(t * 2.4 - i * 0.6) * 0.45 * (1 - i / segs.length);
+        const back = i * 0.22;
+        segs[i].position.set(
+          baseX - dx * back + px * wave,
+          -1.45 + Math.sin(t * 1.6 - i * 0.4) * 0.05,
+          baseZ - dz * back + pz * wave
+        );
+      }
+      ud.head.position.set(baseX + dx * 0.22, -1.4 + Math.sin(t * 1.6) * 0.05, baseZ + dz * 0.22);
+      ud.head.lookAt(baseX + dx * 1.5, -1.4, baseZ + dz * 1.5);
+    }
+    // Fish school: coordinated flock orbit + jitter
+    {
+      const ud = fishSchool.userData;
+      const cx = Math.cos(t * 0.22) * 5.5;
+      const cz = Math.sin(t * 0.22) * 5.5;
+      const cy = -1.7 + Math.sin(t * 0.35) * 0.2;
+      const dir = { x: -Math.sin(t * 0.22) * 5.5 * 0.22, z: Math.cos(t * 0.22) * 5.5 * 0.22 };
+      const dirLen = Math.hypot(dir.x, dir.z) || 1;
+      const dx = dir.x / dirLen, dz = dir.z / dirLen;
+      const yaw = Math.atan2(dz, dx);
+      ud.fishes.forEach((f) => {
+        const wob = Math.sin(t * 3 + f.userData.phase) * 0.08;
+        f.position.set(
+          cx + f.userData.offset.x + wob * dx,
+          cy + f.userData.offset.y + Math.sin(t * 2 + f.userData.phase) * 0.05,
+          cz + f.userData.offset.z + wob * dz
+        );
+        f.rotation.y = -yaw;
+      });
+    }
+    // Bird flock: orbit lighthouse spire (~ x=0,z=0,y=12)
+    {
+      const ud = birdFlock.userData;
+      ud.birds.forEach((b) => {
+        const ang = t * b.userData.speed + b.userData.phase;
+        b.position.set(
+          Math.cos(ang) * b.userData.radius,
+          b.userData.baseY + Math.sin(ang * 1.7) * 0.3,
+          Math.sin(ang) * b.userData.radius
+        );
+        b.rotation.y = -ang + Math.PI / 2;
+      });
+    }
+    // Rainbow2: occasional fade-in cycle ~30s
+    {
+      const cycle = (t * 0.033 + 0.55) % 1;
+      const op = cycle < 0.4 ? Math.sin((cycle / 0.4) * Math.PI) * 0.55 : 0;
+      rainbow2.children.forEach((arc) => {
+        arc.material.opacity = arc.userData.ring === 'primary' ? op : op * 0.45;
+      });
     }
 
   }
