@@ -7967,6 +7967,152 @@ export function createAnchorageLandmark(THREE, opts) {
   ferryGroup.rotation.y = 0.2;
   group.add(ferryGroup);
 
+  // --- v52: cargo container stack with mini-crane, pier heron, beach checkers
+  // Cargo container stack with a small portal crane lowering one container
+  const cargoStackGroup = new THREE.Group();
+  const csContainerColors = [0xc4453a, 0xe69a30, 0x3088c4, 0x2a7a3a, 0xc480c4, 0x3a3a3a];
+  const csContainerGeom = new THREE.BoxGeometry(2.2, 1.0, 1.0);
+  // Stack of 4 containers (2x2 with one offset)
+  const csStackPositions = [
+    [-1.2, 0.5, 0], [1.2, 0.5, 0], [-1.2, 1.5, 0], [1.2, 1.5, 0]
+  ];
+  for (let i = 0; i < csStackPositions.length; i++) {
+    const c = new THREE.Mesh(csContainerGeom, new THREE.MeshLambertMaterial({ color: csContainerColors[i % csContainerColors.length] }));
+    c.position.set(...csStackPositions[i]);
+    cargoStackGroup.add(c);
+    // Door lines (small dark stripe at one end)
+    const doorMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+    const door = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.94, 0.94), doorMat);
+    door.position.set(csStackPositions[i][0] + 1.12, csStackPositions[i][1], csStackPositions[i][2]);
+    cargoStackGroup.add(door);
+  }
+  // Mini portal crane (red beam structure)
+  const csCraneMat = new THREE.MeshLambertMaterial({ color: 0xc4453a });
+  const csLeg1 = new THREE.Mesh(new THREE.BoxGeometry(0.18, 5.0, 0.18), csCraneMat);
+  csLeg1.position.set(-2.6, 2.5, 0);
+  cargoStackGroup.add(csLeg1);
+  const csLeg2 = new THREE.Mesh(new THREE.BoxGeometry(0.18, 5.0, 0.18), csCraneMat);
+  csLeg2.position.set(2.6, 2.5, 0);
+  cargoStackGroup.add(csLeg2);
+  const csCrossbeam = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.18, 0.18), csCraneMat);
+  csCrossbeam.position.set(0, 4.9, 0);
+  cargoStackGroup.add(csCrossbeam);
+  // Trolley on crossbeam (slides side to side)
+  const csTrolley = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.2, 0.4), new THREE.MeshLambertMaterial({ color: 0xffd640 }));
+  csTrolley.position.set(0.5, 4.7, 0);
+  cargoStackGroup.add(csTrolley);
+  // Hanging container on cable
+  const csHangCableMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const csHangCable = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 6), csHangCableMat);
+  csHangCable.position.set(0.5, 3.85, 0);
+  cargoStackGroup.add(csHangCable);
+  const csHangContainer = new THREE.Mesh(csContainerGeom, new THREE.MeshLambertMaterial({ color: 0x40c0a0 }));
+  csHangContainer.position.set(0.5, 3.0, 0);
+  cargoStackGroup.add(csHangContainer);
+  cargoStackGroup.position.set(-26, 0.05, -18);
+  cargoStackGroup.rotation.y = 0.4;
+  group.add(cargoStackGroup);
+
+  // Pier heron — slim heron standing on a piling, occasionally pecking at water
+  const pierHeronGroup = new THREE.Group();
+  const phPilingMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  const phPiling = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 1.6, 12), phPilingMat);
+  phPiling.position.y = 0.8;
+  pierHeronGroup.add(phPiling);
+  const phPilingTop = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.06, 12), new THREE.MeshLambertMaterial({ color: 0x4a3220 }));
+  phPilingTop.position.y = 1.63;
+  pierHeronGroup.add(phPilingTop);
+  // Heron body (gray-blue)
+  const phBodyMat = new THREE.MeshLambertMaterial({ color: 0x9aa8b8 });
+  const phBody = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), phBodyMat);
+  phBody.scale.set(1.0, 0.7, 1.4);
+  phBody.position.y = 1.85;
+  pierHeronGroup.add(phBody);
+  // Long curved neck (cylinder)
+  const phNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.06, 0.7, 8), phBodyMat);
+  phNeck.position.set(0.18, 2.15, 0);
+  phNeck.rotation.z = -0.5;
+  pierHeronGroup.add(phNeck);
+  // Head
+  const phHead = new THREE.Mesh(new THREE.SphereGeometry(0.09, 10, 10), phBodyMat);
+  phHead.position.set(0.42, 2.4, 0);
+  pierHeronGroup.add(phHead);
+  // Long beak (yellow)
+  const phBeak = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.3, 8), new THREE.MeshLambertMaterial({ color: 0xffd340 }));
+  phBeak.position.set(0.6, 2.4, 0);
+  phBeak.rotation.z = -Math.PI / 2;
+  pierHeronGroup.add(phBeak);
+  // Legs (thin sticks)
+  const phLegMat = new THREE.MeshLambertMaterial({ color: 0xffe080 });
+  const phLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 6), phLegMat);
+  phLeg1.position.set(-0.04, 1.7, 0.06);
+  pierHeronGroup.add(phLeg1);
+  const phLeg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 6), phLegMat);
+  phLeg2.position.set(0.04, 1.7, -0.06);
+  pierHeronGroup.add(phLeg2);
+  pierHeronGroup.position.set(20, 0.05, -16);
+  group.add(pierHeronGroup);
+
+  // Beach checkers game — small wooden table with checkerboard, 2 players
+  const beachCheckersGroup = new THREE.Group();
+  const bcTableMat = new THREE.MeshLambertMaterial({ color: 0x8a5a2a });
+  const bcTableTop = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.06, 1.2), bcTableMat);
+  bcTableTop.position.y = 0.5;
+  beachCheckersGroup.add(bcTableTop);
+  const bcLegGeom = new THREE.BoxGeometry(0.06, 0.5, 0.06);
+  const bcLegPositions = [[-0.5, 0.25, -0.5], [0.5, 0.25, -0.5], [-0.5, 0.25, 0.5], [0.5, 0.25, 0.5]];
+  for (let i = 0; i < bcLegPositions.length; i++) {
+    const leg = new THREE.Mesh(bcLegGeom, bcTableMat);
+    leg.position.set(...bcLegPositions[i]);
+    beachCheckersGroup.add(leg);
+  }
+  // Checkerboard (black-white squares as canvas)
+  const bcBoardCanvas = document.createElement('canvas');
+  bcBoardCanvas.width = 256; bcBoardCanvas.height = 256;
+  const bcBoardCtx = bcBoardCanvas.getContext('2d');
+  for (let by = 0; by < 8; by++) {
+    for (let bx = 0; bx < 8; bx++) {
+      bcBoardCtx.fillStyle = ((bx + by) % 2 === 0) ? '#f5f0c8' : '#3a2a1a';
+      bcBoardCtx.fillRect(bx * 32, by * 32, 32, 32);
+    }
+  }
+  const bcBoardTex = new THREE.CanvasTexture(bcBoardCanvas);
+  const bcBoard = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.0), new THREE.MeshBasicMaterial({ map: bcBoardTex }));
+  bcBoard.position.set(0, 0.535, 0);
+  bcBoard.rotation.x = -Math.PI / 2;
+  beachCheckersGroup.add(bcBoard);
+  // Checker pieces (red and black)
+  const bcRedMat = new THREE.MeshLambertMaterial({ color: 0xc4453a });
+  const bcBlackMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+  const bcPieceGeom = new THREE.CylinderGeometry(0.04, 0.04, 0.025, 12);
+  const bcPiecePositions = [
+    [-0.30, 0.55, -0.30, 'r'], [-0.18, 0.55, -0.30, 'r'], [-0.06, 0.55, -0.30, 'r'],
+    [0.06, 0.55, 0.30, 'b'], [0.18, 0.55, 0.30, 'b'], [0.30, 0.55, 0.30, 'b']
+  ];
+  for (let i = 0; i < bcPiecePositions.length; i++) {
+    const pp = bcPiecePositions[i];
+    const piece = new THREE.Mesh(bcPieceGeom, pp[3] === 'r' ? bcRedMat : bcBlackMat);
+    piece.position.set(pp[0], pp[1], pp[2]);
+    beachCheckersGroup.add(piece);
+  }
+  // Two players (one each side)
+  const bcPlayer1Body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.6, 10), new THREE.MeshLambertMaterial({ color: 0x3088c4 }));
+  bcPlayer1Body.position.set(0, 0.85, -1.0);
+  beachCheckersGroup.add(bcPlayer1Body);
+  const bcPlayer1Head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 10), new THREE.MeshLambertMaterial({ color: 0xeab098 }));
+  bcPlayer1Head.position.set(0, 1.27, -1.0);
+  beachCheckersGroup.add(bcPlayer1Head);
+  const bcPlayer2Body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.6, 10), new THREE.MeshLambertMaterial({ color: 0xe69a30 }));
+  bcPlayer2Body.position.set(0, 0.85, 1.0);
+  beachCheckersGroup.add(bcPlayer2Body);
+  const bcPlayer2Head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 10), new THREE.MeshLambertMaterial({ color: 0xf2c79b }));
+  bcPlayer2Head.position.set(0, 1.27, 1.0);
+  beachCheckersGroup.add(bcPlayer2Head);
+  beachCheckersGroup.position.set(-12, 0.05, 22);
+  beachCheckersGroup.rotation.y = 0.5;
+  group.add(beachCheckersGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9494,6 +9640,16 @@ export function createAnchorageLandmark(THREE, opts) {
       for (let i = 0; i < fryPassengers.length; i++) {
         fryPassengers[i].rotation.z = Math.sin(t * 0.9 + i * 0.6) * 0.05;
       }
+      // v52: cargo crane trolley slides + container lowers
+      csTrolley.position.x = 0.5 + Math.sin(t * 0.4) * 1.4;
+      csHangCable.position.x = csTrolley.position.x;
+      csHangContainer.position.x = csTrolley.position.x;
+      csHangContainer.position.y = 3.0 + Math.sin(t * 0.3) * 0.4;
+      csHangCable.scale.y = 1 + Math.sin(t * 0.3) * 0.25;
+      // v52: heron pecks at water
+      phHead.rotation.z = Math.max(0, Math.sin(t * 0.7)) * -1.2;
+      phNeck.rotation.z = -0.5 + Math.max(0, Math.sin(t * 0.7)) * -0.5;
+      phBeak.rotation.z = -Math.PI / 2 + Math.max(0, Math.sin(t * 0.7)) * -0.7;
     }
 
   }
