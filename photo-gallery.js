@@ -62,6 +62,19 @@ export function createPhotoGallery({ audio } = {}) {
   hint.textContent = 'Press P in-universe to capture a photo. ←→↑↓ to navigate, Enter to open. Photos are stored in your browser only.';
   card.appendChild(hint);
 
+  // World filter row
+  let worldFilter = 'all';
+  const filterRow = document.createElement('div');
+  filterRow.style.cssText = 'display:flex; align-items:center; gap:8px; margin-bottom:10px; font-size:11px; color:#9bb1d2;';
+  const filterLabel = document.createElement('span');
+  filterLabel.textContent = 'World:';
+  const filterSelect = document.createElement('select');
+  filterSelect.style.cssText = 'background:rgba(20,30,50,0.85); color:#cfe6ff; border:1px solid rgba(180,210,255,0.3); border-radius:6px; padding:3px 8px; font-size:11px; font-family:Consolas,monospace;';
+  filterSelect.addEventListener('change', () => { worldFilter = filterSelect.value; refresh(); });
+  filterRow.appendChild(filterLabel);
+  filterRow.appendChild(filterSelect);
+  card.appendChild(filterRow);
+
   // Scroll grid
   const grid = document.createElement('div');
   grid.style.cssText = 'display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:12px; overflow-y:auto; padding:4px 4px 6px 4px; flex:1;';
@@ -108,7 +121,8 @@ export function createPhotoGallery({ audio } = {}) {
     currentLightbox = photo;
     lightImg.src = photo.thumb;
     const date = new Date(photo.ts);
-    lightCaption.textContent = `${photo.name}  ·  ${date.toLocaleString()}`;
+    const _wn = photo && photo.world && photo.world.name;
+    lightCaption.textContent = (_wn ? `@ ${_wn}  ·  ` : '') + `${photo.name}  ·  ${date.toLocaleString()}`;
     lightbox.style.display = 'flex';
   }
   function closeLightbox() {
@@ -142,13 +156,66 @@ export function createPhotoGallery({ audio } = {}) {
     refresh();
   });
 
+  function rebuildFilterOptions(photos) {
+    // Collect unique world names from photo metadata.
+    const seen = new Map();
+    let untaggedCount = 0;
+    photos.forEach(p => {
+      const wn = p && p.world && p.world.name;
+      if (wn) seen.set(wn, (seen.get(wn) || 0) + 1);
+      else untaggedCount++;
+    });
+    const opts = [{ value: 'all', label: `All (${photos.length})` }];
+    Array.from(seen.entries()).sort((a, b) => a[0].localeCompare(b[0])).forEach(([n, c]) => opts.push({ value: 'w:' + n, label: `${n} (${c})` }));
+    if (untaggedCount > 0) opts.push({ value: 'untagged', label: `Untagged (${untaggedCount})` });
+    const prev = filterSelect.value || worldFilter;
+    filterSelect.innerHTML = '';
+    opts.forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o.value; opt.textContent = o.label;
+      filterSelect.appendChild(opt);
+    });
+    // Restore previous selection if still valid
+    if (Array.from(filterSelect.options).some(o => o.value === prev)) {
+      filterSelect.value = prev;
+      worldFilter = prev;
+    } else {
+      filterSelect.value = 'all';
+      worldFilter = 'all';
+    }
+  }
+
+  function applyWorldFilter(photos) {
+    if (worldFilter === 'all') return photos;
+    if (worldFilter === 'untagged') return photos.filter(p => !(p && p.world && p.world.name));
+    if (worldFilter.startsWith('w:')) {
+      const n = worldFilter.slice(2);
+      return photos.filter(p => p && p.world && p.world.name === n);
+    }
+    return photos;
+  }
+
   function refresh() {
-    const photos = loadPhotos();
+    const allPhotos = loadPhotos();
+    rebuildFilterOptions(allPhotos);
+    const photos = applyWorldFilter(allPhotos);
     grid.innerHTML = '';
-    document.getElementById('pg-count').textContent = photos.length ? `${photos.length} photo${photos.length === 1 ? '' : 's'}` : '';
+    const lbl = document.getElementById('pg-count');
+    if (lbl) {
+      const total = allPhotos.length;
+      const shown = photos.length;
+      if (total === 0) lbl.textContent = '';
+      else if (worldFilter === 'all') lbl.textContent = `${total} photo${total === 1 ? '' : 's'}`;
+      else lbl.textContent = `${shown} of ${total} shown`;
+    }
     if (photos.length === 0) {
       empty.style.display = 'block';
       grid.style.display = 'none';
+      empty.textContent = allPhotos.length === 0
+        ? 'No photos yet. Press P during your travels to capture moments.'
+        : 'No photos match the current filter.';
+      gridCells = [];
+      gridFocusIndex = -1;
       return;
     }
     empty.style.display = 'none';
@@ -166,7 +233,16 @@ export function createPhotoGallery({ audio } = {}) {
       const cap = document.createElement('div');
       cap.style.cssText = 'padding:6px 8px; font-size:10px; color:#9bb1d2; font-family:Consolas,monospace; line-height:1.4;';
       const date = new Date(photo.ts);
-      cap.textContent = date.toLocaleString();
+      const wn = photo && photo.world && photo.world.name;
+      if (wn) {
+        const tag = document.createElement('div');
+        tag.style.cssText = 'color:#ffd6a8; font-weight:bold; margin-bottom:2px;';
+        tag.textContent = '@ ' + wn;
+        cap.appendChild(tag);
+      }
+      const dateLine = document.createElement('div');
+      dateLine.textContent = date.toLocaleString();
+      cap.appendChild(dateLine);
       cell.appendChild(img); cell.appendChild(cap);
       cell.addEventListener('click', () => { setGridFocus(idx, false); openLightbox(photo); });
       grid.appendChild(cell);

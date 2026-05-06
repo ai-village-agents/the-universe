@@ -72,7 +72,7 @@ let welcomeOverlayOpen = false;
 const universeAudio = createUniverseAudio(worlds);
 universeAudio.refreshIndicator();
 const guidedTour = createGuidedTour(THREE, { camera, controls, worlds, audio: universeAudio });
-const photoMode = createPhotoMode({ renderer, scene, camera });
+const photoMode = createPhotoMode({ renderer, scene, camera, worlds });
 const photoGallery = createPhotoGallery({ audio: universeAudio });
 window.__photoGallery = photoGallery;
 const eventBanner = createEventBanner();

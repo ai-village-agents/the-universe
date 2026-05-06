@@ -2,7 +2,7 @@
 // Author: Claude Opus 4.7
 // Hooks: factory({ renderer, scene, camera }) -> { capture(opts), showHint() }
 
-export function createPhotoMode({ renderer, scene, camera }) {
+export function createPhotoMode({ renderer, scene, camera, worlds }) {
   // Toast HUD shown briefly after capture
   const toast = document.createElement('div');
   toast.id = 'photo-mode-toast';
@@ -58,7 +58,7 @@ export function createPhotoMode({ renderer, scene, camera }) {
   const THUMB_W = 256;
   const THUMB_H = 150;
 
-  function saveThumbnail(canvas, name, ts) {
+  function saveThumbnail(canvas, name, ts, extras) {
     try {
       const tc = document.createElement('canvas');
       tc.width = THUMB_W; tc.height = THUMB_H;
@@ -73,7 +73,7 @@ export function createPhotoMode({ renderer, scene, camera }) {
       const thumb = tc.toDataURL('image/jpeg', 0.62);
       let arr = [];
       try { arr = JSON.parse(localStorage.getItem(PHOTO_STORE_KEY) || '[]') || []; } catch (_) { arr = []; }
-      arr.unshift({ name, ts, thumb });
+      arr.unshift(Object.assign({ name, ts, thumb }, extras || {}));
       if (arr.length > PHOTO_CAP) arr = arr.slice(0, PHOTO_CAP);
       try { localStorage.setItem(PHOTO_STORE_KEY, JSON.stringify(arr)); }
       catch (e) {
@@ -84,13 +84,34 @@ export function createPhotoMode({ renderer, scene, camera }) {
         }
       }
       try {
-        document.dispatchEvent(new CustomEvent('photoCaptured', { detail: { name, ts, thumb } }));
+        document.dispatchEvent(new CustomEvent('photoCaptured', { detail: Object.assign({ name, ts, thumb }, extras || {}) }));
       } catch (_) {}
       return thumb;
     } catch (err) {
       console.warn('[photo-mode] thumbnail failed', err);
       return null;
     }
+  }
+
+  // Find the nearest world to the camera at capture time (within ~50 units).
+  function nearestWorldNow() {
+    try {
+      if (!Array.isArray(worlds) || !worlds.length) return null;
+      const cp = camera.position;
+      let bestId = null, bestName = null, bestDist = Infinity;
+      for (const w of worlds) {
+        if (!w || !w.position) continue;
+        const wp = w.position;
+        const wx = Array.isArray(wp) ? wp[0] : wp.x;
+        const wy = Array.isArray(wp) ? wp[1] : wp.y;
+        const wz = Array.isArray(wp) ? wp[2] : wp.z;
+        const dx = cp.x - wx, dy = cp.y - wy, dz = cp.z - wz;
+        const d = Math.sqrt(dx*dx + dy*dy + dz*dz);
+        if (d < bestDist) { bestDist = d; bestId = w.id || null; bestName = w.name || null; }
+      }
+      if (bestDist <= 60 && (bestId || bestName)) return { id: bestId, name: bestName, dist: Math.round(bestDist) };
+      return null;
+    } catch (_) { return null; }
   }
 
   function capture(options = {}) {
@@ -136,6 +157,16 @@ export function createPhotoMode({ renderer, scene, camera }) {
       const subW = ctx.measureText(sub).width;
       ctx.fillText(sub, w - subW - 24, Math.max(8, Math.round(stripH * 0.18)));
 
+      // World label (top-left, second line under THE UNIVERSE)
+      try {
+        const _nw = nearestWorldNow();
+        if (_nw && _nw.name) {
+          ctx.fillStyle = '#ffd6a8';
+          ctx.font = `${Math.round(fontPx * 0.45)}px "Trebuchet MS", "Helvetica", sans-serif`;
+          ctx.fillText('@ ' + _nw.name, 26, Math.max(8, Math.round(stripH * 0.1)) + Math.round(fontPx * 1.05));
+        }
+      } catch (_) {}
+
       // Footer strip
       const footH = Math.max(38, Math.round(h * 0.04));
       const grad2 = ctx.createLinearGradient(0, h - footH, 0, h);
@@ -166,7 +197,8 @@ export function createPhotoMode({ renderer, scene, camera }) {
         setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
         const photoName = a.download;
         const photoTs = Date.now();
-        saveThumbnail(out, photoName, photoTs);
+        const nw = nearestWorldNow();
+        saveThumbnail(out, photoName, photoTs, nw ? { world: { id: nw.id, name: nw.name } } : null);
         showToast('📸 Photo saved');
         if (onCaptured) {
           try {
