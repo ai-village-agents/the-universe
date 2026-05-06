@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Penumbra Filament Structure", position: [19800, 15450, 18700], color: "#607D8B", description: "Radial spot features" },
     { name: "Umbral Light Bridge Lane", position: [19900, 15500, 18800], color: "#546E7A", description: "Bright lane in umbra" },
     { name: "Facular Bright Point", position: [20000, 15550, 18900], color: "#FFE57F", description: "Magnetic bright feature" },
+const sight9926 = 'Soliton wave formation: A stable, non-dispersive wave maintaining its shape while traveling through a medium at constant velocity.';
+const sight9927 = 'Wave interference pattern: Multiple waves overlapping and creating alternating bands of constructive and destructive interference.';
+const sight9928 = 'Wave refraction at boundary: Waves bending as they transition between media with different propagation speeds, changing direction.';
+const sight9929 = 'Dispersion relationship: Waves of different frequencies traveling at different speeds, causing wave packets to spread and disperse.';
+const sight9930 = 'Shock wave formation: A supersonic disturbance creating a thin layer of extreme compression, visible as a bright glowing boundary.';
+const sight9931 = 'Diffraction around obstacle: Waves bending around obstacles and spreading into the shadow region, creating complex curved patterns.';
+const sight9932 = 'Wave amplitude modulation: Wave envelope varying sinusoidally with distance or time, creating visible beats in wave pattern.';
+const sight9933 = 'Phase velocity visualization: The speed of individual wave crests moving across the medium, faster or slower than group velocity.';
+const sight9934 = 'Wave packet envelope: The overall shape of a group of waves moving together, spreading as dispersion separates individual components.';
+const sight9935 = 'Doppler shifted wave front: Waves compressed ahead of a moving source and stretched behind, creating asymmetric wave pattern.';
+const sight9936 = 'Nonlinear wave steepening: Wave amplitude growing until steepness becomes infinite and wave breaks, creating visible crest turnover.';
+const sight9937 = 'Resonant wave amplification: Waves reinforcing through multiple passes, growing in amplitude with each cycle, building to maximum.';
+const sight9938 = 'Standing wave pattern: Nodes and antinodes creating a stationary wave pattern with regions of zero and maximum oscillation.';
+const sight9939 = 'Wave energy localization: Energy concentrated in certain regions due to constructive interference while other regions remain calm.';
+const sight9940 = 'Evanescent wave decay: Wave amplitude decreasing exponentially in space, penetrating only a wavelength or two before vanishing.';
+const sight9941 = 'Wave velocity shear: Different parts of a wave traveling at different speeds, causing the wave to rotate and twist.';
+const sight9942 = 'Harmonic generation: Nonlinear interaction creating new waves at integer multiples of the fundamental frequency.';
+const sight9943 = 'Wave-wave collision: Two wave packets approaching each other, interacting briefly, then separating without permanent change.';
+const sight9944 = 'Caustics concentration pattern: Multiple wave paths converging to create bright concentrated lines of energy, like light through lenses.';
+const sight9945 = 'Group velocity dispersion: The rate at which a wave packet spreads, controlling whether it stays focused or disperses.';
+const sight9946 = 'Wave reflection coefficient: Portion of wave energy reflected at a boundary shown as a brightness gradation of reflected intensity.';
+const sight9947 = 'Parametric wave coupling: Interaction between multiple waves where energy transfers between them through the medium properties.';
+const sight9948 = 'Wave mode conversion: One type of wave converting to another type through interaction with medium boundary or structure.';
+const sight9949 = 'Critical angle phenomenon: Waves at grazing angles suddenly reflecting entirely instead of transmitting into next medium.';
+const sight9950 = 'Wave dissipation spectrum: Energy being lost across a range of frequencies, visible as overall amplitude decline with distance.';
+
+export const sights = [sight9926, sight9927, sight9928, sight9929, sight9930, sight9931, sight9932, sight9933, sight9934, sight9935, sight9936, sight9937, sight9938, sight9939, sight9940, sight9941, sight9942, sight9943, sight9944, sight9945, sight9946, sight9947, sight9948, sight9949, sight9950];
     { name: "Plage Active Region", position: [20100, 15600, 19000], color: "#FFFF8D", description: "Chromospheric bright area" },
     { name: "Filament Channel Void", position: [20200, 15650, 19100], color: "#B0BEC5", description: "Pre-prominence corridor" },
     { name: "Prominence Eruption Arc", position: [20300, 15700, 19200], color: "#FF8A80", description: "Rising plasma sheet" },
