@@ -10746,6 +10746,33 @@ const cosmicSights = [
     { name: "GW190910 High Confidence", position: [-3324, -1874, -2224], color: "#FF6BC8", description: "Strong signal with excellent parameter estimation" },
     { name: "GW190915 Late O3a Event", position: [3325, 1875, 2225], color: "#6BFFC8", description: "Final discovery of third observing run first half" },
 
+    // Batch 29: Radio Astronomy Discoveries (9,201-9,225)
+    { name: "Sagittarius A* Radio Core", position: [3351, 1901, 2251], color: "#FF9B6B", description: "Compact radio source at Galactic center" },
+    { name: "Cassiopeia A Radio Shell", position: [-3352, 1902, -2252], color: "#6B9BFF", description: "Youngest known supernova remnant in Galaxy" },
+    { name: "Cygnus A Radio Lobes", position: [3353, -1903, 2253], color: "#9BFF6B", description: "Powerful Fanaroff-Riley II radio galaxy" },
+    { name: "3C 273 First Quasar Radio", position: [-3354, -1904, -2254], color: "#FF6B9B", description: "First quasar identified with optical counterpart" },
+    { name: "Centaurus A Radio Jets", position: [3355, 1905, 2255], color: "#6BFF9B", description: "Nearest powerful radio galaxy with jets" },
+    { name: "Virgo A M87 Radio Halo", position: [-3356, 1906, -2256], color: "#9B6BFF", description: "Giant elliptical with famous relativistic jet" },
+    { name: "Fornax A Southern Lobe", position: [3357, -1907, 2257], color: "#FFBE6B", description: "Double-lobed radio source in Fornax cluster" },
+    { name: "Pictor A Western Hotspot", position: [-3358, -1908, -2258], color: "#6BFFBE", description: "Powerful radio galaxy with bright hotspot" },
+    { name: "Hydra A Radio Bubbles", position: [3359, 1909, 2259], color: "#BE6BFF", description: "Radio source inflating X-ray cavities" },
+    { name: "Perseus A Radio Mini-Halo", position: [-3360, 1910, -2260], color: "#FFE36B", description: "Central radio source in Perseus cluster" },
+    { name: "Hercules A Jet Structure", position: [3361, -1911, 2261], color: "#6BE3FF", description: "Radio galaxy with complex ring-like jets" },
+    { name: "PKS 2155-304 BL Lac", position: [-3362, -1912, -2262], color: "#E36BFF", description: "High-frequency peaked BL Lac object" },
+    { name: "Markarian 421 TeV Blazar", position: [3363, 1913, 2263], color: "#FF6BE3", description: "Nearby TeV-emitting BL Lac object" },
+    { name: "BL Lacertae Host Galaxy", position: [-3364, 1914, -2264], color: "#6BFFE3", description: "Original featureless spectrum active nucleus" },
+    { name: "OJ 287 Binary SMBH", position: [3365, -1915, 2265], color: "#FFB36B", description: "Quasar with possible supermassive binary" },
+    { name: "3C 279 Apparent Superluminal", position: [-3366, -1916, -2266], color: "#6BB3FF", description: "Blazar showing apparent faster-than-light motion" },
+    { name: "3C 48 First Radio ID", position: [3367, 1917, 2267], color: "#B3FF6B", description: "First radio source identified as quasar-like" },
+    { name: "3C 295 Extended Emission", position: [-3368, 1918, -2268], color: "#FF6BB3", description: "Historically important high-redshift radio source" },
+    { name: "PKS 1830-211 Molecular Ring", position: [3369, -1919, 2269], color: "#6BFFCD", description: "Lensed blazar with molecular absorption" },
+    { name: "IRAS F10214+4724 Hyperluminous", position: [-3370, -1920, -2270], color: "#CD6BFF", description: "Gravitationally lensed hyperluminous infrared galaxy" },
+    { name: "APM 08279+5255 BAL Quasar", position: [3371, 1921, 2271], color: "#FFCD6B", description: "Lensed broad absorption line quasar" },
+    { name: "Cloverleaf Quasar Lens", position: [-3372, 1922, -2272], color: "#6BCDFF", description: "Quadruply-imaged lensed quasar system" },
+    { name: "Einstein Cross Lens", position: [3373, -1923, 2273], color: "#CDFF6B", description: "Famous quadruple image gravitational lens" },
+    { name: "Twin Quasar 0957+561", position: [-3374, -1924, -2274], color: "#FF6BCD", description: "First discovered gravitational lens system" },
+    { name: "B1938+666 Einstein Ring", position: [3375, 1925, 2275], color: "#6BFFB3", description: "Nearly perfect radio Einstein ring" },
+
 
 
 
