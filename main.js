@@ -11382,6 +11382,31 @@ const cosmicSights = [
     { name: "YORP Spin-Up Disruption", position: [4415, 88300, 2290], color: "#8B7355", description: "Rotational acceleration from anisotropic thermal radiation" },
     { name: "Nice Model Migration Path", position: [4416, 88320, 2291], color: "#C4A484", description: "Giant planet orbital instability reshaping outer solar system" },
     { name: "Grand Tack Reversal Point", position: [4417, 88340, 2292], color: "#D2691E", description: "Jupiter inward-then-outward migration sculpting inner disk" }
+    { name: "Emission Line Nebula Core", position: [4418, 88360, 2293], color: "#FF6B6B", description: "Ionized gas emitting characteristic spectral signatures" },
+    { name: "Absorption Line Forest", position: [4419, 88380, 2294], color: "#4ECDC4", description: "Multiple absorption features from intervening gas clouds" },
+    { name: "Balmer Series Transition", position: [4420, 88400, 2295], color: "#E74C3C", description: "Hydrogen electron jumps to second energy level" },
+    { name: "Lyman Continuum Edge", position: [4421, 88420, 2296], color: "#9B59B6", description: "Ionization threshold beyond Lyman series limit" },
+    { name: "Metal Line Absorption Trough", position: [4422, 88440, 2297], color: "#3498DB", description: "Heavy element absorption in stellar atmospheres" },
+    { name: "Doppler Broadening Profile", position: [4423, 88460, 2298], color: "#1ABC9C", description: "Thermal motion widening spectral line shapes" },
+    { name: "Pressure Broadening Wing", position: [4424, 88480, 2299], color: "#F39C12", description: "Collisional interactions extending line profiles" },
+    { name: "Zeeman Splitting Triplet", position: [4425, 88500, 2300], color: "#8E44AD", description: "Magnetic field dividing spectral lines" },
+    { name: "Stark Effect Pattern", position: [4426, 88520, 2301], color: "#2ECC71", description: "Electric field perturbing atomic energy levels" },
+    { name: "Fine Structure Doublet", position: [4427, 88540, 2302], color: "#E67E22", description: "Spin-orbit coupling splitting energy states" },
+    { name: "Hyperfine Transition Line", position: [4428, 88560, 2303], color: "#16A085", description: "Nuclear spin interaction frequency emission" },
+    { name: "Metastable State Emission", position: [4429, 88580, 2304], color: "#C0392B", description: "Low-probability transitions in rarefied gas" },
+    { name: "Resonance Scattering Peak", position: [4430, 88600, 2305], color: "#2980B9", description: "Photon absorption and re-emission at line center" },
+    { name: "Expanding Envelope Signature", position: [4431, 88620, 2306], color: "#27AE60", description: "Stellar wind emission-absorption profile shape" },
+    { name: "Inverse PCygni Infall Feature", position: [4432, 88640, 2307], color: "#D35400", description: "Infalling material redshifted absorption marker" },
+    { name: "Line Depth Saturation Point", position: [4433, 88660, 2308], color: "#7F8C8D", description: "Line strength approaching maximum absorption" },
+    { name: "Column Density Curve Method", position: [4434, 88680, 2309], color: "#BDC3C7", description: "Column density determination from line depth" },
+    { name: "Voigt Profile Convolution", position: [4435, 88700, 2310], color: "#9B59B6", description: "Combined thermal and pressure broadening shape" },
+    { name: "Echelle Grating Resolution", position: [4436, 88720, 2311], color: "#3498DB", description: "High-dispersion spectral analysis element" },
+    { name: "Cross-Correlation Template", position: [4437, 88740, 2312], color: "#1ABC9C", description: "Radial velocity extraction matching technique" },
+    { name: "Telluric Absorption Band", position: [4438, 88760, 2313], color: "#95A5A6", description: "Earth atmosphere contamination removal region" },
+    { name: "Continuum Normalization Point", position: [4439, 88780, 2314], color: "#E74C3C", description: "Spectral baseline calibration reference" },
+    { name: "Blaze Function Correction", position: [4440, 88800, 2315], color: "#F1C40F", description: "Grating efficiency variation compensation" },
+    { name: "Order Overlap Region", position: [4441, 88820, 2316], color: "#8E44AD", description: "Echelle spectrum adjacent order boundary" },
+    { name: "Wavelength Calibration Arc", position: [4442, 88840, 2317], color: "#2ECC71", description: "Reference lamp emission line mapping" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
