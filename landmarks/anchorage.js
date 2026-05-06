@@ -6162,6 +6162,171 @@ export function createAnchorageLandmark(THREE, opts) {
   horseshoeGameGroup.rotation.y = 0.4;
   group.add(horseshoeGameGroup);
 
+  // --- v42: beach yoga class, sand turtle sculpture, pier starfish keeper -
+  // Beach yoga class: 4 figures in tree pose on mats facing the same way
+  const yogaClassGroup = new THREE.Group();
+  const yogaMatColors = [0xe87878, 0x78c0e8, 0x90d878, 0xd8a878];
+  const yogaPeople = [];
+  for (let yi = 0; yi < 4; yi++) {
+    const matMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.2, 0.5),
+      new THREE.MeshLambertMaterial({ color: yogaMatColors[yi], side: THREE.DoubleSide })
+    );
+    matMesh.rotation.x = -Math.PI / 2;
+    matMesh.position.set(yi * 1.6 - 2.4, 0.02, 0);
+    yogaClassGroup.add(matMesh);
+    const ygPerson = new THREE.Group();
+    const ygTorso = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+      new THREE.MeshLambertMaterial({ color: 0xc0d0e8 })
+    );
+    ygTorso.position.y = 0.55;
+    ygPerson.add(ygTorso);
+    const ygHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+    );
+    ygHead.position.y = 0.96;
+    ygPerson.add(ygHead);
+    // standing leg
+    const ygLegStand = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4070a0 })
+    );
+    ygLegStand.position.set(0, 0.27, 0);
+    ygPerson.add(ygLegStand);
+    // tree-pose folded leg
+    const ygLegFold = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.4, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4070a0 })
+    );
+    ygLegFold.position.set(0.16, 0.42, 0);
+    ygLegFold.rotation.z = -1.0;
+    ygPerson.add(ygLegFold);
+    // arms raised in prayer
+    const ygArmL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6),
+      new THREE.MeshLambertMaterial({ color: 0xc0d0e8 })
+    );
+    ygArmL.position.set(-0.04, 1.05, 0);
+    ygArmL.rotation.z = 0.2;
+    ygPerson.add(ygArmL);
+    const ygArmR = ygArmL.clone();
+    ygArmR.position.set(0.04, 1.05, 0);
+    ygArmR.rotation.z = -0.2;
+    ygPerson.add(ygArmR);
+    ygPerson.position.set(yi * 1.6 - 2.4, 0, 0);
+    yogaClassGroup.add(ygPerson);
+    yogaPeople.push({ group: ygPerson, phase: yi * 0.5 });
+  }
+  // Instructor in front facing class
+  const yogaInstructor = new THREE.Group();
+  const ygInsTorso = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.17, 0.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0xa07090 })
+  );
+  ygInsTorso.position.y = 0.6;
+  yogaInstructor.add(ygInsTorso);
+  const ygInsHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  ygInsHead.position.y = 1.03;
+  yogaInstructor.add(ygInsHead);
+  yogaInstructor.position.set(0, 0, 1.6);
+  yogaInstructor.rotation.y = Math.PI;
+  yogaClassGroup.add(yogaInstructor);
+  yogaClassGroup.position.set(-12, 0.05, 24);
+  yogaClassGroup.rotation.y = -0.3;
+  group.add(yogaClassGroup);
+
+  // Sand turtle sculpture
+  const sandTurtleGroup = new THREE.Group();
+  const stMat = new THREE.MeshLambertMaterial({ color: 0xe6d098 });
+  const stShell = new THREE.Mesh(new THREE.SphereGeometry(0.6, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), stMat);
+  stShell.position.y = 0.05;
+  sandTurtleGroup.add(stShell);
+  const stHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), stMat);
+  stHead.position.set(0, 0.18, 0.65);
+  sandTurtleGroup.add(stHead);
+  // 4 flippers
+  const stFlipper1 = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.08, 0.18), stMat);
+  stFlipper1.position.set(-0.5, 0.08, 0.35);
+  stFlipper1.rotation.y = -0.5;
+  sandTurtleGroup.add(stFlipper1);
+  const stFlipper2 = stFlipper1.clone();
+  stFlipper2.position.set(0.5, 0.08, 0.35);
+  stFlipper2.rotation.y = 0.5;
+  sandTurtleGroup.add(stFlipper2);
+  const stFlipper3 = stFlipper1.clone();
+  stFlipper3.position.set(-0.5, 0.08, -0.35);
+  stFlipper3.rotation.y = 0.5;
+  sandTurtleGroup.add(stFlipper3);
+  const stFlipper4 = stFlipper1.clone();
+  stFlipper4.position.set(0.5, 0.08, -0.35);
+  stFlipper4.rotation.y = -0.5;
+  sandTurtleGroup.add(stFlipper4);
+  // Shell pattern - 3 small bumps
+  for (let bi = 0; bi < 3; bi++) {
+    const bump = new THREE.Mesh(new THREE.SphereGeometry(0.12, 6, 5), stMat);
+    bump.position.set((bi - 1) * 0.25, 0.55, 0);
+    sandTurtleGroup.add(bump);
+  }
+  sandTurtleGroup.position.set(20, 0.05, 18);
+  sandTurtleGroup.rotation.y = 0.8;
+  group.add(sandTurtleGroup);
+
+  // Pier-end starfish keeper: figure with bucket of starfish
+  const starfishKeeperGroup = new THREE.Group();
+  const sfkBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x40a060 })
+  );
+  sfkBody.position.y = 0.35;
+  starfishKeeperGroup.add(sfkBody);
+  const sfkHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  sfkHead.position.y = 0.85;
+  starfishKeeperGroup.add(sfkHead);
+  const sfkHat = new THREE.Mesh(
+    new THREE.ConeGeometry(0.22, 0.18, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc8a060 })
+  );
+  sfkHat.position.y = 1.02;
+  starfishKeeperGroup.add(sfkHat);
+  // Bucket
+  const sfkBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.18, 0.3, 10, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0x6080a0, side: THREE.DoubleSide })
+  );
+  sfkBucket.position.set(0.4, 0.2, 0.2);
+  starfishKeeperGroup.add(sfkBucket);
+  // Starfish in bucket (3 visible tops)
+  const sfkStars = [];
+  const sfkStarColors = [0xe05060, 0xe07050, 0xe0a040];
+  for (let si = 0; si < 3; si++) {
+    const star = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.1, 0.1, 0.04, 5),
+      new THREE.MeshLambertMaterial({ color: sfkStarColors[si] })
+    );
+    star.position.set(0.4 + (si - 1) * 0.06, 0.36, 0.2 + (si % 2) * 0.04);
+    star.rotation.y = si * 0.5;
+    starfishKeeperGroup.add(star);
+    sfkStars.push(star);
+  }
+  // Starfish on pier deck nearby (clearly placed by keeper)
+  const sfkDeckStar = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.14, 0.04, 5),
+    new THREE.MeshLambertMaterial({ color: 0xd05050 })
+  );
+  sfkDeckStar.position.set(-0.5, 0.04, 0.3);
+  starfishKeeperGroup.add(sfkDeckStar);
+  starfishKeeperGroup.position.set(2, 1.05, -16);
+  starfishKeeperGroup.rotation.y = -0.4;
+  group.add(starfishKeeperGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7539,6 +7704,19 @@ export function createAnchorageLandmark(THREE, opts) {
       // v41: horseshoes glint
       horseshoes.forEach((shoe, hi) => {
         shoe.rotation.z += dt * (hi === 0 ? 0 : 0.05) * (hi % 2 === 0 ? 1 : -1);
+      });
+
+      // v42: yoga class gentle sway
+      yogaPeople.forEach((p) => {
+        p.group.rotation.y = Math.sin(t * 0.4 + p.phase) * 0.08;
+        p.group.position.y = Math.abs(Math.sin(t * 0.6 + p.phase)) * 0.02;
+      });
+      yogaInstructor.rotation.y = Math.PI + Math.sin(t * 0.3) * 0.15;
+      // v42: starfish keeper checks bucket (head bob)
+      sfkHead.rotation.y = Math.sin(t * 0.5) * 0.4;
+      sfkHat.rotation.y = sfkHead.rotation.y;
+      sfkStars.forEach((s, si) => {
+        s.rotation.y += dt * 0.3 * (si + 1);
       });
 
     }
