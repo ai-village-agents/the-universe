@@ -6030,6 +6030,138 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(hotdogStandGroup);
 
 
+  // --- v41: pelican flock formation, beach fireflies, horseshoe game ------
+  // Pelican V-formation flying overhead (5 birds)
+  const pelicanFlockGroup = new THREE.Group();
+  const pfBirds = [];
+  for (let pi = 0; pi < 5; pi++) {
+    const birdGroup = new THREE.Group();
+    const birdBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xe8e8df })
+    );
+    birdBody.scale.set(1, 0.6, 1.4);
+    birdGroup.add(birdBody);
+    const birdHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 6, 5),
+      new THREE.MeshLambertMaterial({ color: 0xf5f5e8 })
+    );
+    birdHead.position.set(0, 0.05, 0.22);
+    birdGroup.add(birdHead);
+    const birdBeak = new THREE.Mesh(
+      new THREE.ConeGeometry(0.04, 0.18, 5),
+      new THREE.MeshLambertMaterial({ color: 0xd8a040 })
+    );
+    birdBeak.rotation.x = Math.PI / 2;
+    birdBeak.position.set(0, 0.04, 0.36);
+    birdGroup.add(birdBeak);
+    const wingL = new THREE.Mesh(
+      new THREE.BoxGeometry(0.55, 0.03, 0.18),
+      new THREE.MeshLambertMaterial({ color: 0xd0d0c4 })
+    );
+    wingL.position.set(-0.32, 0.04, 0);
+    birdGroup.add(wingL);
+    const wingR = wingL.clone();
+    wingR.position.set(0.32, 0.04, 0);
+    birdGroup.add(wingR);
+    // V-formation positions: leader at 0,0; behind in V
+    const row = pi === 0 ? 0 : Math.ceil(pi / 2);
+    const side = pi === 0 ? 0 : (pi % 2 === 1 ? -1 : 1);
+    birdGroup.position.set(side * row * 1.2, 0, -row * 1.4);
+    pelicanFlockGroup.add(birdGroup);
+    pfBirds.push({ group: birdGroup, wingL, wingR, phase: pi * 0.4 });
+  }
+  pelicanFlockGroup.position.set(-30, 14, 20);
+  group.add(pelicanFlockGroup);
+
+  // Beach fireflies cluster (8 small glowing sprites)
+  const fireflyGroup = new THREE.Group();
+  const fireflies = [];
+  for (let fi = 0; fi < 8; fi++) {
+    const ff = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 6, 5),
+      new THREE.MeshBasicMaterial({ color: 0xfff388, transparent: true, opacity: 0.9 })
+    );
+    const ffx = (Math.random() - 0.5) * 6;
+    const ffz = (Math.random() - 0.5) * 4;
+    ff.position.set(ffx, 0.5 + Math.random() * 0.8, ffz);
+    fireflyGroup.add(ff);
+    fireflies.push({
+      mesh: ff,
+      baseX: ffx,
+      baseZ: ffz,
+      baseY: 0.5 + Math.random() * 0.8,
+      speed: 0.4 + Math.random() * 0.5,
+      phase: Math.random() * Math.PI * 2,
+      blinkPhase: Math.random() * Math.PI * 2,
+    });
+  }
+  fireflyGroup.position.set(15, 0, 16);
+  group.add(fireflyGroup);
+
+  // Horseshoe game: two stakes + 4 horseshoes scattered
+  const horseshoeGameGroup = new THREE.Group();
+  const hsStake1 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.7, 6),
+    new THREE.MeshLambertMaterial({ color: 0x8a6a40 })
+  );
+  hsStake1.position.set(0, 0.35, 0);
+  horseshoeGameGroup.add(hsStake1);
+  const hsStake2 = hsStake1.clone();
+  hsStake2.position.set(0, 0.35, 5);
+  horseshoeGameGroup.add(hsStake2);
+  // Sand patches around each stake
+  const hsSandMat = new THREE.MeshLambertMaterial({ color: 0xd9c08a });
+  const hsSand1 = new THREE.Mesh(new THREE.CircleGeometry(0.7, 16), hsSandMat);
+  hsSand1.rotation.x = -Math.PI / 2;
+  hsSand1.position.set(0, 0.02, 0);
+  horseshoeGameGroup.add(hsSand1);
+  const hsSand2 = hsSand1.clone();
+  hsSand2.position.set(0, 0.02, 5);
+  horseshoeGameGroup.add(hsSand2);
+  // 4 horseshoes (torus segments) at various positions
+  const hsShoeMat = new THREE.MeshLambertMaterial({ color: 0x707880 });
+  const horseshoes = [];
+  const hsPositions = [
+    { x: 0.0, z: 0.05, ry: 0.3 },     // ringer on stake 1
+    { x: 0.4, z: 0.6, ry: 1.2 },
+    { x: -0.3, z: 4.6, ry: 0.7 },
+    { x: 0.2, z: 5.2, ry: 2.1 },
+  ];
+  hsPositions.forEach((p) => {
+    const shoe = new THREE.Mesh(
+      new THREE.TorusGeometry(0.18, 0.04, 6, 12, Math.PI * 1.4),
+      hsShoeMat
+    );
+    shoe.rotation.x = -Math.PI / 2;
+    shoe.rotation.z = p.ry;
+    shoe.position.set(p.x, 0.04, p.z);
+    horseshoeGameGroup.add(shoe);
+    horseshoes.push(shoe);
+  });
+  // Two players (figures) at each end
+  const hsPlayer1 = new THREE.Group();
+  const hsP1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x3060a0 })
+  );
+  hsP1Body.position.y = 0.35;
+  hsPlayer1.add(hsP1Body);
+  const hsP1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  hsP1Head.position.y = 0.83;
+  hsPlayer1.add(hsP1Head);
+  hsPlayer1.position.set(-1.4, 0, 0);
+  horseshoeGameGroup.add(hsPlayer1);
+  const hsPlayer2 = hsPlayer1.clone();
+  hsPlayer2.position.set(1.4, 0, 5);
+  horseshoeGameGroup.add(hsPlayer2);
+  horseshoeGameGroup.position.set(8, 0.05, 22);
+  horseshoeGameGroup.rotation.y = 0.4;
+  group.add(horseshoeGameGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7388,6 +7520,26 @@ export function createAnchorageLandmark(THREE, opts) {
       // Hot dog stand: customer bobs slightly, vendor turns head
       hdsCustomer.position.y = Math.abs(Math.sin(t * 0.8)) * 0.03;
       hdsVendor.rotation.y = Math.sin(t * 0.5) * 0.3;
+
+      // v41: pelican flock formation flying
+      pelicanFlockGroup.position.x += dt * 1.2;
+      if (pelicanFlockGroup.position.x > 60) pelicanFlockGroup.position.x = -60;
+      pfBirds.forEach((b) => {
+        const flap = Math.sin(t * 6 + b.phase) * 0.5;
+        b.wingL.rotation.z = flap;
+        b.wingR.rotation.z = -flap;
+      });
+      // v41: fireflies wandering and blinking
+      fireflies.forEach((f) => {
+        f.mesh.position.x = f.baseX + Math.sin(t * f.speed + f.phase) * 0.4;
+        f.mesh.position.z = f.baseZ + Math.cos(t * f.speed * 0.8 + f.phase) * 0.3;
+        f.mesh.position.y = f.baseY + Math.sin(t * f.speed * 1.3 + f.phase) * 0.15;
+        f.mesh.material.opacity = 0.4 + Math.abs(Math.sin(t * 2 + f.blinkPhase)) * 0.6;
+      });
+      // v41: horseshoes glint
+      horseshoes.forEach((shoe, hi) => {
+        shoe.rotation.z += dt * (hi === 0 ? 0 : 0.05) * (hi % 2 === 0 ? 1 : -1);
+      });
 
     }
 
