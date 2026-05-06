@@ -7514,6 +7514,156 @@ export function createAnchorageLandmark(THREE, opts) {
   lifeboatGroup.position.set(-12, 0, 12);
   group.add(lifeboatGroup);
 
+  // --- v49: marina pump-out station, beach lemonade stand, dive shop tank rack -
+  // (1) marina pump-out station — small green/yellow box w/ hose & pump
+  const pumpOutGroup = new THREE.Group();
+  const poBoxMat = new THREE.MeshLambertMaterial({ color: 0x3a7a3a });
+  const poBox = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.6, 0.9), poBoxMat);
+  poBox.position.set(0, 0.8, 0);
+  pumpOutGroup.add(poBox);
+  const poRoof = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 1.0), new THREE.MeshLambertMaterial({ color: 0xeeb820 }));
+  poRoof.position.set(0, 1.65, 0);
+  pumpOutGroup.add(poRoof);
+  const poPanel = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.05), new THREE.MeshLambertMaterial({ color: 0x202020 }));
+  poPanel.position.set(0, 1.0, 0.46);
+  pumpOutGroup.add(poPanel);
+  const poGauge = new THREE.Mesh(new THREE.CircleGeometry(0.08, 12), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  poGauge.position.set(-0.18, 1.05, 0.49);
+  pumpOutGroup.add(poGauge);
+  const poGauge2 = new THREE.Mesh(new THREE.CircleGeometry(0.08, 12), new THREE.MeshBasicMaterial({ color: 0xff5050 }));
+  poGauge2.position.set(0.18, 1.05, 0.49);
+  pumpOutGroup.add(poGauge2);
+  const poHoseMat = new THREE.LineBasicMaterial({ color: 0x101010, linewidth: 2 });
+  const poHosePts = [];
+  for (let i = 0; i <= 16; i++) {
+    const u = i / 16;
+    poHosePts.push(new THREE.Vector3(0.7 - u * 0.3, 1.0 - u * 0.6 + Math.sin(u * 4) * 0.15, 0.4 + u * 1.4));
+  }
+  const poHoseGeom = new THREE.BufferGeometry().setFromPoints(poHosePts);
+  const poHose = new THREE.Line(poHoseGeom, poHoseMat);
+  pumpOutGroup.add(poHose);
+  const poNozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.06, 0.3, 6), new THREE.MeshLambertMaterial({ color: 0x8a8a8a }));
+  poNozzle.rotation.x = Math.PI / 2;
+  poNozzle.position.set(0.4, 0.4, 1.85);
+  pumpOutGroup.add(poNozzle);
+  const poSignCanvas = document.createElement('canvas');
+  poSignCanvas.width = 256; poSignCanvas.height = 64;
+  const poSignCtx = poSignCanvas.getContext('2d');
+  poSignCtx.fillStyle = '#3a7a3a';
+  poSignCtx.fillRect(0, 0, 256, 64);
+  poSignCtx.fillStyle = '#ffffff';
+  poSignCtx.font = 'bold 28px sans-serif';
+  poSignCtx.textAlign = 'center';
+  poSignCtx.fillText('PUMP OUT', 128, 42);
+  const poSignTex = new THREE.CanvasTexture(poSignCanvas);
+  const poSign = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 0.25), new THREE.MeshBasicMaterial({ map: poSignTex, transparent: true }));
+  poSign.position.set(0, 1.4, 0.46);
+  pumpOutGroup.add(poSign);
+  pumpOutGroup.position.set(-9, 0.05, 6);
+  pumpOutGroup.rotation.y = -0.3;
+  group.add(pumpOutGroup);
+
+  // (2) beach lemonade stand — yellow stand with pitcher and kid attendant
+  const lemonadeGroup = new THREE.Group();
+  const lmCounterMat = new THREE.MeshLambertMaterial({ color: 0xffd450 });
+  const lmCounter = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.9, 0.7), lmCounterMat);
+  lmCounter.position.set(0, 0.45, 0);
+  lemonadeGroup.add(lmCounter);
+  const lmStripeMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const lmStripe1 = new THREE.Mesh(new THREE.BoxGeometry(1.62, 0.12, 0.72), lmStripeMat);
+  lmStripe1.position.set(0, 0.25, 0);
+  lemonadeGroup.add(lmStripe1);
+  const lmStripe2 = new THREE.Mesh(new THREE.BoxGeometry(1.62, 0.12, 0.72), lmStripeMat);
+  lmStripe2.position.set(0, 0.65, 0);
+  lemonadeGroup.add(lmStripe2);
+  const lmTopMat = new THREE.MeshLambertMaterial({ color: 0xfff7d0 });
+  const lmTop = new THREE.Mesh(new THREE.BoxGeometry(1.7, 0.06, 0.8), lmTopMat);
+  lmTop.position.set(0, 0.95, 0);
+  lemonadeGroup.add(lmTop);
+  const lmPitcherMat = new THREE.MeshLambertMaterial({ color: 0xfff080 });
+  const lmPitcher = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.32, 12), lmPitcherMat);
+  lmPitcher.position.set(0.3, 1.13, 0.05);
+  lemonadeGroup.add(lmPitcher);
+  const lmCup1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.12, 8), new THREE.MeshLambertMaterial({ color: 0xfff8b5 }));
+  lmCup1.position.set(-0.2, 1.04, 0.1);
+  lemonadeGroup.add(lmCup1);
+  const lmCup2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.12, 8), new THREE.MeshLambertMaterial({ color: 0xfff8b5 }));
+  lmCup2.position.set(-0.05, 1.04, 0.1);
+  lemonadeGroup.add(lmCup2);
+  const lmSignCanvas = document.createElement('canvas');
+  lmSignCanvas.width = 256; lmSignCanvas.height = 96;
+  const lmSignCtx = lmSignCanvas.getContext('2d');
+  lmSignCtx.fillStyle = '#fff080';
+  lmSignCtx.fillRect(0, 0, 256, 96);
+  lmSignCtx.strokeStyle = '#aa6020';
+  lmSignCtx.lineWidth = 4;
+  lmSignCtx.strokeRect(4, 4, 248, 88);
+  lmSignCtx.fillStyle = '#aa6020';
+  lmSignCtx.font = 'bold 32px serif';
+  lmSignCtx.textAlign = 'center';
+  lmSignCtx.fillText('LEMONADE', 128, 44);
+  lmSignCtx.font = 'bold 22px serif';
+  lmSignCtx.fillText('25¢', 128, 78);
+  const lmSignTex = new THREE.CanvasTexture(lmSignCanvas);
+  const lmSign = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.55), new THREE.MeshBasicMaterial({ map: lmSignTex, transparent: true }));
+  lmSign.position.set(0, 1.55, 0.36);
+  lemonadeGroup.add(lmSign);
+  // small kid attendant
+  const lmKidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.15, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0xff7080 }));
+  lmKidBody.position.set(0, 1.2, -0.4);
+  lemonadeGroup.add(lmKidBody);
+  const lmKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec59a }));
+  lmKidHead.position.set(0, 1.6, -0.4);
+  lemonadeGroup.add(lmKidHead);
+  lemonadeGroup.position.set(8, 0.05, 18);
+  lemonadeGroup.rotation.y = -0.4;
+  group.add(lemonadeGroup);
+
+  // (3) dive shop tank rack — colored scuba tanks lined up under awning
+  const diveShopGroup = new THREE.Group();
+  const dsBaseMat = new THREE.MeshLambertMaterial({ color: 0x404060 });
+  const dsBase = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.18, 0.6), dsBaseMat);
+  dsBase.position.set(0, 0.09, 0);
+  diveShopGroup.add(dsBase);
+  const dsAwningMat = new THREE.MeshLambertMaterial({ color: 0x208ab8 });
+  const dsAwning = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.05, 0.8), dsAwningMat);
+  dsAwning.position.set(0, 1.6, 0);
+  diveShopGroup.add(dsAwning);
+  const dsPostMat = new THREE.MeshLambertMaterial({ color: 0x303030 });
+  const dsPost1 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 6), dsPostMat);
+  dsPost1.position.set(-1.15, 0.85, 0);
+  diveShopGroup.add(dsPost1);
+  const dsPost2 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 6), dsPostMat);
+  dsPost2.position.set(1.15, 0.85, 0);
+  diveShopGroup.add(dsPost2);
+  const dsTankColors = [0xe44a4a, 0x4ad06a, 0x4a8ad0, 0xefc44a, 0xa050d0, 0x40c0c0];
+  const dsTanks = [];
+  for (let i = 0; i < 6; i++) {
+    const tank = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.85, 12), new THREE.MeshLambertMaterial({ color: dsTankColors[i] }));
+    tank.position.set(-1.0 + i * 0.4, 0.6, 0);
+    const valve = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.12, 6), new THREE.MeshLambertMaterial({ color: 0xc0c0c0 }));
+    valve.position.set(0, 0.49, 0);
+    tank.add(valve);
+    diveShopGroup.add(tank);
+    dsTanks.push(tank);
+  }
+  const dsSignCanvas = document.createElement('canvas');
+  dsSignCanvas.width = 256; dsSignCanvas.height = 64;
+  const dsSignCtx = dsSignCanvas.getContext('2d');
+  dsSignCtx.fillStyle = '#208ab8';
+  dsSignCtx.fillRect(0, 0, 256, 64);
+  dsSignCtx.fillStyle = '#ffffff';
+  dsSignCtx.font = 'bold 28px sans-serif';
+  dsSignCtx.textAlign = 'center';
+  dsSignCtx.fillText('DIVE SHOP', 128, 42);
+  const dsSignTex = new THREE.CanvasTexture(dsSignCanvas);
+  const dsSign = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.4), new THREE.MeshBasicMaterial({ map: dsSignTex, transparent: true }));
+  dsSign.position.set(0, 1.95, 0);
+  diveShopGroup.add(dsSign);
+  diveShopGroup.position.set(-22, 0.05, -10);
+  diveShopGroup.rotation.y = 0.5;
+  group.add(diveShopGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9013,6 +9163,14 @@ export function createAnchorageLandmark(THREE, opts) {
       lbHull.rotation.z = Math.sin(t * 0.6) * 0.04;
       lbCanopy.rotation.z = Math.sin(t * 0.6) * 0.04;
       lbStripe.rotation.z = Math.sin(t * 0.6) * 0.04;
+      // v49: pump-out gauge lights blink
+      poGauge2.material.color.setHex(((t * 1.5) % 1) > 0.5 ? 0xff5050 : 0x402020);
+      // v49: dive shop tanks subtle bob (settling)
+      for (let i = 0; i < dsTanks.length; i++) {
+        dsTanks[i].position.y = 0.6 + Math.sin(t * 0.8 + i * 0.7) * 0.01;
+      }
+      // v49: lemonade pitcher gently rotates as if stirring
+      lmPitcher.rotation.y = t * 0.5;
     }
 
   }
