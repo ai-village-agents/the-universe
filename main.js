@@ -11232,6 +11232,31 @@ const cosmicSights = [
 
 
 
+    { name: "Solar Cycle Maximum Activity", position: [4343, 86860, 2218], color: "#FFD700", description: "Peak of 11-year solar cycle with maximum sunspot formation and flare activity" },
+    { name: "Heliospheric Current Sheet Warping", position: [4344, 86880, 2219], color: "#87CEEB", description: "Rippled boundary between opposite solar magnetic polarities extending to space" },
+    { name: "Jovian Magnetosphere Interaction", position: [4345, 86900, 2220], color: "#FF8C00", description: "Solar wind compression of Jupiter's massive magnetic field creating auroras" },
+    { name: "Alfvén Wave Heating Mechanisms", position: [4346, 86920, 2221], color: "#9370DB", description: "Magnetohydrodynamic waves carrying energy through plasma in solar atmosphere" },
+    { name: "Reconnection X-Point Structure", position: [4347, 86940, 2222], color: "#FF1493", description: "Magnetic field topology where opposite field lines connect and explosive release occurs" },
+    { name: "Chromospheric Spicule Field", position: [4348, 86960, 2223], color: "#DC143C", description: "Jet-like features shooting upward from photosphere with supersonic speeds" },
+    { name: "Corona Temperature Paradox Region", position: [4349, 86980, 2224], color: "#FFB6C1", description: "Paradoxically hot corona reaching millions of degrees above cooler photosphere" },
+    { name: "Transition Region Dynamics", position: [4350, 87000, 2225], color: "#FF69B4", description: "Thin layer where temperature jumps from 10,000K to 1 million K in 100km" },
+    { name: "Magnetic Null Point Reconnection", position: [4351, 87020, 2226], color: "#FF4500", description: "Region where magnetic field becomes zero enabling rapid plasma acceleration" },
+    { name: "Photospheric Magnetic Carpet", position: [4352, 87040, 2227], color: "#B8860B", description: "Fine-scale pattern of dipole fields covering photosphere down to few hundred km scale" },
+    { name: "Sunspot Magnetic Field Strength", position: [4353, 87060, 2228], color: "#2F4F4F", description: "Magnetic fields reaching 4000 Gauss in sunspot cores versus 1 Gauss background" },
+    { name: "Coronal Heating Mystery Zone", position: [4354, 87080, 2229], color: "#FF6347", description: "Region where energy is converted to heat through mechanisms still being investigated" },
+    { name: "Solar Irradiance Fluctuation", position: [4355, 87100, 2230], color: "#FFD700", description: "Total solar irradiance varying 0.1% over solar cycle affecting Earth's climate" },
+    { name: "Sunspot Decay Phase", position: [4356, 87120, 2231], color: "#A9A9A9", description: "Magnetic field gradual dissolution returning flux to dispersed photospheric network" },
+    { name: "Plage Region Development", position: [4357, 87140, 2232], color: "#F0E68C", description: "Bright network region above emerging magnetic flux connecting to sunspot groups" },
+    { name: "Dipolar Sunspot Group", position: [4358, 87160, 2233], color: "#696969", description: "Classic bipolar configuration with leader and follower spots of opposite polarity" },
+    { name: "Quadrupolar Magnetic Configuration", position: [4359, 87180, 2234], color: "#808080", description: "Complex four-pole magnetic topology prone to major eruptions and flares" },
+    { name: "Pore Cluster Emergence", position: [4360, 87200, 2235], color: "#555555", description: "Small intense flux concentrations merging into larger magnetic structures" },
+    { name: "Facular Brightenings", position: [4361, 87220, 2236], color: "#FFFACD", description: "Bright cellular features in photosphere above strong subsurface magnetic fields" },
+    { name: "Quiet Sun Internetwork", position: [4362, 87240, 2237], color: "#F5F5DC", description: "Relatively calm regions between network cells with smaller magnetic features" },
+    { name: "Flux Rope Emergence Event", position: [4363, 87260, 2238], color: "#FF00FF", description: "Twisted tube of magnetic field rising through photosphere before eruption" },
+    { name: "Flare Energy Release Peak", position: [4364, 87280, 2239], color: "#FF0000", description: "Moment of maximum magnetic energy dissipation during X-class flare" },
+    { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
+    { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
+    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
