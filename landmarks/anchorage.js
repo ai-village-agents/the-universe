@@ -4823,6 +4823,178 @@ export function createAnchorageLandmark(THREE, opts) {
   tugConvoyGroup.position.set(-22, 0.18, 14);
   group.add(tugConvoyGroup);
 
+
+  // --- v34: Two fishermen casting on pier + pelican on piling + surfer riding wave ---
+  // Fishermen group: two figures with rods at different positions on the pier
+  const fishermenGroup = new THREE.Group();
+  const fishermenRods = [];
+  const fishermenLines = [];
+  const fishermenBobs = [];
+  for (let i = 0; i < 2; i++) {
+    const fishGuy = new THREE.Group();
+    const fishGuyBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.50, 8),
+      new THREE.MeshStandardMaterial({ color: i === 0 ? 0x5a3a8b : 0x3a5a8b, roughness: 0.85 })
+    );
+    fishGuyBody.position.y = 0.25;
+    fishGuy.add(fishGuyBody);
+    const fishGuyHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.11, 12, 8),
+      new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+    );
+    fishGuyHead.position.y = 0.62;
+    fishGuy.add(fishGuyHead);
+    // Hat (wide brim)
+    const fishGuyHat = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.20, 0.20, 0.04, 14),
+      new THREE.MeshStandardMaterial({ color: i === 0 ? 0x6a3a1f : 0x3a2f1a, roughness: 0.9 })
+    );
+    fishGuyHat.position.y = 0.72;
+    fishGuy.add(fishGuyHat);
+    const fishGuyHatTop = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.10, 12),
+      new THREE.MeshStandardMaterial({ color: i === 0 ? 0x6a3a1f : 0x3a2f1a, roughness: 0.9 })
+    );
+    fishGuyHatTop.position.y = 0.78;
+    fishGuy.add(fishGuyHatTop);
+    // Fishing rod (cantilever angle)
+    const fishGuyRod = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.012, 0.018, 1.30, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4a3018, roughness: 0.8 })
+    );
+    fishGuyRod.geometry.translate(0, 0.65, 0);
+    fishGuyRod.position.set(0.20, 0.45, 0);
+    fishGuyRod.rotation.z = -0.85;
+    fishGuy.add(fishGuyRod);
+    // Fishing line (thin red line stretching down/forward)
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(1.00, 1.10, 0),
+      new THREE.Vector3(1.30, 0.10, 0),
+    ]);
+    const fishGuyLine = new THREE.Line(
+      lineGeo,
+      new THREE.LineBasicMaterial({ color: 0xeeeeee, transparent: true, opacity: 0.65 })
+    );
+    fishGuy.add(fishGuyLine);
+    // Floating bobber at end of line
+    const fishGuyBob = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0xff4040, roughness: 0.7, emissive: 0x331010, emissiveIntensity: 0.3 })
+    );
+    fishGuyBob.position.set(1.30, 0.10, 0);
+    fishGuy.add(fishGuyBob);
+    fishGuy.position.set(i === 0 ? 3.5 : 5.4, 1.05, -2.4 - i * 0.10);
+    fishGuy.rotation.y = i === 0 ? 0.4 : -0.4;
+    fishermenGroup.add(fishGuy);
+    fishermenRods.push(fishGuyRod);
+    fishermenLines.push({ line: fishGuyLine, basePhase: i * 1.7 });
+    fishermenBobs.push({ bob: fishGuyBob, basePhase: i * 1.7 });
+  }
+  group.add(fishermenGroup);
+
+  // Pelican standing on a wooden piling near the dock
+  const dockPelicanGroup = new THREE.Group();
+  // Piling (post sticking out of water)
+  const dockPelicanPiling = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.20, 1.20, 8),
+    new THREE.MeshStandardMaterial({ color: 0x4a3018, roughness: 0.95 })
+  );
+  dockPelicanPiling.position.y = 0.40;
+  dockPelicanGroup.add(dockPelicanPiling);
+  // Body
+  const dockPelicanBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.30, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.7 })
+  );
+  dockPelicanBody.scale.set(1.4, 0.9, 0.9);
+  dockPelicanBody.position.y = 1.10;
+  dockPelicanGroup.add(dockPelicanBody);
+  // Neck
+  const dockPelicanNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.13, 0.30, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.7 })
+  );
+  dockPelicanNeck.position.set(0.20, 1.30, 0);
+  dockPelicanNeck.rotation.z = -0.4;
+  dockPelicanGroup.add(dockPelicanNeck);
+  // Head
+  const dockPelicanHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.7 })
+  );
+  dockPelicanHead.position.set(0.34, 1.46, 0);
+  dockPelicanGroup.add(dockPelicanHead);
+  // Long beak (with pouch)
+  const dockPelicanBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.07, 0.42, 8),
+    new THREE.MeshStandardMaterial({ color: 0xe8a83a, roughness: 0.7 })
+  );
+  dockPelicanBeak.rotation.z = -Math.PI / 2;
+  dockPelicanBeak.position.set(0.62, 1.42, 0);
+  dockPelicanGroup.add(dockPelicanBeak);
+  // Eye dot
+  const dockPelicanEye = new THREE.Mesh(
+    new THREE.SphereGeometry(0.022, 6, 6),
+    new THREE.MeshStandardMaterial({ color: 0x222222 })
+  );
+  dockPelicanEye.position.set(0.40, 1.50, 0.13);
+  dockPelicanGroup.add(dockPelicanEye);
+  dockPelicanGroup.position.set(7.8, 0.0, -1.4);
+  dockPelicanGroup.rotation.y = -0.3;
+  group.add(dockPelicanGroup);
+
+  // Surfer riding a small wave further offshore
+  const surferGroup = new THREE.Group();
+  // Surfboard
+  const surfboard = new THREE.Mesh(
+    new THREE.BoxGeometry(1.20, 0.06, 0.32),
+    new THREE.MeshStandardMaterial({ color: 0xf2f2f2, roughness: 0.5 })
+  );
+  surfboard.position.y = 0.06;
+  surferGroup.add(surfboard);
+  // Stripe
+  const surfboardStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(1.20, 0.012, 0.08),
+    new THREE.MeshStandardMaterial({ color: 0xc83a3a, roughness: 0.5 })
+  );
+  surfboardStripe.position.y = 0.10;
+  surferGroup.add(surfboardStripe);
+  // Surfer figure
+  const surferBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.15, 0.42, 8),
+    new THREE.MeshStandardMaterial({ color: 0x2b8e6a, roughness: 0.85 })
+  );
+  surferBody.position.y = 0.32;
+  surferGroup.add(surferBody);
+  const surferHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+  );
+  surferHead.position.y = 0.62;
+  surferGroup.add(surferHead);
+  // Surfer arms outstretched for balance
+  const surferArmL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.05, 0.34, 6),
+    new THREE.MeshStandardMaterial({ color: 0x2b8e6a, roughness: 0.85 })
+  );
+  surferArmL.position.set(-0.20, 0.42, 0);
+  surferArmL.rotation.z = 0.9;
+  surferGroup.add(surferArmL);
+  const surferArmR = surferArmL.clone();
+  surferArmR.position.set(0.20, 0.42, 0);
+  surferArmR.rotation.z = -0.9;
+  surferGroup.add(surferArmR);
+  // Wave foam crescent under the board
+  const surferWave = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.8, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  surferWave.rotation.x = -Math.PI / 2;
+  surferWave.position.y = -0.02;
+  surferGroup.add(surferWave);
+  surferGroup.position.set(20, 0.18, -10);
+  group.add(surferGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6015,6 +6187,26 @@ export function createAnchorageLandmark(THREE, opts) {
     tugConvoyGroup.position.x = -22 + Math.sin(tugAngle) * 6;
     tugConvoyGroup.position.z = 14 + Math.cos(tugAngle) * 4;
     tugConvoyGroup.rotation.y = -tugAngle + 0.3;
+
+    // v34: Fishermen rod tip bobs + line shimmers; pelican breathes; surfer sways on wave
+    fishermenRods.forEach((r, i) => {
+      r.rotation.z = -0.85 + Math.sin(t * 1.3 + i * 1.1) * 0.05;
+    });
+    fishermenBobs.forEach((b) => {
+      b.bob.position.y = 0.10 + Math.sin(t * 2.2 + b.basePhase) * 0.04;
+    });
+    fishermenLines.forEach((ln) => {
+      ln.line.material.opacity = 0.6 + 0.15 * Math.sin(t * 2.6 + ln.basePhase);
+    });
+    dockPelicanBody.scale.y = 0.9 + 0.04 * Math.sin(t * 1.6);
+    dockPelicanHead.rotation.y = Math.sin(t * 0.4) * 0.5;
+    dockPelicanBeak.rotation.y = dockPelicanHead.rotation.y;
+    // Surfer rides up/down on a wave + leans for balance, wave fades pulse
+    const surfBob = Math.sin(t * 1.3) * 0.10;
+    surferGroup.position.y = 0.18 + surfBob;
+    surferGroup.rotation.z = Math.sin(t * 1.1) * 0.10;
+    surferGroup.rotation.y = Math.sin(t * 0.25) * 0.6 + 0.5; // sweeping turn
+    surferWave.material.opacity = 0.45 + 0.15 * Math.sin(t * 2.4);
 
   }
 
