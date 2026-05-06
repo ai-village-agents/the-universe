@@ -4341,6 +4341,145 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(cargoCrateGroup);
 
+  // --- v31: Lighthouse keeper figure waving + whale tour boat ---
+  // Lighthouse keeper standing on the porch of the keeper cottage, waving
+  const dockKeeperGroup = new THREE.Group();
+  // Body (stocky cylinder)
+  const dockKeeperBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.20, 0.55, 10),
+    new THREE.MeshStandardMaterial({ color: 0x2d4a78, roughness: 0.85 })
+  );
+  dockKeeperBody.position.y = 0.275;
+  dockKeeperGroup.add(dockKeeperBody);
+  // Yellow rain coat overlay (wider band)
+  const dockKeeperCoat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.24, 0.40, 10),
+    new THREE.MeshStandardMaterial({ color: 0xe8c34a, roughness: 0.8, emissive: 0x2a1f08, emissiveIntensity: 0.25 })
+  );
+  dockKeeperCoat.position.y = 0.32;
+  dockKeeperGroup.add(dockKeeperCoat);
+  // Head
+  const dockKeeperHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+  );
+  dockKeeperHead.position.y = 0.66;
+  dockKeeperGroup.add(dockKeeperHead);
+  // Yellow rain hat
+  const dockKeeperHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.17, 0.20, 0.10, 12),
+    new THREE.MeshStandardMaterial({ color: 0xe8c34a, roughness: 0.85 })
+  );
+  dockKeeperHat.position.y = 0.78;
+  dockKeeperGroup.add(dockKeeperHat);
+  // Hat brim
+  const dockKeeperBrim = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.22, 0.025, 14),
+    new THREE.MeshStandardMaterial({ color: 0xc9a437, roughness: 0.85 })
+  );
+  dockKeeperBrim.position.y = 0.74;
+  dockKeeperGroup.add(dockKeeperBrim);
+  // Static arm down (left)
+  const dockKeeperArmL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.06, 0.32, 8),
+    new THREE.MeshStandardMaterial({ color: 0xe8c34a, roughness: 0.85 })
+  );
+  dockKeeperArmL.position.set(-0.20, 0.40, 0);
+  dockKeeperArmL.rotation.z = 0.1;
+  dockKeeperGroup.add(dockKeeperArmL);
+  // Waving arm (right) - animated
+  const dockKeeperArmR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.06, 0.32, 8),
+    new THREE.MeshStandardMaterial({ color: 0xe8c34a, roughness: 0.85 })
+  );
+  dockKeeperArmR.geometry.translate(0, 0.16, 0); // pivot at shoulder
+  dockKeeperArmR.position.set(0.21, 0.50, 0);
+  dockKeeperGroup.add(dockKeeperArmR);
+  // Position keeper near lighthouse cottage (-3.2, 1.2, -2.5) - on the porch / pier
+  dockKeeperGroup.position.set(-2.6, 1.05, -2.3);
+  dockKeeperGroup.rotation.y = 0.6;
+  group.add(dockKeeperGroup);
+
+  // Whale tour boat — bigger boat with passenger figures, circles wider arc
+  const whaleTourGroup = new THREE.Group();
+  // Hull (longer + flat-bottomed)
+  const tourHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.32, 0.95),
+    new THREE.MeshStandardMaterial({ color: 0xc8d6e0, roughness: 0.7 })
+  );
+  tourHull.position.y = 0.16;
+  whaleTourGroup.add(tourHull);
+  // Hull stripe
+  const tourStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(2.62, 0.08, 0.97),
+    new THREE.MeshStandardMaterial({ color: 0x18527a, roughness: 0.7 })
+  );
+  tourStripe.position.y = 0.05;
+  whaleTourGroup.add(tourStripe);
+  // Cabin (boxy, mid-deck)
+  const tourCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.42, 0.75),
+    new THREE.MeshStandardMaterial({ color: 0xe8eef2, roughness: 0.7 })
+  );
+  tourCabin.position.set(-0.2, 0.55, 0);
+  whaleTourGroup.add(tourCabin);
+  // Cabin roof
+  const tourRoof = new THREE.Mesh(
+    new THREE.BoxGeometry(1.45, 0.06, 0.78),
+    new THREE.MeshStandardMaterial({ color: 0x3a4a5a, roughness: 0.8 })
+  );
+  tourRoof.position.set(-0.2, 0.79, 0);
+  whaleTourGroup.add(tourRoof);
+  // Lit cabin windows (4 small)
+  for (let i = -1; i <= 1; i++) {
+    const win = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.22, 0.18),
+      new THREE.MeshStandardMaterial({ color: 0xffe9a8, emissive: 0xffd070, emissiveIntensity: 0.95, side: THREE.DoubleSide })
+    );
+    win.position.set(-0.2 + i * 0.40, 0.58, 0.376);
+    whaleTourGroup.add(win);
+  }
+  // Mast with flag
+  const tourMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.025, 0.025, 0.95, 6),
+    new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 })
+  );
+  tourMast.position.set(-0.2, 1.28, 0);
+  whaleTourGroup.add(tourMast);
+  const tourFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.30, 0.18),
+    new THREE.MeshStandardMaterial({ color: 0xff5b5b, side: THREE.DoubleSide, roughness: 0.7 })
+  );
+  tourFlag.position.set(-0.05, 1.65, 0);
+  whaleTourGroup.add(tourFlag);
+  // Passenger silhouettes on deck (3 small figures)
+  const tourPassengers = [];
+  for (let i = 0; i < 4; i++) {
+    const pax = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.07, 0.26, 8),
+      new THREE.MeshStandardMaterial({ color: [0x5a7e2a, 0x8b3a3a, 0x3a5a8b, 0x7a3a8b][i % 4], roughness: 0.85 })
+    );
+    pax.position.set(0.85 + i * 0.10, 0.45, [-0.32, 0.32, -0.32, 0.32][i]);
+    whaleTourGroup.add(pax);
+    const paxHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+    );
+    paxHead.position.set(0.85 + i * 0.10, 0.62, [-0.32, 0.32, -0.32, 0.32][i]);
+    whaleTourGroup.add(paxHead);
+    tourPassengers.push({ body: pax, head: paxHead, phase: i * 1.2 });
+  }
+  // Wake foam streak behind boat (small trailing plane)
+  const tourWake = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.32, side: THREE.DoubleSide, roughness: 0.6 })
+  );
+  tourWake.rotation.x = -Math.PI / 2;
+  tourWake.position.set(-1.6, 0.04, 0);
+  whaleTourGroup.add(tourWake);
+  whaleTourGroup.position.set(16, 0.18, 8);
+  group.add(whaleTourGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5465,6 +5604,27 @@ export function createAnchorageLandmark(THREE, opts) {
         dockAnchorChain[i].position.y += 0.003 * Math.sin(t * 1.2 + i);
       }
     }
+
+    // v31: Lighthouse keeper waving arm + whale tour boat circling
+    // Waving: large angle swing
+    dockKeeperArmR.rotation.z = -1.2 + Math.sin(t * 4.2) * 0.5;
+    dockKeeperArmR.rotation.x = Math.sin(t * 4.0) * 0.15;
+    // Whale tour boat: slow wide arc opposite direction to v15 sailboat
+    const tourAngle = -t * 0.05 + Math.PI;
+    const tourR = 18;
+    whaleTourGroup.position.x = Math.cos(tourAngle) * tourR;
+    whaleTourGroup.position.z = Math.sin(tourAngle) * tourR;
+    whaleTourGroup.position.y = 0.18 + Math.sin(t * 0.85 + 0.7) * 0.06;
+    whaleTourGroup.rotation.y = -tourAngle - Math.PI / 2;
+    whaleTourGroup.rotation.z = Math.sin(t * 0.65) * 0.025;
+    // Passengers gentle bob
+    tourPassengers.forEach((p) => {
+      const bob = Math.sin(t * 1.4 + p.phase) * 0.02;
+      p.body.position.y = 0.45 + bob;
+      p.head.position.y = 0.62 + bob;
+    });
+    // Wake opacity pulse
+    tourWake.material.opacity = 0.22 + 0.14 * Math.sin(t * 2.0);
 
   }
 
