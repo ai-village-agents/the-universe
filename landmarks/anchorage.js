@@ -8875,6 +8875,149 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(tsbGroup);
 
 
+
+  // --- v58: beach playground slide ---
+  const slideGroup = new THREE.Group();
+  const sldLadderMat = new THREE.MeshLambertMaterial({ color: 0xff5252 });
+  const sldLadder1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.2, 6), sldLadderMat);
+  sldLadder1.position.set(-0.4, 1.1, -1.2);
+  slideGroup.add(sldLadder1);
+  const sldLadder2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.2, 6), sldLadderMat);
+  sldLadder2.position.set(0.4, 1.1, -1.2);
+  slideGroup.add(sldLadder2);
+  for (let r = 0; r < 4; r++) {
+    const rung = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.9, 6), sldLadderMat);
+    rung.rotation.z = Math.PI / 2;
+    rung.position.set(0, 0.4 + r * 0.5, -1.2);
+    slideGroup.add(rung);
+  }
+  // platform
+  const sldPlatform = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.1, 1.0), sldLadderMat);
+  sldPlatform.position.set(0, 2.2, -0.7);
+  slideGroup.add(sldPlatform);
+  // slide chute (yellow)
+  const sldChuteMat = new THREE.MeshLambertMaterial({ color: 0xffeb3b });
+  const sldChute = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.08, 3.2), sldChuteMat);
+  sldChute.rotation.x = -0.6;
+  sldChute.position.set(0, 1.2, 0.8);
+  slideGroup.add(sldChute);
+  // slide rails
+  const sldRailGeom = new THREE.BoxGeometry(0.05, 0.18, 3.2);
+  const sldRail1 = new THREE.Mesh(sldRailGeom, sldChuteMat);
+  sldRail1.rotation.x = -0.6;
+  sldRail1.position.set(-0.4, 1.3, 0.8);
+  slideGroup.add(sldRail1);
+  const sldRail2 = new THREE.Mesh(sldRailGeom, sldChuteMat);
+  sldRail2.rotation.x = -0.6;
+  sldRail2.position.set(0.4, 1.3, 0.8);
+  slideGroup.add(sldRail2);
+  // sliding kid
+  const sldKid = new THREE.Group();
+  const sldKidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0x42a5f5 }));
+  sldKidBody.position.y = 0.25;
+  sldKid.add(sldKidBody);
+  const sldKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  sldKidHead.position.y = 0.65;
+  sldKid.add(sldKidHead);
+  sldKid.position.set(0, 1.2, 0);
+  slideGroup.add(sldKid);
+  slideGroup.position.set(-18, 0.05, -8);
+  group.add(slideGroup);
+
+  // --- v58: weather station with windsock ---
+  const weatherStationGroup = new THREE.Group();
+  const wsPole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 4.5, 8), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  wsPole.position.y = 2.25;
+  weatherStationGroup.add(wsPole);
+  // windsock (orange cone)
+  const wsSockMat = new THREE.MeshLambertMaterial({ color: 0xff8c00, side: THREE.DoubleSide });
+  const wsSock = new THREE.Mesh(new THREE.ConeGeometry(0.3, 1.2, 8, 1, true), wsSockMat);
+  wsSock.rotation.x = Math.PI / 2;
+  wsSock.rotation.y = Math.PI;
+  wsSock.position.set(0.7, 4.2, 0);
+  weatherStationGroup.add(wsSock);
+  const wsRing = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.03, 6, 12), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  wsRing.rotation.y = Math.PI / 2;
+  wsRing.position.set(0.1, 4.2, 0);
+  weatherStationGroup.add(wsRing);
+  // anemometer cups
+  const wsAnemBase = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0x666666 }));
+  wsAnemBase.position.set(0, 4.7, 0);
+  weatherStationGroup.add(wsAnemBase);
+  const wsAnem = new THREE.Group();
+  for (let c = 0; c < 3; c++) {
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.5), new THREE.MeshLambertMaterial({ color: 0x666666 }));
+    const a = (c / 3) * Math.PI * 2;
+    arm.position.set(Math.cos(a) * 0.25, 0, Math.sin(a) * 0.25);
+    arm.rotation.y = -a;
+    wsAnem.add(arm);
+    const cup = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6, 0, Math.PI), new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }));
+    cup.position.set(Math.cos(a) * 0.5, 0, Math.sin(a) * 0.5);
+    cup.rotation.y = -a;
+    wsAnem.add(cup);
+  }
+  wsAnem.position.set(0, 4.95, 0);
+  weatherStationGroup.add(wsAnem);
+  // info sign
+  const wsSign = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.6, 0.05), new THREE.MeshLambertMaterial({ color: 0x4477aa }));
+  wsSign.position.set(0, 1.5, 0.15);
+  weatherStationGroup.add(wsSign);
+  weatherStationGroup.position.set(40, 0.05, 30);
+  group.add(weatherStationGroup);
+
+  // --- v58: sand mermaid sculpture ---
+  const sandMermaidGroup = new THREE.Group();
+  const smMat = new THREE.MeshLambertMaterial({ color: 0xe8d5a0 });
+  // body (curved torso)
+  const smTorso = new THREE.Mesh(new THREE.SphereGeometry(0.7, 12, 8), smMat);
+  smTorso.scale.set(0.8, 0.7, 1.6);
+  smTorso.position.set(0, 0.3, 0);
+  sandMermaidGroup.add(smTorso);
+  // head
+  const smHead = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 8), smMat);
+  smHead.position.set(0, 0.7, 1.0);
+  sandMermaidGroup.add(smHead);
+  // tail (curved cone)
+  const smTail = new THREE.Mesh(new THREE.ConeGeometry(0.5, 1.8, 8), smMat);
+  smTail.rotation.x = Math.PI / 2;
+  smTail.position.set(0, 0.3, -1.4);
+  sandMermaidGroup.add(smTail);
+  // tail fin (flared)
+  const smFin = new THREE.Mesh(new THREE.ConeGeometry(0.7, 0.5, 5), smMat);
+  smFin.rotation.x = -Math.PI / 2;
+  smFin.position.set(0, 0.3, -2.4);
+  smFin.scale.set(1.4, 1, 0.5);
+  sandMermaidGroup.add(smFin);
+  // hair (yellow shells)
+  const smHairMat = new THREE.MeshLambertMaterial({ color: 0xc8a060 });
+  for (let h = 0; h < 8; h++) {
+    const strand = new THREE.Mesh(new THREE.SphereGeometry(0.1, 6, 5), smHairMat);
+    const a = (h / 8) * Math.PI - Math.PI / 2;
+    strand.position.set(Math.cos(a) * 0.3, 0.95, 0.9 + Math.sin(a) * 0.2);
+    sandMermaidGroup.add(strand);
+  }
+  // shell bra (two pink scallops)
+  const smShellMat = new THREE.MeshLambertMaterial({ color: 0xff80ab });
+  const smShell1 = new THREE.Mesh(new THREE.SphereGeometry(0.15, 8, 6, 0, Math.PI), smShellMat);
+  smShell1.rotation.x = Math.PI / 2;
+  smShell1.position.set(-0.18, 0.55, 0.5);
+  sandMermaidGroup.add(smShell1);
+  const smShell2 = new THREE.Mesh(new THREE.SphereGeometry(0.15, 8, 6, 0, Math.PI), smShellMat);
+  smShell2.rotation.x = Math.PI / 2;
+  smShell2.position.set(0.18, 0.55, 0.5);
+  sandMermaidGroup.add(smShell2);
+  // sculptor admiring
+  const smSculptorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0x8e44ad }));
+  smSculptorBody.position.set(2.2, 0.35, 0);
+  sandMermaidGroup.add(smSculptorBody);
+  const smSculptorHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  smSculptorHead.position.set(2.2, 0.85, 0);
+  sandMermaidGroup.add(smSculptorHead);
+  sandMermaidGroup.position.set(22, 0.05, 32);
+  sandMermaidGroup.rotation.y = 0.4;
+  group.add(sandMermaidGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10492,6 +10635,20 @@ export function createAnchorageLandmark(THREE, opts) {
       // v57: pirate flag flutters
       tsbFlag.rotation.y = Math.sin(t * 2.5) * 0.3;
       tsbSkull.position.x = -0.05 + Math.sin(t * 2.5) * 0.04;
+      // v58: kid slides down, resets
+      const sldT = (t * 0.7) % 3.0;
+      if (sldT < 2.0) {
+        sldKid.position.set(0, 2.2 - sldT * 0.6, -0.5 + sldT * 1.5);
+        sldKid.rotation.x = -0.6;
+      } else {
+        sldKid.position.set(0, 0, 2.5);
+        sldKid.rotation.x = 0;
+      }
+      // v58: anemometer spins, windsock sways
+      wsAnem.rotation.y += 0.08;
+      wsSock.rotation.z = Math.sin(t * 1.2) * 0.2;
+      // v58: sculptor head turns side to side
+      smSculptorHead.rotation.y = Math.sin(t * 0.8) * 0.5;
     }
 
   }
