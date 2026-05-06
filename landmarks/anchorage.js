@@ -5170,6 +5170,120 @@ export function createAnchorageLandmark(THREE, opts) {
   beachUmbrellaGroup.rotation.y = -0.3;
   group.add(beachUmbrellaGroup);
 
+  // --- v36: Beach volleyball court (net + two jumping players + ball) + jet ski ---
+  const volleyGroup = new THREE.Group();
+  // Court markings (sand-colored rectangle slightly darker than ground)
+  const volleyCourt = new THREE.Mesh(
+    new THREE.PlaneGeometry(4.2, 2.6),
+    new THREE.MeshStandardMaterial({ color: 0xeed6a4, roughness: 0.95 })
+  );
+  volleyCourt.rotation.x = -Math.PI / 2;
+  volleyCourt.position.y = 0.005;
+  volleyGroup.add(volleyCourt);
+  // Net posts
+  const volleyPostMat = new THREE.MeshStandardMaterial({ color: 0x7c5b3a, roughness: 0.7 });
+  const volleyPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.4, 8), volleyPostMat);
+  volleyPostL.position.set(0, 0.7, -1.3);
+  volleyGroup.add(volleyPostL);
+  const volleyPostR = volleyPostL.clone();
+  volleyPostR.position.z = 1.3;
+  volleyGroup.add(volleyPostR);
+  // Net (semi-transparent grid plane)
+  const volleyNet = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.6, 0.7, 12, 4),
+    new THREE.MeshBasicMaterial({ color: 0xfafafa, transparent: true, opacity: 0.55, wireframe: true, side: THREE.DoubleSide })
+  );
+  volleyNet.position.set(0, 1.05, 0);
+  volleyNet.rotation.y = Math.PI / 2;
+  volleyGroup.add(volleyNet);
+  // Two players, one each side, who bounce up like spikers
+  const volleyPlayers = [];
+  [
+    { x: -1.4, color: 0xfb7185, name: 'L' },
+    { x:  1.4, color: 0x60a5fa, name: 'R' },
+  ].forEach((spec) => {
+    const pg = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+      new THREE.MeshStandardMaterial({ color: spec.color })
+    );
+    body.position.y = 0.42;
+    pg.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.10, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+    );
+    head.position.y = 0.78;
+    pg.add(head);
+    const armL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6),
+      new THREE.MeshStandardMaterial({ color: spec.color })
+    );
+    armL.position.set(-0.13, 0.62, 0);
+    armL.rotation.z = -1.0;
+    pg.add(armL);
+    const armR = armL.clone();
+    armR.position.x = 0.13;
+    armR.rotation.z = 1.0;
+    pg.add(armR);
+    pg.position.set(spec.x, 0, 0);
+    volleyGroup.add(pg);
+    volleyPlayers.push({ group: pg, spec });
+  });
+  // Volleyball — small white sphere bouncing over the net
+  const volleyBall = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.7 })
+  );
+  volleyGroup.add(volleyBall);
+  volleyGroup.position.set(11.5, 0.18, 6.0);
+  volleyGroup.rotation.y = -0.6;
+  group.add(volleyGroup);
+
+  // Jet ski — a single rider zipping in a tighter loop with foam wake
+  const jetskiGroup = new THREE.Group();
+  const jetskiHull = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.32, 0.55),
+    new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.4, metalness: 0.4 })
+  );
+  jetskiHull.position.y = 0.22;
+  jetskiGroup.add(jetskiHull);
+  const jetskiNose = new THREE.Mesh(
+    new THREE.ConeGeometry(0.27, 0.5, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.4, metalness: 0.4 })
+  );
+  jetskiNose.rotation.z = -Math.PI / 2;
+  jetskiNose.position.set(0.85, 0.22, 0);
+  jetskiGroup.add(jetskiNose);
+  const jetskiHandlebar = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 0.45, 8),
+    new THREE.MeshStandardMaterial({ color: 0x111111 })
+  );
+  jetskiHandlebar.rotation.x = Math.PI / 2;
+  jetskiHandlebar.position.set(0.15, 0.55, 0);
+  jetskiGroup.add(jetskiHandlebar);
+  const jetskiRider = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0x111827 })
+  );
+  jetskiRider.position.set(-0.15, 0.62, 0);
+  jetskiGroup.add(jetskiRider);
+  const jetskiHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  jetskiHead.position.set(-0.15, 1.0, 0);
+  jetskiGroup.add(jetskiHead);
+  // Foam wake — flat plane behind the ski
+  const jetskiWake = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 0.35),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  jetskiWake.rotation.x = -Math.PI / 2;
+  jetskiWake.position.set(-0.85, 0.04, 0);
+  jetskiGroup.add(jetskiWake);
+  group.add(jetskiGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6398,6 +6512,25 @@ export function createAnchorageLandmark(THREE, opts) {
     paddleBoarderGroup.rotation.y = Math.sin(t * 0.18) * 0.4;
     umbrellaCanopy.rotation.y = Math.sin(t * 0.4) * 0.06;
     umbrellaStripe.rotation.y = umbrellaCanopy.rotation.y;
+
+    // v36: Volleyball players bounce; ball arcs over net; jet ski loops with wake
+    volleyPlayers.forEach((p, i) => {
+      // Phase-offset bouncing — when one is up the other is down
+      const bounce = Math.max(0, Math.sin(t * 1.8 + (i === 0 ? 0 : Math.PI)));
+      p.group.position.y = bounce * 0.35;
+    });
+    // Ball follows a parabolic arc over the net side-to-side; period sync with players
+    const ballPhase = (t * 1.8) % (Math.PI * 2);
+    const ballSide = Math.sin(t * 0.9); // -1 .. 1
+    volleyBall.position.set(ballSide * 1.2, 0.6 + Math.abs(Math.sin(ballPhase)) * 0.9, 0);
+    // Jet ski oval loop
+    const jetAngle = t * 0.5;
+    const jetX = Math.cos(jetAngle) * 22 - 4;
+    const jetZ = Math.sin(jetAngle) * 11 + 8;
+    jetskiGroup.position.set(jetX, 0.18, jetZ);
+    jetskiGroup.rotation.y = -jetAngle + Math.PI / 2;
+    jetskiGroup.position.y = 0.18 + Math.sin(t * 4.0) * 0.04; // chop bounce
+    jetskiWake.material.opacity = 0.45 + 0.18 * Math.sin(t * 3.0);
 
   }
 
