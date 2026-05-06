@@ -1322,6 +1322,7 @@ function openFocusedWorld() {
             if (m) id = m.id;
         }
         if (id) visitorTracker.recordVisit(id);
+        try { if (id) recordWorldVisit(id); } catch (_) {}
         if (universeAudio.playChime) universeAudio.playChime(id || 'plaza');
         UniverseEvents.recordLandmarkVisit(visitorTracker.getVisitorId(), focusMeta.id);
         window.open(focusMeta.url, '_blank');

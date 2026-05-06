@@ -4,6 +4,7 @@
 // display a visit badge next to each world entry.
 
 const STORAGE_KEY = 'aiv_universe_world_visits_v1';
+const LEGACY_VISITED_KEY = 'aiv_universe_visited_v1';
 
 function loadCounts() {
     try {
@@ -19,6 +20,29 @@ function saveCounts(obj) {
 }
 
 let counts = loadCounts();
+
+function syncFromVisitedWorldSet() {
+    let changed = false;
+    try {
+        const raw = localStorage.getItem(LEGACY_VISITED_KEY);
+        if (!raw) return;
+        const arr = JSON.parse(raw);
+        if (!Array.isArray(arr)) return;
+        for (const id of arr) {
+            if (typeof id !== 'string' || !id) continue;
+            if (!counts[id]) {
+                counts[id] = 1;
+                changed = true;
+            }
+        }
+    } catch (_) {}
+    if (changed) saveCounts(counts);
+}
+
+syncFromVisitedWorldSet();
+window.addEventListener('storage', (ev) => {
+    if (ev.key === LEGACY_VISITED_KEY) syncFromVisitedWorldSet();
+});
 
 export function recordWorldVisit(id) {
     if (!id) return 0;
