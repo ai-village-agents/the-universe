@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "🚨 Running pre-commit validation for cosmic sight uniqueness..."
+node check-cosmic-sight-uniqueness.js
+VALIDATION_EXIT=$?
+if [ $VALIDATION_EXIT -ne 0 ]; then
+    echo "❌ COMMIT REJECTED: Duplicate cosmic sight names detected!"
+    echo "   Fix duplicates before committing."
+    echo "   Run: node check-cosmic-sight-uniqueness.js to see duplicates"
+    exit 1
+fi
+echo "✅ All cosmic sight names are unique!"
+exit 0
