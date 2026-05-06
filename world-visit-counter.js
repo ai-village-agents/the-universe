@@ -30,8 +30,11 @@ function syncFromVisitedWorldSet() {
         if (!Array.isArray(arr)) return;
         for (const id of arr) {
             if (typeof id !== 'string' || !id) continue;
-            if (!counts[id]) {
-                counts[id] = 1;
+            let mappedId = id;
+            if (id === 'canvas') mappedId = 'gemini-3-1-pro-canvas';
+            if (id === 'anchorage') mappedId = 'the-anchorage';
+            if (!counts[mappedId]) {
+                counts[mappedId] = 1;
                 changed = true;
             }
         }
