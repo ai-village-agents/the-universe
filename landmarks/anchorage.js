@@ -4180,6 +4180,167 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(distantMountainGroup);
 
+
+  // --- v30: Mermaid on outcrop + anchor with chain + cargo crate w/ pulley ---
+  // Mermaid sitting on a rock near the mini lighthouse outcrop
+  const outcropMermaidGroup = new THREE.Group();
+  outcropMermaidGroup.position.set(26.5, 1.4, 23);
+  // Tail (curving cylinder + fluke)
+  const outcropMermaidTail = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.10, 1.0, 10),
+    new THREE.MeshStandardMaterial({ color: 0x2a8aaa, roughness: 0.4, metalness: 0.3 })
+  );
+  outcropMermaidTail.rotation.z = Math.PI / 2.3;
+  outcropMermaidTail.position.set(0.3, 0.05, 0);
+  outcropMermaidGroup.add(outcropMermaidTail);
+  const outcropMermaidFluke = new THREE.Mesh(
+    new THREE.ConeGeometry(0.32, 0.5, 6, 1, false, 0, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0x36a3c4, roughness: 0.4, side: THREE.DoubleSide })
+  );
+  outcropMermaidFluke.rotation.z = -Math.PI / 2;
+  outcropMermaidFluke.scale.set(1, 0.4, 1);
+  outcropMermaidFluke.position.set(0.95, 0.05, 0);
+  outcropMermaidGroup.add(outcropMermaidFluke);
+  // Torso
+  const outcropMermaidTorso = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.20, 0.5, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf2c8a0, roughness: 0.7 })
+  );
+  outcropMermaidTorso.position.set(-0.05, 0.4, 0);
+  outcropMermaidGroup.add(outcropMermaidTorso);
+  // Head
+  const outcropMermaidHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0xf2c8a0, roughness: 0.7 })
+  );
+  outcropMermaidHead.position.set(-0.05, 0.78, 0);
+  outcropMermaidGroup.add(outcropMermaidHead);
+  // Long flowing hair
+  const outcropMermaidHair = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.10, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0x8a3a18, roughness: 0.85 })
+  );
+  outcropMermaidHair.position.set(-0.10, 0.55, -0.04);
+  outcropMermaidGroup.add(outcropMermaidHair);
+  // Arm waving
+  const outcropMermaidArm = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.04, 0.45, 6),
+    new THREE.MeshStandardMaterial({ color: 0xf2c8a0, roughness: 0.7 })
+  );
+  outcropMermaidArm.position.set(-0.2, 0.6, 0.08);
+  outcropMermaidArm.rotation.z = 0.7;
+  outcropMermaidGroup.add(outcropMermaidArm);
+  group.add(outcropMermaidGroup);
+
+  // Anchor with chain — sitting on the pier
+  const dockAnchorGroup = new THREE.Group();
+  dockAnchorGroup.position.set(5.5, 1.0, -3.0);
+  // Anchor shank (vertical bar)
+  const dockAnchorShank = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.85, 8),
+    new THREE.MeshStandardMaterial({ color: 0x3a3a44, roughness: 0.55, metalness: 0.7 })
+  );
+  dockAnchorShank.position.set(0, 0.42, 0);
+  dockAnchorGroup.add(dockAnchorShank);
+  // Cross arm at top (stock)
+  const dockAnchorStock = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 0.55, 6),
+    new THREE.MeshStandardMaterial({ color: 0x3a3a44, roughness: 0.55, metalness: 0.7 })
+  );
+  dockAnchorStock.rotation.z = Math.PI / 2;
+  dockAnchorStock.position.set(0, 0.78, 0);
+  dockAnchorGroup.add(dockAnchorStock);
+  // Top ring
+  const dockAnchorRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.10, 0.03, 8, 16),
+    new THREE.MeshStandardMaterial({ color: 0x3a3a44, roughness: 0.5, metalness: 0.75 })
+  );
+  dockAnchorRing.position.set(0, 0.95, 0);
+  dockAnchorRing.rotation.x = Math.PI / 2;
+  dockAnchorGroup.add(dockAnchorRing);
+  // Two flukes (bottom curves)
+  for (let i = 0; i < 2; i++) {
+    const fluke = new THREE.Mesh(
+      new THREE.TorusGeometry(0.22, 0.05, 6, 12, Math.PI / 2),
+      new THREE.MeshStandardMaterial({ color: 0x3a3a44, roughness: 0.5, metalness: 0.7 })
+    );
+    fluke.rotation.z = (i === 0 ? Math.PI : -Math.PI / 2);
+    fluke.position.set(0, 0.05, 0);
+    dockAnchorGroup.add(fluke);
+    // Pointed tip
+    const tip = new THREE.Mesh(
+      new THREE.ConeGeometry(0.06, 0.16, 5),
+      new THREE.MeshStandardMaterial({ color: 0x3a3a44, roughness: 0.5, metalness: 0.7 })
+    );
+    tip.position.set(i === 0 ? -0.22 : 0.22, 0.05, 0);
+    tip.rotation.z = (i === 0 ? Math.PI / 2 : -Math.PI / 2);
+    dockAnchorGroup.add(tip);
+  }
+  // Chain — 6 torus links coming out the top of the anchor and curving down to the pier
+  const dockAnchorChain = [];
+  for (let i = 0; i < 7; i++) {
+    const link = new THREE.Mesh(
+      new THREE.TorusGeometry(0.05, 0.014, 6, 10),
+      new THREE.MeshStandardMaterial({ color: 0x6c6c74, roughness: 0.6, metalness: 0.6 })
+    );
+    link.position.set(0.05 * i, 1.05 + 0.05 * i, 0);
+    link.rotation.x = (i % 2 === 0) ? 0 : Math.PI / 2;
+    dockAnchorGroup.add(link);
+    dockAnchorChain.push(link);
+  }
+  group.add(dockAnchorGroup);
+
+  // Cargo crate with pulley & rope on the pier
+  const cargoCrateGroup = new THREE.Group();
+  cargoCrateGroup.position.set(-3.5, 0.95, -2.0);
+  // Vertical post (the gantry)
+  const cargoPost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.08, 2.5, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6b4a2a, roughness: 0.85 })
+  );
+  cargoPost.position.set(0, 1.25, 0);
+  cargoCrateGroup.add(cargoPost);
+  // Horizontal arm
+  const cargoArm = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 1.0, 6),
+    new THREE.MeshStandardMaterial({ color: 0x6b4a2a, roughness: 0.85 })
+  );
+  cargoArm.rotation.z = Math.PI / 2;
+  cargoArm.position.set(0.5, 2.45, 0);
+  cargoCrateGroup.add(cargoArm);
+  // Pulley wheel at end of arm
+  const cargoPulley = new THREE.Mesh(
+    new THREE.TorusGeometry(0.10, 0.04, 8, 14),
+    new THREE.MeshStandardMaterial({ color: 0x383028, roughness: 0.7, metalness: 0.4 })
+  );
+  cargoPulley.position.set(0.95, 2.40, 0);
+  cargoPulley.rotation.x = Math.PI / 2;
+  cargoCrateGroup.add(cargoPulley);
+  // Rope
+  const cargoRope = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.012, 0.012, 1.6, 6),
+    new THREE.MeshStandardMaterial({ color: 0xc9a05c, roughness: 0.95 })
+  );
+  cargoRope.position.set(0.95, 1.55, 0);
+  cargoCrateGroup.add(cargoRope);
+  // Crate
+  const cargoCrate = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 0.45, 0.55),
+    new THREE.MeshStandardMaterial({ color: 0x8a5a30, roughness: 0.85 })
+  );
+  cargoCrate.position.set(0.95, 0.55, 0);
+  cargoCrateGroup.add(cargoCrate);
+  // Crate slats
+  for (let i = -1; i <= 1; i++) {
+    const slat = new THREE.Mesh(
+      new THREE.BoxGeometry(0.58, 0.04, 0.04),
+      new THREE.MeshStandardMaterial({ color: 0x4a3018, roughness: 0.9 })
+    );
+    slat.position.set(0.95, 0.55 + i * 0.18, 0.30);
+    cargoCrateGroup.add(slat);
+  }
+  group.add(cargoCrateGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5277,6 +5438,31 @@ export function createAnchorageLandmark(THREE, opts) {
         const leg = pierCrabLegs[i];
         const phase = (i % 3) * 0.7 + (i < 3 ? 0 : Math.PI);
         leg.rotation.x = 0.25 * Math.sin(t * 5.0 + phase);
+      }
+    }
+
+    // v30: Mermaid waves arm + cargo crate sways + chain shimmers
+    if (typeof outcropMermaidArm !== 'undefined') {
+      outcropMermaidArm.rotation.z = 0.7 + 0.4 * Math.sin(t * 1.5);
+    }
+    if (typeof outcropMermaidGroup !== 'undefined') {
+      outcropMermaidGroup.rotation.y = 0.3 * Math.sin(t * 0.4);
+    }
+    if (typeof cargoCrate !== 'undefined') {
+      cargoCrate.position.y = 0.55 + 0.18 * (0.5 + 0.5 * Math.sin(t * 0.5));
+      cargoCrate.rotation.y = 0.10 * Math.sin(t * 0.7);
+    }
+    if (typeof cargoRope !== 'undefined') {
+      const cy = 0.55 + 0.18 * (0.5 + 0.5 * Math.sin(t * 0.5));
+      cargoRope.scale.y = (2.40 - cy) / 1.6;
+      cargoRope.position.y = (2.40 + cy) / 2;
+    }
+    if (typeof cargoPulley !== 'undefined') {
+      cargoPulley.rotation.y = t * 0.6;
+    }
+    if (typeof dockAnchorChain !== 'undefined') {
+      for (let i = 0; i < dockAnchorChain.length; i++) {
+        dockAnchorChain[i].position.y += 0.003 * Math.sin(t * 1.2 + i);
       }
     }
 
