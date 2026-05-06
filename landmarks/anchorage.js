@@ -4634,6 +4634,195 @@ export function createAnchorageLandmark(THREE, opts) {
   dolphinTrioGroup.position.set(-9, 0.15, 8);
   group.add(dolphinTrioGroup);
 
+
+  // --- v33: Kid feeding seagulls + picnic blanket with families + tugboat pushing barge ---
+  // A small kid figure on the beach tossing food crumbs while seagulls circle close
+  const feedKidGroup = new THREE.Group();
+  const feedKidBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.16, 0.42, 8),
+    new THREE.MeshStandardMaterial({ color: 0xd84a3a, roughness: 0.85 })
+  );
+  feedKidBody.position.y = 0.21;
+  feedKidGroup.add(feedKidBody);
+  const feedKidHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 12, 8),
+    new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+  );
+  feedKidHead.position.y = 0.50;
+  feedKidGroup.add(feedKidHead);
+  // Cap
+  const feedKidCap = new THREE.Mesh(
+    new THREE.SphereGeometry(0.105, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshStandardMaterial({ color: 0x5a8ec8, roughness: 0.85 })
+  );
+  feedKidCap.position.y = 0.55;
+  feedKidGroup.add(feedKidCap);
+  // Outstretched arm (the feeding hand)
+  const feedKidArm = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.05, 0.30, 8),
+    new THREE.MeshStandardMaterial({ color: 0xd84a3a, roughness: 0.85 })
+  );
+  feedKidArm.geometry.translate(0, 0.15, 0);
+  feedKidArm.position.set(0.18, 0.36, 0);
+  feedKidArm.rotation.z = -1.0;
+  feedKidGroup.add(feedKidArm);
+  // Floating bread crumbs (tiny pellets dispersing in front of kid)
+  const feedCrumbs = [];
+  for (let i = 0; i < 5; i++) {
+    const crumb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.025, 6, 6),
+      new THREE.MeshStandardMaterial({ color: 0xd6a86a, roughness: 0.8 })
+    );
+    crumb.position.set(0.40 + i * 0.10, 0.45 + (i % 2) * 0.05, (i - 2) * 0.06);
+    feedCrumbs.push({ mesh: crumb, basePhase: i * 0.7, baseY: crumb.position.y });
+    feedKidGroup.add(crumb);
+  }
+  // Three small circling seagulls right above the kid
+  const feedKidGulls = [];
+  for (let i = 0; i < 3; i++) {
+    const gull = new THREE.Group();
+    const gullBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.07, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.7 })
+    );
+    gullBody.scale.set(1.4, 0.7, 0.8);
+    gull.add(gullBody);
+    const gullWingL = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.18, 0.04),
+      new THREE.MeshStandardMaterial({ color: 0xfafafa, side: THREE.DoubleSide, roughness: 0.7 })
+    );
+    gullWingL.position.x = -0.08;
+    gull.add(gullWingL);
+    const gullWingR = gullWingL.clone();
+    gullWingR.position.x = 0.08;
+    gull.add(gullWingR);
+    feedKidGroup.add(gull);
+    feedKidGulls.push({ group: gull, wingL: gullWingL, wingR: gullWingR, phaseOffset: i * (Math.PI * 2 / 3) });
+  }
+  feedKidGroup.position.set(8.4, 0.18, 5.2);
+  feedKidGroup.rotation.y = -0.5;
+  group.add(feedKidGroup);
+
+  // Picnic blanket with two seated families near the campfire
+  const picnicGroup = new THREE.Group();
+  const picnicBlanket = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 1.2),
+    new THREE.MeshStandardMaterial({ color: 0xc83a3a, roughness: 0.9, side: THREE.DoubleSide })
+  );
+  picnicBlanket.rotation.x = -Math.PI / 2;
+  picnicBlanket.position.y = 0.005;
+  picnicGroup.add(picnicBlanket);
+  // Checker pattern accent strips (white)
+  for (let i = 0; i < 4; i++) {
+    const strip = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.6, 0.10),
+      new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, side: THREE.DoubleSide })
+    );
+    strip.rotation.x = -Math.PI / 2;
+    strip.position.set(0, 0.006, -0.5 + i * 0.30);
+    picnicGroup.add(strip);
+  }
+  // Picnic basket
+  const picnicBasket = new THREE.Mesh(
+    new THREE.BoxGeometry(0.30, 0.18, 0.22),
+    new THREE.MeshStandardMaterial({ color: 0x8a6a3a, roughness: 0.95 })
+  );
+  picnicBasket.position.set(-0.45, 0.10, 0.2);
+  picnicGroup.add(picnicBasket);
+  // Basket handle
+  const picnicHandle = new THREE.Mesh(
+    new THREE.TorusGeometry(0.10, 0.012, 6, 14, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0x5a3a1f, roughness: 0.85 })
+  );
+  picnicHandle.position.set(-0.45, 0.20, 0.2);
+  picnicHandle.rotation.x = Math.PI / 2;
+  picnicGroup.add(picnicHandle);
+  // Two seated picnic figures (one larger, one smaller)
+  for (let i = 0; i < 2; i++) {
+    const seatedBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, i === 0 ? 0.28 : 0.20, 8),
+      new THREE.MeshStandardMaterial({ color: i === 0 ? 0x3a5a8b : 0x6a8e3a, roughness: 0.85 })
+    );
+    seatedBody.position.set(0.3 + i * 0.30, 0.14, -0.2 + i * 0.20);
+    picnicGroup.add(seatedBody);
+    const seatedHead = new THREE.Mesh(
+      new THREE.SphereGeometry(i === 0 ? 0.10 : 0.08, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xe8c39a, roughness: 0.7 })
+    );
+    seatedHead.position.set(0.3 + i * 0.30, 0.34, -0.2 + i * 0.20);
+    picnicGroup.add(seatedHead);
+  }
+  picnicGroup.position.set(6.5, 0.18, 8.4);
+  picnicGroup.rotation.y = 0.3;
+  group.add(picnicGroup);
+
+  // Tugboat pushing a wooden barge across the harbor (slow, large group)
+  const tugConvoyGroup = new THREE.Group();
+  // Tug hull (small, sturdy)
+  const tugHull = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.36, 0.85),
+    new THREE.MeshStandardMaterial({ color: 0x2b5a3a, roughness: 0.7 })
+  );
+  tugHull.position.y = 0.18;
+  tugConvoyGroup.add(tugHull);
+  // Tug stripe (yellow)
+  const tugStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(1.42, 0.06, 0.87),
+    new THREE.MeshStandardMaterial({ color: 0xe8c34a, roughness: 0.7 })
+  );
+  tugStripe.position.y = 0.30;
+  tugConvoyGroup.add(tugStripe);
+  // Tug pilot house
+  const tugCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 0.40, 0.55),
+    new THREE.MeshStandardMaterial({ color: 0xe8eef2, roughness: 0.7 })
+  );
+  tugCabin.position.set(-0.10, 0.56, 0);
+  tugConvoyGroup.add(tugCabin);
+  // Tug smokestack with puffing smoke
+  const tugStack = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.10, 0.42, 10),
+    new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.85 })
+  );
+  tugStack.position.set(0.30, 0.78, 0);
+  tugConvoyGroup.add(tugStack);
+  const tugStackTop = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.08, 0.06, 10),
+    new THREE.MeshStandardMaterial({ color: 0xc83a3a, roughness: 0.85 })
+  );
+  tugStackTop.position.set(0.30, 1.02, 0);
+  tugConvoyGroup.add(tugStackTop);
+  // Smoke puffs
+  const tugSmoke = [];
+  for (let i = 0; i < 4; i++) {
+    const puff = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0xb8c0c8, transparent: true, opacity: 0.6, roughness: 0.95 })
+    );
+    puff.position.set(0.30, 1.18 + i * 0.18, 0);
+    tugConvoyGroup.add(puff);
+    tugSmoke.push({ mesh: puff, baseY: puff.position.y, phase: i * 0.6 });
+  }
+  // Barge being pushed (bigger, ahead of tug)
+  const tugBarge = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.30, 1.20),
+    new THREE.MeshStandardMaterial({ color: 0x6a4a2a, roughness: 0.95 })
+  );
+  tugBarge.position.set(2.2, 0.15, 0);
+  tugConvoyGroup.add(tugBarge);
+  // Cargo containers on barge (3 stacked colorful boxes)
+  const tugCargoColors = [0xc83a3a, 0x3a8ec8, 0xe8c34a];
+  for (let i = 0; i < 3; i++) {
+    const ct = new THREE.Mesh(
+      new THREE.BoxGeometry(0.65, 0.42, 0.70),
+      new THREE.MeshStandardMaterial({ color: tugCargoColors[i], roughness: 0.8 })
+    );
+    ct.position.set(1.5 + i * 0.75, 0.51, 0);
+    tugConvoyGroup.add(ct);
+  }
+  tugConvoyGroup.position.set(-22, 0.18, 14);
+  group.add(tugConvoyGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5798,6 +5987,34 @@ export function createAnchorageLandmark(THREE, opts) {
       // Slight z wobble
       d.group.position.z = Math.sin(t * 1.8 + d.phaseOffset) * 0.4;
     });
+
+    // v33: Seagulls circling the kid + crumbs floating + tug smoke rising + tug convoy slow drift
+    feedKidGulls.forEach((g, i) => {
+      const r = 0.55 + i * 0.04;
+      const ang = t * 1.4 + g.phaseOffset;
+      g.group.position.x = 0.20 + Math.cos(ang) * r;
+      g.group.position.z = Math.sin(ang) * r;
+      g.group.position.y = 0.95 + 0.10 * Math.sin(t * 2.4 + g.phaseOffset);
+      g.group.rotation.y = -ang + Math.PI / 2;
+      const flap = Math.sin(t * 7.0 + g.phaseOffset) * 0.6;
+      g.wingL.rotation.z = flap;
+      g.wingR.rotation.z = -flap;
+    });
+    feedCrumbs.forEach((c) => {
+      c.mesh.position.y = c.baseY + Math.sin(t * 2.5 + c.basePhase) * 0.04;
+    });
+    // Tug smoke puffs rise + fade then loop
+    tugSmoke.forEach((p) => {
+      const u = ((t * 0.6 + p.phase) % 2.4) / 2.4; // 0..1
+      p.mesh.position.y = p.baseY + u * 1.2;
+      p.mesh.material.opacity = 0.6 * (1 - u);
+      p.mesh.scale.setScalar(0.6 + u * 0.8);
+    });
+    // Tug convoy drifts slowly across the harbor on a long oval path
+    const tugAngle = t * 0.04;
+    tugConvoyGroup.position.x = -22 + Math.sin(tugAngle) * 6;
+    tugConvoyGroup.position.z = 14 + Math.cos(tugAngle) * 4;
+    tugConvoyGroup.rotation.y = -tugAngle + 0.3;
 
   }
 
