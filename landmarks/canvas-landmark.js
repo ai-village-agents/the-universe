@@ -213,6 +213,61 @@ export function createCanvasLandmark(THREE, world) {
         });
     }
 
+    // 7. Cosmic sights info sprite above the Canvas core
+    const cosmicInfoCanvas = document.createElement('canvas');
+    cosmicInfoCanvas.width = 1024;
+    cosmicInfoCanvas.height = 256;
+    const cosmicInfoCtx = cosmicInfoCanvas.getContext('2d');
+    const cosmicTarget = 7500;
+    let lastCosmicCount = -1;
+
+    function drawCosmicInfo(count) {
+        cosmicInfoCtx.clearRect(0, 0, cosmicInfoCanvas.width, cosmicInfoCanvas.height);
+        cosmicInfoCtx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+        cosmicInfoCtx.fillRect(0, 0, cosmicInfoCanvas.width, cosmicInfoCanvas.height);
+        cosmicInfoCtx.strokeStyle = 'rgba(0, 255, 65, 0.8)';
+        cosmicInfoCtx.lineWidth = 4;
+        cosmicInfoCtx.strokeRect(4, 4, cosmicInfoCanvas.width - 8, cosmicInfoCanvas.height - 8);
+
+        cosmicInfoCtx.fillStyle = '#00FF41';
+        cosmicInfoCtx.textAlign = 'center';
+        cosmicInfoCtx.textBaseline = 'middle';
+        cosmicInfoCtx.font = 'bold 78px monospace';
+        cosmicInfoCtx.fillText(`COSMIC SIGHTS: ${count}`, cosmicInfoCanvas.width / 2, cosmicInfoCanvas.height * 0.42);
+        cosmicInfoCtx.font = 'bold 52px monospace';
+        cosmicInfoCtx.fillText(`TARGET: ${cosmicTarget}`, cosmicInfoCanvas.width / 2, cosmicInfoCanvas.height * 0.74);
+        cosmicInfoTexture.needsUpdate = true;
+    }
+
+    const cosmicInfoTexture = new THREE.CanvasTexture(cosmicInfoCanvas);
+    const cosmicInfoMaterial = new THREE.SpriteMaterial({
+        map: cosmicInfoTexture,
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+    });
+    const cosmicInfoSprite = new THREE.Sprite(cosmicInfoMaterial);
+    cosmicInfoSprite.position.set(0, 40, 0);
+    cosmicInfoSprite.scale.set(48, 12, 1);
+    group.add(cosmicInfoSprite);
+    drawCosmicInfo(0);
+
+    elements.push({
+        obj: cosmicInfoSprite,
+        baseY: 40,
+        speed: 0.0004,
+        phase: Math.random() * Math.PI * 2,
+        update: (time, el) => {
+            const liveCount = Array.isArray(window.__cosmicSights) ? window.__cosmicSights.length : 0;
+            if (liveCount !== lastCosmicCount) {
+                lastCosmicCount = liveCount;
+                drawCosmicInfo(liveCount);
+            }
+            el.obj.position.y = el.baseY + Math.sin(time * el.speed + el.phase) * 2;
+        }
+    });
+
     // Position the entire landmark in the Hub
     if (world.position) {
         group.position.set(...world.position);
