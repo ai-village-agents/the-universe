@@ -7791,6 +7791,182 @@ export function createAnchorageLandmark(THREE, opts) {
   buoyFieldGroup.position.set(28, 0, -22);
   group.add(buoyFieldGroup);
 
+  // --- v51: surf instructor + students, fishing-pier kid, passenger ferry --
+  // Surf instructor with 3 student trainees standing on a beached longboard
+  const surfLessonGroup = new THREE.Group();
+  const slBoardMat = new THREE.MeshLambertMaterial({ color: 0xfff5d8 });
+  const slBoard = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.1, 0.7), slBoardMat);
+  slBoard.position.y = 0.05;
+  surfLessonGroup.add(slBoard);
+  const slStripeMat = new THREE.MeshLambertMaterial({ color: 0x3088c4 });
+  const slStripe = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.005, 0.06), slStripeMat);
+  slStripe.position.set(0, 0.105, 0.2);
+  surfLessonGroup.add(slStripe);
+  const slFin = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.22, 4), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  slFin.position.set(-1.4, -0.05, 0);
+  surfLessonGroup.add(slFin);
+  // Instructor (taller, red rashguard)
+  const slInsBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.85, 12), new THREE.MeshLambertMaterial({ color: 0xd83040 }));
+  slInsBody.position.set(0.9, 0.55, 0);
+  surfLessonGroup.add(slInsBody);
+  const slInsHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 12), new THREE.MeshLambertMaterial({ color: 0xeab098 }));
+  slInsHead.position.set(0.9, 1.1, 0);
+  surfLessonGroup.add(slInsHead);
+  const slInsHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.04, 16), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  slInsHat.position.set(0.9, 1.27, 0);
+  surfLessonGroup.add(slInsHat);
+  // 3 students of various colors
+  const slStudentColors = [0x40c8e0, 0xffc830, 0x66e078];
+  const slStudentBodies = [];
+  for (let s = 0; s < 3; s++) {
+    const sx = -0.6 - s * 0.5;
+    const sBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.65, 10), new THREE.MeshLambertMaterial({ color: slStudentColors[s] }));
+    sBody.position.set(sx, 0.4, 0);
+    surfLessonGroup.add(sBody);
+    slStudentBodies.push(sBody);
+    const sHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 10), new THREE.MeshLambertMaterial({ color: 0xf2c79b }));
+    sHead.position.set(sx, 0.85, 0);
+    surfLessonGroup.add(sHead);
+  }
+  surfLessonGroup.position.set(20, 0.05, 22);
+  surfLessonGroup.rotation.y = -0.6;
+  group.add(surfLessonGroup);
+
+  // Fishing pier kid (small kid sitting on pier edge with rod and line)
+  const pierKidGroup = new THREE.Group();
+  const pkMat = new THREE.MeshLambertMaterial({ color: 0x8a5a2a });
+  const pkPlanks = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.06, 0.7), pkMat);
+  pkPlanks.position.y = 0.4;
+  pierKidGroup.add(pkPlanks);
+  const pkSupport1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.4, 8), pkMat);
+  pkSupport1.position.set(-0.7, 0.2, -0.3);
+  pierKidGroup.add(pkSupport1);
+  const pkSupport2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.4, 8), pkMat);
+  pkSupport2.position.set(0.7, 0.2, -0.3);
+  pierKidGroup.add(pkSupport2);
+  // Kid (sitting, legs dangling)
+  const pkKidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.4, 10), new THREE.MeshLambertMaterial({ color: 0x40b4d0 }));
+  pkKidBody.position.set(0, 0.65, 0.1);
+  pierKidGroup.add(pkKidBody);
+  const pkKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({ color: 0xf3c9a0 }));
+  pkKidHead.position.set(0, 0.95, 0.1);
+  pierKidGroup.add(pkKidHead);
+  const pkKidHat = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.12, 14), new THREE.MeshLambertMaterial({ color: 0xe85a3a }));
+  pkKidHat.position.set(0, 1.12, 0.1);
+  pierKidGroup.add(pkKidHat);
+  // Fishing rod (angled out over water)
+  const pkRod = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.012, 1.4, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  pkRod.position.set(0.55, 0.95, 0.5);
+  pkRod.rotation.z = -Math.PI / 4;
+  pkRod.rotation.x = -0.3;
+  pierKidGroup.add(pkRod);
+  // Fishing line (thin from rod tip to water)
+  const pkLineGeom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(1.0, 1.45, 0.95),
+    new THREE.Vector3(1.05, 0.0, 1.05),
+  ]);
+  const pkLine = new THREE.Line(pkLineGeom, new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 }));
+  pierKidGroup.add(pkLine);
+  // Bobber on water
+  const pkBobber = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), new THREE.MeshLambertMaterial({ color: 0xff3030 }));
+  pkBobber.position.set(1.05, 0.05, 1.05);
+  pierKidGroup.add(pkBobber);
+  // Tackle box on plank
+  const pkTackle = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.16, 0.18), new THREE.MeshLambertMaterial({ color: 0x305030 }));
+  pkTackle.position.set(-0.5, 0.51, 0.0);
+  pierKidGroup.add(pkTackle);
+  pierKidGroup.position.set(-26, 0.05, 4);
+  pierKidGroup.rotation.y = 0.3;
+  group.add(pierKidGroup);
+
+  // Passenger ferry boat (medium-large, 2-deck, with passenger silhouettes)
+  const ferryGroup = new THREE.Group();
+  const fryHullMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const fryHull = new THREE.Mesh(new THREE.BoxGeometry(6.5, 0.8, 1.8), fryHullMat);
+  fryHull.position.y = 0.5;
+  ferryGroup.add(fryHull);
+  const fryStripeMat = new THREE.MeshLambertMaterial({ color: 0x1e6ab8 });
+  const fryStripe = new THREE.Mesh(new THREE.BoxGeometry(6.5, 0.2, 1.85), fryStripeMat);
+  fryStripe.position.y = 0.18;
+  ferryGroup.add(fryStripe);
+  // Bow taper (cone-ish wedge)
+  const fryBow = new THREE.Mesh(new THREE.ConeGeometry(0.9, 1.0, 4), fryHullMat);
+  fryBow.position.set(3.5, 0.5, 0);
+  fryBow.rotation.z = -Math.PI / 2;
+  fryBow.rotation.y = Math.PI / 4;
+  fryBow.scale.set(1, 1.0, 1);
+  ferryGroup.add(fryBow);
+  // Lower deck cabin
+  const fryCabinMat = new THREE.MeshLambertMaterial({ color: 0xf4f4f4 });
+  const fryCabin = new THREE.Mesh(new THREE.BoxGeometry(5.5, 1.0, 1.5), fryCabinMat);
+  fryCabin.position.set(-0.3, 1.4, 0);
+  ferryGroup.add(fryCabin);
+  // Window strip
+  const fryWindowMat = new THREE.MeshLambertMaterial({ color: 0x88c8e0 });
+  const fryWindows = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.4, 1.55), fryWindowMat);
+  fryWindows.position.set(-0.3, 1.45, 0);
+  ferryGroup.add(fryWindows);
+  // Upper deck (open with rail)
+  const fryUpperDeck = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.08, 1.4), fryHullMat);
+  fryUpperDeck.position.set(-0.3, 1.95, 0);
+  ferryGroup.add(fryUpperDeck);
+  const fryRailMat = new THREE.MeshLambertMaterial({ color: 0x888888 });
+  const fryRail1 = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.04, 0.04), fryRailMat);
+  fryRail1.position.set(-0.3, 2.4, 0.7);
+  ferryGroup.add(fryRail1);
+  const fryRail2 = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.04, 0.04), fryRailMat);
+  fryRail2.position.set(-0.3, 2.4, -0.7);
+  ferryGroup.add(fryRail2);
+  // Smokestack
+  const fryStackMat = new THREE.MeshLambertMaterial({ color: 0xc4453a });
+  const fryStack = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 1.0, 12), fryStackMat);
+  fryStack.position.set(-1.6, 2.5, 0);
+  ferryGroup.add(fryStack);
+  const fryStackTop = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.1, 12), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  fryStackTop.position.set(-1.6, 3.05, 0);
+  ferryGroup.add(fryStackTop);
+  // Pilothouse
+  const fryPilot = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.6, 1.1), fryCabinMat);
+  fryPilot.position.set(1.4, 2.3, 0);
+  ferryGroup.add(fryPilot);
+  const fryPilotWin = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.3, 1.15), fryWindowMat);
+  fryPilotWin.position.set(1.4, 2.4, 0);
+  ferryGroup.add(fryPilotWin);
+  // Passengers on upper deck (silhouettes)
+  const fryPassengerColors = [0x4080d0, 0xe0a040, 0xa040d0, 0x40c060, 0xd04060, 0xe0c040];
+  const fryPassengers = [];
+  for (let p = 0; p < 6; p++) {
+    const px = -2.0 + p * 0.7;
+    const pBody = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.4, 8), new THREE.MeshLambertMaterial({ color: fryPassengerColors[p] }));
+    pBody.position.set(px, 2.2, (p % 2 === 0 ? 0.45 : -0.45));
+    ferryGroup.add(pBody);
+    fryPassengers.push(pBody);
+    const pHead = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8), new THREE.MeshLambertMaterial({ color: 0xf2c79b }));
+    pHead.position.set(px, 2.5, (p % 2 === 0 ? 0.45 : -0.45));
+    ferryGroup.add(pHead);
+  }
+  // Wake (white triangle behind)
+  const fryWakeMat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const fryWake = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 1.4), fryWakeMat);
+  fryWake.rotation.x = -Math.PI / 2;
+  fryWake.position.set(-4.5, 0.06, 0);
+  ferryGroup.add(fryWake);
+  // FERRY sign on hull
+  const fryNameCanvas = document.createElement('canvas');
+  fryNameCanvas.width = 256; fryNameCanvas.height = 64;
+  const fryNameCtx = fryNameCanvas.getContext('2d');
+  fryNameCtx.fillStyle = '#ffffff'; fryNameCtx.fillRect(0, 0, 256, 64);
+  fryNameCtx.fillStyle = '#1e6ab8'; fryNameCtx.font = 'bold 36px sans-serif';
+  fryNameCtx.textAlign = 'center'; fryNameCtx.textBaseline = 'middle';
+  fryNameCtx.fillText('M/V ANCHORAGE', 128, 32);
+  const fryNameTex = new THREE.CanvasTexture(fryNameCanvas);
+  const fryName = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 0.5), new THREE.MeshBasicMaterial({ map: fryNameTex, transparent: true }));
+  fryName.position.set(0.6, 0.5, 0.93);
+  ferryGroup.add(fryName);
+  ferryGroup.position.set(-30, 0.05, -28);
+  ferryGroup.rotation.y = 0.2;
+  group.add(ferryGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9307,6 +9483,16 @@ export function createAnchorageLandmark(THREE, opts) {
       for (let i = 0; i < bfBuoys.length; i++) {
         bfBuoys[i].position.y = Math.sin(t * 0.8 + i * 0.7) * 0.18;
         bfBuoys[i].rotation.y = Math.sin(t * 0.3 + i) * 0.4;
+      }
+      // v51: surf students sway as they 'pretend-balance'
+      for (let i = 0; i < slStudentBodies.length; i++) {
+        slStudentBodies[i].rotation.z = Math.sin(t * 1.5 + i * 1.2) * 0.1;
+      }
+      // v51: pier kid bobber bobs in water
+      pkBobber.position.y = 0.05 + Math.sin(t * 2.4) * 0.04;
+      // v51: ferry passengers gently sway
+      for (let i = 0; i < fryPassengers.length; i++) {
+        fryPassengers[i].rotation.z = Math.sin(t * 0.9 + i * 0.6) * 0.05;
       }
     }
 
