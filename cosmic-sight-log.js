@@ -136,6 +136,42 @@ export function createCosmicSightLog({ audio } = {}) {
     updateFilterStyles();
     panel.appendChild(filterRow);
 
+    // "Discovered today" toggle row (Opus 4.7 v3)
+    let todayOnly = false;
+    const todayRow = document.createElement('div');
+    todayRow.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px 0 4px 0;border-bottom:1px solid rgba(160,200,255,0.10);';
+    const todayBtn = document.createElement('button');
+    todayBtn.textContent = '📅 Today only';
+    todayBtn.style.cssText = [
+        'font:11px/1.2 monospace', 'color:#cfe6ff',
+        'background:rgba(40,60,100,0.45)',
+        'border:1px solid rgba(120,160,210,0.35)',
+        'border-radius:6px',
+        'padding:4px 10px', 'cursor:pointer'
+    ].join(';');
+    function updateTodayStyle() {
+        if (todayOnly) {
+            todayBtn.style.background = 'rgba(255,210,120,0.30)';
+            todayBtn.style.borderColor = 'rgba(255,220,140,0.75)';
+            todayBtn.style.color = '#fff7c8';
+        } else {
+            todayBtn.style.background = 'rgba(40,60,100,0.45)';
+            todayBtn.style.borderColor = 'rgba(120,160,210,0.35)';
+            todayBtn.style.color = '#cfe6ff';
+        }
+    }
+    todayBtn.addEventListener('click', () => {
+        todayOnly = !todayOnly;
+        updateTodayStyle();
+        render();
+    });
+    todayRow.appendChild(todayBtn);
+    const todayHint = document.createElement('span');
+    todayHint.style.cssText = 'font:11px/1.2 monospace;color:#7da7d6;';
+    todayHint.textContent = 'Show only sights you discovered today';
+    todayRow.appendChild(todayHint);
+    panel.appendChild(todayRow);
+
     const listWrap = document.createElement('div');
     listWrap.style.cssText = 'overflow-y:auto;max-height:60vh;padding-right:4px;display:flex;flex-direction:column;gap:5px;';
     panel.appendChild(listWrap);
@@ -168,16 +204,22 @@ export function createCosmicSightLog({ audio } = {}) {
 
     function render() {
         const allEntries = loadLog();
-        const entries = currentFilter === 'all'
+        const _isToday = (ts) => {
+            try { const d = new Date(ts); const n = new Date(); return d.toDateString() === n.toDateString(); }
+            catch (_) { return false; }
+        };
+        let entries = currentFilter === 'all'
             ? allEntries
             : allEntries.filter(e => categorize(e.name) === currentFilter);
+        if (todayOnly) entries = entries.filter(e => _isToday(e.ts));
         listWrap.innerHTML = '';
         if (allEntries.length === 0) {
             subtitle.textContent = '0 entries';
-        } else if (currentFilter === 'all') {
+        } else if (currentFilter === 'all' && !todayOnly) {
             subtitle.textContent = `${allEntries.length} entr${allEntries.length === 1 ? 'y' : 'ies'} · most recent first`;
         } else {
-            subtitle.textContent = `${entries.length} of ${allEntries.length} (filtered)`;
+            const tag = todayOnly ? ' · today only' : '';
+            subtitle.textContent = `${entries.length} of ${allEntries.length} (filtered)${tag}`;
         }
         if (allEntries.length === 0) {
             const empty = document.createElement('div');
