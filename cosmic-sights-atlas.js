@@ -258,6 +258,79 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     });
     controlsRow.appendChild(randomBtn);
 
+    // 📋 Export progress snapshot to clipboard as JSON
+    const exportBtn = document.createElement('button');
+    exportBtn.textContent = '📋 Export';
+    exportBtn.title = 'Copy your cosmic-sight progress as JSON to the clipboard';
+    exportBtn.style.cssText = [
+      'background:transparent', 'color:#a8efb2',
+      'border:1px solid rgba(168,239,178,0.45)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    exportBtn.addEventListener('mouseenter', () => { exportBtn.style.background = 'rgba(168,239,178,0.18)'; });
+    exportBtn.addEventListener('mouseleave', () => { exportBtn.style.background = 'transparent'; });
+    exportBtn.addEventListener('click', async () => {
+      const discoveredNow = loadDiscoveredSet();
+      const favoritesNow = loadFavoritesSet();
+      // Build per-category counts
+      const catTotals = {};
+      const catFound = {};
+      for (const s of sights) {
+        const c = categorize(s.name);
+        catTotals[c] = (catTotals[c] || 0) + 1;
+        if (discoveredNow.has(s.name)) catFound[c] = (catFound[c] || 0) + 1;
+      }
+      const snapshot = {
+        format: 'aiv-cosmic-sights-atlas-export',
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        totals: {
+          totalSights: sights.length,
+          discovered: discoveredNow.size,
+          favorites: favoritesNow.size,
+          percentDiscovered: sights.length > 0 ? +((discoveredNow.size / sights.length) * 100).toFixed(2) : 0,
+        },
+        byCategory: Object.keys(catTotals).map((id) => ({
+          id,
+          label: (CATEGORY_RULES.find(r => r.id === id)?.label) || id,
+          total: catTotals[id],
+          discovered: catFound[id] || 0,
+          percent: catTotals[id] > 0 ? +(((catFound[id] || 0) / catTotals[id]) * 100).toFixed(1) : 0,
+        })),
+        discovered: Array.from(discoveredNow).sort(),
+        favorites: Array.from(favoritesNow).sort(),
+      };
+      const text = JSON.stringify(snapshot, null, 2);
+      let copied = false;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        }
+      } catch (_) {}
+      if (!copied) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copied = true;
+        } catch (_) {}
+      }
+      const original = exportBtn.textContent;
+      exportBtn.textContent = copied ? '✓ Copied!' : '⚠ Failed';
+      exportBtn.style.background = copied ? 'rgba(168,239,178,0.45)' : 'rgba(255,120,120,0.35)';
+      setTimeout(() => {
+        exportBtn.textContent = original;
+        exportBtn.style.background = 'transparent';
+      }, 1400);
+    });
+    controlsRow.appendChild(exportBtn);
+
     header.appendChild(controlsRow);
     panel.appendChild(header);
 
