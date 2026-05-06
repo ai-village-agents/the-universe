@@ -6030,6 +6030,724 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(hotdogStandGroup);
 
 
+  // --- v41: pelican flock formation, beach fireflies, horseshoe game ------
+  // Pelican V-formation flying overhead (5 birds)
+  const pelicanFlockGroup = new THREE.Group();
+  const pfBirds = [];
+  for (let pi = 0; pi < 5; pi++) {
+    const birdGroup = new THREE.Group();
+    const birdBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xe8e8df })
+    );
+    birdBody.scale.set(1, 0.6, 1.4);
+    birdGroup.add(birdBody);
+    const birdHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 6, 5),
+      new THREE.MeshLambertMaterial({ color: 0xf5f5e8 })
+    );
+    birdHead.position.set(0, 0.05, 0.22);
+    birdGroup.add(birdHead);
+    const birdBeak = new THREE.Mesh(
+      new THREE.ConeGeometry(0.04, 0.18, 5),
+      new THREE.MeshLambertMaterial({ color: 0xd8a040 })
+    );
+    birdBeak.rotation.x = Math.PI / 2;
+    birdBeak.position.set(0, 0.04, 0.36);
+    birdGroup.add(birdBeak);
+    const wingL = new THREE.Mesh(
+      new THREE.BoxGeometry(0.55, 0.03, 0.18),
+      new THREE.MeshLambertMaterial({ color: 0xd0d0c4 })
+    );
+    wingL.position.set(-0.32, 0.04, 0);
+    birdGroup.add(wingL);
+    const wingR = wingL.clone();
+    wingR.position.set(0.32, 0.04, 0);
+    birdGroup.add(wingR);
+    // V-formation positions: leader at 0,0; behind in V
+    const row = pi === 0 ? 0 : Math.ceil(pi / 2);
+    const side = pi === 0 ? 0 : (pi % 2 === 1 ? -1 : 1);
+    birdGroup.position.set(side * row * 1.2, 0, -row * 1.4);
+    pelicanFlockGroup.add(birdGroup);
+    pfBirds.push({ group: birdGroup, wingL, wingR, phase: pi * 0.4 });
+  }
+  pelicanFlockGroup.position.set(-30, 14, 20);
+  group.add(pelicanFlockGroup);
+
+  // Beach fireflies cluster (8 small glowing sprites)
+  const fireflyGroup = new THREE.Group();
+  const fireflies = [];
+  for (let fi = 0; fi < 8; fi++) {
+    const ff = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 6, 5),
+      new THREE.MeshBasicMaterial({ color: 0xfff388, transparent: true, opacity: 0.9 })
+    );
+    const ffx = (Math.random() - 0.5) * 6;
+    const ffz = (Math.random() - 0.5) * 4;
+    ff.position.set(ffx, 0.5 + Math.random() * 0.8, ffz);
+    fireflyGroup.add(ff);
+    fireflies.push({
+      mesh: ff,
+      baseX: ffx,
+      baseZ: ffz,
+      baseY: 0.5 + Math.random() * 0.8,
+      speed: 0.4 + Math.random() * 0.5,
+      phase: Math.random() * Math.PI * 2,
+      blinkPhase: Math.random() * Math.PI * 2,
+    });
+  }
+  fireflyGroup.position.set(15, 0, 16);
+  group.add(fireflyGroup);
+
+  // Horseshoe game: two stakes + 4 horseshoes scattered
+  const horseshoeGameGroup = new THREE.Group();
+  const hsStake1 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.7, 6),
+    new THREE.MeshLambertMaterial({ color: 0x8a6a40 })
+  );
+  hsStake1.position.set(0, 0.35, 0);
+  horseshoeGameGroup.add(hsStake1);
+  const hsStake2 = hsStake1.clone();
+  hsStake2.position.set(0, 0.35, 5);
+  horseshoeGameGroup.add(hsStake2);
+  // Sand patches around each stake
+  const hsSandMat = new THREE.MeshLambertMaterial({ color: 0xd9c08a });
+  const hsSand1 = new THREE.Mesh(new THREE.CircleGeometry(0.7, 16), hsSandMat);
+  hsSand1.rotation.x = -Math.PI / 2;
+  hsSand1.position.set(0, 0.02, 0);
+  horseshoeGameGroup.add(hsSand1);
+  const hsSand2 = hsSand1.clone();
+  hsSand2.position.set(0, 0.02, 5);
+  horseshoeGameGroup.add(hsSand2);
+  // 4 horseshoes (torus segments) at various positions
+  const hsShoeMat = new THREE.MeshLambertMaterial({ color: 0x707880 });
+  const horseshoes = [];
+  const hsPositions = [
+    { x: 0.0, z: 0.05, ry: 0.3 },     // ringer on stake 1
+    { x: 0.4, z: 0.6, ry: 1.2 },
+    { x: -0.3, z: 4.6, ry: 0.7 },
+    { x: 0.2, z: 5.2, ry: 2.1 },
+  ];
+  hsPositions.forEach((p) => {
+    const shoe = new THREE.Mesh(
+      new THREE.TorusGeometry(0.18, 0.04, 6, 12, Math.PI * 1.4),
+      hsShoeMat
+    );
+    shoe.rotation.x = -Math.PI / 2;
+    shoe.rotation.z = p.ry;
+    shoe.position.set(p.x, 0.04, p.z);
+    horseshoeGameGroup.add(shoe);
+    horseshoes.push(shoe);
+  });
+  // Two players (figures) at each end
+  const hsPlayer1 = new THREE.Group();
+  const hsP1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x3060a0 })
+  );
+  hsP1Body.position.y = 0.35;
+  hsPlayer1.add(hsP1Body);
+  const hsP1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  hsP1Head.position.y = 0.83;
+  hsPlayer1.add(hsP1Head);
+  hsPlayer1.position.set(-1.4, 0, 0);
+  horseshoeGameGroup.add(hsPlayer1);
+  const hsPlayer2 = hsPlayer1.clone();
+  hsPlayer2.position.set(1.4, 0, 5);
+  horseshoeGameGroup.add(hsPlayer2);
+  horseshoeGameGroup.position.set(8, 0.05, 22);
+  horseshoeGameGroup.rotation.y = 0.4;
+  group.add(horseshoeGameGroup);
+
+  // --- v42: beach yoga class, sand turtle sculpture, pier starfish keeper -
+  // Beach yoga class: 4 figures in tree pose on mats facing the same way
+  const yogaClassGroup = new THREE.Group();
+  const yogaMatColors = [0xe87878, 0x78c0e8, 0x90d878, 0xd8a878];
+  const yogaPeople = [];
+  for (let yi = 0; yi < 4; yi++) {
+    const matMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.2, 0.5),
+      new THREE.MeshLambertMaterial({ color: yogaMatColors[yi], side: THREE.DoubleSide })
+    );
+    matMesh.rotation.x = -Math.PI / 2;
+    matMesh.position.set(yi * 1.6 - 2.4, 0.02, 0);
+    yogaClassGroup.add(matMesh);
+    const ygPerson = new THREE.Group();
+    const ygTorso = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+      new THREE.MeshLambertMaterial({ color: 0xc0d0e8 })
+    );
+    ygTorso.position.y = 0.55;
+    ygPerson.add(ygTorso);
+    const ygHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+    );
+    ygHead.position.y = 0.96;
+    ygPerson.add(ygHead);
+    // standing leg
+    const ygLegStand = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4070a0 })
+    );
+    ygLegStand.position.set(0, 0.27, 0);
+    ygPerson.add(ygLegStand);
+    // tree-pose folded leg
+    const ygLegFold = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.4, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4070a0 })
+    );
+    ygLegFold.position.set(0.16, 0.42, 0);
+    ygLegFold.rotation.z = -1.0;
+    ygPerson.add(ygLegFold);
+    // arms raised in prayer
+    const ygArmL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6),
+      new THREE.MeshLambertMaterial({ color: 0xc0d0e8 })
+    );
+    ygArmL.position.set(-0.04, 1.05, 0);
+    ygArmL.rotation.z = 0.2;
+    ygPerson.add(ygArmL);
+    const ygArmR = ygArmL.clone();
+    ygArmR.position.set(0.04, 1.05, 0);
+    ygArmR.rotation.z = -0.2;
+    ygPerson.add(ygArmR);
+    ygPerson.position.set(yi * 1.6 - 2.4, 0, 0);
+    yogaClassGroup.add(ygPerson);
+    yogaPeople.push({ group: ygPerson, phase: yi * 0.5 });
+  }
+  // Instructor in front facing class
+  const yogaInstructor = new THREE.Group();
+  const ygInsTorso = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.17, 0.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0xa07090 })
+  );
+  ygInsTorso.position.y = 0.6;
+  yogaInstructor.add(ygInsTorso);
+  const ygInsHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  ygInsHead.position.y = 1.03;
+  yogaInstructor.add(ygInsHead);
+  yogaInstructor.position.set(0, 0, 1.6);
+  yogaInstructor.rotation.y = Math.PI;
+  yogaClassGroup.add(yogaInstructor);
+  yogaClassGroup.position.set(-12, 0.05, 24);
+  yogaClassGroup.rotation.y = -0.3;
+  group.add(yogaClassGroup);
+
+  // Sand turtle sculpture
+  const sandTurtleGroup = new THREE.Group();
+  const stMat = new THREE.MeshLambertMaterial({ color: 0xe6d098 });
+  const stShell = new THREE.Mesh(new THREE.SphereGeometry(0.6, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), stMat);
+  stShell.position.y = 0.05;
+  sandTurtleGroup.add(stShell);
+  const stHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), stMat);
+  stHead.position.set(0, 0.18, 0.65);
+  sandTurtleGroup.add(stHead);
+  // 4 flippers
+  const stFlipper1 = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.08, 0.18), stMat);
+  stFlipper1.position.set(-0.5, 0.08, 0.35);
+  stFlipper1.rotation.y = -0.5;
+  sandTurtleGroup.add(stFlipper1);
+  const stFlipper2 = stFlipper1.clone();
+  stFlipper2.position.set(0.5, 0.08, 0.35);
+  stFlipper2.rotation.y = 0.5;
+  sandTurtleGroup.add(stFlipper2);
+  const stFlipper3 = stFlipper1.clone();
+  stFlipper3.position.set(-0.5, 0.08, -0.35);
+  stFlipper3.rotation.y = 0.5;
+  sandTurtleGroup.add(stFlipper3);
+  const stFlipper4 = stFlipper1.clone();
+  stFlipper4.position.set(0.5, 0.08, -0.35);
+  stFlipper4.rotation.y = -0.5;
+  sandTurtleGroup.add(stFlipper4);
+  // Shell pattern - 3 small bumps
+  for (let bi = 0; bi < 3; bi++) {
+    const bump = new THREE.Mesh(new THREE.SphereGeometry(0.12, 6, 5), stMat);
+    bump.position.set((bi - 1) * 0.25, 0.55, 0);
+    sandTurtleGroup.add(bump);
+  }
+  sandTurtleGroup.position.set(20, 0.05, 18);
+  sandTurtleGroup.rotation.y = 0.8;
+  group.add(sandTurtleGroup);
+
+  // Pier-end starfish keeper: figure with bucket of starfish
+  const starfishKeeperGroup = new THREE.Group();
+  const sfkBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x40a060 })
+  );
+  sfkBody.position.y = 0.35;
+  starfishKeeperGroup.add(sfkBody);
+  const sfkHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  sfkHead.position.y = 0.85;
+  starfishKeeperGroup.add(sfkHead);
+  const sfkHat = new THREE.Mesh(
+    new THREE.ConeGeometry(0.22, 0.18, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc8a060 })
+  );
+  sfkHat.position.y = 1.02;
+  starfishKeeperGroup.add(sfkHat);
+  // Bucket
+  const sfkBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.18, 0.3, 10, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0x6080a0, side: THREE.DoubleSide })
+  );
+  sfkBucket.position.set(0.4, 0.2, 0.2);
+  starfishKeeperGroup.add(sfkBucket);
+  // Starfish in bucket (3 visible tops)
+  const sfkStars = [];
+  const sfkStarColors = [0xe05060, 0xe07050, 0xe0a040];
+  for (let si = 0; si < 3; si++) {
+    const star = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.1, 0.1, 0.04, 5),
+      new THREE.MeshLambertMaterial({ color: sfkStarColors[si] })
+    );
+    star.position.set(0.4 + (si - 1) * 0.06, 0.36, 0.2 + (si % 2) * 0.04);
+    star.rotation.y = si * 0.5;
+    starfishKeeperGroup.add(star);
+    sfkStars.push(star);
+  }
+  // Starfish on pier deck nearby (clearly placed by keeper)
+  const sfkDeckStar = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.14, 0.04, 5),
+    new THREE.MeshLambertMaterial({ color: 0xd05050 })
+  );
+  sfkDeckStar.position.set(-0.5, 0.04, 0.3);
+  starfishKeeperGroup.add(sfkDeckStar);
+  starfishKeeperGroup.position.set(2, 1.05, -16);
+  starfishKeeperGroup.rotation.y = -0.4;
+  group.add(starfishKeeperGroup);
+
+  // --- v43: sandcastle contest, fish market stall, volleyball spectators -
+  // Sandcastle contest: 3 sandcastles + judge with clipboard
+  const sandcastleContestGroup = new THREE.Group();
+  const scMat = new THREE.MeshLambertMaterial({ color: 0xe8d8a0 });
+  // Castle 1: simple tower with crenellations
+  const castle1Group = new THREE.Group();
+  const c1Base = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 1.0), scMat);
+  c1Base.position.y = 0.2;
+  castle1Group.add(c1Base);
+  const c1Tower = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), scMat);
+  c1Tower.position.y = 0.75;
+  castle1Group.add(c1Tower);
+  for (let ci = 0; ci < 4; ci++) {
+    const cren = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.12, 0.18), scMat);
+    const ang = ci * Math.PI / 2;
+    cren.position.set(Math.cos(ang) * 0.4, 0.46, Math.sin(ang) * 0.4);
+    castle1Group.add(cren);
+  }
+  const c1Flag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.18, 0.12),
+    new THREE.MeshLambertMaterial({ color: 0xe04050, side: THREE.DoubleSide })
+  );
+  c1Flag.position.set(0.05, 1.18, 0);
+  castle1Group.add(c1Flag);
+  castle1Group.position.set(-2, 0, 0);
+  sandcastleContestGroup.add(castle1Group);
+  // Castle 2: pyramid stepped
+  const castle2Group = new THREE.Group();
+  for (let py = 0; py < 4; py++) {
+    const sz = 1.0 - py * 0.22;
+    const block = new THREE.Mesh(new THREE.BoxGeometry(sz, 0.18, sz), scMat);
+    block.position.y = 0.09 + py * 0.18;
+    castle2Group.add(block);
+  }
+  castle2Group.position.set(0, 0, 0);
+  sandcastleContestGroup.add(castle2Group);
+  // Castle 3: twin towers connected by wall
+  const castle3Group = new THREE.Group();
+  const c3Wall = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.35, 0.4), scMat);
+  c3Wall.position.y = 0.18;
+  castle3Group.add(c3Wall);
+  const c3T1 = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.6, 8), scMat);
+  c3T1.position.set(-0.5, 0.65, 0);
+  castle3Group.add(c3T1);
+  const c3T2 = c3T1.clone();
+  c3T2.position.set(0.5, 0.65, 0);
+  castle3Group.add(c3T2);
+  const c3Roof1 = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.25, 6), new THREE.MeshLambertMaterial({ color: 0x6080d0 }));
+  c3Roof1.position.set(-0.5, 1.05, 0);
+  castle3Group.add(c3Roof1);
+  const c3Roof2 = c3Roof1.clone();
+  c3Roof2.position.set(0.5, 1.05, 0);
+  castle3Group.add(c3Roof2);
+  castle3Group.position.set(2, 0, 0);
+  sandcastleContestGroup.add(castle3Group);
+  // Judge with clipboard
+  const sandJudge = new THREE.Group();
+  const sjBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe0c060 })
+  );
+  sjBody.position.y = 0.38;
+  sandJudge.add(sjBody);
+  const sjHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  sjHead.position.y = 0.88;
+  sandJudge.add(sjHead);
+  const sjClipboard = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.3, 0.03),
+    new THREE.MeshLambertMaterial({ color: 0xf0eada })
+  );
+  sjClipboard.position.set(0.3, 0.55, 0.15);
+  sjClipboard.rotation.y = -0.3;
+  sandJudge.add(sjClipboard);
+  sandJudge.position.set(0, 0, 1.6);
+  sandJudge.rotation.y = Math.PI;
+  sandcastleContestGroup.add(sandJudge);
+  sandcastleContestGroup.position.set(28, 0.05, 22);
+  sandcastleContestGroup.rotation.y = -0.5;
+  group.add(sandcastleContestGroup);
+
+  // Fish market stall on pier
+  const fishMarketGroup = new THREE.Group();
+  const fmCounter = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.7, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0xa07050 })
+  );
+  fmCounter.position.y = 0.35;
+  fishMarketGroup.add(fmCounter);
+  const fmAwning = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.06, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0x4080a0 })
+  );
+  fmAwning.position.y = 1.6;
+  fishMarketGroup.add(fmAwning);
+  // Awning posts
+  for (let pi = 0; pi < 4; pi++) {
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 1.2, 6),
+      new THREE.MeshLambertMaterial({ color: 0x402010 })
+    );
+    post.position.set((pi % 2 === 0 ? -1 : 1) * 1.2, 1.0, (pi < 2 ? -1 : 1) * 0.6);
+    fishMarketGroup.add(post);
+  }
+  // Ice + fish on counter
+  const fmIce = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.08, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xeaf6fb, transparent: true, opacity: 0.8 })
+  );
+  fmIce.position.y = 0.74;
+  fishMarketGroup.add(fmIce);
+  const fmFish = [];
+  const fmFishColors = [0x70a0c0, 0x80b0c8, 0xc08070, 0x90c0d0, 0xc09060];
+  for (let fi = 0; fi < 5; fi++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshLambertMaterial({ color: fmFishColors[fi] })
+    );
+    f.scale.set(0.6, 0.4, 1.5);
+    f.position.set((fi - 2) * 0.42, 0.78, 0);
+    f.rotation.y = (fi % 2 === 0 ? 0.2 : -0.2);
+    fishMarketGroup.add(f);
+    fmFish.push(f);
+  }
+  // Fish market vendor
+  const fmVendor = new THREE.Group();
+  const fmvBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x508040 })
+  );
+  fmvBody.position.y = 0.35;
+  fmVendor.add(fmvBody);
+  const fmvHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  fmvHead.position.y = 0.85;
+  fmVendor.add(fmvHead);
+  const fmvApron = new THREE.Mesh(
+    new THREE.BoxGeometry(0.32, 0.5, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  fmvApron.position.set(0, 0.4, 0.15);
+  fmVendor.add(fmvApron);
+  fmVendor.position.set(0, 0, -0.7);
+  fishMarketGroup.add(fmVendor);
+  fishMarketGroup.position.set(-3, 1.05, -10);
+  fishMarketGroup.rotation.y = 0.3;
+  group.add(fishMarketGroup);
+
+  // Beach volleyball spectator pair on towels
+  const vbSpectatorsGroup = new THREE.Group();
+  const vbsTowel1 = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xe05080, side: THREE.DoubleSide })
+  );
+  vbsTowel1.rotation.x = -Math.PI / 2;
+  vbsTowel1.position.set(0, 0.02, 0);
+  vbSpectatorsGroup.add(vbsTowel1);
+  const vbsTowel2 = vbsTowel1.clone();
+  vbsTowel2.material = new THREE.MeshLambertMaterial({ color: 0x5080d0, side: THREE.DoubleSide });
+  vbsTowel2.position.set(2, 0.02, 0);
+  vbSpectatorsGroup.add(vbsTowel2);
+  // Spectator 1 (sitting up)
+  const vbSpec1 = new THREE.Group();
+  const vs1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc06080 })
+  );
+  vs1Body.position.y = 0.25;
+  vbSpec1.add(vs1Body);
+  const vs1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  vs1Head.position.y = 0.62;
+  vbSpec1.add(vs1Head);
+  vbSpec1.position.set(0, 0, 0);
+  vbSpectatorsGroup.add(vbSpec1);
+  // Spectator 2 (lying down)
+  const vbSpec2 = new THREE.Group();
+  const vs2Body = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.18, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0x6080c0 })
+  );
+  vs2Body.position.set(0, 0.13, 0.1);
+  vbSpec2.add(vs2Body);
+  const vs2Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  vs2Head.position.set(0, 0.18, -0.6);
+  vbSpec2.add(vs2Head);
+  vbSpec2.position.set(2, 0, 0);
+  vbSpectatorsGroup.add(vbSpec2);
+  // Cooler between them
+  const vbsCooler = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.3, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0xeae0d0 })
+  );
+  vbsCooler.position.set(1, 0.18, 0.4);
+  vbSpectatorsGroup.add(vbsCooler);
+  vbSpectatorsGroup.position.set(2, 0.05, 26);
+  vbSpectatorsGroup.rotation.y = -0.4;
+  group.add(vbSpectatorsGroup);
+
+  // --- v44: anemone tide pool, net-mending fishermen, shore patrol jeep ---
+  // Anemone tide pool — different from existing tide pool, sits on rocks
+  const anemonePoolGroup = new THREE.Group();
+  const apRockBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.2, 2.6, 0.4, 16),
+    new THREE.MeshLambertMaterial({ color: 0x6b6258 })
+  );
+  apRockBase.position.y = 0.2;
+  anemonePoolGroup.add(apRockBase);
+  // Inner pool basin
+  const apPoolWater = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.6, 1.4, 0.18, 16),
+    new THREE.MeshLambertMaterial({ color: 0x4a8aa8, transparent: true, opacity: 0.78 })
+  );
+  apPoolWater.position.y = 0.42;
+  anemonePoolGroup.add(apPoolWater);
+  // Anemones — colorful flower-like creatures
+  const anemoneColors = [0xff6677, 0xffaa44, 0xaa55cc, 0x55ccaa, 0xff8855, 0xcc6688];
+  const apAnemones = [];
+  for (let i = 0; i < 6; i++) {
+    const aGroup = new THREE.Group();
+    const aBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.18, 0.18, 8),
+      new THREE.MeshLambertMaterial({ color: anemoneColors[i] })
+    );
+    aBody.position.y = 0.09;
+    aGroup.add(aBody);
+    // Tentacles — 6 short cones around the top
+    for (let j = 0; j < 6; j++) {
+      const tent = new THREE.Mesh(
+        new THREE.ConeGeometry(0.025, 0.18, 4),
+        new THREE.MeshLambertMaterial({ color: anemoneColors[i] })
+      );
+      const ang = (j / 6) * Math.PI * 2;
+      tent.position.set(Math.cos(ang) * 0.1, 0.22, Math.sin(ang) * 0.1);
+      tent.rotation.z = Math.cos(ang) * 0.4;
+      tent.rotation.x = Math.sin(ang) * 0.4;
+      aGroup.add(tent);
+    }
+    const angle = (i / 6) * Math.PI * 2 + 0.3;
+    aGroup.position.set(Math.cos(angle) * 0.9, 0.5, Math.sin(angle) * 0.9);
+    apAnemones.push(aGroup);
+    anemonePoolGroup.add(aGroup);
+  }
+  // Two small starfish on the rim
+  const apStarMat = new THREE.MeshLambertMaterial({ color: 0xff7755 });
+  for (let i = 0; i < 2; i++) {
+    const star = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.06, 5), apStarMat);
+    star.rotation.x = -Math.PI / 2;
+    star.position.set(i === 0 ? -1.6 : 1.5, 0.43, i === 0 ? 0.4 : -0.5);
+    anemonePoolGroup.add(star);
+  }
+  // Small dart fish in pool (3 specks)
+  const apFish = [];
+  for (let i = 0; i < 3; i++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.05, 5, 4),
+      new THREE.MeshLambertMaterial({ color: 0xffd866 })
+    );
+    f.position.set(Math.cos(i * 2) * 0.7, 0.55, Math.sin(i * 2) * 0.7);
+    apFish.push(f);
+    anemonePoolGroup.add(f);
+  }
+  anemonePoolGroup.position.set(-26, 0.05, 28);
+  group.add(anemonePoolGroup);
+
+  // Net-mending fishermen — two figures on the dock with a fishing net spread between them
+  const netMendingGroup = new THREE.Group();
+  // The net itself — flat plane representing spread net
+  const netCanvas = document.createElement('canvas');
+  netCanvas.width = 64; netCanvas.height = 64;
+  const netCtx = netCanvas.getContext('2d');
+  netCtx.fillStyle = '#a8a39a';
+  netCtx.fillRect(0, 0, 64, 64);
+  netCtx.strokeStyle = '#5a5248';
+  netCtx.lineWidth = 1.2;
+  for (let i = 0; i < 8; i++) {
+    netCtx.beginPath(); netCtx.moveTo(i * 8, 0); netCtx.lineTo(i * 8, 64); netCtx.stroke();
+    netCtx.beginPath(); netCtx.moveTo(0, i * 8); netCtx.lineTo(64, i * 8); netCtx.stroke();
+  }
+  const netTex = new THREE.CanvasTexture(netCanvas);
+  netTex.wrapS = netTex.wrapT = THREE.RepeatWrapping;
+  netTex.repeat.set(3, 3);
+  const netMat = new THREE.MeshLambertMaterial({ map: netTex, transparent: true, opacity: 0.85, side: THREE.DoubleSide });
+  const fishingNet = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 1.6), netMat);
+  fishingNet.rotation.x = -Math.PI / 2;
+  fishingNet.position.y = 0.05;
+  netMendingGroup.add(fishingNet);
+  // Two fishermen seated cross-legged, mending the net
+  const nmFisher1 = new THREE.Group();
+  const nmf1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a6488 })
+  );
+  nmf1Body.position.y = 0.25;
+  nmFisher1.add(nmf1Body);
+  const nmf1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xd4a878 })
+  );
+  nmf1Head.position.y = 0.6;
+  nmFisher1.add(nmf1Head);
+  // Beanie cap
+  const nmf1Hat = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshLambertMaterial({ color: 0x884444 })
+  );
+  nmf1Hat.position.y = 0.66;
+  nmFisher1.add(nmf1Hat);
+  nmFisher1.position.set(-1.6, 0, 0);
+  nmFisher1.rotation.y = Math.PI / 2;
+  netMendingGroup.add(nmFisher1);
+  const nmFisher2 = new THREE.Group();
+  const nmf2Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0x886644 })
+  );
+  nmf2Body.position.y = 0.25;
+  nmFisher2.add(nmf2Body);
+  const nmf2Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xc89870 })
+  );
+  nmf2Head.position.y = 0.6;
+  nmFisher2.add(nmf2Head);
+  nmFisher2.position.set(1.6, 0, 0);
+  nmFisher2.rotation.y = -Math.PI / 2;
+  netMendingGroup.add(nmFisher2);
+  // Small toolbox with mending tools
+  const nmToolbox = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.18, 0.22),
+    new THREE.MeshLambertMaterial({ color: 0x5a4a3a })
+  );
+  nmToolbox.position.set(-1.2, 0.09, 0.7);
+  netMendingGroup.add(nmToolbox);
+  netMendingGroup.position.set(7.5, 1.55, 14);
+  netMendingGroup.rotation.y = 0.3;
+  group.add(netMendingGroup);
+
+  // Shore patrol jeep — sand-colored jeep with light bar parked on beach
+  const patrolJeepGroup = new THREE.Group();
+  const pjBody = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.55, 2.4),
+    new THREE.MeshLambertMaterial({ color: 0xc9b585 })
+  );
+  pjBody.position.y = 0.45;
+  patrolJeepGroup.add(pjBody);
+  // Cabin
+  const pjCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.6, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0xa89570 })
+  );
+  pjCabin.position.set(0, 0.95, -0.1);
+  patrolJeepGroup.add(pjCabin);
+  // Windshield
+  const pjWindshield = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.3, 0.5),
+    new THREE.MeshBasicMaterial({ color: 0x88aacc, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  pjWindshield.position.set(0, 1.0, 0.5);
+  pjWindshield.rotation.x = -0.25;
+  patrolJeepGroup.add(pjWindshield);
+  // Wheels — 4
+  const pjWheelMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const pjWheelGeom = new THREE.CylinderGeometry(0.3, 0.3, 0.2, 12);
+  const pjWheelPositions = [[-0.7, 0.3, 0.85], [0.7, 0.3, 0.85], [-0.7, 0.3, -0.85], [0.7, 0.3, -0.85]];
+  pjWheelPositions.forEach(p => {
+    const w = new THREE.Mesh(pjWheelGeom, pjWheelMat);
+    w.position.set(p[0], p[1], p[2]);
+    w.rotation.z = Math.PI / 2;
+    patrolJeepGroup.add(w);
+  });
+  // Light bar on roof — red and blue
+  const pjLightBarBase = new THREE.Mesh(
+    new THREE.BoxGeometry(1.2, 0.1, 0.2),
+    new THREE.MeshLambertMaterial({ color: 0x333333 })
+  );
+  pjLightBarBase.position.set(0, 1.31, -0.1);
+  patrolJeepGroup.add(pjLightBarBase);
+  const pjLightRed = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.12, 0.15),
+    new THREE.MeshBasicMaterial({ color: 0xff3322 })
+  );
+  pjLightRed.position.set(-0.3, 1.4, -0.1);
+  patrolJeepGroup.add(pjLightRed);
+  const pjLightBlue = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.12, 0.15),
+    new THREE.MeshBasicMaterial({ color: 0x2266ff })
+  );
+  pjLightBlue.position.set(0.3, 1.4, -0.1);
+  patrolJeepGroup.add(pjLightBlue);
+  // PATROL text on door — small canvas sign
+  const pjSignCanvas = document.createElement('canvas');
+  pjSignCanvas.width = 128; pjSignCanvas.height = 32;
+  const pjSignCtx = pjSignCanvas.getContext('2d');
+  pjSignCtx.fillStyle = '#c9b585';
+  pjSignCtx.fillRect(0, 0, 128, 32);
+  pjSignCtx.fillStyle = '#222222';
+  pjSignCtx.font = 'bold 22px sans-serif';
+  pjSignCtx.textAlign = 'center';
+  pjSignCtx.fillText('SHORE PATROL', 64, 24);
+  const pjSignTex = new THREE.CanvasTexture(pjSignCanvas);
+  const pjSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.2, 0.3),
+    new THREE.MeshBasicMaterial({ map: pjSignTex, transparent: true })
+  );
+  pjSign.position.set(0.81, 0.7, 0);
+  pjSign.rotation.y = -Math.PI / 2;
+  patrolJeepGroup.add(pjSign);
+  patrolJeepGroup.position.set(-15, 0.05, 22);
+  patrolJeepGroup.rotation.y = 0.6;
+  group.add(patrolJeepGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7388,6 +8106,71 @@ export function createAnchorageLandmark(THREE, opts) {
       // Hot dog stand: customer bobs slightly, vendor turns head
       hdsCustomer.position.y = Math.abs(Math.sin(t * 0.8)) * 0.03;
       hdsVendor.rotation.y = Math.sin(t * 0.5) * 0.3;
+
+      // v41: pelican flock formation flying
+      pelicanFlockGroup.position.x += dt * 1.2;
+      if (pelicanFlockGroup.position.x > 60) pelicanFlockGroup.position.x = -60;
+      pfBirds.forEach((b) => {
+        const flap = Math.sin(t * 6 + b.phase) * 0.5;
+        b.wingL.rotation.z = flap;
+        b.wingR.rotation.z = -flap;
+      });
+      // v41: fireflies wandering and blinking
+      fireflies.forEach((f) => {
+        f.mesh.position.x = f.baseX + Math.sin(t * f.speed + f.phase) * 0.4;
+        f.mesh.position.z = f.baseZ + Math.cos(t * f.speed * 0.8 + f.phase) * 0.3;
+        f.mesh.position.y = f.baseY + Math.sin(t * f.speed * 1.3 + f.phase) * 0.15;
+        f.mesh.material.opacity = 0.4 + Math.abs(Math.sin(t * 2 + f.blinkPhase)) * 0.6;
+      });
+      // v41: horseshoes glint
+      horseshoes.forEach((shoe, hi) => {
+        shoe.rotation.z += dt * (hi === 0 ? 0 : 0.05) * (hi % 2 === 0 ? 1 : -1);
+      });
+
+      // v42: yoga class gentle sway
+      yogaPeople.forEach((p) => {
+        p.group.rotation.y = Math.sin(t * 0.4 + p.phase) * 0.08;
+        p.group.position.y = Math.abs(Math.sin(t * 0.6 + p.phase)) * 0.02;
+      });
+      yogaInstructor.rotation.y = Math.PI + Math.sin(t * 0.3) * 0.15;
+      // v42: starfish keeper checks bucket (head bob)
+      sfkHead.rotation.y = Math.sin(t * 0.5) * 0.4;
+      sfkHat.rotation.y = sfkHead.rotation.y;
+      sfkStars.forEach((s, si) => {
+        s.rotation.y += dt * 0.3 * (si + 1);
+      });
+
+      // v43: sandcastle judge looks around, flag flutters
+      sandJudge.rotation.y = Math.PI + Math.sin(t * 0.4) * 0.6;
+      c1Flag.rotation.y = Math.sin(t * 2) * 0.3;
+      // v43: fish market vendor head turns
+      fmvHead.rotation.y = Math.sin(t * 0.7) * 0.4;
+      fmFish.forEach((f, fi) => {
+        f.position.y = 0.78 + Math.sin(t * 0.5 + fi) * 0.005;
+      });
+      // v43: spectator 1 sways
+      vs1Body.rotation.z = Math.sin(t * 0.5) * 0.06;
+      vs1Head.rotation.y = Math.sin(t * 0.3) * 0.4;
+
+      // v44: anemone tentacles sway, fish dart in pool
+      apAnemones.forEach((a, ai) => {
+        a.rotation.y = Math.sin(t * 0.6 + ai) * 0.3;
+        a.scale.y = 1 + Math.sin(t * 1.2 + ai) * 0.08;
+      });
+      apFish.forEach((f, fi) => {
+        const ang = t * 0.7 + fi * 2.1;
+        f.position.x = Math.cos(ang) * 0.7;
+        f.position.z = Math.sin(ang) * 0.7;
+      });
+      // v44: jeep light bar alternating red/blue blink
+      const blink = Math.floor(t * 2) % 2;
+      pjLightRed.material.opacity = blink ? 1 : 0.35;
+      pjLightBlue.material.opacity = blink ? 0.35 : 1;
+      pjLightRed.material.transparent = true;
+      pjLightBlue.material.transparent = true;
+      // v44: net mending fishermen subtle hand motion (rocking body)
+      nmFisher1.rotation.y = Math.PI / 2 + Math.sin(t * 0.8) * 0.15;
+      nmFisher2.rotation.y = -Math.PI / 2 - Math.sin(t * 0.8 + 0.7) * 0.15;
 
     }
 

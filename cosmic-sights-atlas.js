@@ -141,12 +141,12 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
     header.appendChild(tip);
 
     const controlsRow = document.createElement('div');
-    controlsRow.style.cssText = 'display:flex; gap:8px; align-items:center; margin-top:6px;';
+    controlsRow.style.cssText = 'display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px; overflow:visible;';
     searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = '🔍 Filter sights by name...';
     searchInput.style.cssText = [
-      'flex:1', 'padding:5px 10px',
+      'flex:1 1 180px', 'min-width:160px', 'padding:5px 10px',
       'background:rgba(0,0,0,0.4)', 'border:1px solid rgba(125,249,255,0.3)',
       'border-radius:5px', 'color:#dbe7ff', 'font-size:12px',
       'font-family:"Trebuchet MS", sans-serif', 'outline:none',
