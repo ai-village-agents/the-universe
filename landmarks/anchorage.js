@@ -5284,6 +5284,137 @@ export function createAnchorageLandmark(THREE, opts) {
   jetskiGroup.add(jetskiWake);
   group.add(jetskiGroup);
 
+  // --- v37: Hot air balloon floating over harbor + parasailer towed by speedboat ---
+  const hotAirBalloonGroup = new THREE.Group();
+  // Envelope (large sphere) — use rainbow stripes via 4 stacked spheres scaled flat
+  const habEnvelope = new THREE.Mesh(
+    new THREE.SphereGeometry(2.0, 18, 14),
+    new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.6 })
+  );
+  habEnvelope.position.y = 3.0;
+  habEnvelope.scale.set(1, 1.15, 1);
+  hotAirBalloonGroup.add(habEnvelope);
+  // Stripes — thin cap rings of different colors
+  const habStripeColors = [0xfde68a, 0x60a5fa, 0x86efac, 0xa78bfa];
+  habStripeColors.forEach((c, i) => {
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(2.0 - i * 0.2, 0.08, 6, 22),
+      new THREE.MeshStandardMaterial({ color: c, roughness: 0.7 })
+    );
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = 3.0 + (i - 1.5) * 0.7;
+    hotAirBalloonGroup.add(ring);
+  });
+  // Basket
+  const habBasket = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.45, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0x7c5b3a, roughness: 0.85 })
+  );
+  habBasket.position.y = 0.7;
+  hotAirBalloonGroup.add(habBasket);
+  // Ropes connecting basket to habEnvelope
+  for (let i = 0; i < 4; i++) {
+    const rx = (i % 2 === 0) ? -0.32 : 0.32;
+    const rz = (i < 2) ? -0.32 : 0.32;
+    const rope = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.012, 0.012, 1.7, 4),
+      new THREE.MeshStandardMaterial({ color: 0x222222 })
+    );
+    rope.position.set(rx * 0.5, 1.6, rz * 0.5);
+    rope.rotation.x = (rz > 0 ? 1 : -1) * 0.18;
+    rope.rotation.z = (rx > 0 ? -1 : 1) * 0.18;
+    hotAirBalloonGroup.add(rope);
+  }
+  // Tiny passenger figure in basket
+  const habPassenger = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  habPassenger.position.y = 1.05;
+  hotAirBalloonGroup.add(habPassenger);
+  // Burner glow inside habEnvelope opening (small additive sphere)
+  const habBurnerGlow = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffd966, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  habBurnerGlow.position.y = 1.5;
+  hotAirBalloonGroup.add(habBurnerGlow);
+  hotAirBalloonGroup.position.set(-30, 12, -8);
+  group.add(hotAirBalloonGroup);
+
+  // Parasail rig: speedboat towing a colorful parachute with rider
+  const parasailRig = new THREE.Group();
+  // Speedboat
+  const psBoat = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.35, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.5 })
+  );
+  psBoat.position.y = 0.22;
+  parasailRig.add(psBoat);
+  const psBoatNose = new THREE.Mesh(
+    new THREE.ConeGeometry(0.36, 0.6, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.5 })
+  );
+  psBoatNose.rotation.z = -Math.PI / 2;
+  psBoatNose.position.set(1.2, 0.22, 0);
+  parasailRig.add(psBoatNose);
+  const psStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(2.05, 0.07, 0.06),
+    new THREE.MeshStandardMaterial({ color: 0x0ea5e9 })
+  );
+  psStripe.position.set(0, 0.32, 0.36);
+  parasailRig.add(psStripe);
+  // Boat wake
+  const psBoatWake = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.6, 0.5),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  psBoatWake.rotation.x = -Math.PI / 2;
+  psBoatWake.position.set(-1.6, 0.04, 0);
+  parasailRig.add(psBoatWake);
+  // Tow line (cylinder pointing back-up to parachute)
+  const psTowLine = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.012, 0.012, 6.5, 4),
+    new THREE.MeshStandardMaterial({ color: 0x222222 })
+  );
+  psTowLine.position.set(-2.6, 3.2, 0);
+  psTowLine.rotation.z = 0.55;
+  parasailRig.add(psTowLine);
+  // Parachute (large half-dome with rainbow segments)
+  const psChute = new THREE.Group();
+  const chuteColors = [0xef4444, 0xfde68a, 0x60a5fa, 0x86efac, 0xa78bfa, 0xf472b6];
+  chuteColors.forEach((c, i) => {
+    const wedge = new THREE.Mesh(
+      new THREE.SphereGeometry(1.4, 12, 8, (i / chuteColors.length) * Math.PI * 2, (Math.PI * 2) / chuteColors.length, 0, Math.PI / 2),
+      new THREE.MeshStandardMaterial({ color: c, side: THREE.DoubleSide, roughness: 0.6 })
+    );
+    psChute.add(wedge);
+  });
+  psChute.position.set(-5.3, 6.4, 0);
+  parasailRig.add(psChute);
+  // Rider hanging below the chute
+  const psRider = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0x059669 })
+  );
+  psRider.position.set(-5.3, 5.4, 0);
+  parasailRig.add(psRider);
+  const psRiderHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  psRiderHead.position.set(-5.3, 5.85, 0);
+  parasailRig.add(psRiderHead);
+  // Rider straps to chute
+  const psStrap1 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.01, 0.01, 1.0, 4),
+    new THREE.MeshStandardMaterial({ color: 0x222222 })
+  );
+  psStrap1.position.set(-5.3, 5.9, 0);
+  parasailRig.add(psStrap1);
+  parasailRig.position.set(0, 0, 0);
+  group.add(parasailRig);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6531,6 +6662,25 @@ export function createAnchorageLandmark(THREE, opts) {
     jetskiGroup.rotation.y = -jetAngle + Math.PI / 2;
     jetskiGroup.position.y = 0.18 + Math.sin(t * 4.0) * 0.04; // chop bounce
     jetskiWake.material.opacity = 0.45 + 0.18 * Math.sin(t * 3.0);
+
+    // v37: Balloon drifts in big slow loop high over harbor; parasail rig orbits offshore
+    {
+      const bAng = t * 0.05;
+      hotAirBalloonGroup.position.x = -30 + Math.cos(bAng) * 18;
+      hotAirBalloonGroup.position.z = -8 + Math.sin(bAng) * 14;
+      hotAirBalloonGroup.position.y = 12 + Math.sin(t * 0.4) * 0.4;
+      hotAirBalloonGroup.rotation.y = -bAng;
+      habBurnerGlow.material.opacity = 0.7 + 0.2 * Math.sin(t * 4.0);
+      habBurnerGlow.scale.setScalar(0.9 + 0.15 * Math.sin(t * 4.0));
+      // Parasail rig orbit
+      const pAng = t * 0.25;
+      const px = Math.cos(pAng) * 26;
+      const pz = Math.sin(pAng) * 18 - 12;
+      parasailRig.position.set(px, 0.18, pz);
+      parasailRig.rotation.y = -pAng + Math.PI / 2;
+      psBoatWake.material.opacity = 0.45 + 0.18 * Math.sin(t * 3.4);
+      psChute.rotation.y = Math.sin(t * 0.6) * 0.08;
+    }
 
   }
 
