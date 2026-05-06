@@ -7397,6 +7397,123 @@ export function createAnchorageLandmark(THREE, opts) {
   kiteSurferGroup.position.set(28, 0.0, 16);
   group.add(kiteSurferGroup);
 
+  // --- v48: diving pelican flock, souvenir bicycle vendor, lifeboat on davits -
+  // (1) pelican flock diving for fish — 4 birds in plunge over surf
+  const diveFlockGroup = new THREE.Group();
+  const dpBirdMat = new THREE.MeshLambertMaterial({ color: 0xf6f1e6 });
+  const dpWingMat = new THREE.MeshLambertMaterial({ color: 0x8a7a5c });
+  const dpBeakMat = new THREE.MeshLambertMaterial({ color: 0xe8a050 });
+  const divePelicans = [];
+  for (let i = 0; i < 4; i++) {
+    const dpBird = new THREE.Group();
+    const dpBody = new THREE.Mesh(new THREE.SphereGeometry(0.45, 10, 8), dpBirdMat);
+    dpBody.scale.set(1, 0.6, 1.4);
+    dpBird.add(dpBody);
+    const dpWing1 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.05, 0.5), dpWingMat);
+    dpWing1.position.set(0, 0.05, 0);
+    dpBird.add(dpWing1);
+    const dpBeak = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.55, 6), dpBeakMat);
+    dpBeak.rotation.x = -Math.PI / 2;
+    dpBeak.position.set(0, -0.05, 0.7);
+    dpBird.add(dpBeak);
+    dpBird.userData.phase = i * 0.7;
+    dpBird.userData.cx = -22 + i * 1.8;
+    dpBird.userData.cz = 24 + (i % 2) * 1.2;
+    divePelicans.push(dpBird);
+    diveFlockGroup.add(dpBird);
+  }
+  diveFlockGroup.position.set(0, 0, 0);
+  group.add(diveFlockGroup);
+
+  // (2) beach souvenir vendor on bicycle with cooler — riding along promenade
+  const beachBikeGroup = new THREE.Group();
+  const bbFrameMat = new THREE.MeshLambertMaterial({ color: 0xc23a3a });
+  const bbWheelMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+  const bbWheelGeom = new THREE.TorusGeometry(0.32, 0.05, 6, 16);
+  const bbWheel1 = new THREE.Mesh(bbWheelGeom, bbWheelMat);
+  bbWheel1.rotation.y = Math.PI / 2;
+  bbWheel1.position.set(0, 0.32, 0.7);
+  beachBikeGroup.add(bbWheel1);
+  const bbWheel2 = new THREE.Mesh(bbWheelGeom, bbWheelMat);
+  bbWheel2.rotation.y = Math.PI / 2;
+  bbWheel2.position.set(0, 0.32, -0.7);
+  beachBikeGroup.add(bbWheel2);
+  const bbFrame = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.08, 1.4), bbFrameMat);
+  bbFrame.position.set(0, 0.55, 0);
+  beachBikeGroup.add(bbFrame);
+  const bbSeatPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 6), bbFrameMat);
+  bbSeatPost.position.set(0, 0.75, -0.4);
+  beachBikeGroup.add(bbSeatPost);
+  const bbHandlebar = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 6), bbFrameMat);
+  bbHandlebar.rotation.z = Math.PI / 2;
+  bbHandlebar.position.set(0, 0.95, 0.5);
+  beachBikeGroup.add(bbHandlebar);
+  const bbCoolerMat = new THREE.MeshLambertMaterial({ color: 0x2a78c2 });
+  const bbCooler = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.35, 0.4), bbCoolerMat);
+  bbCooler.position.set(0, 1.05, 0.5);
+  beachBikeGroup.add(bbCooler);
+  const bbCoolerLid = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.45), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  bbCoolerLid.position.set(0, 1.25, 0.5);
+  beachBikeGroup.add(bbCoolerLid);
+  const bbRider = new THREE.Group();
+  const bbRiderBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0xffd055 }));
+  bbRiderBody.position.set(0, 1.1, -0.3);
+  bbRider.add(bbRiderBody);
+  const bbRiderHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec59a }));
+  bbRiderHead.position.set(0, 1.6, -0.3);
+  bbRider.add(bbRiderHead);
+  const bbRiderHat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.05, 12), new THREE.MeshLambertMaterial({ color: 0xfffde0 }));
+  bbRiderHat.position.set(0, 1.78, -0.3);
+  bbRider.add(bbRiderHat);
+  beachBikeGroup.add(bbRider);
+  beachBikeGroup.position.set(-15, 0, -8);
+  group.add(beachBikeGroup);
+
+  // (3) lifeboat on davits — orange lifeboat hanging from a davit frame near pier
+  const lifeboatGroup = new THREE.Group();
+  const lbDavitMat = new THREE.MeshLambertMaterial({ color: 0xc8c8c8 });
+  const lbBase = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.4, 3.2), lbDavitMat);
+  lbBase.position.set(0, 0.2, 0);
+  lifeboatGroup.add(lbBase);
+  const lbDavitPost1 = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 3.0, 8), lbDavitMat);
+  lbDavitPost1.position.set(0, 1.7, 1.4);
+  lifeboatGroup.add(lbDavitPost1);
+  const lbDavitPost2 = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 3.0, 8), lbDavitMat);
+  lbDavitPost2.position.set(0, 1.7, -1.4);
+  lifeboatGroup.add(lbDavitPost2);
+  const lbDavitArm1 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 1.6, 8), lbDavitMat);
+  lbDavitArm1.rotation.z = Math.PI / 2;
+  lbDavitArm1.position.set(-0.8, 3.2, 1.4);
+  lifeboatGroup.add(lbDavitArm1);
+  const lbDavitArm2 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 1.6, 8), lbDavitMat);
+  lbDavitArm2.rotation.z = Math.PI / 2;
+  lbDavitArm2.position.set(-0.8, 3.2, -1.4);
+  lifeboatGroup.add(lbDavitArm2);
+  const lbHullMat = new THREE.MeshLambertMaterial({ color: 0xee5511 });
+  const lbHullGeom = new THREE.CylinderGeometry(0.55, 0.4, 2.6, 10, 1, false, 0, Math.PI);
+  const lbHull = new THREE.Mesh(lbHullGeom, lbHullMat);
+  lbHull.rotation.x = Math.PI / 2;
+  lbHull.rotation.y = Math.PI;
+  lbHull.position.set(-1.6, 2.5, 0);
+  lifeboatGroup.add(lbHull);
+  const lbCanopyMat = new THREE.MeshLambertMaterial({ color: 0xd84a08 });
+  const lbCanopy = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.4, 2.0), lbCanopyMat);
+  lbCanopy.position.set(-1.6, 2.85, 0);
+  lifeboatGroup.add(lbCanopy);
+  const lbStripeMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const lbStripe = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.08, 2.5), lbStripeMat);
+  lbStripe.position.set(-1.6, 2.55, 0);
+  lifeboatGroup.add(lbStripe);
+  const lbCableMat = new THREE.LineBasicMaterial({ color: 0x202020 });
+  const lbCableGeom1 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-1.6, 3.2, 1.4), new THREE.Vector3(-1.6, 2.7, 1.0)]);
+  const lbCable1 = new THREE.Line(lbCableGeom1, lbCableMat);
+  lifeboatGroup.add(lbCable1);
+  const lbCableGeom2 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-1.6, 3.2, -1.4), new THREE.Vector3(-1.6, 2.7, -1.0)]);
+  const lbCable2 = new THREE.Line(lbCableGeom2, lbCableMat);
+  lifeboatGroup.add(lbCable2);
+  lifeboatGroup.position.set(-12, 0, 12);
+  group.add(lifeboatGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -8871,6 +8988,31 @@ export function createAnchorageLandmark(THREE, opts) {
         ssTrinkets[i].rotation.z = Math.sin(t * 0.9 + i * 0.5) * 0.18;
       }
 
+      // v48: pelican flock diving — birds plunge in cycle
+      for (let i = 0; i < divePelicans.length; i++) {
+        const bird = divePelicans[i];
+        const ph = bird.userData.phase;
+        const cycle = (t * 0.5 + ph) % (Math.PI * 2);
+        // ascending then plunging dive
+        const yPath = 6 + Math.sin(cycle) * 4 - Math.max(0, Math.sin(cycle - Math.PI) * 4);
+        bird.position.y = Math.max(0.3, 6 + Math.cos(cycle) * 5);
+        bird.position.x = bird.userData.cx + Math.sin(cycle * 0.5) * 1.2;
+        bird.position.z = bird.userData.cz + Math.cos(cycle * 0.5) * 1.2;
+        // tilt nose-down when descending
+        bird.rotation.x = Math.sin(cycle) * 1.0;
+        bird.rotation.y = cycle * 0.5;
+      }
+      // v48: souvenir bicycle vendor rides circular promenade route
+      const bbAng = t * 0.18;
+      beachBikeGroup.position.x = -15 + Math.cos(bbAng) * 6;
+      beachBikeGroup.position.z = -8 + Math.sin(bbAng) * 6;
+      beachBikeGroup.rotation.y = -bbAng + Math.PI / 2;
+      bbWheel1.rotation.x = t * 8;
+      bbWheel2.rotation.x = t * 8;
+      // v48: lifeboat sways gently on davit cables
+      lbHull.rotation.z = Math.sin(t * 0.6) * 0.04;
+      lbCanopy.rotation.z = Math.sin(t * 0.6) * 0.04;
+      lbStripe.rotation.z = Math.sin(t * 0.6) * 0.04;
     }
 
   }
