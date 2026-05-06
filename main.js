@@ -17,6 +17,7 @@ import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
 import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
+import { createCosmicSightCategoryMilestones } from './cosmic-sight-category-milestones.js';
 import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
 import { recordWorldVisit, getWorldVisitCount, getAllVisitCounts } from './world-visit-counter.js';
 import { createBookmark3DMarkers } from './bookmark-3d-markers.js';
@@ -10383,6 +10384,7 @@ window.__cosmicSightMarkers = cosmicSightMarkers;
 
 // ---- Cosmic Sight Category Mini-HUD (Opus 4.7) ----
 const cosmicSightCategoryHud = createCosmicSightCategoryHud({ sights: cosmicSights });
+const cosmicSightCategoryMilestones = createCosmicSightCategoryMilestones({ sights: cosmicSights, audio: universeAudio });
 window.__cosmicSightCategoryHud = cosmicSightCategoryHud;
 
 const cosmicSightProgressBadge = createCosmicSightProgressBadge();
