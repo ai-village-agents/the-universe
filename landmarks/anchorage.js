@@ -4995,6 +4995,181 @@ export function createAnchorageLandmark(THREE, opts) {
   surferGroup.position.set(20, 0.18, -10);
   group.add(surferGroup);
 
+  // --- v35: Two kayakers paddling + standup paddleboarder + beach umbrella with sunbathers ---
+  // Kayakers: two narrow boats moving slowly along an oval path off the main pier
+  const kayakerPair = new THREE.Group();
+  const kayakerSpecs = [
+    { color: 0xfb923c, paddleColor: 0xfde68a, hatColor: 0xdc2626, phase: 0.0, radius: 14, yOffset: 0 },
+    { color: 0x14b8a6, paddleColor: 0xfde68a, hatColor: 0x2563eb, phase: Math.PI, radius: 15.4, yOffset: 0 },
+  ];
+  const kayakerEntries = [];
+  kayakerSpecs.forEach((spec) => {
+    const kg = new THREE.Group();
+    // Hull (long flattened cylinder)
+    const hull = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.18, 0.18, 1.4, 10),
+      new THREE.MeshStandardMaterial({ color: spec.color, roughness: 0.7 })
+    );
+    hull.rotation.z = Math.PI / 2;
+    hull.position.y = 0.05;
+    hull.scale.set(1, 1, 0.45);
+    kg.add(hull);
+    // Cockpit recess
+    const cockpit = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.05, 0.22),
+      new THREE.MeshStandardMaterial({ color: 0x1f2937 })
+    );
+    cockpit.position.y = 0.12;
+    kg.add(cockpit);
+    // Body sitting
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.15, 0.32, 8),
+      new THREE.MeshStandardMaterial({ color: spec.hatColor })
+    );
+    body.position.y = 0.28;
+    kg.add(body);
+    // Head
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+    );
+    head.position.y = 0.48;
+    kg.add(head);
+    // Paddle (long thin shaft, double-bladed)
+    const paddle = new THREE.Group();
+    const paddleShaft = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.018, 0.018, 0.95, 6),
+      new THREE.MeshStandardMaterial({ color: spec.paddleColor, roughness: 0.6 })
+    );
+    paddleShaft.rotation.z = Math.PI / 2;
+    paddle.add(paddleShaft);
+    const paddleBladeL = new THREE.Mesh(
+      new THREE.BoxGeometry(0.04, 0.18, 0.08),
+      new THREE.MeshStandardMaterial({ color: spec.paddleColor, roughness: 0.6 })
+    );
+    paddleBladeL.position.set(-0.48, 0, 0);
+    paddle.add(paddleBladeL);
+    const paddleBladeR = paddleBladeL.clone();
+    paddleBladeR.position.x = 0.48;
+    paddle.add(paddleBladeR);
+    paddle.position.set(0, 0.32, 0);
+    kg.add(paddle);
+    kayakerPair.add(kg);
+    kayakerEntries.push({ group: kg, paddle, spec });
+  });
+  group.add(kayakerPair);
+
+  // Paddleboarder: standing figure on a wide flat board, drifting in shallow harbor area
+  const paddleBoarderGroup = new THREE.Group();
+  const paddleboard = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.06, 0.55),
+    new THREE.MeshStandardMaterial({ color: 0xfef3c7, roughness: 0.5 })
+  );
+  paddleboard.position.y = 0.08;
+  paddleBoarderGroup.add(paddleboard);
+  const paddleBoardStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(2.02, 0.005, 0.06),
+    new THREE.MeshStandardMaterial({ color: 0x0ea5e9 })
+  );
+  paddleBoardStripe.position.y = 0.115;
+  paddleBoarderGroup.add(paddleBoardStripe);
+  const paddleBoarderBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0x7c3aed })
+  );
+  paddleBoarderBody.position.y = 0.42;
+  paddleBoarderGroup.add(paddleBoarderBody);
+  const paddleBoarderHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.10, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  paddleBoarderHead.position.y = 0.78;
+  paddleBoarderGroup.add(paddleBoarderHead);
+  // Long paddle held vertically
+  const paddleBoarderPaddle = new THREE.Group();
+  const sbShaft = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.018, 0.018, 1.3, 6),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a })
+  );
+  sbShaft.position.y = 0.65;
+  paddleBoarderPaddle.add(sbShaft);
+  const sbBlade = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.22, 0.04),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a })
+  );
+  sbBlade.position.y = -0.08;
+  paddleBoarderPaddle.add(sbBlade);
+  paddleBoarderPaddle.position.set(0.25, 0.15, 0.0);
+  paddleBoarderPaddle.rotation.z = 0.18;
+  paddleBoarderGroup.add(paddleBoarderPaddle);
+  paddleBoarderGroup.position.set(-12, 0.18, 12);
+  group.add(paddleBoarderGroup);
+
+  // Beach umbrella + two sunbathers on towels
+  const beachUmbrellaGroup = new THREE.Group();
+  const umbrellaPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8),
+    new THREE.MeshStandardMaterial({ color: 0x9ca3af })
+  );
+  umbrellaPole.position.y = 0.8;
+  beachUmbrellaGroup.add(umbrellaPole);
+  const umbrellaCanopy = new THREE.Mesh(
+    new THREE.ConeGeometry(0.95, 0.5, 12, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0xef4444, side: THREE.DoubleSide, roughness: 0.6 })
+  );
+  umbrellaCanopy.position.y = 1.65;
+  beachUmbrellaGroup.add(umbrellaCanopy);
+  // Stripes (alternating white wedges painted as thin cones)
+  const umbrellaStripe = new THREE.Mesh(
+    new THREE.ConeGeometry(0.96, 0.51, 12, 1, true, 0, Math.PI / 6),
+    new THREE.MeshStandardMaterial({ color: 0xfafafa, side: THREE.DoubleSide, roughness: 0.6 })
+  );
+  umbrellaStripe.position.y = 1.65;
+  beachUmbrellaGroup.add(umbrellaStripe);
+  // Towel + sunbather 1
+  const towelA = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.02, 0.45),
+    new THREE.MeshStandardMaterial({ color: 0x60a5fa })
+  );
+  towelA.position.set(-0.55, 0.02, 0.3);
+  beachUmbrellaGroup.add(towelA);
+  const sunbatherA = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.12, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfbbf24 })
+  );
+  sunbatherA.rotation.z = Math.PI / 2;
+  sunbatherA.position.set(-0.55, 0.10, 0.3);
+  beachUmbrellaGroup.add(sunbatherA);
+  const sunbatherAHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  sunbatherAHead.position.set(-0.85, 0.12, 0.3);
+  beachUmbrellaGroup.add(sunbatherAHead);
+  // Towel + sunbather 2
+  const towelB = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.02, 0.45),
+    new THREE.MeshStandardMaterial({ color: 0xa78bfa })
+  );
+  towelB.position.set(0.55, 0.02, -0.3);
+  beachUmbrellaGroup.add(towelB);
+  const sunbatherB = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.10, 0.12, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf472b6 })
+  );
+  sunbatherB.rotation.z = Math.PI / 2;
+  sunbatherB.position.set(0.55, 0.10, -0.3);
+  beachUmbrellaGroup.add(sunbatherB);
+  const sunbatherBHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xf3d4b0 })
+  );
+  sunbatherBHead.position.set(0.85, 0.12, -0.3);
+  beachUmbrellaGroup.add(sunbatherBHead);
+  beachUmbrellaGroup.position.set(9.5, 0.18, 8.5);
+  beachUmbrellaGroup.rotation.y = -0.3;
+  group.add(beachUmbrellaGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6207,6 +6382,22 @@ export function createAnchorageLandmark(THREE, opts) {
     surferGroup.rotation.z = Math.sin(t * 1.1) * 0.10;
     surferGroup.rotation.y = Math.sin(t * 0.25) * 0.6 + 0.5; // sweeping turn
     surferWave.material.opacity = 0.45 + 0.15 * Math.sin(t * 2.4);
+
+    // v35: Kayakers paddle along oval path; paddleboarder bobs gently; umbrella sways
+    kayakerEntries.forEach(({ group: kg, paddle, spec }) => {
+      const angle = t * 0.18 + spec.phase;
+      const x = Math.cos(angle) * spec.radius - 4;
+      const z = Math.sin(angle) * spec.radius * 0.7 + 6;
+      kg.position.set(x, 0.18, z);
+      kg.rotation.y = -angle + Math.PI / 2;
+      // Paddle alternating dip
+      paddle.rotation.x = Math.sin(t * 3.0 + spec.phase) * 0.7;
+    });
+    paddleBoarderGroup.position.y = 0.18 + Math.sin(t * 0.9) * 0.04;
+    paddleBoarderGroup.rotation.z = Math.sin(t * 0.7) * 0.04;
+    paddleBoarderGroup.rotation.y = Math.sin(t * 0.18) * 0.4;
+    umbrellaCanopy.rotation.y = Math.sin(t * 0.4) * 0.06;
+    umbrellaStripe.rotation.y = umbrellaCanopy.rotation.y;
 
   }
 
