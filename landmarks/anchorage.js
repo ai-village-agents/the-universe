@@ -8740,6 +8740,141 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(turtleNestGroup);
 
 
+
+  // --- v57: beach swing set between two palms ---
+  const swingsGroup = new THREE.Group();
+  const swPostMat = new THREE.MeshLambertMaterial({ color: 0x8b5a2b });
+  const swPost1 = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 3.5, 8), swPostMat);
+  swPost1.position.set(-2.0, 1.75, 0);
+  swingsGroup.add(swPost1);
+  const swPost2 = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 3.5, 8), swPostMat);
+  swPost2.position.set(2.0, 1.75, 0);
+  swingsGroup.add(swPost2);
+  const swCrossbar = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 4.4, 8), swPostMat);
+  swCrossbar.rotation.z = Math.PI / 2;
+  swCrossbar.position.set(0, 3.4, 0);
+  swingsGroup.add(swCrossbar);
+  const swChainMat = new THREE.MeshLambertMaterial({ color: 0xaaaaaa });
+  const swSeatMat = new THREE.MeshLambertMaterial({ color: 0xff6600 });
+  const swings = [];
+  for (let s = 0; s < 2; s++) {
+    const swing = new THREE.Group();
+    const sx = -1.2 + s * 2.4;
+    const swChain1 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.8, 6), swChainMat);
+    swChain1.position.set(-0.3, 0, 0);
+    swing.add(swChain1);
+    const swChain2 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.8, 6), swChainMat);
+    swChain2.position.set(0.3, 0, 0);
+    swing.add(swChain2);
+    const swSeat = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.06, 0.3), swSeatMat);
+    swSeat.position.set(0, -0.9, 0);
+    swing.add(swSeat);
+    // kid on swing
+    const kidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.5, 8), new THREE.MeshLambertMaterial({ color: s === 0 ? 0xf06292 : 0x42a5f5 }));
+    kidBody.position.set(0, -0.55, 0);
+    swing.add(kidBody);
+    const kidHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+    kidHead.position.set(0, -0.18, 0);
+    swing.add(kidHead);
+    swing.position.set(sx, 3.3, 0);
+    swingsGroup.add(swing);
+    swings.push(swing);
+  }
+  swingsGroup.position.set(-8, 0.05, -22);
+  group.add(swingsGroup);
+
+  // --- v57: rescue jet ski with red cross ---
+  const rescueJSGroup = new THREE.Group();
+  const rjsHullMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const rjsHull = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.5, 0.8), rjsHullMat);
+  rjsHull.position.y = 0.4;
+  rescueJSGroup.add(rjsHull);
+  const rjsBow = new THREE.Mesh(new THREE.ConeGeometry(0.5, 0.8, 4), rjsHullMat);
+  rjsBow.rotation.z = -Math.PI / 2;
+  rjsBow.rotation.y = Math.PI / 4;
+  rjsBow.position.set(1.5, 0.4, 0);
+  rescueJSGroup.add(rjsBow);
+  const rjsSeat = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.2, 0.6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  rjsSeat.position.set(-0.2, 0.75, 0);
+  rescueJSGroup.add(rjsSeat);
+  const rjsHandlebar = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 6), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+  rjsHandlebar.rotation.z = Math.PI / 2;
+  rjsHandlebar.position.set(0.6, 1.0, 0);
+  rescueJSGroup.add(rjsHandlebar);
+  // red cross sign
+  const rjsCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.12, 0.05), new THREE.MeshBasicMaterial({ color: 0xee2222 }));
+  rjsCrossH.position.set(0, 0.5, 0.42);
+  rescueJSGroup.add(rjsCrossH);
+  const rjsCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.05), new THREE.MeshBasicMaterial({ color: 0xee2222 }));
+  rjsCrossV.position.set(0, 0.5, 0.42);
+  rescueJSGroup.add(rjsCrossV);
+  // rider
+  const rjsRiderBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0xff3030 }));
+  rjsRiderBody.position.set(-0.2, 1.2, 0);
+  rescueJSGroup.add(rjsRiderBody);
+  const rjsRiderHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  rjsRiderHead.position.set(-0.2, 1.7, 0);
+  rescueJSGroup.add(rjsRiderHead);
+  const rjsHelmet = new THREE.Mesh(new THREE.SphereGeometry(0.21, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffeb3b }));
+  rjsHelmet.position.set(-0.2, 1.78, 0);
+  rescueJSGroup.add(rjsHelmet);
+  // wake
+  const rjsWakeMat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const rjsWake = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 1.0), rjsWakeMat);
+  rjsWake.rotation.x = -Math.PI / 2;
+  rjsWake.position.set(-2.2, 0.06, 0);
+  rescueJSGroup.add(rjsWake);
+  rescueJSGroup.position.set(50, 0, 8);
+  rescueJSGroup.rotation.y = 0.3;
+  group.add(rescueJSGroup);
+
+  // --- v57: treasure sandbar marker (X marks the spot) ---
+  const tsbGroup = new THREE.Group();
+  const tsbMound = new THREE.Mesh(new THREE.SphereGeometry(1.2, 14, 10), new THREE.MeshLambertMaterial({ color: 0xeed8a0 }));
+  tsbMound.scale.set(1, 0.3, 1);
+  tsbGroup.add(tsbMound);
+  // Big X made of driftwood
+  const tsbXMat = new THREE.MeshLambertMaterial({ color: 0x6b4423 });
+  const tsbXGeom = new THREE.BoxGeometry(1.6, 0.12, 0.16);
+  const tsbX1 = new THREE.Mesh(tsbXGeom, tsbXMat);
+  tsbX1.position.y = 0.18;
+  tsbX1.rotation.y = Math.PI / 4;
+  tsbGroup.add(tsbX1);
+  const tsbX2 = new THREE.Mesh(tsbXGeom, tsbXMat);
+  tsbX2.position.y = 0.18;
+  tsbX2.rotation.y = -Math.PI / 4;
+  tsbGroup.add(tsbX2);
+  // small treasure chest peeking out
+  const tsbChestMat = new THREE.MeshLambertMaterial({ color: 0x8b4513 });
+  const tsbChestBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.3, 0.4), tsbChestMat);
+  tsbChestBody.position.set(0.5, 0.15, 0.5);
+  tsbGroup.add(tsbChestBody);
+  const tsbChestLid = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.5, 12, 1, false, 0, Math.PI), tsbChestMat);
+  tsbChestLid.rotation.z = Math.PI / 2;
+  tsbChestLid.position.set(0.5, 0.32, 0.5);
+  tsbGroup.add(tsbChestLid);
+  const tsbGoldMat = new THREE.MeshBasicMaterial({ color: 0xffd700 });
+  for (let g = 0; g < 6; g++) {
+    const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.02, 10), tsbGoldMat);
+    coin.rotation.x = Math.PI / 2;
+    coin.position.set(0.5 + (Math.random() - 0.5) * 0.3, 0.3 + g * 0.01, 0.5 + (Math.random() - 0.5) * 0.3);
+    tsbGroup.add(coin);
+  }
+  // pirate flag
+  const tsbPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.5, 6), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  tsbPole.position.set(-0.4, 1.25, -0.4);
+  tsbGroup.add(tsbPole);
+  const tsbFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.4), new THREE.MeshBasicMaterial({ color: 0x111111, side: THREE.DoubleSide }));
+  tsbFlag.position.set(-0.05, 2.3, -0.4);
+  tsbGroup.add(tsbFlag);
+  // skull on flag
+  const tsbSkull = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  tsbSkull.position.set(-0.05, 2.3, -0.37);
+  tsbGroup.add(tsbSkull);
+  tsbGroup.position.set(60, 0.1, 38);
+  group.add(tsbGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10345,6 +10480,18 @@ export function createAnchorageLandmark(THREE, opts) {
       stFlipperBL.rotation.z = Math.sin(t * 1.2 + 1.0) * 0.15;
       stFlipperBR.rotation.z = -Math.sin(t * 1.2 + 1.0) * 0.15;
       stTurtleHead.position.y = 0.05 + Math.sin(t * 0.8) * 0.04;
+      // v57: swings sway in opposite phase
+      if (swings.length >= 2) {
+        swings[0].rotation.x = Math.sin(t * 1.5) * 0.4;
+        swings[1].rotation.x = -Math.sin(t * 1.5) * 0.4;
+      }
+      // v57: rescue jet ski tilts on swells, rider leans, wake pulses
+      rescueJSGroup.rotation.z = Math.sin(t * 1.6) * 0.06;
+      rjsRiderBody.rotation.x = Math.sin(t * 1.6) * 0.08;
+      rjsWakeMat.opacity = 0.4 + Math.sin(t * 3.0) * 0.2;
+      // v57: pirate flag flutters
+      tsbFlag.rotation.y = Math.sin(t * 2.5) * 0.3;
+      tsbSkull.position.x = -0.05 + Math.sin(t * 2.5) * 0.04;
     }
 
   }
