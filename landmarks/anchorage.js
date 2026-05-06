@@ -6748,6 +6748,316 @@ export function createAnchorageLandmark(THREE, opts) {
   patrolJeepGroup.rotation.y = 0.6;
   group.add(patrolJeepGroup);
 
+  // --- v45: helicopter on helipad, beach DJ booth, plein-air painter ---
+  // Helicopter pad with helicopter — a rescue chopper parked
+  const helipadGroup = new THREE.Group();
+  // Helipad disc with H marking
+  const helipadCanvas = document.createElement('canvas');
+  helipadCanvas.width = 128; helipadCanvas.height = 128;
+  const hpCtx = helipadCanvas.getContext('2d');
+  hpCtx.fillStyle = '#3a3a3a';
+  hpCtx.beginPath(); hpCtx.arc(64, 64, 60, 0, Math.PI * 2); hpCtx.fill();
+  hpCtx.strokeStyle = '#fff8aa'; hpCtx.lineWidth = 4;
+  hpCtx.beginPath(); hpCtx.arc(64, 64, 56, 0, Math.PI * 2); hpCtx.stroke();
+  hpCtx.fillStyle = '#fff8aa';
+  hpCtx.font = 'bold 70px sans-serif';
+  hpCtx.textAlign = 'center';
+  hpCtx.textBaseline = 'middle';
+  hpCtx.fillText('H', 64, 64);
+  const helipadTex = new THREE.CanvasTexture(helipadCanvas);
+  const helipadMat = new THREE.MeshLambertMaterial({ map: helipadTex });
+  const helipad = new THREE.Mesh(new THREE.CircleGeometry(2.6, 24), helipadMat);
+  helipad.rotation.x = -Math.PI / 2;
+  helipad.position.y = 0.06;
+  helipadGroup.add(helipad);
+  // Helicopter — orange rescue
+  const helicopter = new THREE.Group();
+  // Body
+  const heliBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.7, 12, 8),
+    new THREE.MeshLambertMaterial({ color: 0xee6622 })
+  );
+  heliBody.scale.set(1, 0.85, 1.4);
+  heliBody.position.y = 0.7;
+  helicopter.add(heliBody);
+  // Tail boom
+  const heliTail = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.18, 1.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0xee6622 })
+  );
+  heliTail.rotation.x = Math.PI / 2;
+  heliTail.position.set(0, 0.75, -1.4);
+  helicopter.add(heliTail);
+  // Tail rotor
+  const heliTailRotor = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.05, 0.05),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  heliTailRotor.position.set(0.15, 0.85, -2.1);
+  helicopter.add(heliTailRotor);
+  // Cockpit window
+  const heliCockpit = new THREE.Mesh(
+    new THREE.SphereGeometry(0.45, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0x88aacc, transparent: true, opacity: 0.65 })
+  );
+  heliCockpit.scale.set(1, 0.85, 1.1);
+  heliCockpit.position.set(0, 0.78, 0.45);
+  helicopter.add(heliCockpit);
+  // Skids
+  const heliSkidMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const heliSkid1 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), heliSkidMat);
+  heliSkid1.rotation.x = Math.PI / 2;
+  heliSkid1.position.set(-0.45, 0.1, -0.2);
+  helicopter.add(heliSkid1);
+  const heliSkid2 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), heliSkidMat);
+  heliSkid2.rotation.x = Math.PI / 2;
+  heliSkid2.position.set(0.45, 0.1, -0.2);
+  helicopter.add(heliSkid2);
+  // Skid struts
+  for (let i = 0; i < 4; i++) {
+    const strut = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 0.32, 4),
+      heliSkidMat
+    );
+    const sx = i % 2 === 0 ? -0.45 : 0.45;
+    const sz = i < 2 ? -0.6 : 0.2;
+    strut.position.set(sx, 0.26, sz);
+    helicopter.add(strut);
+  }
+  // Main rotor mast + blades
+  const heliMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.28, 6),
+    new THREE.MeshLambertMaterial({ color: 0x333333 })
+  );
+  heliMast.position.set(0, 1.25, 0);
+  helicopter.add(heliMast);
+  const heliRotorPivot = new THREE.Group();
+  heliRotorPivot.position.set(0, 1.4, 0);
+  const heliBlade1 = new THREE.Mesh(
+    new THREE.BoxGeometry(2.8, 0.04, 0.18),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  heliRotorPivot.add(heliBlade1);
+  const heliBlade2 = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.04, 2.8),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  heliRotorPivot.add(heliBlade2);
+  helicopter.add(heliRotorPivot);
+  // RESCUE text on side
+  const heliSignCanvas = document.createElement('canvas');
+  heliSignCanvas.width = 128; heliSignCanvas.height = 28;
+  const heliSignCtx = heliSignCanvas.getContext('2d');
+  heliSignCtx.fillStyle = '#ee6622';
+  heliSignCtx.fillRect(0, 0, 128, 28);
+  heliSignCtx.fillStyle = '#ffffff';
+  heliSignCtx.font = 'bold 22px sans-serif';
+  heliSignCtx.textAlign = 'center';
+  heliSignCtx.fillText('RESCUE', 64, 22);
+  const heliSignTex = new THREE.CanvasTexture(heliSignCanvas);
+  const heliSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.2, 0.26),
+    new THREE.MeshBasicMaterial({ map: heliSignTex, transparent: true })
+  );
+  heliSign.position.set(0.71, 0.7, 0);
+  heliSign.rotation.y = -Math.PI / 2;
+  helicopter.add(heliSign);
+  helipadGroup.add(helicopter);
+  helipadGroup.position.set(28, 0.05, 4);
+  group.add(helipadGroup);
+
+  // Beach DJ booth — turntable, 2 speakers, DJ figure
+  const djBoothGroup = new THREE.Group();
+  // Booth table
+  const djTable = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.05, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  djTable.position.y = 0.85;
+  djBoothGroup.add(djTable);
+  // Table legs (just front 2 visible)
+  const djLegMat = new THREE.MeshLambertMaterial({ color: 0x333333 });
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(
+      new THREE.BoxGeometry(0.06, 0.85, 0.06),
+      djLegMat
+    );
+    leg.position.set(i % 2 === 0 ? -0.95 : 0.95, 0.42, i < 2 ? 0.3 : -0.3);
+    djBoothGroup.add(leg);
+  }
+  // 2 turntables
+  const djTurntableMat = new THREE.MeshLambertMaterial({ color: 0x555555 });
+  for (let i = 0; i < 2; i++) {
+    const tt = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.32, 0.32, 0.06, 16),
+      djTurntableMat
+    );
+    tt.position.set(i === 0 ? -0.55 : 0.55, 0.91, 0);
+    djBoothGroup.add(tt);
+    const record = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.26, 0.26, 0.005, 16),
+      new THREE.MeshLambertMaterial({ color: 0x111111 })
+    );
+    record.position.set(i === 0 ? -0.55 : 0.55, 0.95, 0);
+    djBoothGroup.add(record);
+  }
+  // Mixer (small box between turntables)
+  const djMixer = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.07, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0x2a2a2a })
+  );
+  djMixer.position.set(0, 0.92, 0);
+  djBoothGroup.add(djMixer);
+  // DJ figure
+  const djFigure = new THREE.Group();
+  const djBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.24, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0xff6644 })
+  );
+  djBody.position.y = 0.35;
+  djFigure.add(djBody);
+  const djHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xc89870 })
+  );
+  djHead.position.y = 0.85;
+  djFigure.add(djHead);
+  // Headphones
+  const djHeadphones = new THREE.Mesh(
+    new THREE.TorusGeometry(0.18, 0.04, 6, 12, Math.PI),
+    new THREE.MeshLambertMaterial({ color: 0x1a1a1a })
+  );
+  djHeadphones.position.y = 0.95;
+  djFigure.add(djHeadphones);
+  djFigure.position.set(0, 0, -0.5);
+  djBoothGroup.add(djFigure);
+  // Two speakers flanking the booth
+  const djSpeakerMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const djSpeakerConeMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const djSpeakers = [];
+  for (let i = 0; i < 2; i++) {
+    const speaker = new THREE.Group();
+    const sBody = new THREE.Mesh(
+      new THREE.BoxGeometry(0.5, 1.0, 0.5),
+      djSpeakerMat
+    );
+    sBody.position.y = 0.5;
+    speaker.add(sBody);
+    const sCone = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.18, 0.18, 0.05, 12),
+      djSpeakerConeMat
+    );
+    sCone.rotation.x = Math.PI / 2;
+    sCone.position.set(0, 0.65, 0.27);
+    speaker.add(sCone);
+    speaker.position.set(i === 0 ? -1.4 : 1.4, 0, 0.4);
+    djSpeakers.push(speaker);
+    djBoothGroup.add(speaker);
+  }
+  djBoothGroup.position.set(-12, 0.05, 30);
+  djBoothGroup.rotation.y = -0.3;
+  group.add(djBoothGroup);
+
+  // Plein-air painter — figure at easel painting the seascape
+  const painterGroup = new THREE.Group();
+  // Easel — tripod + canvas
+  const easelLegMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  for (let i = 0; i < 3; i++) {
+    const leg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 1.4, 6),
+      easelLegMat
+    );
+    const ang = (i / 3) * Math.PI * 2;
+    leg.position.set(Math.cos(ang) * 0.18, 0.7, Math.sin(ang) * 0.18);
+    leg.rotation.x = -Math.cos(ang) * 0.16;
+    leg.rotation.z = Math.sin(ang) * 0.16;
+    painterGroup.add(leg);
+  }
+  // Canvas with ocean painting
+  const paintCanvas = document.createElement('canvas');
+  paintCanvas.width = 96; paintCanvas.height = 64;
+  const paintCtx = paintCanvas.getContext('2d');
+  // Gradient sky
+  const grd = paintCtx.createLinearGradient(0, 0, 0, 64);
+  grd.addColorStop(0, '#88bbe8');
+  grd.addColorStop(0.5, '#ffaa66');
+  grd.addColorStop(1, '#cc7755');
+  paintCtx.fillStyle = grd;
+  paintCtx.fillRect(0, 0, 96, 38);
+  // Ocean
+  paintCtx.fillStyle = '#3a6688';
+  paintCtx.fillRect(0, 38, 96, 26);
+  // Waves
+  paintCtx.strokeStyle = '#a8c8e0';
+  paintCtx.lineWidth = 1;
+  for (let i = 0; i < 4; i++) {
+    paintCtx.beginPath();
+    paintCtx.moveTo(0, 44 + i * 4);
+    for (let x = 0; x < 96; x += 6) {
+      paintCtx.lineTo(x + 3, 44 + i * 4 + Math.sin(x * 0.3) * 1.5);
+    }
+    paintCtx.stroke();
+  }
+  // Sun
+  paintCtx.fillStyle = '#fff8d8';
+  paintCtx.beginPath(); paintCtx.arc(70, 28, 5, 0, Math.PI * 2); paintCtx.fill();
+  const paintTex = new THREE.CanvasTexture(paintCanvas);
+  const painting = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.85, 0.6),
+    new THREE.MeshLambertMaterial({ map: paintTex, side: THREE.DoubleSide })
+  );
+  painting.position.set(0, 1.2, 0.05);
+  painterGroup.add(painting);
+  // Frame
+  const paintFrame = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.95, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0x4a3a2a })
+  );
+  paintFrame.position.set(0, 1.2, 0.04);
+  painterGroup.add(paintFrame);
+  // Painter figure
+  const painter = new THREE.Group();
+  const painterBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x66aa88 })
+  );
+  painterBody.position.y = 0.35;
+  painter.add(painterBody);
+  const painterHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  painterHead.position.y = 0.84;
+  painter.add(painterHead);
+  // Beret
+  const painterBeret = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.16, 0.06, 8),
+    new THREE.MeshLambertMaterial({ color: 0x882222 })
+  );
+  painterBeret.position.y = 0.96;
+  painter.add(painterBeret);
+  // Painting arm (extended toward easel)
+  const painterArm = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0x66aa88 })
+  );
+  painterArm.position.set(0.2, 0.7, 0.15);
+  painterArm.rotation.x = 0.6;
+  painter.add(painterArm);
+  // Palette in other hand
+  const painterPalette = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.025, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc0a888 })
+  );
+  painterPalette.rotation.z = Math.PI / 2;
+  painterPalette.position.set(-0.2, 0.55, 0);
+  painter.add(painterPalette);
+  painter.position.set(0, 0, -0.6);
+  painterGroup.add(painter);
+  painterGroup.position.set(20, 0.05, 26);
+  painterGroup.rotation.y = -2.2;
+  group.add(painterGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -8171,6 +8481,23 @@ export function createAnchorageLandmark(THREE, opts) {
       // v44: net mending fishermen subtle hand motion (rocking body)
       nmFisher1.rotation.y = Math.PI / 2 + Math.sin(t * 0.8) * 0.15;
       nmFisher2.rotation.y = -Math.PI / 2 - Math.sin(t * 0.8 + 0.7) * 0.15;
+
+      // v45: helicopter rotor spins, tail rotor spins
+      heliRotorPivot.rotation.y = t * 8;
+      heliTailRotor.rotation.x = t * 14;
+      // v45: DJ figure bobs to beat
+      djFigure.position.y = Math.abs(Math.sin(t * 4)) * 0.06;
+      djFigure.rotation.y = Math.sin(t * 1.5) * 0.25;
+      // Speakers pulse subtly
+      djSpeakers.forEach((s, si) => {
+        s.scale.set(
+          1 + Math.abs(Math.sin(t * 4 + si * 0.5)) * 0.04,
+          1,
+          1 + Math.abs(Math.sin(t * 4 + si * 0.5)) * 0.04
+        );
+      });
+      // v45: painter arm moves slightly
+      painterArm.rotation.x = 0.6 + Math.sin(t * 2.4) * 0.25;
 
     }
 
