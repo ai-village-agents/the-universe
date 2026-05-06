@@ -4480,6 +4480,160 @@ export function createAnchorageLandmark(THREE, opts) {
   whaleTourGroup.position.set(16, 0.18, 8);
   group.add(whaleTourGroup);
 
+
+  // --- v32: Lobster trap stack on pier + sandcastle with flag + dolphin trio jumping ---
+  // Stack of 3 wooden lobster traps on the pier
+  const lobsterTrapGroup = new THREE.Group();
+  for (let i = 0; i < 3; i++) {
+    const trap = new THREE.Mesh(
+      new THREE.BoxGeometry(0.55, 0.30, 0.40),
+      new THREE.MeshStandardMaterial({ color: 0x8a6a3a, roughness: 0.95 })
+    );
+    trap.position.y = 0.15 + i * 0.32;
+    trap.position.x = (i % 2) * 0.06;
+    trap.rotation.y = (i - 1) * 0.12;
+    lobsterTrapGroup.add(trap);
+    // Slatted wire-cage rim suggestion (top edge band)
+    const trapRim = new THREE.Mesh(
+      new THREE.BoxGeometry(0.58, 0.04, 0.43),
+      new THREE.MeshStandardMaterial({ color: 0x4a3a22, roughness: 0.9 })
+    );
+    trapRim.position.set(trap.position.x, 0.30 + i * 0.32, 0);
+    trapRim.rotation.y = trap.rotation.y;
+    lobsterTrapGroup.add(trapRim);
+    // Buoy float tied to top of stack only
+    if (i === 2) {
+      const trapBuoy = new THREE.Mesh(
+        new THREE.SphereGeometry(0.10, 10, 8),
+        new THREE.MeshStandardMaterial({ color: 0xc83a3a, roughness: 0.7, emissive: 0x4a0808, emissiveIntensity: 0.2 })
+      );
+      trapBuoy.position.set(0.30, 0.55 + i * 0.32, 0.20);
+      lobsterTrapGroup.add(trapBuoy);
+    }
+  }
+  lobsterTrapGroup.position.set(4.5, 1.0, -2.7);
+  lobsterTrapGroup.rotation.y = 0.25;
+  group.add(lobsterTrapGroup);
+
+  // Sandcastle with little flag on the beach near the campfire
+  const sandcastleGroup = new THREE.Group();
+  const sandcastleSandColor = 0xe6c989;
+  // Base
+  const castleBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.55, 0.65, 0.18, 16),
+    new THREE.MeshStandardMaterial({ color: sandcastleSandColor, roughness: 0.95 })
+  );
+  castleBase.position.y = 0.09;
+  sandcastleGroup.add(castleBase);
+  // Central tower
+  const castleTower = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.26, 0.42, 12),
+    new THREE.MeshStandardMaterial({ color: sandcastleSandColor, roughness: 0.95 })
+  );
+  castleTower.position.y = 0.39;
+  sandcastleGroup.add(castleTower);
+  // Tower battlement (slightly wider top ring)
+  const castleBattlement = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.26, 0.06, 12),
+    new THREE.MeshStandardMaterial({ color: sandcastleSandColor, roughness: 0.95 })
+  );
+  castleBattlement.position.y = 0.62;
+  sandcastleGroup.add(castleBattlement);
+  // Small corner turrets (3)
+  for (let i = 0; i < 3; i++) {
+    const ang = (i / 3) * Math.PI * 2;
+    const turret = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.10, 0.13, 0.30, 8),
+      new THREE.MeshStandardMaterial({ color: sandcastleSandColor, roughness: 0.95 })
+    );
+    turret.position.set(Math.cos(ang) * 0.42, 0.27, Math.sin(ang) * 0.42);
+    sandcastleGroup.add(turret);
+    // Conical cap
+    const turretCap = new THREE.Mesh(
+      new THREE.ConeGeometry(0.12, 0.14, 8),
+      new THREE.MeshStandardMaterial({ color: 0xb89456, roughness: 0.9 })
+    );
+    turretCap.position.set(Math.cos(ang) * 0.42, 0.49, Math.sin(ang) * 0.42);
+    sandcastleGroup.add(turretCap);
+  }
+  // Flagpole on tower
+  const castleFlagpole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.012, 0.012, 0.32, 6),
+    new THREE.MeshStandardMaterial({ color: 0x222222 })
+  );
+  castleFlagpole.position.y = 0.82;
+  sandcastleGroup.add(castleFlagpole);
+  // Triangular flag
+  const castleFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.18, 0.10),
+    new THREE.MeshStandardMaterial({ color: 0x4ac8e8, side: THREE.DoubleSide, roughness: 0.7, emissive: 0x081a22, emissiveIntensity: 0.2 })
+  );
+  castleFlag.position.set(0.09, 0.92, 0);
+  sandcastleGroup.add(castleFlag);
+  // A little seashell beside it (just a flat scallop)
+  const castleShell = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 10, 6, 0, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0xf2d7c0, roughness: 0.7, side: THREE.DoubleSide })
+  );
+  castleShell.position.set(-0.5, 0.04, 0.5);
+  castleShell.rotation.x = -Math.PI / 2;
+  sandcastleGroup.add(castleShell);
+  sandcastleGroup.position.set(7.6, 0.18, 6.4);
+  sandcastleGroup.rotation.y = -0.6;
+  group.add(sandcastleGroup);
+
+  // Dolphin trio jumping sequentially in arcs through the harbor
+  const dolphinTrioGroup = new THREE.Group();
+  const dolphinTrioMembers = [];
+  for (let i = 0; i < 3; i++) {
+    const dolphin = new THREE.Group();
+    // Body (elongated)
+    const dolBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.42, 14, 10),
+      new THREE.MeshStandardMaterial({ color: 0x6c8aa6, roughness: 0.45, metalness: 0.05 })
+    );
+    dolBody.scale.set(1.6, 0.6, 0.6);
+    dolphin.add(dolBody);
+    // Belly (lighter underside)
+    const dolBelly = new THREE.Mesh(
+      new THREE.SphereGeometry(0.38, 12, 8),
+      new THREE.MeshStandardMaterial({ color: 0xd8e2eb, roughness: 0.55 })
+    );
+    dolBelly.scale.set(1.55, 0.5, 0.55);
+    dolBelly.position.y = -0.10;
+    dolphin.add(dolBelly);
+    // Snout (pointy nose)
+    const dolSnout = new THREE.Mesh(
+      new THREE.ConeGeometry(0.16, 0.40, 10),
+      new THREE.MeshStandardMaterial({ color: 0x6c8aa6, roughness: 0.5 })
+    );
+    dolSnout.rotation.z = -Math.PI / 2;
+    dolSnout.position.set(0.65, 0.0, 0);
+    dolphin.add(dolSnout);
+    // Dorsal fin
+    const dolFin = new THREE.Mesh(
+      new THREE.ConeGeometry(0.10, 0.26, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4f6a82, roughness: 0.55 })
+    );
+    dolFin.rotation.x = Math.PI;
+    dolFin.position.set(-0.05, 0.32, 0);
+    dolphin.add(dolFin);
+    // Tail flukes
+    const dolFluke = new THREE.Mesh(
+      new THREE.ConeGeometry(0.18, 0.20, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4f6a82, roughness: 0.6 })
+    );
+    dolFluke.rotation.z = Math.PI / 2;
+    dolFluke.scale.set(1.2, 0.4, 1.0);
+    dolFluke.position.set(-0.75, 0.0, 0);
+    dolphin.add(dolFluke);
+    dolphinTrioGroup.add(dolphin);
+    dolphinTrioMembers.push({ group: dolphin, phaseOffset: i * (Math.PI * 2 / 3) });
+  }
+  // Position trio in the harbor area, in front of pier
+  dolphinTrioGroup.position.set(-9, 0.15, 8);
+  group.add(dolphinTrioGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5625,6 +5779,25 @@ export function createAnchorageLandmark(THREE, opts) {
     });
     // Wake opacity pulse
     tourWake.material.opacity = 0.22 + 0.14 * Math.sin(t * 2.0);
+
+    // v32: Sandcastle flag flutters; dolphin trio leaps in synchronized arcs
+    castleFlag.rotation.y = Math.sin(t * 2.4) * 0.4;
+    castleFlag.scale.x = 1.0 + 0.06 * Math.sin(t * 3.0);
+    // Dolphin arc loop: each dolphin traces an arc rising from water + diving back
+    dolphinTrioMembers.forEach((d) => {
+      const period = 5.0; // seconds per arc cycle
+      const u = ((t + d.phaseOffset * (period / (Math.PI * 2))) % period) / period; // 0..1 along arc
+      // Forward travel along x then return
+      const xOffset = -8 + u * 16; // travel from -8 to 8 in local space
+      const yJump = Math.max(0, Math.sin(u * Math.PI)) * 1.6 - 0.6; // arc out of water then below
+      d.group.position.x = xOffset;
+      d.group.position.y = yJump;
+      // Pitch the body for graceful arc
+      const pitch = Math.cos(u * Math.PI) * 0.7;
+      d.group.rotation.z = pitch;
+      // Slight z wobble
+      d.group.position.z = Math.sin(t * 1.8 + d.phaseOffset) * 0.4;
+    });
 
   }
 
