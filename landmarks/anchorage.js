@@ -7058,6 +7058,158 @@ export function createAnchorageLandmark(THREE, opts) {
   painterGroup.rotation.y = -2.2;
   group.add(painterGroup);
 
+
+  // --- v46: marina forklift, beach drone, sandbar seal colony ---------------
+
+  // Marina forklift carrying a stack of lobster traps along the dock
+  const forkliftGroup = new THREE.Group();
+  const fkBodyMat = new THREE.MeshLambertMaterial({ color: 0xf2c200 });
+  const fkBody = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.0, 1.8), fkBodyMat);
+  fkBody.position.y = 0.7;
+  forkliftGroup.add(fkBody);
+  const fkCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.2, 0.9, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0x222244, transparent: true, opacity: 0.55 })
+  );
+  fkCabin.position.set(0, 1.65, 0.2);
+  forkliftGroup.add(fkCabin);
+  const fkRoof = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 1.0), fkBodyMat);
+  fkRoof.position.set(0, 2.15, 0.2);
+  forkliftGroup.add(fkRoof);
+  const fkWheelMat = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
+  const fkWheelGeom = new THREE.CylinderGeometry(0.32, 0.32, 0.22, 14);
+  fkWheelGeom.rotateZ(Math.PI / 2);
+  for (const wp of [[-0.7,0.32,0.65],[0.7,0.32,0.65],[-0.7,0.32,-0.65],[0.7,0.32,-0.65]]) {
+    const w = new THREE.Mesh(fkWheelGeom, fkWheelMat);
+    w.position.set(wp[0], wp[1], wp[2]);
+    forkliftGroup.add(w);
+  }
+  // Mast (vertical) and forks
+  const fkMast = new THREE.Mesh(
+    new THREE.BoxGeometry(0.12, 2.4, 0.12),
+    new THREE.MeshLambertMaterial({ color: 0xaa2222 })
+  );
+  fkMast.position.set(0.4, 1.4, -1.05);
+  forkliftGroup.add(fkMast);
+  const fkMast2 = fkMast.clone();
+  fkMast2.position.x = -0.4;
+  forkliftGroup.add(fkMast2);
+  const fkForkMat = new THREE.MeshLambertMaterial({ color: 0x555555 });
+  const fkFork1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.05, 1.6), fkForkMat);
+  fkFork1.position.set(-0.3, 0.7, -1.85);
+  forkliftGroup.add(fkFork1);
+  const fkFork2 = fkFork1.clone();
+  fkFork2.position.x = 0.3;
+  forkliftGroup.add(fkFork2);
+  // Stack of lobster traps on the forks
+  const fkTrapMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a, wireframe: true });
+  const fkTrapStack = new THREE.Group();
+  for (let i = 0; i < 3; i++) {
+    const trap = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.35, 0.7), fkTrapMat);
+    trap.position.y = 0.18 + i * 0.36;
+    fkTrapStack.add(trap);
+  }
+  fkTrapStack.position.set(0, 0.7, -2.0);
+  forkliftGroup.add(fkTrapStack);
+  // Driver figure
+  const fkDriverBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0xff6600 })
+  );
+  fkDriverBody.position.set(0, 1.6, 0.4);
+  forkliftGroup.add(fkDriverBody);
+  const fkDriverHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd9b3 })
+  );
+  fkDriverHead.position.set(0, 2.0, 0.4);
+  forkliftGroup.add(fkDriverHead);
+  forkliftGroup.position.set(-12, 0.05, 22);
+  forkliftGroup.rotation.y = 0.4;
+  group.add(forkliftGroup);
+
+  // Beach drone flying overhead in lazy circles
+  const beachDroneGroup = new THREE.Group();
+  const drBodyMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const drBody = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.35), drBodyMat);
+  beachDroneGroup.add(drBody);
+  const drArmMat = new THREE.MeshLambertMaterial({ color: 0x333333 });
+  for (const ap of [[0.28,0,0.28],[-0.28,0,0.28],[0.28,0,-0.28],[-0.28,0,-0.28]]) {
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.4), drArmMat);
+    arm.position.set(ap[0]/2, 0, ap[2]/2);
+    arm.lookAt(ap[0]*2, 0, ap[2]*2);
+    beachDroneGroup.add(arm);
+  }
+  const drProps = [];
+  const drPropMat = new THREE.MeshLambertMaterial({ color: 0x888888, transparent: true, opacity: 0.5 });
+  for (const pp of [[0.32,0.08,0.32],[-0.32,0.08,0.32],[0.32,0.08,-0.32],[-0.32,0.08,-0.32]]) {
+    const prop = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.04), drPropMat);
+    prop.position.set(pp[0], pp[1], pp[2]);
+    beachDroneGroup.add(prop);
+    drProps.push(prop);
+  }
+  // Blinking LED
+  const drLED = new THREE.Mesh(
+    new THREE.SphereGeometry(0.05, 8, 6),
+    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+  );
+  drLED.position.set(0, -0.08, 0);
+  beachDroneGroup.add(drLED);
+  beachDroneGroup.position.set(0, 14, 0);
+  group.add(beachDroneGroup);
+
+  // Sandbar with seal colony lounging
+  const sandbarGroup = new THREE.Group();
+  const sandbarMat = new THREE.MeshLambertMaterial({ color: 0xd9c89a });
+  const sandbar = new THREE.Mesh(
+    new THREE.CylinderGeometry(4.5, 5.0, 0.3, 18),
+    sandbarMat
+  );
+  sandbar.position.y = 0.0;
+  sandbar.scale.set(1.0, 1.0, 1.6);
+  sandbarGroup.add(sandbar);
+  // Seals (gray ellipsoids with little heads)
+  const sandbarSealMat = new THREE.MeshLambertMaterial({ color: 0x4a4a52 });
+  const sandbarSealMatLight = new THREE.MeshLambertMaterial({ color: 0x6a6a72 });
+  const sandbarSeals = [];
+  const sealPositions = [
+    [-1.6, 0.0, -2.2, 0.4, sandbarSealMat],
+    [1.5, 0.0, -1.8, -0.6, sandbarSealMatLight],
+    [-0.5, 0.0, 0.5, 1.2, sandbarSealMat],
+    [2.0, 0.0, 1.6, -0.3, sandbarSealMatLight],
+    [-2.4, 0.0, 1.0, 0.9, sandbarSealMat],
+  ];
+  for (const sp of sealPositions) {
+    const seal = new THREE.Group();
+    const sealBody = new THREE.Mesh(
+      new THREE.SphereGeometry(0.6, 12, 10),
+      sp[4]
+    );
+    sealBody.scale.set(1.0, 0.6, 1.8);
+    sealBody.position.y = 0.35;
+    seal.add(sealBody);
+    const sealHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.32, 10, 8),
+      sp[4]
+    );
+    sealHead.position.set(0, 0.55, 0.85);
+    seal.add(sealHead);
+    // Tiny eye dots
+    const sealEyeMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    for (const ex of [-0.12, 0.12]) {
+      const eye = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 4), sealEyeMat);
+      eye.position.set(ex, 0.62, 1.05);
+      seal.add(eye);
+    }
+    seal.position.set(sp[0], sp[1], sp[2]);
+    seal.rotation.y = sp[3];
+    sandbarGroup.add(seal);
+    sandbarSeals.push(seal);
+  }
+  sandbarGroup.position.set(35, 0.05, -22);
+  group.add(sandbarGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -8498,6 +8650,22 @@ export function createAnchorageLandmark(THREE, opts) {
       });
       // v45: painter arm moves slightly
       painterArm.rotation.x = 0.6 + Math.sin(t * 2.4) * 0.25;
+
+      // v46: drone circles overhead, propellers spin, LED blinks
+      const droneR = 18;
+      const droneAngle = t * 0.35;
+      beachDroneGroup.position.x = Math.cos(droneAngle) * droneR;
+      beachDroneGroup.position.z = Math.sin(droneAngle) * droneR + 5;
+      beachDroneGroup.position.y = 14 + Math.sin(t * 0.7) * 1.2;
+      beachDroneGroup.rotation.y = -droneAngle - Math.PI / 2;
+      for (const p of drProps) p.rotation.y += 0.8;
+      drLED.material.color.setHex(((t * 2) % 2 < 1) ? 0xff0000 : 0x330000);
+      // v46: seals breathe gently
+      for (let i = 0; i < sandbarSeals.length; i++) {
+        sandbarSeals[i].position.y = Math.sin(t * 0.6 + i * 0.7) * 0.04;
+      }
+      // v46: forklift driver subtle bob
+      fkDriverBody.position.y = 1.6 + Math.sin(t * 1.2) * 0.02;
 
     }
 
