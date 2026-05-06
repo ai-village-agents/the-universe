@@ -11307,6 +11307,31 @@ const cosmicSights = [
     { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
     { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
     { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
+    { name: "Solar Five-Minute p-Mode", position: [4368, 87360, 2243], color: "#FFD700", description: "Dominant acoustic oscillation period in Sun revealing interior sound speed" },
+    { name: "Core g-Mode Detection Zone", position: [4369, 87380, 2244], color: "#E6E6FA", description: "Deep gravity wave cavity probing stellar nuclear burning regions" },
+    { name: "Delta Scuti Multimode Pattern", position: [4370, 87400, 2245], color: "#00CED1", description: "Complex frequency spectrum from simultaneous radial and non-radial modes" },
+    { name: "Classical Instability Strip Edge", position: [4371, 87420, 2246], color: "#FFB347", description: "Blue and red edges where pulsation driving efficiency changes" },
+    { name: "RR Lyrae Blazhko Effect", position: [4372, 87440, 2247], color: "#87CEEB", description: "Long-term amplitude and phase modulation of pulsation cycle" },
+    { name: "Mira Shock Wave Front", position: [4373, 87460, 2248], color: "#DC143C", description: "Pulsation-driven atmospheric shock creating molecular emission features" },
+    { name: "Beta Cephei Iron Bump", position: [4374, 87480, 2249], color: "#4169E1", description: "Z-bump opacity feature driving oscillations in hot massive stars" },
+    { name: "SPB Star g-Mode Cavity", position: [4375, 87500, 2250], color: "#9370DB", description: "Radiative interior where high-order gravity modes propagate" },
+    { name: "Gamma Dor Convective Boundary", position: [4376, 87520, 2251], color: "#98FB98", description: "Interface where convective flux variations drive g-mode instabilities" },
+    { name: "roAp Magnetic Pulsation Pole", position: [4377, 87540, 2252], color: "#FF69B4", description: "High-latitude oscillation maximum aligned with magnetic field axis" },
+    { name: "ZZ Ceti Instability Zone", position: [4378, 87560, 2253], color: "#F0F8FF", description: "Hydrogen partial ionization layer driving white dwarf pulsations" },
+    { name: "DBV Helium Ionization Layer", position: [4379, 87580, 2254], color: "#B0E0E6", description: "Helium opacity source driving V777 Her class oscillations" },
+    { name: "sdBV p-Mode Spectrum", position: [4380, 87600, 2255], color: "#DDA0DD", description: "Short-period acoustic modes in extreme horizontal branch stars" },
+    { name: "Stochastic Oscillation Envelope", position: [4381, 87620, 2256], color: "#FAFAD2", description: "Amplitude modulation pattern from random convective driving" },
+    { name: "Red Giant Mixed Mode Bumped", position: [4382, 87640, 2257], color: "#FF6347", description: "Period spacing pattern revealing core hydrogen shell burning state" },
+    { name: "Gyrochronology Calibration Star", position: [4383, 87660, 2258], color: "#20B2AA", description: "Seismically-dated star anchoring rotation-age relationships" },
+    { name: "Rotational Kernel Function", position: [4384, 87680, 2259], color: "#778899", description: "Sensitivity pattern mapping oscillation frequency to internal rotation" },
+    { name: "Mode Coupling Avoided Crossing", position: [4385, 87700, 2260], color: "#DAA520", description: "Frequency interaction region where p and g modes exchange character" },
+    { name: "Granulation Background Signal", position: [4386, 87720, 2261], color: "#CD853F", description: "Low-frequency power from convective cell brightness fluctuations" },
+    { name: "Opacity Driving Region kappa", position: [4387, 87740, 2262], color: "#FF4500", description: "Ionization zone where opacity increases with compression" },
+    { name: "Nuclear Epsilon Modulation", position: [4388, 87760, 2263], color: "#00FF7F", description: "Temperature-sensitive burning rate variation during pulsation cycle" },
+    { name: "Convective Flux Freezing Layer", position: [4389, 87780, 2264], color: "#8B4513", description: "Depth where convective timescale exceeds pulsation period" },
+    { name: "Acoustic Cavity Upper Boundary", position: [4390, 87800, 2265], color: "#6495ED", description: "Temperature minimum reflecting acoustic waves back into star" },
+    { name: "Surface Gravity Mode Leakage", position: [4391, 87820, 2266], color: "#7B68EE", description: "Atmospheric extension of internal gravity wave oscillations" },
+    { name: "Buoyancy Frequency Profile", position: [4392, 87840, 2267], color: "#48D1CC", description: "Radial variation of Brunt-Vaisala frequency controlling g-mode spectrum" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
