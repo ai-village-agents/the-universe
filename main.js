@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Penumbra Filament Structure", position: [19800, 15450, 18700], color: "#607D8B", description: "Radial spot features" },
     { name: "Umbral Light Bridge Lane", position: [19900, 15500, 18800], color: "#546E7A", description: "Bright lane in umbra" },
     { name: "Facular Bright Point", position: [20000, 15550, 18900], color: "#FFE57F", description: "Magnetic bright feature" },
+const sight9851 = 'Ionization cascade: Electrons being stripped from atoms in rapid succession, releasing energy with each impact and creating a cascade of excitation.';
+const sight9852 = 'Plasma frequency oscillation: Charged particles oscillating collectively at the plasma frequency, creating a shimmering wave pattern throughout the medium.';
+const sight9853 = 'Ion acoustic wave: A compressional wave in plasma where ions oscillate while electrons provide inertia, propagating with distinctive acoustic properties.';
+const sight9854 = 'Charge separation zone: A region where positive and negative charges have separated, creating an electric field that glows with accumulated potential.';
+const sight9855 = 'Electrostatic instability: Unstable configurations of charged particles that rapidly reorganize, releasing energy in sudden bursts and restructuring.';
+const sight9856 = 'Ion drift motion: Charged particles drifting perpendicular to electric and magnetic fields, creating ordered flows across the plasma.';
+const sight9857 = 'Two-stream instability: Two populations of particles streaming past each other, creating waves that grow exponentially from the interaction.';
+const sight9858 = 'Plasma sheath formation: A thin layer of unequal charge distribution forming at surfaces, creating a visible electrical boundary.';
+const sight9859 = 'Ion cyclotron resonance: Ions spiraling at their cyclotron frequency in a magnetic field, creating synchronized orbital motion visible as rotating rings.';
+const sight9860 = 'Debye screening: Ions surrounding free charges in a symmetric cloud, reducing the long-range electric field through collective screening.';
+const sight9861 = 'Charge exchange collision: An ion capturing an electron from a neutral atom, changing charge states and releasing energy in the process.';
+const sight9862 = 'Coulomb collision: Two charged particles repelling each other and following curved trajectories, with multiple such interactions creating total deflection.';
+const sight9863 = 'Ion heating region: A zone where ions are being energized by waves or collisions, glowing brightly with increased thermal motion.';
+const sight9864 = 'Charge neutralization boundary: A transition where ion and electron densities equalize, visible as a sharp change in electrical properties.';
+const sight9865 = 'Plasma double layer: Two thin layers of opposite charge creating a strong potential difference across a narrow region of space.';
+const sight9866 = 'Ion recombination glow: Electrons recombining with positive ions, releasing energy as visible light and cooling the plasma.';
+const sight9867 = 'Electric field shear: A region where electric field changes strength dramatically over a small distance, creating a sharp visible gradient.';
+const sight9868 = 'Alfven wave propagation: Electromagnetic waves along magnetic field lines causing ions to oscillate perpendicular to the field direction.';
+const sight9869 = 'Ion temperature anisotropy: Different temperatures in different directions, creating a pressure imbalance and driving instabilities.';
+const sight9870 = 'Plasma confinement field: Shaped magnetic and electric fields working together to contain ions and prevent them from escaping outward.';
+const sight9871 = 'Ion beam spreading: A directed beam of ions gradually widening due to electrostatic repulsion between particles in the beam.';
+const sight9872 = 'Charge exchange layer': A boundary where ions are being continuously converted to neutrals and vice versa, visible as a fuzzy transition.';
+const sight9873 = 'Ion cyclotron layer: A thin region where ion cyclotron waves are being generated, creating a concentrated band of wave activity.';
+const sight9874 = 'Plasma polarization wave: Collective polarization of charges creating a longitudinal wave that propagates through the plasma medium.';
+const sight9875 = 'Ion sloshing motion: Ions bouncing back and forth between magnetic mirrors, creating a slow oscillation visible in space.';
+
+export const sights = [sight9851, sight9852, sight9853, sight9854, sight9855, sight9856, sight9857, sight9858, sight9859, sight9860, sight9861, sight9862, sight9863, sight9864, sight9865, sight9866, sight9867, sight9868, sight9869, sight9870, sight9871, sight9872, sight9873, sight9874, sight9875];
     { name: "Plage Active Region", position: [20100, 15600, 19000], color: "#FFFF8D", description: "Chromospheric bright area" },
     { name: "Filament Channel Void", position: [20200, 15650, 19100], color: "#B0BEC5", description: "Pre-prominence corridor" },
     { name: "Prominence Eruption Arc", position: [20300, 15700, 19200], color: "#FF8A80", description: "Rising plasma sheet" },
