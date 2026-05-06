@@ -8113,6 +8113,191 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(beachCheckersGroup);
 
 
+  // --- v53: beach BBQ grill, snorkeler pair, beach photographer
+  // Beach BBQ grill with grill master
+  const bbqGroup = new THREE.Group();
+  const bgGrillMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const bgGrillBody = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.4, 16), bgGrillMat);
+  bgGrillBody.position.set(0, 0.85, 0);
+  bbqGroup.add(bgGrillBody);
+  const bgGrillLid = new THREE.Mesh(new THREE.SphereGeometry(0.5, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), bgGrillMat);
+  bgGrillLid.position.set(0, 1.05, 0);
+  bgGrillLid.rotation.x = -0.3;
+  bbqGroup.add(bgGrillLid);
+  const bgLegMat = new THREE.MeshLambertMaterial({ color: 0x333333 });
+  for (let i = 0; i < 3; i++) {
+    const ang = (i / 3) * Math.PI * 2;
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.85, 6), bgLegMat);
+    leg.position.set(Math.cos(ang) * 0.4, 0.42, Math.sin(ang) * 0.4);
+    bbqGroup.add(leg);
+  }
+  // Coal glow inside grill
+  const bgCoalMat = new THREE.MeshBasicMaterial({ color: 0xff6020 });
+  const bgCoal = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 16), bgCoalMat);
+  bgCoal.position.set(0, 1.06, 0);
+  bbqGroup.add(bgCoal);
+  // Smoke (3 small white spheres)
+  const bgSmokeMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee, transparent: true, opacity: 0.6 });
+  const bgSmokes = [];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.12 + i * 0.04, 8, 8), bgSmokeMat);
+    s.position.set(0, 1.6 + i * 0.4, 0);
+    bbqGroup.add(s);
+    bgSmokes.push(s);
+  }
+  // Grill master
+  const bgChefBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  bgChefBody.position.set(0.9, 0.35, 0);
+  bbqGroup.add(bgChefBody);
+  const bgChefHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  bgChefHead.position.set(0.9, 0.85, 0);
+  bbqGroup.add(bgChefHead);
+  const bgChefHat = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.18, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  bgChefHat.position.set(0.9, 1.05, 0);
+  bbqGroup.add(bgChefHat);
+  const bgTongs = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.4, 6), bgGrillMat);
+  bgTongs.position.set(0.5, 0.95, 0);
+  bgTongs.rotation.z = 0.7;
+  bbqGroup.add(bgTongs);
+  // Picnic table
+  const bgTableMat = new THREE.MeshLambertMaterial({ color: 0xa0703a });
+  const bgTableTop = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.06, 0.7), bgTableMat);
+  bgTableTop.position.set(-1.3, 0.7, 0);
+  bbqGroup.add(bgTableTop);
+  for (let i = 0; i < 4; i++) {
+    const lx = -1.3 + (i % 2 === 0 ? -0.7 : 0.7);
+    const lz = (i < 2 ? -0.3 : 0.3);
+    const tleg = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.7, 0.06), bgTableMat);
+    tleg.position.set(lx, 0.35, lz);
+    bbqGroup.add(tleg);
+  }
+  // Plate of food on table
+  const bgPlate = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.02, 16), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  bgPlate.position.set(-1.3, 0.74, 0);
+  bbqGroup.add(bgPlate);
+  const bgBurger = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), new THREE.MeshLambertMaterial({ color: 0x8a3a1a }));
+  bgBurger.position.set(-1.3, 0.78, 0);
+  bgBurger.scale.y = 0.5;
+  bbqGroup.add(bgBurger);
+  bbqGroup.position.set(28, 0.05, 14);
+  bbqGroup.rotation.y = -0.6;
+  group.add(bbqGroup);
+
+  // Snorkeler pair in shallows
+  const snorkelerGroup = new THREE.Group();
+  const snBodyMat = new THREE.MeshLambertMaterial({ color: 0x2a85d8 });
+  const snFinMat = new THREE.MeshLambertMaterial({ color: 0xffd040 });
+  const snMaskMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const snTubeMat = new THREE.MeshLambertMaterial({ color: 0xff5050 });
+  const snorkelers = [];
+  const snColors = [0x2a85d8, 0xc04040];
+  for (let i = 0; i < 2; i++) {
+    const sn = new THREE.Group();
+    // Body (lying flat)
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.13, 1.0, 8), new THREE.MeshLambertMaterial({ color: snColors[i] }));
+    body.rotation.z = Math.PI / 2;
+    body.position.set(0, 0.05, 0);
+    sn.add(body);
+    // Head (face down)
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+    head.position.set(0.55, 0.05, 0);
+    sn.add(head);
+    // Snorkel tube
+    const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.3, 6), snTubeMat);
+    tube.position.set(0.6, 0.22, 0.07);
+    sn.add(tube);
+    // Mask (visor strap visual)
+    const mask = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.06, 0.18), snMaskMat);
+    mask.position.set(0.6, 0.05, 0.05);
+    sn.add(mask);
+    // Yellow fins
+    const fin1 = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.22), snFinMat);
+    fin1.position.set(-0.6, 0.04, 0.1);
+    sn.add(fin1);
+    const fin2 = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.22), snFinMat);
+    fin2.position.set(-0.6, 0.04, -0.1);
+    sn.add(fin2);
+    sn.position.set(i === 0 ? 0 : 1.2, 0, i === 0 ? 0 : 0.4);
+    sn.rotation.y = i === 0 ? 0.2 : -0.3;
+    snorkelerGroup.add(sn);
+    snorkelers.push(sn);
+  }
+  // Bubbles around snorkelers
+  const snBubbleMat = new THREE.MeshLambertMaterial({ color: 0xddffff, transparent: true, opacity: 0.6 });
+  const snBubbles = [];
+  for (let i = 0; i < 4; i++) {
+    const bubble = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), snBubbleMat);
+    bubble.position.set(0.6 + Math.random() * 0.5, 0.18, -0.1 + i * 0.1);
+    snorkelerGroup.add(bubble);
+    snBubbles.push(bubble);
+  }
+  snorkelerGroup.position.set(32, 0.05, -8);
+  snorkelerGroup.rotation.y = 0.3;
+  group.add(snorkelerGroup);
+
+  // Beach photographer with tripod
+  const photoGroup = new THREE.Group();
+  const phgrTripodMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  for (let i = 0; i < 3; i++) {
+    const ang = (i / 3) * Math.PI * 2;
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.4, 6), phgrTripodMat);
+    leg.position.set(Math.cos(ang) * 0.18, 0.7, Math.sin(ang) * 0.18);
+    leg.rotation.x = Math.sin(ang) * 0.18;
+    leg.rotation.z = -Math.cos(ang) * 0.18;
+    photoGroup.add(leg);
+  }
+  // Camera body
+  const phgrCamMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const phgrCamera = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.22, 0.25), phgrCamMat);
+  phgrCamera.position.set(0, 1.45, 0);
+  photoGroup.add(phgrCamera);
+  // Lens
+  const phgrLens = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.25, 16), phgrCamMat);
+  phgrLens.rotation.z = Math.PI / 2;
+  phgrLens.position.set(0.22, 1.45, 0);
+  photoGroup.add(phgrLens);
+  // Lens glass (highlight)
+  const phgrGlass = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.02, 16), new THREE.MeshLambertMaterial({ color: 0x4080a0 }));
+  phgrGlass.rotation.z = Math.PI / 2;
+  phgrGlass.position.set(0.35, 1.45, 0);
+  photoGroup.add(phgrGlass);
+  // Photographer body
+  const phgrBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.8, 8), new THREE.MeshLambertMaterial({ color: 0xa04040 }));
+  phgrBody.position.set(-0.4, 0.4, 0);
+  photoGroup.add(phgrBody);
+  const phgrHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  phgrHead.position.set(-0.4, 0.95, 0);
+  photoGroup.add(phgrHead);
+  // Hat (sun hat)
+  const phgrHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.04, 16), new THREE.MeshLambertMaterial({ color: 0xc0a060 }));
+  phgrHat.position.set(-0.4, 1.1, 0);
+  photoGroup.add(phgrHat);
+  // Camera strap
+  const phgrStrap = new THREE.Mesh(new THREE.TorusGeometry(0.2, 0.015, 6, 16), phgrCamMat);
+  phgrStrap.position.set(-0.2, 1.2, 0);
+  phgrStrap.rotation.y = 0.5;
+  photoGroup.add(phgrStrap);
+  // Subject (a smiling beachgoer pose)
+  const phgrSubBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.8, 8), new THREE.MeshLambertMaterial({ color: 0xff6080 }));
+  phgrSubBody.position.set(2.5, 0.4, 0);
+  photoGroup.add(phgrSubBody);
+  const phgrSubHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  phgrSubHead.position.set(2.5, 0.95, 0);
+  photoGroup.add(phgrSubHead);
+  // Subject's raised arm waving
+  const phgrSubArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  phgrSubArm.position.set(2.7, 1.05, 0);
+  phgrSubArm.rotation.z = 0.6;
+  photoGroup.add(phgrSubArm);
+  // Flash element on top of camera
+  const phgrFlash = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.05, 0.08), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  phgrFlash.position.set(0, 1.6, 0);
+  photoGroup.add(phgrFlash);
+  photoGroup.position.set(-30, 0.05, -4);
+  photoGroup.rotation.y = 0.5;
+  group.add(photoGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9650,6 +9835,24 @@ export function createAnchorageLandmark(THREE, opts) {
       phHead.rotation.z = Math.max(0, Math.sin(t * 0.7)) * -1.2;
       phNeck.rotation.z = -0.5 + Math.max(0, Math.sin(t * 0.7)) * -0.5;
       phBeak.rotation.z = -Math.PI / 2 + Math.max(0, Math.sin(t * 0.7)) * -0.7;
+      // v53: BBQ smoke drifts up
+      for (let i = 0; i < bgSmokes.length; i++) {
+        const phase = (t * 0.4 + i * 0.7) % 2.0;
+        bgSmokes[i].position.y = 1.6 + phase * 0.6;
+        bgSmokes[i].material.opacity = 0.6 * (1 - phase / 2.0);
+        bgSmokes[i].position.x = Math.sin(t * 0.5 + i) * 0.1;
+      }
+      // v53: snorkelers gently bob in water
+      for (let i = 0; i < snorkelers.length; i++) {
+        snorkelers[i].position.y = Math.sin(t * 0.8 + i * 1.2) * 0.04;
+      }
+      // v53: bubbles rise then reset
+      for (let i = 0; i < snBubbles.length; i++) {
+        snBubbles[i].position.y = 0.18 + ((t * 0.3 + i * 0.5) % 1.5) * 0.5;
+      }
+      // v53: photographer camera flash blinks
+      phgrFlash.material.opacity = (Math.sin(t * 5) > 0.95) ? 1 : 0.4;
+      phgrFlash.scale.setScalar(1 + (Math.sin(t * 5) > 0.95 ? 0.5 : 0));
     }
 
   }

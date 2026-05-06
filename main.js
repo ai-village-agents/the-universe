@@ -11281,7 +11281,33 @@ const cosmicSights = [
     { name: "Flare Energy Release Peak", position: [4364, 87280, 2239], color: "#FF0000", description: "Moment of maximum magnetic energy dissipation during X-class flare" },
     { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
     { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
-    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
+    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" },
+    { name: "Protostellar Disk Accretion", position: [4393, 87860, 2268], color: "#FF8C00", description: "Dust spiraling into young star's gravity well, heating from friction into glowing orange emission" },
+    { name: "Herbig-Haro Jet Eruption", position: [4394, 87880, 2269], color: "#00FFFF", description: "Supersonic jets of ionized gas launched from protostar's poles, visible as glowing cyan beams" },
+    { name: "T-Tauri Wind Outflow", position: [4395, 87900, 2270], color: "#FF1493", description: "Fierce stellar wind from young Sun-like star, stripping away remaining protoplanetary disk material" },
+    { name: "ZAMS Fusion Ignition", position: [4396, 87920, 2271], color: "#FFFF00", description: "Newborn star reaching equilibrium where core fusion matches surface radiation, beginning stable life" },
+    { name: "Hydrogen Burning Core Reaction", position: [4397, 87940, 2272], color: "#FFD700", description: "Proton-proton chain reaction sustaining yellow dwarf for billions of years at constant brightness" },
+    { name: "Sirius Binary Orbital Dance", position: [4398, 87960, 2273], color: "#FFFFFF", description: "Massive hot star and white dwarf orbiting common center, visible as brightest point in night sky" },
+    { name: "Red Giant Envelope Expansion", position: [4399, 87980, 2274], color: "#FF4500", description: "Star exhausting core hydrogen swells to 200× solar radius, engulfing all inner planets in its photosphere" },
+    { name: "Helium Flash Core Ignition", position: [4400, 88000, 2275], color: "#FFB6C1", description: "Catastrophic thermonuclear detonation when helium core reaches 100 million Kelvin, briefly tripling star's brightness" },
+    { name: "Horizontal Branch Blue Star", position: [4401, 88020, 2276], color: "#4169E1", description: "Evolved star burning helium in core while hydrogen shell burns, creating hot blue star phase" },
+    { name: "Asymptotic Giant Branch Mass Loss", position: [4402, 88040, 2277], color: "#DDA0DD", description: "Pulsating red giant shedding its outer layers in massive winds, creating intricate dust shells" },
+    { name: "Ejected Stellar Envelope", position: [4403, 88060, 2278], color: "#00FF00", description: "Dying star ejecting 50% of its mass in glowing green ionized gas shell visible light-years away" },
+    { name: "White Dwarf Cooling Sequence", position: [4404, 88080, 2279], color: "#FFFACD", description: "Earth-sized stellar remnant slowly radiating accumulated thermal energy over billions of years" },
+    { name: "Neutron Star Magnetic Pole", position: [4405, 88100, 2280], color: "#FF0000", description: "Ultra-dense stellar core with billion-Tesla magnetic field channeling particles into two glowing poles" },
+    { name: "Pulsar Lighthouse Beam", position: [4406, 88120, 2281], color: "#00FFFF", description: "Rotating neutron star sweeping its radiation beam across galaxy like cosmic lighthouse" },
+    { name: "Schwarzschild Boundary", position: [4407, 88140, 2282], color: "#000000", description: "Ultimate stellar remnant where gravity becomes infinite and light itself cannot escape" },
+    { name: "Common Envelope Binary Merger", position: [4408, 88160, 2283], color: "#FF69B4", description: "Two stars spiraling into shared envelope, friction accelerating merger process toward collision" },
+    { name: "White Dwarf Accretion Outburst", position: [4409, 88180, 2284], color: "#FF4500", description: "White dwarf siphoning hydrogen from companion star suddenly ignites thermonuclear explosion on surface" },
+    { name: "Supernova Type Ia Thermonuclear", position: [4410, 88200, 2285], color: "#FFFFFF", description: "White dwarf explosion reaching 5 billion Kelvin, briefly outshining entire galaxies of billions of stars" },
+    { name: "Supernova Type II Core Collapse", position: [4411, 88220, 2286], color: "#FFD700", description: "Massive star's iron core collapses and rebounds, ejecting outer layers at 30,000 km/s" },
+    { name: "Expanding Shock Wave", position: [4412, 88240, 2287], color: "#87CEEB", description: "Shock wave from supernova expanding through interstellar medium, compressing gas into dense rings" },
+    { name: "Wolf-Rayet Wind Collision", position: [4413, 88260, 2288], color: "#00FF00", description: "Extreme massive star's 3,000 km/s wind colliding with companion's wind creating X-ray hot collision zone" },
+    { name: "Luminous Blue Variable Eruption", position: [4414, 88280, 2289], color: "#87CEEB", description: "Hypergiant star suddenly ejecting huge mass shell, brightening by 2 magnitudes in weeks" },
+    { name: "Stellar Merger Flash", position: [4415, 88300, 2290], color: "#FF00FF", description: "Two stars touching surfaces, surfaces deforming into teardrops as tidal forces tear them apart" },
+    { name: "Black Hole Accretion Disk", position: [4416, 88320, 2291], color: "#FF6347", description: "Matter spiraling into black hole reaches 10 million Kelvin, glowing brilliant orange-red before crossing horizon" },
+    { name: "Hawking Radiation Evaporation", position: [4417, 88340, 2292], color: "#FFD700", description: "Smallest black holes releasing quantum radiation, eventually exploding in brilliant terminal flash" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
