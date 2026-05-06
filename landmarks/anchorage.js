@@ -8298,6 +8298,170 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(photoGroup);
 
 
+  // --- v54: anchored sailboat, beach kite flyer, dome tent camper
+  // Anchored sailboat
+  const sailGroup = new THREE.Group();
+  const sailHullMat = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+  const sailHull = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.35, 3.0, 16), sailHullMat);
+  sailHull.rotation.z = Math.PI / 2;
+  sailHull.position.set(0, 0.4, 0);
+  sailGroup.add(sailHull);
+  // Hull stripe (blue)
+  const sailHullStripe = new THREE.Mesh(new THREE.CylinderGeometry(0.51, 0.36, 0.15, 16), new THREE.MeshLambertMaterial({ color: 0x1860c0 }));
+  sailHullStripe.rotation.z = Math.PI / 2;
+  sailHullStripe.position.set(0, 0.55, 0);
+  sailGroup.add(sailHullStripe);
+  // Cabin
+  const sailCabin = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.35, 0.8), new THREE.MeshLambertMaterial({ color: 0xe8e8e8 }));
+  sailCabin.position.set(0.3, 0.85, 0);
+  sailGroup.add(sailCabin);
+  // Mast
+  const sailMastMat = new THREE.MeshLambertMaterial({ color: 0xa0a0a0 });
+  const sailMast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.5, 8), sailMastMat);
+  sailMast.position.set(-0.2, 2.55, 0);
+  sailGroup.add(sailMast);
+  // Boom
+  const sailBoom = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 1.6, 8), sailMastMat);
+  sailBoom.rotation.z = Math.PI / 2;
+  sailBoom.position.set(-0.9, 1.0, 0);
+  sailGroup.add(sailBoom);
+  // Mainsail (triangle)
+  const sailMainGeom = new THREE.BufferGeometry();
+  sailMainGeom.setAttribute('position', new THREE.Float32BufferAttribute([
+    -0.2, 1.0, 0,    -0.2, 4.2, 0,    -1.7, 1.0, 0
+  ], 3));
+  sailMainGeom.setIndex([0, 1, 2, 0, 2, 1]);
+  sailMainGeom.computeVertexNormals();
+  const sailMainMat = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  const sailMain = new THREE.Mesh(sailMainGeom, sailMainMat);
+  sailGroup.add(sailMain);
+  // Jib (front sail)
+  const sailJibGeom = new THREE.BufferGeometry();
+  sailJibGeom.setAttribute('position', new THREE.Float32BufferAttribute([
+    -0.2, 1.4, 0,    -0.2, 3.8, 0,    1.2, 0.9, 0
+  ], 3));
+  sailJibGeom.setIndex([0, 1, 2, 0, 2, 1]);
+  sailJibGeom.computeVertexNormals();
+  const sailJib = new THREE.Mesh(sailJibGeom, new THREE.MeshLambertMaterial({ color: 0xffe4e0, side: THREE.DoubleSide }));
+  sailGroup.add(sailJib);
+  // Anchor line going down to water
+  const sailAnchorLine = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.4, 6), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  sailAnchorLine.position.set(1.4, -0.2, 0);
+  sailAnchorLine.rotation.z = -0.3;
+  sailGroup.add(sailAnchorLine);
+  // Boat name
+  sailGroup.position.set(38, 0, 22);
+  sailGroup.rotation.y = -0.4;
+  group.add(sailGroup);
+
+  // Beach kite flyer
+  const beachKiteGroup = new THREE.Group();
+  // Flyer (kid)
+  const kfBody = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0xff6020 }));
+  kfBody.position.set(0, 0.25, 0);
+  beachKiteGroup.add(kfBody);
+  const kfHead = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  kfHead.position.set(0, 0.6, 0);
+  beachKiteGroup.add(kfHead);
+  const kfArm = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  kfArm.position.set(0.2, 0.55, 0);
+  kfArm.rotation.z = -0.8;
+  beachKiteGroup.add(kfArm);
+  // Kite (diamond)
+  const bkShape = new THREE.Shape();
+  bkShape.moveTo(0, 0.6);
+  bkShape.lineTo(0.45, 0);
+  bkShape.lineTo(0, -0.6);
+  bkShape.lineTo(-0.45, 0);
+  bkShape.closePath();
+  const bkGeom = new THREE.ShapeGeometry(bkShape);
+  const kKite = new THREE.Mesh(bkGeom, new THREE.MeshLambertMaterial({ color: 0xff2050, side: THREE.DoubleSide }));
+  kKite.position.set(2.5, 4.0, 0);
+  kKite.rotation.y = 0.3;
+  beachKiteGroup.add(kKite);
+  // Kite cross stripe
+  const kKiteStripe = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.06), new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }));
+  kKiteStripe.position.set(2.5, 4.0, 0.01);
+  kKiteStripe.rotation.y = 0.3;
+  beachKiteGroup.add(kKiteStripe);
+  // Kite tail (3 small bows)
+  const kTailMat = new THREE.MeshLambertMaterial({ color: 0x40c0ff, side: THREE.DoubleSide });
+  const kTails = [];
+  for (let i = 0; i < 4; i++) {
+    const bow = new THREE.Mesh(new THREE.PlaneGeometry(0.15, 0.05), kTailMat);
+    bow.position.set(2.5, 3.4 - i * 0.18, 0);
+    beachKiteGroup.add(bow);
+    kTails.push(bow);
+  }
+  // Kite string
+  const kStringPts = [];
+  for (let i = 0; i <= 12; i++) {
+    const f = i / 12;
+    kStringPts.push(new THREE.Vector3(0.3 + f * 2.2, 0.7 + f * 3.3 - 0.2 * Math.sin(f * Math.PI), 0));
+  }
+  const kStringGeom = new THREE.BufferGeometry().setFromPoints(kStringPts);
+  const kString = new THREE.Line(kStringGeom, new THREE.LineBasicMaterial({ color: 0xffffff }));
+  beachKiteGroup.add(kString);
+  beachKiteGroup.position.set(-22, 0.05, 18);
+  beachKiteGroup.rotation.y = -0.3;
+  group.add(beachKiteGroup);
+
+  // Dome tent camper
+  const tentGroup = new THREE.Group();
+  const dtTentMat = new THREE.MeshLambertMaterial({ color: 0xc04040 });
+  const dtTent = new THREE.Mesh(new THREE.SphereGeometry(1.0, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2), dtTentMat);
+  dtTent.position.set(0, 0, 0);
+  tentGroup.add(dtTent);
+  // Tent door (dark slit)
+  const dtDoor = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.7), new THREE.MeshLambertMaterial({ color: 0x111111, side: THREE.DoubleSide }));
+  dtDoor.position.set(0, 0.35, 0.96);
+  tentGroup.add(dtDoor);
+  // Tent rainfly stripe
+  const dtStripe = new THREE.Mesh(new THREE.SphereGeometry(1.01, 16, 4, 0, Math.PI * 2, Math.PI / 4, Math.PI / 12), new THREE.MeshLambertMaterial({ color: 0xffd040 }));
+  tentGroup.add(dtStripe);
+  // Camp chair (folding)
+  const dtChairMat = new THREE.MeshLambertMaterial({ color: 0x2080d8 });
+  const dtChairSeat = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.5), dtChairMat);
+  dtChairSeat.position.set(2.0, 0.4, 0);
+  tentGroup.add(dtChairSeat);
+  const dtChairBack = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.6, 0.05), dtChairMat);
+  dtChairBack.position.set(2.0, 0.7, -0.22);
+  tentGroup.add(dtChairBack);
+  const dtChairLegMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  for (let i = 0; i < 4; i++) {
+    const lx = 2.0 + (i % 2 === 0 ? -0.22 : 0.22);
+    const lz = (i < 2 ? -0.22 : 0.22);
+    const cleg = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.4, 6), dtChairLegMat);
+    cleg.position.set(lx, 0.2, lz);
+    tentGroup.add(cleg);
+  }
+  // Camper sitting in chair
+  const dtCamperBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0x40a050 }));
+  dtCamperBody.position.set(2.0, 0.7, 0);
+  tentGroup.add(dtCamperBody);
+  const dtCamperHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c294 }));
+  dtCamperHead.position.set(2.0, 1.05, 0);
+  tentGroup.add(dtCamperHead);
+  // Cooler beside chair
+  const dtCooler = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.35), new THREE.MeshLambertMaterial({ color: 0xe04040 }));
+  dtCooler.position.set(2.7, 0.2, 0.1);
+  tentGroup.add(dtCooler);
+  const dtCoolerLid = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.35), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  dtCoolerLid.position.set(2.7, 0.43, 0.1);
+  tentGroup.add(dtCoolerLid);
+  // Lantern on small box
+  const dtLanternMat = new THREE.MeshBasicMaterial({ color: 0xffeb80 });
+  const dtLantern = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.18, 8), dtLanternMat);
+  dtLantern.position.set(-1.2, 0.4, 0.3);
+  tentGroup.add(dtLantern);
+  const dtLanternLight = new THREE.PointLight(0xffeb80, 0.3, 4);
+  dtLanternLight.position.set(-1.2, 0.5, 0.3);
+  tentGroup.add(dtLanternLight);
+  tentGroup.position.set(-32, 0.05, -22);
+  tentGroup.rotation.y = 0.5;
+  group.add(tentGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9853,6 +10017,23 @@ export function createAnchorageLandmark(THREE, opts) {
       // v53: photographer camera flash blinks
       phgrFlash.material.opacity = (Math.sin(t * 5) > 0.95) ? 1 : 0.4;
       phgrFlash.scale.setScalar(1 + (Math.sin(t * 5) > 0.95 ? 0.5 : 0));
+      // v54: sailboat rocks gently at anchor
+      sailGroup.rotation.z = Math.sin(t * 0.5) * 0.04;
+      sailGroup.position.y = Math.sin(t * 0.7) * 0.06;
+      sailJib.rotation.y = 0.1 + Math.sin(t * 1.2) * 0.08;
+      // v54: kite sways in the wind
+      kKite.position.x = 2.5 + Math.sin(t * 0.8) * 0.4;
+      kKite.position.y = 4.0 + Math.cos(t * 0.6) * 0.3;
+      kKite.rotation.z = Math.sin(t * 0.7) * 0.15;
+      kKiteStripe.position.x = kKite.position.x;
+      kKiteStripe.position.y = kKite.position.y;
+      kKiteStripe.rotation.z = kKite.rotation.z;
+      for (let i = 0; i < kTails.length; i++) {
+        kTails[i].rotation.z = Math.sin(t * 1.4 + i * 0.5) * 0.4;
+      }
+      // v54: lantern flickers
+      dtLantern.material.color.setScalar(0.85 + Math.sin(t * 8.0) * 0.15);
+      dtLanternLight.intensity = 0.3 + Math.sin(t * 8.0) * 0.08;
     }
 
   }
