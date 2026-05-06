@@ -11307,6 +11307,31 @@ const cosmicSights = [
     { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
     { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
     { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
+    { name: "Protoplanetary Disk Midplane", position: [4393, 87860, 2268], color: "#D2691E", description: "Dense dust-rich layer where planetesimals begin to form" },
+    { name: "Snow Line Condensation Front", position: [4394, 87880, 2269], color: "#ADD8E6", description: "Temperature boundary where water ice becomes stable in disk" },
+    { name: "Pebble Accretion Stream", position: [4395, 87900, 2270], color: "#DEB887", description: "Aerodynamic drift feeding cm-sized particles onto growing cores" },
+    { name: "Oligarchic Growth Zone", position: [4396, 87920, 2271], color: "#BC8F8F", description: "Evolutionary stage where few large protoplanets dominate accretion" },
+    { name: "Giant Impact Basin", position: [4397, 87940, 2272], color: "#8B0000", description: "Collision scar from late-stage planetary embryo merger" },
+    { name: "Debris Disk Stirring Region", position: [4398, 87960, 2273], color: "#F5DEB3", description: "Dynamically excited planetesimal belt producing collisional dust" },
+    { name: "Mean Motion Resonance Gap", position: [4399, 87980, 2274], color: "#2F4F4F", description: "Orbital period ratio creating cleared zone in particle distribution" },
+    { name: "Kozai-Lidov Oscillation Orbit", position: [4400, 88000, 2275], color: "#708090", description: "Inclined body experiencing periodic eccentricity-inclination exchange" },
+    { name: "Secular Resonance Crossing", position: [4401, 88020, 2276], color: "#556B2F", description: "Precession rate match driving orbital element evolution" },
+    { name: "Laplace Resonance Chain", position: [4402, 88040, 2277], color: "#9ACD32", description: "Stable multi-body orbital lock like Galilean moon configuration" },
+    { name: "Trojan Point L4 Swarm", position: [4403, 88060, 2278], color: "#6B8E23", description: "Leading Lagrange point accumulating co-orbital minor bodies" },
+    { name: "Horseshoe Orbit Libration", position: [4404, 88080, 2279], color: "#808000", description: "Co-orbital body alternating between leading and trailing positions" },
+    { name: "Satellite Stability Sphere Limit", position: [4405, 88100, 2280], color: "#BDB76B", description: "Gravitational dominance boundary defining moon retention zone" },
+    { name: "Roche Limit Disruption Zone", position: [4406, 88120, 2281], color: "#EEE8AA", description: "Tidal stress boundary where rubble pile bodies disintegrate" },
+    { name: "Circumplanetary Disk Feeding", position: [4407, 88140, 2282], color: "#F0E68C", description: "Gas flow from protoplanetary disk onto giant planet system" },
+    { name: "Moon-Forming Impact Debris", position: [4408, 88160, 2283], color: "#DAA520", description: "Vapor and ejecta disk from giant collision creating satellites" },
+    { name: "Tidal Migration Track", position: [4409, 88180, 2284], color: "#B8860B", description: "Orbital evolution path driven by tidal energy dissipation" },
+    { name: "Spin-Orbit Coupling Lock", position: [4410, 88200, 2285], color: "#CD853F", description: "Synchronized rotation state from tidal torque equilibrium" },
+    { name: "Chaotic Rotation State", position: [4411, 88220, 2286], color: "#D2B48C", description: "Tumbling irregular body lacking stable spin axis orientation" },
+    { name: "Binary Asteroid Mutual Orbit", position: [4412, 88240, 2287], color: "#8B4513", description: "Gravitationally bound pair of small bodies in common orbit" },
+    { name: "Contact Binary Roche Lobe", position: [4413, 88260, 2288], color: "#A0522D", description: "Bilobate shape from gentle merger filling gravitational potential" },
+    { name: "Yarkovsky Drift Trajectory", position: [4414, 88280, 2289], color: "#6B4423", description: "Asymmetric thermal emission slowly changing small body orbit" },
+    { name: "YORP Spin-Up Disruption", position: [4415, 88300, 2290], color: "#8B7355", description: "Rotational acceleration from anisotropic thermal radiation" },
+    { name: "Nice Model Migration Path", position: [4416, 88320, 2291], color: "#C4A484", description: "Giant planet orbital instability reshaping outer solar system" },
+    { name: "Grand Tack Reversal Point", position: [4417, 88340, 2292], color: "#D2691E", description: "Jupiter inward-then-outward migration sculpting inner disk" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
