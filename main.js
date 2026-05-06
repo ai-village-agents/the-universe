@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Penumbra Filament Structure", position: [19800, 15450, 18700], color: "#607D8B", description: "Radial spot features" },
     { name: "Umbral Light Bridge Lane", position: [19900, 15500, 18800], color: "#546E7A", description: "Bright lane in umbra" },
     { name: "Facular Bright Point", position: [20000, 15550, 18900], color: "#FFE57F", description: "Magnetic bright feature" },
+const sight9901 = 'Energy cascade vortex: Large eddies progressively breaking into smaller whirls, transferring energy down to molecular scales.';
+const sight9902 = 'Turbulent mixing zone: Region where two fluids with different properties swirl together, creating intricate braided patterns of mixing.';
+const sight9903 = 'Inertial range eddy: Intermediate-scale turbulent structure independent of both driving forces and viscous dissipation, freely cascading.';
+const sight9904 = 'Kolmogorov spectrum: Turbulent energy distributed across all scales following a universal power law, visible as fractal-like complexity.';
+const sight9905 = 'Vortex filament tangle: Thin tubes of rotating fluid twisted and braided together, creating complex 3D structures of vorticity.';
+const sight9906 = 'Turbulent kinetic energy map: Regions of high and low turbulent activity creating a patchwork of energy density throughout the flow.';
+const sight9907 = 'Eddy viscosity effect: Turbulence acting like an enhanced viscosity, smoothing and dissipating gradients more effectively than molecular viscosity.';
+const sight9908 = 'Coherent structure persistence: Organized vortices persisting within turbulence longer than expected, resisting breakdown by surrounding chaos.';
+const sight9909 = 'Turbulent energy dissipation: Smallest eddies converting kinetic energy into heat through viscous friction, glowing with thermal release.';
+const sight9910 = 'Vortex stretching mechanism: Turbulent flow lines stretching vortex tubes, increasing their spin rate and intensifying rotation.';
+const sight9911 = 'Turbulent mixing layer: Boundary between two regions of different turbulence intensity, creating visible striations of mixed fluid.';
+const sight9912 = 'Energy production zone': Region where external forces create turbulence, generating large eddies that cascade downward.';
+const sight9913 = 'Cascade bifurcation point: Vortex splitting into two smaller vortices, dividing angular momentum and energy between the pieces.';
+const sight9914 = 'Turbulent stagnation point: Region of near-zero velocity surrounded by chaotic motion, creating a local island of relative calm.';
+const sight9915 = 'Anomalous scaling exponent: Higher-order moments in turbulence showing non-standard scaling with Reynolds number.';
+const sight9916 = 'Turbulent kinetic boundary layer: Thin region near surfaces where turbulence is suppressed or modified by the boundary.';
+const sight9917 = 'Energy flux through scales: Visible energy flowing from larger eddies to smaller ones, like a cascade of power downward.';
+const sight9918 = 'Intermittency bursts: Sudden intense fluctuations in turbulent flow, emerging unpredictably from quieter background regions.';
+const sight9919 = 'Turbulent patchiness: Spatially intermittent turbulence with regions of high activity separated by zones of relative quiet.';
+const sight9920 = 'Relaminarization effect: Turbulent flow spontaneously returning to smooth laminar motion in localized regions before re-turbulating.';
+const sight9921 = 'Turbulent backscatter: Energy anomalously flowing backward from smaller to larger scales, counter to normal cascade direction.';
+const sight9922 = 'Coherent vortex core: Highly organized vortex structure within turbulence, rotating with defined angular velocity profile.';
+const sight9923 = 'Dissipation range viscous effects: Smallest turbulent scales where viscosity dominates, smoothing and ultimately dissipating the eddies.';
+const sight9924 = 'Turbulent stress tensor': Momentum transport by turbulent motion creating effective stress across the fluid, shaping overall flow.';
+const sight9925 = 'Multi-scale eddy interaction': Eddies at different scales interacting and exchanging energy through complex coupling mechanisms.';
+
+export const sights = [sight9901, sight9902, sight9903, sight9904, sight9905, sight9906, sight9907, sight9908, sight9909, sight9910, sight9911, sight9912, sight9913, sight9914, sight9915, sight9916, sight9917, sight9918, sight9919, sight9920, sight9921, sight9922, sight9923, sight9924, sight9925];
     { name: "Plage Active Region", position: [20100, 15600, 19000], color: "#FFFF8D", description: "Chromospheric bright area" },
     { name: "Filament Channel Void", position: [20200, 15650, 19100], color: "#B0BEC5", description: "Pre-prominence corridor" },
     { name: "Prominence Eruption Arc", position: [20300, 15700, 19200], color: "#FF8A80", description: "Rising plasma sheet" },
