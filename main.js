@@ -10691,6 +10691,33 @@ const cosmicSights = [
     { name: "Polar Magnetic Column", position: [723, -212, -687], color: "#B86BFF", description: "Magnetically funneled accretion onto WD" },
     { name: "Intermediate Polar Curtain", position: [-701, 278, 698], color: "#8CFFB8", description: "Magnetically truncated disk accretion flow" },
 
+    // Batch 27: Exotic Compact Objects & X-ray Binaries (9,151-9,175)
+    { name: "Cygnus X-1 Inner Accretion Flow", position: [3251, 1801, 2151], color: "#FF6B6B", description: "First confirmed stellar-mass black hole in X-ray binary" },
+    { name: "Scorpius X-1 Neutron Star", position: [-3252, 1802, -2152], color: "#6BB5FF", description: "Brightest persistent X-ray source in the sky" },
+    { name: "Centaurus X-3 Pulse Profile", position: [3253, -1803, 2153], color: "#FFB86B", description: "First X-ray pulsar discovered in eclipsing binary" },
+    { name: "Hercules X-1 Accretion Disk", position: [-3254, -1804, -2154], color: "#B86BFF", description: "X-ray binary showing 35-day superorbital period" },
+    { name: "Vela X-1 Wind-Fed System", position: [3255, 1805, 2155], color: "#6BFFB8", description: "Massive star wind feeding neutron star companion" },
+    { name: "SMC X-1 High-Mass Binary", position: [-3256, 1806, -2156], color: "#FF6BB8", description: "Luminous X-ray pulsar in Small Magellanic Cloud" },
+    { name: "LMC X-4 Eclipsing System", position: [3257, -1807, 2157], color: "#6BFFF0", description: "Eclipsing high-mass X-ray binary with 30-day cycle" },
+    { name: "4U 1626-67 Torque Reversal", position: [-3258, -1808, -2158], color: "#F06BFF", description: "Pulsar that reversed its spin-up to spin-down" },
+    { name: "GX 301-2 Hypergiant Donor", position: [3259, 1809, 2159], color: "#FFE76B", description: "X-ray pulsar orbiting blue hypergiant star" },
+    { name: "OAO 1657-415 Slow Pulsar", position: [-3260, 1810, -2160], color: "#6BFFE7", description: "Slow rotating pulsar in obscured binary system" },
+    { name: "EXO 2030+375 Be Star Orbit", position: [3261, -1811, 2161], color: "#E76BFF", description: "Transient pulsar in eccentric Be star orbit" },
+    { name: "A0535+262 Giant Outburst", position: [-3262, -1812, -2162], color: "#FF6BE7", description: "Be X-ray binary with dramatic giant outbursts" },
+    { name: "GRO J1008-57 Transient", position: [3263, 1813, 2163], color: "#6BB8FF", description: "Transient Be X-ray binary with regular outbursts" },
+    { name: "Swift J0243 ULX Pulsar", position: [-3264, 1814, -2164], color: "#B8FF6B", description: "First Galactic ultraluminous X-ray pulsar" },
+    { name: "M82 X-2 Ultraluminous Pulsar", position: [3265, -1815, 2165], color: "#FF6B8C", description: "Pulsar exceeding Eddington limit by factor 100" },
+    { name: "NGC 7793 P13 ULX", position: [-3266, -1816, -2166], color: "#6BFFA0", description: "Ultraluminous source with supergiant companion" },
+    { name: "Holmberg IX X-1 Source", position: [3267, 1817, 2167], color: "#A06BFF", description: "Bright ULX in dwarf irregular galaxy" },
+    { name: "IC 342 X-1 Candidate", position: [-3268, 1818, -2168], color: "#FFA06B", description: "ULX candidate in nearby spiral galaxy" },
+    { name: "NGC 1313 X-1 Nebula", position: [3269, -1819, 2169], color: "#6BFFC8", description: "ULX surrounded by large ionized nebula" },
+    { name: "NGC 5408 X-1 Wind", position: [-3270, -1820, -2170], color: "#C86BFF", description: "ULX with powerful disk wind outflow" },
+    { name: "ESO 243-49 HLX-1 IMBH", position: [3271, 1821, 2171], color: "#FF6BC8", description: "Best intermediate-mass black hole candidate" },
+    { name: "M101 ULX-1 Counterpart", position: [-3272, 1822, -2172], color: "#6BFFDC", description: "ULX with identified optical counterpart star" },
+    { name: "Circinus ULX5 Spectrum", position: [3273, -1823, 2173], color: "#DC6BFF", description: "ULX showing unusual spectral features" },
+    { name: "NGC 4559 X-7 Candidate", position: [-3274, -1824, -2174], color: "#FFDC6B", description: "Variable ULX in barred spiral galaxy" },
+    { name: "NGC 6946 X-1 Remnant", position: [3275, 1825, 2175], color: "#6BDCFF", description: "ULX associated with supernova remnant" },
+
 
 
 
