@@ -190,6 +190,77 @@ export function createWelcomeObelisk(THREE, scene) {
     banner.position.set(0, 11.0, 0);
     group.add(banner);
 
+    // Live Cosmic Sight Count panel — re-renders when sights are discovered
+    function readCosmicCount() {
+        try {
+            if (window.__cosmicSightTracker?.count) {
+                const v = window.__cosmicSightTracker.count();
+                if (typeof v === 'number') return v;
+            }
+        } catch (_) {}
+        try {
+            const raw = localStorage.getItem('aiv_cosmic_sights_v1');
+            if (raw) {
+                const arr = JSON.parse(raw);
+                if (Array.isArray(arr)) return arr.length;
+            }
+        } catch (_) {}
+        return 0;
+    }
+    function readCosmicTotal() {
+        try {
+            if (typeof window.__universeCosmicSightsCount === 'number') return window.__universeCosmicSightsCount;
+            if (Array.isArray(window.__universeCosmicSightNames)) return window.__universeCosmicSightNames.length;
+            if (Array.isArray(window.__universeCosmicSightsData)) return window.__universeCosmicSightsData.length;
+        } catch (_) {}
+        return 0;
+    }
+    function paintCosmicSprite(canvas, ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const found = readCosmicCount();
+        const total = readCosmicTotal();
+        // Header
+        ctx.fillStyle = '#fff5d4';
+        ctx.font = 'italic 28px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.shadowColor = '#ffd97d';
+        ctx.shadowBlur = 12;
+        ctx.fillText('COSMIC SIGHTS', canvas.width / 2, 36);
+        // Big count
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 80px Georgia, serif';
+        ctx.shadowColor = '#88ccff';
+        ctx.shadowBlur = 22;
+        const big = total > 0 ? `${found.toLocaleString()} / ${total.toLocaleString()}` : found.toLocaleString();
+        ctx.fillText(big, canvas.width / 2, 122);
+        // Subline
+        if (total > 0) {
+            const pct = total > 0 ? Math.floor((found / total) * 100) : 0;
+            ctx.fillStyle = '#cfeaff';
+            ctx.font = 'italic 24px Georgia, serif';
+            ctx.shadowBlur = 6;
+            ctx.fillText(`${pct}% discovered`, canvas.width / 2, 158);
+        }
+    }
+    const cosmicCanvas = document.createElement('canvas');
+    cosmicCanvas.width = 720; cosmicCanvas.height = 180;
+    const cosmicCtx = cosmicCanvas.getContext('2d');
+    paintCosmicSprite(cosmicCanvas, cosmicCtx);
+    const cosmicTex = new THREE.CanvasTexture(cosmicCanvas);
+    cosmicTex.colorSpace = THREE.SRGBColorSpace;
+    const cosmicMat = new THREE.SpriteMaterial({ map: cosmicTex, transparent: true, depthWrite: false });
+    const cosmicSprite = new THREE.Sprite(cosmicMat);
+    cosmicSprite.scale.set(7.5, 1.9, 1);
+    cosmicSprite.position.set(0, 13.4, 0);
+    group.add(cosmicSprite);
+    function refreshCosmicSprite() {
+        paintCosmicSprite(cosmicCanvas, cosmicCtx);
+        cosmicTex.needsUpdate = true;
+    }
+    document.addEventListener('cosmicSightVisited', refreshCosmicSprite);
+    // Periodic refresh in case totals change (Opus 4.5 batch pushes etc.)
+    setInterval(refreshCosmicSprite, 5000);
+
     // ground glow disk
     const glowGeo = new THREE.CircleGeometry(2.6, 48);
     const glowMat = new THREE.MeshBasicMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
@@ -212,6 +283,8 @@ export function createWelcomeObelisk(THREE, scene) {
         haloMat.opacity = 0.14 + Math.sin(t * 0.7) * 0.06;
         banner.position.y = 11.0 + Math.sin(t * 0.6) * 0.18;
         banner.material.rotation = Math.sin(t * 0.4) * 0.06;
+        cosmicSprite.position.y = 13.4 + Math.sin(t * 0.5 + 1.2) * 0.16;
+        cosmicSprite.material.rotation = Math.sin(t * 0.35) * 0.04;
         glowMat.opacity = 0.12 + Math.sin(t * 1.1) * 0.05;
         // Pulse panel borders
         panels.forEach(({ frame, baseAngle }, i) => {
