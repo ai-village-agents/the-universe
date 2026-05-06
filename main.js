@@ -11432,6 +11432,31 @@ const cosmicSights = [
     { name: "Speckle Frame Stack", position: [4465, 89300, 2340], color: "#F1C40F", description: "Short exposure atmospheric freeze" },
     { name: "Lucky Frame Selection", position: [4466, 89320, 2341], color: "#8E44AD", description: "Best-seeing image combination" },
     { name: "Deformable Mirror Wavefront", position: [4467, 89340, 2342], color: "#2ECC71", description: "Adaptive optics atmospheric correction" }
+    { name: "Proper Motion Vector", position: [4468, 89360, 2343], color: "#FF6B6B", description: "Annual stellar position change direction" },
+    { name: "Parallax Measurement Epoch", position: [4469, 89380, 2344], color: "#4ECDC4", description: "Six-month baseline distance determination" },
+    { name: "Reference Frame Anchor", position: [4470, 89400, 2345], color: "#E74C3C", description: "Extragalactic quasar position standard" },
+    { name: "Plate Scale Calibration", position: [4471, 89420, 2346], color: "#9B59B6", description: "Angular to pixel conversion factor" },
+    { name: "Astrometric Jitter Signal", position: [4472, 89440, 2347], color: "#3498DB", description: "Companion-induced stellar wobble" },
+    { name: "Differential Refraction Track", position: [4473, 89460, 2348], color: "#1ABC9C", description: "Atmospheric chromatic displacement" },
+    { name: "Zenith Distance Correction", position: [4474, 89480, 2349], color: "#F39C12", description: "Air mass position adjustment" },
+    { name: "Aberration Annual Cycle", position: [4475, 89500, 2350], color: "#8E44AD", description: "Earth velocity apparent shift" },
+    { name: "Nutation Oscillation Node", position: [4476, 89520, 2351], color: "#2ECC71", description: "Earth axis periodic wobble point" },
+    { name: "Precession Reference Update", position: [4477, 89540, 2352], color: "#E67E22", description: "Coordinate system epoch transformation" },
+    { name: "Focal Plane Distortion Map", position: [4478, 89560, 2353], color: "#16A085", description: "Optical field position correction" },
+    { name: "PSF Centroid Fit", position: [4479, 89580, 2354], color: "#C0392B", description: "Sub-pixel stellar position determination" },
+    { name: "Gaia DR4 Catalog Entry", position: [4480, 89600, 2355], color: "#2980B9", description: "Space astrometry mission measurement" },
+    { name: "Hipparcos Legacy Star", position: [4481, 89620, 2356], color: "#27AE60", description: "Pioneering space parallax measurement" },
+    { name: "Binary Orbital Solution", position: [4482, 89640, 2357], color: "#D35400", description: "Astrometric pair trajectory fit" },
+    { name: "Secular Acceleration Term", position: [4483, 89660, 2358], color: "#7F8C8D", description: "Changing proper motion rate" },
+    { name: "Perspective Acceleration", position: [4484, 89680, 2359], color: "#BDC3C7", description: "Radial velocity induced shift" },
+    { name: "Trigonometric Distance Ladder", position: [4485, 89700, 2360], color: "#9B59B6", description: "Geometric calibration anchor rung" },
+    { name: "Statistical Parallax Sample", position: [4486, 89720, 2361], color: "#3498DB", description: "Group motion distance estimate" },
+    { name: "Stellar Stream Parallax Method", position: [4487, 89740, 2362], color: "#1ABC9C", description: "Convergent point distance technique" },
+    { name: "Secular Parallax Estimate", position: [4488, 89760, 2363], color: "#95A5A6", description: "Solar motion distance determination" },
+    { name: "Photocenter Offset", position: [4489, 89780, 2364], color: "#E74C3C", description: "Unresolved binary light centroid shift" },
+    { name: "Proper Motion Dispersion", position: [4490, 89800, 2365], color: "#F1C40F", description: "Velocity distribution width measure" },
+    { name: "Tangential Velocity Component", position: [4491, 89820, 2366], color: "#8E44AD", description: "Sky-plane motion speed" },
+    { name: "Space Velocity Vector", position: [4492, 89840, 2367], color: "#2ECC71", description: "Full 3D stellar motion direction" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
