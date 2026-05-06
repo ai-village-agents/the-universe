@@ -11407,6 +11407,31 @@ const cosmicSights = [
     { name: "Blaze Function Correction", position: [4440, 88800, 2315], color: "#F1C40F", description: "Grating efficiency variation compensation" },
     { name: "Order Overlap Region", position: [4441, 88820, 2316], color: "#8E44AD", description: "Echelle spectrum adjacent order boundary" },
     { name: "Wavelength Calibration Arc", position: [4442, 88840, 2317], color: "#2ECC71", description: "Reference lamp emission line mapping" }
+    { name: "Baseline Vector Projection", position: [4443, 88860, 2318], color: "#FF6B6B", description: "Interferometer arm orientation in UV plane" },
+    { name: "Visibility Amplitude Peak", position: [4444, 88880, 2319], color: "#4ECDC4", description: "Correlated signal strength measurement" },
+    { name: "Closure Phase Triangle", position: [4445, 88900, 2320], color: "#E74C3C", description: "Three-baseline phase combination eliminating errors" },
+    { name: "UV Coverage Pattern", position: [4446, 88920, 2321], color: "#9B59B6", description: "Spatial frequency sampling distribution" },
+    { name: "Dirty Beam Sidelobe", position: [4447, 88940, 2322], color: "#3498DB", description: "Point spread function artifact structure" },
+    { name: "CLEAN Deconvolution Model", position: [4448, 88960, 2323], color: "#1ABC9C", description: "Iterative source component extraction" },
+    { name: "Maximum Entropy Image", position: [4449, 88980, 2324], color: "#F39C12", description: "Information-theoretic reconstruction constraint" },
+    { name: "Self-Calibration Solution", position: [4450, 89000, 2325], color: "#8E44AD", description: "Antenna gain correction from source model" },
+    { name: "Fringe Rate Mapping", position: [4451, 89020, 2326], color: "#2ECC71", description: "Earth rotation synthesis frequency" },
+    { name: "Delay Beam Steering", position: [4452, 89040, 2327], color: "#E67E22", description: "Cable path length compensation direction" },
+    { name: "Correlator Output Spectrum", position: [4453, 89060, 2328], color: "#16A085", description: "Cross-correlation frequency channel data" },
+    { name: "Bandpass Calibration Curve", position: [4454, 89080, 2329], color: "#C0392B", description: "Frequency-dependent gain normalization" },
+    { name: "Phase Referencing Target", position: [4455, 89100, 2330], color: "#2980B9", description: "Nearby calibrator for atmospheric correction" },
+    { name: "Water Vapor Radiometer Track", position: [4456, 89120, 2331], color: "#27AE60", description: "Atmospheric path delay monitoring" },
+    { name: "Aperture Synthesis Map", position: [4457, 89140, 2332], color: "#D35400", description: "Combined multi-telescope imaging result" },
+    { name: "Sparse Array Configuration", position: [4458, 89160, 2333], color: "#7F8C8D", description: "Non-redundant baseline telescope layout" },
+    { name: "Dense Core Antenna Cluster", position: [4459, 89180, 2334], color: "#BDC3C7", description: "Short baseline surface brightness sensitivity" },
+    { name: "Long Baseline Outrigger", position: [4460, 89200, 2335], color: "#9B59B6", description: "Extended configuration angular resolution" },
+    { name: "Maser Spot VLBI Position", position: [4461, 89220, 2336], color: "#3498DB", description: "Microarcsecond proper motion measurement" },
+    { name: "Event Horizon Telescope Ring", position: [4462, 89240, 2337], color: "#1ABC9C", description: "Black hole shadow imaging baseline" },
+    { name: "Optical Interferometer Combiner", position: [4463, 89260, 2338], color: "#95A5A6", description: "Visible light beam interference mixing" },
+    { name: "Nulling Coronagraph Fringe", position: [4464, 89280, 2339], color: "#E74C3C", description: "Starlight destructive interference cancellation" },
+    { name: "Speckle Imaging Stack", position: [4465, 89300, 2340], color: "#F1C40F", description: "Short exposure atmospheric freeze frame" },
+    { name: "Lucky Imaging Selection", position: [4466, 89320, 2341], color: "#8E44AD", description: "Best-seeing frame combination technique" },
+    { name: "Adaptive Optics Wavefront", position: [4467, 89340, 2342], color: "#2ECC71", description: "Deformable mirror atmospheric correction" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
