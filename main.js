@@ -11306,7 +11306,32 @@ const cosmicSights = [
     { name: "Flare Energy Release Peak", position: [4364, 87280, 2239], color: "#FF0000", description: "Moment of maximum magnetic energy dissipation during X-class flare" },
     { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
     { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
-    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
+    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" },
+    { name: "Methane Rain Cascade", position: [4368, 87360, 2243], color: "#1E90FF", description: "Methane rain cascading through cloud layers of a super-Jovian gas giant, bending light into kaleidoscopic halos" },
+    { name: "Exotic Ice Cloud Boundary", position: [4369, 87380, 2244], color: "#00CED1", description: "Condensation boundary where water, methane, and ammonia clouds transition sharply in rocky exoplanet atmosphere" },
+    { name: "Protoplanetary Atmosphere Glow", position: [4370, 87400, 2245], color: "#FF6347", description: "Orange glowing protoplanetary atmosphere thick with dust and volatile outgassing from impact heating" },
+    { name: "Sodium Absorption Silhouettes", position: [4371, 87420, 2246], color: "#FFD700", description: "Sodium absorption lines painting silhouettes in ultra-hot Jupiter's upper atmosphere at 2,500 km/s" },
+    { name: "Tidally-Locked Twilight Zone", position: [4372, 87440, 2247], color: "#9370DB", description: "Permanent twilight terminator with strange atmospheric phenomena on tidally-locked exoplanet" },
+    { name: "Biogenic Oxygen Signature", position: [4373, 87460, 2248], color: "#00FF00", description: "Oxygen-rich atmosphere showing green biogenic oxygen signature detectable 100+ light-years away" },
+    { name: "Carbon Dioxide Blizzard", position: [4374, 87480, 2249], color: "#E0E0E0", description: "Seasonal CO2 blizzard on polar region creating 40 percent atmospheric pressure swings" },
+    { name: "Exoplanet Aurora Curtains", position: [4375, 87500, 2250], color: "#00FF7F", description: "Auroral curtains as stellar wind electrons spiral down into upper atmosphere creating nitrogen emission" },
+    { name: "Sulfuric Acid Haze Layer", position: [4376, 87520, 2251], color: "#FFB6C1", description: "30 km thick sulfuric acid haze on Venus-analog reflecting 95% of stellar radiation" },
+    { name: "Hydrogen Escape Corona", position: [4377, 87540, 2252], color: "#FF69B4", description: "Hydrogen escape visible as faint corona extending 100,000 km from atmosphere-stripping exoplanet" },
+    { name: "Super-Rotating Atmosphere", position: [4378, 87560, 2253], color: "#FFA500", description: "Venus-like exoplanet upper atmosphere with winds at 350 m/s, completing orbit in 4 Earth days" },
+    { name: "Dual Moon Tidal Bulges", position: [4379, 87580, 2254], color: "#DC143C", description: "Two moons causing simultaneous tidal bulges creating permanent storm cells at twilight zone" },
+    { name: "Silicon Monoxide Crystal Clouds", position: [4380, 87600, 2255], color: "#F0F8FF", description: "Silicon monoxide crystals in red giant close-orbit atmosphere refracting light into spectral bands" },
+    { name: "Pressure-Inverted Gas Layer", position: [4381, 87620, 2256], color: "#4B0082", description: "500 bar atmospheric pressure creating liquid-like gas denser than water at exoplanet surface" },
+    { name: "Massive Moon Tidal Hurricanes", position: [4382, 87640, 2257], color: "#8B4513", description: "Massive moon raising 10 km tidal bulges creating perpetual hurricane low-pressure systems" },
+    { name: "Photochemical Smog Haze", position: [4383, 87660, 2258], color: "#8B4513", description: "UV-generated ozone and NOx coloring entire daylit hemisphere of habitable exoplanet rusty brown" },
+    { name: "Thermospheric Super-Wind", position: [4384, 87680, 2259], color: "#00BFFF", description: "1,200 m/s upper atmosphere wind discoverable only through direct atmospheric sampling" },
+    { name: "Detached Ozone Shield", position: [4385, 87700, 2260], color: "#6495ED", description: "Disconnected ozone layer floating in upper atmosphere creating high-altitude shield" },
+    { name: "Cryogenic Nitrogen Rainfall", position: [4386, 87720, 2261], color: "#87CEEB", description: "Liquid nitrogen rain at -200°C accumulating in methane seas spanning entire continents" },
+    { name: "Brown Dwarf Stratified Layers", position: [4387, 87740, 2262], color: "#D2691E", description: "Visible internal heat bands in brown dwarf companion atmosphere through thermal imaging" },
+    { name: "Carbon Monoxide Invisible Atmosphere", position: [4388, 87760, 2263], color: "#555555", description: "CO-dominated atmosphere invisible to optical spectroscopy but detectable through infrared" },
+    { name: "Refracted Star Shadow", position: [4389, 87780, 2264], color: "#778899", description: "Planet shadow cast by star showing atmosphere density variations through light refraction" },
+    { name: "Thermal Ionization Plasma", position: [4390, 87800, 2265], color: "#FF4500", description: "2,000 K atmosphere in thermal ionization glowing as plasma envelope dimming star by 0.5%" },
+    { name: "Jeans Escape Layer", position: [4391, 87820, 2266], color: "#FF1493", description: "Upper atmosphere layer where molecular speeds exceed escape velocity for lighter elements" },
+    { name: "Diamond Phase Carbon Mirror", position: [4392, 87840, 2267], color: "#DCDCDC", description: "Extreme-pressure diamond-phase carbon layer bouncing stellar radiation like mirror" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
