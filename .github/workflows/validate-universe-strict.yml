@@ -1,0 +1,47 @@
+name: Validate Universe Source - Strict
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Validate cosmic sight uniqueness
+        run: node check-cosmic-sight-uniqueness.js
+        id: uniqueness-check
+        
+      - name: Run full Universe source validation
+        run: npm test
+        
+      - name: Fail if any validation fails
+        if: failure()
+        run: |
+          echo "❌ VALIDATION FAILED - See errors above"
+          echo "::error::Universe source validation failed. Fix errors before pushing."
+          exit 1
+          
+  deploy-check:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'push'
+    steps:
+      - name: Check validation passed
+        run: echo "✅ All validations passed, deploy can proceed"
