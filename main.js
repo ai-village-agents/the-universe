@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Penumbra Filament Structure", position: [19800, 15450, 18700], color: "#607D8B", description: "Radial spot features" },
     { name: "Umbral Light Bridge Lane", position: [19900, 15500, 18800], color: "#546E7A", description: "Bright lane in umbra" },
     { name: "Facular Bright Point", position: [20000, 15550, 18900], color: "#FFE57F", description: "Magnetic bright feature" },
+const sight9876 = 'Synchrotron radiation spiral: Charged particles spiraling in a magnetic field and radiating energy perpendicular to their motion.';
+const sight9877 = 'Bremsstrahlung burst: Sudden braking radiation from a charged particle deflected near another charge, releasing energy as radiation.';
+const sight9878 = 'Inverse Compton scattering: Low-energy photons gaining energy from collisions with high-energy particles, becoming gamma rays.';
+const sight9879 = 'Pair production event: High-energy photon converting into matter-antimatter pair in the presence of a nucleus, creating particle and antiparticle.';
+const sight9880 = 'Cherenkov radiation cone: Charged particle moving faster than light in a medium, creating a cone of blue radiation trailing behind.';
+const sight9881 = 'Curvature radiation jet: Radiation emitted by charged particles following curved paths, concentrated in narrow jets along the trajectory.';
+const sight9882 = 'Thomson scattering cloud: Low-energy photons bouncing elastically off electrons, scattered uniformly in all directions.';
+const sight9883 = 'Photoionization flash: Energetic photons knocking electrons from atoms, creating a burst of freed charges and ionized matter.';
+const sight9884 = 'Cyclotron radiation loop: Charged particles in circular orbits radiating at their cyclotron frequency, creating rings of emission.';
+const sight9885 = 'Compton scattering spectrum: High-energy photons losing energy to electron collisions, shifted to lower frequencies by momentum transfer.';
+const sight9886 = 'Absorption edge: A sharp cutoff in radiation transmission where photon energy drops below the ionization threshold for atoms.';
+const sight9887 = 'Fluorescence glow: Electrons in excited states releasing photons as they cascade down to lower energy levels, glowing softly.';
+const sight9888 = 'Radiative transfer zone: Region where radiation dominates energy transport, visible as layered zones of varying opacity and glow.';
+const sight9889 = 'Auger effect: Inner shell electron ejection causing outer shell collapse and Auger electron emission in rapid sequence.';
+const sight9890 = 'Radiative cooling stream: Gas losing energy by radiation, cooling and contracting as photons escape carrying thermal energy.';
+const sight9891 = 'Radiation pressure bow: Particle beam creating visible pressure as its radiation momentum transfers to surrounding matter.';
+const sight9892 = 'Line emission spectrum: Discrete spectral lines from transitions between atomic energy levels, glowing in characteristic colors.';
+const sight9893 = 'Radiation-dominated region: Zone where radiation pressure exceeds matter pressure, reshaping dynamics completely with radiation force.';
+const sight9894 = 'Doppler shifted radiation: Light from moving sources shifted to higher or lower frequencies depending on relative motion and direction.';
+const sight9895 = 'Thermal bremsstrahlung: Radiation from random collisions in hot plasma, creating continuous spectrum without discrete lines.';
+const sight9896 = 'Free-free absorption: Photon absorption by free electrons in electric fields, removing photons without ionizing atoms.';
+const sight9897 = 'Recombination radiation cascade: Electrons recombining with ions, releasing excess energy through cascades of photons.';
+const sight9898 = 'Scattering cross-section halo: Region around particles where radiation is likely to scatter, visible as a glowing probability cloud.';
+const sight9899 = 'Radiative dissociation: Photons breaking molecular bonds, freeing atoms from their chemical bonds with energy release.';
+const sight9900 = 'Maser coherent beam: Stimulated emission from aligned particles creating a coherent, intense microwave radiation beam.';
+
+export const sights = [sight9876, sight9877, sight9878, sight9879, sight9880, sight9881, sight9882, sight9883, sight9884, sight9885, sight9886, sight9887, sight9888, sight9889, sight9890, sight9891, sight9892, sight9893, sight9894, sight9895, sight9896, sight9897, sight9898, sight9899, sight9900];
     { name: "Plage Active Region", position: [20100, 15600, 19000], color: "#FFFF8D", description: "Chromospheric bright area" },
     { name: "Filament Channel Void", position: [20200, 15650, 19100], color: "#B0BEC5", description: "Pre-prominence corridor" },
     { name: "Prominence Eruption Arc", position: [20300, 15700, 19200], color: "#FF8A80", description: "Rising plasma sheet" },
