@@ -10719,6 +10719,33 @@ const cosmicSights = [
     { name: "NGC 4559 X-7 Candidate", position: [-3274, -1824, -2174], color: "#FFDC6B", description: "Variable ULX in barred spiral galaxy" },
     { name: "NGC 6946 X-1 Remnant", position: [3275, 1825, 2175], color: "#6BDCFF", description: "ULX associated with supernova remnant" },
 
+    // Batch 28: Gravitational Wave Sources (9,176-9,200)
+    { name: "GW150914 Binary Merger Site", position: [3301, 1851, 2201], color: "#FF8C6B", description: "First direct detection of gravitational waves" },
+    { name: "GW170817 Neutron Star Collision", position: [-3302, 1852, -2202], color: "#6B8CFF", description: "First multi-messenger gravitational wave event" },
+    { name: "GW190521 Heavy Merger", position: [3303, -1853, 2203], color: "#8CFF6B", description: "Most massive binary black hole merger observed" },
+    { name: "GW190814 Mass Gap Event", position: [-3304, -1854, -2204], color: "#FF6B8C", description: "Merger with object in neutron star-black hole gap" },
+    { name: "GW170104 Spinning Binary", position: [3305, 1855, 2205], color: "#6BFF8C", description: "Binary with misaligned spin measurements" },
+    { name: "GW151226 Boxing Day Event", position: [-3306, 1856, -2206], color: "#8C6BFF", description: "Second confirmed gravitational wave detection" },
+    { name: "GW170608 Lightweight Pair", position: [3307, -1857, 2207], color: "#FFB86B", description: "Lightest stellar-mass black hole binary merger" },
+    { name: "GW190425 Double Neutron Star", position: [-3308, -1858, -2208], color: "#6BFFB8", description: "Heavy neutron star binary exceeding Galactic range" },
+    { name: "GW200105 NSBH Candidate", position: [3309, 1859, 2209], color: "#B86BFF", description: "Neutron star-black hole merger detection" },
+    { name: "GW200115 Swallowed Star", position: [-3310, 1860, -2210], color: "#FFD86B", description: "Black hole consuming neutron star companion" },
+    { name: "GW190412 Asymmetric Spiral", position: [3311, -1861, 2211], color: "#6BD8FF", description: "Unequal mass binary with higher harmonics" },
+    { name: "GW190426 Marginal Detection", position: [-3312, -1862, -2212], color: "#D86BFF", description: "Low significance candidate near threshold" },
+    { name: "GW190512 Triple System Hint", position: [3313, 1863, 2213], color: "#FF6BD8", description: "Possible hierarchical triple formation channel" },
+    { name: "GW190517 Rapid Spin", position: [-3314, 1864, -2214], color: "#6BFFD8", description: "Binary with significant aligned spin component" },
+    { name: "GW190519 Distant Merger", position: [3315, -1865, 2215], color: "#FFA86B", description: "High redshift binary black hole coalescence" },
+    { name: "GW190602 Intermediate Mass", position: [-3316, -1866, -2216], color: "#6BA8FF", description: "Merger remnant in intermediate mass range" },
+    { name: "GW190630 Precessing Binary", position: [3317, 1867, 2217], color: "#A8FF6B", description: "System showing spin-orbit precession effects" },
+    { name: "GW190701 Clean Waveform", position: [-3318, 1868, -2218], color: "#FF6BA8", description: "Exceptionally well-measured binary parameters" },
+    { name: "GW190720 Moderate Mass", position: [3319, -1869, 2219], color: "#6BFFA8", description: "Typical stellar-mass binary in local universe" },
+    { name: "GW190728 Edge-On System", position: [-3320, -1870, -2220], color: "#A86BFF", description: "Face-on binary with strong plus polarization" },
+    { name: "GW190803 Southern Sky", position: [3321, 1871, 2221], color: "#FFC86B", description: "Well-localized event in southern hemisphere" },
+    { name: "GW190828A First of Pair", position: [-3322, 1872, -2222], color: "#6BC8FF", description: "First of two events detected same day" },
+    { name: "GW190828B Second Detection", position: [3323, -1873, 2223], color: "#C8FF6B", description: "Second binary merger within hours of first" },
+    { name: "GW190910 High Confidence", position: [-3324, -1874, -2224], color: "#FF6BC8", description: "Strong signal with excellent parameter estimation" },
+    { name: "GW190915 Late O3a Event", position: [3325, 1875, 2225], color: "#6BFFC8", description: "Final discovery of third observing run first half" },
+
 
 
 
