@@ -7210,6 +7210,193 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(sandbarGroup);
 
 
+
+  // --- v47: souvenir shop, dock spotlight tower, kite surfer ----------------
+
+  // Beach souvenir shop with awning, hanging trinkets, and a customer
+  const souvenirShopGroup = new THREE.Group();
+  const ssBaseMat = new THREE.MeshLambertMaterial({ color: 0xe8d8a0 });
+  const ssCounter = new THREE.Mesh(new THREE.BoxGeometry(3.6, 1.0, 1.4), ssBaseMat);
+  ssCounter.position.set(0, 0.5, 0);
+  souvenirShopGroup.add(ssCounter);
+  // Posts
+  const ssPostMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  for (const px of [-1.7, 1.7]) {
+    for (const pz of [-0.6, 0.6]) {
+      const post = new THREE.Mesh(new THREE.BoxGeometry(0.1, 2.6, 0.1), ssPostMat);
+      post.position.set(px, 1.3, pz);
+      souvenirShopGroup.add(post);
+    }
+  }
+  // Awning (striped canopy)
+  const ssAwningMat = new THREE.MeshLambertMaterial({ color: 0xff5252 });
+  const ssAwning = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 1.7), ssAwningMat);
+  ssAwning.position.set(0, 2.6, 0);
+  souvenirShopGroup.add(ssAwning);
+  const ssStripe = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.11, 0.4), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  ssStripe.position.set(0, 2.61, 0);
+  souvenirShopGroup.add(ssStripe);
+  // Hanging trinkets — colored shells & shirts
+  const ssTrinketColors = [0xff6699, 0xffcc33, 0x66ccff, 0xff9966, 0x99ff99];
+  const ssTrinkets = [];
+  for (let i = 0; i < 7; i++) {
+    const isShell = i % 2 === 0;
+    const trinket = new THREE.Mesh(
+      isShell ? new THREE.SphereGeometry(0.12, 8, 6) : new THREE.BoxGeometry(0.22, 0.28, 0.04),
+      new THREE.MeshLambertMaterial({ color: ssTrinketColors[i % ssTrinketColors.length] })
+    );
+    trinket.position.set(-1.5 + i * 0.45, 2.2 - (i % 2) * 0.15, 0.6);
+    souvenirShopGroup.add(trinket);
+    ssTrinkets.push(trinket);
+  }
+  // Sign canvas
+  const ssSignCanvas = document.createElement('canvas');
+  ssSignCanvas.width = 256; ssSignCanvas.height = 64;
+  const ssSignCtx = ssSignCanvas.getContext('2d');
+  ssSignCtx.fillStyle = '#1a1a2a';
+  ssSignCtx.fillRect(0, 0, 256, 64);
+  ssSignCtx.fillStyle = '#ffd966';
+  ssSignCtx.font = 'bold 32px sans-serif';
+  ssSignCtx.textAlign = 'center';
+  ssSignCtx.fillText('SHELL SHOP', 128, 42);
+  const ssSignTex = new THREE.CanvasTexture(ssSignCanvas);
+  const ssSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.6, 0.6),
+    new THREE.MeshBasicMaterial({ map: ssSignTex })
+  );
+  ssSign.position.set(0, 1.7, 0.71);
+  souvenirShopGroup.add(ssSign);
+  // Vendor figure
+  const ssVendor = new THREE.Group();
+  const ssVendorBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.9, 10),
+    new THREE.MeshLambertMaterial({ color: 0x99ddff })
+  );
+  ssVendorBody.position.y = 0.45;
+  ssVendor.add(ssVendorBody);
+  const ssVendorHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd9b3 })
+  );
+  ssVendorHead.position.y = 1.05;
+  ssVendor.add(ssVendorHead);
+  ssVendor.position.set(0, 1.0, -0.5);
+  souvenirShopGroup.add(ssVendor);
+  // Customer browsing
+  const ssCustomer = new THREE.Group();
+  const ssCustBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.85, 10),
+    new THREE.MeshLambertMaterial({ color: 0xff99cc })
+  );
+  ssCustBody.position.y = 0.42;
+  ssCustomer.add(ssCustBody);
+  const ssCuspotHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd9b3 })
+  );
+  ssCuspotHead.position.y = 0.97;
+  ssCustomer.add(ssCuspotHead);
+  ssCustomer.position.set(1.0, 0, 1.4);
+  ssCustomer.rotation.y = Math.PI;
+  souvenirShopGroup.add(ssCustomer);
+  souvenirShopGroup.position.set(-26, 0.05, 18);
+  souvenirShopGroup.rotation.y = -0.5;
+  group.add(souvenirShopGroup);
+
+  // Dock spotlight tower with rotating beam
+  const spotTowerGroup = new THREE.Group();
+  const spotTowerMat = new THREE.MeshLambertMaterial({ color: 0x556677 });
+  const spotPole = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 6.0, 8), spotTowerMat);
+  spotPole.position.y = 3.0;
+  spotTowerGroup.add(spotPole);
+  // Cross-bracing
+  const spotBrace = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, 0.8), spotTowerMat);
+  spotBrace.position.y = 2.0;
+  spotTowerGroup.add(spotBrace);
+  // Spotlight head pivot
+  const spotHeadPivot = new THREE.Group();
+  spotHeadPivot.position.y = 6.0;
+  const spotHead = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.4, 0.7, 12),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  spotHead.rotation.z = Math.PI / 2;
+  spotHead.position.x = 0.4;
+  spotHeadPivot.add(spotHead);
+  const spotLens = new THREE.Mesh(
+    new THREE.CircleGeometry(0.38, 16),
+    new THREE.MeshBasicMaterial({ color: 0xffffaa })
+  );
+  spotLens.position.set(0.78, 0, 0);
+  spotLens.rotation.y = Math.PI / 2;
+  spotHeadPivot.add(spotLens);
+  // Beam cone
+  const spotBeam = new THREE.Mesh(
+    new THREE.ConeGeometry(2.5, 18, 14, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xffffaa, transparent: true, opacity: 0.18, side: THREE.DoubleSide })
+  );
+  spotBeam.rotation.z = -Math.PI / 2;
+  spotBeam.position.x = 9.6;
+  spotHeadPivot.add(spotBeam);
+  spotTowerGroup.add(spotHeadPivot);
+  spotTowerGroup.position.set(8, 0.05, -8);
+  group.add(spotTowerGroup);
+
+  // Beach kite surfer with kite very high in the sky
+  const kiteSurferGroup = new THREE.Group();
+  // Surfer figure on a small board
+  const ksBoardMat = new THREE.MeshLambertMaterial({ color: 0x33aa66 });
+  const ksBoard = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.06, 1.3), ksBoardMat);
+  ksBoard.position.set(0, 0.05, 0);
+  kiteSurferGroup.add(ksBoard);
+  const ksSurfer = new THREE.Group();
+  const ksSurferBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.2, 0.85, 10),
+    new THREE.MeshLambertMaterial({ color: 0x222288 })
+  );
+  ksSurferBody.position.y = 0.5;
+  ksSurfer.add(ksSurferBody);
+  const ksSurferHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd9b3 })
+  );
+  ksSurferHead.position.y = 1.05;
+  ksSurfer.add(ksSurferHead);
+  ksSurfer.position.y = 0.1;
+  kiteSurferGroup.add(ksSurfer);
+  // Kite high in the sky (a parafoil)
+  const kiteWing = new THREE.Mesh(
+    new THREE.BoxGeometry(3.2, 0.15, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0xff3366 })
+  );
+  kiteWing.position.set(0, 9.5, 0);
+  kiteWing.rotation.z = 0.2;
+  kiteSurferGroup.add(kiteWing);
+  // Kite stripe accent
+  const kiteStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(3.2, 0.16, 0.25),
+    new THREE.MeshLambertMaterial({ color: 0xffff66 })
+  );
+  kiteStripe.position.set(0, 9.51, 0);
+  kiteStripe.rotation.z = 0.2;
+  kiteSurferGroup.add(kiteStripe);
+  // Lines from surfer to kite
+  const ksLineMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const ksLineGeom1 = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(-0.1, 1.0, 0),
+    new THREE.Vector3(-0.4, 9.4, 0)
+  ]);
+  const ksLine1 = new THREE.Line(ksLineGeom1, ksLineMat);
+  kiteSurferGroup.add(ksLine1);
+  const ksLineGeom2 = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0.1, 1.0, 0),
+    new THREE.Vector3(0.4, 9.4, 0)
+  ]);
+  const ksLine2 = new THREE.Line(ksLineGeom2, ksLineMat);
+  kiteSurferGroup.add(ksLine2);
+  kiteSurferGroup.position.set(28, 0.0, 16);
+  group.add(kiteSurferGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -8666,6 +8853,23 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       // v46: forklift driver subtle bob
       fkDriverBody.position.y = 1.6 + Math.sin(t * 1.2) * 0.02;
+
+      // v47: spotlight tower beam rotates slowly
+      spotHeadPivot.rotation.y = t * 0.4;
+      spotLens.material.color.setHex(((t * 1.2) % 1) > 0.5 ? 0xffffaa : 0xffeebb);
+      // v47: kite surfer rides forward; kite sways with wind
+      const ksAng = t * 0.25;
+      kiteSurferGroup.position.x = 28 + Math.cos(ksAng) * 4;
+      kiteSurferGroup.position.z = 16 + Math.sin(ksAng) * 4;
+      kiteSurferGroup.rotation.y = -ksAng + Math.PI / 2;
+      kiteWing.rotation.z = 0.2 + Math.sin(t * 0.9) * 0.12;
+      kiteStripe.rotation.z = 0.2 + Math.sin(t * 0.9) * 0.12;
+      kiteWing.position.x = Math.sin(t * 0.6) * 0.4;
+      kiteStripe.position.x = Math.sin(t * 0.6) * 0.4;
+      // v47: souvenir trinkets sway
+      for (let i = 0; i < ssTrinkets.length; i++) {
+        ssTrinkets[i].rotation.z = Math.sin(t * 0.9 + i * 0.5) * 0.18;
+      }
 
     }
 
