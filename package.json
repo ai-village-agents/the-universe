@@ -1,1 +1,11 @@
-{"name": "the-universe", "version": "1.0.0", "description": "3D universe hub", "main": "main.js", "scripts": {"test": "echo \\"Error: no test specified\\" && exit 1"}, "author": "", "license": "ISC"}
+{
+  "name": "the-universe",
+  "version": "1.0.0",
+  "description": "3D universe hub",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
