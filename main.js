@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Ionospheric Layer Peak", position: [22300, 16700, 21200], color: "#00ACC1", description: "Charged particle maximum" },
     { name: "Magnetopause Boundary", position: [22400, 16750, 21300], color: "#0097A7", description: "Magnetic field edge" },
     { name: "Bow Shock Standoff Point", position: [22500, 16800, 21400], color: "#00838F", description: "Solar wind deflection" },
+const sight9776 = 'Interstellar dust nebula: Thick clouds of silicate particles and carbon grains glowing amber in starlight, creating a diffuse halo of cosmic matter.';
+const sight9777 = 'Dust devil on a stellar wind: A spiraling column of particles caught in stellar radiation pressure, twisting upward in a golden helix.';
+const sight9778 = 'Polarized dust cascade: Aligned dust grains streaming in a magnetic field, each reflecting light in synchronized waves of infrared brilliance.';
+const sight9779 = 'Debris disk architecture: Concentric rings of dust orbiting a young star, each ring a distinct band of collisional detritus and cosmic rubble.';
+const sight9780 = 'Dust grain accretion: Microscopic particles slowly accumulating into larger aggregates, visible as growing clusters in a protoplanetary disk.';
+const sight9781 = 'Cometary dust tail: A luminous wake of ejected dust particles stretching millions of kilometers behind an icy nucleus, glowing softly.';
+const sight9782 = 'Thermal emission from dust: Warmed by nearby stars, dust particles radiate heat in the infrared, creating a ghostly thermal landscape.';
+const sight9783 = 'Dust scattering halo: Blue light scattered by fine particles creating a glowing halo around a hot star, visible only in short wavelengths.';
+const sight9784 = 'Carbonaceous chondrite field: Ancient dust aggregates floating in space, each one a meteorite precursor with layered accretion history.';
+const sight9785 = 'Crystalline silicate garden: Geometric mineral dust grains arranged in hexagonal patterns, each one refracting light in perfect geometric formations.';
+const sight9786 = 'Supernova dust creation: Cooling ejecta from an exploded star condensing into dust grains, forming in real-time from stellar ashes.';
+const sight9787 = 'Dust extinction cloud: A dark nebula so thick with particles that even starlight cannot penetrate, a shadowy barrier across the stellar field.';
+const sight9788 = 'Zodiacal light phenomenon: Dust particles in the plane of an ecliptic catching sunlight, creating a faint conical glow above the horizon.';
+const sight9789 = 'Protostellar accretion disk: Swirling dust spiraling inward toward a forming star, each particle surrendering angular momentum in the inward fall.';
+const sight9790 = 'Dust veil effect: Fine particles settling into a thin translucent layer, diffusing harsh starlight into a soft uniform glow.';
+const sight9791 = 'Stardust crystallization event: Molten dust droplets from a collision cooling and solidifying into irregular crystalline forms mid-space.';
+const sight9792 = 'Dust wave propagation: A pressure wave rippling through a dust cloud, compressing particles in a visible expanding sphere of density enhancement.';
+const sight9793 = 'Silicate whispers: Resonant vibrations in dust grains creating subtle patterns of enhancement and cancellation, visible as ripples in emission.';
+const sight9794 = 'Organic dust complex: Grains containing complex organic molecules, each one a potential building block for life, glowing in deep red.';
+const sight9795 = 'Dust sublimation front: A boundary where dust transitions from solid to gas, creating a visible shock front around a stellar source.';
+const sight9796 = 'Feathered dust jets: Twin jets of dust particles ejected from opposite poles of a collapsing cloud, creating a symmetric hourglass shape.';
+const sight9797 = 'Dust echo chamber: Particles caught in resonant cavities where radiation bounces, creating standing patterns of heat and light.';
+const sight9798 = 'Fractured dust aggregate: A large dust clump breaking apart under tidal stress, fragmenting into smaller grains with visible rupture surfaces.';
+const sight9799 = 'Dust compaction layers: Successive layers of dust compressed over time, each layer darker and denser than the one above it, like geological strata.';
+const sight9800 = 'Cosmic dust eclipse: A silhouette of a dust-obscured star creating a dark shadow against the glowing nebula behind it, revealing dust by absence.';
+
+export const sights = [sight9776, sight9777, sight9778, sight9779, sight9780, sight9781, sight9782, sight9783, sight9784, sight9785, sight9786, sight9787, sight9788, sight9789, sight9790, sight9791, sight9792, sight9793, sight9794, sight9795, sight9796, sight9797, sight9798, sight9799, sight9800];
     { name: "Radiation Belt Toroid", position: [22600, 16850, 21500], color: "#7C4DFF", description: "Trapped particle zone" },
     { name: "Auroral Oval Ring", position: [22700, 16900, 21600], color: "#B388FF", description: "Polar light zone" },
     { name: "Ring System Gap", position: [22800, 16950, 21700], color: "#E1BEE7", description: "Moon-cleared orbital void" },
