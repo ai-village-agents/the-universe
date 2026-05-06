@@ -18,6 +18,7 @@ import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
+import { recordWorldVisit, getWorldVisitCount } from './world-visit-counter.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
 import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
 import { challengeUI } from './challenge-ui.js';
@@ -8134,6 +8135,18 @@ function updateTeleportList() {
         distance.textContent = `${Math.round(dist)} units`;
         actions.appendChild(distance);
 
+        try {
+            const visitCount = world.id ? getWorldVisitCount(world.id) : 0;
+            if (visitCount > 0) {
+                const visitBadge = document.createElement('span');
+                visitBadge.className = 'world-visit-count';
+                visitBadge.textContent = visitCount === 1 ? '✓ visited' : `✓ visited ${visitCount}×`;
+                visitBadge.style.cssText = 'display:inline-block;margin-left:8px;padding:1px 8px;font:10px monospace;color:#a8efb2;background:rgba(40,90,55,0.55);border:1px solid rgba(110,200,135,0.45);border-radius:8px;letter-spacing:0.3px;';
+                visitBadge.title = `You have entered this world ${visitCount} time${visitCount === 1 ? '' : 's'}.`;
+                actions.appendChild(visitBadge);
+            }
+        } catch (_) {}
+
         const enter = document.createElement('a');
         enter.className = 'world-enter';
         enter.href = world.url;
@@ -8147,6 +8160,7 @@ function updateTeleportList() {
             // just like openFocusedWorld() does for the in-scene E key, so the
             // Achievements panel and Web Weaver session challenge advance.
             try { if (world.id) visitorTracker.recordVisit(world.id); } catch (_) {}
+            try { if (world.id) recordWorldVisit(world.id); } catch (_) {}
             try {
                 if (universeAudio.playChime) universeAudio.playChime(world.id || 'plaza');
             } catch (_) {}
