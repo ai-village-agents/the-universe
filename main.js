@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Ionospheric Layer Peak", position: [22300, 16700, 21200], color: "#00ACC1", description: "Charged particle maximum" },
     { name: "Magnetopause Boundary", position: [22400, 16750, 21300], color: "#0097A7", description: "Magnetic field edge" },
     { name: "Bow Shock Standoff Point", position: [22500, 16800, 21400], color: "#00838F", description: "Solar wind deflection" },
+const sight9801 = 'Magnetic dipole field: Field lines arcing gracefully from north to south pole, glowing in blue and creating a symmetric egg-shaped envelope.';
+const sight9802 = 'Magnetic reconnection explosion: Two opposing magnetic field lines snapping together and releasing explosive energy in a violent burst.';
+const sight9803 = 'Auroral curtain: Charged particles trapped in a magnetic field, cascading down into atmosphere in glowing sheets of green and purple light.';
+const sight9804 = 'Magnetic bottle: Field lines converging to trap plasma, creating a contained sphere of hot ionized gas suspended in magnetic force.';
+const sight9805 = 'Magnetosphere boundary: The shock where solar wind meets planetary magnetic field, creating a visible compression front glowing with plasma.';
+const sight9806 = 'Magnetic tornado: A concentrated vortex of magnetic field lines rotating around a central axis, creating a visible funnel of directed force.';
+const sight9807 = 'Spiral magnetic helix: Field lines twisting into a corkscrew pattern, guiding charged particles in helical paths along the magnetic structure.';
+const sight9808 = 'Sunspot magnetic canopy: Complex magnetic fields above sunspots creating an intricate lattice of arching loops and twisted strands.';
+const sight9809 = 'Magnetic instability waves: Rippling patterns across a magnetic surface as instabilities propagate, creating visible undulations in the field.';
+const sight9810 = 'Magnetic bubble collapse: A spherical magnetic containment failing as pressure overwhelms the field, erupting in violent plasma release.';
+const sight9811 = 'Magnetotail structure: A long tail of stretched magnetic field behind a planetary magnetosphere, extending far into the solar wind.';
+const sight9812 = 'Magnetic braiding pattern: Multiple field lines twisted around each other creating complex braided structures carrying stored magnetic tension.';
+const sight9813 = 'Magnetohydrodynamic wave: A disturbance in plasma-magnetic field interaction, propagating outward as a visible wave across the medium.';
+const sight9814 = 'Magnetic pressure ridge: A boundary where magnetic pressure is concentrated, creating a sharp visible ridge of glowing plasma compression.';
+const sight9815 = 'Polar magnetic jet: Magnetically-guided plasma ejected from polar regions, creating a collimated beam of flowing ionized gas.';
+const sight9816 = 'Magnetic cavity formation: A region where magnetic pressure exceeds plasma pressure, creating a bubble of cleaner, less dense space.';
+const sight9817 = 'Diamagnetic sphere: A sphere of diamagnetic material suspended in a magnetic field, visible as it repels field lines around itself.';
+const sight9818 = 'Magnetic filament loop: A long curved structure of magnetic field containing cooler plasma, creating a suspension of matter above the surface.';
+const sight9819 = 'Magnetic current sheet: An infinitesimally thin layer where magnetic field reverses direction, visible as a glowing dividing plane.';
+const sight9820 = 'Magnetic flux rope: A twisted bundle of magnetic field lines containing concentrated plasma, like a cosmic rope of directed force.';
+const sight9821 = 'Magnetopause oscillation: The boundary between magnetic field and plasma pressure oscillating due to dynamic interactions and instabilities.';
+const sight9822 = 'Magnetic vortex street: Multiple rotating vortices created by shear between magnetic field regions, arranged like a natural river pattern.';
+const sight9823 = 'Magnetic energy cascade: Stored energy in magnetic fields progressively releasing from large scales down to tiny turbulent eddies.';
+const sight9824 = 'Paramagnetic dust alignment: Individual dust grains aligning with magnetic field lines, creating visible patterns of ordered orientation.';
+const sight9825 = 'Magnetic echo effect: Waves propagating along magnetic field lines bouncing back and forth, creating interference patterns in the field.';
+
+export const sights = [sight9801, sight9802, sight9803, sight9804, sight9805, sight9806, sight9807, sight9808, sight9809, sight9810, sight9811, sight9812, sight9813, sight9814, sight9815, sight9816, sight9817, sight9818, sight9819, sight9820, sight9821, sight9822, sight9823, sight9824, sight9825];
     { name: "Radiation Belt Toroid", position: [22600, 16850, 21500], color: "#7C4DFF", description: "Trapped particle zone" },
     { name: "Auroral Oval Ring", position: [22700, 16900, 21600], color: "#B388FF", description: "Polar light zone" },
     { name: "Ring System Gap", position: [22800, 16950, 21700], color: "#E1BEE7", description: "Moon-cleared orbital void" },
