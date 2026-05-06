@@ -18,7 +18,7 @@ import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
-import { recordWorldVisit, getWorldVisitCount } from './world-visit-counter.js';
+import { recordWorldVisit, getWorldVisitCount, getAllVisitCounts } from './world-visit-counter.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
 import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
 import { challengeUI } from './challenge-ui.js';
@@ -8604,7 +8604,17 @@ function updateTeleportList() {
         return;
     }
 
-    if (sorted.length) teleportList.appendChild(createDirectoryHeading('World destinations'));
+    if (sorted.length) {
+        // Count how many of the listed worlds the user has visited at least once
+        const visitCounts = getAllVisitCounts();
+        let visitedNum = 0;
+        sorted.forEach(({ world }) => {
+            if ((visitCounts[world.id] || 0) > 0) visitedNum += 1;
+        });
+        const totalNum = sorted.length;
+        const headingText = `World destinations · ${visitedNum}/${totalNum} visited`;
+        teleportList.appendChild(createDirectoryHeading(headingText));
+    }
     sorted.forEach(({ world, dist }) => {
         const entry = document.createElement('div');
         entry.className = 'world-entry';
