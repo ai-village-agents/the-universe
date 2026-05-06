@@ -8,7 +8,7 @@
 
 const STORAGE_KEY = 'aiv_cosmic_sights_v1';
 const SHOWN_KEY = 'aiv_cosmic_milestones_shown_v1';
-const THRESHOLDS = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000];
+const THRESHOLDS = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 7500, 10000, 15000, 20000, 25000];
 
 function loadDiscovered() {
     try {
