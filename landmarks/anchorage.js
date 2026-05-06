@@ -6535,6 +6535,219 @@ export function createAnchorageLandmark(THREE, opts) {
   vbSpectatorsGroup.rotation.y = -0.4;
   group.add(vbSpectatorsGroup);
 
+  // --- v44: anemone tide pool, net-mending fishermen, shore patrol jeep ---
+  // Anemone tide pool — different from existing tide pool, sits on rocks
+  const anemonePoolGroup = new THREE.Group();
+  const apRockBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.2, 2.6, 0.4, 16),
+    new THREE.MeshLambertMaterial({ color: 0x6b6258 })
+  );
+  apRockBase.position.y = 0.2;
+  anemonePoolGroup.add(apRockBase);
+  // Inner pool basin
+  const apPoolWater = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.6, 1.4, 0.18, 16),
+    new THREE.MeshLambertMaterial({ color: 0x4a8aa8, transparent: true, opacity: 0.78 })
+  );
+  apPoolWater.position.y = 0.42;
+  anemonePoolGroup.add(apPoolWater);
+  // Anemones — colorful flower-like creatures
+  const anemoneColors = [0xff6677, 0xffaa44, 0xaa55cc, 0x55ccaa, 0xff8855, 0xcc6688];
+  const apAnemones = [];
+  for (let i = 0; i < 6; i++) {
+    const aGroup = new THREE.Group();
+    const aBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.18, 0.18, 8),
+      new THREE.MeshLambertMaterial({ color: anemoneColors[i] })
+    );
+    aBody.position.y = 0.09;
+    aGroup.add(aBody);
+    // Tentacles — 6 short cones around the top
+    for (let j = 0; j < 6; j++) {
+      const tent = new THREE.Mesh(
+        new THREE.ConeGeometry(0.025, 0.18, 4),
+        new THREE.MeshLambertMaterial({ color: anemoneColors[i] })
+      );
+      const ang = (j / 6) * Math.PI * 2;
+      tent.position.set(Math.cos(ang) * 0.1, 0.22, Math.sin(ang) * 0.1);
+      tent.rotation.z = Math.cos(ang) * 0.4;
+      tent.rotation.x = Math.sin(ang) * 0.4;
+      aGroup.add(tent);
+    }
+    const angle = (i / 6) * Math.PI * 2 + 0.3;
+    aGroup.position.set(Math.cos(angle) * 0.9, 0.5, Math.sin(angle) * 0.9);
+    apAnemones.push(aGroup);
+    anemonePoolGroup.add(aGroup);
+  }
+  // Two small starfish on the rim
+  const apStarMat = new THREE.MeshLambertMaterial({ color: 0xff7755 });
+  for (let i = 0; i < 2; i++) {
+    const star = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.06, 5), apStarMat);
+    star.rotation.x = -Math.PI / 2;
+    star.position.set(i === 0 ? -1.6 : 1.5, 0.43, i === 0 ? 0.4 : -0.5);
+    anemonePoolGroup.add(star);
+  }
+  // Small dart fish in pool (3 specks)
+  const apFish = [];
+  for (let i = 0; i < 3; i++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.05, 5, 4),
+      new THREE.MeshLambertMaterial({ color: 0xffd866 })
+    );
+    f.position.set(Math.cos(i * 2) * 0.7, 0.55, Math.sin(i * 2) * 0.7);
+    apFish.push(f);
+    anemonePoolGroup.add(f);
+  }
+  anemonePoolGroup.position.set(-26, 0.05, 28);
+  group.add(anemonePoolGroup);
+
+  // Net-mending fishermen — two figures on the dock with a fishing net spread between them
+  const netMendingGroup = new THREE.Group();
+  // The net itself — flat plane representing spread net
+  const netCanvas = document.createElement('canvas');
+  netCanvas.width = 64; netCanvas.height = 64;
+  const netCtx = netCanvas.getContext('2d');
+  netCtx.fillStyle = '#a8a39a';
+  netCtx.fillRect(0, 0, 64, 64);
+  netCtx.strokeStyle = '#5a5248';
+  netCtx.lineWidth = 1.2;
+  for (let i = 0; i < 8; i++) {
+    netCtx.beginPath(); netCtx.moveTo(i * 8, 0); netCtx.lineTo(i * 8, 64); netCtx.stroke();
+    netCtx.beginPath(); netCtx.moveTo(0, i * 8); netCtx.lineTo(64, i * 8); netCtx.stroke();
+  }
+  const netTex = new THREE.CanvasTexture(netCanvas);
+  netTex.wrapS = netTex.wrapT = THREE.RepeatWrapping;
+  netTex.repeat.set(3, 3);
+  const netMat = new THREE.MeshLambertMaterial({ map: netTex, transparent: true, opacity: 0.85, side: THREE.DoubleSide });
+  const fishingNet = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 1.6), netMat);
+  fishingNet.rotation.x = -Math.PI / 2;
+  fishingNet.position.y = 0.05;
+  netMendingGroup.add(fishingNet);
+  // Two fishermen seated cross-legged, mending the net
+  const nmFisher1 = new THREE.Group();
+  const nmf1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a6488 })
+  );
+  nmf1Body.position.y = 0.25;
+  nmFisher1.add(nmf1Body);
+  const nmf1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xd4a878 })
+  );
+  nmf1Head.position.y = 0.6;
+  nmFisher1.add(nmf1Head);
+  // Beanie cap
+  const nmf1Hat = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshLambertMaterial({ color: 0x884444 })
+  );
+  nmf1Hat.position.y = 0.66;
+  nmFisher1.add(nmf1Hat);
+  nmFisher1.position.set(-1.6, 0, 0);
+  nmFisher1.rotation.y = Math.PI / 2;
+  netMendingGroup.add(nmFisher1);
+  const nmFisher2 = new THREE.Group();
+  const nmf2Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0x886644 })
+  );
+  nmf2Body.position.y = 0.25;
+  nmFisher2.add(nmf2Body);
+  const nmf2Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xc89870 })
+  );
+  nmf2Head.position.y = 0.6;
+  nmFisher2.add(nmf2Head);
+  nmFisher2.position.set(1.6, 0, 0);
+  nmFisher2.rotation.y = -Math.PI / 2;
+  netMendingGroup.add(nmFisher2);
+  // Small toolbox with mending tools
+  const nmToolbox = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.18, 0.22),
+    new THREE.MeshLambertMaterial({ color: 0x5a4a3a })
+  );
+  nmToolbox.position.set(-1.2, 0.09, 0.7);
+  netMendingGroup.add(nmToolbox);
+  netMendingGroup.position.set(7.5, 1.55, 14);
+  netMendingGroup.rotation.y = 0.3;
+  group.add(netMendingGroup);
+
+  // Shore patrol jeep — sand-colored jeep with light bar parked on beach
+  const patrolJeepGroup = new THREE.Group();
+  const pjBody = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.55, 2.4),
+    new THREE.MeshLambertMaterial({ color: 0xc9b585 })
+  );
+  pjBody.position.y = 0.45;
+  patrolJeepGroup.add(pjBody);
+  // Cabin
+  const pjCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.6, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0xa89570 })
+  );
+  pjCabin.position.set(0, 0.95, -0.1);
+  patrolJeepGroup.add(pjCabin);
+  // Windshield
+  const pjWindshield = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.3, 0.5),
+    new THREE.MeshBasicMaterial({ color: 0x88aacc, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  pjWindshield.position.set(0, 1.0, 0.5);
+  pjWindshield.rotation.x = -0.25;
+  patrolJeepGroup.add(pjWindshield);
+  // Wheels — 4
+  const pjWheelMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const pjWheelGeom = new THREE.CylinderGeometry(0.3, 0.3, 0.2, 12);
+  const pjWheelPositions = [[-0.7, 0.3, 0.85], [0.7, 0.3, 0.85], [-0.7, 0.3, -0.85], [0.7, 0.3, -0.85]];
+  pjWheelPositions.forEach(p => {
+    const w = new THREE.Mesh(pjWheelGeom, pjWheelMat);
+    w.position.set(p[0], p[1], p[2]);
+    w.rotation.z = Math.PI / 2;
+    patrolJeepGroup.add(w);
+  });
+  // Light bar on roof — red and blue
+  const pjLightBarBase = new THREE.Mesh(
+    new THREE.BoxGeometry(1.2, 0.1, 0.2),
+    new THREE.MeshLambertMaterial({ color: 0x333333 })
+  );
+  pjLightBarBase.position.set(0, 1.31, -0.1);
+  patrolJeepGroup.add(pjLightBarBase);
+  const pjLightRed = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.12, 0.15),
+    new THREE.MeshBasicMaterial({ color: 0xff3322 })
+  );
+  pjLightRed.position.set(-0.3, 1.4, -0.1);
+  patrolJeepGroup.add(pjLightRed);
+  const pjLightBlue = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.12, 0.15),
+    new THREE.MeshBasicMaterial({ color: 0x2266ff })
+  );
+  pjLightBlue.position.set(0.3, 1.4, -0.1);
+  patrolJeepGroup.add(pjLightBlue);
+  // PATROL text on door — small canvas sign
+  const pjSignCanvas = document.createElement('canvas');
+  pjSignCanvas.width = 128; pjSignCanvas.height = 32;
+  const pjSignCtx = pjSignCanvas.getContext('2d');
+  pjSignCtx.fillStyle = '#c9b585';
+  pjSignCtx.fillRect(0, 0, 128, 32);
+  pjSignCtx.fillStyle = '#222222';
+  pjSignCtx.font = 'bold 22px sans-serif';
+  pjSignCtx.textAlign = 'center';
+  pjSignCtx.fillText('SHORE PATROL', 64, 24);
+  const pjSignTex = new THREE.CanvasTexture(pjSignCanvas);
+  const pjSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.2, 0.3),
+    new THREE.MeshBasicMaterial({ map: pjSignTex, transparent: true })
+  );
+  pjSign.position.set(0.81, 0.7, 0);
+  pjSign.rotation.y = -Math.PI / 2;
+  patrolJeepGroup.add(pjSign);
+  patrolJeepGroup.position.set(-15, 0.05, 22);
+  patrolJeepGroup.rotation.y = 0.6;
+  group.add(patrolJeepGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7938,6 +8151,26 @@ export function createAnchorageLandmark(THREE, opts) {
       // v43: spectator 1 sways
       vs1Body.rotation.z = Math.sin(t * 0.5) * 0.06;
       vs1Head.rotation.y = Math.sin(t * 0.3) * 0.4;
+
+      // v44: anemone tentacles sway, fish dart in pool
+      apAnemones.forEach((a, ai) => {
+        a.rotation.y = Math.sin(t * 0.6 + ai) * 0.3;
+        a.scale.y = 1 + Math.sin(t * 1.2 + ai) * 0.08;
+      });
+      apFish.forEach((f, fi) => {
+        const ang = t * 0.7 + fi * 2.1;
+        f.position.x = Math.cos(ang) * 0.7;
+        f.position.z = Math.sin(ang) * 0.7;
+      });
+      // v44: jeep light bar alternating red/blue blink
+      const blink = Math.floor(t * 2) % 2;
+      pjLightRed.material.opacity = blink ? 1 : 0.35;
+      pjLightBlue.material.opacity = blink ? 0.35 : 1;
+      pjLightRed.material.transparent = true;
+      pjLightBlue.material.transparent = true;
+      // v44: net mending fishermen subtle hand motion (rocking body)
+      nmFisher1.rotation.y = Math.PI / 2 + Math.sin(t * 0.8) * 0.15;
+      nmFisher2.rotation.y = -Math.PI / 2 - Math.sin(t * 0.8 + 0.7) * 0.15;
 
     }
 
