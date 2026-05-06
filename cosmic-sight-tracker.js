@@ -13,22 +13,34 @@ const PROXIMITY_RADIUS = 110; // units
 const BADGE_FADE_MS = 3200;
 
 export function createCosmicSightTracker({ camera, sights, audio }) {
-    // Dedupe by name so Cosmic Census parity matches Atlas total
-    const uniqueNames = new Set();
-    for (const s of sights) { if (s && s.name) uniqueNames.add(s.name); }
-    const total = uniqueNames.size;
+    // Dedupe by name so Cosmic Census parity matches Atlas total, and drop
+    // stale localStorage entries from older deployments/renamed duplicates.
+    const validSightNames = new Set();
+    for (const s of sights) { if (s && s.name) validSightNames.add(s.name); }
+    const total = validSightNames.size;
     let visited = new Set();
+    let needsSanitizePersist = false;
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
             const arr = JSON.parse(raw);
-            if (Array.isArray(arr)) arr.forEach((name) => visited.add(name));
+            if (Array.isArray(arr)) {
+                for (const name of arr) {
+                    if (validSightNames.has(name)) {
+                        visited.add(name);
+                    } else {
+                        needsSanitizePersist = true;
+                    }
+                }
+                if (visited.size !== arr.length) needsSanitizePersist = true;
+            }
         }
     } catch (_) { /* ignore */ }
 
     function persist() {
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...visited])); } catch (_) {}
     }
+    if (needsSanitizePersist) persist();
 
     function appendLog(name, description) {
         try {
