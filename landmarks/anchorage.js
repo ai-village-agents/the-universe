@@ -4053,6 +4053,133 @@ export function createAnchorageLandmark(THREE, opts) {
   fishingRodGroup.add(fishingBobber);
   group.add(fishingRodGroup);
 
+
+  // --- v29: Pier crab walking sideways + treasure island + distant mountain --
+  // Pier crab — walks sideways across the pier in a back-and-forth pattern
+  const pierCrabGroup = new THREE.Group();
+  pierCrabGroup.position.set(2.5, 1.05, -3.4);
+  // Body — flat oval
+  const pierCrabBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0xc94224, roughness: 0.55, metalness: 0.05 })
+  );
+  pierCrabBody.scale.set(1.3, 0.55, 1.0);
+  pierCrabGroup.add(pierCrabBody);
+  // Two eyestalks
+  for (let i = 0; i < 2; i++) {
+    const stalk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.012, 0.012, 0.10, 6),
+      new THREE.MeshStandardMaterial({ color: 0xa83018, roughness: 0.6 })
+    );
+    stalk.position.set((i === 0 ? -0.06 : 0.06), 0.13, 0.1);
+    pierCrabGroup.add(stalk);
+    const eye = new THREE.Mesh(
+      new THREE.SphereGeometry(0.022, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.2, emissive: 0x331100, emissiveIntensity: 0.3 })
+    );
+    eye.position.set((i === 0 ? -0.06 : 0.06), 0.19, 0.1);
+    pierCrabGroup.add(eye);
+  }
+  // Two front claws
+  const pierCrabClaws = [];
+  for (let i = 0; i < 2; i++) {
+    const claw = new THREE.Mesh(
+      new THREE.SphereGeometry(0.07, 10, 8),
+      new THREE.MeshStandardMaterial({ color: 0xb53820, roughness: 0.55 })
+    );
+    claw.scale.set(1.2, 0.7, 0.8);
+    claw.position.set((i === 0 ? -0.22 : 0.22), 0, 0.18);
+    pierCrabGroup.add(claw);
+    pierCrabClaws.push(claw);
+  }
+  // Six legs (3 per side)
+  const pierCrabLegs = [];
+  for (let side = 0; side < 2; side++) {
+    for (let i = 0; i < 3; i++) {
+      const leg = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.018, 0.018, 0.20, 6),
+        new THREE.MeshStandardMaterial({ color: 0xa83018, roughness: 0.65 })
+      );
+      leg.rotation.z = (side === 0 ? 0.6 : -0.6);
+      leg.position.set((side === 0 ? -0.18 : 0.18), -0.04, -0.10 + i * 0.10);
+      pierCrabGroup.add(leg);
+      pierCrabLegs.push(leg);
+    }
+  }
+  group.add(pierCrabGroup);
+
+  // Treasure island — small distant silhouette with palm tree
+  const treasureIslandGroup = new THREE.Group();
+  treasureIslandGroup.position.set(-42, 0, 38);
+  // Sand mound
+  const treasureIslandSand = new THREE.Mesh(
+    new THREE.SphereGeometry(4.5, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshStandardMaterial({ color: 0xd9c389, roughness: 0.95 })
+  );
+  treasureIslandSand.scale.set(1.2, 0.4, 1.0);
+  treasureIslandGroup.add(treasureIslandSand);
+  // Palm tree trunk
+  const treasureIslandTrunk = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.28, 3.2, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6b4a26, roughness: 0.8 })
+  );
+  treasureIslandTrunk.position.set(0.4, 1.6, 0);
+  treasureIslandTrunk.rotation.z = -0.18;
+  treasureIslandGroup.add(treasureIslandTrunk);
+  // Palm fronds — 5 cones radiating
+  for (let i = 0; i < 5; i++) {
+    const frond = new THREE.Mesh(
+      new THREE.ConeGeometry(0.4, 1.6, 6),
+      new THREE.MeshStandardMaterial({ color: 0x2e7a3a, roughness: 0.7, side: THREE.DoubleSide })
+    );
+    const a = (i / 5) * Math.PI * 2;
+    frond.position.set(0.4 + Math.cos(a) * 0.6, 3.0, Math.sin(a) * 0.6);
+    frond.rotation.z = Math.cos(a) * 0.9 + Math.PI / 2;
+    frond.rotation.x = Math.sin(a) * 0.9;
+    treasureIslandGroup.add(frond);
+  }
+  // X marks the spot — small red X on the sand
+  const xMarkA = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 0.05, 0.08),
+    new THREE.MeshStandardMaterial({ color: 0xc0392b, emissive: 0x551111, emissiveIntensity: 0.4 })
+  );
+  xMarkA.position.set(-0.8, 1.85, 0.6);
+  xMarkA.rotation.y = Math.PI / 4;
+  treasureIslandGroup.add(xMarkA);
+  const xMarkB = xMarkA.clone();
+  xMarkB.rotation.y = -Math.PI / 4;
+  treasureIslandGroup.add(xMarkB);
+  group.add(treasureIslandGroup);
+
+  // Distant mountain silhouette behind the lighthouse
+  const distantMountainGroup = new THREE.Group();
+  distantMountainGroup.position.set(-30, 0, -55);
+  const mtnPeakColors = [0x3a4a5e, 0x445770, 0x546788];
+  const mtnPeakHeights = [9, 13, 7, 11, 8];
+  const mtnPeakWidths = [10, 12, 9, 11, 10];
+  let mtnX = -22;
+  for (let i = 0; i < mtnPeakHeights.length; i++) {
+    const peak = new THREE.Mesh(
+      new THREE.ConeGeometry(mtnPeakWidths[i], mtnPeakHeights[i], 5),
+      new THREE.MeshStandardMaterial({
+        color: mtnPeakColors[i % mtnPeakColors.length],
+        roughness: 0.9,
+        flatShading: true
+      })
+    );
+    peak.position.set(mtnX, mtnPeakHeights[i] / 2, 0);
+    distantMountainGroup.add(peak);
+    // Snow cap
+    const snowCap = new THREE.Mesh(
+      new THREE.ConeGeometry(mtnPeakWidths[i] * 0.35, mtnPeakHeights[i] * 0.25, 5),
+      new THREE.MeshStandardMaterial({ color: 0xeef4ff, roughness: 0.85 })
+    );
+    snowCap.position.set(mtnX, mtnPeakHeights[i] * 0.88, 0);
+    distantMountainGroup.add(snowCap);
+    mtnX += mtnPeakWidths[i] * 0.85;
+  }
+  group.add(distantMountainGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -5129,6 +5256,28 @@ export function createAnchorageLandmark(THREE, opts) {
       // Occasional 'bite' tug
       const bite = Math.sin(t * 0.18);
       if (bite > 0.97) fishingBobber.position.y -= 0.18;
+    }
+
+    // v29: Pier crab walks sideways back and forth + claws snap
+    if (typeof pierCrabGroup !== 'undefined') {
+      const sweep = Math.sin(t * 0.45);  // -1..1
+      pierCrabGroup.position.x = 2.5 + sweep * 1.4;  // walks along pier
+      pierCrabGroup.rotation.y = sweep > 0 ? Math.PI / 2 : -Math.PI / 2;
+      // Slight bob from walking
+      pierCrabGroup.position.y = 1.05 + 0.015 * Math.abs(Math.sin(t * 4.0));
+    }
+    if (typeof pierCrabClaws !== 'undefined') {
+      for (let i = 0; i < pierCrabClaws.length; i++) {
+        const c = pierCrabClaws[i];
+        c.rotation.z = (i === 0 ? 1 : -1) * (0.2 + 0.25 * Math.sin(t * 2.5 + i));
+      }
+    }
+    if (typeof pierCrabLegs !== 'undefined') {
+      for (let i = 0; i < pierCrabLegs.length; i++) {
+        const leg = pierCrabLegs[i];
+        const phase = (i % 3) * 0.7 + (i < 3 ? 0 : Math.PI);
+        leg.rotation.x = 0.25 * Math.sin(t * 5.0 + phase);
+      }
     }
 
   }
