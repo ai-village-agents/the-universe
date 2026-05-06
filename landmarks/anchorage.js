@@ -5786,6 +5786,250 @@ export function createAnchorageLandmark(THREE, opts) {
   waterTaxiGroup.add(wtWake);
   group.add(waterTaxiGroup);
 
+  // --- v40: oyster boat hauling traps, swimming children with floaties, hot dog stand -----------------------
+  // Oyster boat hauling traps from the water
+  const oysterBoatGroup = new THREE.Group();
+  const obHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.5, 1.0),
+    new THREE.MeshStandardMaterial({ color: 0x3a4d5e, roughness: 0.7 })
+  );
+  obHull.position.y = 0.25;
+  oysterBoatGroup.add(obHull);
+  const obDeckMat = new THREE.MeshStandardMaterial({ color: 0x6b563a, roughness: 0.85 });
+  const obDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(2.3, 0.05, 0.95),
+    obDeckMat
+  );
+  obDeck.position.y = 0.52;
+  oysterBoatGroup.add(obDeck);
+  // Boat cabin (small)
+  const obCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.55, 0.85),
+    new THREE.MeshStandardMaterial({ color: 0xd0c8b0, roughness: 0.7 })
+  );
+  obCabin.position.set(-0.7, 0.83, 0);
+  oysterBoatGroup.add(obCabin);
+  const obCabinRoof = new THREE.Mesh(
+    new THREE.BoxGeometry(0.78, 0.05, 0.92),
+    new THREE.MeshStandardMaterial({ color: 0x6b3a2a, roughness: 0.7 })
+  );
+  obCabinRoof.position.set(-0.7, 1.13, 0);
+  oysterBoatGroup.add(obCabinRoof);
+  // Mast/winch
+  const obMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 1.4, 6),
+    new THREE.MeshStandardMaterial({ color: 0x6b563a, roughness: 0.8 })
+  );
+  obMast.position.set(0.4, 1.2, 0);
+  oysterBoatGroup.add(obMast);
+  // Boom arm extending over water
+  const obBoom = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.2, 6),
+    new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.85 })
+  );
+  obBoom.position.set(0.95, 1.55, 0);
+  obBoom.rotation.z = -Math.PI / 2 + 0.15;
+  oysterBoatGroup.add(obBoom);
+  // Two fishermen on boat
+  const obFishermen = [];
+  for (let fi = 0; fi < 2; fi++) {
+    const f = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.55, 6),
+      new THREE.MeshStandardMaterial({ color: fi === 0 ? 0xc4452a : 0x2a4a8a, roughness: 0.7 })
+    );
+    body.position.y = 0.28;
+    f.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 6, 6),
+      new THREE.MeshStandardMaterial({ color: 0xe8b594, roughness: 0.6 })
+    );
+    head.position.y = 0.65;
+    f.add(head);
+    const hat = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.07, 8),
+      new THREE.MeshStandardMaterial({ color: 0xfdde35, roughness: 0.6 })
+    );
+    hat.position.y = 0.76;
+    f.add(hat);
+    f.position.set(fi === 0 ? 0.5 : 0.0, 0.55, fi === 0 ? -0.05 : 0.15);
+    oysterBoatGroup.add(f);
+    obFishermen.push(f);
+  }
+  // Hanging trap from boom (oscillates as it's hauled)
+  const obTrapGroup = new THREE.Group();
+  const obTrapCage = new THREE.Mesh(
+    new THREE.BoxGeometry(0.42, 0.32, 0.42),
+    new THREE.MeshStandardMaterial({ color: 0x8a7a5a, roughness: 0.85, transparent: true, opacity: 0.85 })
+  );
+  obTrapGroup.add(obTrapCage);
+  // Add slats look (thin frame edges)
+  const obTrapEdge = new THREE.Mesh(
+    new THREE.BoxGeometry(0.44, 0.04, 0.44),
+    new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.85 })
+  );
+  obTrapEdge.position.y = 0.16;
+  obTrapGroup.add(obTrapEdge);
+  const obTrapEdge2 = obTrapEdge.clone();
+  obTrapEdge2.position.y = -0.16;
+  obTrapGroup.add(obTrapEdge2);
+  // Rope from boom to trap
+  const obRope = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.015, 0.015, 1.2, 4),
+    new THREE.MeshStandardMaterial({ color: 0xd6c89a, roughness: 0.85 })
+  );
+  obRope.position.set(1.5, 0.95, 0);
+  oysterBoatGroup.add(obRope);
+  obTrapGroup.position.set(1.5, 0.5, 0);
+  oysterBoatGroup.add(obTrapGroup);
+  // Stack of already-hauled traps on deck
+  for (let ti = 0; ti < 3; ti++) {
+    const stackTrap = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.3, 0.4),
+      new THREE.MeshStandardMaterial({ color: 0x8a7a5a, roughness: 0.85 })
+    );
+    stackTrap.position.set(-1.4 + ti * 0.05, 0.7 + ti * 0.32, -0.15);
+    stackTrap.rotation.y = (ti * 0.1) - 0.1;
+    oysterBoatGroup.add(stackTrap);
+  }
+  oysterBoatGroup.position.set(28, 0.05, 22);
+  oysterBoatGroup.rotation.y = -0.7;
+  group.add(oysterBoatGroup);
+
+  // Swimming children with floaties (3 kids bobbing in inflatable rings)
+  const swimKids = [];
+  const floatyColors = [0xff5544, 0x44b8ff, 0xfdde35];
+  for (let si = 0; si < 3; si++) {
+    const kid = new THREE.Group();
+    // Floaty ring (donut shape using torus)
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.4, 0.13, 8, 16),
+      new THREE.MeshStandardMaterial({ color: floatyColors[si], roughness: 0.55 })
+    );
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = 0.08;
+    kid.add(ring);
+    // Kid body sticking up through ring
+    const kidBody = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.1, 0.12, 0.4, 6),
+      new THREE.MeshStandardMaterial({ color: si === 0 ? 0xee9a44 : si === 1 ? 0x55aa66 : 0xc44488, roughness: 0.6 })
+    );
+    kidBody.position.y = 0.25;
+    kid.add(kidBody);
+    // Head
+    const kidHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.09, 6, 6),
+      new THREE.MeshStandardMaterial({ color: 0xe8b594, roughness: 0.6 })
+    );
+    kidHead.position.y = 0.55;
+    kid.add(kidHead);
+    // Arms (small splash gestures)
+    for (let ai = 0; ai < 2; ai++) {
+      const arm = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.04, 0.04, 0.28, 5),
+        new THREE.MeshStandardMaterial({ color: 0xe8b594, roughness: 0.6 })
+      );
+      arm.position.set(ai === 0 ? -0.18 : 0.18, 0.32, 0);
+      arm.rotation.z = ai === 0 ? 0.6 : -0.6;
+      kid.add(arm);
+    }
+    const baseAng = -0.4 + si * 0.35;
+    const baseR = 22 + si * 1.4;
+    kid.position.set(Math.cos(baseAng) * baseR, 0, Math.sin(baseAng) * baseR + 14);
+    group.add(kid);
+    swimKids.push({ group: kid, ring, baseAng, baseR, phase: si * 1.7, speed: 0.45 + si * 0.12 });
+  }
+
+  // Beachside hot dog stand
+  const hotdogStandGroup = new THREE.Group();
+  // Base counter
+  const hdsCounter = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 1.0, 1.2),
+    new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.65 })
+  );
+  hdsCounter.position.y = 0.5;
+  hotdogStandGroup.add(hdsCounter);
+  // Red+white striped awning (alternating panels)
+  for (let pi = 0; pi < 6; pi++) {
+    const stripe = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.05, 1.4),
+      new THREE.MeshStandardMaterial({ color: pi % 2 === 0 ? 0xc4252a : 0xffffff, roughness: 0.55 })
+    );
+    stripe.position.set(-1.0 + pi * 0.4, 1.7, 0);
+    stripe.rotation.x = -0.15;
+    hotdogStandGroup.add(stripe);
+  }
+  // Awning support poles
+  for (let pi = 0; pi < 4; pi++) {
+    const pole = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 0.8, 5),
+      new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.6 })
+    );
+    pole.position.set(pi < 2 ? -1.1 : 1.1, 1.3, pi % 2 === 0 ? -0.55 : 0.55);
+    hotdogStandGroup.add(pole);
+  }
+  // HOT DOGS sign
+  const hdsSignCanvas = document.createElement('canvas');
+  hdsSignCanvas.width = 256; hdsSignCanvas.height = 64;
+  const hdsCtx = hdsSignCanvas.getContext('2d');
+  hdsCtx.fillStyle = '#fdde35';
+  hdsCtx.fillRect(0, 0, 256, 64);
+  hdsCtx.fillStyle = '#c4252a';
+  hdsCtx.font = 'bold 36px sans-serif';
+  hdsCtx.textAlign = 'center';
+  hdsCtx.textBaseline = 'middle';
+  hdsCtx.fillText('HOT DOGS', 128, 32);
+  const hdsSignTex = new THREE.CanvasTexture(hdsSignCanvas);
+  const hdsSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.0, 0.5),
+    new THREE.MeshBasicMaterial({ map: hdsSignTex })
+  );
+  hdsSign.position.set(0, 1.2, 0.61);
+  hotdogStandGroup.add(hdsSign);
+  // Vendor figure behind counter
+  const hdsVendor = new THREE.Group();
+  const hdsVendorBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.18, 0.65, 6),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.7 })
+  );
+  hdsVendorBody.position.y = 0.33;
+  hdsVendor.add(hdsVendorBody);
+  const hdsVendorHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 6, 6),
+    new THREE.MeshStandardMaterial({ color: 0xe8b594, roughness: 0.6 })
+  );
+  hdsVendorHead.position.y = 0.78;
+  hdsVendor.add(hdsVendorHead);
+  // Chef's hat
+  const hdsHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.17, 0.14, 0.2, 8),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 })
+  );
+  hdsHat.position.y = 0.98;
+  hdsVendor.add(hdsHat);
+  hdsVendor.position.set(0, 1.0, -0.3);
+  hotdogStandGroup.add(hdsVendor);
+  // Customer in line
+  const hdsCustomer = new THREE.Group();
+  const hdsCustBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.18, 0.7, 6),
+    new THREE.MeshStandardMaterial({ color: 0x44a8d6, roughness: 0.7 })
+  );
+  hdsCustBody.position.y = 0.35;
+  hdsCustomer.add(hdsCustBody);
+  const hdsCustHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 6, 6),
+    new THREE.MeshStandardMaterial({ color: 0xd6a888, roughness: 0.6 })
+  );
+  hdsCustHead.position.y = 0.83;
+  hdsCustomer.add(hdsCustHead);
+  hdsCustomer.position.set(0, 0, 1.3);
+  hotdogStandGroup.add(hdsCustomer);
+  hotdogStandGroup.position.set(-22, 0.05, -8);
+  hotdogStandGroup.rotation.y = 0.5;
+  group.add(hotdogStandGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7113,6 +7357,38 @@ export function createAnchorageLandmark(THREE, opts) {
       // Passengers bob slightly
       wtPassengers.forEach((p, i) => { p.position.y = 0.65 + Math.sin(t * 2.5 + i * 0.8) * 0.025; });
       wtWake.material.opacity = 0.4 + 0.2 * Math.sin(t * 4.0);
+    }
+
+    {
+      // v40: oyster boat hauling, swimming kids bobbing, hot dog stand customer
+      // Oyster boat slowly drifts; trap rises and lowers as if being hauled
+      const obAng = t * 0.06 + 1.5;
+      const obX = 28 + Math.sin(obAng) * 1.5;
+      const obZ = 22 + Math.cos(obAng) * 1.0;
+      oysterBoatGroup.position.set(obX, 0.05 + Math.sin(t * 0.9) * 0.04, obZ);
+      oysterBoatGroup.rotation.y = -0.7 + Math.sin(t * 0.4) * 0.05;
+      // Trap haul cycle: rises slowly, pauses, drops back into water
+      const haulCycle = (Math.sin(t * 0.4) * 0.5 + 0.5);
+      const trapY = -0.6 + haulCycle * 1.6;
+      obTrapGroup.position.y = trapY;
+      obTrapGroup.rotation.y = Math.sin(t * 0.7) * 0.4;
+      // Rope length adjusts visually (scale Y)
+      obRope.scale.y = 1.0 - haulCycle * 0.7;
+      obRope.position.y = 0.95 - (1 - obRope.scale.y) * 0.6;
+      // Fishermen lean forward when hauling
+      obFishermen.forEach((f, fi) => {
+        f.rotation.x = Math.sin(t * 0.4 + fi * Math.PI) * 0.15 + 0.1;
+      });
+      // Swimming kids bob in floaties
+      swimKids.forEach((k) => {
+        k.group.position.y = Math.sin(t * k.speed + k.phase) * 0.05;
+        k.group.rotation.y = Math.sin(t * k.speed * 0.6 + k.phase) * 0.5;
+        k.ring.rotation.z = Math.sin(t * k.speed * 0.8 + k.phase) * 0.15;
+      });
+      // Hot dog stand: customer bobs slightly, vendor turns head
+      hdsCustomer.position.y = Math.abs(Math.sin(t * 0.8)) * 0.03;
+      hdsVendor.rotation.y = Math.sin(t * 0.5) * 0.3;
+
     }
 
   }
