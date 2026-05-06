@@ -11407,6 +11407,31 @@ const cosmicSights = [
     { name: "Blaze Function Correction", position: [4440, 88800, 2315], color: "#F1C40F", description: "Grating efficiency variation compensation" },
     { name: "Order Overlap Region", position: [4441, 88820, 2316], color: "#8E44AD", description: "Echelle spectrum adjacent order boundary" },
     { name: "Wavelength Calibration Arc", position: [4442, 88840, 2317], color: "#2ECC71", description: "Reference lamp emission line mapping" }
+    { name: "Baseline Vector Projection", position: [4443, 88860, 2318], color: "#FF6B6B", description: "Interferometer arm orientation in UV plane" },
+    { name: "Visibility Amplitude Peak", position: [4444, 88880, 2319], color: "#4ECDC4", description: "Correlated signal strength measurement" },
+    { name: "Closure Phase Triangle", position: [4445, 88900, 2320], color: "#E74C3C", description: "Three-baseline phase combination" },
+    { name: "Spatial Frequency Sampling", position: [4446, 88920, 2321], color: "#9B59B6", description: "UV plane coverage distribution" },
+    { name: "Dirty Beam Sidelobe", position: [4447, 88940, 2322], color: "#3498DB", description: "Point spread function artifact" },
+    { name: "CLEAN Deconvolution Model", position: [4448, 88960, 2323], color: "#1ABC9C", description: "Iterative source component extraction" },
+    { name: "Maximum Entropy Reconstruction", position: [4449, 88980, 2324], color: "#F39C12", description: "Information-theoretic imaging constraint" },
+    { name: "Self-Calibration Solution", position: [4450, 89000, 2325], color: "#8E44AD", description: "Antenna gain correction from source model" },
+    { name: "Fringe Rate Mapping", position: [4451, 89020, 2326], color: "#2ECC71", description: "Earth rotation synthesis frequency" },
+    { name: "Delay Beam Steering", position: [4452, 89040, 2327], color: "#E67E22", description: "Cable path length compensation" },
+    { name: "Correlator Output Spectrum", position: [4453, 89060, 2328], color: "#16A085", description: "Cross-correlation frequency data" },
+    { name: "Bandpass Calibration Curve", position: [4454, 89080, 2329], color: "#C0392B", description: "Frequency-dependent gain normalization" },
+    { name: "Phase Referencing Target", position: [4455, 89100, 2330], color: "#2980B9", description: "Nearby calibrator for atmospheric correction" },
+    { name: "Water Vapor Radiometer", position: [4456, 89120, 2331], color: "#27AE60", description: "Atmospheric path delay monitoring" },
+    { name: "Multi-Telescope Synthesis", position: [4457, 89140, 2332], color: "#D35400", description: "Combined array imaging result" },
+    { name: "Sparse Array Layout", position: [4458, 89160, 2333], color: "#7F8C8D", description: "Non-redundant baseline configuration" },
+    { name: "Dense Core Cluster", position: [4459, 89180, 2334], color: "#BDC3C7", description: "Short baseline sensitivity region" },
+    { name: "Long Baseline Outrigger", position: [4460, 89200, 2335], color: "#9B59B6", description: "Extended angular resolution arm" },
+    { name: "Maser Spot VLBI", position: [4461, 89220, 2336], color: "#3498DB", description: "Microarcsecond proper motion target" },
+    { name: "Event Horizon Ring", position: [4462, 89240, 2337], color: "#1ABC9C", description: "Black hole shadow imaging" },
+    { name: "Optical Beam Combiner", position: [4463, 89260, 2338], color: "#95A5A6", description: "Visible light interference mixing" },
+    { name: "Nulling Coronagraph Mode", position: [4464, 89280, 2339], color: "#E74C3C", description: "Starlight cancellation fringe" },
+    { name: "Speckle Frame Stack", position: [4465, 89300, 2340], color: "#F1C40F", description: "Short exposure atmospheric freeze" },
+    { name: "Lucky Frame Selection", position: [4466, 89320, 2341], color: "#8E44AD", description: "Best-seeing image combination" },
+    { name: "Deformable Mirror Wavefront", position: [4467, 89340, 2342], color: "#2ECC71", description: "Adaptive optics atmospheric correction" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
