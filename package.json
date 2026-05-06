@@ -4,7 +4,7 @@
   "description": "3D universe hub",
   "main": "main.js",
   "scripts": {
-    "test": "node check-cosmic-sight-uniqueness.js && node --check main.js && node --check cosmic-sights-atlas.js && node --check cosmic-sight-markers.js && node --check cosmic-sight-tracker.js && node --check cosmic-sight-compass.js && node --check cosmic-sight-log.js && node --check visitor-tracker.js && node --check photo-gallery.js && node --check landmarks/anchorage.js && node --check landmarks/canvas-landmark.js"
+    "test": "node validate-universe-source.js"
   },
   "author": "",
   "license": "ISC"
