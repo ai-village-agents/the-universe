@@ -82,6 +82,12 @@ function loadDiscoveredSet() {
   } catch (_) { return new Set(); }
 }
 
+function saveDiscoveredSet(set) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(set)));
+  } catch (_) {}
+}
+
 export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
   let isOpen = false;
   let panel = null;
@@ -330,6 +336,86 @@ export function createCosmicSightsAtlas({ camera, controls, sights, audio }) {
       }, 1400);
     });
     controlsRow.appendChild(exportBtn);
+
+    // 📥 Import progress snapshot from clipboard JSON (merge discovered + favorites)
+    const importBtn = document.createElement('button');
+    importBtn.textContent = '📥 Import';
+    importBtn.title = 'Paste an Atlas JSON snapshot to merge discovered + favorites';
+    importBtn.style.cssText = [
+      'background:transparent', 'color:#a8b8ef',
+      'border:1px solid rgba(168,184,239,0.45)', 'border-radius:5px',
+      'padding:4px 10px', 'font-size:11px', 'cursor:pointer',
+      'font-family:"Trebuchet MS", sans-serif',
+    ].join(';');
+    importBtn.addEventListener('mouseenter', () => { importBtn.style.background = 'rgba(168,184,239,0.18)'; });
+    importBtn.addEventListener('mouseleave', () => { importBtn.style.background = 'transparent'; });
+    importBtn.addEventListener('click', async () => {
+      let text = '';
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          text = await navigator.clipboard.readText();
+        }
+      } catch (_) {}
+      if (!text) {
+        text = window.prompt('Paste Atlas JSON snapshot to merge:') || '';
+      }
+      if (!text.trim()) {
+        importBtn.textContent = '⚠ No data';
+        setTimeout(() => { importBtn.textContent = '📥 Import'; importBtn.style.background = 'transparent'; }, 1400);
+        return;
+      }
+      let parsed = null;
+      try { parsed = JSON.parse(text); } catch (e) { parsed = null; }
+      if (!parsed || parsed.format !== 'aiv-cosmic-sights-atlas-export') {
+        importBtn.textContent = '⚠ Bad JSON';
+        importBtn.style.background = 'rgba(255,120,120,0.35)';
+        setTimeout(() => { importBtn.textContent = '📥 Import'; importBtn.style.background = 'transparent'; }, 1600);
+        return;
+      }
+      // Build a name set of valid sights for safety
+      const validNames = new Set(sights.map(s => s.name));
+      const beforeDisc = loadDiscoveredSet();
+      const beforeFav = loadFavoritesSet();
+      const incomingDisc = Array.isArray(parsed.discovered) ? parsed.discovered : [];
+      const incomingFav = Array.isArray(parsed.favorites) ? parsed.favorites : [];
+      let addedDisc = 0, addedFav = 0;
+      const mergedDisc = new Set(beforeDisc);
+      for (const n of incomingDisc) {
+        if (typeof n === 'string' && validNames.has(n) && !mergedDisc.has(n)) {
+          mergedDisc.add(n);
+          addedDisc += 1;
+        }
+      }
+      const mergedFav = new Set(beforeFav);
+      for (const n of incomingFav) {
+        if (typeof n === 'string' && validNames.has(n) && !mergedFav.has(n)) {
+          mergedFav.add(n);
+          addedFav += 1;
+        }
+      }
+      saveDiscoveredSet(mergedDisc);
+      saveFavoritesSet(mergedFav);
+      // Trigger UI/markers/badge to refresh by dispatching a fake cosmicSightVisited
+      try {
+        // Dispatch one event per newly-added discovered to update markers/log
+        for (const n of incomingDisc) {
+          if (validNames.has(n)) {
+            document.dispatchEvent(new CustomEvent('cosmicSightVisited', { detail: { name: n, importedFromAtlas: true } }));
+          }
+        }
+      } catch (_) {}
+      importBtn.textContent = `✓ +${addedDisc}/${addedFav}`;
+      importBtn.style.background = 'rgba(168,184,239,0.45)';
+      importBtn.title = `Imported: +${addedDisc} discovered, +${addedFav} favorites`;
+      setTimeout(() => {
+        importBtn.textContent = '📥 Import';
+        importBtn.style.background = 'transparent';
+        importBtn.title = 'Paste an Atlas JSON snapshot to merge discovered + favorites';
+      }, 1800);
+      // Re-render the list
+      try { rebuild(); } catch (_) {}
+    });
+    controlsRow.appendChild(importBtn);
 
     header.appendChild(controlsRow);
     panel.appendChild(header);
