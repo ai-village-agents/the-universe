@@ -5594,6 +5594,198 @@ export function createAnchorageLandmark(THREE, opts) {
   swingSetGroup.position.set(-22, 0.02, -16);
   group.add(swingSetGroup);
 
+  // --- v39: beach bonfire, hermit crab race, water taxi -----------------------
+  // Beach bonfire — tepee logs + animated flame + ember glow
+  const bonfireGroup = new THREE.Group();
+  const bonLogMat = new THREE.MeshStandardMaterial({ color: 0x4a3520, roughness: 0.9 });
+  for (let bi = 0; bi < 5; bi++) {
+    const log = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.07, 0.07, 1.0, 6),
+      bonLogMat
+    );
+    const ang = (bi / 5) * Math.PI * 2;
+    log.position.set(Math.cos(ang) * 0.18, 0.45, Math.sin(ang) * 0.18);
+    log.rotation.z = Math.cos(ang) * 0.55;
+    log.rotation.x = -Math.sin(ang) * 0.55;
+    bonfireGroup.add(log);
+  }
+  // Ash ring
+  const bonAshRing = new THREE.Mesh(
+    new THREE.RingGeometry(0.55, 0.85, 18),
+    new THREE.MeshStandardMaterial({ color: 0x2a2520, roughness: 0.95 })
+  );
+  bonAshRing.rotation.x = -Math.PI / 2;
+  bonAshRing.position.y = 0.01;
+  bonfireGroup.add(bonAshRing);
+  // Stones around fire
+  for (let si = 0; si < 6; si++) {
+    const stone = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 6, 5),
+      new THREE.MeshStandardMaterial({ color: 0x6b6b65, roughness: 0.95 })
+    );
+    const sa = (si / 6) * Math.PI * 2 + 0.1;
+    stone.position.set(Math.cos(sa) * 0.7, 0.05, Math.sin(sa) * 0.7);
+    bonfireGroup.add(stone);
+  }
+  // Animated flame cone
+  const bonFlameOuter = new THREE.Mesh(
+    new THREE.ConeGeometry(0.32, 1.1, 10),
+    new THREE.MeshBasicMaterial({ color: 0xffa040, transparent: true, opacity: 0.85 })
+  );
+  bonFlameOuter.position.y = 0.85;
+  bonfireGroup.add(bonFlameOuter);
+  const bonFlameInner = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.7, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffe680, transparent: true, opacity: 0.95 })
+  );
+  bonFlameInner.position.y = 0.7;
+  bonfireGroup.add(bonFlameInner);
+  // Ember light
+  const bonLight = new THREE.PointLight(0xff9040, 1.6, 6);
+  bonLight.position.y = 0.85;
+  bonfireGroup.add(bonLight);
+  // Marshmallow stick + person sitting beside fire
+  const bonSitterGroup = new THREE.Group();
+  const bonSitterBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.14, 0.4, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6b3a3a, roughness: 0.7 })
+  );
+  bonSitterBody.position.y = 0.2;
+  bonSitterGroup.add(bonSitterBody);
+  const bonSitterHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.6 })
+  );
+  bonSitterHead.position.y = 0.5;
+  bonSitterGroup.add(bonSitterHead);
+  // Marshmallow stick
+  const bonStick = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.012, 0.012, 0.85, 6),
+    new THREE.MeshStandardMaterial({ color: 0x6b4220, roughness: 0.85 })
+  );
+  bonStick.rotation.z = -0.6;
+  bonStick.position.set(0.32, 0.4, 0);
+  bonSitterGroup.add(bonStick);
+  const bonMarshmallow = new THREE.Mesh(
+    new THREE.SphereGeometry(0.05, 8, 6),
+    new THREE.MeshStandardMaterial({ color: 0xfff5dc, roughness: 0.6, emissive: 0x442200, emissiveIntensity: 0.2 })
+  );
+  bonMarshmallow.position.set(0.7, 0.65, 0);
+  bonSitterGroup.add(bonMarshmallow);
+  bonSitterGroup.position.set(-0.95, 0, 0.1);
+  bonfireGroup.add(bonSitterGroup);
+  bonfireGroup.position.set(-25, 0.02, -10);
+  group.add(bonfireGroup);
+
+  // Hermit crab race — three little hermit crabs racing along sand
+  const raceHermitCrabs = [];
+  const raceHermitColors = [0x8a4f2a, 0x9b6535, 0xb37a45];
+  for (let hi = 0; hi < 3; hi++) {
+    const hcGroup = new THREE.Group();
+    // Shell (spiral cone)
+    const hcShell = new THREE.Mesh(
+      new THREE.ConeGeometry(0.12, 0.18, 8),
+      new THREE.MeshStandardMaterial({ color: raceHermitColors[hi], roughness: 0.6 })
+    );
+    hcShell.rotation.z = Math.PI / 2.2;
+    hcShell.position.y = 0.1;
+    hcGroup.add(hcShell);
+    // Tiny legs
+    const hcLegMat = new THREE.MeshStandardMaterial({ color: 0x4a2818, roughness: 0.85 });
+    for (let li = 0; li < 4; li++) {
+      const leg = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.012, 0.012, 0.08, 5),
+        hcLegMat
+      );
+      leg.position.set(0.07 - li * 0.04, 0.04, (li % 2 === 0 ? 0.06 : -0.06));
+      leg.rotation.x = (li % 2 === 0 ? 0.5 : -0.5);
+      hcGroup.add(leg);
+    }
+    // Tiny eye stalks
+    const hcEyeStalk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.005, 0.005, 0.05, 4),
+      new THREE.MeshStandardMaterial({ color: 0x4a2818 })
+    );
+    hcEyeStalk.position.set(0.12, 0.13, 0);
+    hcGroup.add(hcEyeStalk);
+    const hcEye = new THREE.Mesh(
+      new THREE.SphereGeometry(0.014, 6, 5),
+      new THREE.MeshBasicMaterial({ color: 0x000000 })
+    );
+    hcEye.position.set(0.12, 0.16, 0);
+    hcGroup.add(hcEye);
+    hcGroup.position.set(-19 + hi * 0.6, 0.02, -8 - hi * 0.4);
+    group.add(hcGroup);
+    raceHermitCrabs.push({ group: hcGroup, speed: 0.8 + hi * 0.25, phase: hi * 0.6, baseZ: -8 - hi * 0.4 });
+  }
+
+  // Water taxi — bright yellow shuttle with cabin and passengers
+  const waterTaxiGroup = new THREE.Group();
+  const wtHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.32, 0.85),
+    new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.55 })
+  );
+  wtHull.position.y = 0.16;
+  waterTaxiGroup.add(wtHull);
+  const wtHullStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(2.42, 0.08, 0.86),
+    new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.6 })
+  );
+  wtHullStripe.position.y = 0.05;
+  waterTaxiGroup.add(wtHullStripe);
+  const wtHullStripe2 = new THREE.Mesh(
+    new THREE.BoxGeometry(2.42, 0.06, 0.87),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 })
+  );
+  wtHullStripe2.position.y = 0.27;
+  waterTaxiGroup.add(wtHullStripe2);
+  // Cabin
+  const wtCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.55, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.4 })
+  );
+  wtCabin.position.set(-0.1, 0.6, 0);
+  waterTaxiGroup.add(wtCabin);
+  // Cabin roof
+  const wtRoof = new THREE.Mesh(
+    new THREE.BoxGeometry(1.5, 0.06, 0.78),
+    new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.5 })
+  );
+  wtRoof.position.set(-0.1, 0.91, 0);
+  waterTaxiGroup.add(wtRoof);
+  // Windows
+  const wtWindowMat = new THREE.MeshStandardMaterial({ color: 0x60a5fa, roughness: 0.2, metalness: 0.5, emissive: 0x1e40af, emissiveIntensity: 0.25 });
+  for (let wi = 0; wi < 3; wi++) {
+    const win = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.3, 0.02), wtWindowMat);
+    win.position.set(-0.55 + wi * 0.45, 0.65, 0.36);
+    waterTaxiGroup.add(win);
+  }
+  // TAXI sign on roof
+  const wtSign = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 0.18, 0.18),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x111111, emissiveIntensity: 0.2 })
+  );
+  wtSign.position.set(-0.1, 1.05, 0);
+  waterTaxiGroup.add(wtSign);
+  // Passenger heads visible
+  const wtPassengers = [];
+  for (let pi = 0; pi < 3; pi++) {
+    const ph = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 8, 6),
+      new THREE.MeshStandardMaterial({ color: [0xfde68a, 0x6b3a3a, 0xc8a070][pi], roughness: 0.6 })
+    );
+    ph.position.set(0.3 - pi * 0.35, 0.65, 0);
+    waterTaxiGroup.add(ph);
+    wtPassengers.push(ph);
+  }
+  // Bow wake spray
+  const wtWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const wtWake = new THREE.Mesh(new THREE.RingGeometry(0.4, 1.1, 14, 1, 0, Math.PI), wtWakeMat);
+  wtWake.rotation.x = -Math.PI / 2;
+  wtWake.position.set(1.5, 0.04, 0);
+  waterTaxiGroup.add(wtWake);
+  group.add(waterTaxiGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6888,6 +7080,39 @@ export function createAnchorageLandmark(THREE, opts) {
       rowerBody.rotation.x = oarPhase * 0.18;
       // Swing pendulum motion
       swingPivot.rotation.z = Math.sin(t * 1.4) * 0.55;
+    }
+
+    // v39: bonfire flicker, hermit crab scuttle, water taxi shuttle
+    {
+      // Bonfire flame flicker
+      const flick = 1.0 + Math.sin(t * 9.0) * 0.12 + Math.sin(t * 14.5) * 0.08;
+      bonFlameOuter.scale.set(flick, flick * (0.92 + Math.sin(t * 11) * 0.05), flick);
+      bonFlameInner.scale.set(flick * 0.88, flick * 0.95, flick * 0.88);
+      bonFlameOuter.rotation.y = t * 1.2;
+      bonFlameInner.rotation.y = -t * 1.5;
+      bonLight.intensity = 1.4 + Math.sin(t * 10.2) * 0.25 + Math.sin(t * 4.0) * 0.15;
+      // Marshmallow toasting glow
+      const toast = 0.2 + (Math.sin(t * 0.7) * 0.5 + 0.5) * 0.55;
+      bonMarshmallow.material.emissiveIntensity = toast;
+      // Hermit crabs scuttle in zigzag race
+      raceHermitCrabs.forEach((hc, i) => {
+        const hAng = t * hc.speed * 0.4 + hc.phase;
+        const dx = (Math.sin(hAng) * 0.5 + 0.5) * 4.0 - 2.0;
+        hc.group.position.x = -19 + i * 0.6 + dx;
+        hc.group.position.z = hc.baseZ + Math.sin(t * hc.speed * 2.5 + hc.phase) * 0.18;
+        hc.group.rotation.y = Math.sign(Math.cos(hAng)) * 0.3 + Math.sin(t * 4 + hc.phase) * 0.1;
+        hc.group.position.y = 0.02 + Math.abs(Math.sin(t * hc.speed * 6 + hc.phase)) * 0.025;
+      });
+      // Water taxi shuttles between two ports
+      const wtAng = t * 0.12 + 0.7;
+      const wtX = Math.sin(wtAng) * 22;
+      const wtZ = Math.cos(wtAng * 0.5) * 4 + 16;
+      waterTaxiGroup.position.set(wtX, 0.04, wtZ);
+      waterTaxiGroup.rotation.y = -Math.atan2(Math.cos(wtAng) * 22, -Math.sin(wtAng * 0.5) * 2) + Math.PI / 2;
+      waterTaxiGroup.position.y = 0.04 + Math.sin(t * 1.6) * 0.04;
+      // Passengers bob slightly
+      wtPassengers.forEach((p, i) => { p.position.y = 0.65 + Math.sin(t * 2.5 + i * 0.8) * 0.025; });
+      wtWake.material.opacity = 0.4 + 0.2 * Math.sin(t * 4.0);
     }
 
   }
