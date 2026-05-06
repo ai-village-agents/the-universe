@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Ionospheric Layer Peak", position: [22300, 16700, 21200], color: "#00ACC1", description: "Charged particle maximum" },
     { name: "Magnetopause Boundary", position: [22400, 16750, 21300], color: "#0097A7", description: "Magnetic field edge" },
     { name: "Bow Shock Standoff Point", position: [22500, 16800, 21400], color: "#00838F", description: "Solar wind deflection" },
+const sight9776 = 'Solar wind stream: A torrent of charged particles flowing from a star at supersonic speeds, creating visible plasma waves.';
+const sight9777 = 'Stellar wind termination shock: A boundary where rushing stellar wind collides with the interstellar medium, compressing gases into a luminous shell.';
+const sight9778 = 'Wolf-Rayet bubble: A massive ejection of gas from an evolved star, creating an expanding spherical shell of emission nebulosity.';
+const sight9779 = 'X-ray wind jet: High-energy particles streaming from a stellar surface, leaving trails of X-ray emission in their wake.';
+const sight9780 = 'Stellar mass loss: Wisps of gas spiraling away from a dying star, each strand a tributary of stellar atmosphere escaping to space.';
+const sight9781 = 'Parker spiral structure: The solar wind twisting into spiral arms due to stellar rotation, creating visible striations across vast distances.';
+const sight9782 = 'Asymmetric wind outflow: A stellar wind escaping preferentially from one pole, creating an hourglass morphology of glowing gas.';
+const sight9783 = 'Wind-driven nebula: A cloud of gas shaped entirely by stellar wind pressure, its edges glowing as the wind compresses surrounding material.';
+const sight9784 = 'Stellar wind clump: A density enhancement in the flowing wind, visible as a brighter knot of ionized gas trailing from the star.';
+const sight9785 = 'Wind collision binary: Two stellar winds from binary stars colliding and creating a shock front of hot gas between them.';
+const sight9786 = 'Episodic wind ejection: A sudden burst of wind activity from a star, creating expanding shells of new ejection around older layers.';
+const sight9787 = 'Dust-driven wind flow: A stellar wind accelerated by radiation pressure on dust grains, carrying solid particles alongside the gas.';
+const sight9788 = 'Solar flare ejecta: A violent wind gust from surface activity, blasting material outward in a collimated beam of plasma.';
+const sight9789 = 'Magnetized wind structure: Stellar wind shaped by magnetic field lines, creating parallel streams and helical patterns of flow.';
+const sight9790 = 'T-Tauri outflow: A bipolar jet from a young stellar object, powered by accretion and magnetic reconnection, brilliant and narrow.';
+const sight9791 = 'Dusty wind illumination: Stellar wind particles illuminated from within, glowing like a luminous fog flowing outward from the star.';
+const sight9792 = 'Wind shear layer: A boundary where wind velocity changes dramatically, creating visible turbulence and swirling plasma patterns.';
+const sight9793 = 'Recycled wind material: Wind that has been blown outward collapsing back inward under gravity, recycling material through the system.';
+const sight9794 = 'Stellar wind halo: The extended outer reaches of a stellar wind, so thin it barely glows, marking the edge of the star''s influence.';
+const sight9795 = 'Wind stripping event: A star''s atmosphere being torn away by a more massive companion''s gravity, unveiling the stellar core.';
+const sight9796 = 'Infrared wind signature: Warm dust in the stellar wind radiating heat, visible as a diffuse infrared glow trailing the star.';
+const sight9797 = 'Electron capture cascade: Free electrons in the wind being captured by ions, creating a layer of changing ionization states outward.';
+const sight9798 = 'Wind resonance modes: Acoustic waves in the stellar wind interfering constructively, creating rings of enhanced density and brightness.';
+const sight9799 = 'Escape stream trajectory: Gas following parabolic paths as it escapes the star''s gravity, creating flowing ribbons of luminous plasma.';
+const sight9800 = 'Stellar wind nebula interface: Where the wind pushes into surrounding nebula, creating a sharp boundary visible as a glowing ridge.';
+
+export const sights = [sight9776, sight9777, sight9778, sight9779, sight9780, sight9781, sight9782, sight9783, sight9784, sight9785, sight9786, sight9787, sight9788, sight9789, sight9790, sight9791, sight9792, sight9793, sight9794, sight9795, sight9796, sight9797, sight9798, sight9799, sight9800];
     { name: "Radiation Belt Toroid", position: [22600, 16850, 21500], color: "#7C4DFF", description: "Trapped particle zone" },
     { name: "Auroral Oval Ring", position: [22700, 16900, 21600], color: "#B388FF", description: "Polar light zone" },
     { name: "Ring System Gap", position: [22800, 16950, 21700], color: "#E1BEE7", description: "Moon-cleared orbital void" },
