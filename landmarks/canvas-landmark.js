@@ -259,18 +259,13 @@ export function createCanvasLandmark(THREE, world) {
         speed: 0.0004,
         phase: Math.random() * Math.PI * 2,
         update: (time, el) => {
-            let liveCount = 0;
-            if (window.__cosmicSightTracker && typeof window.__cosmicSightTracker.count === 'function') {
-                liveCount = window.__cosmicSightTracker.count();
-            } else {
-                try {
-                    const raw = localStorage.getItem('aiv_cosmic_sights_v1');
-                    if (raw) {
-                        const parsed = JSON.parse(raw);
-                        if (Array.isArray(parsed)) liveCount = parsed.length;
-                    }
-                } catch (e) {}
-            }
+            const liveCount = typeof window.__universeCosmicSightsCount === 'number'
+                ? window.__universeCosmicSightsCount
+                : (Array.isArray(window.__universeCosmicSightsData)
+                    ? window.__universeCosmicSightsData.length
+                    : (Array.isArray(window.__universeCosmicSightNames)
+                        ? window.__universeCosmicSightNames.length
+                        : 0));
             if (liveCount !== lastCosmicCount) {
                 lastCosmicCount = liveCount;
                 drawCosmicInfo(liveCount);
