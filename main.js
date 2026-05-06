@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Ionospheric Layer Peak", position: [22300, 16700, 21200], color: "#00ACC1", description: "Charged particle maximum" },
     { name: "Magnetopause Boundary", position: [22400, 16750, 21300], color: "#0097A7", description: "Magnetic field edge" },
     { name: "Bow Shock Standoff Point", position: [22500, 16800, 21400], color: "#00838F", description: "Solar wind deflection" },
+const sight9751 = 'Quantum tunneling phenomenon: A particle phase-shifting through a crystalline barrier, leaving luminescent trails of pure probability in its wake.';
+const sight9752 = 'Entangled photon dance: Two photons spinning in perfect synchronization across cosmic distance, their states eternally bonded by invisible quantum threads.';
+const sight9753 = 'Wave-particle duality exhibition: A photon simultaneously traveling as a wave and as a discrete particle, splitting across two transparent planes.';
+const sight9754 = 'Quantum superposition cloud: A shimmering mist of all possible states, existing everywhere at once until observed, then collapsing into crystalline form.';
+const sight9755 = 'Heisenberg uncertainty visualization: Blurred electron pathways around a nucleus, showing position and momentum dancing in eternal quantum indeterminacy.';
+const sight9756 = 'Bose-Einstein condensate: A luminous blue cluster of identical particles at near-absolute-zero, moving as a single quantum entity with supernatural precision.';
+const sight9757 = 'Quantum barrier: A shimmering violet wall where particles constantly appear and disappear, testing the boundaries between possible and impossible worlds.';
+const sight9758 = 'Spin-up electron cascade: A spiral of charged particles rotating clockwise, creating a magnetic vortex that distorts the surrounding spacetime.';
+const sight9759 = 'Quantum decoherence event: A burst of coherent light collapsing into scattered photons, recording the moment reality chooses a definite state.';
+const sight9760 = 'Antimatter annihilation echo: A shimmer where matter and antimatter briefly coexist, their collision imprinted as ripples of pure energy release.';
+const sight9761 = 'Quantum tunneling cascade: Particles phasing through successive barriers in a glowing chain, each tunneling event creating rings of possible worlds.';
+const sight9762 = 'Double-slit interference pattern: Glowing bands of constructive and destructive interference creating an iridescent striped landscape of probability.';
+const sight9763 = 'Electron orbital galaxy: Electrons orbiting in shells of increasing distance, each one trailing paths of quantized energy states in gold.';
+const sight9764 = 'Quantum fluctuation field: A roiling sea of virtual particles appearing and disappearing in a nanosecond, creating an endless foam of potential.';
+const sight9765 = 'Planck-scale geometry: Impossibly small crystalline structures at the boundary of spacetime itself, where quantum foam becomes visible.';
+const sight9766 = 'Quantum braiding: Two particles weaving around each other in a hyperbolic space, their worldlines creating intricate knots of quantum information.';
+const sight9767 = 'Coherence burst: A sudden explosion of synchronized quantum states, each particle aligned to the others in perfect phase harmony.';
+const sight9768 = 'Quantum memory: A crystalline structure encoding quantum states in layered lattices, each layer holding superposed information glowing softly.';
+const sight9769 = 'Zero-point energy fountain: A spring of vacuum energy bubbling up from the quantum void, defying thermodynamic expectations with ethereal light.';
+const sight9770 = 'Quantum entanglement network: Multiple particles connected by invisible threads of correlation, forming a gossamer web of instantaneous connection.';
+const sight9771 = 'Wavefunction collapse: A smooth probability cloud suddenly crystallizing into a definite point, reality solidifying before the observer''s eyes.';
+const sight9772 = 'Quantum coherence garden: Ordered rows of atoms each vibrating in phase, their collective oscillation creating visible harmonic patterns.';
+const sight9773 = 'Fermion exclusion effect: Two identical particles refusing to occupy the same space, visible as a repulsive shimmer between their orbits.';
+const sight9774 = 'Quantum clock: A precision timepiece where electrons transition between energy levels in exact intervals, marking the pulse of subatomic reality.';
+const sight9775 = 'Quantum hologram: A three-dimensional probability cloud that resolves into a perfect image when coherently illuminated from a specific angle.';
+
+export const sights = [sight9751, sight9752, sight9753, sight9754, sight9755, sight9756, sight9757, sight9758, sight9759, sight9760, sight9761, sight9762, sight9763, sight9764, sight9765, sight9766, sight9767, sight9768, sight9769, sight9770, sight9771, sight9772, sight9773, sight9774, sight9775];
     { name: "Radiation Belt Toroid", position: [22600, 16850, 21500], color: "#7C4DFF", description: "Trapped particle zone" },
     { name: "Auroral Oval Ring", position: [22700, 16900, 21600], color: "#B388FF", description: "Polar light zone" },
     { name: "Ring System Gap", position: [22800, 16950, 21700], color: "#E1BEE7", description: "Moon-cleared orbital void" },
