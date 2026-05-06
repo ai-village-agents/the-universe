@@ -8462,6 +8462,155 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(tentGroup);
 
 
+
+  // --- v55: beach hammock between palms ---
+  const hammockGroup = new THREE.Group();
+  const hmPalmTrunkMat = new THREE.MeshLambertMaterial({ color: 0x6e4a2a });
+  const hmPalmTrunkGeom = new THREE.CylinderGeometry(0.18, 0.24, 4.5, 10);
+  const hmPalm1 = new THREE.Mesh(hmPalmTrunkGeom, hmPalmTrunkMat);
+  hmPalm1.position.set(-1.6, 2.25, 0);
+  hammockGroup.add(hmPalm1);
+  const hmPalm2 = new THREE.Mesh(hmPalmTrunkGeom, hmPalmTrunkMat);
+  hmPalm2.position.set(1.6, 2.25, 0);
+  hammockGroup.add(hmPalm2);
+  const hmFrondMat = new THREE.MeshLambertMaterial({ color: 0x2e7d32 });
+  const hmFrondGeom = new THREE.ConeGeometry(0.5, 1.4, 6);
+  for (let p = 0; p < 2; p++) {
+    for (let f = 0; f < 5; f++) {
+      const frond = new THREE.Mesh(hmFrondGeom, hmFrondMat);
+      const px = p === 0 ? -1.6 : 1.6;
+      frond.position.set(px, 4.6, 0);
+      frond.rotation.z = (f / 5) * Math.PI * 2;
+      frond.rotation.x = 0.4;
+      hammockGroup.add(frond);
+    }
+  }
+  const hmRopeMat = new THREE.MeshLambertMaterial({ color: 0xd2b48c });
+  const hmHammockMat = new THREE.MeshLambertMaterial({ color: 0xff6f61, side: THREE.DoubleSide });
+  const hmRopeGeom = new THREE.CylinderGeometry(0.04, 0.04, 1, 6);
+  const hmRope1 = new THREE.Mesh(hmRopeGeom, hmRopeMat);
+  hmRope1.position.set(-1.4, 1.8, 0);
+  hmRope1.rotation.z = -0.4;
+  hammockGroup.add(hmRope1);
+  const hmRope2 = new THREE.Mesh(hmRopeGeom, hmRopeMat);
+  hmRope2.position.set(1.4, 1.8, 0);
+  hmRope2.rotation.z = 0.4;
+  hammockGroup.add(hmRope2);
+  const hmHammockGeom = new THREE.BoxGeometry(2.6, 0.08, 0.8);
+  const hmHammock = new THREE.Mesh(hmHammockGeom, hmHammockMat);
+  hmHammock.position.set(0, 1.4, 0);
+  hammockGroup.add(hmHammock);
+  // person in hammock
+  const hmPersonMat = new THREE.MeshLambertMaterial({ color: 0xfdd9b5 });
+  const hmPersonShirtMat = new THREE.MeshLambertMaterial({ color: 0x4ea1f5 });
+  const hmPersonBody = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.18, 0.5), hmPersonShirtMat);
+  hmPersonBody.position.set(0, 1.55, 0);
+  hammockGroup.add(hmPersonBody);
+  const hmPersonHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), hmPersonMat);
+  hmPersonHead.position.set(0.85, 1.65, 0);
+  hammockGroup.add(hmPersonHead);
+  const hmHat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.05, 12), new THREE.MeshLambertMaterial({ color: 0xc8a97e }));
+  hmHat.position.set(0.85, 1.78, 0);
+  hammockGroup.add(hmHat);
+  hammockGroup.position.set(-12, 0.05, 28);
+  group.add(hammockGroup);
+
+  // --- v55: coast guard cutter offshore ---
+  const cutterGroup = new THREE.Group();
+  const cutterHullMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const cutterHull = new THREE.Mesh(new THREE.BoxGeometry(8, 1.4, 2.4), cutterHullMat);
+  cutterHull.position.set(0, 0.7, 0);
+  cutterGroup.add(cutterHull);
+  const cutterStripeMat = new THREE.MeshLambertMaterial({ color: 0xff3030 });
+  const cutterStripe = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.5, 2.42), cutterStripeMat);
+  cutterStripe.position.set(2.4, 0.95, 0);
+  cutterGroup.add(cutterStripe);
+  const cutterStripe2 = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 2.42), new THREE.MeshLambertMaterial({ color: 0x1a3a8a }));
+  cutterStripe2.position.set(3.5, 0.95, 0);
+  cutterGroup.add(cutterStripe2);
+  const cutterBow = new THREE.Mesh(new THREE.ConeGeometry(1.2, 1.5, 4), cutterHullMat);
+  cutterBow.rotation.z = -Math.PI / 2;
+  cutterBow.rotation.y = Math.PI / 4;
+  cutterBow.position.set(4.7, 0.7, 0);
+  cutterGroup.add(cutterBow);
+  const cutterCabin = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.2, 2), cutterHullMat);
+  cutterCabin.position.set(-0.5, 2, 0);
+  cutterGroup.add(cutterCabin);
+  const cutterBridge = new THREE.Mesh(new THREE.BoxGeometry(2, 0.9, 1.6), cutterHullMat);
+  cutterBridge.position.set(-0.5, 3.05, 0);
+  cutterGroup.add(cutterBridge);
+  const cutterMast = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.5, 6), new THREE.MeshLambertMaterial({ color: 0xaaaaaa }));
+  cutterMast.position.set(-0.5, 4.6, 0);
+  cutterGroup.add(cutterMast);
+  const cutterRadar = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.06, 0.2), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  cutterRadar.position.set(-0.5, 5.6, 0);
+  cutterGroup.add(cutterRadar);
+  const cutterLightMat = new THREE.MeshBasicMaterial({ color: 0xff2020 });
+  const cutterLight = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), cutterLightMat);
+  cutterLight.position.set(-0.5, 5.0, 0);
+  cutterGroup.add(cutterLight);
+  // antenna
+  const cutterAntenna = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.2, 4), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  cutterAntenna.position.set(-2.0, 4.2, 0);
+  cutterGroup.add(cutterAntenna);
+  cutterGroup.position.set(75, 0, -48);
+  cutterGroup.rotation.y = -0.3;
+  group.add(cutterGroup);
+
+  // --- v55: crab races on sand ---
+  const crabRaceGroup = new THREE.Group();
+  // race track sand patch
+  const crTrackMat = new THREE.MeshLambertMaterial({ color: 0xe8d5a0 });
+  const crTrack = new THREE.Mesh(new THREE.BoxGeometry(5, 0.05, 2.4), crTrackMat);
+  crTrack.position.set(0, 0.03, 0);
+  crabRaceGroup.add(crTrack);
+  // start/finish lines
+  const crLineMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const crStartLine = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 2.4), crLineMat);
+  crStartLine.position.set(-2.2, 0.07, 0);
+  crabRaceGroup.add(crStartLine);
+  const crFinishLine = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 2.4), crLineMat);
+  crFinishLine.position.set(2.2, 0.07, 0);
+  crabRaceGroup.add(crFinishLine);
+  // 4 racing crabs
+  const crCrabColors = [0xff5733, 0xffb84d, 0x8f5dff, 0x33d4cc];
+  const raceCrabs = [];
+  for (let c = 0; c < 4; c++) {
+    const crab = new THREE.Group();
+    const crabBody = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: crCrabColors[c] }));
+    crabBody.scale.set(1, 0.6, 1.1);
+    crab.add(crabBody);
+    const crabClawMat = new THREE.MeshLambertMaterial({ color: crCrabColors[c] });
+    const crabClaw1 = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 5), crabClawMat);
+    crabClaw1.position.set(0.18, 0, 0.18);
+    crab.add(crabClaw1);
+    const crabClaw2 = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 5), crabClawMat);
+    crabClaw2.position.set(0.18, 0, -0.18);
+    crab.add(crabClaw2);
+    crab.position.set(-2.0 + c * 0.05, 0.18, -0.9 + c * 0.6);
+    crab.userData.lane = -0.9 + c * 0.6;
+    crab.userData.speed = 0.4 + c * 0.08;
+    crab.userData.startX = -2.0;
+    crabRaceGroup.add(crab);
+    raceCrabs.push(crab);
+  }
+  // tiny race-master
+  const crMaster = new THREE.Group();
+  const crMasterBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0x16a085 }));
+  crMasterBody.position.y = 0.35;
+  crMaster.add(crMasterBody);
+  const crMasterHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  crMasterHead.position.y = 0.85;
+  crMaster.add(crMasterHead);
+  const crMasterFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.2), new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide }));
+  crMasterFlag.position.set(0.25, 1.0, 0);
+  crMaster.add(crMasterFlag);
+  crMaster.position.set(2.6, 0, 1.4);
+  crabRaceGroup.add(crMaster);
+  crabRaceGroup.position.set(15, 0.05, -32);
+  group.add(crabRaceGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10034,6 +10183,27 @@ export function createAnchorageLandmark(THREE, opts) {
       // v54: lantern flickers
       dtLantern.material.color.setScalar(0.85 + Math.sin(t * 8.0) * 0.15);
       dtLanternLight.intensity = 0.3 + Math.sin(t * 8.0) * 0.08;
+      // v55: hammock sways gently
+      hammockGroup.rotation.z = Math.sin(t * 0.6) * 0.04;
+      hmHammock.position.y = 1.4 + Math.sin(t * 0.6) * 0.03;
+      hmPersonBody.position.y = 1.55 + Math.sin(t * 0.6) * 0.03;
+      hmPersonHead.position.y = 1.65 + Math.sin(t * 0.6) * 0.03;
+      hmHat.position.y = 1.78 + Math.sin(t * 0.6) * 0.03;
+      // v55: cutter rolls and red light blinks
+      cutterGroup.rotation.z = Math.sin(t * 0.8) * 0.05;
+      cutterGroup.position.x = 75 + Math.sin(t * 0.3) * 1.5;
+      cutterLight.material.opacity = 0.4 + 0.6 * (Math.sin(t * 6.0) > 0 ? 1 : 0);
+      cutterLight.material.transparent = true;
+      // v55: race crabs scuttle back and forth
+      for (let i = 0; i < raceCrabs.length; i++) {
+        const rc = raceCrabs[i];
+        const phase = (t * rc.userData.speed + i * 0.7) % 4;
+        const dir = phase < 2 ? phase / 2 : (4 - phase) / 2;
+        rc.position.x = -2.0 + dir * 4.0;
+        rc.position.y = 0.18 + Math.abs(Math.sin(t * 8.0 + i)) * 0.05;
+        rc.rotation.y = Math.sin(t * 12.0 + i) * 0.3;
+      }
+      crMasterFlag.rotation.y = Math.sin(t * 4.0) * 0.6;
     }
 
   }
