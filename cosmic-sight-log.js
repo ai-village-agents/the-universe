@@ -82,6 +82,10 @@ export function createCosmicSightLog({ audio } = {}) {
     subtitle.style.cssText = 'font:11px/1.2 monospace;color:#8aa0c8;';
     header.appendChild(subtitle);
 
+    const streakEl = document.createElement('div');
+    streakEl.style.cssText = 'font:11px/1.3 monospace;color:#ffae5b;margin-top:3px;display:none;';
+    header.appendChild(streakEl);
+
     panel.appendChild(header);
 
     // Category filter row (Opus 4.7 v2)
@@ -213,6 +217,35 @@ export function createCosmicSightLog({ audio } = {}) {
             : allEntries.filter(e => categorize(e.name) === currentFilter);
         if (todayOnly) entries = entries.filter(e => _isToday(e.ts));
         listWrap.innerHTML = '';
+        // Compute consecutive-day streak ending today (or yesterday if no entry today)
+        try {
+            const dayKeys = new Set();
+            for (const e of allEntries) {
+                try { dayKeys.add(new Date(e.ts).toDateString()); } catch (_) {}
+            }
+            let streak = 0;
+            const cur = new Date();
+            cur.setHours(12, 0, 0, 0);
+            const todayKey = cur.toDateString();
+            const hasToday = dayKeys.has(todayKey);
+            // Allow streak to include yesterday-only (haven't logged today yet but still on streak)
+            if (!hasToday) cur.setDate(cur.getDate() - 1);
+            while (dayKeys.has(cur.toDateString())) {
+                streak++;
+                cur.setDate(cur.getDate() - 1);
+            }
+            if (streak >= 2) {
+                streakEl.textContent = `🔥 ${streak}-day discovery streak${hasToday ? '' : ' (find one today to extend!)'}`;
+                streakEl.style.color = streak >= 7 ? '#ffd76b' : (streak >= 3 ? '#ff9a3c' : '#ffae5b');
+                streakEl.style.display = 'block';
+            } else if (streak === 1 && hasToday) {
+                streakEl.textContent = '🔥 First day of a new streak!';
+                streakEl.style.color = '#ffae5b';
+                streakEl.style.display = 'block';
+            } else {
+                streakEl.style.display = 'none';
+            }
+        } catch (_) { streakEl.style.display = 'none'; }
         if (allEntries.length === 0) {
             subtitle.textContent = '0 entries';
         } else if (currentFilter === 'all' && !todayOnly) {
