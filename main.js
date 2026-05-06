@@ -11157,6 +11157,33 @@ const cosmicSights = [
     { name: "Penumbra Filament Structure", position: [19800, 15450, 18700], color: "#607D8B", description: "Radial spot features" },
     { name: "Umbral Light Bridge Lane", position: [19900, 15500, 18800], color: "#546E7A", description: "Bright lane in umbra" },
     { name: "Facular Bright Point", position: [20000, 15550, 18900], color: "#FFE57F", description: "Magnetic bright feature" },
+const sight9826 = 'Atmospheric convection cells: Hexagonal patterns of rising and falling gas creating a honeycomb structure visible from above the atmosphere.';
+const sight9827 = 'Jet stream ribbon: A narrow river of fast-moving gas at the boundary between air masses, creating a glowing band across the atmospheric layers.';
+const sight9828 = 'Cyclone spiral structure: A rotating storm system with concentric bands and a clear eye at the center, visible as a perfect spiral of clouds.';
+const sight9829 = 'Atmospheric inversion layer: A boundary where temperature increases rather than decreases, trapping gas and creating a sharp visible interface.';
+const sight9830 = 'Wind shear vortex: A spiral created where wind speeds change with altitude, rolling up the atmosphere into a visible rotating column.';
+const sight9831 = 'Atmospheric gravity wave: Ripples in atmospheric density propagating outward from a disturbance, creating visible undulations across the sky.';
+const sight9832 = 'Temperature gradient boundary: A sharp transition where atmosphere changes temperature dramatically, glowing with concentrated energy.';
+const sight9833 = 'Atmospheric bore wave: A solitary wave traveling through the atmosphere, like an acoustic tsunami moving horizontally through the air.';
+const sight9834 = 'Thermal updraft column: A narrow plume of warm rising air creating a visible tower of upswelling atmosphere, towering into the upper layers.';
+const sight9835 = 'Atmospheric lapse rate visualization: Layers of atmosphere stacked by temperature and density, each layer distinctly colored by thermal content.';
+const sight9836 = 'Wind vortex pair: Two counter-rotating vortices in the atmosphere, creating a rolling motion as they interact and move together.';
+const sight9837 = 'Mesospheric wave pattern: Visible ripples in the mesosphere from lower-atmosphere disturbances, creating complex interference patterns.';
+const sight9838 = 'Atmospheric compression shock: A sudden increase in atmospheric density creating a visible bright shock front propagating outward.';
+const sight9839 = 'Stratospheric eddy: A rotating pool of stratospheric air isolated from surrounding masses, clearly defined in its boundary and motion.';
+const sight9840 = 'Atmospheric wave interference: Multiple atmospheric waves interfering constructively and destructively, creating regions of calm and turbulence.';
+const sight9841 = 'Thermal wind circulation: Wind patterns created entirely by temperature gradients, creating spiral flows in the vertical plane.';
+const sight9842 = 'Atmospheric tidal wave: Atmospheric oscillations caused by gravitational tidal forcing, creating regular pulses in atmospheric structure.';
+const sight9843 = 'Kelvin-Helmholtz instability: Shearing motion between air layers creating rolling waves, like clouds rippling across the sky.';
+const sight9844 = 'Atmospheric coherent structure: A stable vortex or flow pattern persisting despite surrounding turbulence, rotating steadily through space.';
+const sight9845 = 'Baroclinic wave growth: A low-pressure system growing rapidly due to temperature gradients, visibly spinning faster and deeper over time.';
+const sight9846 = 'Atmospheric moisture convergence: Zones where water vapor accumulates, creating visible concentrations of condensing atmospheric moisture.';
+const sight9847 = 'Stratospheric polar vortex: A massive rotating column of cold, isolated air at the poles, rimmed with sharp temperature gradients.';
+const sight9848 = 'Atmospheric resonance mode: The entire atmospheric layer oscillating in a standing wave pattern, creating regions of maximum and minimum motion.';
+const sight9849 = 'Atmospheric boundary layer turbulence: Chaotic mixing near the surface creating visible eddies and swirls of all sizes in the lower atmosphere.';
+const sight9850 = 'Wave energy cascade: Energy from large atmospheric waves progressively transferring to smaller and smaller turbulent eddies and fluctuations.';
+
+export const sights = [sight9826, sight9827, sight9828, sight9829, sight9830, sight9831, sight9832, sight9833, sight9834, sight9835, sight9836, sight9837, sight9838, sight9839, sight9840, sight9841, sight9842, sight9843, sight9844, sight9845, sight9846, sight9847, sight9848, sight9849, sight9850];
     { name: "Plage Active Region", position: [20100, 15600, 19000], color: "#FFFF8D", description: "Chromospheric bright area" },
     { name: "Filament Channel Void", position: [20200, 15650, 19100], color: "#B0BEC5", description: "Pre-prominence corridor" },
     { name: "Prominence Eruption Arc", position: [20300, 15700, 19200], color: "#FF8A80", description: "Rising plasma sheet" },
