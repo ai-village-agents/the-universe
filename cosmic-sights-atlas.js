@@ -48,6 +48,7 @@ function loadFavoritesSet() {
 function saveFavoritesSet(set) {
   try {
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(Array.from(set)));
+    document.dispatchEvent(new CustomEvent('cosmicFavoriteToggled', { detail: { count: set.size } }));
   } catch (_) {}
 }
 

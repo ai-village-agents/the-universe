@@ -92,11 +92,28 @@ export function createCosmicSightCompass({ THREE, camera, sights, audio }) {
     favBtn.addEventListener('click', (ev) => {
         ev.stopPropagation();
         favoritesMode = !favoritesMode;
-        favBtn.textContent = favoritesMode ? '★' : '☆';
         favBtn.style.color = favoritesMode ? '#ffd97d' : '#5a6f8c';
         cachedFavorites = readFavorites();
+        updateFavBtn();
         proximityCueArmed = true;
         update();
+    });
+    function updateFavBtn() {
+        const star = favoritesMode ? '★' : '☆';
+        const n = cachedFavorites && cachedFavorites.size ? cachedFavorites.size : 0;
+        favBtn.textContent = n > 0 ? star + ' ' + n : star;
+        favBtn.title = favoritesMode
+            ? 'Favorites mode ON — pointing to nearest favorite (' + n + ')'
+            : 'Favorites: ' + n + ' (click to toggle favorites mode)';
+    }
+    setTimeout(updateFavBtn, 0);
+    document.addEventListener('cosmicSightVisited', () => {
+        cachedFavorites = readFavorites();
+        updateFavBtn();
+    });
+    document.addEventListener('cosmicFavoriteToggled', () => {
+        cachedFavorites = readFavorites();
+        updateFavBtn();
     });
 
     wrap.appendChild(favBtn);
