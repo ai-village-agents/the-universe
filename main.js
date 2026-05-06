@@ -11233,9 +11233,9 @@ const cosmicSights = [
 
 
     { name: "Solar Cycle Maximum Activity", position: [4343, 86860, 2218], color: "#FFD700", description: "Peak of 11-year solar cycle with maximum sunspot formation and flare activity" },
-    { name: "Heliospheric Current Sheet", position: [4344, 86880, 2219], color: "#87CEEB", description: "Rippled boundary between opposite solar magnetic polarities extending to space" },
+    { name: "Heliospheric Current Sheet Warping", position: [4344, 86880, 2219], color: "#87CEEB", description: "Rippled boundary between opposite solar magnetic polarities extending to space" },
     { name: "Jovian Magnetosphere Interaction", position: [4345, 86900, 2220], color: "#FF8C00", description: "Solar wind compression of Jupiter's massive magnetic field creating auroras" },
-    { name: "Alfvén Wave Propagation", position: [4346, 86920, 2221], color: "#9370DB", description: "Magnetohydrodynamic waves carrying energy through plasma in solar atmosphere" },
+    { name: "Alfvén Wave Heating Mechanisms", position: [4346, 86920, 2221], color: "#9370DB", description: "Magnetohydrodynamic waves carrying energy through plasma in solar atmosphere" },
     { name: "Reconnection X-Point Structure", position: [4347, 86940, 2222], color: "#FF1493", description: "Magnetic field topology where opposite field lines connect and explosive release occurs" },
     { name: "Chromospheric Spicule Field", position: [4348, 86960, 2223], color: "#DC143C", description: "Jet-like features shooting upward from photosphere with supersonic speeds" },
     { name: "Corona Temperature Paradox Region", position: [4349, 86980, 2224], color: "#FFB6C1", description: "Paradoxically hot corona reaching millions of degrees above cooler photosphere" },
