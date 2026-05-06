@@ -5415,6 +5415,185 @@ export function createAnchorageLandmark(THREE, opts) {
   parasailRig.position.set(0, 0, 0);
   group.add(parasailRig);
 
+
+  // --- v38: Kite boarder skating across waves + wooden rowboat with rower + beach swing set ---
+  // Kite boarder
+  const kiteBoarderGroup = new THREE.Group();
+  const kbBoard = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.06, 0.45),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.45 })
+  );
+  kbBoard.position.y = 0.05;
+  kiteBoarderGroup.add(kbBoard);
+  const kbStripe = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.07, 0.10),
+    new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.4 })
+  );
+  kbStripe.position.y = 0.06;
+  kiteBoarderGroup.add(kbStripe);
+  const kbRiderBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.16, 0.18, 0.7, 8),
+    new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.7 })
+  );
+  kbRiderBody.position.y = 0.5;
+  kbRiderBody.rotation.z = 0.25; // leaning back
+  kiteBoarderGroup.add(kbRiderBody);
+  const kbRiderHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfbcfe8, roughness: 0.6 })
+  );
+  kbRiderHead.position.set(-0.16, 0.92, 0);
+  kiteBoarderGroup.add(kbRiderHead);
+  // Diagonal tow lines
+  const kbLineMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.7, transparent: true });
+  const kbLineGeom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0.7, 0),
+    new THREE.Vector3(2.2, 4.5, 0)
+  ]);
+  const kbLine = new THREE.Line(kbLineGeom, kbLineMat);
+  kiteBoarderGroup.add(kbLine);
+  // The kite — arc shape made from a torus segment
+  const kbKite = new THREE.Mesh(
+    new THREE.TorusGeometry(0.9, 0.10, 6, 16, Math.PI * 0.9),
+    new THREE.MeshStandardMaterial({ color: 0x8b5cf6, roughness: 0.55, side: THREE.DoubleSide })
+  );
+  kbKite.position.set(2.2, 4.5, 0);
+  kbKite.rotation.set(Math.PI / 2, 0, Math.PI / 6);
+  kiteBoarderGroup.add(kbKite);
+  // Kite stripes
+  const kbKiteStripe1 = new THREE.Mesh(
+    new THREE.TorusGeometry(0.9, 0.04, 5, 16, Math.PI * 0.9),
+    new THREE.MeshStandardMaterial({ color: 0xfbbf24, roughness: 0.5, side: THREE.DoubleSide })
+  );
+  kbKiteStripe1.position.copy(kbKite.position);
+  kbKiteStripe1.rotation.copy(kbKite.rotation);
+  kiteBoarderGroup.add(kbKiteStripe1);
+  // Wake
+  const kbWakeGeom = new THREE.PlaneGeometry(2.4, 0.7);
+  const kbWakeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, roughness: 1.0 });
+  const kbWake = new THREE.Mesh(kbWakeGeom, kbWakeMat);
+  kbWake.rotation.x = -Math.PI / 2;
+  kbWake.position.set(-1.4, 0.06, 0);
+  kiteBoarderGroup.add(kbWake);
+  kiteBoarderGroup.position.set(20, 0.02, 14);
+  group.add(kiteBoarderGroup);
+
+  // Wooden rowboat with rower mid-harbor
+  const rowboatGroup = new THREE.Group();
+  const rowHull = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.55, 0.65, 2.6, 8, 1, false, 0, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0x92400e, roughness: 0.85 })
+  );
+  rowHull.rotation.z = Math.PI / 2;
+  rowHull.rotation.y = Math.PI / 2;
+  rowHull.position.y = 0.1;
+  rowboatGroup.add(rowHull);
+  const rowHullTop = new THREE.Mesh(
+    new THREE.BoxGeometry(2.5, 0.08, 0.95),
+    new THREE.MeshStandardMaterial({ color: 0xb45309, roughness: 0.8 })
+  );
+  rowHullTop.position.y = 0.42;
+  rowboatGroup.add(rowHullTop);
+  const rowSeat = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.06, 0.7),
+    new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.85 })
+  );
+  rowSeat.position.set(0, 0.5, 0);
+  rowboatGroup.add(rowSeat);
+  // Rower
+  const rowerBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.20, 0.55, 8),
+    new THREE.MeshStandardMaterial({ color: 0x1e40af, roughness: 0.7 })
+  );
+  rowerBody.position.set(0, 0.85, 0);
+  rowboatGroup.add(rowerBody);
+  const rowerHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.6 })
+  );
+  rowerHead.position.set(0, 1.22, 0);
+  rowboatGroup.add(rowerHead);
+  // Oars (left and right)
+  const oarMat = new THREE.MeshStandardMaterial({ color: 0xa16207, roughness: 0.85 });
+  const oarL = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), oarMat);
+  oarL.position.set(0, 0.9, -0.7);
+  oarL.rotation.x = Math.PI / 2;
+  oarL.rotation.z = 0.3;
+  rowboatGroup.add(oarL);
+  const oarR = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), oarMat);
+  oarR.position.set(0, 0.9, 0.7);
+  oarR.rotation.x = Math.PI / 2;
+  oarR.rotation.z = -0.3;
+  rowboatGroup.add(oarR);
+  // Oar blades
+  const oarBladeGeom = new THREE.BoxGeometry(0.5, 0.04, 0.18);
+  const oarBladeL = new THREE.Mesh(oarBladeGeom, oarMat);
+  oarBladeL.position.set(0, 0.85, -1.5);
+  rowboatGroup.add(oarBladeL);
+  const oarBladeR = new THREE.Mesh(oarBladeGeom, oarMat);
+  oarBladeR.position.set(0, 0.85, 1.5);
+  rowboatGroup.add(oarBladeR);
+  rowboatGroup.position.set(-12, 0.02, 8);
+  group.add(rowboatGroup);
+
+  // Beach swing set with swinging child
+  const swingSetGroup = new THREE.Group();
+  const swingFrameMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.6 });
+  const swingPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 2.4, 8), swingFrameMat);
+  swingPostL.position.set(-1.2, 1.2, -0.7);
+  swingPostL.rotation.z = 0.2;
+  swingSetGroup.add(swingPostL);
+  const swingPostR = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 2.4, 8), swingFrameMat);
+  swingPostR.position.set(-1.2, 1.2, 0.7);
+  swingPostR.rotation.z = 0.2;
+  swingSetGroup.add(swingPostR);
+  const swingPostL2 = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 2.4, 8), swingFrameMat);
+  swingPostL2.position.set(1.2, 1.2, -0.7);
+  swingPostL2.rotation.z = -0.2;
+  swingSetGroup.add(swingPostL2);
+  const swingPostR2 = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 2.4, 8), swingFrameMat);
+  swingPostR2.position.set(1.2, 1.2, 0.7);
+  swingPostR2.rotation.z = -0.2;
+  swingSetGroup.add(swingPostR2);
+  // Top crossbar
+  const swingCrossbar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.6, 8), swingFrameMat);
+  swingCrossbar.rotation.z = Math.PI / 2;
+  swingCrossbar.position.y = 2.2;
+  swingSetGroup.add(swingCrossbar);
+  // Swing seat (pivot group)
+  const swingPivot = new THREE.Group();
+  swingPivot.position.y = 2.2;
+  swingSetGroup.add(swingPivot);
+  const swingChainL = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.4, 4),
+    new THREE.MeshStandardMaterial({ color: 0xa1a1aa, roughness: 0.7 }));
+  swingChainL.position.set(0, -0.7, -0.35);
+  swingPivot.add(swingChainL);
+  const swingChainR = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.4, 4),
+    new THREE.MeshStandardMaterial({ color: 0xa1a1aa, roughness: 0.7 }));
+  swingChainR.position.set(0, -0.7, 0.35);
+  swingPivot.add(swingChainR);
+  const swingSeat = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.06, 0.5),
+    new THREE.MeshStandardMaterial({ color: 0x1e3a8a, roughness: 0.7 })
+  );
+  swingSeat.position.y = -1.4;
+  swingPivot.add(swingSeat);
+  // Swinging child on the swing
+  const swingKidBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.45, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfbbf24, roughness: 0.7 })
+  );
+  swingKidBody.position.y = -1.15;
+  swingPivot.add(swingKidBody);
+  const swingKidHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.6 })
+  );
+  swingKidHead.position.y = -0.85;
+  swingPivot.add(swingKidHead);
+  swingSetGroup.position.set(-22, 0.02, -16);
+  group.add(swingSetGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -6680,6 +6859,35 @@ export function createAnchorageLandmark(THREE, opts) {
       parasailRig.rotation.y = -pAng + Math.PI / 2;
       psBoatWake.material.opacity = 0.45 + 0.18 * Math.sin(t * 3.4);
       psChute.rotation.y = Math.sin(t * 0.6) * 0.08;
+    }
+
+    // v38: Kite boarder zigzags across waves; rowboat oars stroke; swing pendulum
+    {
+      const kbAng = t * 0.18;
+      const kbX = Math.sin(kbAng) * 16 + 12;
+      const kbZ = Math.cos(kbAng * 0.7) * 6 + 12;
+      kiteBoarderGroup.position.set(kbX, 0.02, kbZ);
+      kiteBoarderGroup.rotation.y = -Math.cos(kbAng) * 0.6;
+      kbBoard.position.y = 0.05 + Math.sin(t * 3.5) * 0.04;
+      kbWake.material.opacity = 0.42 + 0.18 * Math.sin(t * 4.0);
+      // Kite swings in sky
+      kbKite.rotation.z = Math.PI / 6 + Math.sin(t * 1.0) * 0.18;
+      kbKiteStripe1.rotation.z = kbKite.rotation.z;
+      // Rower stroke — oars pivot back and forth
+      const oarPhase = Math.sin(t * 1.6);
+      oarL.rotation.z = 0.3 + oarPhase * 0.4;
+      oarR.rotation.z = -0.3 - oarPhase * 0.4;
+      oarBladeL.position.x = oarPhase * 0.6;
+      oarBladeR.position.x = oarPhase * 0.6;
+      // Rowboat drifts in slow ellipse with rocking
+      const rbAng = t * 0.06 + 1.4;
+      rowboatGroup.position.x = Math.cos(rbAng) * 12 - 4;
+      rowboatGroup.position.z = Math.sin(rbAng) * 8 + 6;
+      rowboatGroup.rotation.y = -rbAng + Math.PI / 2;
+      rowboatGroup.position.y = 0.02 + Math.sin(t * 1.0) * 0.05;
+      rowerBody.rotation.x = oarPhase * 0.18;
+      // Swing pendulum motion
+      swingPivot.rotation.z = Math.sin(t * 1.4) * 0.55;
     }
 
   }
