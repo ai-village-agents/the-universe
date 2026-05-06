@@ -6327,6 +6327,214 @@ export function createAnchorageLandmark(THREE, opts) {
   starfishKeeperGroup.rotation.y = -0.4;
   group.add(starfishKeeperGroup);
 
+  // --- v43: sandcastle contest, fish market stall, volleyball spectators -
+  // Sandcastle contest: 3 sandcastles + judge with clipboard
+  const sandcastleContestGroup = new THREE.Group();
+  const scMat = new THREE.MeshLambertMaterial({ color: 0xe8d8a0 });
+  // Castle 1: simple tower with crenellations
+  const castle1Group = new THREE.Group();
+  const c1Base = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 1.0), scMat);
+  c1Base.position.y = 0.2;
+  castle1Group.add(c1Base);
+  const c1Tower = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), scMat);
+  c1Tower.position.y = 0.75;
+  castle1Group.add(c1Tower);
+  for (let ci = 0; ci < 4; ci++) {
+    const cren = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.12, 0.18), scMat);
+    const ang = ci * Math.PI / 2;
+    cren.position.set(Math.cos(ang) * 0.4, 0.46, Math.sin(ang) * 0.4);
+    castle1Group.add(cren);
+  }
+  const c1Flag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.18, 0.12),
+    new THREE.MeshLambertMaterial({ color: 0xe04050, side: THREE.DoubleSide })
+  );
+  c1Flag.position.set(0.05, 1.18, 0);
+  castle1Group.add(c1Flag);
+  castle1Group.position.set(-2, 0, 0);
+  sandcastleContestGroup.add(castle1Group);
+  // Castle 2: pyramid stepped
+  const castle2Group = new THREE.Group();
+  for (let py = 0; py < 4; py++) {
+    const sz = 1.0 - py * 0.22;
+    const block = new THREE.Mesh(new THREE.BoxGeometry(sz, 0.18, sz), scMat);
+    block.position.y = 0.09 + py * 0.18;
+    castle2Group.add(block);
+  }
+  castle2Group.position.set(0, 0, 0);
+  sandcastleContestGroup.add(castle2Group);
+  // Castle 3: twin towers connected by wall
+  const castle3Group = new THREE.Group();
+  const c3Wall = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.35, 0.4), scMat);
+  c3Wall.position.y = 0.18;
+  castle3Group.add(c3Wall);
+  const c3T1 = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.6, 8), scMat);
+  c3T1.position.set(-0.5, 0.65, 0);
+  castle3Group.add(c3T1);
+  const c3T2 = c3T1.clone();
+  c3T2.position.set(0.5, 0.65, 0);
+  castle3Group.add(c3T2);
+  const c3Roof1 = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.25, 6), new THREE.MeshLambertMaterial({ color: 0x6080d0 }));
+  c3Roof1.position.set(-0.5, 1.05, 0);
+  castle3Group.add(c3Roof1);
+  const c3Roof2 = c3Roof1.clone();
+  c3Roof2.position.set(0.5, 1.05, 0);
+  castle3Group.add(c3Roof2);
+  castle3Group.position.set(2, 0, 0);
+  sandcastleContestGroup.add(castle3Group);
+  // Judge with clipboard
+  const sandJudge = new THREE.Group();
+  const sjBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe0c060 })
+  );
+  sjBody.position.y = 0.38;
+  sandJudge.add(sjBody);
+  const sjHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  sjHead.position.y = 0.88;
+  sandJudge.add(sjHead);
+  const sjClipboard = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.3, 0.03),
+    new THREE.MeshLambertMaterial({ color: 0xf0eada })
+  );
+  sjClipboard.position.set(0.3, 0.55, 0.15);
+  sjClipboard.rotation.y = -0.3;
+  sandJudge.add(sjClipboard);
+  sandJudge.position.set(0, 0, 1.6);
+  sandJudge.rotation.y = Math.PI;
+  sandcastleContestGroup.add(sandJudge);
+  sandcastleContestGroup.position.set(28, 0.05, 22);
+  sandcastleContestGroup.rotation.y = -0.5;
+  group.add(sandcastleContestGroup);
+
+  // Fish market stall on pier
+  const fishMarketGroup = new THREE.Group();
+  const fmCounter = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.7, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0xa07050 })
+  );
+  fmCounter.position.y = 0.35;
+  fishMarketGroup.add(fmCounter);
+  const fmAwning = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.06, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0x4080a0 })
+  );
+  fmAwning.position.y = 1.6;
+  fishMarketGroup.add(fmAwning);
+  // Awning posts
+  for (let pi = 0; pi < 4; pi++) {
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 1.2, 6),
+      new THREE.MeshLambertMaterial({ color: 0x402010 })
+    );
+    post.position.set((pi % 2 === 0 ? -1 : 1) * 1.2, 1.0, (pi < 2 ? -1 : 1) * 0.6);
+    fishMarketGroup.add(post);
+  }
+  // Ice + fish on counter
+  const fmIce = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.08, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xeaf6fb, transparent: true, opacity: 0.8 })
+  );
+  fmIce.position.y = 0.74;
+  fishMarketGroup.add(fmIce);
+  const fmFish = [];
+  const fmFishColors = [0x70a0c0, 0x80b0c8, 0xc08070, 0x90c0d0, 0xc09060];
+  for (let fi = 0; fi < 5; fi++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 6),
+      new THREE.MeshLambertMaterial({ color: fmFishColors[fi] })
+    );
+    f.scale.set(0.6, 0.4, 1.5);
+    f.position.set((fi - 2) * 0.42, 0.78, 0);
+    f.rotation.y = (fi % 2 === 0 ? 0.2 : -0.2);
+    fishMarketGroup.add(f);
+    fmFish.push(f);
+  }
+  // Fish market vendor
+  const fmVendor = new THREE.Group();
+  const fmvBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x508040 })
+  );
+  fmvBody.position.y = 0.35;
+  fmVendor.add(fmvBody);
+  const fmvHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  fmvHead.position.y = 0.85;
+  fmVendor.add(fmvHead);
+  const fmvApron = new THREE.Mesh(
+    new THREE.BoxGeometry(0.32, 0.5, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  fmvApron.position.set(0, 0.4, 0.15);
+  fmVendor.add(fmvApron);
+  fmVendor.position.set(0, 0, -0.7);
+  fishMarketGroup.add(fmVendor);
+  fishMarketGroup.position.set(-3, 1.05, -10);
+  fishMarketGroup.rotation.y = 0.3;
+  group.add(fishMarketGroup);
+
+  // Beach volleyball spectator pair on towels
+  const vbSpectatorsGroup = new THREE.Group();
+  const vbsTowel1 = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.6, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xe05080, side: THREE.DoubleSide })
+  );
+  vbsTowel1.rotation.x = -Math.PI / 2;
+  vbsTowel1.position.set(0, 0.02, 0);
+  vbSpectatorsGroup.add(vbsTowel1);
+  const vbsTowel2 = vbsTowel1.clone();
+  vbsTowel2.material = new THREE.MeshLambertMaterial({ color: 0x5080d0, side: THREE.DoubleSide });
+  vbsTowel2.position.set(2, 0.02, 0);
+  vbSpectatorsGroup.add(vbsTowel2);
+  // Spectator 1 (sitting up)
+  const vbSpec1 = new THREE.Group();
+  const vs1Body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc06080 })
+  );
+  vs1Body.position.y = 0.25;
+  vbSpec1.add(vs1Body);
+  const vs1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  vs1Head.position.y = 0.62;
+  vbSpec1.add(vs1Head);
+  vbSpec1.position.set(0, 0, 0);
+  vbSpectatorsGroup.add(vbSpec1);
+  // Spectator 2 (lying down)
+  const vbSpec2 = new THREE.Group();
+  const vs2Body = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.18, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0x6080c0 })
+  );
+  vs2Body.position.set(0, 0.13, 0.1);
+  vbSpec2.add(vs2Body);
+  const vs2Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xe2b78a })
+  );
+  vs2Head.position.set(0, 0.18, -0.6);
+  vbSpec2.add(vs2Head);
+  vbSpec2.position.set(2, 0, 0);
+  vbSpectatorsGroup.add(vbSpec2);
+  // Cooler between them
+  const vbsCooler = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.3, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0xeae0d0 })
+  );
+  vbsCooler.position.set(1, 0.18, 0.4);
+  vbSpectatorsGroup.add(vbsCooler);
+  vbSpectatorsGroup.position.set(2, 0.05, 26);
+  vbSpectatorsGroup.rotation.y = -0.4;
+  group.add(vbSpectatorsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -7718,6 +7926,18 @@ export function createAnchorageLandmark(THREE, opts) {
       sfkStars.forEach((s, si) => {
         s.rotation.y += dt * 0.3 * (si + 1);
       });
+
+      // v43: sandcastle judge looks around, flag flutters
+      sandJudge.rotation.y = Math.PI + Math.sin(t * 0.4) * 0.6;
+      c1Flag.rotation.y = Math.sin(t * 2) * 0.3;
+      // v43: fish market vendor head turns
+      fmvHead.rotation.y = Math.sin(t * 0.7) * 0.4;
+      fmFish.forEach((f, fi) => {
+        f.position.y = 0.78 + Math.sin(t * 0.5 + fi) * 0.005;
+      });
+      // v43: spectator 1 sways
+      vs1Body.rotation.z = Math.sin(t * 0.5) * 0.06;
+      vs1Head.rotation.y = Math.sin(t * 0.3) * 0.4;
 
     }
 
