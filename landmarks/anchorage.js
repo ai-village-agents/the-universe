@@ -8611,6 +8611,135 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(crabRaceGroup);
 
 
+
+  // --- v56: beach trampoline ---
+  const trampGroup = new THREE.Group();
+  const trMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const trFrame = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.1, 8, 24), trMat);
+  trFrame.rotation.x = Math.PI / 2;
+  trFrame.position.y = 0.7;
+  trampGroup.add(trFrame);
+  const trMatPad = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.05, 24), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+  trMatPad.position.y = 0.7;
+  trampGroup.add(trMatPad);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.7, 6), trMat);
+    const a = (i / 4) * Math.PI * 2;
+    leg.position.set(Math.cos(a) * 1.3, 0.35, Math.sin(a) * 1.3);
+    trampGroup.add(leg);
+  }
+  // bouncing kid
+  const trKid = new THREE.Group();
+  const trKidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.55, 8), new THREE.MeshLambertMaterial({ color: 0xff8c00 }));
+  trKidBody.position.y = 0.28;
+  trKid.add(trKidBody);
+  const trKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  trKidHead.position.y = 0.7;
+  trKid.add(trKidHead);
+  trKid.position.y = 0.75;
+  trampGroup.add(trKid);
+  trampGroup.position.set(-26, 0.05, 6);
+  group.add(trampGroup);
+
+  // --- v56: fish cleaning station ---
+  const fcsGroup = new THREE.Group();
+  const fcsTableMat = new THREE.MeshLambertMaterial({ color: 0xc8c8c8 });
+  const fcsTable = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.1, 0.9), fcsTableMat);
+  fcsTable.position.y = 0.85;
+  fcsGroup.add(fcsTable);
+  const fcsLegMat = new THREE.MeshLambertMaterial({ color: 0x6b6b6b });
+  const fcsLegGeom = new THREE.BoxGeometry(0.08, 0.85, 0.08);
+  const fcsLegPos = [[-1.0, -0.4], [1.0, -0.4], [-1.0, 0.4], [1.0, 0.4]];
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(fcsLegGeom, fcsLegMat);
+    leg.position.set(fcsLegPos[i][0], 0.42, fcsLegPos[i][1]);
+    fcsGroup.add(leg);
+  }
+  const fcsBoard = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.6), new THREE.MeshLambertMaterial({ color: 0xddc8a0 }));
+  fcsBoard.position.set(0, 0.93, 0);
+  fcsGroup.add(fcsBoard);
+  const fcsFish = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0x9aaab5 }));
+  fcsFish.scale.set(1.4, 0.4, 0.6);
+  fcsFish.position.set(-0.2, 0.98, 0);
+  fcsGroup.add(fcsFish);
+  const fcsTail = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.3, 4), new THREE.MeshLambertMaterial({ color: 0x9aaab5 }));
+  fcsTail.rotation.z = Math.PI / 2;
+  fcsTail.position.set(-0.5, 0.98, 0);
+  fcsGroup.add(fcsTail);
+  const fcsKnife = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.02, 0.05), new THREE.MeshBasicMaterial({ color: 0xeeeeee }));
+  fcsKnife.position.set(0.3, 0.96, 0);
+  fcsGroup.add(fcsKnife);
+  const fcsCleaner = new THREE.Group();
+  const fcsCleanerBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  fcsCleanerBody.position.y = 0.85;
+  fcsCleaner.add(fcsCleanerBody);
+  const fcsCleanerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  fcsCleanerHead.position.y = 1.35;
+  fcsCleaner.add(fcsCleanerHead);
+  const fcsCleanerArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.5, 6), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  fcsCleanerArm.position.set(0.2, 0.95, 0.2);
+  fcsCleanerArm.rotation.z = -0.5;
+  fcsCleaner.add(fcsCleanerArm);
+  fcsCleaner.position.set(0, 0, 0.7);
+  fcsGroup.add(fcsCleaner);
+  // bucket of fish nearby
+  const fcsBucket = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.25, 0.4, 12), new THREE.MeshLambertMaterial({ color: 0x4477aa }));
+  fcsBucket.position.set(1.4, 0.2, 0.4);
+  fcsGroup.add(fcsBucket);
+  fcsGroup.position.set(28, 0.05, -8);
+  fcsGroup.rotation.y = -0.3;
+  group.add(fcsGroup);
+
+  // --- v56: sea turtle nesting on sand ---
+  const turtleNestGroup = new THREE.Group();
+  // sand mound
+  const tnMound = new THREE.Mesh(new THREE.SphereGeometry(0.6, 12, 8), new THREE.MeshLambertMaterial({ color: 0xe8d5a0 }));
+  tnMound.scale.set(1, 0.4, 1);
+  tnMound.position.y = 0.05;
+  turtleNestGroup.add(tnMound);
+  // turtle body
+  const seaTurtle = new THREE.Group();
+  const stShellTop = new THREE.Mesh(new THREE.SphereGeometry(0.55, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x4a6c3a }));
+  stShellTop.scale.set(1, 0.5, 1.3);
+  seaTurtle.add(stShellTop);
+  const stShellBase = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.05, 14), new THREE.MeshLambertMaterial({ color: 0x6a8c5a }));
+  stShellBase.scale.set(1, 1, 1.3);
+  seaTurtle.add(stShellBase);
+  const stTurtleHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0x5e7d4a }));
+  stTurtleHead.position.set(0, 0.05, 0.75);
+  seaTurtle.add(stTurtleHead);
+  const stFlipperMat = new THREE.MeshLambertMaterial({ color: 0x5e7d4a });
+  const stFlipperGeom = new THREE.BoxGeometry(0.5, 0.06, 0.18);
+  const stFlipperFL = new THREE.Mesh(stFlipperGeom, stFlipperMat);
+  stFlipperFL.position.set(-0.55, 0, 0.4);
+  stFlipperFL.rotation.y = -0.4;
+  seaTurtle.add(stFlipperFL);
+  const stFlipperFR = new THREE.Mesh(stFlipperGeom, stFlipperMat);
+  stFlipperFR.position.set(0.55, 0, 0.4);
+  stFlipperFR.rotation.y = 0.4;
+  seaTurtle.add(stFlipperFR);
+  const stFlipperBL = new THREE.Mesh(stFlipperGeom, stFlipperMat);
+  stFlipperBL.position.set(-0.5, 0, -0.4);
+  stFlipperBL.rotation.y = 0.4;
+  seaTurtle.add(stFlipperBL);
+  const stFlipperBR = new THREE.Mesh(stFlipperGeom, stFlipperMat);
+  stFlipperBR.position.set(0.5, 0, -0.4);
+  stFlipperBR.rotation.y = -0.4;
+  seaTurtle.add(stFlipperBR);
+  seaTurtle.position.set(0, 0.25, 0);
+  turtleNestGroup.add(seaTurtle);
+  // tiny eggs visible behind
+  const stEggMat = new THREE.MeshLambertMaterial({ color: 0xfff3d6 });
+  for (let e = 0; e < 5; e++) {
+    const egg = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), stEggMat);
+    egg.scale.set(1, 1.3, 1);
+    egg.position.set(-0.2 + e * 0.1, 0.1, -0.5 + (e % 2) * 0.05);
+    turtleNestGroup.add(egg);
+  }
+  turtleNestGroup.position.set(-44, 0.05, 24);
+  group.add(turtleNestGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10204,6 +10333,18 @@ export function createAnchorageLandmark(THREE, opts) {
         rc.rotation.y = Math.sin(t * 12.0 + i) * 0.3;
       }
       crMasterFlag.rotation.y = Math.sin(t * 4.0) * 0.6;
+      // v56: kid bounces on trampoline; trampoline pad sags briefly
+      const tBounce = Math.abs(Math.sin(t * 2.5));
+      trKid.position.y = 0.75 + tBounce * 0.8;
+      trMatPad.scale.y = 1 - (1 - tBounce) * 0.4;
+      // v56: cleaner saws fish
+      fcsCleanerArm.rotation.z = -0.5 + Math.sin(t * 6.0) * 0.4;
+      // v56: turtle flippers paddle gently and head bobs
+      stFlipperFL.rotation.z = Math.sin(t * 1.2) * 0.2;
+      stFlipperFR.rotation.z = -Math.sin(t * 1.2) * 0.2;
+      stFlipperBL.rotation.z = Math.sin(t * 1.2 + 1.0) * 0.15;
+      stFlipperBR.rotation.z = -Math.sin(t * 1.2 + 1.0) * 0.15;
+      stTurtleHead.position.y = 0.05 + Math.sin(t * 0.8) * 0.04;
     }
 
   }
