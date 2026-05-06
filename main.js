@@ -19,6 +19,7 @@ import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
 import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
 import { recordWorldVisit, getWorldVisitCount, getAllVisitCounts } from './world-visit-counter.js';
+import { createBookmark3DMarkers } from './bookmark-3d-markers.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
 import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
 import { challengeUI } from './challenge-ui.js';
@@ -612,7 +613,12 @@ async function loadWorlds() {
     scene.add(deepPulsars.group);
     customLandmarkAnimators.push((elapsed, delta, time) => deepPulsars.update(delta, elapsed));
 
-    // Plaza Beacon — tall always-visible light pillar at the central plaza for home navigation
+    // Bookmark 3D Markers — floating glowing numbered spheres at saved camera bookmark positions
+    const bookmark3DMarkers = createBookmark3DMarkers();
+    scene.add(bookmark3DMarkers.group);
+    customLandmarkAnimators.push((elapsed, delta, time) => bookmark3DMarkers.update(delta, elapsed));
+
+        // Plaza Beacon — tall always-visible light pillar at the central plaza for home navigation
     const plazaBeacon = createPlazaBeacon(THREE);
     scene.add(plazaBeacon.group);
     customLandmarkAnimators.push((elapsed, delta, time) => plazaBeacon.update(delta, elapsed));
@@ -9732,6 +9738,7 @@ function saveBookmark(slot) {
     saveBookmarks(bm);
     showBookmarkToast('💾 Saved bookmark ' + slot, '#88ffaa');
     refreshBookmarkHud();
+    try { document.dispatchEvent(new CustomEvent('bookmarkSaved', { detail: { slot } })); } catch (e) {}
 }
 // Initialize bookmark HUD on page load and reflect saved slots.
 if (typeof window !== 'undefined') {
