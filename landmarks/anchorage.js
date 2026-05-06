@@ -7664,6 +7664,133 @@ export function createAnchorageLandmark(THREE, opts) {
   diveShopGroup.rotation.y = 0.5;
   group.add(diveShopGroup);
 
+  // --- v50: lifeguard tower, beach umbrella forest, floating buoy field ----
+  // Lifeguard tower (corner of beach)
+  const lifeguardTowerGroup = new THREE.Group();
+  const lgPostMat = new THREE.MeshLambertMaterial({ color: 0xb8763a });
+  const lgPostGeom = new THREE.BoxGeometry(0.18, 3.2, 0.18);
+  const lgPost1 = new THREE.Mesh(lgPostGeom, lgPostMat); lgPost1.position.set(-0.9, 1.6, -0.9);
+  const lgPost2 = new THREE.Mesh(lgPostGeom, lgPostMat); lgPost2.position.set(0.9, 1.6, -0.9);
+  const lgPost3 = new THREE.Mesh(lgPostGeom, lgPostMat); lgPost3.position.set(-0.9, 1.6, 0.9);
+  const lgPost4 = new THREE.Mesh(lgPostGeom, lgPostMat); lgPost4.position.set(0.9, 1.6, 0.9);
+  lifeguardTowerGroup.add(lgPost1, lgPost2, lgPost3, lgPost4);
+  const lgPlatformMat = new THREE.MeshLambertMaterial({ color: 0xd4a566 });
+  const lgPlatform = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.16, 2.2), lgPlatformMat);
+  lgPlatform.position.y = 2.4;
+  lifeguardTowerGroup.add(lgPlatform);
+  const lgWallMat = new THREE.MeshLambertMaterial({ color: 0xe65a3a });
+  const lgBackWall = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.6, 0.1), lgWallMat);
+  lgBackWall.position.set(0, 3.2, -1.05);
+  lifeguardTowerGroup.add(lgBackWall);
+  const lgRoofMat = new THREE.MeshLambertMaterial({ color: 0xc4453a });
+  const lgRoof = new THREE.Mesh(new THREE.ConeGeometry(1.7, 0.7, 4), lgRoofMat);
+  lgRoof.position.set(0, 4.4, 0);
+  lgRoof.rotation.y = Math.PI / 4;
+  lifeguardTowerGroup.add(lgRoof);
+  const lgRailingMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const lgRailing1 = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.06, 0.06), lgRailingMat);
+  lgRailing1.position.set(0, 2.9, 1.05);
+  lifeguardTowerGroup.add(lgRailing1);
+  const lgLadderMat = new THREE.MeshLambertMaterial({ color: 0x8a5a2a });
+  for (let i = 0; i < 5; i++) {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.06, 0.06), lgLadderMat);
+    rung.position.set(0, 0.4 + i * 0.4, 1.0);
+    lifeguardTowerGroup.add(rung);
+  }
+  // Lifeguard figure on platform
+  const lgGuardBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 12), new THREE.MeshLambertMaterial({ color: 0xe65a3a }));
+  lgGuardBody.position.set(0.5, 2.85, 0.3);
+  lifeguardTowerGroup.add(lgGuardBody);
+  const lgGuardHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 12), new THREE.MeshLambertMaterial({ color: 0xf2c79b }));
+  lgGuardHead.position.set(0.5, 3.35, 0.3);
+  lifeguardTowerGroup.add(lgGuardHead);
+  const lgGuardHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.05, 12), new THREE.MeshLambertMaterial({ color: 0xffd640 }));
+  lgGuardHat.position.set(0.5, 3.5, 0.3);
+  lifeguardTowerGroup.add(lgGuardHat);
+  // Binoculars (held to face)
+  const lgBinoc = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.08, 0.08), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  lgBinoc.position.set(0.5, 3.32, 0.5);
+  lifeguardTowerGroup.add(lgBinoc);
+  // "LIFEGUARD" sign on back wall
+  const lgSignCanvas = document.createElement('canvas');
+  lgSignCanvas.width = 256; lgSignCanvas.height = 64;
+  const lgSignCtx = lgSignCanvas.getContext('2d');
+  lgSignCtx.fillStyle = '#ffffff'; lgSignCtx.fillRect(0, 0, 256, 64);
+  lgSignCtx.fillStyle = '#e65a3a'; lgSignCtx.font = 'bold 38px sans-serif';
+  lgSignCtx.textAlign = 'center'; lgSignCtx.textBaseline = 'middle';
+  lgSignCtx.fillText('LIFEGUARD', 128, 32);
+  const lgSignTex = new THREE.CanvasTexture(lgSignCanvas);
+  const lgSign = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 0.45), new THREE.MeshBasicMaterial({ map: lgSignTex, transparent: true }));
+  lgSign.position.set(0, 3.4, -0.99);
+  lgSign.rotation.y = Math.PI;
+  lifeguardTowerGroup.add(lgSign);
+  // Red flag on a small pole next to tower
+  const lgFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.6, 8), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  lgFlagPole.position.set(1.6, 1.3, 0);
+  lifeguardTowerGroup.add(lgFlagPole);
+  const lgFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.45), new THREE.MeshLambertMaterial({ color: 0xe61e1e, side: THREE.DoubleSide }));
+  lgFlag.position.set(1.95, 2.4, 0);
+  lifeguardTowerGroup.add(lgFlag);
+  lifeguardTowerGroup.position.set(14, 0.05, 14);
+  lifeguardTowerGroup.rotation.y = -0.4;
+  group.add(lifeguardTowerGroup);
+
+  // Beach umbrella forest (cluster of 7 multi-color umbrellas + towels)
+  const umbrellaForestGroup = new THREE.Group();
+  const ufColors = [0xff4d4d, 0xffd640, 0x4dd9ff, 0x66e066, 0xff80c0, 0xff8a40, 0xa080ff];
+  const ufPositions = [
+    [0, 0, 0], [2.2, 0, 0.4], [-2.0, 0, 0.6],
+    [1.0, 0, 2.2], [-1.4, 0, 2.4], [3.0, 0, 2.0], [-2.8, 0, -1.2]
+  ];
+  const ufPoleMat = new THREE.MeshLambertMaterial({ color: 0x9a7a4a });
+  const ufTowelMat0 = new THREE.MeshLambertMaterial({ color: 0xfff0d0 });
+  for (let u = 0; u < ufPositions.length; u++) {
+    const p = ufPositions[u];
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), ufPoleMat);
+    pole.position.set(p[0], 0.8, p[2]);
+    umbrellaForestGroup.add(pole);
+    const canopy = new THREE.Mesh(new THREE.ConeGeometry(0.85, 0.4, 12, 1, true), new THREE.MeshLambertMaterial({ color: ufColors[u % ufColors.length], side: THREE.DoubleSide }));
+    canopy.position.set(p[0], 1.7, p[2]);
+    umbrellaForestGroup.add(canopy);
+    // Towel under each umbrella in alternating colors
+    const towelMat = new THREE.MeshLambertMaterial({ color: (u % 2 === 0) ? 0x4dd9ff : 0xffd640 });
+    const towel = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.02, 0.55), towelMat);
+    towel.position.set(p[0], 0.02, p[2] + 0.1);
+    umbrellaForestGroup.add(towel);
+  }
+  umbrellaForestGroup.position.set(-16, 0.05, 18);
+  group.add(umbrellaForestGroup);
+
+  // Floating buoy field (8 buoys offshore in a loose grid, with bobbing motion)
+  const buoyFieldGroup = new THREE.Group();
+  const bfBuoyColors = [0xff3030, 0xffd640, 0x30c0ff, 0xff8a40];
+  const bfBuoys = [];
+  for (let i = 0; i < 8; i++) {
+    const bf = new THREE.Group();
+    const ang = (i / 8) * Math.PI * 2;
+    const r = 4 + (i % 3) * 1.2;
+    const bx = Math.cos(ang) * r;
+    const bz = Math.sin(ang) * r;
+    const bfBuoy = new THREE.Mesh(new THREE.SphereGeometry(0.45, 14, 12), new THREE.MeshLambertMaterial({ color: bfBuoyColors[i % bfBuoyColors.length] }));
+    bfBuoy.position.y = 0.45;
+    bf.add(bfBuoy);
+    const bfRing = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.06, 8, 16), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+    bfRing.position.y = 0.45;
+    bfRing.rotation.x = Math.PI / 2;
+    bf.add(bfRing);
+    const bfFlag = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 6), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+    bfFlag.position.y = 0.85;
+    bf.add(bfFlag);
+    const bfFlagCloth = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.18), new THREE.MeshLambertMaterial({ color: bfBuoyColors[(i+1) % bfBuoyColors.length], side: THREE.DoubleSide }));
+    bfFlagCloth.position.set(0.18, 1.05, 0);
+    bf.add(bfFlagCloth);
+    bf.position.set(bx, 0, bz);
+    bfBuoys.push(bf);
+    buoyFieldGroup.add(bf);
+  }
+  buoyFieldGroup.position.set(28, 0, -22);
+  group.add(buoyFieldGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -9171,6 +9298,16 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       // v49: lemonade pitcher gently rotates as if stirring
       lmPitcher.rotation.y = t * 0.5;
+      // v50: lifeguard scans (rotates head and binoculars)
+      lgGuardHead.rotation.y = Math.sin(t * 0.4) * 0.6;
+      lgBinoc.position.x = 0.5 + Math.sin(t * 0.4) * 0.18;
+      // v50: red flag waves
+      lgFlag.rotation.y = Math.sin(t * 1.5) * 0.25;
+      // v50: floating buoys bob and gently rotate
+      for (let i = 0; i < bfBuoys.length; i++) {
+        bfBuoys[i].position.y = Math.sin(t * 0.8 + i * 0.7) * 0.18;
+        bfBuoys[i].rotation.y = Math.sin(t * 0.3 + i) * 0.4;
+      }
     }
 
   }
