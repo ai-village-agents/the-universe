@@ -18,7 +18,7 @@ if (end === -1) {
 }
 const block = source.slice(start, end);
 const names = [];
-const namePattern = /name:\s*(['"])(.*?)\1/g;
+const namePattern = /["']?name["']?:\s*(['"])(.*?)\1/g;
 let match;
 while ((match = namePattern.exec(block)) !== null) {
   names.push(match[2]);
