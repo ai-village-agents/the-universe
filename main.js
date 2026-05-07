@@ -13058,6 +13058,181 @@ const cosmicSights = [
     color: "#1E90FF",
     size: 2.3,
     description: "Ejected massive star from birth cluster"
+  },
+  {
+    name: "Massive Star-forming Cloud Core",
+    position: [115750, -81250, 23750],
+    color: "#8B4513",
+    size: 2,
+    description: "Dense collapsing region within molecular cloud"
+  },
+  {
+    name: "Bok Globule Dark Nebula",
+    position: [115760, -81240, 23760],
+    color: "#2F4F4F",
+    size: 2,
+    description: "Isolated dark cloud of gas and dust"
+  },
+  {
+    name: "Herbig-Haro Jet Bow Shock",
+    position: [115770, -81230, 23770],
+    color: "#00CED1",
+    size: 2,
+    description: "Shock front from protostellar outflow"
+  },
+  {
+    name: "T Tauri Protostellar Disk",
+    position: [115780, -81220, 23780],
+    color: "#DAA520",
+    size: 2,
+    description: "Young star surrounded by accretion disk"
+  },
+  {
+    name: "Class Zero Protostar Envelope",
+    position: [115790, -81210, 23790],
+    color: "#FF4500",
+    size: 2,
+    description: "Deeply embedded earliest protostellar phase"
+  },
+  {
+    name: "Hot Molecular Core Chemistry",
+    position: [115800, -81200, 23800],
+    color: "#FF6347",
+    size: 2,
+    description: "Warm dense region with complex molecules"
+  },
+  {
+    name: "Bipolar Molecular Outflow Cavity",
+    position: [115810, -81190, 23810],
+    color: "#4682B4",
+    size: 2,
+    description: "Expanding lobes carved by stellar winds"
+  },
+  {
+    name: "Proplyd Photoevaporation Front",
+    position: [115820, -81180, 23820],
+    color: "#FF69B4",
+    size: 2,
+    description: "Ionized protoplanetary disk rim"
+  },
+  {
+    name: "Pre-Main Sequence Instability Strip",
+    position: [115830, -81170, 23830],
+    color: "#DA70D6",
+    size: 2,
+    description: "Variable young star pulsation zone"
+  },
+  {
+    name: "Embedded Cluster Center",
+    position: [115840, -81160, 23840],
+    color: "#FFD700",
+    size: 2,
+    description: "Dense group of forming stars hidden in dust"
+  },
+  {
+    name: "Circumstellar Water Ice Line",
+    position: [115850, -81150, 23850],
+    color: "#87CEEB",
+    size: 2,
+    description: "Boundary where water freezes onto dust grains"
+  },
+  {
+    name: "Maser Spot Cluster",
+    position: [115860, -81140, 23860],
+    color: "#7FFF00",
+    size: 2,
+    description: "Amplified microwave emission from molecules"
+  },
+  {
+    name: "Protostellar Accretion Burst",
+    position: [115870, -81130, 23870],
+    color: "#FF1493",
+    size: 2,
+    description: "Sudden increase in mass infall rate"
+  },
+  {
+    name: "Fragmenting Filament Spine",
+    position: [115880, -81120, 23880],
+    color: "#A0522D",
+    size: 2,
+    description: "Long cloud thread breaking into cores"
+  },
+  {
+    name: "Radiative Feedback Bubble",
+    position: [115890, -81110, 23890],
+    color: "#FF8C00",
+    size: 2,
+    description: "Expanding HII region around massive young star"
+  },
+  {
+    name: "Outflow-driven Turbulence Zone",
+    position: [115900, -81100, 23900],
+    color: "#6A5ACD",
+    size: 2,
+    description: "Chaotic gas motions from stellar jets"
+  },
+  {
+    name: "Deuterium Burning Limit",
+    position: [115910, -81090, 23910],
+    color: "#20B2AA",
+    size: 2,
+    description: "Mass boundary for brown dwarf formation"
+  },
+  {
+    name: "First Hydrostatic Core",
+    position: [115920, -81080, 23920],
+    color: "#B22222",
+    size: 2,
+    description: "Earliest compressed protostellar object"
+  },
+  {
+    name: "Cluster Tidal Tail Stream",
+    position: [115930, -81070, 23930],
+    color: "#708090",
+    size: 2,
+    description: "Stars stripped from forming cluster"
+  },
+  {
+    name: "Magnetically Supercritical Core",
+    position: [115940, -81060, 23940],
+    color: "#9932CC",
+    size: 2,
+    description: "Cloud region where gravity overcomes magnetic support"
+  },
+  {
+    name: "Infrared Dark Cloud Filament",
+    position: [115950, -81050, 23950],
+    color: "#191970",
+    size: 2,
+    description: "Cold dense cloud seen in silhouette"
+  },
+  {
+    name: "Supernova-triggered Star Formation",
+    position: [115960, -81040, 23960],
+    color: "#DC143C",
+    size: 2,
+    description: "Compression wave triggering new stellar birth"
+  },
+  {
+    name: "Primordial Star Formation Site",
+    position: [115970, -81030, 23970],
+    color: "#C0C0C0",
+    size: 2,
+    description: "Population III star birthplace in early universe"
+  },
+  {
+    name: "Triggered Snowplow Shell",
+    position: [115980, -81020, 23980],
+    color: "#5F9EA0",
+    size: 2,
+    description: "Swept-up gas shell collapsing into stars"
+  },
+  {
+    name: "Young Stellar Object Luminosity Peak",
+    position: [115990, -81010, 23990],
+    color: "#F0E68C",
+    size: 2,
+    description: "Maximum brightness of accreting protostar"
   }
 ];
 
