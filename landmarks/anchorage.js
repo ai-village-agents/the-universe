@@ -15137,6 +15137,189 @@ export function createAnchorageLandmark(THREE, opts) {
   const cwbmAnim = { buoy: cwbmBuoy, hull: cwbmHull, cabin: cwbmCabin, t1: cwbmTech1, t2: cwbmTech2 };
 
 
+  // v90: Cliff-top wedding photo session
+  const ctwGroup = new THREE.Group();
+  ctwGroup.position.set(38, 6.5, 22);
+  // Bride in white dress
+  const ctwBride = new THREE.Group();
+  ctwBride.position.set(-0.5, 0, 0);
+  const ctwDress = new THREE.Mesh(new THREE.ConeGeometry(0.6, 1.2, 12, 1, true), new THREE.MeshLambertMaterial({ color: 0xfafaff, side: THREE.DoubleSide }));
+  ctwDress.position.y = 0.6;
+  ctwBride.add(ctwDress);
+  const ctwBrideTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 0.25), new THREE.MeshLambertMaterial({ color: 0xfafaff }));
+  ctwBrideTorso.position.y = 1.45;
+  ctwBride.add(ctwBrideTorso);
+  const ctwBrideHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  ctwBrideHead.position.y = 1.85;
+  ctwBride.add(ctwBrideHead);
+  const ctwBrideHair = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+  ctwBrideHair.position.y = 1.92;
+  ctwBrideHair.scale.y = 0.7;
+  ctwBride.add(ctwBrideHair);
+  // Bouquet
+  const ctwBouquet = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 6), new THREE.MeshLambertMaterial({ color: 0xffaacc }));
+  ctwBouquet.position.set(0.18, 1.3, 0.2);
+  ctwBride.add(ctwBouquet);
+  ctwGroup.add(ctwBride);
+  // Groom in dark suit
+  const ctwGroom = new THREE.Group();
+  ctwGroom.position.set(0.5, 0, 0);
+  const ctwGroomLegs = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: 0x222233 }));
+  ctwGroomLegs.position.y = 0.5;
+  ctwGroom.add(ctwGroomLegs);
+  const ctwGroomTorso = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.65, 0.3), new THREE.MeshLambertMaterial({ color: 0x222233 }));
+  ctwGroomTorso.position.y = 1.35;
+  ctwGroom.add(ctwGroomTorso);
+  const ctwGroomShirt = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.5, 0.05), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  ctwGroomShirt.position.set(0, 1.4, 0.16);
+  ctwGroom.add(ctwGroomShirt);
+  const ctwGroomHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  ctwGroomHead.position.y = 1.85;
+  ctwGroom.add(ctwGroomHead);
+  ctwGroup.add(ctwGroom);
+  // Photographer
+  const ctwPhoto = new THREE.Group();
+  ctwPhoto.position.set(0, 0, 4);
+  const ctwPhotoLegs = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.95, 0.3), new THREE.MeshLambertMaterial({ color: 0x333333 }));
+  ctwPhotoLegs.position.y = 0.475;
+  ctwPhoto.add(ctwPhotoLegs);
+  const ctwPhotoBody = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.6, 0.3), new THREE.MeshLambertMaterial({ color: 0x553322 }));
+  ctwPhotoBody.position.y = 1.25;
+  ctwPhoto.add(ctwPhotoBody);
+  const ctwPhotoHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  ctwPhotoHead.position.y = 1.7;
+  ctwPhoto.add(ctwPhotoHead);
+  // Camera
+  const ctwCam = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.18, 0.18), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+  ctwCam.position.set(0, 1.55, -0.25);
+  ctwPhoto.add(ctwCam);
+  const ctwLens = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.18, 10), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  ctwLens.position.set(0, 1.55, -0.4);
+  ctwLens.rotation.x = Math.PI / 2;
+  ctwPhoto.add(ctwLens);
+  // Tripod
+  for (let cti = 0; cti < 3; cti++) {
+    const ctwTri = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.5, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    ctwTri.position.set(Math.cos(cti * Math.PI * 2 / 3) * 0.15, 0.75, Math.sin(cti * Math.PI * 2 / 3) * 0.15);
+    ctwTri.rotation.x = Math.cos(cti * Math.PI * 2 / 3) * 0.2;
+    ctwTri.rotation.z = Math.sin(cti * Math.PI * 2 / 3) * 0.2;
+    ctwPhoto.add(ctwTri);
+  }
+  ctwGroup.add(ctwPhoto);
+  // Reflector held by assistant
+  const ctwReflector = new THREE.Mesh(new THREE.CircleGeometry(0.7, 16), new THREE.MeshBasicMaterial({ color: 0xfff4cc, side: THREE.DoubleSide }));
+  ctwReflector.position.set(-2.2, 1.6, 1.5);
+  ctwReflector.rotation.y = -0.6;
+  ctwGroup.add(ctwReflector);
+  group.add(ctwGroup);
+
+  // v90: Lifeguard rookie training drill
+  const lrtGroup = new THREE.Group();
+  lrtGroup.position.set(8, 0.05, 18);
+  // Instructor with whistle
+  const lrtIns = new THREE.Group();
+  lrtIns.position.set(0, 0, 0);
+  const lrtInsBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.1, 0.3), new THREE.MeshLambertMaterial({ color: 0xff3322 }));
+  lrtInsBody.position.y = 0.55;
+  lrtIns.add(lrtInsBody);
+  const lrtInsHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  lrtInsHead.position.y = 1.3;
+  lrtIns.add(lrtInsHead);
+  const lrtInsHat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.05, 12), new THREE.MeshLambertMaterial({ color: 0xff3322 }));
+  lrtInsHat.position.y = 1.5;
+  lrtIns.add(lrtInsHat);
+  // Whistle
+  const lrtWhistle = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, 0.1), new THREE.MeshLambertMaterial({ color: 0xffaa00 }));
+  lrtWhistle.position.set(0.05, 1.1, 0.18);
+  lrtIns.add(lrtWhistle);
+  lrtGroup.add(lrtIns);
+  // 4 rookies in rows running
+  const lrtRookieMat = new THREE.MeshLambertMaterial({ color: 0xff7744 });
+  const lrtSkin = new THREE.MeshLambertMaterial({ color: 0xeec79a });
+  for (let lr = 0; lr < 4; lr++) {
+    const lrtRook = new THREE.Group();
+    lrtRook.position.set(-2.5 + lr * 1.3, 0, 4);
+    const lrtRBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.95, 0.25), lrtRookieMat);
+    lrtRBody.position.y = 0.475;
+    lrtRook.add(lrtRBody);
+    const lrtRHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), lrtSkin);
+    lrtRHead.position.y = 1.1;
+    lrtRook.add(lrtRHead);
+    // Arms in running motion
+    const lrtArm = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.5, 0.1), lrtRookieMat);
+    lrtArm.position.set(0.25, 0.7, 0);
+    lrtRook.add(lrtArm);
+    lrtGroup.add(lrtRook);
+  }
+  // Practice rescue can on sand
+  const lrtCan = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.7, 10), new THREE.MeshLambertMaterial({ color: 0xff3300 }));
+  lrtCan.position.set(3, 0.1, 6);
+  lrtCan.rotation.z = Math.PI / 2;
+  lrtGroup.add(lrtCan);
+  // Cones marking course
+  for (let lc = 0; lc < 5; lc++) {
+    const lrtCone = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.45, 6), new THREE.MeshLambertMaterial({ color: 0xffaa00 }));
+    lrtCone.position.set(-3 + lc * 1.5, 0.225, 7.5);
+    lrtGroup.add(lrtCone);
+  }
+  group.add(lrtGroup);
+
+  // v90: Rowing crew shell on water
+  const rcsGroup = new THREE.Group();
+  rcsGroup.position.set(-30, 0.2, 8);
+  // Long thin shell
+  const rcsHull = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 8.0, 12), new THREE.MeshLambertMaterial({ color: 0xffeebb }));
+  rcsHull.rotation.z = Math.PI / 2;
+  rcsHull.position.y = 0.15;
+  rcsGroup.add(rcsHull);
+  // Bow & stern caps
+  const rcsBow = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.6, 8), new THREE.MeshLambertMaterial({ color: 0xffeebb }));
+  rcsBow.position.set(4.3, 0.15, 0);
+  rcsBow.rotation.z = -Math.PI / 2;
+  rcsGroup.add(rcsBow);
+  const rcsStern = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.4, 8), new THREE.MeshLambertMaterial({ color: 0xffeebb }));
+  rcsStern.position.set(-4.2, 0.15, 0);
+  rcsStern.rotation.z = Math.PI / 2;
+  rcsGroup.add(rcsStern);
+  // 4 rowers + coxswain
+  const rcsShirtMat = new THREE.MeshLambertMaterial({ color: 0x224488 });
+  const rcsRowers = [];
+  const rcsOars = [];
+  for (let rr = 0; rr < 4; rr++) {
+    const rcsRower = new THREE.Group();
+    rcsRower.position.set(2.0 - rr * 1.2, 0.35, 0);
+    const rcsRBody = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.5, 0.3), rcsShirtMat);
+    rcsRBody.position.y = 0.25;
+    rcsRower.add(rcsRBody);
+    const rcsRHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+    rcsRHead.position.y = 0.65;
+    rcsRower.add(rcsRHead);
+    rcsGroup.add(rcsRower);
+    rcsRowers.push(rcsRower);
+    // Oar
+    const rcsOar = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.0, 6), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+    rcsOar.rotation.x = Math.PI / 2;
+    rcsOar.position.set(2.0 - rr * 1.2, 0.5, 1.4);
+    rcsGroup.add(rcsOar);
+    rcsOars.push(rcsOar);
+    const rcsBlade = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.04, 0.6), new THREE.MeshLambertMaterial({ color: 0xff3333 }));
+    rcsBlade.position.set(2.0 - rr * 1.2, 0.3, 2.85);
+    rcsGroup.add(rcsBlade);
+  }
+  // Coxswain at stern
+  const rcsCox = new THREE.Group();
+  rcsCox.position.set(-3.5, 0.35, 0);
+  const rcsCoxBody = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, 0.25), new THREE.MeshLambertMaterial({ color: 0xff8800 }));
+  rcsCoxBody.position.y = 0.2;
+  rcsCox.add(rcsCoxBody);
+  const rcsCoxHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  rcsCoxHead.position.y = 0.55;
+  rcsCox.add(rcsCoxHead);
+  rcsGroup.add(rcsCox);
+  group.add(rcsGroup);
+  // Refs for animation
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17430,6 +17613,16 @@ export function createAnchorageLandmark(THREE, opts) {
           cwbmAnim.t1.children[2].rotation.x = -1.0 + Math.sin(t * 1.4) * 0.4;
           cwbmAnim.t2.rotation.y = Math.sin(t * 0.8) * 0.3;
         }
+        // v90: Cliff-top wedding photo (camera tilt) + lifeguard rookie running + rowing oars stroke
+        ctwReflector.rotation.z = Math.sin(t * 0.5) * 0.1;
+        ctwPhoto.rotation.y = Math.sin(t * 0.4) * 0.15;
+        // Rowers stroke synchronously
+        for (let v90i = 0; v90i < rcsOars.length; v90i++) {
+          const v90s = Math.sin(t * 1.2);
+          rcsOars[v90i].rotation.z = v90s * 0.4;
+        }
+        rcsGroup.position.x = -30 + Math.sin(t * 0.2) * 1.2;
+
 
 
 
