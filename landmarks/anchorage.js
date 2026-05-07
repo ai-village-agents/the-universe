@@ -15973,6 +15973,152 @@ export function createAnchorageLandmark(THREE, opts) {
   anchorageGroup.add(offpGroup);
 
 
+  // --- v95: tide pool snorkel lesson (tps) -----------------------------------
+  const tpsGroup = new THREE.Group();
+  tpsGroup.position.set(-32, -0.05, 22);
+  // Shallow water disc
+  const tpsWater = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 3.2, 0.05, 24), new THREE.MeshLambertMaterial({ color: 0x66bbcc, transparent: true, opacity: 0.7 }));
+  tpsWater.position.set(0, 0.05, 0);
+  tpsGroup.add(tpsWater);
+  // Rocky rim around pool
+  for (let i = 0; i < 14; i++) {
+    const ang = (i / 14) * Math.PI * 2;
+    const tpsRock = new THREE.Mesh(new THREE.BoxGeometry(0.4 + Math.random() * 0.3, 0.3 + Math.random() * 0.2, 0.4 + Math.random() * 0.3), new THREE.MeshLambertMaterial({ color: 0x665548 }));
+    tpsRock.position.set(Math.cos(ang) * 3.3, 0.15, Math.sin(ang) * 3.3);
+    tpsRock.rotation.y = ang;
+    tpsGroup.add(tpsRock);
+  }
+  // Instructor on rocks pointing
+  const tpsInsBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0xff8844 }));
+  tpsInsBody.position.set(-3.0, 0.85, 1.0);
+  tpsGroup.add(tpsInsBody);
+  const tpsInsHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  tpsInsHead.position.set(-3.0, 1.45, 1.0);
+  tpsGroup.add(tpsInsHead);
+  const tpsInsArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.6, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  tpsInsArm.position.set(-2.6, 1.0, 1.0);
+  tpsInsArm.rotation.z = -1.0;
+  tpsGroup.add(tpsInsArm);
+  // Two students in pool with snorkels (heads above water with masks)
+  const tpsStudent1 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  tpsStudent1.position.set(0.5, 0.18, -0.2);
+  tpsGroup.add(tpsStudent1);
+  const tpsMask1 = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.1, 0.06), new THREE.MeshLambertMaterial({ color: 0x44bbee }));
+  tpsMask1.position.set(0.5, 0.22, -0.05);
+  tpsGroup.add(tpsMask1);
+  const tpsTube1 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.4, 8), new THREE.MeshLambertMaterial({ color: 0xff5555 }));
+  tpsTube1.position.set(0.65, 0.35, -0.05);
+  tpsGroup.add(tpsTube1);
+  const tpsStudent2 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  tpsStudent2.position.set(1.4, 0.18, 0.6);
+  tpsGroup.add(tpsStudent2);
+  const tpsMask2 = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.1, 0.06), new THREE.MeshLambertMaterial({ color: 0xee44bb }));
+  tpsMask2.position.set(1.4, 0.22, 0.75);
+  tpsGroup.add(tpsMask2);
+  const tpsTube2 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.4, 8), new THREE.MeshLambertMaterial({ color: 0xffff44 }));
+  tpsTube2.position.set(1.55, 0.35, 0.75);
+  tpsGroup.add(tpsTube2);
+  // Some sea anemones in pool
+  for (let i = 0; i < 6; i++) {
+    const tpsAnem = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6), new THREE.MeshLambertMaterial({ color: i % 2 === 0 ? 0xff7799 : 0x99ee77 }));
+    tpsAnem.position.set(Math.cos(i * 1.05) * 1.8, 0.06, Math.sin(i * 1.05) * 1.8);
+    tpsGroup.add(tpsAnem);
+  }
+  anchorageGroup.add(tpsGroup);
+
+  // --- v95: pier fortune teller booth (pft) ----------------------------------
+  const pftGroup = new THREE.Group();
+  pftGroup.position.set(-22, 1.05, -16);
+  // Booth (purple curtained)
+  const pftBoothMat = new THREE.MeshLambertMaterial({ color: 0x4a1f5e });
+  const pftBooth = new THREE.Mesh(new THREE.BoxGeometry(2.0, 2.4, 1.6), pftBoothMat);
+  pftBooth.position.set(0, 1.2, 0);
+  pftGroup.add(pftBooth);
+  // Domed roof
+  const pftDome = new THREE.Mesh(new THREE.SphereGeometry(1.0, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x8a3ba0 }));
+  pftDome.position.set(0, 2.4, 0);
+  pftGroup.add(pftDome);
+  // Star atop dome
+  const pftStar = new THREE.Mesh(new THREE.OctahedronGeometry(0.18), new THREE.MeshBasicMaterial({ color: 0xffe066 }));
+  pftStar.position.set(0, 3.6, 0);
+  pftGroup.add(pftStar);
+  // Open front (table inside)
+  const pftTable = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.7), new THREE.MeshLambertMaterial({ color: 0x6a2870 }));
+  pftTable.position.set(0, 1.0, 0.65);
+  pftGroup.add(pftTable);
+  // Crystal ball glowing
+  const pftBall = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 12), new THREE.MeshBasicMaterial({ color: 0xa9e0ff, transparent: true, opacity: 0.85 }));
+  pftBall.position.set(0, 1.27, 0.65);
+  pftGroup.add(pftBall);
+  // Fortune teller (purple turban, robe)
+  const pftTeller = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.9, 12), new THREE.MeshLambertMaterial({ color: 0x6a2870 }));
+  pftTeller.position.set(0, 1.5, -0.25);
+  pftGroup.add(pftTeller);
+  const pftTellerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  pftTellerHead.position.set(0, 2.05, -0.25);
+  pftGroup.add(pftTellerHead);
+  const pftTurban = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 8), new THREE.MeshLambertMaterial({ color: 0xee2266 }));
+  pftTurban.position.set(0, 2.22, -0.25);
+  pftGroup.add(pftTurban);
+  // Customer in front with hands on table
+  const pftCust = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.26, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x33bb55 }));
+  pftCust.position.set(0, 1.5, 1.5);
+  pftGroup.add(pftCust);
+  const pftCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  pftCustH.position.set(0, 2.05, 1.5);
+  pftGroup.add(pftCustH);
+  anchorageGroup.add(pftGroup);
+
+  // --- v95: beach metal detector (bmd) ---------------------------------------
+  const bmdGroup = new THREE.Group();
+  bmdGroup.position.set(18, 0.04, 30);
+  // Person walking (turned slightly)
+  const bmdBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.95, 10), new THREE.MeshLambertMaterial({ color: 0xddaa55 }));
+  bmdBody.position.set(0, 0.55, 0);
+  bmdGroup.add(bmdBody);
+  const bmdHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bmdHead.position.set(0, 1.18, 0);
+  bmdGroup.add(bmdHead);
+  // Hat (wide brim)
+  const bmdHat = new THREE.Mesh(new THREE.CylinderGeometry(0.0, 0.34, 0.12, 12), new THREE.MeshLambertMaterial({ color: 0x664422 }));
+  bmdHat.position.set(0, 1.36, 0);
+  bmdGroup.add(bmdHat);
+  // Headphones
+  const bmdHP = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.04, 6, 12), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+  bmdHP.position.set(0, 1.22, 0);
+  bmdHP.rotation.x = Math.PI / 2;
+  bmdGroup.add(bmdHP);
+  // Detector shaft (long pole forward)
+  const bmdShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.5, 8), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  bmdShaft.position.set(0.5, 0.85, 0.6);
+  bmdShaft.rotation.x = -1.0;
+  bmdGroup.add(bmdShaft);
+  // Coil at end
+  const bmdCoil = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.04, 6, 14), new THREE.MeshLambertMaterial({ color: 0xeeaa44 }));
+  bmdCoil.position.set(0.65, 0.12, 1.4);
+  bmdCoil.rotation.x = -Math.PI / 2 + 0.2;
+  bmdGroup.add(bmdCoil);
+  // Treasures already found (gold coins on small towel)
+  const bmdTowel = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.02, 0.5), new THREE.MeshLambertMaterial({ color: 0xeebbaa }));
+  bmdTowel.position.set(-1.4, 0.05, 0.6);
+  bmdGroup.add(bmdTowel);
+  for (let i = 0; i < 4; i++) {
+    const bmdCoin = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.02, 12), new THREE.MeshLambertMaterial({ color: 0xffd44a }));
+    bmdCoin.position.set(-1.4 + (i % 2) * 0.18 - 0.09, 0.07, 0.6 + Math.floor(i / 2) * 0.16 - 0.08);
+    bmdCoin.rotation.x = Math.PI / 2;
+    bmdGroup.add(bmdCoin);
+  }
+  // Footprints trailing behind
+  const bmdFootMat = new THREE.MeshBasicMaterial({ color: 0xb0a070 });
+  for (let i = 0; i < 5; i++) {
+    const bmdFoot = new THREE.Mesh(new THREE.CircleGeometry(0.12, 8), bmdFootMat);
+    bmdFoot.rotation.x = -Math.PI / 2;
+    bmdFoot.position.set(-0.15 + (i % 2) * 0.3, 0.005, -0.4 - i * 0.5);
+    bmdGroup.add(bmdFoot);
+  }
+  anchorageGroup.add(bmdGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -18305,6 +18451,18 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v95 anim
+        const v95t = t;
+        pftStar.rotation.y = v95t * 1.2;
+        pftBall.material.opacity = 0.7 + Math.sin(v95t * 2.0) * 0.15;
+        pftBall.scale.setScalar(1.0 + Math.sin(v95t * 2.0) * 0.05);
+        pftTellerHead.rotation.y = Math.sin(v95t * 0.6) * 0.4;
+        bmdGroup.rotation.y = Math.sin(v95t * 0.2) * 0.3;
+        bmdShaft.rotation.z = Math.sin(v95t * 1.5) * 0.18;
+        bmdCoil.position.x = 0.65 + Math.sin(v95t * 1.5) * 0.15;
+        tpsInsArm.rotation.z = -1.0 + Math.sin(v95t * 0.8) * 0.2;
+        tpsStudent1.position.y = 0.18 + Math.sin(v95t * 1.3) * 0.04;
+        tpsStudent2.position.y = 0.18 + Math.sin(v95t * 1.3 + 1.0) * 0.04;
         // v94 anim
         const v94t = t;
         bchBag.position.x = -2.3 + (v94t * 0.6) % 5.5;
