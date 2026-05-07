@@ -16660,6 +16660,90 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(stfGroup);
 
 
+  // v100 MILESTONE: Pier Fishing Fleet at Dawn — multiple boats with glow lights, pier anglers, golden water
+  const pffdGroup = new THREE.Group();
+  pffdGroup.position.set(48, 0, -32);
+  // Long pier
+  const pffdPierMat = new THREE.MeshLambertMaterial({color: 0x6b5a45});
+  const pffdPier = new THREE.Mesh(new THREE.BoxGeometry(20, 0.4, 2.5), pffdPierMat);
+  pffdPier.position.set(0, 0.4, 0);
+  pffdGroup.add(pffdPier);
+  // Pier pilings (4 pairs)
+  const pffdPileMat = new THREE.MeshLambertMaterial({color: 0x4a3a28});
+  for (let i = 0; i < 4; i++) {
+    for (let s = -1; s <= 1; s += 2) {
+      const pile = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 1.2, 6), pffdPileMat);
+      pile.position.set(-8 + i * 5.3, 0, 1.0 * s);
+      pffdGroup.add(pile);
+    }
+  }
+  // Three fishing boats around the pier
+  const pffdHullMat = new THREE.MeshLambertMaterial({color: 0xc8b896});
+  const pffdHullDarkMat = new THREE.MeshLambertMaterial({color: 0x88766a});
+  const pffdCabinMat = new THREE.MeshLambertMaterial({color: 0x5a4a3a});
+  const pffdLightMat = new THREE.MeshBasicMaterial({color: 0xffd070, transparent: true, opacity: 0.9});
+  const pffdBoats = [];
+  const boatColors = [pffdHullMat, pffdHullDarkMat, pffdHullMat];
+  for (let b = 0; b < 3; b++) {
+    const boat = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.6, 1.0), boatColors[b]);
+    hull.position.y = 0.3;
+    boat.add(hull);
+    const cabin = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.6, 0.7), pffdCabinMat);
+    cabin.position.set(0.3, 0.85, 0);
+    boat.add(cabin);
+    // Mast with glow lantern
+    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.4, 6), pffdCabinMat);
+    mast.position.set(-0.5, 1.4, 0);
+    boat.add(mast);
+    const lantern = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), pffdLightMat);
+    lantern.position.set(-0.5, 2.05, 0);
+    boat.add(lantern);
+    boat.position.set(-9 + b * 5.5, 0.05, 4.5 + b * 0.4);
+    boat.rotation.y = -0.1 + b * 0.15;
+    pffdGroup.add(boat);
+    pffdBoats.push(boat);
+  }
+  // Pier anglers (3 small figures along pier)
+  const pffdShirtMats = [
+    new THREE.MeshLambertMaterial({color: 0x3a5a8a}),
+    new THREE.MeshLambertMaterial({color: 0x8a4a3a}),
+    new THREE.MeshLambertMaterial({color: 0x4a7a4a})
+  ];
+  const pffdSkinMat = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const pffdRodMat = new THREE.MeshLambertMaterial({color: 0x2a2a2a});
+  const pffdAnglers = [];
+  for (let a = 0; a < 3; a++) {
+    const angler = new THREE.Group();
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.3), pffdShirtMats[a]);
+    torso.position.y = 0.9;
+    angler.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), pffdSkinMat);
+    head.position.y = 1.4;
+    angler.add(head);
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.015, 1.6, 6), pffdRodMat);
+    rod.position.set(0.3, 1.3, 0);
+    rod.rotation.z = -0.7;
+    angler.add(rod);
+    angler.position.set(-7 + a * 5, 0.6, -0.5);
+    pffdGroup.add(angler);
+    pffdAnglers.push(angler);
+  }
+  // Pier dawn lamp at end
+  const pffdEndLamp = new THREE.Mesh(new THREE.SphereGeometry(0.25, 10, 8), pffdLightMat);
+  pffdEndLamp.position.set(9.5, 1.6, 0);
+  pffdGroup.add(pffdEndLamp);
+  const pffdLampPost = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 6), pffdCabinMat);
+  pffdLampPost.position.set(9.5, 0.8, 0);
+  pffdGroup.add(pffdLampPost);
+  // Golden dawn glow disc on water under boats
+  const pffdGlowMat = new THREE.MeshBasicMaterial({color: 0xffb060, transparent: true, opacity: 0.3});
+  const pffdGlow = new THREE.Mesh(new THREE.CircleGeometry(8, 24), pffdGlowMat);
+  pffdGlow.rotation.x = -Math.PI / 2;
+  pffdGlow.position.set(0, 0.02, 5);
+  pffdGroup.add(pffdGlow);
+  group.add(pffdGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19019,6 +19103,18 @@ export function createAnchorageLandmark(THREE, opts) {
         stfBall.position.y = 1.5 + Math.sin(stfPh * 2) * 0.5;
         stfBall.rotation.y = v99t * 3;
         kphGroup.position.x = -50 + Math.sin(v99t * 0.15) * 1.5;
+        // v100: pier fishing fleet at dawn — boats bob, lanterns flicker, anglers cast
+        const v100t = t;
+        for (let i = 0; i < pffdBoats.length; i++) {
+          pffdBoats[i].position.y = 0.05 + Math.sin(v100t * 0.9 + i * 1.2) * 0.06;
+          pffdBoats[i].rotation.z = Math.sin(v100t * 0.7 + i * 0.8) * 0.03;
+        }
+        for (let i = 0; i < pffdAnglers.length; i++) {
+          pffdAnglers[i].rotation.y = Math.sin(v100t * 0.4 + i * 0.6) * 0.15;
+        }
+        const pffdFlicker = 0.85 + Math.sin(v100t * 3.7) * 0.1 + Math.sin(v100t * 6.1) * 0.05;
+        pffdLightMat.opacity = pffdFlicker;
+        pffdGlowMat.opacity = 0.25 + Math.sin(v100t * 0.5) * 0.08;
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
