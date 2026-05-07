@@ -15814,6 +15814,165 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(mbtGroup);
 
 
+  // --- v94: beach corn-hole game (bch) ----------------------------------------
+  const bchGroup = new THREE.Group();
+  bchGroup.position.set(-23, 0.05, 18);
+  // Two boards angled toward each other
+  const bchBoard1Mat = new THREE.MeshLambertMaterial({ color: 0xc9985a });
+  const bchBoard1 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.7), bchBoard1Mat);
+  bchBoard1.position.set(-2.5, 0.25, 0);
+  bchBoard1.rotation.z = 0.18;
+  bchGroup.add(bchBoard1);
+  // Hole on board 1 (dark disc)
+  const bchHole1 = new THREE.Mesh(new THREE.CircleGeometry(0.13, 12), new THREE.MeshBasicMaterial({ color: 0x1a0f08 }));
+  bchHole1.rotation.x = -Math.PI / 2;
+  bchHole1.position.set(-2.0, 0.30, 0);
+  bchGroup.add(bchHole1);
+  const bchBoard2 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.7), bchBoard1Mat);
+  bchBoard2.position.set(2.5, 0.25, 0);
+  bchBoard2.rotation.z = -0.18;
+  bchGroup.add(bchBoard2);
+  const bchHole2 = new THREE.Mesh(new THREE.CircleGeometry(0.13, 12), new THREE.MeshBasicMaterial({ color: 0x1a0f08 }));
+  bchHole2.rotation.x = -Math.PI / 2;
+  bchHole2.position.set(2.0, 0.30, 0);
+  bchGroup.add(bchHole2);
+  // Two players standing
+  const bchP1Body = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0xff7755 }));
+  bchP1Body.position.set(-3.4, 0.55, 0.6);
+  bchGroup.add(bchP1Body);
+  const bchP1Head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bchP1Head.position.set(-3.4, 1.18, 0.6);
+  bchGroup.add(bchP1Head);
+  const bchP1Arm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bchP1Arm.position.set(-3.05, 0.85, 0.6);
+  bchGroup.add(bchP1Arm);
+  const bchP2Body = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0x55aaff }));
+  bchP2Body.position.set(3.4, 0.55, -0.6);
+  bchGroup.add(bchP2Body);
+  const bchP2Head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  bchP2Head.position.set(3.4, 1.18, -0.6);
+  bchGroup.add(bchP2Head);
+  // Tossed bean bag (animated)
+  const bchBag = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.1, 0.18), new THREE.MeshLambertMaterial({ color: 0xff3344 }));
+  bchBag.position.set(-2.3, 1.0, 0.5);
+  bchGroup.add(bchBag);
+  // A few bean bags scattered on boards
+  for (let i = 0; i < 4; i++) {
+    const bchScatter = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.09, 0.16), new THREE.MeshLambertMaterial({ color: i % 2 === 0 ? 0xff3344 : 0x3344ff }));
+    bchScatter.position.set(-2.6 + i * 0.18, 0.32, -0.15 + (i % 2) * 0.1);
+    bchScatter.rotation.y = i * 0.4;
+    bchGroup.add(bchScatter);
+  }
+  anchorageGroup.add(bchGroup);
+
+  // --- v94: sea kayak rental (skr) -------------------------------------------
+  const skrGroup = new THREE.Group();
+  skrGroup.position.set(28, 0.04, -8);
+  // Rack with stacked kayaks
+  const skrRackMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2e });
+  const skrPostL = new THREE.Mesh(new THREE.BoxGeometry(0.18, 2.0, 0.18), skrRackMat);
+  skrPostL.position.set(-1.6, 1.0, 0);
+  skrGroup.add(skrPostL);
+  const skrPostR = new THREE.Mesh(new THREE.BoxGeometry(0.18, 2.0, 0.18), skrRackMat);
+  skrPostR.position.set(1.6, 1.0, 0);
+  skrGroup.add(skrPostR);
+  // Stacked kayaks (3 levels x 2 colors)
+  const skrColors = [0xee4444, 0xffcc33, 0x33aaee];
+  for (let i = 0; i < 3; i++) {
+    const skrKayak = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 2.6, 6, 10), new THREE.MeshLambertMaterial({ color: skrColors[i] }));
+    skrKayak.rotation.z = Math.PI / 2;
+    skrKayak.position.set(0, 0.5 + i * 0.55, 0);
+    skrGroup.add(skrKayak);
+  }
+  // Standing rental sign
+  const skrSignPost = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.4, 0.1), skrRackMat);
+  skrSignPost.position.set(-2.6, 0.7, 0);
+  skrGroup.add(skrSignPost);
+  const skrSign = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.5, 0.06), new THREE.MeshLambertMaterial({ color: 0xffeebb }));
+  skrSign.position.set(-2.6, 1.45, 0);
+  skrGroup.add(skrSign);
+  // Two paddles leaning
+  const skrPaddleMat = new THREE.MeshLambertMaterial({ color: 0xddccaa });
+  for (let i = 0; i < 2; i++) {
+    const skrPaddle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.7, 8), skrPaddleMat);
+    skrPaddle.position.set(2.0 + i * 0.18, 0.85, 0.18);
+    skrPaddle.rotation.z = -0.2;
+    skrGroup.add(skrPaddle);
+    const skrBlade = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.32, 0.04), skrPaddleMat);
+    skrBlade.position.set(2.0 + i * 0.18 - 0.18, 1.65, 0.18);
+    skrBlade.rotation.z = -0.2;
+    skrGroup.add(skrBlade);
+  }
+  // Customer trying on a life vest (orange torso)
+  const skrCustBody = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.27, 0.6, 10), new THREE.MeshLambertMaterial({ color: 0xff6611 }));
+  skrCustBody.position.set(-1.0, 0.85, 1.4);
+  skrGroup.add(skrCustBody);
+  const skrCustLegs = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  skrCustLegs.position.set(-1.0, 0.3, 1.4);
+  skrGroup.add(skrCustLegs);
+  const skrCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  skrCustHead.position.set(-1.0, 1.3, 1.4);
+  skrGroup.add(skrCustHead);
+  anchorageGroup.add(skrGroup);
+
+  // --- v94: outdoor fish fry pavilion (offp) ---------------------------------
+  const offpGroup = new THREE.Group();
+  offpGroup.position.set(-12, 0.04, -28);
+  // Roof posts
+  const offpPostMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const offpPostPos = [[-2.4, 0, -1.6], [2.4, 0, -1.6], [-2.4, 0, 1.6], [2.4, 0, 1.6]];
+  offpPostPos.forEach(p => {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.2, 2.6, 0.2), offpPostMat);
+    post.position.set(p[0], 1.3, p[2]);
+    offpGroup.add(post);
+  });
+  // Pyramid roof
+  const offpRoof = new THREE.Mesh(new THREE.ConeGeometry(3.6, 1.4, 4), new THREE.MeshLambertMaterial({ color: 0x884422 }));
+  offpRoof.rotation.y = Math.PI / 4;
+  offpRoof.position.set(0, 3.3, 0);
+  offpGroup.add(offpRoof);
+  // Long fryer table
+  const offpTable = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 1.4), new THREE.MeshLambertMaterial({ color: 0xaaaaaa }));
+  offpTable.position.set(0, 0.95, -0.6);
+  offpGroup.add(offpTable);
+  // Two fryers (steaming oil)
+  for (let i = 0; i < 2; i++) {
+    const offpFryer = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.4, 0.7), new THREE.MeshLambertMaterial({ color: 0x303030 }));
+    offpFryer.position.set(-1.0 + i * 2.0, 1.2, -0.6);
+    offpGroup.add(offpFryer);
+    const offpOil = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.06, 0.58), new THREE.MeshLambertMaterial({ color: 0xddaa44 }));
+    offpOil.position.set(-1.0 + i * 2.0, 1.42, -0.6);
+    offpGroup.add(offpOil);
+  }
+  // Cook (white apron, hat)
+  const offpCookBody = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.27, 0.95, 10), new THREE.MeshLambertMaterial({ color: 0xfafafa }));
+  offpCookBody.position.set(0, 0.55, -0.05);
+  offpGroup.add(offpCookBody);
+  const offpCookHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  offpCookHead.position.set(0, 1.18, -0.05);
+  offpGroup.add(offpCookHead);
+  const offpCookHat = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.3, 10), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  offpCookHat.position.set(0, 1.45, -0.05);
+  offpGroup.add(offpCookHat);
+  // Customer line (3 people facing the table)
+  for (let i = 0; i < 3; i++) {
+    const offpCust = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x44aa66 + i * 0x110011 }));
+    offpCust.position.set(-1.4 + i * 1.0, 0.5, 1.4);
+    offpGroup.add(offpCust);
+    const offpCustH = new THREE.Mesh(new THREE.SphereGeometry(0.17, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+    offpCustH.position.set(-1.4 + i * 1.0, 1.07, 1.4);
+    offpGroup.add(offpCustH);
+  }
+  // Steam puffs (animated)
+  const offpSteam1 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
+  offpSteam1.position.set(-1.0, 1.85, -0.6);
+  offpGroup.add(offpSteam1);
+  const offpSteam2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
+  offpSteam2.position.set(1.0, 1.85, -0.6);
+  offpGroup.add(offpSteam2);
+  anchorageGroup.add(offpGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -18146,6 +18305,20 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v94 anim
+        const v94t = t;
+        bchBag.position.x = -2.3 + (v94t * 0.6) % 5.5;
+        bchBag.position.y = 1.0 + Math.sin((v94t * 0.6) % 5.5 / 5.5 * Math.PI) * 0.6;
+        bchBag.rotation.x = v94t * 4;
+        bchP1Arm.rotation.z = -0.3 + Math.sin(v94t * 0.6) * 0.4;
+        skrCustHead.rotation.y = Math.sin(v94t * 0.5) * 0.5;
+        offpSteam1.position.y = 1.85 + ((v94t * 0.7) % 1.0);
+        offpSteam1.material.opacity = 0.55 - ((v94t * 0.7) % 1.0) * 0.5;
+        offpSteam1.scale.setScalar(1.0 + ((v94t * 0.7) % 1.0) * 0.6);
+        offpSteam2.position.y = 1.85 + ((v94t * 0.7 + 0.5) % 1.0);
+        offpSteam2.material.opacity = 0.55 - ((v94t * 0.7 + 0.5) % 1.0) * 0.5;
+        offpSteam2.scale.setScalar(1.0 + ((v94t * 0.7 + 0.5) % 1.0) * 0.6);
+        offpCookBody.rotation.y = Math.sin(v94t * 0.4) * 0.3;
 
 
 
