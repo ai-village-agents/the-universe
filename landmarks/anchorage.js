@@ -14837,6 +14837,140 @@ export function createAnchorageLandmark(THREE, opts) {
   rskGroup.add(rskFriendHead);
   group.add(rskGroup);
 
+
+  // v88: Tide gauge station
+  const tgsGroup = new THREE.Group();
+  tgsGroup.position.set(28, 0.3, -8);
+  const tgsPilingMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const tgsPiling = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 4, 8), tgsPilingMat);
+  tgsPiling.position.set(0, 1.8, 0);
+  tgsGroup.add(tgsPiling);
+  const tgsHouseMat = new THREE.MeshLambertMaterial({ color: 0xCCCCCC });
+  const tgsHouse = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.9, 0.7), tgsHouseMat);
+  tgsHouse.position.set(0, 4.0, 0);
+  tgsGroup.add(tgsHouse);
+  const tgsRoofMat = new THREE.MeshLambertMaterial({ color: 0x222244 });
+  const tgsRoof = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.1, 0.8), tgsRoofMat);
+  tgsRoof.position.set(0, 4.5, 0);
+  tgsGroup.add(tgsRoof);
+  const tgsAntennaMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.6, roughness: 0.4 });
+  const tgsAntenna = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.2, 4), tgsAntennaMat);
+  tgsAntenna.position.set(0, 5.2, 0);
+  tgsGroup.add(tgsAntenna);
+  const tgsAntBall = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), tgsAntennaMat);
+  tgsAntBall.position.set(0, 5.85, 0);
+  tgsGroup.add(tgsAntBall);
+  const tgsLEDMat = new THREE.MeshLambertMaterial({ color: 0xFF0000, emissive: 0xFF0000, emissiveIntensity: 0.8 });
+  const tgsLED = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 4), tgsLEDMat);
+  tgsLED.position.set(0, 5.0, 0.41);
+  tgsGroup.add(tgsLED);
+  const tgsTubeMat = new THREE.MeshStandardMaterial({ color: 0x333333, metalness: 0.5, roughness: 0.5 });
+  const tgsTube = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.0, 8), tgsTubeMat);
+  tgsTube.position.set(0.25, 1.8, 0);
+  tgsGroup.add(tgsTube);
+  const tgsLadderMat = new THREE.MeshStandardMaterial({ color: 0xAAAAAA, metalness: 0.6, roughness: 0.4 });
+  const tgsLadder1 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 3.5, 4), tgsLadderMat);
+  tgsLadder1.position.set(-0.2, 1.7, 0.25);
+  tgsGroup.add(tgsLadder1);
+  const tgsLadder2 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 3.5, 4), tgsLadderMat);
+  tgsLadder2.position.set(-0.2, 1.7, -0.25);
+  tgsGroup.add(tgsLadder2);
+  const tgsSignMat = new THREE.MeshLambertMaterial({ color: 0xFFCC22 });
+  const tgsSign = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.04), tgsSignMat);
+  tgsSign.position.set(0, 3.0, 0.4);
+  tgsGroup.add(tgsSign);
+  group.add(tgsGroup);
+
+  // v88: Beach mosaic mural
+  const bmmGroup = new THREE.Group();
+  bmmGroup.position.set(-12, 0.3, -36);
+  const bmmWallMat = new THREE.MeshLambertMaterial({ color: 0xDDCCAA });
+  const bmmWall = new THREE.Mesh(new THREE.BoxGeometry(5, 2.5, 0.2), bmmWallMat);
+  bmmWall.position.set(0, 1.25, 0);
+  bmmGroup.add(bmmWall);
+  const bmmTileColors = [0x336699, 0x6699CC, 0x99CCEE, 0xFFCC44, 0xFF8844, 0xFF4422, 0x44AA66, 0x88DD66, 0xAAAA22];
+  const bmmTiles = [];
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 18; col++) {
+      const c = (row + col + Math.floor(row * 0.5)) % bmmTileColors.length;
+      const tm = new THREE.MeshLambertMaterial({ color: bmmTileColors[c] });
+      const tile = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.24, 0.04), tm);
+      tile.position.set(-2.2 + col * 0.26, 0.4 + row * 0.26, 0.12);
+      bmmGroup.add(tile);
+      bmmTiles.push(tile);
+    }
+  }
+  const bmmArtistSkinMat = new THREE.MeshLambertMaterial({ color: 0xC58A5A });
+  const bmmArtistShirtMat = new THREE.MeshLambertMaterial({ color: 0x884422 });
+  const bmmArtistTorso = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.8, 0.32), bmmArtistShirtMat);
+  bmmArtistTorso.position.set(2.0, 0.6, 1.0);
+  bmmGroup.add(bmmArtistTorso);
+  const bmmArtistHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), bmmArtistSkinMat);
+  bmmArtistHead.position.set(2.0, 1.2, 1.0);
+  bmmGroup.add(bmmArtistHead);
+  const bmmArtistArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), bmmArtistShirtMat);
+  bmmArtistArm.position.set(1.65, 0.85, 0.7);
+  bmmArtistArm.rotation.z = Math.PI / 3;
+  bmmGroup.add(bmmArtistArm);
+  const bmmTrowelMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.7, roughness: 0.3 });
+  const bmmTrowel = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.06, 0.08), bmmTrowelMat);
+  bmmTrowel.position.set(1.4, 0.85, 0.55);
+  bmmGroup.add(bmmTrowel);
+  group.add(bmmGroup);
+
+  // v88: Floating dock seaplane
+  const fdsGroup = new THREE.Group();
+  fdsGroup.position.set(-36, 0.3, -36);
+  const fdsDockMat = new THREE.MeshLambertMaterial({ color: 0x9B6633 });
+  const fdsDock = new THREE.Mesh(new THREE.BoxGeometry(5, 0.18, 1.5), fdsDockMat);
+  fdsDock.position.set(0, 0.1, 0);
+  fdsGroup.add(fdsDock);
+  const fdsBodyMat = new THREE.MeshLambertMaterial({ color: 0xFFCC22 });
+  const fdsBody = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.4, 4.5, 12), fdsBodyMat);
+  fdsBody.position.set(0, 1.5, -2);
+  fdsBody.rotation.z = Math.PI / 2;
+  fdsGroup.add(fdsBody);
+  const fdsCockpitMat = new THREE.MeshLambertMaterial({ color: 0x88CCEE, emissive: 0x4488AA, emissiveIntensity: 0.3 });
+  const fdsCockpit = new THREE.Mesh(new THREE.SphereGeometry(0.45, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), fdsCockpitMat);
+  fdsCockpit.position.set(1.4, 1.7, -2);
+  fdsCockpit.rotation.x = -Math.PI / 2;
+  fdsGroup.add(fdsCockpit);
+  const fdsTailMat = new THREE.MeshLambertMaterial({ color: 0xFFCC22 });
+  const fdsTail = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.8, 0.05), fdsTailMat);
+  fdsTail.position.set(-2.2, 2.0, -2);
+  fdsGroup.add(fdsTail);
+  const fdsHTailMat = new THREE.MeshLambertMaterial({ color: 0xFFCC22 });
+  const fdsHTail = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.05, 1.4), fdsHTailMat);
+  fdsHTail.position.set(-2.0, 1.8, -2);
+  fdsGroup.add(fdsHTail);
+  const fdsWingMat = new THREE.MeshLambertMaterial({ color: 0xFFDD44 });
+  const fdsWing = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, 5), fdsWingMat);
+  fdsWing.position.set(0.3, 2.1, -2);
+  fdsGroup.add(fdsWing);
+  const fdsWingMain = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.08, 5), fdsWingMat);
+  fdsWingMain.position.set(0.3, 2.1, -2);
+  fdsGroup.add(fdsWingMain);
+  const fdsFloatMat = new THREE.MeshLambertMaterial({ color: 0xCCCCCC });
+  const fdsFloat1 = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.3, 0.5), fdsFloatMat);
+  fdsFloat1.position.set(0, 0.6, -1.4);
+  fdsGroup.add(fdsFloat1);
+  const fdsFloat2 = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.3, 0.5), fdsFloatMat);
+  fdsFloat2.position.set(0, 0.6, -2.6);
+  fdsGroup.add(fdsFloat2);
+  const fdsPropMat = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.7, roughness: 0.3 });
+  const fdsProp = new THREE.Mesh(new THREE.BoxGeometry(0.05, 1.4, 0.08), fdsPropMat);
+  fdsProp.position.set(2.4, 1.5, -2);
+  fdsGroup.add(fdsProp);
+  const fdsPilotSkinMat = new THREE.MeshLambertMaterial({ color: 0xD9A878 });
+  const fdsPilotShirtMat = new THREE.MeshLambertMaterial({ color: 0x224477 });
+  const fdsPilotTorso = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.5, 0.25), fdsPilotShirtMat);
+  fdsPilotTorso.position.set(1.4, 1.55, -2);
+  fdsGroup.add(fdsPilotTorso);
+  const fdsPilotHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), fdsPilotSkinMat);
+  fdsPilotHead.position.set(1.4, 1.85, -2);
+  fdsGroup.add(fdsPilotHead);
+  group.add(fdsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17110,6 +17244,17 @@ export function createAnchorageLandmark(THREE, opts) {
           rskRipples[rp].scale.set(1 + phase * 3, 1 + phase * 3, 1);
           rskRipples[rp].material.opacity = 0.6 * (1 - phase);
         }
+        // v88 updates
+        tgsLED.material.emissiveIntensity = 0.5 + 0.5 * Math.abs(Math.sin(t * 1.5));
+        tgsAntenna.rotation.z = 0.04 * Math.sin(t * 0.5);
+        bmmArtistTorso.rotation.y = 0.2 * Math.sin(t * 0.6);
+        bmmArtistArm.rotation.z = Math.PI / 3 + 0.3 * Math.sin(t * 1.5);
+        bmmTrowel.position.x = 1.4 + 0.2 * Math.sin(t * 1.5);
+        bmmTrowel.position.y = 0.85 + 0.15 * Math.cos(t * 1.5);
+        fdsProp.rotation.x = t * 8;
+        fdsGroup.position.y = 0.3 + 0.04 * Math.sin(t * 0.6);
+        fdsPilotHead.rotation.y = 0.25 * Math.sin(t * 0.5);
+
 
 
 
