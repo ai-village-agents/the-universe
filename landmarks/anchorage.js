@@ -9018,6 +9018,195 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(sandMermaidGroup);
 
 
+
+  // --- v59: lighthouse keeper's dog (golden retriever, runs around) ---
+  const dogGroup = new THREE.Group();
+  const dogBodyMat = new THREE.MeshLambertMaterial({ color: 0xd2a04a });
+  const dogBody = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.5, 4, 8), dogBodyMat);
+  dogBody.rotation.z = Math.PI / 2;
+  dogBody.position.y = 0.32;
+  dogGroup.add(dogBody);
+  const dogHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), dogBodyMat);
+  dogHead.position.set(0.42, 0.46, 0);
+  dogHead.scale.set(1.1, 0.9, 0.9);
+  dogGroup.add(dogHead);
+  const dogSnout = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.1, 0.12), dogBodyMat);
+  dogSnout.position.set(0.58, 0.42, 0);
+  dogGroup.add(dogSnout);
+  const dogEarMat = new THREE.MeshLambertMaterial({ color: 0xa37a32 });
+  const dogEarGeom = new THREE.ConeGeometry(0.07, 0.14, 6);
+  const dogEarL = new THREE.Mesh(dogEarGeom, dogEarMat);
+  dogEarL.position.set(0.36, 0.62, 0.1);
+  dogEarL.rotation.x = 0.6;
+  dogGroup.add(dogEarL);
+  const dogEarR = new THREE.Mesh(dogEarGeom, dogEarMat);
+  dogEarR.position.set(0.36, 0.62, -0.1);
+  dogEarR.rotation.x = -0.6;
+  dogGroup.add(dogEarR);
+  const dogTail = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.32, 6), dogBodyMat);
+  dogTail.position.set(-0.36, 0.46, 0);
+  dogTail.rotation.z = -0.7;
+  dogGroup.add(dogTail);
+  const dogLegMat = new THREE.MeshLambertMaterial({ color: 0xb88a3c });
+  const dogLegGeom = new THREE.CylinderGeometry(0.05, 0.05, 0.22, 6);
+  const dogLegPos = [[0.22, 0.11, 0.13], [0.22, 0.11, -0.13], [-0.22, 0.11, 0.13], [-0.22, 0.11, -0.13]];
+  const dogLegs = dogLegPos.map((p) => {
+    const leg = new THREE.Mesh(dogLegGeom, dogLegMat);
+    leg.position.set(p[0], p[1], p[2]);
+    dogGroup.add(leg);
+    return leg;
+  });
+  dogGroup.position.set(-30, 0, -8);
+  group.add(dogGroup);
+
+  // --- v59: tide-driven mill wheel (rotating wooden wheel beside stream) ---
+  const millGroup = new THREE.Group();
+  const millHouseMat = new THREE.MeshLambertMaterial({ color: 0x8a5b2f });
+  const millHouse = new THREE.Mesh(new THREE.BoxGeometry(2.4, 2.0, 1.8), millHouseMat);
+  millHouse.position.set(0, 1.0, 0);
+  millGroup.add(millHouse);
+  const millRoofMat = new THREE.MeshLambertMaterial({ color: 0x4d3a22 });
+  const millRoof = new THREE.Mesh(new THREE.ConeGeometry(1.7, 0.9, 4), millRoofMat);
+  millRoof.position.set(0, 2.45, 0);
+  millRoof.rotation.y = Math.PI / 4;
+  millGroup.add(millRoof);
+  const millDoorMat = new THREE.MeshLambertMaterial({ color: 0x3a2210 });
+  const millDoor = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.9, 0.05), millDoorMat);
+  millDoor.position.set(0, 0.45, 0.92);
+  millGroup.add(millDoor);
+  const millWindowMat = new THREE.MeshLambertMaterial({ color: 0xfff3a0, emissive: 0x664400, emissiveIntensity: 0.4 });
+  const millWindow = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.4, 0.05), millWindowMat);
+  millWindow.position.set(-0.7, 1.4, 0.92);
+  millGroup.add(millWindow);
+  const millWheel = new THREE.Group();
+  const millWheelHubMat = new THREE.MeshLambertMaterial({ color: 0x6b4422 });
+  const millWheelHub = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.5, 10), millWheelHubMat);
+  millWheelHub.rotation.z = Math.PI / 2;
+  millWheel.add(millWheelHub);
+  const millSpokeMat = new THREE.MeshLambertMaterial({ color: 0x5a3a1c });
+  const millRimGeom = new THREE.TorusGeometry(1.0, 0.06, 6, 24);
+  const millRim1 = new THREE.Mesh(millRimGeom, millSpokeMat);
+  millRim1.position.x = 0.22;
+  millRim1.rotation.y = Math.PI / 2;
+  millWheel.add(millRim1);
+  const millRim2 = new THREE.Mesh(millRimGeom, millSpokeMat);
+  millRim2.position.x = -0.22;
+  millRim2.rotation.y = Math.PI / 2;
+  millWheel.add(millRim2);
+  const millPaddleMat = new THREE.MeshLambertMaterial({ color: 0x8b6232 });
+  const millPaddleGeom = new THREE.BoxGeometry(0.5, 0.9, 0.06);
+  const millPaddles = [];
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const p = new THREE.Mesh(millPaddleGeom, millPaddleMat);
+    p.position.set(0, Math.sin(a) * 1.0, Math.cos(a) * 1.0);
+    p.rotation.x = -a;
+    p.rotation.y = Math.PI / 2;
+    millWheel.add(p);
+    millPaddles.push(p);
+  }
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2;
+    const sp = new THREE.Mesh(new THREE.BoxGeometry(0.05, 1.9, 0.05), millSpokeMat);
+    sp.position.set(0.22, 0, 0);
+    sp.rotation.x = a;
+    millWheel.add(sp);
+    const sp2 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 1.9, 0.05), millSpokeMat);
+    sp2.position.set(-0.22, 0, 0);
+    sp2.rotation.x = a;
+    millWheel.add(sp2);
+  }
+  millWheel.position.set(1.45, 1.0, 0);
+  millGroup.add(millWheel);
+  const millStreamMat = new THREE.MeshLambertMaterial({ color: 0x4a8fc2, transparent: true, opacity: 0.7 });
+  const millStream = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 1.2), millStreamMat);
+  millStream.rotation.x = -Math.PI / 2;
+  millStream.position.set(2.0, 0.06, 0);
+  millGroup.add(millStream);
+  millGroup.position.set(-44, 0, 22);
+  millGroup.rotation.y = -0.6;
+  group.add(millGroup);
+
+  // --- v59: fish & chips food truck ---
+  const fctGroup = new THREE.Group();
+  const fctBodyMat = new THREE.MeshLambertMaterial({ color: 0xd9534f });
+  const fctBody = new THREE.Mesh(new THREE.BoxGeometry(2.6, 1.2, 1.4), fctBodyMat);
+  fctBody.position.y = 0.95;
+  fctGroup.add(fctBody);
+  const fctCabMat = new THREE.MeshLambertMaterial({ color: 0xb8413d });
+  const fctCab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, 1.4), fctCabMat);
+  fctCab.position.set(1.6, 0.9, 0);
+  fctGroup.add(fctCab);
+  const fctWindshieldMat = new THREE.MeshLambertMaterial({ color: 0x88ccee, transparent: true, opacity: 0.7 });
+  const fctWindshield = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.5, 1.2), fctWindshieldMat);
+  fctWindshield.position.set(2.05, 1.1, 0);
+  fctGroup.add(fctWindshield);
+  const fctRoofMat = new THREE.MeshLambertMaterial({ color: 0xf5e6c8 });
+  const fctRoof = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.05, 1.4), fctRoofMat);
+  fctRoof.position.y = 1.58;
+  fctGroup.add(fctRoof);
+  // serving window cut on side
+  const fctServeMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const fctServe = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.55, 0.04), fctServeMat);
+  fctServe.position.set(-0.2, 1.1, 0.72);
+  fctGroup.add(fctServe);
+  const fctAwningMat = new THREE.MeshLambertMaterial({ color: 0xffe066 });
+  const fctAwning = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.04, 0.5), fctAwningMat);
+  fctAwning.position.set(-0.2, 1.4, 0.95);
+  fctAwning.rotation.x = -0.3;
+  fctGroup.add(fctAwning);
+  // fish & chips sign on side using canvas
+  const fctSignCanvas = document.createElement('canvas');
+  fctSignCanvas.width = 256; fctSignCanvas.height = 64;
+  const fctCtx = fctSignCanvas.getContext('2d');
+  fctCtx.fillStyle = '#fffbe0';
+  fctCtx.fillRect(0, 0, 256, 64);
+  fctCtx.fillStyle = '#1a3a5a';
+  fctCtx.font = 'bold 36px sans-serif';
+  fctCtx.textAlign = 'center';
+  fctCtx.fillText('FISH & CHIPS', 128, 44);
+  const fctSignTex = new THREE.CanvasTexture(fctSignCanvas);
+  const fctSign = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.5), new THREE.MeshBasicMaterial({ map: fctSignTex }));
+  fctSign.position.set(-0.2, 0.55, 0.71);
+  fctGroup.add(fctSign);
+  // wheels
+  const fctWheelMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const fctWheelGeom = new THREE.CylinderGeometry(0.28, 0.28, 0.18, 12);
+  const fctWheelPos = [[1.4, 0.28, 0.65], [1.4, 0.28, -0.65], [-0.9, 0.28, 0.65], [-0.9, 0.28, -0.65]];
+  fctWheelPos.forEach((p) => {
+    const w = new THREE.Mesh(fctWheelGeom, fctWheelMat);
+    w.position.set(p[0], p[1], p[2]);
+    w.rotation.x = Math.PI / 2;
+    fctGroup.add(w);
+  });
+  // vendor in window
+  const fctVendor = new THREE.Group();
+  const fctVendorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.6, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  fctVendorBody.position.y = 0.3;
+  fctVendor.add(fctVendorBody);
+  const fctVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  fctVendorHead.position.y = 0.78;
+  fctVendor.add(fctVendorHead);
+  const fctVendorHat = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.18, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  fctVendorHat.position.y = 0.99;
+  fctVendor.add(fctVendorHat);
+  fctVendor.position.set(-0.6, 0.5, 0.4);
+  fctGroup.add(fctVendor);
+  // customer outside
+  const fctCustomer = new THREE.Group();
+  const fctCustBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.65, 8), new THREE.MeshLambertMaterial({ color: 0x4a90c2 }));
+  fctCustBody.position.y = 0.32;
+  fctCustomer.add(fctCustBody);
+  const fctCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xc99078 }));
+  fctCustHead.position.y = 0.82;
+  fctCustomer.add(fctCustHead);
+  fctCustomer.position.set(0.2, 0, 1.4);
+  fctGroup.add(fctCustomer);
+  fctGroup.position.set(36, 0, 18);
+  fctGroup.rotation.y = -0.4;
+  group.add(fctGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10649,6 +10838,19 @@ export function createAnchorageLandmark(THREE, opts) {
       wsSock.rotation.z = Math.sin(t * 1.2) * 0.2;
       // v58: sculptor head turns side to side
       smSculptorHead.rotation.y = Math.sin(t * 0.8) * 0.5;
+      // v59: dog runs in a small circle around the lighthouse area
+      const dogA = t * 1.6;
+      dogGroup.position.set(-30 + Math.cos(dogA) * 3.0, Math.abs(Math.sin(t * 6)) * 0.05, -8 + Math.sin(dogA) * 3.0);
+      dogGroup.rotation.y = -dogA + Math.PI / 2;
+      dogTail.rotation.z = -0.7 + Math.sin(t * 8) * 0.4;
+      dogLegs[0].rotation.x = Math.sin(t * 9) * 0.6;
+      dogLegs[1].rotation.x = -Math.sin(t * 9) * 0.6;
+      dogLegs[2].rotation.x = -Math.sin(t * 9) * 0.6;
+      dogLegs[3].rotation.x = Math.sin(t * 9) * 0.6;
+      // v59: mill wheel rotates
+      millWheel.rotation.x += 0.03;
+      // v59: fish & chips serving window: customer sways slightly
+      fctCustomer.rotation.y = Math.sin(t * 0.7) * 0.15;
     }
 
   }
