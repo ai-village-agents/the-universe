@@ -11875,7 +11875,33 @@ function createDirectoryHeading(text) {
 }
 
 function getDirectoryEntries() {
-    return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];
+    return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry'),
+  { name: 'Magnetar Crustquake Epoc', type: 'phenomenon', color: '#ff00ff', size: 13, description: 'Catastrophic rupture of the solid crust of a highly magnetized neutron star.' },
+  { name: 'Kilonova Ejecta Ring', type: 'phenomenon', color: '#ff4500', size: 10.5, description: 'Rapidly expanding ring of neutron-rich material ejected during a neutron star merger.' },
+  { name: 'Pulsar Wind Nebula Torus', type: 'nebula', color: '#00ffff', size: 15, description: 'Equatorial torus of relativistic particles energized by the wind from a central pulsar.' },
+  { name: 'Black Hole Accretion Disk Corona', type: 'phenomenon', color: '#ffff00', size: 9, description: 'Extremely hot, tenuous plasma region surrounding the inner accretion disk of a black hole.' },
+  { name: 'Relativistic Jet Bow Shock', type: 'phenomenon', color: '#ff0000', size: 18, description: 'Shock wave formed where a relativistic jet from an AGN plows into the surrounding intergalactic medium.' },
+  { name: 'Neutrino Cooling Phase', type: 'phenomenon', color: '#8a2be2', size: 7.5, description: 'Brief phase in a newly formed neutron star where energy is primarily radiated away by neutrinos.' },
+  { name: 'Supernova Remnant Reverse Shock', type: 'phenomenon', color: '#ffa500', size: 14.5, description: 'Shock wave moving inwards through the expanding ejecta of a supernova remnant.' },
+  { name: 'Magnetically Arrested Disk', type: 'phenomenon', color: '#00ff00', size: 11, description: 'Accretion disk state where strong magnetic fields disrupt the inward flow of matter.' },
+  { name: 'Tidal Disruption Event Flare', type: 'phenomenon', color: '#ff1493', size: 16, description: 'Intense burst of radiation produced when a star is torn apart by the tidal forces of a supermassive black hole.' },
+  { name: 'Gamma-Ray Burst Afterglow', type: 'phenomenon', color: '#00ced1', size: 12.5, description: 'Long-lived, multi-wavelength emission following the initial prompt burst of a GRB.' },
+  { name: 'Fast Radio Burst Dispersion', type: 'phenomenon', color: '#ffd700', size: 6.5, description: 'Frequency-dependent delay in the arrival time of an FRB pulse caused by propagation through plasma.' },
+  { name: 'Microquasar Jet Precession', type: 'phenomenon', color: '#ff69b4', size: 8, description: 'Wobbling motion of the relativistic jets emitted by a stellar-mass black hole or neutron star binary.' },
+  { name: 'X-ray Binary State Transition', type: 'phenomenon', color: '#7fffd4', size: 10, description: 'Sudden change in the spectral and timing properties of an X-ray binary system.' },
+  { name: 'Ultraluminous X-ray Source Envelope', type: 'phenomenon', color: '#ff8c00', size: 13.5, description: 'Optically thick envelope or wind thought to surround some super-Eddington accreting compact objects.' },
+  { name: 'Blandford-Znajek Jet Extraction', type: 'phenomenon', color: '#4b0082', size: 17, description: 'Mechanism for extracting energy from a rotating black hole to power relativistic jets.' },
+  { name: 'Penrose Process Ergosphere', type: 'phenomenon', color: '#8b0000', size: 9.5, description: 'Region outside the event horizon of a rotating black hole where energy extraction is theoretically possible.' },
+  { name: 'Gravitational Wave Ringdown', type: 'phenomenon', color: '#00fa9a', size: 11.5, description: 'Final phase of gravitational wave emission as a newly merged black hole settles into a stable state.' },
+  { name: 'Pair Instability Supernova Core', type: 'phenomenon', color: '#dc143c', size: 15.5, description: 'Core of a very massive star undergoing runaway collapse triggered by electron-positron pair production.' },
+  { name: 'Electron-Capture Supernova Front', type: 'phenomenon', color: '#0000ff', size: 12, description: 'Collapse of an O-Ne-Mg core triggered by electron capture onto magnesium and neon nuclei.' },
+  { name: 'Strange Quark Star Surface', type: 'phenomenon', color: '#ffebcd', size: 8.5, description: 'Hypothetical surface of a compact star composed entirely of strange quark matter.' },
+  { name: 'Boson Star Condensate', type: 'phenomenon', color: '#dda0dd', size: 7, description: 'Hypothetical compact object formed by a Bose-Einstein condensate of scalar particles.' },
+  { name: 'Dark Matter Annihilation Halo', type: 'phenomenon', color: '#2f4f4f', size: 19, description: 'Region of enhanced gamma-ray emission resulting from the annihilation of dark matter particles.' },
+  { name: 'Axion Minicluster Resonance', type: 'phenomenon', color: '#f0e68c', size: 6, description: 'Hypothetical resonant conversion of axions into photons within a dense minicluster.' },
+  { name: 'Primordial Black Hole Evaporation', type: 'phenomenon', color: '#cd5c5c', size: 5.5, description: 'Final explosive stage of Hawking radiation from a low-mass primordial black hole.' },
+  { name: 'Cosmic String Cusp Burst', type: 'phenomenon', color: '#fffacd', size: 14, description: 'Intense burst of gravitational waves and potentially other radiation from a highly curved point on a cosmic string.' }
+];
 }
 
 function handleDirectoryEntryKeydown(event, entry, activate) {
