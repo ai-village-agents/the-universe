@@ -13758,7 +13758,32 @@ const cosmicSights = [
     { name: "Very Long Baseline Jet Structure", position: [-0.69, 0.52, 0.50], color: "#8A2BE2", size: 1.9, description: "Parsec-scale jet morphology resolved through intercontinental interferometry." },
     { name: "Jet Viewing Angle Determination", position: [0.54, -0.41, 0.74], color: "#9400D3", size: 1.8, description: "A constraint on the line-of-sight angle to the jet axis from brightness asymmetry." },
     { name: "Relativistic Outflow Energy Budget", position: [-0.56, 0.64, -0.52], color: "#BA55D3", size: 2.0, description: "An estimate of total kinetic power carried by the relativistic jet." },
-    { name: "Jet Entrainment Boundary", position: [0.43, 0.58, 0.69], color: "#9932CC", size: 1.5, description: "The interface where ambient material is swept into the jet flow." }
+    { name: "Jet Entrainment Boundary", position: [0.43, 0.58, 0.69], color: "#9932CC", size: 1.5, description: "The interface where ambient material is swept into the jet flow." },
+  { name: "Axion Halo Core", position: [209322.2, -394534.2, 497815.7], color: "#4B0082", size: 5.3, description: "A region of intense exotic physics and invisible mass." },
+    { name: "WIMP Annihilation Zone", position: [286699.0, -348939.0, 493361.5], color: "#8A2BE2", size: 6.4, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Sterile Neutrino Cloud", position: [354143.4, -288146.2, 488857.3], color: "#9400D3", size: 4.5, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Dark Matter Web Strand", position: [408669.5, -214320.8, 484303.6], color: "#9932CC", size: 6.4, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Primordial Black Hole Cluster", position: [447763.9, -130214.2, 479700.7], color: "#8B008B", size: 5.2, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Cosmic String Fragment", position: [469500.3, -39060.4, 475049.1], color: "#4B0082", size: 4.1, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Domain Wall Remnant", position: [472631.5, 55549.5, 470349.4], color: "#8A2BE2", size: 6.5, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Vacuum Energy Fluctuation", position: [456654.9, 149809.5, 465601.9], color: "#9400D3", size: 5.1, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Quintessence Field Anomaly", position: [421847.8, 239853.9, 460807.1], color: "#9932CC", size: 4.3, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Tachyon Condensate Region", position: [369270.0, 321917.1, 455965.5], color: "#8B008B", size: 5.2, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Magnetic Monopole Drift", position: [300734.9, 392492.0, 451077.6], color: "#4B0082", size: 4.1, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Strangelet Swarm", position: [218747.0, 448480.6, 446143.9], color: "#8A2BE2", size: 4.4, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Q-ball Concentration", position: [126410.6, 487329.8, 441164.8], color: "#9400D3", size: 4.8, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Graviton Resonance Node", position: [27311.3, 507147.5, 436140.8], color: "#9932CC", size: 4.7, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Planck Scale Bubble", position: [-74625.0, 506791.8, 431072.4], color: "#8B008B", size: 5.5, description: "A region of intense exotic physics and invisible mass." },
+    { name: "String Theory Brane Collision", position: [-175288.6, 485931.1, 425960.2], color: "#4B0082", size: 4.4, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Micro-Wormhole Network", position: [-270553.4, 445071.3, 420804.6], color: "#8A2BE2", size: 4.9, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Naked Singularity Candidate", position: [-356447.9, 385548.3, 415606.2], color: "#9400D3", size: 6.5, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Wormhole Throat Opening", position: [-429321.4, 309485.8, 410365.4], color: "#9932CC", size: 5.9, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Tesseractic Spacetime Fold", position: [-486000.3, 219719.7, 405082.8], color: "#8B008B", size: 5.0, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Non-Baryonic Matter Eddy", position: [-523926.3, 119691.7, 399758.8], color: "#4B0082", size: 6.9, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Supersymmetry Echo", position: [-541271.6, 13316.4, 394394.1], color: "#8A2BE2", size: 6.1, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Boson Star Nucleus", position: [-537024.6, -95173.7, 388989.2], color: "#9400D3", size: 4.2, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Fuzzy Dark Matter Cloud", position: [-511043.4, -201398.1, 383544.5], color: "#9932CC", size: 4.4, description: "A region of intense exotic physics and invisible mass." },
+    { name: "Self-Interacting Dark Matter Pool", position: [-464074.3, -301006.9, 378060.7], color: "#8B008B", size: 4.7, description: "A region of intense exotic physics and invisible mass." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
