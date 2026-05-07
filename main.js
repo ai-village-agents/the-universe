@@ -12307,6 +12307,182 @@ const cosmicSights = [
     { name: "Temperature Inversion Lid", position: [4944, 94300, 2814], color: "#FA8072", description: "Stable layer trapping lower atmosphere" },
     { name: "Hydrodynamic Escape Flow", position: [4946, 94320, 2816], color: "#DB7093", description: "Bulk atmospheric outflow from hot planet" },
     { name: "Transit Transmission Spectrum", position: [4948, 94340, 2818], color: "#48D1CC", description: "Starlight filtering through exoplanet limb" }
+,
+  {
+    name: "Sirius B Degenerate Core",
+    position: [37890, -14500, 89100],
+    color: "#FFFFFF",
+    size: 1.2,
+    description: "High-density degenerate matter core of the brightest white dwarf"
+  },
+  {
+    name: "Procyon B Cooling Envelope",
+    position: [41200, -11200, 84300],
+    color: "#E0E0FF",
+    size: 1.1,
+    description: "Rapidly cooling outer hydrogen envelope of a nearby white dwarf"
+  },
+  {
+    name: "Van Maanen's Star Metallic Lines",
+    position: [39500, -13400, 86500],
+    color: "#FFD700",
+    size: 0.9,
+    description: "A solitary white dwarf exhibiting heavy metal pollution in its spectrum"
+  },
+  {
+    name: "WZ Sagittae Accretion Disk",
+    position: [45600, -16700, 81200],
+    color: "#FF4500",
+    size: 2.5,
+    description: "A dwarf nova with a hot, glowing accretion disk feeding a white dwarf"
+  },
+  {
+    name: "U Geminorum Outburst Zone",
+    position: [48900, -18900, 79000],
+    color: "#FF0000",
+    size: 2.8,
+    description: "The archetypal dwarf nova experiencing periodic explosive outbursts"
+  },
+  {
+    name: "SS Cygni Disk Instability",
+    position: [51200, -21000, 76500],
+    color: "#FFA500",
+    size: 2.6,
+    description: "A highly active cataclysmic variable exhibiting thermal disk instabilities"
+  },
+  {
+    name: "AM Herculis Magnetic Funnel",
+    position: [54500, -23400, 74300],
+    color: "#00FFFF",
+    size: 1.5,
+    description: "A polar cataclysmic variable where plasma flows along strong magnetic lines"
+  },
+  {
+    name: "DQ Herculis Spin Pulsation",
+    position: [57800, -25600, 71200],
+    color: "#8A2BE2",
+    size: 1.8,
+    description: "An intermediate polar showing rapid coherent spin pulsations"
+  },
+  {
+    name: "RS Ophiuchi Recurrent Nova Shell",
+    position: [61200, -28900, 68900],
+    color: "#FF1493",
+    size: 3.5,
+    description: "Expanding shock wave from a recurrent nova explosion interacting with a red giant wind"
+  },
+  {
+    name: "T Coronae Borealis Pre-Outburst Halo",
+    position: [64500, -31200, 65600],
+    color: "#FF69B4",
+    size: 3.2,
+    description: "A recurrent nova building up critical mass for an impending eruption"
+  },
+  {
+    name: "V838 Monocerotis Light Echo",
+    position: [67800, -34500, 62300],
+    color: "#FF8C00",
+    size: 4.5,
+    description: "A spectacular light echo illuminating surrounding circumstellar dust"
+  },
+  {
+    name: "Mira A Pulsation Cycle",
+    position: [71200, -37800, 59000],
+    color: "#DC143C",
+    size: 3.8,
+    description: "The prototype long-period variable star expanding and contracting"
+  },
+  {
+    name: "Delta Cephei Instability Strip",
+    position: [74500, -41200, 56700],
+    color: "#FFFF00",
+    size: 2.2,
+    description: "The foundational classical Cepheid variable used as a cosmic distance candle"
+  },
+  {
+    name: "Polaris A Mode Crossing",
+    position: [77800, -44500, 53400],
+    color: "#F0E68C",
+    size: 2.1,
+    description: "The North Star undergoing complex pulsational mode changes"
+  },
+  {
+    name: "RR Lyrae Horizontal Branch Cycle",
+    position: [81200, -47800, 51200],
+    color: "#ADD8E6",
+    size: 1.6,
+    description: "An ancient variable star serving as a galactic population indicator"
+  },
+  {
+    name: "ZZ Ceti Non-Radial Pulsator",
+    position: [84500, -51200, 48900],
+    color: "#B0E0E6",
+    size: 1.0,
+    description: "A pulsating white dwarf with complex, multi-periodic brightness variations"
+  },
+  {
+    name: "V471 Tauri Eclipse Path",
+    position: [87800, -54500, 45600],
+    color: "#9932CC",
+    size: 1.9,
+    description: "A post-common-envelope binary featuring precise mutual eclipses"
+  },
+  {
+    name: "V2051 Ophiuchi Spot Cycle",
+    position: [91200, -57800, 42300],
+    color: "#8B0000",
+    size: 2.4,
+    description: "An eclipsing dwarf nova showing evidence of magnetic star spots"
+  },
+  {
+    name: "SU Ursae Majoris Superoutburst",
+    position: [94500, -61200, 39000],
+    color: "#FF4500",
+    size: 2.9,
+    description: "A dwarf nova known for extreme, prolonged superoutbursts and superhumps"
+  },
+  {
+    name: "Z Camelopardalis Standstill State",
+    position: [97800, -64500, 36700],
+    color: "#DAA520",
+    size: 2.7,
+    description: "A cataclysmic variable that occasionally pauses at an intermediate brightness level"
+  },
+  {
+    name: "PG 1159 Star Carbon Envelope",
+    position: [101200, -67800, 33400],
+    color: "#696969",
+    size: 1.3,
+    description: "A hot, hydrogen-deficient pre-white dwarf undergoing extreme mass loss"
+  },
+  {
+    name: "Sirius B Gravitational Redshift",
+    position: [104500, -71200, 31200],
+    color: "#808080",
+    size: 1.1,
+    description: "The intense gravity well of Sirius B shifting its emitted light"
+  },
+  {
+    name: "RX J0806.3+1527 Gravitational Wave Source",
+    position: [107800, -74500, 28900],
+    color: "#4B0082",
+    size: 1.4,
+    description: "An ultra-compact binary white dwarf system decaying via gravitational radiation"
+  },
+  {
+    name: "AR Scorpii Pulsar-like White Dwarf",
+    position: [111200, -77800, 25600],
+    color: "#8A2BE2",
+    size: 1.7,
+    description: "A rapidly spinning white dwarf lashing its red dwarf companion with relativistic particles"
+  },
+  {
+    name: "V0332+53 Be-Star X-ray Transient",
+    position: [114500, -81200, 22300],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "A binary system where a compact object accretes from the decretion disk of a Be star"
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
