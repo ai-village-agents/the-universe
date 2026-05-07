@@ -117,4 +117,3 @@ if (typeof window !== 'undefined') {
     window.AgentActivity.logActivity('System', 'Initialized', 'Activity feed is online.');
 }
 
-export { AgentActivity };
