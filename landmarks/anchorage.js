@@ -13457,6 +13457,224 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(bbbGroup);
 
 
+
+  // v80: Whale-watch pontoon boat with passengers
+  const wwpGroup = new THREE.Group();
+  wwpGroup.position.set(35, 0, 8);
+  wwpGroup.rotation.y = -0.6;
+  // Pontoon hulls
+  const wwpHullMat = new THREE.MeshLambertMaterial({ color: 0xa0a0a8 });
+  const wwpHull1 = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 4.0, 16), wwpHullMat);
+  wwpHull1.rotation.z = Math.PI / 2;
+  wwpHull1.position.set(0, 0.0, -0.7);
+  wwpGroup.add(wwpHull1);
+  const wwpHull2 = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 4.0, 16), wwpHullMat);
+  wwpHull2.rotation.z = Math.PI / 2;
+  wwpHull2.position.set(0, 0.0, 0.7);
+  wwpGroup.add(wwpHull2);
+  // Deck
+  const wwpDeckMat = new THREE.MeshLambertMaterial({ color: 0xc8a070 });
+  const wwpDeck = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 1.8), wwpDeckMat);
+  wwpDeck.position.y = 0.3;
+  wwpGroup.add(wwpDeck);
+  // Bimini canopy posts
+  const wwpPostMat = new THREE.MeshLambertMaterial({ color: 0x404040 });
+  for (const [px, pz] of [[-1.5, -0.7], [1.5, -0.7], [-1.5, 0.7], [1.5, 0.7]]) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), wwpPostMat);
+    post.position.set(px, 1.1, pz);
+    wwpGroup.add(post);
+  }
+  // Bimini canopy
+  const wwpCanopyMat = new THREE.MeshLambertMaterial({ color: 0x208040, side: THREE.DoubleSide });
+  const wwpCanopy = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.04, 1.7), wwpCanopyMat);
+  wwpCanopy.position.y = 1.95;
+  wwpGroup.add(wwpCanopy);
+  // Railing
+  const wwpRailMat = new THREE.MeshLambertMaterial({ color: 0xd0d0d0 });
+  const wwpRailF = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.04, 0.04), wwpRailMat);
+  wwpRailF.position.set(0, 0.65, 0.9);
+  wwpGroup.add(wwpRailF);
+  const wwpRailB = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.04, 0.04), wwpRailMat);
+  wwpRailB.position.set(0, 0.65, -0.9);
+  wwpGroup.add(wwpRailB);
+  // Captain's console
+  const wwpConsoleMat = new THREE.MeshLambertMaterial({ color: 0x303040 });
+  const wwpConsole = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.4), wwpConsoleMat);
+  wwpConsole.position.set(1.5, 0.65, 0);
+  wwpGroup.add(wwpConsole);
+  const wwpWheelMat = new THREE.MeshLambertMaterial({ color: 0xb09080 });
+  const wwpWheel = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.018, 6, 16), wwpWheelMat);
+  wwpWheel.rotation.y = Math.PI / 2;
+  wwpWheel.position.set(1.5, 1.05, 0);
+  wwpGroup.add(wwpWheel);
+  // Passengers (4) lined along railing pointing
+  const wwpPassengerSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0c0a0 });
+  const wwpPassengerColors = [0xff4040, 0x4080ff, 0xffd040, 0x40c060];
+  const wwpPassengers = [];
+  for (let p = 0; p < 4; p++) {
+    const shirtMat = new THREE.MeshLambertMaterial({ color: wwpPassengerColors[p] });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.55, 12), shirtMat);
+    torso.position.set(-1.4 + p * 0.85, 0.65, 0.65);
+    wwpGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 12), wwpPassengerSkinMat);
+    head.position.set(-1.4 + p * 0.85, 1.04, 0.65);
+    wwpGroup.add(head);
+    wwpPassengers.push({ torso, head });
+  }
+  // Wake
+  const wwpWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
+  const wwpWake = new THREE.Mesh(new THREE.RingGeometry(0.4, 1.0, 20, 1, 0, Math.PI), wwpWakeMat);
+  wwpWake.rotation.x = -Math.PI / 2;
+  wwpWake.position.set(-2.4, 0.02, 0);
+  wwpGroup.add(wwpWake);
+  // Distant whale fluke breaching (smaller scale)
+  const wwpFlukeMat = new THREE.MeshLambertMaterial({ color: 0x303838 });
+  const wwpFluke = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.6, 0.9), wwpFlukeMat);
+  wwpFluke.position.set(2.5, 0.2, 1.4);
+  wwpFluke.rotation.x = -0.4;
+  wwpGroup.add(wwpFluke);
+  // Spray under fluke
+  const wwpSprayMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const wwpSpray = new THREE.Mesh(new THREE.SphereGeometry(0.3, 10, 8), wwpSprayMat);
+  wwpSpray.scale.set(1.5, 0.6, 1.5);
+  wwpSpray.position.set(2.5, 0.05, 1.4);
+  wwpGroup.add(wwpSpray);
+  group.add(wwpGroup);
+
+  // v80: Beach easel painter (artist with painting)
+  const bepGroup = new THREE.Group();
+  bepGroup.position.set(7, 0, 13);
+  bepGroup.rotation.y = -0.7;
+  // Easel tripod legs
+  const bepLegMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  const bepLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 8), bepLegMat);
+  bepLeg1.position.set(-0.18, 0.8, 0.0);
+  bepLeg1.rotation.x = -0.15;
+  bepGroup.add(bepLeg1);
+  const bepLeg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 8), bepLegMat);
+  bepLeg2.position.set(0.18, 0.8, 0.0);
+  bepLeg2.rotation.x = -0.15;
+  bepGroup.add(bepLeg2);
+  const bepLeg3 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 8), bepLegMat);
+  bepLeg3.position.set(0, 0.8, 0.3);
+  bepLeg3.rotation.x = 0.25;
+  bepGroup.add(bepLeg3);
+  // Canvas
+  const bepCanvasMat = new THREE.MeshLambertMaterial({ color: 0xfff8e0 });
+  const bepCanvas = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.85, 0.04), bepCanvasMat);
+  bepCanvas.position.set(0, 1.3, -0.05);
+  bepGroup.add(bepCanvas);
+  // Painted scene on canvas (blue water + sun)
+  const bepPaintWaterMat = new THREE.MeshLambertMaterial({ color: 0x4080c0 });
+  const bepPaintWater = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.35, 0.005), bepPaintWaterMat);
+  bepPaintWater.position.set(0, 1.15, -0.03);
+  bepGroup.add(bepPaintWater);
+  const bepPaintSkyMat = new THREE.MeshLambertMaterial({ color: 0xffd0a0 });
+  const bepPaintSky = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.4, 0.005), bepPaintSkyMat);
+  bepPaintSky.position.set(0, 1.5, -0.03);
+  bepGroup.add(bepPaintSky);
+  const bepPaintSunMat = new THREE.MeshLambertMaterial({ color: 0xffe040 });
+  const bepPaintSun = new THREE.Mesh(new THREE.CircleGeometry(0.07, 16), bepPaintSunMat);
+  bepPaintSun.position.set(0.18, 1.5, -0.025);
+  bepGroup.add(bepPaintSun);
+  // Painter
+  const bepPainterShirtMat = new THREE.MeshLambertMaterial({ color: 0x8050a0 });
+  const bepPainterSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0b890 });
+  const bepPainterTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 12), bepPainterShirtMat);
+  bepPainterTorso.position.set(0.7, 1.0, 0.5);
+  bepGroup.add(bepPainterTorso);
+  const bepPainterHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), bepPainterSkinMat);
+  bepPainterHead.position.set(0.7, 1.45, 0.5);
+  bepGroup.add(bepPainterHead);
+  // Painter's hat (beret)
+  const bepBeretMat = new THREE.MeshLambertMaterial({ color: 0x202040 });
+  const bepBeret = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.16, 0.05, 16), bepBeretMat);
+  bepBeret.position.set(0.7, 1.62, 0.5);
+  bepGroup.add(bepBeret);
+  // Brush in hand
+  const bepBrushMat = new THREE.MeshLambertMaterial({ color: 0xa07050 });
+  const bepBrush = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.3, 6), bepBrushMat);
+  bepBrush.rotation.z = 0.5;
+  bepBrush.position.set(0.4, 1.25, 0.2);
+  bepGroup.add(bepBrush);
+  // Palette
+  const bepPaletteMat = new THREE.MeshLambertMaterial({ color: 0xc8a878 });
+  const bepPalette = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.02, 24), bepPaletteMat);
+  bepPalette.rotation.x = Math.PI / 2;
+  bepPalette.position.set(1.0, 1.0, 0.4);
+  bepGroup.add(bepPalette);
+  group.add(bepGroup);
+
+  // v80: Tide pool docent with kids
+  const tpdGroup = new THREE.Group();
+  tpdGroup.position.set(-9, 0.05, -10);
+  tpdGroup.rotation.y = 0.5;
+  // Tide pool rocks
+  const tpdRockMat = new THREE.MeshLambertMaterial({ color: 0x707068 });
+  for (let r = 0; r < 6; r++) {
+    const angle = (r / 6) * Math.PI * 2;
+    const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.25 + Math.random() * 0.1, 0), tpdRockMat);
+    rock.position.set(Math.cos(angle) * 0.7, 0.1, Math.sin(angle) * 0.7);
+    tpdGroup.add(rock);
+  }
+  // Pool water
+  const tpdWaterMat = new THREE.MeshLambertMaterial({ color: 0x3080a8, transparent: true, opacity: 0.7 });
+  const tpdWater = new THREE.Mesh(new THREE.CircleGeometry(0.55, 24), tpdWaterMat);
+  tpdWater.rotation.x = -Math.PI / 2;
+  tpdWater.position.y = 0.06;
+  tpdGroup.add(tpdWater);
+  // Starfish in pool
+  const tpdStarMat = new THREE.MeshLambertMaterial({ color: 0xe05030 });
+  const tpdStarPositions = [[0.1, 0.07, 0.2], [-0.2, 0.07, -0.15]];
+  for (const [sx, sy, sz] of tpdStarPositions) {
+    const star = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.02, 5), tpdStarMat);
+    star.position.set(sx, sy, sz);
+    tpdGroup.add(star);
+  }
+  // Sea anemone (in pool)
+  const tpdAnemoneMat = new THREE.MeshLambertMaterial({ color: 0x60c060 });
+  const tpdAnemone = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), tpdAnemoneMat);
+  tpdAnemone.position.set(0.3, 0.07, -0.1);
+  tpdGroup.add(tpdAnemone);
+  // Docent
+  const tpdDocentSkinMat = new THREE.MeshLambertMaterial({ color: 0xd0a080 });
+  const tpdDocentShirtMat = new THREE.MeshLambertMaterial({ color: 0x208060 });
+  const tpdDocentTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.6, 12), tpdDocentShirtMat);
+  tpdDocentTorso.position.set(1.4, 0.6, 0);
+  tpdGroup.add(tpdDocentTorso);
+  const tpdDocentHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 14, 12), tpdDocentSkinMat);
+  tpdDocentHead.position.set(1.4, 1.05, 0);
+  tpdGroup.add(tpdDocentHead);
+  // Docent hat (sun hat)
+  const tpdHatMat = new THREE.MeshLambertMaterial({ color: 0xe0c890 });
+  const tpdHatBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.025, 16), tpdHatMat);
+  tpdHatBrim.position.set(1.4, 1.22, 0);
+  tpdGroup.add(tpdHatBrim);
+  const tpdHatTop = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.15, 14), tpdHatMat);
+  tpdHatTop.position.set(1.4, 1.32, 0);
+  tpdGroup.add(tpdHatTop);
+  // 3 kids gathered around pool, smaller scale
+  const tpdKidColors = [0xff8040, 0x8040c0, 0xffd040];
+  const tpdKids = [];
+  for (let k = 0; k < 3; k++) {
+    const angle = -1.0 + k * 1.0;
+    const shirt = new THREE.MeshLambertMaterial({ color: tpdKidColors[k] });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.15, 0.4, 12), shirt);
+    const x = Math.cos(angle) * 1.1;
+    const z = Math.sin(angle) * 1.1;
+    torso.position.set(x, 0.42, z);
+    tpdGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), tpdDocentSkinMat);
+    head.position.set(x, 0.72, z);
+    tpdGroup.add(head);
+    // Bend forward toward pool
+    torso.rotation.x = -0.3 * Math.cos(angle);
+    torso.rotation.z = -0.3 * Math.sin(angle);
+    tpdKids.push({ torso, head, baseAngle: angle });
+  }
+  group.add(tpdGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -15544,6 +15762,25 @@ export function createAnchorageLandmark(THREE, opts) {
         bbbSingerHead.rotation.y = 0.3 * Math.sin(t * 1.2);
         bbbSingerHead.position.y = 1.05 + 0.04 * Math.sin(t * 2.4);
         bbbGuitarTorso.rotation.z = 0.05 * Math.sin(t * 2);
+        // v80: Whale-watch boat - bobbing, passengers pointing, fluke rises
+        wwpGroup.position.y = 0.05 * Math.sin(t * 0.6);
+        for (let p = 0; p < wwpPassengers.length; p++) {
+          wwpPassengers[p].head.rotation.y = 0.4 * Math.sin(t * 0.5 + p * 0.3);
+        }
+        const wwpFlukePhase = (t * 0.4) % 2;
+        wwpFluke.position.y = wwpFlukePhase < 1 ? 0.2 + wwpFlukePhase * 0.8 : 0.2 + (2 - wwpFlukePhase) * 0.8;
+        wwpSpray.material.opacity = wwpFlukePhase < 0.3 ? 0.6 : Math.max(0, 0.6 - (wwpFlukePhase - 0.3) * 1.5);
+        // v80: Painter brush stroke motion
+        bepBrush.position.x = 0.4 + 0.08 * Math.sin(t * 4);
+        bepBrush.position.y = 1.25 + 0.06 * Math.cos(t * 4);
+        bepPainterTorso.rotation.z = 0.04 * Math.sin(t * 2);
+        // v80: Tide pool kids leaning, docent gestures
+        for (let k = 0; k < tpdKids.length; k++) {
+          tpdKids[k].head.rotation.x = 0.2 + 0.15 * Math.sin(t * 1.5 + k * 0.4);
+        }
+        tpdDocentHead.rotation.y = 0.5 * Math.sin(t * 0.6);
+        tpdAnemone.scale.y = 1 + 0.2 * Math.sin(t * 1.8);
+
 
 
 
