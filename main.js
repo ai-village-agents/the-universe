@@ -12082,7 +12082,7 @@ const cosmicSights = [
     discoveryDate: '2026-05-07',
     type: 'Phenomenon'
   },
-  {
+{
     name: "Planetary Transit Photometry",
     position: [4693, 91940, 2568],
     color: "#FF8C00",
@@ -12256,7 +12256,32 @@ const cosmicSights = [
     color: "#FF69B4",
     size: 1,
     description: "Planet mass from dynamical constraints and models"
-  },
+  },,
+    { name: "Hydrogen Alpha Core Reversal", position: [4850, 93360, 2720], color: "#FF6B6B", description: "Self-absorption feature in chromospheric emission line" },
+    { name: "Calcium II K Line Emission Peak", position: [4852, 93380, 2722], color: "#9370DB", description: "Chromospheric activity indicator in violet spectrum" },
+    { name: "Sodium D1 D2 Doublet Pair", position: [4854, 93400, 2724], color: "#FFD700", description: "Interstellar medium tracer in yellow spectrum" },
+    { name: "Iron Line Forest Region", position: [4856, 93420, 2726], color: "#4682B4", description: "Dense metal absorption complex in stellar photosphere" },
+    { name: "Helium 10830 Chromospheric Probe", position: [4858, 93440, 2728], color: "#00CED1", description: "Metastable helium tracing upper atmosphere" },
+    { name: "Oxygen Triplet 7774 Feature", position: [4860, 93460, 2730], color: "#98FB98", description: "High-excitation oxygen absorption diagnostic" },
+    { name: "CH G-Band Molecular Index", position: [4862, 93480, 2732], color: "#DEB887", description: "Carbon abundance indicator in cool stars" },
+    { name: "TiO Gamma Band System", position: [4864, 93500, 2734], color: "#CD853F", description: "Temperature diagnostic in M-dwarf spectra" },
+    { name: "VO A-Band Absorption Feature", position: [4866, 93520, 2736], color: "#8B4513", description: "Vanadium oxide in late-type stellar atmospheres" },
+    { name: "Molecular Dissociation Equilibrium", position: [4868, 93540, 2738], color: "#FF8C00", description: "Temperature-dependent molecule breakup zone" },
+    { name: "Isotope Shift Spectral Pattern", position: [4870, 93560, 2740], color: "#7B68EE", description: "Nuclear mass effects on atomic transitions" },
+    { name: "Pressure Broadening Coefficient Zone", position: [4872, 93580, 2742], color: "#6A5ACD", description: "Collisional line width enhancement region" },
+    { name: "Turbulent Velocity Broadening Field", position: [4874, 93600, 2744], color: "#4169E1", description: "Non-thermal motion signature in line profiles" },
+    { name: "Radiative Damping Constant Region", position: [4876, 93620, 2746], color: "#483D8B", description: "Natural line width from spontaneous emission" },
+    { name: "Voigt Profile Fit Domain", position: [4878, 93640, 2748], color: "#191970", description: "Combined Gaussian-Lorentzian line shape region" },
+    { name: "Line Asymmetry Convective Shift", position: [4880, 93660, 2750], color: "#00BFFF", description: "Granulation-induced spectral line distortion" },
+    { name: "Blended Multiplet Complex", position: [4882, 93680, 2752], color: "#5F9EA0", description: "Overlapping transitions from same ion" },
+    { name: "Wavelength Solution Anchor Point", position: [4884, 93700, 2754], color: "#20B2AA", description: "Reference line for spectral calibration" },
+    { name: "Telluric Absorption Mask Region", position: [4886, 93720, 2756], color: "#48D1CC", description: "Earth atmosphere contamination zone" },
+    { name: "Continuum Placement Level", position: [4888, 93740, 2758], color: "#AFEEEE", description: "Reference flux for absorption depth measurement" },
+    { name: "Echelle Order Boundary", position: [4890, 93760, 2760], color: "#B0E0E6", description: "High-resolution spectrograph format edge" },
+    { name: "Fiber Optic Mode Pattern", position: [4892, 93780, 2762], color: "#87CEEB", description: "Light scrambling for stable line profiles" },
+    { name: "Iodine Cell Absorption Reference", position: [4894, 93800, 2764], color: "#87CEFA", description: "Molecular standard for precision velocimetry" },
+    { name: "Laser Comb Calibration Grid", position: [4896, 93820, 2766], color: "#00FA9A", description: "Femtosecond laser frequency reference" },
+    { name: "Barycentric Velocity Correction", position: [4898, 93840, 2768], color: "#3CB371", description: "Earth motion removal for stellar radial velocity" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
