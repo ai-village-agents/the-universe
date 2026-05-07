@@ -13733,7 +13733,32 @@ const cosmicSights = [
     { name: "Cluster Red Sequence Ridge", position: [-0.74, 0.47, 0.48], color: "#4682B4", size: 1.8, description: "The color-magnitude relation of passively evolving cluster elliptical galaxies." },
     { name: "Cluster Backsplash Population", position: [0.59, -0.36, 0.73], color: "#5F9EA0", size: 1.7, description: "Galaxies that passed through the cluster core and now orbit in the outskirts." },
     { name: "Cluster X-ray Cavitation Zone", position: [-0.52, 0.68, -0.52], color: "#6495ED", size: 2.0, description: "A depression in X-ray emission from a jet-inflated bubble in the hot gas." },
-    { name: "Cluster Dynamical Friction Track", position: [0.47, 0.54, 0.70], color: "#4169E1", size: 1.6, description: "The orbital decay path of a massive galaxy spiraling toward the cluster center." }
+    { name: "Cluster Dynamical Friction Track", position: [0.47, 0.54, 0.70], color: "#4169E1", size: 1.6, description: "The orbital decay path of a massive galaxy spiraling toward the cluster center." },
+    { name: "Relativistic Jet Knot Brightening", position: [0.62, -0.48, 0.62], color: "#9932CC", size: 2.1, description: "A localized enhancement in jet emission from internal shock compression." },
+    { name: "Superluminal Motion Source", position: [-0.55, 0.57, -0.60], color: "#8A2BE2", size: 1.9, description: "An apparent faster-than-light jet component from relativistic Doppler boosting geometry." },
+    { name: "Relativistic Beaming Cone", position: [0.38, 0.76, 0.53], color: "#9400D3", size: 2.0, description: "The narrow solid angle where Doppler-boosted emission is concentrated." },
+    { name: "Jet Lorentz Factor Transition", position: [-0.73, -0.31, 0.61], color: "#BA55D3", size: 1.8, description: "A region where the jet bulk velocity changes significantly along its path." },
+    { name: "Counter-Jet Detection Site", position: [0.29, -0.71, -0.64], color: "#9932CC", size: 1.7, description: "A faint receding jet visible despite relativistic de-boosting." },
+    { name: "Blazar Emission Zone Core", position: [-0.48, 0.68, 0.55], color: "#8A2BE2", size: 2.2, description: "The compact region producing variable high-energy blazar radiation." },
+    { name: "Relativistic Electron Population", position: [0.81, 0.23, -0.54], color: "#9400D3", size: 1.6, description: "A distribution of ultrarelativistic particles producing synchrotron radiation." },
+    { name: "Inverse Compton Scattering Site", position: [-0.34, -0.77, -0.54], color: "#BA55D3", size: 1.9, description: "A region where relativistic electrons upscatter photons to gamma-ray energies." },
+    { name: "Synchrotron Self-Absorption Layer", position: [0.66, 0.51, 0.55], color: "#9932CC", size: 1.5, description: "A dense zone where synchrotron photons are reabsorbed by the emitting electrons." },
+    { name: "Jet Collimation Sheath", position: [-0.76, 0.39, 0.52], color: "#8A2BE2", size: 2.0, description: "The boundary layer confining the relativistic jet through magnetic forces." },
+    { name: "Hotspot Terminal Shock", position: [0.33, -0.79, 0.52], color: "#9400D3", size: 1.8, description: "The bright termination where a jet impacts the surrounding medium." },
+    { name: "Cocoon Expansion Front", position: [-0.51, 0.52, -0.69], color: "#BA55D3", size: 1.7, description: "The outer boundary of jet-inflated plasma expanding into ambient gas." },
+    { name: "Jet Precession Helix", position: [0.72, -0.39, 0.57], color: "#9932CC", size: 2.1, description: "A helical jet pattern from precessing spin axis of the central black hole." },
+    { name: "Relativistic Reconnection Layer", position: [-0.27, 0.83, 0.49], color: "#8A2BE2", size: 1.6, description: "A site where magnetic field lines reconnect in relativistic plasma." },
+    { name: "Pair Plasma Production Zone", position: [0.55, 0.43, -0.72], color: "#9400D3", size: 1.9, description: "A region where gamma-ray photons create electron-positron pairs." },
+    { name: "TeV Blazar Flare Origin", position: [-0.63, -0.53, 0.56], color: "#BA55D3", size: 2.0, description: "The compact zone producing rapid very-high-energy gamma-ray variability." },
+    { name: "Jet Magnetic Field Ordering", position: [0.48, 0.67, 0.57], color: "#9932CC", size: 1.8, description: "A region showing coherent magnetic field structure through polarization." },
+    { name: "Doppler Factor Gradient Zone", position: [-0.61, 0.31, -0.73], color: "#8A2BE2", size: 1.5, description: "An area where changing jet orientation produces varying Doppler enhancement." },
+    { name: "Jet Base Acceleration Region", position: [0.77, -0.49, -0.40], color: "#9400D3", size: 2.2, description: "The zone near the black hole where jets are launched and accelerated." },
+    { name: "Relativistic Shock Particle Acceleration", position: [-0.44, -0.59, 0.68], color: "#BA55D3", size: 1.7, description: "A shock front accelerating particles to ultrarelativistic energies." },
+    { name: "Jet Opening Angle Constraint", position: [0.39, 0.78, -0.49], color: "#9932CC", size: 1.6, description: "A measurement limiting the intrinsic jet cone width from observations." },
+    { name: "Very Long Baseline Jet Structure", position: [-0.69, 0.52, 0.50], color: "#8A2BE2", size: 1.9, description: "Parsec-scale jet morphology resolved through intercontinental interferometry." },
+    { name: "Jet Viewing Angle Determination", position: [0.54, -0.41, 0.74], color: "#9400D3", size: 1.8, description: "A constraint on the line-of-sight angle to the jet axis from brightness asymmetry." },
+    { name: "Relativistic Outflow Energy Budget", position: [-0.56, 0.64, -0.52], color: "#BA55D3", size: 2.0, description: "An estimate of total kinetic power carried by the relativistic jet." },
+    { name: "Jet Entrainment Boundary", position: [0.43, 0.58, 0.69], color: "#9932CC", size: 1.5, description: "The interface where ambient material is swept into the jet flow." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
