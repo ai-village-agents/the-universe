@@ -12858,6 +12858,166 @@ export function createAnchorageLandmark(THREE, opts) {
   }
 
 
+  // v77: Coast guard patrol RIB
+  const cgRibGroup = new THREE.Group();
+  cgRibGroup.position.set(38, 0.05, -22);
+  group.add(cgRibGroup);
+  const cgHullMat = new THREE.MeshStandardMaterial({ color: 0xff5722, roughness: 0.5 });
+  const cgInteriorMat = new THREE.MeshStandardMaterial({ color: 0x424242, roughness: 0.7 });
+  const cgHull = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 4.0, 12, 1, false, 0, Math.PI), cgHullMat);
+  cgHull.rotation.z = Math.PI / 2;
+  cgHull.rotation.y = Math.PI;
+  cgHull.position.y = 0.5;
+  cgRibGroup.add(cgHull);
+  const cgInterior = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.2, 0.7), cgInteriorMat);
+  cgInterior.position.y = 0.55;
+  cgRibGroup.add(cgInterior);
+  // Console / steering
+  const cgConsoleMat = new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.5 });
+  const cgConsole = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), cgConsoleMat);
+  cgConsole.position.set(0.4, 0.85, 0);
+  cgRibGroup.add(cgConsole);
+  // Stripe
+  const cgStripeMat = new THREE.MeshStandardMaterial({ color: 0x1565c0, roughness: 0.5 });
+  const cgStripe = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.12, 0.08), cgStripeMat);
+  cgStripe.position.set(0, 0.55, 0.4);
+  cgRibGroup.add(cgStripe);
+  // Two crew
+  const cgUniformMat = new THREE.MeshStandardMaterial({ color: 0x1a237e, roughness: 0.5 });
+  const cgSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  for (let i = 0; i < 2; i++) {
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.7, 8), cgUniformMat);
+    torso.position.set(-0.5 + i * 1.2, 1.0, 0);
+    cgRibGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), cgSkinMat);
+    head.position.set(-0.5 + i * 1.2, 1.5, 0);
+    cgRibGroup.add(head);
+    const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4 }));
+    helmet.position.set(-0.5 + i * 1.2, 1.55, 0);
+    cgRibGroup.add(helmet);
+  }
+  // Light bar
+  const cgLightBarMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.6 });
+  const cgLightBar = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.08, 0.2), cgLightBarMat);
+  cgLightBar.position.set(0.4, 1.2, 0);
+  cgRibGroup.add(cgLightBar);
+  const cgRedLight = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
+  cgRedLight.position.set(0.25, 1.25, 0);
+  cgRibGroup.add(cgRedLight);
+  const cgBlueLight = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshBasicMaterial({ color: 0x0000ff }));
+  cgBlueLight.position.set(0.55, 1.25, 0);
+  cgRibGroup.add(cgBlueLight);
+  // Wake
+  const cgWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
+  const cgWake = new THREE.Mesh(new THREE.RingGeometry(0.6, 1.6, 16, 1, 0, Math.PI), cgWakeMat);
+  cgWake.rotation.x = -Math.PI / 2;
+  cgWake.position.set(-2.2, 0.04, 0);
+  cgRibGroup.add(cgWake);
+
+  // v77: Sunset hammock siesta
+  const hammockSGroup = new THREE.Group();
+  hammockSGroup.position.set(22, 0.05, -8);
+  group.add(hammockSGroup);
+  const hsTrunkMat = new THREE.MeshStandardMaterial({ color: 0x6d4c41, roughness: 0.9 });
+  const hsTrunk1 = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 3.0, 8), hsTrunkMat);
+  hsTrunk1.position.set(-1.5, 1.5, 0);
+  hammockSGroup.add(hsTrunk1);
+  const hsTrunk2 = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 3.0, 8), hsTrunkMat);
+  hsTrunk2.position.set(1.5, 1.5, 0);
+  hammockSGroup.add(hsTrunk2);
+  // Palm fronds
+  const hsFrondMat = new THREE.MeshStandardMaterial({ color: 0x2e7d32, roughness: 0.7 });
+  for (let p = 0; p < 2; p++) {
+    for (let f = 0; f < 5; f++) {
+      const ang = (f / 5) * Math.PI * 2;
+      const frond = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.9, 5), hsFrondMat);
+      frond.position.set(-1.5 + p * 3.0 + Math.cos(ang) * 0.3, 3.2, Math.sin(ang) * 0.3);
+      frond.rotation.z = Math.cos(ang) * 0.6;
+      frond.rotation.x = Math.sin(ang) * 0.6;
+      hammockSGroup.add(frond);
+    }
+  }
+  // Hammock cloth
+  const hsClothMat = new THREE.MeshStandardMaterial({ color: 0xff7043, roughness: 0.8, side: THREE.DoubleSide });
+  const hsCloth = new THREE.Mesh(new THREE.SphereGeometry(1.5, 12, 8, 0, Math.PI * 2, 0, Math.PI / 4), hsClothMat);
+  hsCloth.rotation.x = Math.PI;
+  hsCloth.position.set(0, 1.4, 0);
+  hsCloth.scale.set(1, 0.4, 0.6);
+  hammockSGroup.add(hsCloth);
+  // Hammock ropes
+  const hsRopeMat = new THREE.LineBasicMaterial({ color: 0x8d6e63 });
+  const hsRopeG1 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-1.5, 1.6, 0), new THREE.Vector3(-1.0, 1.4, 0)]);
+  hammockSGroup.add(new THREE.Line(hsRopeG1, hsRopeMat));
+  const hsRopeG2 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(1.5, 1.6, 0), new THREE.Vector3(1.0, 1.4, 0)]);
+  hammockSGroup.add(new THREE.Line(hsRopeG2, hsRopeMat));
+  // Sleeper (just torso + head visible)
+  const hsSleeperSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  const hsSleeperShirtMat = new THREE.MeshStandardMaterial({ color: 0x42a5f5, roughness: 0.5 });
+  const hsTorso = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.18, 0.4), hsSleeperShirtMat);
+  hsTorso.position.set(0, 1.3, 0);
+  hammockSGroup.add(hsTorso);
+  const hsHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), hsSleeperSkinMat);
+  hsHead.position.set(0.5, 1.35, 0);
+  hammockSGroup.add(hsHead);
+  // Sun hat over face
+  const hsHatMat = new THREE.MeshStandardMaterial({ color: 0xfff3b0, roughness: 0.7 });
+  const hsHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.04, 12), hsHatMat);
+  hsHat.position.set(0.5, 1.45, 0);
+  hammockSGroup.add(hsHat);
+
+  // v77: Reef ecology research boat
+  const reefBoatGroup = new THREE.Group();
+  reefBoatGroup.position.set(-44, 0.05, -16);
+  group.add(reefBoatGroup);
+  const rbHullMat = new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.5 });
+  const rbHullStripeMat = new THREE.MeshStandardMaterial({ color: 0x00897b, roughness: 0.5 });
+  const rbHull = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.6, 1.4), rbHullMat);
+  rbHull.position.y = 0.4;
+  reefBoatGroup.add(rbHull);
+  const rbHullBow = new THREE.Mesh(new THREE.ConeGeometry(0.7, 1.0, 4), rbHullMat);
+  rbHullBow.position.set(2.5, 0.4, 0);
+  rbHullBow.rotation.z = -Math.PI / 2;
+  rbHullBow.rotation.y = Math.PI / 4;
+  reefBoatGroup.add(rbHullBow);
+  const rbStripe = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.1, 0.05), rbHullStripeMat);
+  rbStripe.position.set(0, 0.5, 0.72);
+  reefBoatGroup.add(rbStripe);
+  // Cabin
+  const rbCabinMat = new THREE.MeshStandardMaterial({ color: 0xe0e0e0, roughness: 0.5 });
+  const rbCabin = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.7, 1.0), rbCabinMat);
+  rbCabin.position.set(-1.0, 1.05, 0);
+  reefBoatGroup.add(rbCabin);
+  // Research equipment - winch + cable to water with sample collector
+  const rbWinchMat = new THREE.MeshStandardMaterial({ color: 0x37474f, roughness: 0.6 });
+  const rbWinch = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.4, 10), rbWinchMat);
+  rbWinch.position.set(1.2, 0.85, 0);
+  rbWinch.rotation.z = Math.PI / 2;
+  reefBoatGroup.add(rbWinch);
+  const rbCableMat = new THREE.LineBasicMaterial({ color: 0x424242 });
+  const rbCableG = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(1.2, 0.85, 0), new THREE.Vector3(2.0, 0.6, 0), new THREE.Vector3(2.4, -0.3, 0)]);
+  reefBoatGroup.add(new THREE.Line(rbCableG, rbCableMat));
+  const rbSampleMat = new THREE.MeshStandardMaterial({ color: 0xfff176, roughness: 0.5 });
+  const rbSample = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.25, 8), rbSampleMat);
+  rbSample.position.set(2.4, -0.3, 0);
+  reefBoatGroup.add(rbSample);
+  // Two scientists
+  const rbCoatMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.6 });
+  const rbSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  for (let i = 0; i < 2; i++) {
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.7, 8), rbCoatMat);
+    torso.position.set(0.0 + i * 0.8, 1.05, -0.2);
+    reefBoatGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), rbSkinMat);
+    head.position.set(0.0 + i * 0.8, 1.55, -0.2);
+    reefBoatGroup.add(head);
+  }
+  // Antenna
+  const rbAntennaMat = new THREE.MeshStandardMaterial({ color: 0x424242, roughness: 0.7 });
+  const rbAntenna = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.8, 6), rbAntennaMat);
+  rbAntenna.position.set(-1.2, 1.8, 0);
+  reefBoatGroup.add(rbAntenna);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -14891,6 +15051,20 @@ export function createAnchorageLandmark(THREE, opts) {
         for (let i = 0; i < sealPups.length; i++) {
           sealPups[i].scale.y = 1.0 + 0.05 * Math.sin(t * 1.5 + i * 0.7);
         }
+        // v77 RIB lights flash + boat bob + wake fade
+        cgRedLight.material.color.setHex((Math.sin(t * 5) > 0) ? 0xff0000 : 0x300000);
+        cgBlueLight.material.color.setHex((Math.sin(t * 5) > 0) ? 0x300000 : 0x0000ff);
+        cgRibGroup.position.y = 0.05 + 0.06 * Math.sin(t * 1.5);
+        cgWake.material.opacity = 0.4 + 0.2 * Math.sin(t * 2.0);
+        // v77 Hammock sway
+        hsCloth.rotation.z = 0.06 * Math.sin(t * 0.8);
+        hsTorso.position.x = 0.06 * Math.sin(t * 0.8);
+        hsHead.position.x = 0.5 + 0.06 * Math.sin(t * 0.8);
+        hsHat.position.x = 0.5 + 0.06 * Math.sin(t * 0.8);
+        // v77 Research boat bob + sample bob below water
+        reefBoatGroup.position.y = 0.05 + 0.06 * Math.sin(t * 1.0);
+        rbSample.position.y = -0.3 + 0.06 * Math.sin(t * 1.4);
+
 
 
       }
