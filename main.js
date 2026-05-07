@@ -11902,7 +11902,6 @@ function createDirectoryHeading(text) {
 function getDirectoryEntries() {
     return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];
 }
-
 function handleDirectoryEntryKeydown(event, entry, activate) {
     if (event.target.closest('a')) return;
     const entries = getDirectoryEntries();
