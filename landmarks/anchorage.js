@@ -14034,6 +14034,189 @@ export function createAnchorageLandmark(THREE, opts) {
   sthGroup.add(sthPuff);
   group.add(sthGroup);
 
+
+  // v83: Beach saxophone busker
+  const bsxGroup = new THREE.Group();
+  bsxGroup.position.set(8, 0.2, 22);
+  const bsxPlayerSkinMat = new THREE.MeshLambertMaterial({ color: 0xC68642 });
+  const bsxPlayerShirtMat = new THREE.MeshLambertMaterial({ color: 0x222244 });
+  const bsxPlayerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.85, 0.32), bsxPlayerShirtMat);
+  bsxPlayerTorso.position.set(0, 0.85, 0);
+  bsxGroup.add(bsxPlayerTorso);
+  const bsxPlayerHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), bsxPlayerSkinMat);
+  bsxPlayerHead.position.set(0, 1.45, 0);
+  bsxGroup.add(bsxPlayerHead);
+  const bsxHatMat = new THREE.MeshLambertMaterial({ color: 0x0A0A0A });
+  const bsxHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.18, 12), bsxHatMat);
+  bsxHat.position.set(0, 1.65, 0);
+  bsxGroup.add(bsxHat);
+  const bsxHatBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.03, 12), bsxHatMat);
+  bsxHatBrim.position.set(0, 1.55, 0);
+  bsxGroup.add(bsxHatBrim);
+  const bsxSaxMat = new THREE.MeshStandardMaterial({ color: 0xDDAA22, metalness: 0.9, roughness: 0.2 });
+  const bsxSaxBody = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.16, 0.7, 10), bsxSaxMat);
+  bsxSaxBody.position.set(0.32, 0.85, 0.3);
+  bsxSaxBody.rotation.x = -0.4;
+  bsxGroup.add(bsxSaxBody);
+  const bsxSaxBell = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.16, 0.18, 12, 1, true), bsxSaxMat);
+  bsxSaxBell.position.set(0.32, 0.5, 0.45);
+  bsxSaxBell.rotation.x = -0.4;
+  bsxGroup.add(bsxSaxBell);
+  const bsxSaxNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 0.3, 8), bsxSaxMat);
+  bsxSaxNeck.position.set(0.3, 1.15, 0.18);
+  bsxSaxNeck.rotation.x = 0.4;
+  bsxGroup.add(bsxSaxNeck);
+  const bsxArmMat = bsxPlayerShirtMat;
+  const bsxArm1 = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.55, 6), bsxArmMat);
+  bsxArm1.position.set(0.25, 0.95, 0.15);
+  bsxArm1.rotation.z = -0.3;
+  bsxGroup.add(bsxArm1);
+  const bsxArm2 = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.55, 6), bsxArmMat);
+  bsxArm2.position.set(0.4, 0.65, 0.2);
+  bsxArm2.rotation.z = -0.5;
+  bsxGroup.add(bsxArm2);
+  const bsxCaseMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const bsxCase = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.12, 0.5), bsxCaseMat);
+  bsxCase.position.set(-0.5, 0.06, 0);
+  bsxGroup.add(bsxCase);
+  const bsxCoinMat = new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 0.8, roughness: 0.3 });
+  const bsxCoins = [];
+  for (let c = 0; c < 5; c++) {
+    const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.01, 8), bsxCoinMat);
+    coin.position.set(-0.7 + c * 0.07, 0.13, -0.05 + (c % 2) * 0.1);
+    bsxGroup.add(coin);
+    bsxCoins.push(coin);
+  }
+  const bsxNoteMat = new THREE.MeshLambertMaterial({ color: 0x222222, side: THREE.DoubleSide });
+  const bsxNotes = [];
+  for (let n = 0; n < 3; n++) {
+    const note = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.22), bsxNoteMat);
+    note.position.set(0.6 + n * 0.4, 1.0 + n * 0.3, 0.4);
+    note.rotation.y = 0.5;
+    bsxGroup.add(note);
+    bsxNotes.push(note);
+  }
+  const bsxListenerSkinMat = new THREE.MeshLambertMaterial({ color: 0xE5C8A0 });
+  const bsxListenerShirtMat = new THREE.MeshLambertMaterial({ color: 0x88AA22 });
+  const bsxListenerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.7, 0.3), bsxListenerShirtMat);
+  bsxListenerTorso.position.set(2.2, 0.7, -0.4);
+  bsxGroup.add(bsxListenerTorso);
+  const bsxListenerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), bsxListenerSkinMat);
+  bsxListenerHead.position.set(2.2, 1.2, -0.4);
+  bsxGroup.add(bsxListenerHead);
+  group.add(bsxGroup);
+
+  // v83: Floating tiki bar
+  const ftbGroup = new THREE.Group();
+  ftbGroup.position.set(-22, 0.3, 24);
+  const ftbDeckMat = new THREE.MeshLambertMaterial({ color: 0x8B5A2B });
+  const ftbDeck = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 0.2, 16), ftbDeckMat);
+  ftbDeck.position.set(0, 0.1, 0);
+  ftbGroup.add(ftbDeck);
+  const ftbFloatMat = new THREE.MeshLambertMaterial({ color: 0x445566 });
+  for (let f = 0; f < 5; f++) {
+    const ang = (f / 5) * Math.PI * 2;
+    const fl = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 6), ftbFloatMat);
+    fl.position.set(Math.cos(ang) * 1.8, -0.1, Math.sin(ang) * 1.8);
+    ftbGroup.add(fl);
+  }
+  const ftbBarMat = new THREE.MeshLambertMaterial({ color: 0x9B6633 });
+  const ftbBar = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 1.0, 12), ftbBarMat);
+  ftbBar.position.set(0, 0.7, 0);
+  ftbGroup.add(ftbBar);
+  const ftbBarTopMat = new THREE.MeshLambertMaterial({ color: 0x7B4F1F });
+  const ftbBarTop = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 0.05, 12), ftbBarTopMat);
+  ftbBarTop.position.set(0, 1.22, 0);
+  ftbGroup.add(ftbBarTop);
+  const ftbPostMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const ftbPostPositions = [[-1.4, -1.4], [1.4, -1.4], [-1.4, 1.4], [1.4, 1.4]];
+  for (const pp of ftbPostPositions) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.5, 6), ftbPostMat);
+    post.position.set(pp[0], 1.45, pp[1]);
+    ftbGroup.add(post);
+  }
+  const ftbThatchMat = new THREE.MeshLambertMaterial({ color: 0xC2A04A });
+  const ftbThatch = new THREE.Mesh(new THREE.ConeGeometry(2.5, 1.0, 12), ftbThatchMat);
+  ftbThatch.position.set(0, 3.2, 0);
+  ftbGroup.add(ftbThatch);
+  const ftbBartenderSkinMat = new THREE.MeshLambertMaterial({ color: 0xB87844 });
+  const ftbBartenderShirtMat = new THREE.MeshLambertMaterial({ color: 0xFFCC44 });
+  const ftbBartenderTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.65, 0.3), ftbBartenderShirtMat);
+  ftbBartenderTorso.position.set(0, 1.55, -0.4);
+  ftbGroup.add(ftbBartenderTorso);
+  const ftbBartenderHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), ftbBartenderSkinMat);
+  ftbBartenderHead.position.set(0, 2.05, -0.4);
+  ftbGroup.add(ftbBartenderHead);
+  const ftbPatronColors = [0xCC4488, 0x4488DD, 0xDD8844];
+  const ftbPatrons = [];
+  for (let p = 0; p < 3; p++) {
+    const ang = ((p + 1) / 4) * Math.PI * 1.4 + 0.3;
+    const ptm = new THREE.MeshLambertMaterial({ color: ftbPatronColors[p] });
+    const pt = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.7, 0.28), ptm);
+    pt.position.set(Math.cos(ang) * 1.4, 1.0, Math.sin(ang) * 1.4);
+    ftbGroup.add(pt);
+    const ph = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 8), bsxPlayerSkinMat);
+    ph.position.set(Math.cos(ang) * 1.4, 1.5, Math.sin(ang) * 1.4);
+    ftbGroup.add(ph);
+    ftbPatrons.push({ torso: pt, head: ph });
+  }
+  const ftbDrinkMat = new THREE.MeshLambertMaterial({ color: 0xFF6622 });
+  const ftbDrink1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.18, 8), ftbDrinkMat);
+  ftbDrink1.position.set(0.4, 1.32, -0.2);
+  ftbGroup.add(ftbDrink1);
+  const ftbDrink2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.18, 8), ftbDrinkMat);
+  ftbDrink2.position.set(-0.4, 1.32, -0.2);
+  ftbGroup.add(ftbDrink2);
+  const ftbLanternMat = new THREE.MeshLambertMaterial({ color: 0xFF9966, emissive: 0xFF6633, emissiveIntensity: 0.6 });
+  const ftbLantern1 = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), ftbLanternMat);
+  ftbLantern1.position.set(-1.4, 2.5, -1.4);
+  ftbGroup.add(ftbLantern1);
+  const ftbLantern2 = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), ftbLanternMat);
+  ftbLantern2.position.set(1.4, 2.5, -1.4);
+  ftbGroup.add(ftbLantern2);
+  group.add(ftbGroup);
+
+  // v83: Tidal flat horseshoe crabs
+  const thcGroup = new THREE.Group();
+  thcGroup.position.set(-38, 0.05, 14);
+  const thcShellMat = new THREE.MeshLambertMaterial({ color: 0x4D3522 });
+  const thcUnderMat = new THREE.MeshLambertMaterial({ color: 0x6B4A2A });
+  const thcCrabs = [];
+  for (let c = 0; c < 7; c++) {
+    const crab = new THREE.Group();
+    const ang = c * 0.7 + Math.random() * 0.3;
+    const dist = 1 + c * 0.6;
+    crab.position.set(Math.cos(ang) * dist, 0.05, Math.sin(ang) * dist);
+    crab.rotation.y = ang + Math.PI;
+    const shell = new THREE.Mesh(new THREE.SphereGeometry(0.45, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), thcShellMat);
+    shell.position.set(0, 0.1, 0);
+    shell.scale.set(1, 0.4, 1.2);
+    crab.add(shell);
+    const middle = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.1, 0.5), thcShellMat);
+    middle.position.set(0, 0.08, 0.45);
+    crab.add(middle);
+    const tail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.05, 0.55, 5), thcShellMat);
+    tail.position.set(0, 0.08, 0.95);
+    tail.rotation.x = Math.PI / 2;
+    crab.add(tail);
+    thcGroup.add(crab);
+    thcCrabs.push(crab);
+  }
+  const thcWaterMat = new THREE.MeshBasicMaterial({ color: 0x6699BB, transparent: true, opacity: 0.4 });
+  const thcWater = new THREE.Mesh(new THREE.CircleGeometry(6, 16), thcWaterMat);
+  thcWater.rotation.x = -Math.PI / 2;
+  thcWater.position.set(0, 0.02, 0);
+  thcGroup.add(thcWater);
+  const thcSignPostMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const thcSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.2, 6), thcSignPostMat);
+  thcSignPost.position.set(-5, 0.6, -2);
+  thcGroup.add(thcSignPost);
+  const thcSignMat = new THREE.MeshLambertMaterial({ color: 0xFFEEDD });
+  const thcSign = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.45, 0.04), thcSignMat);
+  thcSign.position.set(-5, 1.15, -2);
+  thcGroup.add(thcSign);
+  group.add(thcGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -16176,6 +16359,31 @@ export function createAnchorageLandmark(THREE, opts) {
         sthWheelFR.rotation.x = Math.PI / 2 + t * 0.5;
         sthWheelRL.rotation.x = Math.PI / 2 + t * 0.4;
         sthWheelRR.rotation.x = Math.PI / 2 + t * 0.4;
+        // v83 updates
+        bsxPlayerTorso.rotation.y = 0.1 * Math.sin(t * 1.0);
+        bsxPlayerHead.rotation.z = 0.1 * Math.sin(t * 1.5);
+        bsxSaxBody.rotation.z = 0.05 * Math.sin(t * 2.0);
+        for (let n = 0; n < bsxNotes.length; n++) {
+          bsxNotes[n].position.y = 1.0 + n * 0.3 + 0.3 * Math.sin(t * 1.2 + n);
+          bsxNotes[n].position.x = 0.6 + n * 0.4 + 0.5 * Math.sin(t * 0.5 + n);
+          bsxNotes[n].rotation.z = 0.3 * Math.sin(t * 1.5 + n);
+        }
+        ftbGroup.rotation.y = 0.05 * Math.sin(t * 0.3);
+        ftbGroup.position.y = 0.3 + 0.06 * Math.sin(t * 0.5);
+        ftbBartenderTorso.rotation.y = 0.4 * Math.sin(t * 0.8);
+        for (let p = 0; p < ftbPatrons.length; p++) {
+          ftbPatrons[p].head.rotation.y = 0.3 * Math.sin(t * 0.7 + p * 0.5);
+          ftbPatrons[p].torso.rotation.y = 0.15 * Math.sin(t * 0.6 + p * 0.3);
+        }
+        ftbLantern1.material.emissiveIntensity = 0.5 + 0.3 * Math.sin(t * 2.0);
+        ftbLantern2.material.emissiveIntensity = 0.5 + 0.3 * Math.sin(t * 2.0 + 1.5);
+        for (let c = 0; c < thcCrabs.length; c++) {
+          const crab = thcCrabs[c];
+          crab.position.x += 0.005 * Math.sin(t * 0.5 + c);
+          crab.position.z += 0.003 * Math.cos(t * 0.4 + c);
+        }
+        thcWater.material.opacity = 0.3 + 0.15 * Math.sin(t * 0.6);
+
 
 
 
