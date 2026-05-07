@@ -13758,7 +13758,32 @@ const cosmicSights = [
     { name: "Very Long Baseline Jet Structure", position: [-0.69, 0.52, 0.50], color: "#8A2BE2", size: 1.9, description: "Parsec-scale jet morphology resolved through intercontinental interferometry." },
     { name: "Jet Viewing Angle Determination", position: [0.54, -0.41, 0.74], color: "#9400D3", size: 1.8, description: "A constraint on the line-of-sight angle to the jet axis from brightness asymmetry." },
     { name: "Relativistic Outflow Energy Budget", position: [-0.56, 0.64, -0.52], color: "#BA55D3", size: 2.0, description: "An estimate of total kinetic power carried by the relativistic jet." },
-    { name: "Jet Entrainment Boundary", position: [0.43, 0.58, 0.69], color: "#9932CC", size: 1.5, description: "The interface where ambient material is swept into the jet flow." }
+    { name: "Jet Entrainment Boundary", position: [0.43, 0.58, 0.69], color: "#9932CC", size: 1.5, description: "The interface where ambient material is swept into the jet flow." },
+    { name: "z>7 Spectroscopic Confirmation", position: [0.58, -0.52, 0.63], color: "#00CED1", size: 2.2, description: "A galaxy at extreme redshift with confirmed emission line distance." },
+    { name: "Dropout Galaxy Survey Field", position: [-0.64, 0.47, -0.61], color: "#20B2AA", size: 2.0, description: "A deep imaging area revealing galaxies through their UV break signature." },
+    { name: "IGM Ionization Bubble Wall", position: [0.41, 0.75, 0.52], color: "#48D1CC", size: 2.4, description: "The sharp boundary of an expanding ionized region in neutral gas." },
+    { name: "Complete Absorption Spectrum Void", position: [-0.72, -0.36, 0.59], color: "#40E0D0", size: 1.8, description: "A wavelength range showing total flux suppression from intervening hydrogen." },
+    { name: "High Column Density Reservoir", position: [0.33, -0.69, -0.65], color: "#00CED1", size: 1.9, description: "A dense neutral gas cloud fueling early star formation." },
+    { name: "Pristine Abundance Pattern Site", position: [-0.55, 0.62, 0.56], color: "#20B2AA", size: 2.1, description: "A location showing chemical ratios from primordial nucleosynthesis only." },
+    { name: "First Generation Star Signature", position: [0.78, 0.27, -0.56], color: "#48D1CC", size: 2.3, description: "A nucleosynthetic pattern from zero-metallicity stellar evolution." },
+    { name: "Filament Junction Complex", position: [-0.39, -0.71, -0.58], color: "#40E0D0", size: 2.0, description: "A convergence point where multiple large-scale structure threads meet." },
+    { name: "z>6 Luminous AGN", position: [0.60, 0.56, 0.57], color: "#00CED1", size: 2.5, description: "An extremely distant active nucleus probing early supermassive black hole growth." },
+    { name: "Assembling Cluster Progenitor", position: [-0.78, 0.34, 0.52], color: "#20B2AA", size: 2.2, description: "An overdense region collapsing to form a future massive cluster." },
+    { name: "Neutral Hydrogen Spin Flip Probe", position: [0.45, -0.63, 0.63], color: "#48D1CC", size: 1.7, description: "A signal tracing hyperfine transitions in primordial neutral gas." },
+    { name: "Stellar Ignition Epoch Boundary", position: [-0.67, 0.42, -0.62], color: "#40E0D0", size: 2.1, description: "The transition marking when nuclear fusion first commenced in the universe." },
+    { name: "BBN Abundance Verification Site", position: [0.52, 0.58, 0.63], color: "#00CED1", size: 1.9, description: "A region confirming light element ratios from the first three minutes." },
+    { name: "Diffuse Baryon Reservoir", position: [-0.48, -0.65, 0.59], color: "#20B2AA", size: 1.8, description: "An extended gas structure connecting isolated galaxy groups." },
+    { name: "CMB Inverse Compton Shadow", position: [0.71, -0.39, -0.58], color: "#48D1CC", size: 2.0, description: "A temperature decrement from hot electrons upscattering microwave photons." },
+    { name: "IGM Temperature Evolution Marker", position: [-0.59, 0.53, 0.61], color: "#40E0D0", size: 1.8, description: "A feature recording the thermal state of intergalactic gas through time." },
+    { name: "Integrated Galaxy IR Emission", position: [0.36, 0.72, -0.59], color: "#00CED1", size: 2.1, description: "The cumulative infrared glow from all cosmic star formation." },
+    { name: "Metagalactic Ionizing Field", position: [-0.74, -0.28, 0.61], color: "#20B2AA", size: 1.9, description: "The pervasive UV radiation maintaining cosmic ionization balance." },
+    { name: "Sound Horizon Imprint", position: [0.49, -0.55, 0.68], color: "#48D1CC", size: 2.3, description: "A characteristic clustering scale from acoustic waves in primordial plasma." },
+    { name: "PISN Enrichment Zone", position: [-0.42, 0.69, -0.59], color: "#40E0D0", size: 2.0, description: "A region showing pair-instability supernova nucleosynthetic products." },
+    { name: "Topological Defect Density Wake", position: [0.63, 0.45, 0.64], color: "#00CED1", size: 1.8, description: "A potential linear overdensity from early universe phase transitions." },
+    { name: "WHIM Filament Strand", position: [-0.56, -0.58, -0.59], color: "#20B2AA", size: 2.2, description: "A warm-hot shock-heated gas structure in the cosmic web." },
+    { name: "Optically Thick Absorber Edge", position: [0.68, -0.46, 0.57], color: "#48D1CC", size: 1.9, description: "A cloud blocking all ionizing radiation at the Lyman limit." },
+    { name: "Extended Galaxy Gas Envelope", position: [-0.61, 0.49, 0.62], color: "#40E0D0", size: 2.1, description: "The diffuse circumgalactic material surrounding early star-forming systems." },
+    { name: "Ionization Wavefront Advance", position: [0.54, 0.51, -0.67], color: "#00CED1", size: 2.4, description: "The propagating boundary converting neutral hydrogen to plasma." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
