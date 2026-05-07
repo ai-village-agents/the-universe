@@ -12716,6 +12716,148 @@ export function createAnchorageLandmark(THREE, opts) {
   ddroneGroup.add(ddLight);
 
 
+  // v76: Waterfront flower stall
+  const flowerStallGroup = new THREE.Group();
+  flowerStallGroup.position.set(-26, 0.05, 14);
+  group.add(flowerStallGroup);
+  const fsBaseMat = new THREE.MeshStandardMaterial({ color: 0x8d6e63, roughness: 0.8 });
+  const fsBase = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.9, 0.9), fsBaseMat);
+  fsBase.position.y = 0.45;
+  flowerStallGroup.add(fsBase);
+  const fsCanopyMat = new THREE.MeshStandardMaterial({ color: 0xe91e63, roughness: 0.6 });
+  const fsCanopy = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.05, 1.1), fsCanopyMat);
+  fsCanopy.position.y = 1.95;
+  flowerStallGroup.add(fsCanopy);
+  const fsPostMat = new THREE.MeshStandardMaterial({ color: 0x5d4037, roughness: 0.8 });
+  const fsPostPos = [[-1.1, 0.4], [1.1, 0.4], [-1.1, -0.4], [1.1, -0.4]];
+  for (let i = 0; i < fsPostPos.length; i++) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.95, 6), fsPostMat);
+    post.position.set(fsPostPos[i][0], 0.97, fsPostPos[i][1]);
+    flowerStallGroup.add(post);
+  }
+  // Buckets of flowers
+  const fsBucketMat = new THREE.MeshStandardMaterial({ color: 0x607d8b, roughness: 0.7 });
+  const fsFlowerColors = [0xff5252, 0xfff176, 0xba68c8, 0xffb74d, 0xe91e63, 0x66bb6a];
+  const fsBuckets = [];
+  for (let i = 0; i < 6; i++) {
+    const bucket = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.15, 0.3, 8), fsBucketMat);
+    bucket.position.set(-0.95 + i * 0.38, 1.05, 0);
+    flowerStallGroup.add(bucket);
+    fsBuckets.push(bucket);
+    // Flowers as a cluster of small spheres
+    const fsFlowerMat = new THREE.MeshStandardMaterial({ color: fsFlowerColors[i], roughness: 0.6, emissive: fsFlowerColors[i], emissiveIntensity: 0.15 });
+    for (let j = 0; j < 5; j++) {
+      const flower = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 6), fsFlowerMat);
+      const ang = (j / 5) * Math.PI * 2;
+      flower.position.set(-0.95 + i * 0.38 + Math.cos(ang) * 0.1, 1.3 + (j % 2) * 0.08, Math.sin(ang) * 0.1);
+      flowerStallGroup.add(flower);
+    }
+  }
+  // Vendor
+  const fsVendorSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  const fsVendorMat = new THREE.MeshStandardMaterial({ color: 0x4caf50, roughness: 0.5 });
+  const fsVendor = new THREE.Group();
+  fsVendor.position.set(0, 0, -0.8);
+  flowerStallGroup.add(fsVendor);
+  const fsVendTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.8, 8), fsVendorMat);
+  fsVendTorso.position.y = 0.95;
+  fsVendor.add(fsVendTorso);
+  const fsVendHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), fsVendorSkinMat);
+  fsVendHead.position.y = 1.5;
+  fsVendor.add(fsVendHead);
+  // Sign
+  const fsSignMat = new THREE.MeshStandardMaterial({ color: 0xfafafa, roughness: 0.6 });
+  const fsSign = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.3, 0.05), fsSignMat);
+  fsSign.position.set(0, 1.65, 0.5);
+  flowerStallGroup.add(fsSign);
+
+  // v76: Beach pottery class
+  const potClassGroup = new THREE.Group();
+  potClassGroup.position.set(8, 0.05, -28);
+  group.add(potClassGroup);
+  // Kiln
+  const kilnBaseMat = new THREE.MeshStandardMaterial({ color: 0x6d4c41, roughness: 0.85 });
+  const kilnBase = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.8, 1.2, 12), kilnBaseMat);
+  kilnBase.position.set(2.0, 0.6, 0);
+  potClassGroup.add(kilnBase);
+  const kilnTop = new THREE.Mesh(new THREE.ConeGeometry(0.7, 0.5, 12), kilnBaseMat);
+  kilnTop.position.set(2.0, 1.45, 0);
+  potClassGroup.add(kilnTop);
+  const kilnGlowMat = new THREE.MeshBasicMaterial({ color: 0xff6f00, transparent: true, opacity: 0.85 });
+  const kilnGlow = new THREE.Mesh(new THREE.SphereGeometry(0.25, 10, 8), kilnGlowMat);
+  kilnGlow.position.set(2.0, 0.55, 0.55);
+  potClassGroup.add(kilnGlow);
+  const kilnSmokeMat = new THREE.MeshBasicMaterial({ color: 0xbbbbbb, transparent: true, opacity: 0.5 });
+  const kilnSmoke = new THREE.Mesh(new THREE.SphereGeometry(0.3, 8, 6), kilnSmokeMat);
+  kilnSmoke.position.set(2.0, 2.2, 0);
+  potClassGroup.add(kilnSmoke);
+  // Pottery wheels and students (3)
+  const potStudentSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  const potShirtColors = [0x1976d2, 0xff9800, 0x9c27b0];
+  const potWheelMat = new THREE.MeshStandardMaterial({ color: 0x616161, roughness: 0.5 });
+  const potClayMat = new THREE.MeshStandardMaterial({ color: 0xa1887f, roughness: 0.9 });
+  const potClays = [];
+  for (let i = 0; i < 3; i++) {
+    const sx = -2.0 + i * 1.6;
+    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.15, 12), potWheelMat);
+    wheel.position.set(sx, 0.5, -1.2);
+    potClassGroup.add(wheel);
+    const wheelStand = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.5, 6), potWheelMat);
+    wheelStand.position.set(sx, 0.25, -1.2);
+    potClassGroup.add(wheelStand);
+    const clay = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.35, 10), potClayMat);
+    clay.position.set(sx, 0.75, -1.2);
+    potClassGroup.add(clay);
+    potClays.push(clay);
+    // Student
+    const studentMat = new THREE.MeshStandardMaterial({ color: potShirtColors[i], roughness: 0.6 });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.7, 8), studentMat);
+    torso.position.set(sx, 0.85, -2.0);
+    potClassGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), potStudentSkinMat);
+    head.position.set(sx, 1.35, -2.0);
+    potClassGroup.add(head);
+    // Arm reaching to clay
+    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.5, 6), potStudentSkinMat);
+    arm.position.set(sx, 0.95, -1.55);
+    arm.rotation.x = Math.PI / 3;
+    potClassGroup.add(arm);
+  }
+
+  // v76: Sandbar seal pup colony
+  const sealPupGroup = new THREE.Group();
+  sealPupGroup.position.set(-4, 0.05, -42);
+  group.add(sealPupGroup);
+  const sealSandMat = new THREE.MeshStandardMaterial({ color: 0xf5deb3, roughness: 0.95 });
+  const sealSandbar = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.8, 0.12, 16), sealSandMat);
+  sealSandbar.position.y = 0.06;
+  sealPupGroup.add(sealSandbar);
+  const sealPupColors = [0xeeeeee, 0xc8c8c8, 0x9e9e9e, 0xeeeeee, 0xb0b0b0, 0xd5d5d5];
+  const sealPupPositions = [[0.3, 0.4], [-0.8, 0.6], [-0.5, -0.8], [1.2, -0.5], [0, 1.0], [-1.4, 0]];
+  const sealPups = [];
+  for (let i = 0; i < sealPupPositions.length; i++) {
+    const sealMat = new THREE.MeshStandardMaterial({ color: sealPupColors[i], roughness: 0.6 });
+    const pup = new THREE.Group();
+    pup.position.set(sealPupPositions[i][0], 0.12, sealPupPositions[i][1]);
+    pup.rotation.y = i * 0.6;
+    sealPupGroup.add(pup);
+    sealPups.push(pup);
+    const pupBody = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.55, 4, 8), sealMat);
+    pupBody.rotation.z = Math.PI / 2;
+    pupBody.position.y = 0.18;
+    pup.add(pupBody);
+    const pupHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), sealMat);
+    pupHead.position.set(0.42, 0.22, 0);
+    pup.add(pupHead);
+    const eye1 = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), new THREE.MeshBasicMaterial({ color: 0x000000 }));
+    eye1.position.set(0.55, 0.26, 0.08);
+    pup.add(eye1);
+    const eye2 = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), new THREE.MeshBasicMaterial({ color: 0x000000 }));
+    eye2.position.set(0.55, 0.26, -0.08);
+    pup.add(eye2);
+  }
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -14733,6 +14875,23 @@ export function createAnchorageLandmark(THREE, opts) {
         ddDroneBody.position.y = 3.2 + 0.06 * Math.sin(t * 3.0);
         ddPackage.position.y = 2.5 + 0.06 * Math.sin(t * 3.0);
         ddLight.material.color.setHex((Math.sin(t * 4) > 0) ? 0xff3030 : 0x300000);
+        // v76 Flower stall canopy and flower bucket sway
+        for (let i = 0; i < fsBuckets.length; i++) {
+          fsBuckets[i].position.y = 1.05 + 0.01 * Math.sin(t * 1.5 + i);
+        }
+        // v76 Kiln glow flicker and smoke rise
+        kilnGlow.material.opacity = 0.7 + 0.2 * Math.sin(t * 6.0);
+        kilnSmoke.position.y = 2.2 + 0.15 * Math.sin(t * 1.0);
+        kilnSmoke.material.opacity = 0.45 + 0.1 * Math.sin(t * 1.5);
+        // v76 Pottery clay rotates on wheels
+        for (let i = 0; i < potClays.length; i++) {
+          potClays[i].rotation.y += 0.04 + i * 0.005;
+        }
+        // v76 Seal pups gently breathe
+        for (let i = 0; i < sealPups.length; i++) {
+          sealPups[i].scale.y = 1.0 + 0.05 * Math.sin(t * 1.5 + i * 0.7);
+        }
+
 
       }
 
