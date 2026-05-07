@@ -12507,7 +12507,32 @@ const cosmicSights = [
     { name: "Coronal Mass Ejection Arrival", position: [4992, 94780, 2862], color: "#DDA0DD", description: "Plasma cloud impact detection" },
     { name: "GRB Forward Shock Glow", position: [4994, 94800, 2864], color: "#BA55D3", description: "Relativistic blast wave deceleration" },
     { name: "Gravitational Wave Chirp Peak", position: [4996, 94820, 2866], color: "#9932CC", description: "Binary merger frequency maximum" },
-    { name: "Extragalactic Radio Transient", position: [4998, 94840, 2868], color: "#00FFFF", description: "Millisecond extragalactic radio pulse" }
+    { name: "Extragalactic Radio Transient", position: [4998, 94840, 2868], color: "#00FFFF", description: "Millisecond extragalactic radio pulse" },
+    { name: "Neutrino Burst Detector", position: [5000, 94860, 2870], color: "#00CED1", description: "High-energy neutrino arrival detection" },
+    { name: "IceCube Alert Cascade", position: [5002, 94880, 2872], color: "#4169E1", description: "Antarctic ice Cherenkov neutrino track" },
+    { name: "Super-K Water Tank Flash", position: [5004, 94900, 2874], color: "#1E90FF", description: "Underground water Cherenkov detector signal" },
+    { name: "LIGO Strain Oscillation", position: [5006, 94920, 2876], color: "#9370DB", description: "Laser interferometer spacetime ripple" },
+    { name: "Virgo Mirror Displacement", position: [5008, 94940, 2878], color: "#8B008B", description: "European gravitational wave detector" },
+    { name: "KAGRA Underground Signal", position: [5010, 94960, 2880], color: "#9932CC", description: "Cryogenic Japanese GW detector" },
+    { name: "Fermi LAT Gamma Localization", position: [5012, 94980, 2882], color: "#FFD700", description: "Space gamma-ray burst position" },
+    { name: "Swift BAT Trigger", position: [5014, 95000, 2884], color: "#FFA500", description: "Rapid gamma-ray burst alert" },
+    { name: "INTEGRAL SPI-ACS Detection", position: [5016, 95020, 2886], color: "#FF8C00", description: "European gamma-ray observatory signal" },
+    { name: "Pierre Auger Shower Array", position: [5018, 95040, 2888], color: "#20B2AA", description: "Ultra-high energy cosmic ray detection" },
+    { name: "Telescope Array Fluorescence", position: [5020, 95060, 2890], color: "#3CB371", description: "Atmospheric cosmic ray shower glow" },
+    { name: "ANTARES Undersea Muon", position: [5022, 95080, 2892], color: "#00BFFF", description: "Mediterranean neutrino telescope track" },
+    { name: "KM3NeT Optical Module", position: [5024, 95100, 2894], color: "#5F9EA0", description: "Deep sea neutrino detection array" },
+    { name: "HAWC TeV Gamma Map", position: [5026, 95120, 2896], color: "#7FFF00", description: "High-altitude water Cherenkov survey" },
+    { name: "MAGIC Imaging Telescope", position: [5028, 95140, 2898], color: "#ADFF2F", description: "Canary Islands gamma-ray reflector" },
+    { name: "VERITAS Cherenkov Array", position: [5030, 95160, 2900], color: "#32CD32", description: "Arizona atmospheric Cherenkov telescope" },
+    { name: "HESS Stereoscopic System", position: [5032, 95180, 2902], color: "#228B22", description: "Namibian gamma-ray telescope array" },
+    { name: "CTA Southern Array Site", position: [5034, 95200, 2904], color: "#006400", description: "Next-gen Cherenkov telescope complex" },
+    { name: "Baksan Neutrino Lab Signal", position: [5036, 95220, 2906], color: "#4682B4", description: "Russian mountain neutrino detector" },
+    { name: "SNO+ Liquid Scintillator", position: [5038, 95240, 2908], color: "#6495ED", description: "Canadian deep mine detector upgrade" },
+    { name: "Borexino Solar Neutrino", position: [5040, 95260, 2910], color: "#F0E68C", description: "Italian low-energy neutrino detector" },
+    { name: "DUNE Far Detector Module", position: [5042, 95280, 2912], color: "#BDB76B", description: "Deep underground neutrino experiment" },
+    { name: "Hyper-K Mega-Tank Array", position: [5044, 95300, 2914], color: "#87CEEB", description: "Japanese next-gen water Cherenkov" },
+    { name: "JUNO Reactor Oscillation", position: [5046, 95320, 2916], color: "#B0C4DE", description: "Chinese neutrino mass hierarchy probe" },
+    { name: "Einstein Telescope Concept", position: [5048, 95340, 2918], color: "#E6E6FA", description: "Future underground GW observatory" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
