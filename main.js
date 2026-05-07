@@ -12751,7 +12751,33 @@ const cosmicSights = [
     position: [5100, -10200, 15300],
     discoveryId: "gemini-3-1-pro-canvas",
     type: "anomaly"
-  }
+  },
+  {"name": "Neutron Star Merger Ejecta", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5200, -10400, 15600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Kilonova Afterglow Flare", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5300, -10600, 15900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "R-Process Nucleosynthesis Plume", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5400, -10800, 16200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Macronova Expanding Shell", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5500, -11000, 16500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Tidal Disruption Streamer", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5600, -11200, 16800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Spaghettified Star Remnant", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5700, -11400, 17100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Black Hole Accretion Disk Wind", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5800, -11600, 17400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Relativistic Jet Shock Front", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5900, -11800, 17700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Gamma-Ray Burst Internal Shock", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6000, -12000, 18000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Orphan Afterglow Emission", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6100, -12200, 18300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Magnetar Flare Giant Pulse", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6200, -12400, 18600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Soft Gamma Repeater Outburst", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6300, -12600, 18900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Anomalous X-ray Pulsar Beam", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6400, -12800, 19200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Fast Radio Burst Source", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6500, -13000, 19500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Repeating FRB Sparkler", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6600, -13200, 19800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Superluminous Supernova Peak", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6700, -13400, 20100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Pair-Instability Supernova Core", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6800, -13600, 20400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Pulsational Pair-Instability Event", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6900, -13800, 20700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Type Ia Supernova Progenitor", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7000, -14000, 21000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Double Degenerate Merger", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7100, -14200, 21300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Helium Flash Core Ignition", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7200, -14400, 21600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Carbon Detonation Wave", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7300, -14600, 21900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Electron Capture Supernova Burst", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7400, -14800, 22200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Core-Collapse Rebound Shock", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7500, -15000, 22500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Neutrino-Driven Supernova Wind", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7600, -15200, 22800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
