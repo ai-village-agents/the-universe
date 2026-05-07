@@ -13633,7 +13633,32 @@ const cosmicSights = [
     { name: "Extremophile Analog Environment", position: [-0.35, 0.72, 0.60], color: "#32CD32", size: 1.8, description: "A habitat with extreme conditions similar to Earth environments hosting resilient life." },
     { name: "Panspermia Transit Corridor", position: [0.79, -0.33, 0.52], color: "#2E8B57", size: 2.0, description: "A pathway between worlds where meteoritic life transfer could theoretically occur." },
     { name: "Chemical Disequilibrium Marker", position: [-0.54, -0.63, 0.56], color: "#3CB371", size: 1.6, description: "An atmospheric signature showing reactions far from equilibrium, hinting at biological maintenance." },
-    { name: "M-Dwarf Habitable Zone Planet", position: [0.46, 0.71, 0.53], color: "#228B22", size: 1.9, description: "A terrestrial world orbiting in the habitable zone of a red dwarf star." }
+    { name: "M-Dwarf Habitable Zone Planet", position: [0.46, 0.71, 0.53], color: "#228B22", size: 1.9, description: "A terrestrial world orbiting in the habitable zone of a red dwarf star." },
+    { name: "Kepler Occurrence Rate Study - Hot Neptune Taper", position: [5168, 97160, 3043], color: "#FF1493", size: 6, description: "Maps declining occurrence of close-in Neptunes, highlighting metallicity dependence in Sun-like hosts." },
+    { name: "Mass-Period Relation Ridge - Sub-Saturn Valley", position: [5169, 97180, 3044], color: "#00BFFF", size: 5, description: "Traces the mass-period ridge where sub-Saturns thin out, bridging the planetary radius gap." },
+    { name: "Metallicity Bias Constellation - Giant Planet Boost", position: [5170, 97200, 3045], color: "#32CD32", size: 7, description: "Shows giant planet frequency scaling with stellar iron, spotlighting enrichment thresholds." },
+    { name: "Resonance Chain Arc - 2:1 to 3:2 Lattice", position: [5171, 97220, 3046], color: "#FFD700", size: 4, description: "Depicts multi-planet systems locked in near 2:1–3:2 resonances from disk-driven migration." },
+    { name: "Radius Gap Tracer - Photoevaporation Edge", position: [5172, 97240, 3047], color: "#FF6347", size: 6, description: "Marks the desert between super-Earths and sub-Neptunes shaped by atmospheric loss." },
+    { name: "Cold Jupiter Census - Beyond the Snowline", position: [5173, 97260, 3048], color: "#4169E1", size: 8, description: "Tallies occurrence of long-period giants tied to protoplanetary ice lines and metallicity boosts." },
+    { name: "Mass-Period-Metallicity Weave - FGK Hosts", position: [5174, 97280, 3049], color: "#FF69B4", size: 5, description: "Interlaces planet mass and orbital period trends with host star iron for FGK dwarfs." },
+    { name: "Compact Multi Harmony - Kepler Trios", position: [5175, 97300, 3050], color: "#FF1493", size: 4, description: "Captures tightly packed systems with low mutual inclinations and gentle period ratios." },
+    { name: "Hot Jupiter Tidal Peak - Short-Period Spike", position: [5176, 97320, 3051], color: "#00BFFF", size: 7, description: "Highlights the sharp pile-up of hot Jupiters near 3-day orbits shaped by tides." },
+    { name: "Mini-Neptune Plateau - Metal-Rich Hosts", position: [5177, 97340, 3052], color: "#32CD32", size: 5, description: "Shows elevated mini-Neptune counts around iron-enhanced stars pointing to core mass growth." },
+    { name: "Warm Jupiter Eccentricity Fan", position: [5178, 97360, 3053], color: "#FFD700", size: 6, description: "Displays broad eccentricities of warm Jupiters hinting at scattering and Kozai cycles." },
+    { name: "Ultra-Short-Period Rocky Strand", position: [5179, 97380, 3054], color: "#FF6347", size: 3, description: "Threads the narrow band of USP terrestrials sculpted by evaporation and magnetic braking." },
+    { name: "Metallicity Floor Marker - Sub-Earth Yield", position: [5180, 97400, 3055], color: "#4169E1", size: 4, description: "Notes weak metallicity dependence for small rocky planets across FGK stars." },
+    { name: "Period Valley Divider - 10–100 Day Gap", position: [5181, 97420, 3056], color: "#FF69B4", size: 5, description: "Separates hot and warm planet populations, hinting at migration halts and disk dispersal timing." },
+    { name: "Mean Motion Resonance Ladder - Laplace Links", position: [5182, 97440, 3057], color: "#FF1493", size: 6, description: "Stacks systems showing chained resonances analogous to Galilean satellites." },
+    { name: "Stellar Type Gradient - K Dwarf Riches", position: [5183, 97460, 3058], color: "#00BFFF", size: 4, description: "Charts higher small-planet yields around K dwarfs compared to F stars." },
+    { name: "Occurrence Surface Map - Period vs Radius", position: [5184, 97480, 3059], color: "#32CD32", size: 7, description: "Renders the 2D density of planet counts revealing ridges, valleys, and gaps." },
+    { name: "Cold Neptune Shelf - 20–100 Day Rise", position: [5185, 97500, 3060], color: "#FFD700", size: 5, description: "Shows the uptick of temperate Neptunes beyond the evaporation valley." },
+    { name: "High-Eccentricity Tail - Metal-Rich Giants", position: [5186, 97520, 3061], color: "#FF6347", size: 6, description: "Extends to eccentric giants preferentially around enriched hosts, signaling past scattering." },
+    { name: "Multiplicity Corridor - Five-Planet Strings", position: [5187, 97540, 3062], color: "#4169E1", size: 4, description: "Illuminates long chains of small planets in flat architectures with weak metallicity bias." },
+    { name: "Desert Boundary - Massive Hot Neptunes", position: [5188, 97560, 3063], color: "#FF69B4", size: 5, description: "Outlines scarcity of high-mass Neptunes at short periods between rocky and Jovian regimes." },
+    { name: "Snowline Anchor - Core Accretion Peak", position: [5189, 97580, 3064], color: "#FF1493", size: 6, description: "Anchors planet formation efficiency near ice lines that feed rapid core growth." },
+    { name: "Tidal Circularization Curve - Hot Jupiters", position: [5190, 97600, 3065], color: "#00BFFF", size: 4, description: "Shows eccentricity damping trajectory for close giants orbiting metal-rich stars." },
+    { name: "Metal-Rich Super-Earth Belt", position: [5191, 97620, 3066], color: "#32CD32", size: 5, description: "Displays super-Earth prevalence enhancement in iron-heavy systems, linking cores and disks." },
+    { name: "Comparative Planetology Mosaic - FGKM Sweep", position: [5192, 97640, 3067], color: "#FFD700", size: 7, description: "Cross-compares occurrence patterns across F, G, K, M hosts, tracing mass-period-metallicity trends." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
