@@ -14033,7 +14033,32 @@ const cosmicSights = [
   { name: 'Blue Supergiant Wind Clumping', description: 'Density inhomogeneities in line-driven stellar wind creating X-ray emission variability.', position: [7246, 141940, 5246], color: 0x6699ff, size: 2.6 },
   { name: 'Colliding Wind Binary Apex', description: 'Shock cone vertex where stellar winds from massive binary components collide.', position: [7247, 141960, 5247], color: 0xffbb77, size: 2.7 },
   { name: 'Wind-Fed X-ray Binary Stream', description: 'Focused stellar wind flow captured by compact object in high-mass X-ray binary.', position: [7248, 141980, 5248], color: 0xee55cc, size: 2.5 },
-  { name: 'Supernova Ejecta Interaction Zone', description: 'Region where fast supernova debris overtakes and shocks slower circumstellar wind.', position: [7249, 142000, 5249], color: 0xff4488, size: 2.8 }
+  { name: 'Supernova Ejecta Interaction Zone', description: 'Region where fast supernova debris overtakes and shocks slower circumstellar wind.', position: [7249, 142000, 5249], color: 0xff4488, size: 2.8 },
+  { name: 'Ultra-Long Duration GRB', description: 'Gamma-ray burst lasting thousands of seconds from collapsing blue supergiant star.', position: [7325, 143520, 5325], color: 0xff2244, size: 3.2 },
+  { name: 'Short Hard Burst Remnant', description: 'Afterglow site of brief intense gamma-ray flash from compact binary merger.', position: [7326, 143540, 5326], color: 0xff3388, size: 2.9 },
+  { name: 'Magnetar Giant Flare', description: 'Catastrophic magnetic field reconfiguration releasing tremendous gamma-ray energy.', position: [7327, 143560, 5327], color: 0xee22ff, size: 3.4 },
+  { name: 'SGR Recurrent Flare Episode', description: 'Recurring high-energy outburst from highly magnetized neutron star.', position: [7328, 143580, 5328], color: 0xdd44ee, size: 2.8 },
+  { name: 'X-ray Flash Event', description: 'Softer cousin of gamma-ray bursts with peak emission in X-ray band.', position: [7329, 143600, 5329], color: 0x44ddff, size: 2.7 },
+  { name: 'Type I Burst Photospheric Expansion', description: 'Runaway hydrogen fusion flash on accreting neutron star surface.', position: [7330, 143620, 5330], color: 0xffaa22, size: 2.6 },
+  { name: 'Type I X-ray Burst Train', description: 'Series of rapid-fire thermonuclear flashes during active accretion episode.', position: [7331, 143640, 5331], color: 0xff8844, size: 2.5 },
+  { name: 'Superburst Ignition Layer', description: 'Deep carbon flash site producing hours-long X-ray superbursts.', position: [7332, 143660, 5332], color: 0xffcc33, size: 3.0 },
+  { name: 'Millihertz QPO Source', description: 'Marginally stable nuclear burning layer oscillating at millihertz frequencies.', position: [7333, 143680, 5333], color: 0x77ff55, size: 2.4 },
+  { name: 'Intermediate Duration Burst', description: 'Minutes-long X-ray flash bridging short and long burst populations.', position: [7334, 143700, 5334], color: 0xaa88ff, size: 2.8 },
+  { name: 'TDE Debris Stream Reprocessing', description: 'Maximum luminosity phase as star is shredded by supermassive black hole.', position: [7335, 143720, 5335], color: 0xff55aa, size: 3.3 },
+  { name: 'Jetted TDE Beaming Zone', description: 'Relativistic jet launched during stellar disruption event.', position: [7336, 143740, 5336], color: 0x22ffdd, size: 3.1 },
+  { name: 'Repeating X-ray Brightening Source', description: 'Repeating X-ray brightening from compact object orbiting near supermassive black hole.', position: [7337, 143760, 5337], color: 0x55aaff, size: 2.9 },
+  { name: 'Nuclear Transient Nucleus', description: 'Central engine of ambiguous nuclear explosion defying standard classifications.', position: [7338, 143780, 5338], color: 0xee77dd, size: 2.7 },
+  { name: 'Relativistic Supernova Shell', description: 'Fastest-moving ejecta from engine-driven supernova explosion.', position: [7339, 143800, 5339], color: 0xff4466, size: 3.0 },
+  { name: 'Shock Breakout Flash', description: 'First light emerging as supernova shock wave reaches stellar surface.', position: [7340, 143820, 5340], color: 0xaaffee, size: 3.2 },
+  { name: 'Cooling Envelope Emission', description: 'Thermal radiation as expanded supernova envelope cools and recedes.', position: [7341, 143840, 5341], color: 0xffddaa, size: 2.5 },
+  { name: 'Nickel Decay Tail', description: 'Late-time supernova light powered by radioactive cobalt and nickel decay.', position: [7342, 143860, 5342], color: 0xccff77, size: 2.4 },
+  { name: 'Interaction-Powered Transient', description: 'Long-lasting bright emission from ejecta colliding with circumstellar material.', position: [7343, 143880, 5343], color: 0x88ffcc, size: 2.8 },
+  { name: 'Stellar Coalescence Brightening', description: 'Brilliant red transient from stellar merger or common envelope ejection.', position: [7344, 143900, 5344], color: 0xff5533, size: 2.9 },
+  { name: 'Intermediate Luminosity Transient', description: 'Gap transient between novae and supernovae in the cosmic brightness spectrum.', position: [7345, 143920, 5345], color: 0xddaa77, size: 2.6 },
+  { name: 'Electron Capture Collapse', description: 'Core collapse triggered by electron capture in oxygen-neon-magnesium core.', position: [7346, 143940, 5346], color: 0x77aaff, size: 3.1 },
+  { name: 'White Dwarf Implosion Event', description: 'White dwarf implosion to neutron star from exceeding Chandrasekhar limit.', position: [7347, 143960, 5347], color: 0xbb55ff, size: 3.0 },
+  { name: 'Failed Supernova Transient', description: 'Disappearing star signal from direct black hole formation without explosion.', position: [7348, 143980, 5348], color: 0x444488, size: 2.7 },
+  { name: 'Cocoon Breakout Emission', description: 'Hot shocked gas escaping as relativistic jet punches through stellar envelope.', position: [7349, 144000, 5349], color: 0xff88dd, size: 2.9 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
