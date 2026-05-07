@@ -11831,7 +11831,6 @@ id: 'c-64-f-1',
         position: [45680, 19980, -33500],
         type: 'anomaly'
     }
-]
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
