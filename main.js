@@ -13304,6 +13304,31 @@ const cosmicSights = [
     position: [7549, 148980, 5549],
     description: "Tolerance to displacement damage from high-energy particle bombardment"
   },
+{ name: 'Jovian Magnetosphere Radiation Belt', description: 'Intense trapped particle environment around Jupiter where electrons accelerate to relativistic energies in magnetic confinement.', position: [4123, 2567, -3789], color: 0xFF6B6B, size: 4.5 },
+  { name: 'Saturnian Ring Current System', description: 'Azimuthal plasma flow circling Saturn driven by magnetospheric convection and particle injection from moons.', position: [-3456, 4012, 1234], color: 0xF4D03F, size: 4.1 },
+  { name: 'Ganymede Internal Magnetic Field', description: 'Only moon with self-generated magnetosphere creating mini-auroral ovals on its icy surface.', position: [2789, -3678, 4456], color: 0x45B7D1, size: 3.8 },
+  { name: 'Io Plasma Torus', description: 'Dense ring of sulfur and oxygen ions from volcanic moon orbiting within Jupiter magnetospheric equator.', position: [-4234, 1567, -2901], color: 0xFFD166, size: 4.3 },
+  { name: 'Enceladus Plume Interaction', description: 'Water vapor jets creating plasma pickup region where Saturn magnetosphere harvests fresh ions.', position: [1678, -4089, 3234], color: 0x4ECDC4, size: 3.6 },
+  { name: 'Uranus Oblique Magnetosphere', description: 'Dramatically tilted magnetic field creating unique corkscrew magnetotail as planet orbits.', position: [-2345, 3891, -4012], color: 0x98D8C8, size: 3.9 },
+  { name: 'Neptune Offset Dipole Field', description: 'Magnetic axis displaced from planet center generating asymmetric aurora and radiation patterns.', position: [3567, 912, 2678], color: 0x5E60CE, size: 3.7 },
+  { name: 'Mercury Magnetosphere Compression', description: 'Smallest planetary magnetosphere frequently compressed by solar wind to near surface.', position: [-1789, -4456, 1567], color: 0xE9C46A, size: 3.4 },
+  { name: 'Venus Induced Magnetotail', description: 'Draped interplanetary magnetic field creating comet-like wake behind unmagnetized planet.', position: [4456, 2012, -1234], color: 0xF4A261, size: 3.5 },
+  { name: 'Mars Crustal Magnetic Anomaly', description: 'Localized magnetic fields from ancient dynamo creating patchy mini-magnetospheres on surface.', position: [-3012, 4234, 2345], color: 0xE63946, size: 3.3 },
+  { name: 'Titan Induced Magnetosphere', description: 'Saturn magnetospheric draping around thick atmosphere creating wake and ion pickup region.', position: [2234, -2789, -4178], color: 0x457B9D, size: 3.8 },
+  { name: 'Europa Alfven Wing Current', description: 'Standing wave pattern from moon motion through Jovian plasma creating field-aligned current system.', position: [-4089, 1234, 3678], color: 0x06D6A0, size: 4.0 },
+  { name: 'Callisto Induced Field Response', description: 'Variable magnetic signature revealing subsurface conducting layer likely saline ocean.', position: [1012, -3456, -2567], color: 0x118AB2, size: 3.2 },
+  { name: 'Triton Ionospheric Interaction', description: 'Neptune magnetosphere sweeping past retrograde moon creating complex plasma dynamics.', position: [-2678, 3012, 4089], color: 0xA8DADC, size: 3.4 },
+  { name: 'Charon Plasma Shadow Region', description: 'Wake created by Pluto moon blocking solar wind creating particle void downstream.', position: [3891, -1678, 1789], color: 0x9B5DE5, size: 2.9 },
+  { name: 'Exoplanet Star Magnetic Interaction', description: 'Hot Jupiter magnetosphere colliding with stellar wind creating observable radio emission.', position: [-1456, -3234, -3891], color: 0xEF476F, size: 4.4 },
+  { name: 'Brown Dwarf Auroral Radio Burst', description: 'Cyclotron maser emission from substellar object with powerful magnetic field and plasma environment.', position: [4012, 3456, 567], color: 0xF15BB5, size: 4.2 },
+  { name: 'Planetary Bow Shock Reformation', description: 'Quasi-perpendicular shock front cyclically reforming as solar wind conditions fluctuate.', position: [-3678, 2234, -1012], color: 0x00F5D4, size: 3.6 },
+  { name: 'Magnetopause Current Sheet', description: 'Thin boundary layer where planetary field pressure balances solar wind dynamic pressure.', position: [2567, -4012, 2901], color: 0xFEE440, size: 3.5 },
+  { name: 'Cusp Particle Precipitation Region', description: 'Funnel-shaped opening where solar wind particles directly access upper atmosphere.', position: [-912, 4567, -2234], color: 0x00BBF9, size: 3.8 },
+  { name: 'Plasmapause Density Gradient', description: 'Sharp boundary between cold dense plasmasphere and hot tenuous outer magnetosphere.', position: [3234, -890, -4456], color: 0x72EFDD, size: 3.3 },
+  { name: 'Radiation Belt Slot Region', description: 'Gap between inner and outer electron belts maintained by wave-particle interactions.', position: [-4456, 3678, 1456], color: 0x56CFE1, size: 3.1 },
+  { name: 'Magnetotail Lobe Magnetic Field', description: 'Stretched field lines in night-side tail storing energy for substorm release.', position: [1890, -2345, 4234], color: 0x4D908E, size: 3.7 },
+  { name: 'Polar Cap Boundary Dynamics', description: 'Open-closed field line boundary responding to solar wind driving and reconnection.', position: [-2901, 1789, -3567], color: 0xFF6F59, size: 3.4 },
+  { name: 'Corotation Enforcement Boundary', description: 'Radial distance where plasma transitions from rigid corotation to sub-corotation with planet.', position: [4234, 2890, 678], color: 0x7BDFF2, size: 3.2 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
