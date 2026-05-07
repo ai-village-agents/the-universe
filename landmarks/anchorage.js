@@ -11032,6 +11032,267 @@ export function createAnchorageLandmark(THREE, opts) {
   let lobTrapCycle = 0;
   let lobTrapPhase = 0;
 
+  // === v69: Pirate ship (decorative, distant) ============================
+  const pirateGroup = new THREE.Group();
+  pirateGroup.position.set(-150, 0, -160);
+  pirateGroup.rotation.y = -0.6;
+  // weathered hull
+  const pirateHullMat = new THREE.MeshStandardMaterial({ color: 0x2b1d12, roughness: 0.9 });
+  const pirateHull = new THREE.Mesh(new THREE.BoxGeometry(22, 4, 6), pirateHullMat);
+  pirateHull.position.y = 1.2;
+  pirateGroup.add(pirateHull);
+  // pointed bow
+  const pirateBow = new THREE.Mesh(new THREE.ConeGeometry(3, 6, 4), pirateHullMat);
+  pirateBow.rotation.z = -Math.PI / 2;
+  pirateBow.rotation.y = Math.PI / 4;
+  pirateBow.position.set(13, 1.2, 0);
+  pirateGroup.add(pirateBow);
+  // stern castle
+  const pirateStern = new THREE.Mesh(new THREE.BoxGeometry(5, 3, 6), pirateHullMat);
+  pirateStern.position.set(-9, 4.2, 0);
+  pirateGroup.add(pirateStern);
+  // deck
+  const pirateDeckMat = new THREE.MeshStandardMaterial({ color: 0x3d2a18, roughness: 0.85 });
+  const pirateDeck = new THREE.Mesh(new THREE.BoxGeometry(22, 0.3, 5.6), pirateDeckMat);
+  pirateDeck.position.y = 3.2;
+  pirateGroup.add(pirateDeck);
+  // 3 masts with black sails
+  const pirateMastMat = new THREE.MeshStandardMaterial({ color: 0x1a1208, roughness: 0.9 });
+  const pirateSailMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.95, side: THREE.DoubleSide });
+  for (let m = 0; m < 3; m++) {
+    const mx = -6 + m * 6;
+    const pirateMast = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 14, 8), pirateMastMat);
+    pirateMast.position.set(mx, 10, 0);
+    pirateGroup.add(pirateMast);
+    const pirateYard = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 5.2, 6), pirateMastMat);
+    pirateYard.rotation.z = Math.PI / 2;
+    pirateYard.position.set(mx, 13, 0);
+    pirateGroup.add(pirateYard);
+    const pirateSail = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), pirateSailMat);
+    pirateSail.position.set(mx, 10.5, 0);
+    pirateGroup.add(pirateSail);
+    const pirateSail2 = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 3.6), pirateSailMat);
+    pirateSail2.position.set(mx, 6.5, 0);
+    pirateGroup.add(pirateSail2);
+  }
+  // skull flag at main mast top
+  const pirateFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.5, 6), pirateMastMat);
+  pirateFlagPole.position.set(0, 17.6, 0);
+  pirateGroup.add(pirateFlagPole);
+  const pirateFlag = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 1.4), pirateSailMat);
+  pirateFlag.position.set(1.2, 17.6, 0);
+  pirateGroup.add(pirateFlag);
+  const pirateSkullMat = new THREE.MeshBasicMaterial({ color: 0xfaf3df });
+  const pirateSkull = new THREE.Mesh(new THREE.SphereGeometry(0.28, 10, 8), pirateSkullMat);
+  pirateSkull.position.set(1.2, 17.8, 0.02);
+  pirateGroup.add(pirateSkull);
+  const pirateBone1 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 6), pirateSkullMat);
+  pirateBone1.rotation.z = Math.PI / 4;
+  pirateBone1.position.set(1.2, 17.5, 0.02);
+  pirateGroup.add(pirateBone1);
+  const pirateBone2 = pirateBone1.clone();
+  pirateBone2.rotation.z = -Math.PI / 4;
+  pirateGroup.add(pirateBone2);
+  // cannon ports along hull
+  const portMat = new THREE.MeshStandardMaterial({ color: 0x0a0604, roughness: 0.9 });
+  for (let p = -8; p <= 8; p += 4) {
+    const port = new THREE.Mesh(new THREE.CircleGeometry(0.3, 8), portMat);
+    port.position.set(p, 1.5, 3.01);
+    pirateGroup.add(port);
+  }
+  // wake under hull
+  const pirateWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.35 });
+  const pirateWake = new THREE.Mesh(new THREE.PlaneGeometry(28, 7), pirateWakeMat);
+  pirateWake.rotation.x = -Math.PI / 2;
+  pirateWake.position.set(-2, -0.5, 0);
+  pirateGroup.add(pirateWake);
+  group.add(pirateGroup);
+
+  // === v69: Beach bench with couple holding hands ========================
+  const benchSceneGroup = new THREE.Group();
+  benchSceneGroup.position.set(34, 0, 22);
+  benchSceneGroup.rotation.y = -0.5;
+  // wooden bench
+  const benchWoodMat = new THREE.MeshStandardMaterial({ color: 0x6b4a2a, roughness: 0.85 });
+  const bcSeat = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.18, 0.9), benchWoodMat);
+  bcSeat.position.set(0, 0.65, 0);
+  benchSceneGroup.add(bcSeat);
+  const bcBack = new THREE.Mesh(new THREE.BoxGeometry(3.4, 1.0, 0.14), benchWoodMat);
+  bcBack.position.set(0, 1.2, -0.4);
+  benchSceneGroup.add(bcBack);
+  for (const lx of [-1.4, 1.4]) {
+    const benchLeg = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.65, 0.85), benchWoodMat);
+    benchLeg.position.set(lx, 0.32, 0);
+    benchSceneGroup.add(benchLeg);
+  }
+  // armrests
+  for (const ax of [-1.65, 1.65]) {
+    const benchArm = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.5, 0.85), benchWoodMat);
+    benchArm.position.set(ax, 1.0, 0);
+    benchSceneGroup.add(benchArm);
+  }
+  // Couple: person A (left) - blue jacket
+  const personALegMat = new THREE.MeshStandardMaterial({ color: 0x2a3855, roughness: 0.85 });
+  const personATorsoMat = new THREE.MeshStandardMaterial({ color: 0x4477aa, roughness: 0.85 });
+  const personASkinMat = new THREE.MeshStandardMaterial({ color: 0xeac3a3, roughness: 0.7 });
+  const personAHairMat = new THREE.MeshStandardMaterial({ color: 0x3a2418, roughness: 0.85 });
+  const personALeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.7, 8), personALegMat);
+  personALeg1.position.set(-0.85, 0.35, 0.35);
+  benchSceneGroup.add(personALeg1);
+  const personALeg2 = personALeg1.clone();
+  personALeg2.position.set(-0.6, 0.35, 0.35);
+  benchSceneGroup.add(personALeg2);
+  const personATorso = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.85, 10), personATorsoMat);
+  personATorso.position.set(-0.7, 1.15, -0.15);
+  benchSceneGroup.add(personATorso);
+  const personAHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), personASkinMat);
+  personAHead.position.set(-0.7, 1.78, -0.2);
+  benchSceneGroup.add(personAHead);
+  const personAHair = new THREE.Mesh(new THREE.SphereGeometry(0.24, 12, 10, 0, Math.PI * 2, 0, Math.PI / 2), personAHairMat);
+  personAHair.position.set(-0.7, 1.82, -0.22);
+  benchSceneGroup.add(personAHair);
+  // Person A inner arm reaches toward partner
+  const personAArm = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.7, 8), personATorsoMat);
+  personAArm.rotation.z = -1.0;
+  personAArm.position.set(-0.25, 1.05, 0.05);
+  benchSceneGroup.add(personAArm);
+  const personAHand = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), personASkinMat);
+  personAHand.position.set(0.0, 0.85, 0.05);
+  benchSceneGroup.add(personAHand);
+  // Person B (right) - red dress
+  const personBLegMat = new THREE.MeshStandardMaterial({ color: 0xeac3a3, roughness: 0.7 });
+  const personBTorsoMat = new THREE.MeshStandardMaterial({ color: 0xb83a3a, roughness: 0.85 });
+  const personBHairMat = new THREE.MeshStandardMaterial({ color: 0xc97a2a, roughness: 0.85 });
+  const personBLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.7, 8), personBLegMat);
+  personBLeg1.position.set(0.6, 0.35, 0.35);
+  benchSceneGroup.add(personBLeg1);
+  const personBLeg2 = personBLeg1.clone();
+  personBLeg2.position.set(0.85, 0.35, 0.35);
+  benchSceneGroup.add(personBLeg2);
+  const personBTorso = new THREE.Mesh(new THREE.ConeGeometry(0.36, 0.95, 10), personBTorsoMat);
+  personBTorso.position.set(0.7, 1.15, -0.15);
+  benchSceneGroup.add(personBTorso);
+  const personBHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), personASkinMat);
+  personBHead.position.set(0.7, 1.78, -0.2);
+  benchSceneGroup.add(personBHead);
+  const personBHair = new THREE.Mesh(new THREE.SphereGeometry(0.23, 12, 10, 0, Math.PI * 2, 0, Math.PI * 0.7), personBHairMat);
+  personBHair.position.set(0.7, 1.82, -0.22);
+  benchSceneGroup.add(personBHair);
+  // Person B inner arm reaches to A
+  const personBArm = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.7, 8), personBTorsoMat);
+  personBArm.rotation.z = 1.0;
+  personBArm.position.set(0.25, 1.05, 0.05);
+  benchSceneGroup.add(personBArm);
+  const personBHand = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8), personASkinMat);
+  personBHand.position.set(0.02, 0.85, 0.06);
+  benchSceneGroup.add(personBHand);
+  // Tiny heart floating between them
+  const benchHeartMat = new THREE.MeshBasicMaterial({ color: 0xff3366 });
+  const benchHeart = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 8), benchHeartMat);
+  benchHeart.position.set(0, 2.2, 0.1);
+  benchSceneGroup.add(benchHeart);
+  group.add(benchSceneGroup);
+
+  // === v69: Beach chess club (2 tables, 4 players) =======================
+  const chessClubGroup = new THREE.Group();
+  chessClubGroup.position.set(-26, 0, 28);
+  chessClubGroup.rotation.y = 0.5;
+  const chessTableMat = new THREE.MeshStandardMaterial({ color: 0x4a3220, roughness: 0.85 });
+  const chessBoardLight = new THREE.MeshStandardMaterial({ color: 0xf2dcb4, roughness: 0.7 });
+  const chessBoardDark = new THREE.MeshStandardMaterial({ color: 0x2a1a0c, roughness: 0.7 });
+  const chessChairMat = new THREE.MeshStandardMaterial({ color: 0x5a4030, roughness: 0.85 });
+  const chessPiecesWhiteMat = new THREE.MeshStandardMaterial({ color: 0xeeeae0, roughness: 0.55 });
+  const chessPiecesBlackMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.55 });
+  const chessPlayerColors = [0x335577, 0xaa5533, 0x447755, 0x995588];
+  const chessTableX = [-2.5, 2.5];
+  for (let ti = 0; ti < 2; ti++) {
+    const tx = chessTableX[ti];
+    // table
+    const chessTableTop = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 1.6), chessTableMat);
+    chessTableTop.position.set(tx, 0.85, 0);
+    chessClubGroup.add(chessTableTop);
+    const chessTablePost = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.14, 0.85, 8), chessTableMat);
+    chessTablePost.position.set(tx, 0.43, 0);
+    chessClubGroup.add(chessTablePost);
+    const chessTableBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.06, 12), chessTableMat);
+    chessTableBase.position.set(tx, 0.03, 0);
+    chessClubGroup.add(chessTableBase);
+    // checkered chessboard 8x8
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const sq = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.02, 0.14),
+          (r + c) % 2 === 0 ? chessBoardLight : chessBoardDark);
+        sq.position.set(tx + (c - 3.5) * 0.14, 0.91, (r - 3.5) * 0.14);
+        chessClubGroup.add(sq);
+      }
+    }
+    // a few pieces (decorative): 2 white pawns, 1 white king, 2 black pawns, 1 black queen
+    const piecePositions = [
+      [tx - 0.42, 0.95, -0.42, chessPiecesWhiteMat, 0.06],
+      [tx - 0.14, 0.95, -0.42, chessPiecesWhiteMat, 0.06],
+      [tx + 0.0, 1.02, -0.14, chessPiecesWhiteMat, 0.09],
+      [tx + 0.28, 0.95, 0.42, chessPiecesBlackMat, 0.06],
+      [tx + 0.42, 0.95, 0.28, chessPiecesBlackMat, 0.06],
+      [tx - 0.14, 1.02, 0.14, chessPiecesBlackMat, 0.1],
+    ];
+    for (const [px, py, pz, pmat, ph] of piecePositions) {
+      const piece = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.06, ph, 8), pmat);
+      piece.position.set(px, py, pz);
+      chessClubGroup.add(piece);
+    }
+    // Two players per table sit opposite (front and back)
+    for (let pi = 0; pi < 2; pi++) {
+      const pz = pi === 0 ? -1.2 : 1.2;
+      const facing = pi === 0 ? 1 : -1;
+      const pColor = chessPlayerColors[ti * 2 + pi];
+      const pTorsoMat = new THREE.MeshStandardMaterial({ color: pColor, roughness: 0.85 });
+      const pSkinMat = new THREE.MeshStandardMaterial({ color: 0xddb88a, roughness: 0.7 });
+      const pHairMat = new THREE.MeshStandardMaterial({ color: 0x2a1a0e, roughness: 0.85 });
+      // chair
+      const chair = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.08, 0.6), chessChairMat);
+      chair.position.set(tx, 0.5, pz);
+      chessClubGroup.add(chair);
+      const chairBack = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.7, 0.08), chessChairMat);
+      chairBack.position.set(tx, 0.85, pz - facing * 0.26);
+      chessClubGroup.add(chairBack);
+      for (const [cx, cz] of [[-0.22, -0.22], [0.22, -0.22], [-0.22, 0.22], [0.22, 0.22]]) {
+        const chairLeg = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.5, 0.06), chessChairMat);
+        chairLeg.position.set(tx + cx, 0.25, pz + cz);
+        chessClubGroup.add(chairLeg);
+      }
+      // player legs
+      const cpLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.45, 8), pTorsoMat);
+      cpLeg1.position.set(tx - 0.12, 0.78, pz);
+      chessClubGroup.add(cpLeg1);
+      const cpLeg2 = cpLeg1.clone();
+      cpLeg2.position.set(tx + 0.12, 0.78, pz);
+      chessClubGroup.add(cpLeg2);
+      // torso (sitting, facing table)
+      const cpTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.7, 10), pTorsoMat);
+      cpTorso.position.set(tx, 1.3, pz - facing * 0.15);
+      chessClubGroup.add(cpTorso);
+      // head
+      const cpHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), pSkinMat);
+      cpHead.position.set(tx, 1.78, pz - facing * 0.25);
+      chessClubGroup.add(cpHead);
+      // tilted forward (concentrating)
+      const cpHair = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10, 0, Math.PI * 2, 0, Math.PI / 2), pHairMat);
+      cpHair.position.set(tx, 1.82, pz - facing * 0.27);
+      chessClubGroup.add(cpHair);
+      // arm reaching toward board
+      const cpArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 8), pTorsoMat);
+      cpArm.rotation.x = facing * 0.8;
+      cpArm.position.set(tx + 0.05, 1.25, pz - facing * 0.45);
+      chessClubGroup.add(cpArm);
+    }
+  }
+  // tiny "thinking" pawn icon hovering above table 1
+  const chessThinkMat = new THREE.MeshBasicMaterial({ color: 0xffe066 });
+  const chessThinkMark = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8), chessThinkMat);
+  chessThinkMark.position.set(-2.5, 2.4, -0.2);
+  chessClubGroup.add(chessThinkMark);
+  group.add(chessClubGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -12918,6 +13179,16 @@ export function createAnchorageLandmark(THREE, opts) {
       lobSplash.visible = lobTrapY < 0.6;
       lobSplash.material.opacity = Math.max(0, 0.8 - lobTrapY);
       lobSplash.scale.set(1 + Math.sin(t * 4) * 0.15, 1 + Math.sin(t * 4) * 0.15, 1);
+      // v69: pirate ship gentle bob and flag flutter
+      pirateGroup.position.y = Math.sin(t * 0.7) * 0.12;
+      pirateGroup.rotation.z = Math.sin(t * 0.6) * 0.025;
+      pirateFlag.rotation.y = Math.sin(t * 2.5) * 0.4;
+      pirateWake.material.opacity = 0.25 + Math.sin(t * 1.2) * 0.08;
+      // v69: bench couple - heart pulses
+      benchHeart.scale.set(1 + Math.sin(t * 3) * 0.2, 1 + Math.sin(t * 3) * 0.2, 1 + Math.sin(t * 3) * 0.2);
+      benchHeart.position.y = 2.2 + Math.sin(t * 1.5) * 0.05;
+      // v69: chess thinking icon bobs
+      chessThinkMark.position.y = 2.4 + Math.sin(t * 2) * 0.08;
 
     }
 
