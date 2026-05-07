@@ -14683,6 +14683,160 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bkfGroup);
 
+
+  // v87: Beach cookout grill
+  const bcokGroup = new THREE.Group();
+  bcokGroup.position.set(-8, 0.3, -28);
+  const bcokGrillMat = new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.6, roughness: 0.4 });
+  const bcokGrillBody = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.5, 16), bcokGrillMat);
+  bcokGrillBody.position.set(0, 0.95, 0);
+  bcokGroup.add(bcokGrillBody);
+  const bcokLegMat = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.7, roughness: 0.3 });
+  for (let l = 0; l < 3; l++) {
+    const ang = (l / 3) * Math.PI * 2;
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.7, 5), bcokLegMat);
+    leg.position.set(Math.cos(ang) * 0.4, 0.35, Math.sin(ang) * 0.4);
+    bcokGroup.add(leg);
+  }
+  const bcokGrateMat = new THREE.MeshStandardMaterial({ color: 0x333333, metalness: 0.6, roughness: 0.5 });
+  const bcokGrate = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.46, 0.04, 16), bcokGrateMat);
+  bcokGrate.position.set(0, 1.22, 0);
+  bcokGroup.add(bcokGrate);
+  const bcokFlameMat = new THREE.MeshLambertMaterial({ color: 0xFF6622, emissive: 0xFF3300, emissiveIntensity: 0.6 });
+  const bcokFlame = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.4, 8), bcokFlameMat);
+  bcokFlame.position.set(0, 1.4, 0);
+  bcokGroup.add(bcokFlame);
+  const bcokSmokeMat = new THREE.MeshBasicMaterial({ color: 0xCCCCCC, transparent: true, opacity: 0.5 });
+  const bcokSmoke = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), bcokSmokeMat);
+  bcokSmoke.position.set(0, 2.0, 0);
+  bcokGroup.add(bcokSmoke);
+  const bcokPattyMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const bcokPatties = [];
+  for (let p = 0; p < 4; p++) {
+    const patty = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 10), bcokPattyMat);
+    patty.position.set(-0.2 + (p % 2) * 0.4, 1.26, -0.2 + Math.floor(p / 2) * 0.4);
+    bcokGroup.add(patty);
+    bcokPatties.push(patty);
+  }
+  const bcokChefSkinMat = new THREE.MeshLambertMaterial({ color: 0xC68642 });
+  const bcokChefShirtMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const bcokChefTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), bcokChefShirtMat);
+  bcokChefTorso.position.set(0.9, 0.8, 0);
+  bcokGroup.add(bcokChefTorso);
+  const bcokChefHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), bcokChefSkinMat);
+  bcokChefHead.position.set(0.9, 1.4, 0);
+  bcokGroup.add(bcokChefHead);
+  const bcokHatMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const bcokHat = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.18, 0.3, 12), bcokHatMat);
+  bcokHat.position.set(0.9, 1.7, 0);
+  bcokGroup.add(bcokHat);
+  const bcokTongMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.7, roughness: 0.3 });
+  const bcokTong = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.4, 4), bcokTongMat);
+  bcokTong.position.set(0.55, 1.3, 0);
+  bcokTong.rotation.z = -0.5;
+  bcokGroup.add(bcokTong);
+  const bcokCoolerMat = new THREE.MeshLambertMaterial({ color: 0x4488DD });
+  const bcokCooler = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.4, 0.5), bcokCoolerMat);
+  bcokCooler.position.set(-1.2, 0.2, 0.5);
+  bcokGroup.add(bcokCooler);
+  group.add(bcokGroup);
+
+  // v87: Floating crane barge
+  const fcbGroup = new THREE.Group();
+  fcbGroup.position.set(36, 0.3, -36);
+  const fcbBargeMat = new THREE.MeshLambertMaterial({ color: 0x444466 });
+  const fcbBarge = new THREE.Mesh(new THREE.BoxGeometry(5, 0.6, 3), fcbBargeMat);
+  fcbBarge.position.set(0, 0.3, 0);
+  fcbGroup.add(fcbBarge);
+  const fcbDeckMat = new THREE.MeshLambertMaterial({ color: 0x666666 });
+  const fcbDeck = new THREE.Mesh(new THREE.BoxGeometry(5, 0.1, 3), fcbDeckMat);
+  fcbDeck.position.set(0, 0.65, 0);
+  fcbGroup.add(fcbDeck);
+  const fcbCraneBaseMat = new THREE.MeshStandardMaterial({ color: 0xFF8822, metalness: 0.5, roughness: 0.5 });
+  const fcbCraneBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.6, 1.2, 10), fcbCraneBaseMat);
+  fcbCraneBase.position.set(-1.5, 1.3, 0);
+  fcbGroup.add(fcbCraneBase);
+  const fcbBoomMat = new THREE.MeshStandardMaterial({ color: 0xFF8822, metalness: 0.5, roughness: 0.5 });
+  const fcbBoom = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.25, 5.5), fcbBoomMat);
+  fcbBoom.position.set(0.7, 3.0, 0);
+  fcbBoom.rotation.x = 0.4;
+  fcbGroup.add(fcbBoom);
+  const fcbCableMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const fcbCable = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 3.5, 4), fcbCableMat);
+  fcbCable.position.set(2.7, 1.5, 1.0);
+  fcbGroup.add(fcbCable);
+  const fcbHookMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.7, roughness: 0.4 });
+  const fcbHook = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), fcbHookMat);
+  fcbHook.position.set(2.7, -0.2, 1.0);
+  fcbGroup.add(fcbHook);
+  const fcbCargoMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const fcbCargo = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.6, 0.8), fcbCargoMat);
+  fcbCargo.position.set(2.7, -0.55, 1.0);
+  fcbGroup.add(fcbCargo);
+  const fcbCabMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const fcbCab = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.7), fcbCabMat);
+  fcbCab.position.set(-1.0, 2.2, 0);
+  fcbGroup.add(fcbCab);
+  const fcbWindowMat = new THREE.MeshLambertMaterial({ color: 0x88CCEE, emissive: 0x4488AA, emissiveIntensity: 0.3 });
+  const fcbWindow = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.4), fcbWindowMat);
+  fcbWindow.position.set(-0.69, 2.25, 0);
+  fcbWindow.rotation.y = Math.PI / 2;
+  fcbGroup.add(fcbWindow);
+  const fcbWakeMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.4 });
+  const fcbWake = new THREE.Mesh(new THREE.PlaneGeometry(6, 4), fcbWakeMat);
+  fcbWake.rotation.x = -Math.PI / 2;
+  fcbWake.position.set(0, -0.05, 0);
+  fcbGroup.add(fcbWake);
+  group.add(fcbGroup);
+
+  // v87: Rock skipping kid
+  const rskGroup = new THREE.Group();
+  rskGroup.position.set(-16, 0.05, 36);
+  const rskKidSkinMat = new THREE.MeshLambertMaterial({ color: 0xE5C8A0 });
+  const rskKidShirtMat = new THREE.MeshLambertMaterial({ color: 0x44CC22 });
+  const rskKidTorso = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.6, 0.25), rskKidShirtMat);
+  rskKidTorso.position.set(0, 0.5, 0);
+  rskGroup.add(rskKidTorso);
+  const rskKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), rskKidSkinMat);
+  rskKidHead.position.set(0, 0.95, 0);
+  rskGroup.add(rskKidHead);
+  const rskKidArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), rskKidShirtMat);
+  rskKidArm.position.set(0.25, 0.6, 0.1);
+  rskKidArm.rotation.z = -0.7;
+  rskGroup.add(rskKidArm);
+  const rskRockMat = new THREE.MeshLambertMaterial({ color: 0x555555 });
+  const rskRocks = [];
+  for (let r = 0; r < 4; r++) {
+    const rock = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 5), rskRockMat);
+    rock.scale.set(1, 0.4, 1);
+    rock.position.set(1 + r * 1.5, 0.3 + (r % 2) * 0.1, 0);
+    rskGroup.add(rock);
+    rskRocks.push(rock);
+  }
+  const rskRippleMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+  const rskRipples = [];
+  for (let rp = 0; rp < 4; rp++) {
+    const rip = new THREE.Mesh(new THREE.RingGeometry(0.1, 0.18, 16), rskRippleMat);
+    rip.rotation.x = -Math.PI / 2;
+    rip.position.set(1.5 + rp * 1.5, 0.04, 0);
+    rskGroup.add(rip);
+    rskRipples.push(rip);
+  }
+  const rskWaterMat = new THREE.MeshBasicMaterial({ color: 0x4488AA, transparent: true, opacity: 0.5 });
+  const rskWater = new THREE.Mesh(new THREE.PlaneGeometry(10, 4), rskWaterMat);
+  rskWater.rotation.x = -Math.PI / 2;
+  rskWater.position.set(5, 0.02, 0);
+  rskGroup.add(rskWater);
+  const rskFriendSkinMat = new THREE.MeshLambertMaterial({ color: 0xCCA070 });
+  const rskFriendShirtMat = new THREE.MeshLambertMaterial({ color: 0xCC4488 });
+  const rskFriendTorso = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.6, 0.25), rskFriendShirtMat);
+  rskFriendTorso.position.set(-0.6, 0.5, 0.4);
+  rskGroup.add(rskFriendTorso);
+  const rskFriendHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), rskFriendSkinMat);
+  rskFriendHead.position.set(-0.6, 0.95, 0.4);
+  rskGroup.add(rskFriendHead);
+  group.add(rskGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -16925,6 +17079,38 @@ export function createAnchorageLandmark(THREE, opts) {
           ki.tail.rotation.z = 0.4 * Math.sin(t * 1.2 + k);
           ki.flyerHead.rotation.x = -0.4;
         }
+        // v87 updates
+        bcokFlame.scale.y = 1 + 0.2 * Math.sin(t * 4.0);
+        bcokFlame.material.emissiveIntensity = 0.5 + 0.3 * Math.sin(t * 3.5);
+        bcokSmoke.position.y = 2.0 + 0.5 * Math.sin(t * 0.6);
+        bcokSmoke.position.x = 0.3 * Math.sin(t * 0.4);
+        bcokSmoke.material.opacity = 0.4 + 0.2 * Math.sin(t * 0.8);
+        bcokChefTorso.rotation.y = 0.3 * Math.sin(t * 1.0);
+        bcokTong.rotation.z = -0.5 + 0.2 * Math.sin(t * 2.0);
+        for (let p = 0; p < bcokPatties.length; p++) {
+          bcokPatties[p].position.y = 1.26 + 0.02 * Math.sin(t * 2.5 + p);
+        }
+        fcbGroup.rotation.z = 0.02 * Math.sin(t * 0.3);
+        fcbBoom.rotation.y = 0.4 * Math.sin(t * 0.5);
+        fcbHook.position.y = -0.2 + 0.3 * Math.sin(t * 0.8);
+        fcbCargo.position.y = -0.55 + 0.3 * Math.sin(t * 0.8);
+        fcbCable.scale.y = 1 + 0.1 * Math.sin(t * 0.8);
+        fcbWindow.material.emissiveIntensity = 0.25 + 0.1 * Math.sin(t * 1.2);
+        fcbWake.material.opacity = 0.3 + 0.15 * Math.sin(t * 1.0);
+        rskKidArm.rotation.z = -0.7 + 0.5 * Math.sin(t * 1.5);
+        rskKidTorso.rotation.y = 0.15 * Math.sin(t * 1.5);
+        for (let r = 0; r < rskRocks.length; r++) {
+          const sk = (t * 1.5 - r * 0.5) % 4;
+          rskRocks[r].position.x = 1 + sk * 2;
+          rskRocks[r].position.y = 0.3 + 0.3 * Math.abs(Math.sin(sk * Math.PI));
+          rskRocks[r].rotation.y += 0.2;
+        }
+        for (let rp = 0; rp < rskRipples.length; rp++) {
+          const phase = (t * 0.7 + rp * 0.4) % 1;
+          rskRipples[rp].scale.set(1 + phase * 3, 1 + phase * 3, 1);
+          rskRipples[rp].material.opacity = 0.6 * (1 - phase);
+        }
+
 
 
 
