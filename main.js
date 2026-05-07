@@ -13036,7 +13036,32 @@ const cosmicSights = [
   {"name": "Phase Manifold 10997", "description": "A rare and mysterious phase manifold 10997 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org", "position": [7074, 144792, 5098], "color": "0x79e601", "size": 2.0},
   {"name": "Flux Web 10998", "description": "A rare and mysterious flux web 10998 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org", "position": [7695, 149260, 5716], "color": "0x4ec8a9", "size": 1.1},
   {"name": "Entangled Current 10999", "description": "A rare and mysterious entangled current 10999 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org", "position": [7845, 146355, 5767], "color": "0x56436c", "size": 2.3},
-  {"name": "Resonant Burst 11000", "description": "A rare and mysterious resonant burst 11000 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org", "position": [7815, 148473, 5601], "color": "0xb0971f", "size": 2.2}
+  {"name": "Resonant Burst 11000", "description": "A rare and mysterious resonant burst 11000 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org", "position": [7815, 148473, 5601], "color": "0xb0971f", "size": 2.2},
+{ name: 'Primordial Density Fluctuation Seed', position: [8500, 155000, 6500], color: '#FF7F50', size: 4.8, description: 'Quantum fluctuations from inflation amplified into seeds of cosmic structure.' },
+  { name: 'Dark Matter Halo Assembly', position: [8501, 155020, 6501], color: '#6A5ACD', size: 5.2, description: 'Hierarchical merging of dark matter structures forming the scaffolding for galaxies.' },
+  { name: 'Filamentary Gas Accretion Stream', position: [8502, 155040, 6502], color: '#40E0D0', size: 4.5, description: 'Cold gas flowing along cosmic web filaments into forming galaxies.' },
+  { name: 'Virial Shock Heating Front', position: [8503, 155060, 6503], color: '#FF6347', size: 4.1, description: 'Infalling gas heated to virial temperature at halo boundaries.' },
+  { name: 'Angular Momentum Transfer Zone', position: [8504, 155080, 6504], color: '#9370DB', size: 3.9, description: 'Tidal torques from neighboring structures spinning up protogalaxies.' },
+  { name: 'Baryon Fraction Deficit Region', position: [8505, 155100, 6505], color: '#20B2AA', size: 4.3, description: 'Zones where feedback ejected baryons below cosmic mean density.' },
+  { name: 'Merger Tree Branch Point', position: [8506, 155120, 6506], color: '#FFB347', size: 4.7, description: 'Node where multiple progenitor halos combined into a single descendant.' },
+  { name: 'Satellite Galaxy Infall Track', position: [8507, 155140, 6507], color: '#87CEEB', size: 3.8, description: 'Orbital trajectory of a dwarf galaxy falling into a larger host.' },
+  { name: 'Tidal Stripping Debris Arc', position: [8508, 155160, 6508], color: '#DDA0DD', size: 4.0, description: 'Stars and gas torn from satellite galaxies by tidal forces.' },
+  { name: 'Central Density Cusp Profile', position: [8509, 155180, 6509], color: '#F0E68C', size: 3.6, description: 'Steep inner density rise predicted by cold dark matter simulations.' },
+  { name: 'Core-Cusp Transformation Zone', position: [8510, 155200, 6510], color: '#98FB98', size: 4.2, description: 'Region where baryonic feedback flattens dark matter cusps into cores.' },
+  { name: 'First Apocenter Turnaround Shell', position: [8511, 155220, 6511], color: '#FFA07A', size: 5.0, description: 'Outer halo boundary where infalling material reaches first orbital turnaround.' },
+  { name: 'Cosmic Web Node Intersection', position: [8512, 155240, 6512], color: '#B0C4DE', size: 5.5, description: 'Massive cluster at the junction of multiple cosmic filaments.' },
+  { name: 'Void Expansion Boundary', position: [8513, 155260, 6513], color: '#D8BFD8', size: 4.4, description: 'Edge of an expanding cosmic void pushing matter into surrounding walls.' },
+  { name: 'Sheet Collapse Pancake', position: [8514, 155280, 6514], color: '#FFDAB9', size: 4.6, description: 'Flattened structure from anisotropic gravitational collapse along one axis.' },
+  { name: 'Warm Dark Matter Free Streaming Cutoff', position: [8515, 155300, 6515], color: '#E6E6FA', size: 3.7, description: 'Small-scale structure suppression from warm dark matter particle velocities.' },
+  { name: 'Self-Interacting Dark Matter Core', position: [8516, 155320, 6516], color: '#FFC0CB', size: 4.9, description: 'Central region where dark matter self-scattering creates isothermal cores.' },
+  { name: 'Fuzzy Dark Matter Interference Pattern', position: [8517, 155340, 6517], color: '#ADD8E6', size: 4.1, description: 'Wave-like quantum interference from ultralight axion dark matter.' },
+  { name: 'Massive Neutrino Clustering Suppression', position: [8518, 155360, 6518], color: '#F5DEB3', size: 3.5, description: 'Reduced small-scale structure from neutrino free-streaming effects.' },
+  { name: 'Baryonic Acoustic Oscillation Ring', position: [8519, 155380, 6519], color: '#7FFFD4', size: 5.3, description: 'Characteristic 150 Mpc scale imprinted by sound waves in early universe.' },
+  { name: 'Redshift Space Distortion Kaiser Effect', position: [8520, 155400, 6520], color: '#FFE4B5', size: 4.0, description: 'Apparent squashing of structures along line of sight from coherent infall.' },
+  { name: 'Finger of God Velocity Dispersion', position: [8521, 155420, 6521], color: '#BC8F8F', size: 3.8, description: 'Elongated structures in redshift space from virialized cluster motions.' },
+  { name: 'Two-Point Correlation Clustering Peak', position: [8522, 155440, 6522], color: '#4682B4', size: 4.5, description: 'Statistical measure of galaxy clustering strength at different separations.' },
+  { name: 'Halo Occupation Distribution Node', position: [8523, 155460, 6523], color: '#DAA520', size: 4.2, description: 'Statistical framework linking galaxies to dark matter halos.' },
+  { name: 'Assembly Bias Signature', position: [8524, 155480, 6524], color: '#CD853F', size: 3.9, description: 'Environmental dependence of halo clustering beyond mass alone.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
