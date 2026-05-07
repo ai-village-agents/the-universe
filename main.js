@@ -9132,7 +9132,7 @@ const cosmicSights = [
     { name: "Scintillation Arc (II)", position: [7563, 14, 2013], color: "#EE82EE", description: "ISM scattering structure" },
     { name: "Interstellar Scattering", position: [7564, 15, 2014], color: "#FF00FF", description: "Radio wave broadening" },
     { name: "HI Self-Absorption HISA", position: [7565, 16, 2015], color: "#FF69B4", description: "Cold HI against warm background" },
-    { name: "Zeeman Splitting Detection", position: [7566, 17, 2016], color: "#FF1493", description: "Magnetic field strength measure" },
+    { name: "Zeeman Magnetic Probe Region", position: [7566, 17, 2016], color: "#FF1493", description: "Magnetic field strength measure" },
     { name: "Radio Recombination Line", position: [7567, 18, 2017], color: "#C71585", description: "Ionized gas transition" },
     { name: "Continuum Emission Map", position: [7568, 19, 2018], color: "#DB7093", description: "Broadband radio image" },
     { name: "Spectral Index Mapping", position: [7569, 20, 2019], color: "#FFB6C1", description: "Emission mechanism diagnostic" },
@@ -10597,7 +10597,7 @@ const cosmicSights = [
     { name: "Glycolaldehyde Detection Site", position: [-145, 78, 167], color: "#F38181", description: "Simple sugar molecule discovery location hinting at prebiotic chemistry in space" },
     { name: "Carbon Monoxide Dark Cloud", position: [212, -34, -178], color: "#AA96DA", description: "Molecular tracer revealing hidden dense regions within giant molecular complexes" },
     { name: "Ammonia Rotation Transition", position: [-89, 156, 45], color: "#FCBAD3", description: "Inversion spectrum thermometer measuring gas kinetic temperature precisely" },
-    { name: "Water Megamaser Disk", position: [134, -212, 89], color: "#A8D8EA", description: "Intense microwave emission from edge-on accretion disk around active galactic nucleus" },
+    { name: "H2O Megamaser Accretion Ring", position: [134, -212, 89], color: "#A8D8EA", description: "Intense microwave emission from edge-on accretion disk around active galactic nucleus" },
     { name: "Hydrogen Cyanide Outflow", position: [-167, 23, -234], color: "#FFAAA5", description: "Molecular tracer of high-velocity jets from young stellar objects" },
     { name: "Silicon Monoxide Shock Front", position: [78, 189, -123], color: "#D4A5A5", description: "Refractory molecule released from grain destruction in fast shocks" },
     { name: "Hydroxyl Radical Zeeman Zone", position: [-212, -45, 156], color: "#392F5A", description: "Magnetic field measurement region using OH maser polarization splitting" },
@@ -11463,8 +11463,8 @@ const cosmicSights = [
     { name: "Spatial Frequency Sampling", position: [4446, 88920, 2321], color: "#9B59B6", description: "UV plane coverage distribution" },
     { name: "Dirty Beam Sidelobe", position: [4447, 88940, 2322], color: "#3498DB", description: "Point spread function artifact" },
     { name: "CLEAN Deconvolution Model", position: [4448, 88960, 2323], color: "#1ABC9C", description: "Iterative source component extraction" },
-    { name: "Maximum Entropy Reconstruction", position: [4449, 88980, 2324], color: "#F39C12", description: "Information-theoretic imaging constraint" },
-    { name: "Self-Calibration Solution", position: [4450, 89000, 2325], color: "#8E44AD", description: "Antenna gain correction from source model" },
+    { name: "MEM Image Restoration Zone", position: [4449, 88980, 2324], color: "#F39C12", description: "Information-theoretic imaging constraint" },
+    { name: "Antenna Gain Self-Cal Map", position: [4450, 89000, 2325], color: "#8E44AD", description: "Antenna gain correction from source model" },
     { name: "Fringe Rate Mapping", position: [4451, 89020, 2326], color: "#2ECC71", description: "Earth rotation synthesis frequency" },
     { name: "Delay Beam Steering", position: [4452, 89040, 2327], color: "#E67E22", description: "Cable path length compensation" },
     { name: "Correlator Output Spectrum", position: [4453, 89060, 2328], color: "#16A085", description: "Cross-correlation frequency data" },
@@ -12708,6 +12708,181 @@ const cosmicSights = [
     color: "#FFA500",
     size: 2.3,
     description: "Crustal oscillations following a giant flare"
+  },
+  {
+    name: "Very Long Baseline Array Station",
+    position: [115250, -81750, 23250],
+    color: "#FF6347",
+    size: 2.3,
+    description: "Continental-scale radio interferometer antenna"
+  },
+  {
+    name: "Atacama Large Millimeter Array Pad",
+    position: [115260, -81740, 23260],
+    color: "#4682B4",
+    size: 2.3,
+    description: "High-altitude submillimeter antenna cluster"
+  },
+  {
+    name: "Square Kilometre Array Core",
+    position: [115270, -81730, 23270],
+    color: "#32CD32",
+    size: 2.3,
+    description: "Next-generation radio telescope central station"
+  },
+  {
+    name: "Pulsar Timing Array Node",
+    position: [115280, -81720, 23280],
+    color: "#9370DB",
+    size: 2.3,
+    description: "Millisecond pulsar gravitational wave detector"
+  },
+  {
+    name: "Fast Radio Burst Localization",
+    position: [115290, -81710, 23290],
+    color: "#FFD700",
+    size: 2.3,
+    description: "Millisecond transient source triangulation"
+  },
+  {
+    name: "21cm Hydrogen Line Mapper",
+    position: [115300, -81700, 23300],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Neutral hydrogen distribution survey instrument"
+  },
+  {
+    name: "Synchrotron Emission Hotspot",
+    position: [115310, -81690, 23310],
+    color: "#FF4500",
+    size: 2.3,
+    description: "Relativistic electron radio glow region"
+  },
+  {
+    name: "Radio Galaxy Jet Terminus",
+    position: [115320, -81680, 23320],
+    color: "#8B0000",
+    size: 2.3,
+    description: "AGN outflow impact zone in ICM"
+  },
+  {
+    name: "Faraday Rotation Probe",
+    position: [115330, -81670, 23330],
+    color: "#4169E1",
+    size: 2.3,
+    description: "Polarization angle magnetic field tracer"
+  },
+  {
+    name: "Radio Relic Arc Structure",
+    position: [115340, -81660, 23340],
+    color: "#DA70D6",
+    size: 2.3,
+    description: "Cluster merger shock radio emission"
+  },
+  {
+    name: "Radio Halo Diffuse Glow",
+    position: [115350, -81650, 23350],
+    color: "#87CEEB",
+    size: 2.3,
+    description: "Cluster-wide cosmic ray electron emission"
+  },
+  {
+    name: "OH Maser Emission Site",
+    position: [115360, -81640, 23360],
+    color: "#7CFC00",
+    size: 2.3,
+    description: "Hydroxyl molecular amplified radio source"
+  },
+  {
+    name: "NGC 4258 Water Maser Disk",
+    position: [115370, -81630, 23370],
+    color: "#1E90FF",
+    size: 2.3,
+    description: "AGN accretion disk maser emission ring"
+  },
+  {
+    name: "Methanol Maser Star Formation",
+    position: [115380, -81620, 23380],
+    color: "#00FA9A",
+    size: 2.3,
+    description: "Massive protostar Class II maser beacon"
+  },
+  {
+    name: "Spectral Line Doppler Map",
+    position: [115390, -81610, 23390],
+    color: "#FFA07A",
+    size: 2.3,
+    description: "Velocity-resolved molecular emission profile"
+  },
+  {
+    name: "Continuum Subtraction Residual",
+    position: [115400, -81600, 23400],
+    color: "#B0C4DE",
+    size: 2.3,
+    description: "Pure line emission extraction region"
+  },
+  {
+    name: "Radio Recombination Line Zone",
+    position: [115410, -81590, 23410],
+    color: "#FF69B4",
+    size: 2.3,
+    description: "HII region electron cascade emission"
+  },
+  {
+    name: "OH Zeeman Field Measurement",
+    position: [115420, -81580, 23420],
+    color: "#8A2BE2",
+    size: 2.3,
+    description: "Magnetic field strength line polarization"
+  },
+  {
+    name: "Aperture Synthesis Baseline",
+    position: [115430, -81570, 23430],
+    color: "#20B2AA",
+    size: 2.3,
+    description: "Interferometer spatial frequency sample"
+  },
+  {
+    name: "Phase Calibrator Quasar",
+    position: [115440, -81560, 23440],
+    color: "#FF8C00",
+    size: 2.3,
+    description: "Atmospheric correction reference source"
+  },
+  {
+    name: "Bandwidth Synthesis Image",
+    position: [115450, -81550, 23450],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "Multi-frequency UV coverage enhancement"
+  },
+  {
+    name: "VLBI Self-Calibration Loop",
+    position: [115460, -81540, 23460],
+    color: "#ADFF2F",
+    size: 2.3,
+    description: "Iterative antenna gain correction map"
+  },
+  {
+    name: "Clean Deconvolution Artifact",
+    position: [115470, -81530, 23470],
+    color: "#DC143C",
+    size: 2.3,
+    description: "PSF sidelobe removal residual pattern"
+  },
+  {
+    name: "Maximum Entropy Deconvolution",
+    position: [115480, -81520, 23480],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Information-theoretic image restoration"
+  },
+  {
+    name: "Primary Beam Attenuation Edge",
+    position: [115490, -81510, 23490],
+    color: "#FFE4B5",
+    size: 2.3,
+    description: "Antenna pattern sensitivity falloff boundary"
   }
 ];
 
