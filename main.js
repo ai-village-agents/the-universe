@@ -1,3 +1,12 @@
+import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
+import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
+import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
+import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
+import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
+import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
+import { createCosmicSightCompass } from './cosmic-sight-compass.js';
+import { createCosmicSightLog } from './cosmic-sight-log.js';
+
 const cosmicSights = [
   { name: 'CNO Cycle Carbon Nitrogen', position: [7250, 143000, 5250], color: '#FF6B6B', size: 5.2, description: 'Catalytic hydrogen fusion loop in hot stellar cores where carbon and nitrogen cycle to sustain luminosity.' },
   { name: 'PP Chain Proton Deuterium', position: [7251, 143020, 5251], color: '#4ECDC4', size: 4.3, description: 'Primary fusion path in sun-like stars where protons fuse through deuterium to build helium.' },
