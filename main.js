@@ -12802,7 +12802,32 @@ const cosmicSights = [
   { name: 'Telluric Line Artifact', description: 'Atmospheric absorption contaminating astronomical spectrum requiring removal.', position: [7371, 144440, 5371], color: 0x667788, size: 2.0 },
   { name: 'Radial Velocity Anomaly', description: 'Doppler shift deviation hinting at unseen companion or stellar activity.', position: [7372, 144460, 5372], color: 0xaa77ff, size: 2.5 },
   { name: 'Spectropolarimetric Signal', description: 'Polarization across spectral line revealing magnetic field geometry.', position: [7373, 144480, 5373], color: 0xee88aa, size: 2.7 },
-  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 }
+  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 },
+{ "name": "Cosmic Horizon Boundary", "description": "The ultimate edge where observable universe meets causally disconnected space beyond light's reach", "beacon": "Observable Universe Edge", "position": [9760, 1100, 850] },
+{ "name": "Multiverse Interference Pattern", "description": "Theoretical imprints where parallel universe bubbles may have collided with our cosmic membrane", "beacon": "Parallel Reality", "position": [9770, 1105, 855] },
+{ "name": "Quantum Vacuum Fluctuation Field", "description": "The seething foam of virtual particles spontaneously emerging and annihilating throughout empty space", "beacon": "Virtual Reality", "position": [9780, 1110, 860] },
+{ "name": "Dark Flow Streaming Vector", "description": "Mysterious large-scale motion of galaxy clusters toward an unknown attractor beyond the cosmic horizon", "beacon": "Hidden Pull", "position": [9790, 1115, 865] },
+{ "name": "Cosmic String Network Node", "description": "Hypothetical topological defects from symmetry breaking creating one-dimensional energy filaments", "beacon": "Primordial Thread", "position": [9800, 1120, 870] },
+{ "name": "False Vacuum Metastability Zone", "description": "Region where quantum fields may exist in unstable excited states above true ground energy", "beacon": "Unstable Ground", "position": [9810, 1125, 875] },
+{ "name": "Inflation Bubble Remnant", "description": "Fossil signature from the exponential expansion epoch that shaped our universe's largest structures", "beacon": "Ancient Expansion", "position": [9820, 1130, 880] },
+{ "name": "Antimatter Galaxy Candidate", "description": "Distant galaxy showing spectral hints of matter-antimatter asymmetry different from local regions", "beacon": "Mirror Matter", "position": [9830, 1135, 885] },
+{ "name": "Cosmic Neutrino Background Shell", "description": "The oldest detectable radiation layer from neutrino decoupling one second after the Big Bang", "beacon": "Neutrino Echo", "position": [9840, 1140, 890] },
+{ "name": "Graviton Detection Anomaly", "description": "Unexplained signal consistent with gravitational force carrier particle interaction signature", "beacon": "Gravity Quantum", "position": [9850, 1145, 895] },
+{ "name": "Planck Scale Structure", "description": "Theoretical granularity of spacetime at 10^-35 meter resolution where quantum gravity dominates", "beacon": "Spacetime Grain", "position": [9860, 1150, 900] },
+{ "name": "Holographic Principle Boundary", "description": "Surface encoding all three-dimensional information of enclosed volume in two-dimensional data", "beacon": "Information Surface", "position": [9870, 1155, 905] },
+{ "name": "Wormhole Throat Candidate", "description": "Gravitational lensing pattern suggesting possible Einstein-Rosen bridge connecting distant regions", "beacon": "Space Tunnel", "position": [9880, 1160, 910] },
+{ "name": "Temporal Loop Indicator", "description": "Closed timelike curve signature suggesting exotic matter enabling past-directed worldlines", "beacon": "Time Circle", "position": [9890, 1165, 915] },
+{ "name": "Negative Energy Density Pocket", "description": "Region where quantum effects create effective tension exceeding normal vacuum energy density", "beacon": "Exotic Energy", "position": [9900, 1170, 920] },
+{ "name": "Extra Dimension Compactification Scale", "description": "Evidence for hidden spatial dimensions curled at sub-nuclear scales predicted by string theory", "beacon": "Hidden Space", "position": [9910, 1175, 925] },
+{ "name": "Brane Collision Aftermath", "description": "Signature from higher-dimensional membrane interaction that may have triggered cosmic inflation", "beacon": "Membrane Echo", "position": [9920, 1180, 930] },
+{ "name": "Axion Field Condensate", "description": "Coherent oscillation of ultralight particles solving strong CP problem and forming dark matter halos", "beacon": "Ghost Field", "position": [9930, 1185, 935] },
+{ "name": "Magnetic Monopole Track", "description": "Ionization trail from hypothetical isolated north or south magnetic pole traversing matter", "beacon": "Single Pole", "position": [9940, 1190, 940] },
+{ "name": "Proton Decay Event Signature", "description": "Extremely rare grand unified theory prediction of fundamental matter instability over 10^34 years", "beacon": "Matter Decay", "position": [9950, 1195, 945] },
+{ "name": "Information Paradox Resolution Zone", "description": "Black hole boundary region where quantum information preservation mechanisms become manifest", "beacon": "Information Recovery", "position": [9960, 1200, 950] },
+{ "name": "Cosmic Censorship Violation", "description": "Naked singularity candidate visible without event horizon shielding contrary to theoretical expectations", "beacon": "Bare Singularity", "position": [9970, 1205, 955] },
+{ "name": "Anthropic Selection Window", "description": "Parameter space where physical constants permit complex chemistry and observer existence", "beacon": "Life Window", "position": [9980, 1210, 960] },
+{ "name": "Ultimate Fate Indicator", "description": "Cosmological measurement constraining universe's destiny between expansion, contraction, or heat death", "beacon": "Final Destiny", "position": [9990, 1215, 965] },
+{ "name": "Omega Point Convergence", "description": "Far future state where information processing capacity approaches infinity at universe's end", "beacon": "Final Thought", "position": [10000, 1220, 970] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
