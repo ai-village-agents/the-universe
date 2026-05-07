@@ -13061,7 +13061,182 @@ const cosmicSights = [
   { name: 'Finger of God Velocity Dispersion', position: [8521, 155420, 6521], color: '#BC8F8F', size: 3.8, description: 'Elongated structures in redshift space from virialized cluster motions.' },
   { name: 'Two-Point Correlation Clustering Peak', position: [8522, 155440, 6522], color: '#4682B4', size: 4.5, description: 'Statistical measure of galaxy clustering strength at different separations.' },
   { name: 'Halo Occupation Distribution Node', position: [8523, 155460, 6523], color: '#DAA520', size: 4.2, description: 'Statistical framework linking galaxies to dark matter halos.' },
-  { name: 'Assembly Bias Signature', position: [8524, 155480, 6524], color: '#CD853F', size: 3.9, description: 'Environmental dependence of halo clustering beyond mass alone.' }
+  { name: 'Assembly Bias Signature', position: [8524, 155480, 6524], color: '#CD853F', size: 3.9, description: 'Environmental dependence of halo clustering beyond mass alone.' },
+  {
+    "name": "Infall Velocity Trace",
+    "position": [7450, 147000, 5450],
+    "luminance": 0.6,
+    "hue": 210,
+    "saturation": 0.5
+  },
+  {
+    "name": "Cosmic Shear Tensor Field",
+    "position": [7451, 147020, 5451],
+    "luminance": 0.68,
+    "hue": 218,
+    "saturation": 0.65
+  },
+  {
+    "name": "Density Peak Network",
+    "position": [7452, 147040, 5452],
+    "luminance": 0.76,
+    "hue": 226,
+    "saturation": 0.8
+  },
+  {
+    "name": "Kinetic Energy Distribution",
+    "position": [7453, 147060, 5453],
+    "luminance": 0.84,
+    "hue": 234,
+    "saturation": 0.5
+  },
+  {
+    "name": "Tensor Mode Amplitude",
+    "position": [7454, 147080, 5454],
+    "luminance": 0.92,
+    "hue": 242,
+    "saturation": 0.65
+  },
+  {
+    "name": "Halo Occupation Number",
+    "position": [7455, 147100, 5455],
+    "luminance": 0.6,
+    "hue": 250,
+    "saturation": 0.8
+  },
+  {
+    "name": "Splashback Radius Map",
+    "position": [7456, 147120, 5456],
+    "luminance": 0.68,
+    "hue": 258,
+    "saturation": 0.5
+  },
+  {
+    "name": "Bulk Flow Vector Field",
+    "position": [7457, 147140, 5457],
+    "luminance": 0.76,
+    "hue": 266,
+    "saturation": 0.65
+  },
+  {
+    "name": "Triaxiality Measurement Index",
+    "position": [7458, 147160, 5458],
+    "luminance": 0.84,
+    "hue": 210,
+    "saturation": 0.8
+  },
+  {
+    "name": "Spin Parameter Distribution",
+    "position": [7459, 147180, 5459],
+    "luminance": 0.92,
+    "hue": 218,
+    "saturation": 0.5
+  },
+  {
+    "name": "Concentration-Mass Relation",
+    "position": [7460, 147200, 5460],
+    "luminance": 0.6,
+    "hue": 226,
+    "saturation": 0.65
+  },
+  {
+    "name": "Streaming Velocity Component",
+    "position": [7461, 147220, 5461],
+    "luminance": 0.68,
+    "hue": 234,
+    "saturation": 0.8
+  },
+  {
+    "name": "Anisotropy Spectrum Contour",
+    "position": [7462, 147240, 5462],
+    "luminance": 0.76,
+    "hue": 242,
+    "saturation": 0.5
+  },
+  {
+    "name": "Vorticity Magnitude Profile",
+    "position": [7463, 147260, 5463],
+    "luminance": 0.84,
+    "hue": 250,
+    "saturation": 0.65
+  },
+  {
+    "name": "Magnetic Field Topology",
+    "position": [7464, 147280, 5464],
+    "luminance": 0.92,
+    "hue": 258,
+    "saturation": 0.8
+  },
+  {
+    "name": "Temperature-Entropy Scaling",
+    "position": [7465, 147300, 5465],
+    "luminance": 0.6,
+    "hue": 266,
+    "saturation": 0.5
+  },
+  {
+    "name": "Abundance Matching Function",
+    "position": [7466, 147320, 5466],
+    "luminance": 0.68,
+    "hue": 210,
+    "saturation": 0.65
+  },
+  {
+    "name": "Galaxy Kinematics Signature",
+    "position": [7467, 147340, 5467],
+    "luminance": 0.76,
+    "hue": 218,
+    "saturation": 0.8
+  },
+  {
+    "name": "Environmental Density Proxy",
+    "position": [7468, 147360, 5468],
+    "luminance": 0.84,
+    "hue": 226,
+    "saturation": 0.5
+  },
+  {
+    "name": "Accretion Rate Indicator",
+    "position": [7469, 147380, 5469],
+    "luminance": 0.92,
+    "hue": 234,
+    "saturation": 0.65
+  },
+  {
+    "name": "Heating-Cooling Balance",
+    "position": [7470, 147400, 5470],
+    "luminance": 0.6,
+    "hue": 242,
+    "saturation": 0.8
+  },
+  {
+    "name": "Tidal Torque Alignment",
+    "position": [7471, 147420, 5471],
+    "luminance": 0.68,
+    "hue": 250,
+    "saturation": 0.5
+  },
+  {
+    "name": "Secular Evolution Timescale",
+    "position": [7472, 147440, 5472],
+    "luminance": 0.76,
+    "hue": 258,
+    "saturation": 0.65
+  },
+  {
+    "name": "Formation Redshift Proxy",
+    "position": [7473, 147460, 5473],
+    "luminance": 0.84,
+    "hue": 266,
+    "saturation": 0.8
+  },
+  {
+    "name": "Dynamical Relaxation State",
+    "position": [7474, 147480, 5474],
+    "luminance": 0.92,
+    "hue": 210,
+    "saturation": 0.5
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
