@@ -9511,6 +9511,178 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(dolphinShowGroup);
 
 
+
+  // --- v62: rescue helicopter with cable lowered to surfer in distress ---
+  const rescueCopterGroup = new THREE.Group();
+  const rcBodyMat = new THREE.MeshLambertMaterial({ color: 0xb83a36 });
+  const rcBody = new THREE.Mesh(new THREE.CapsuleGeometry(0.8, 1.6, 6, 10), rcBodyMat);
+  rcBody.rotation.z = Math.PI / 2;
+  rcBody.position.y = 0;
+  rescueCopterGroup.add(rcBody);
+  const rcWindow = new THREE.Mesh(new THREE.SphereGeometry(0.55, 12, 8), new THREE.MeshLambertMaterial({ color: 0x223344, transparent: true, opacity: 0.7 }));
+  rcWindow.position.set(1.0, 0.05, 0);
+  rcWindow.scale.set(1, 0.9, 1);
+  rescueCopterGroup.add(rcWindow);
+  const rcTail = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.06, 1.6, 8), rcBodyMat);
+  rcTail.position.set(-1.6, 0, 0);
+  rcTail.rotation.z = Math.PI / 2;
+  rescueCopterGroup.add(rcTail);
+  const rcTailFinMat = new THREE.MeshLambertMaterial({ color: 0xffe066 });
+  const rcTailFin = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.05), rcTailFinMat);
+  rcTailFin.position.set(-2.3, 0.2, 0);
+  rescueCopterGroup.add(rcTailFin);
+  const rcCrossSign = document.createElement('canvas');
+  rcCrossSign.width = 128; rcCrossSign.height = 128;
+  const rcCtx = rcCrossSign.getContext('2d');
+  rcCtx.fillStyle = '#ffffff';
+  rcCtx.fillRect(0, 0, 128, 128);
+  rcCtx.fillStyle = '#cc1111';
+  rcCtx.fillRect(48, 16, 32, 96);
+  rcCtx.fillRect(16, 48, 96, 32);
+  const rcCrossTex = new THREE.CanvasTexture(rcCrossSign);
+  const rcCrossDecal = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.6), new THREE.MeshBasicMaterial({ map: rcCrossTex }));
+  rcCrossDecal.position.set(0.2, 0, 0.81);
+  rescueCopterGroup.add(rcCrossDecal);
+  const rcMast = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  rcMast.position.y = 0.5;
+  rescueCopterGroup.add(rcMast);
+  const rcRotorMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const rcRotor = new THREE.Group();
+  for (let i = 0; i < 4; i++) {
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.05, 0.18), rcRotorMat);
+    blade.rotation.y = (i / 4) * Math.PI * 2;
+    rcRotor.add(blade);
+  }
+  rcRotor.position.y = 0.7;
+  rescueCopterGroup.add(rcRotor);
+  const rcTailRotor = new THREE.Group();
+  for (let i = 0; i < 4; i++) {
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.5, 0.06), rcRotorMat);
+    blade.rotation.x = (i / 4) * Math.PI * 2;
+    rcTailRotor.add(blade);
+  }
+  rcTailRotor.position.set(-2.35, 0.05, 0.1);
+  rcTailRotor.rotation.y = Math.PI / 2;
+  rescueCopterGroup.add(rcTailRotor);
+  // Cable + rescuer
+  const rcCableMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const rcCable = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 5.0, 6), rcCableMat);
+  rcCable.position.set(0.2, -2.5, 0);
+  rescueCopterGroup.add(rcCable);
+  const rcRescuer = new THREE.Group();
+  const rcRescBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.55, 8), new THREE.MeshLambertMaterial({ color: 0xff8c00 }));
+  rcRescBody.position.y = 0.28;
+  rcRescuer.add(rcRescBody);
+  const rcRescHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xfdd9b5 }));
+  rcRescHead.position.y = 0.7;
+  rcRescuer.add(rcRescHead);
+  const rcRescHelmet = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xffe066 }));
+  rcRescHelmet.position.y = 0.78;
+  rcRescuer.add(rcRescHelmet);
+  rcRescuer.position.set(0.2, -5.0, 0);
+  rescueCopterGroup.add(rcRescuer);
+  // Surfer in distress (waving)
+  const rcSurferGroup = new THREE.Group();
+  const rcSurfBoard = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.06, 0.4), new THREE.MeshLambertMaterial({ color: 0x33ccff }));
+  rcSurfBoard.position.y = 0.05;
+  rcSurferGroup.add(rcSurfBoard);
+  const rcSurferBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  rcSurferBody.position.set(0, 0.3, 0);
+  rcSurferGroup.add(rcSurferBody);
+  const rcSurferHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), new THREE.MeshLambertMaterial({ color: 0xc99078 }));
+  rcSurferHead.position.set(0, 0.65, 0);
+  rcSurferGroup.add(rcSurferHead);
+  const rcSurferArm = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0xc99078 }));
+  rcSurferArm.position.set(0.18, 0.55, 0);
+  rcSurferArm.rotation.z = -1.0;
+  rcSurferGroup.add(rcSurferArm);
+  rcSurferGroup.position.set(60, 0.1, 50);
+  group.add(rcSurferGroup);
+  rescueCopterGroup.position.set(60, 7, 50);
+  group.add(rescueCopterGroup);
+
+  // --- v62: surfboard rental rack ---
+  const surfRackGroup = new THREE.Group();
+  const srPostMat = new THREE.MeshLambertMaterial({ color: 0x6b4422 });
+  const srPostGeom = new THREE.CylinderGeometry(0.08, 0.08, 1.6, 6);
+  const srPost1 = new THREE.Mesh(srPostGeom, srPostMat);
+  srPost1.position.set(-1.0, 0.8, 0);
+  surfRackGroup.add(srPost1);
+  const srPost2 = new THREE.Mesh(srPostGeom, srPostMat);
+  srPost2.position.set(1.0, 0.8, 0);
+  surfRackGroup.add(srPost2);
+  const srRailMat = new THREE.MeshLambertMaterial({ color: 0x8a5a2a });
+  const srRailGeom = new THREE.BoxGeometry(2.4, 0.08, 0.1);
+  const srRail1 = new THREE.Mesh(srRailGeom, srRailMat);
+  srRail1.position.y = 1.4;
+  surfRackGroup.add(srRail1);
+  const srRail2 = new THREE.Mesh(srRailGeom, srRailMat);
+  srRail2.position.y = 0.4;
+  surfRackGroup.add(srRail2);
+  const srBoardColors = [0xff6b35, 0xffe066, 0x66ddff, 0xff66cc, 0x77dd77];
+  const srBoardGeom = new THREE.BoxGeometry(0.16, 1.4, 0.4);
+  for (let i = 0; i < 5; i++) {
+    const board = new THREE.Mesh(srBoardGeom, new THREE.MeshLambertMaterial({ color: srBoardColors[i] }));
+    board.position.set(-0.9 + i * 0.45, 1.0, 0);
+    board.rotation.z = -0.05;
+    surfRackGroup.add(board);
+  }
+  // sign
+  const srSignCanvas = document.createElement('canvas');
+  srSignCanvas.width = 256; srSignCanvas.height = 64;
+  const srSignCtx = srSignCanvas.getContext('2d');
+  srSignCtx.fillStyle = '#fff7d6';
+  srSignCtx.fillRect(0, 0, 256, 64);
+  srSignCtx.fillStyle = '#1c4d8a';
+  srSignCtx.font = 'bold 28px sans-serif';
+  srSignCtx.textAlign = 'center';
+  srSignCtx.fillText('SURF RENTALS', 128, 42);
+  const srSignTex = new THREE.CanvasTexture(srSignCanvas);
+  const srSign = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.5), new THREE.MeshBasicMaterial({ map: srSignTex }));
+  srSign.position.set(0, 1.9, 0);
+  surfRackGroup.add(srSign);
+  surfRackGroup.position.set(40, 0, 26);
+  surfRackGroup.rotation.y = -0.3;
+  group.add(surfRackGroup);
+
+  // --- v62: navigation buoy with sea lions sunning ---
+  const slBuoyGroup = new THREE.Group();
+  const slBuoyBaseMat = new THREE.MeshLambertMaterial({ color: 0xc94434 });
+  const slBuoyBase = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 1.1, 0.5, 16), slBuoyBaseMat);
+  slBuoyBase.position.y = 0.25;
+  slBuoyGroup.add(slBuoyBase);
+  const slBuoyDeck = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 0.9, 0.08, 16), new THREE.MeshLambertMaterial({ color: 0x6b4422 }));
+  slBuoyDeck.position.y = 0.54;
+  slBuoyGroup.add(slBuoyDeck);
+  const slBuoyTower = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.8, 6), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  slBuoyTower.position.y = 0.95;
+  slBuoyGroup.add(slBuoyTower);
+  const slBuoyLightMat = new THREE.MeshLambertMaterial({ color: 0xffe066, emissive: 0xff8800, emissiveIntensity: 0.7 });
+  const slBuoyLight = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), slBuoyLightMat);
+  slBuoyLight.position.y = 1.4;
+  slBuoyGroup.add(slBuoyLight);
+  // sea lions on the buoy
+  const slMat = new THREE.MeshLambertMaterial({ color: 0x6e5a48 });
+  const slLions = [];
+  for (let i = 0; i < 3; i++) {
+    const lion = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.5, 6, 10), slMat);
+    body.rotation.z = Math.PI / 2;
+    body.position.y = 0.18;
+    lion.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), slMat);
+    head.position.set(0.45, 0.22, 0);
+    lion.add(head);
+    const a = (i / 3) * Math.PI * 2 + 0.3;
+    lion.position.set(Math.cos(a) * 0.5, 0.6, Math.sin(a) * 0.5);
+    lion.rotation.y = -a;
+    slBuoyGroup.add(lion);
+    slLions.push(lion);
+  }
+  slBuoyGroup.position.set(-66, 0.18, 56);
+  group.add(slBuoyGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -11187,6 +11359,19 @@ export function createAnchorageLandmark(THREE, opts) {
         const targetX = arcY1 < 0.2 ? Math.cos(dPhase) * 1.5 : Math.cos(dPhase + Math.PI) * 1.5 + 3.0;
         sp.position.set(targetX + (i % 3 - 1) * 0.3, phase * 0.8, (Math.floor(i / 3) - 0.5) * 0.6);
       });
+      // v62: helicopter rotor spins; cable+rescuer descend/ascend
+      rcRotor.rotation.y += 0.6;
+      rcTailRotor.rotation.x += 0.8;
+      const rcOsc = Math.sin(t * 0.4) * 1.5 - 1.5; // -3 to 0
+      rcRescuer.position.y = -5.0 + rcOsc;
+      rcCable.position.y = -2.5 + rcOsc / 2;
+      rcCable.scale.y = 1.0 + rcOsc / -5;
+      // v62: surfer waves arm
+      rcSurferArm.rotation.z = -1.0 + Math.sin(t * 4) * 0.5;
+      // v62: buoy bobs gently, light pulses
+      slBuoyGroup.position.y = 0.18 + Math.sin(t * 1.2) * 0.06;
+      slBuoyGroup.rotation.z = Math.sin(t * 0.8) * 0.04;
+      slBuoyLight.material.emissiveIntensity = 0.5 + Math.abs(Math.sin(t * 1.5)) * 0.4;
     }
 
   }
