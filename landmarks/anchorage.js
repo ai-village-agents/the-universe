@@ -15863,7 +15863,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bchScatter.rotation.y = i * 0.4;
     bchGroup.add(bchScatter);
   }
-  anchorageGroup.add(bchGroup);
+  group.add(bchGroup);
 
   // --- v94: sea kayak rental (skr) -------------------------------------------
   const skrGroup = new THREE.Group();
@@ -15913,7 +15913,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const skrCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   skrCustHead.position.set(-1.0, 1.3, 1.4);
   skrGroup.add(skrCustHead);
-  anchorageGroup.add(skrGroup);
+  group.add(skrGroup);
 
   // --- v94: outdoor fish fry pavilion (offp) ---------------------------------
   const offpGroup = new THREE.Group();
@@ -15970,7 +15970,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const offpSteam2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
   offpSteam2.position.set(1.0, 1.85, -0.6);
   offpGroup.add(offpSteam2);
-  anchorageGroup.add(offpGroup);
+  group.add(offpGroup);
 
 
   // --- v95: tide pool snorkel lesson (tps) -----------------------------------
@@ -16024,7 +16024,7 @@ export function createAnchorageLandmark(THREE, opts) {
     tpsAnem.position.set(Math.cos(i * 1.05) * 1.8, 0.06, Math.sin(i * 1.05) * 1.8);
     tpsGroup.add(tpsAnem);
   }
-  anchorageGroup.add(tpsGroup);
+  group.add(tpsGroup);
 
   // --- v95: pier fortune teller booth (pft) ----------------------------------
   const pftGroup = new THREE.Group();
@@ -16067,7 +16067,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pftCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
   pftCustH.position.set(0, 2.05, 1.5);
   pftGroup.add(pftCustH);
-  anchorageGroup.add(pftGroup);
+  group.add(pftGroup);
 
   // --- v95: beach metal detector (bmd) ---------------------------------------
   const bmdGroup = new THREE.Group();
@@ -16116,7 +16116,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bmdFoot.position.set(-0.15 + (i % 2) * 0.3, 0.005, -0.4 - i * 0.5);
     bmdGroup.add(bmdFoot);
   }
-  anchorageGroup.add(bmdGroup);
+  group.add(bmdGroup);
 
 
   // --- v96: coast guard rescue swimmer training (cgrs) -----------------------
@@ -16164,7 +16164,7 @@ export function createAnchorageLandmark(THREE, opts) {
     cgrsTube.position.set(-2.0, 0.07 + i * 0.16, -1.7);
     cgrsGroup.add(cgrsTube);
   }
-  anchorageGroup.add(cgrsGroup);
+  group.add(cgrsGroup);
 
   // --- v96: swim lessons in shallows (swl) -----------------------------------
   const swlGroup = new THREE.Group();
@@ -16197,7 +16197,7 @@ export function createAnchorageLandmark(THREE, opts) {
     swlNoodle.position.set(2.5, 0.1, -1.0 + i * 0.5);
     swlGroup.add(swlNoodle);
   }
-  anchorageGroup.add(swlGroup);
+  group.add(swlGroup);
 
   // --- v96: beach watch tower (bwt) ------------------------------------------
   const bwtGroup = new THREE.Group();
@@ -16239,7 +16239,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const bwtWatcherH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
   bwtWatcherH.position.set(-0.6, 6.05, -0.5);
   bwtGroup.add(bwtWatcherH);
-  anchorageGroup.add(bwtGroup);
+  group.add(bwtGroup);
 
 
   // --- v97: mooring buoy field (mbf) -----------------------------------------
@@ -16287,7 +16287,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const mbfRower = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   mbfRower.position.set(2.5, 0.55, -1.5);
   mbfGroup.add(mbfRower);
-  anchorageGroup.add(mbfGroup);
+  group.add(mbfGroup);
 
   // --- v97: jellyfish bloom (jbt) --------------------------------------------
   const jbtGroup = new THREE.Group();
@@ -16321,7 +16321,7 @@ export function createAnchorageLandmark(THREE, opts) {
     pass.position.set(-0.7 + i * 0.5, 1.7, 0.3);
     jbtGroup.add(pass);
   }
-  anchorageGroup.add(jbtGroup);
+  group.add(jbtGroup);
 
   // --- v97: sandbar paddleball game (pbg) ------------------------------------
   const pbgGroup = new THREE.Group();
@@ -16360,7 +16360,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pbgBall = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffff44 }));
   pbgBall.position.set(0, 1.4, 0);
   pbgGroup.add(pbgBall);
-  anchorageGroup.add(pbgGroup);
+  group.add(pbgGroup);
 
 
   // --- v98: pier cat cafe (pcc) ----------------------------------------------
@@ -16420,7 +16420,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pccCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   pccCustH.position.set(1.5, 1.05, 2.0);
   pccGroup.add(pccCustH);
-  anchorageGroup.add(pccGroup);
+  group.add(pccGroup);
 
   // --- v98: beach sailing dinghy (bsd) ---------------------------------------
   const bsdGroup = new THREE.Group();
@@ -16468,7 +16468,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bsdWake.position.set(-1.5 - i * 0.6, 0.05, 0);
     bsdGroup.add(bsdWake);
   }
-  anchorageGroup.add(bsdGroup);
+  group.add(bsdGroup);
 
   // --- v98: boat travel-lift hauling (bhtl) ----------------------------------
   const bhtlGroup = new THREE.Group();
@@ -16526,7 +16526,138 @@ export function createAnchorageLandmark(THREE, opts) {
   const bhtlHat = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xffe066 }));
   bhtlHat.position.set(2.6, 1.18, 1.0);
   bhtlGroup.add(bhtlHat);
-  anchorageGroup.add(bhtlGroup);
+  group.add(bhtlGroup);
+
+
+  // --- v99: coastal kelp harvester boat (kph) --------------------------------
+  const kphGroup = new THREE.Group();
+  kphGroup.position.set(-50, 0.0, -16);
+  // Hull (broad, flat workboat)
+  const kphHull = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.55, 1.4), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  kphHull.position.set(0, 0.4, 0);
+  kphGroup.add(kphHull);
+  // Deck
+  const kphDeck = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.05, 1.2), new THREE.MeshLambertMaterial({ color: 0x553322 }));
+  kphDeck.position.set(0, 0.7, 0);
+  kphGroup.add(kphDeck);
+  // Cabin (forward)
+  const kphCabin = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.7, 1.0), new THREE.MeshLambertMaterial({ color: 0xffeebb }));
+  kphCabin.position.set(1.1, 1.1, 0);
+  kphGroup.add(kphCabin);
+  // Cabin window
+  const kphWin = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.3, 1.02), new THREE.MeshBasicMaterial({ color: 0x66bbff }));
+  kphWin.position.set(1.1, 1.25, 0);
+  kphGroup.add(kphWin);
+  // Conveyor belt at stern (angled into water)
+  const kphConv = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.1, 0.5), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  kphConv.rotation.z = 0.4;
+  kphConv.position.set(-1.6, 0.65, 0);
+  kphGroup.add(kphConv);
+  // Kelp piled on conveyor (animated greenish strands)
+  for (let i = 0; i < 5; i++) {
+    const kphKelp = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.08, 0.12), new THREE.MeshLambertMaterial({ color: 0x336622 + i * 0x002200 }));
+    kphKelp.position.set(-2.3 + i * 0.3, 0.55 + i * 0.13, 0.05);
+    kphKelp.rotation.z = 0.4;
+    kphGroup.add(kphKelp);
+  }
+  // Captain
+  const kphCap = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0xeebb44 }));
+  kphCap.position.set(1.1, 1.55, 0);
+  kphGroup.add(kphCap);
+  const kphCapH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  kphCapH.position.set(1.1, 2.1, 0);
+  kphGroup.add(kphCapH);
+  // Wake bubbles
+  for (let i = 0; i < 4; i++) {
+    const kphBub = new THREE.Mesh(new THREE.SphereGeometry(0.18 - i * 0.03, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 - i * 0.08 }));
+    kphBub.position.set(2.0 + i * 0.5, 0.18, 0);
+    kphGroup.add(kphBub);
+  }
+  group.add(kphGroup);
+
+  // --- v99: beach ice cream eating contest (bie) -----------------------------
+  const bieGroup = new THREE.Group();
+  bieGroup.position.set(-12, 0.04, 32);
+  // Long table
+  const bieTable = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 1.2), new THREE.MeshLambertMaterial({ color: 0xffeeaa }));
+  bieTable.position.set(0, 0.7, 0);
+  bieGroup.add(bieTable);
+  // 4 contestants on bench, 4 ice cream bowls
+  const bieColors = [0x44eeaa, 0xff77aa, 0xffee44, 0x44aaff];
+  const bieFlavors = [0xff77aa, 0xddccaa, 0x664422, 0xffffff];
+  for (let i = 0; i < 4; i++) {
+    const bieBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: bieColors[i] }));
+    bieBody.position.set(-1.4 + i * 1.0, 1.15, -0.8);
+    bieGroup.add(bieBody);
+    const bieHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+    bieHead.position.set(-1.4 + i * 1.0, 1.78, -0.8);
+    bieGroup.add(bieHead);
+    bieHead.userData.biePhase = i * 0.5;
+    bieHead.userData.bieKind = 'head';
+    // Bowl
+    const bieBowl = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.18, 0.15, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+    bieBowl.position.set(-1.4 + i * 1.0, 0.83, 0);
+    bieGroup.add(bieBowl);
+    // Ice cream scoop
+    const bieScoop = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), new THREE.MeshLambertMaterial({ color: bieFlavors[i] }));
+    bieScoop.position.set(-1.4 + i * 1.0, 0.97, 0);
+    bieGroup.add(bieScoop);
+    // Spoon (animated up to mouth)
+    const bieSpoon = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.3, 0.04), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+    bieSpoon.position.set(-1.4 + i * 1.0 + 0.2, 1.0, -0.3);
+    bieGroup.add(bieSpoon);
+    bieSpoon.userData.biePhase = i * 0.5;
+    bieSpoon.userData.bieKind = 'spoon';
+    bieSpoon.userData.bieX = -1.4 + i * 1.0 + 0.2;
+  }
+  // Judge with stopwatch
+  const bieJudge = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 1.0, 10), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  bieJudge.position.set(2.6, 0.5, 0.8);
+  bieGroup.add(bieJudge);
+  const bieJudgeH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bieJudgeH.position.set(2.6, 1.13, 0.8);
+  bieGroup.add(bieJudgeH);
+  // Banner above
+  const bieBanner = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.5, 0.04), new THREE.MeshLambertMaterial({ color: 0xff4488 }));
+  bieBanner.position.set(0, 2.4, -1.2);
+  bieGroup.add(bieBanner);
+  group.add(bieGroup);
+
+  // --- v99: sandbar tag football (stf) ---------------------------------------
+  const stfGroup = new THREE.Group();
+  stfGroup.position.set(40, 0.04, -8);
+  // 6 players in two teams of 3, scattered
+  const stfPositions = [
+    [-1.5, 0, 0, 0xff4444], [-2.5, 0, 1.0, 0xff4444], [-1.0, 0, -1.5, 0xff4444],
+    [1.5, 0, 0, 0x4488ff], [2.5, 0, -1.0, 0x4488ff], [1.0, 0, 1.5, 0x4488ff]
+  ];
+  stfPositions.forEach((p, idx) => {
+    const stfBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.95, 10), new THREE.MeshLambertMaterial({ color: p[3] }));
+    stfBody.position.set(p[0], 0.55, p[2]);
+    stfBody.userData.stfBase = [p[0], p[2]];
+    stfBody.userData.stfPhase = idx * 0.7;
+    stfGroup.add(stfBody);
+    const stfHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: idx % 2 === 0 ? 0xeec39a : 0xd9a679 }));
+    stfHead.position.set(p[0], 1.18, p[2]);
+    stfHead.userData.stfBase = [p[0], p[2]];
+    stfHead.userData.stfPhase = idx * 0.7;
+    stfHead.userData.stfHead = true;
+    stfGroup.add(stfHead);
+  });
+  // Football flying
+  const stfBall = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 0.18, 4, 8), new THREE.MeshLambertMaterial({ color: 0x884422 }));
+  stfBall.rotation.z = Math.PI / 2;
+  stfBall.position.set(0, 1.5, 0);
+  stfGroup.add(stfBall);
+  // End zone cones
+  for (let s = -1; s <= 1; s += 2) {
+    for (let i = 0; i < 3; i++) {
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.25, 6), new THREE.MeshLambertMaterial({ color: 0xff8800 }));
+      cone.position.set(s * 4.0, 0.13, -1.0 + i * 1.0);
+      stfGroup.add(cone);
+    }
+  }
+  group.add(stfGroup);
 
 
   // --- v21 init complete ----------------------------------------------------
@@ -18861,6 +18992,33 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v99 anim
+        const v99t = t;
+        for (let i = 0; i < bieGroup.children.length; i++) {
+          const c = bieGroup.children[i];
+          if (c.userData && c.userData.bieKind === 'head') {
+            c.position.y = 1.78 + Math.sin(v99t * 4 + c.userData.biePhase) * 0.1;
+          } else if (c.userData && c.userData.bieKind === 'spoon') {
+            const ph = (v99t * 4 + c.userData.biePhase) % (Math.PI * 2);
+            c.position.y = 1.0 + Math.sin(ph) * 0.4;
+            c.position.z = -0.3 + Math.cos(ph) * 0.4;
+            c.rotation.x = -ph * 0.3;
+          }
+        }
+        bieJudgeH.rotation.y = Math.sin(v99t * 0.8) * 0.4;
+        for (let i = 0; i < stfGroup.children.length; i++) {
+          const c = stfGroup.children[i];
+          if (c.userData && c.userData.stfBase) {
+            c.position.x = c.userData.stfBase[0] + Math.cos(v99t * 0.8 + c.userData.stfPhase) * 0.3;
+            c.position.z = c.userData.stfBase[1] + Math.sin(v99t * 0.8 + c.userData.stfPhase) * 0.3;
+          }
+        }
+        const stfPh = (v99t * 0.6) % (Math.PI * 2);
+        stfBall.position.x = -2.5 + Math.cos(stfPh) * 3.0;
+        stfBall.position.z = Math.sin(stfPh) * 1.2;
+        stfBall.position.y = 1.5 + Math.sin(stfPh * 2) * 0.5;
+        stfBall.rotation.y = v99t * 3;
+        kphGroup.position.x = -50 + Math.sin(v99t * 0.15) * 1.5;
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
