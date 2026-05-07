@@ -1,6 +1,62 @@
 #!/usr/bin/env node
 const { spawnSync } = require('node:child_process');
 
+const fs = require('node:fs');
+
+function assertSourceIntegrity() {
+  console.log('\n[validate] main.js source integrity');
+  const main = fs.readFileSync('main.js', 'utf8');
+
+  function requireContains(label, haystack, needle) {
+    if (!haystack.includes(needle)) {
+      console.error(`[validate] Missing ${label}: ${needle}`);
+      process.exit(1);
+    }
+  }
+
+  function requireAbsent(label, haystack, needle) {
+    if (haystack.includes(needle)) {
+      console.error(`[validate] Unexpected ${label}: ${needle}`);
+      process.exit(1);
+    }
+  }
+
+  const cosmicStart = main.indexOf('const cosmicSights = [');
+  const cosmicEnd = cosmicStart === -1 ? -1 : main.indexOf('\n];', cosmicStart);
+  if (cosmicStart === -1 || cosmicEnd === -1) {
+    console.error('[validate] Could not locate const cosmicSights array');
+    process.exit(1);
+  }
+  const cosmicBlock = main.slice(cosmicStart, cosmicEnd);
+  requireAbsent('legacy coordinates fields inside cosmicSights', cosmicBlock, 'coordinates:');
+
+  const directoryStart = main.indexOf('function getDirectoryEntries() {');
+  const keydownStart = directoryStart === -1 ? -1 : main.indexOf('\nfunction handleDirectoryEntryKeydown', directoryStart);
+  if (directoryStart === -1 || keydownStart === -1) {
+    console.error('[validate] Could not locate getDirectoryEntries / handleDirectoryEntryKeydown boundary');
+    process.exit(1);
+  }
+  const directoryBlock = main.slice(directoryStart, keydownStart);
+  requireContains('DOM-only getDirectoryEntries query', directoryBlock, "return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];");
+  requireAbsent('cosmic sight object injected into getDirectoryEntries', directoryBlock, '{ name:');
+  requireAbsent('known injected cosmic sight marker in getDirectoryEntries', directoryBlock, 'Magnetar Crustquake');
+
+  const teleportStart = main.indexOf('function updateTeleportList()');
+  const nearestStart = teleportStart === -1 ? -1 : main.indexOf('\nfunction updateNearestWorld()', teleportStart);
+  if (teleportStart === -1 || nearestStart === -1) {
+    console.error('[validate] Could not locate updateTeleportList / updateNearestWorld boundary');
+    process.exit(1);
+  }
+  const teleportBlock = main.slice(teleportStart, nearestStart);
+  requireContains('cosmic-sight directory visit label', teleportBlock, 'Visit coordinates');
+  requireContains('teleport filter input handler', teleportBlock, 'teleportFilter?.addEventListener');
+  requireContains('cosmic-sight teleport activator', teleportBlock, 'teleportNearPoint(sight.position, sight.name, 40)');
+  requireContains('nearest landmark helper', main, 'function findClosestLandmark()');
+
+  console.log('[validate] main.js source integrity passed');
+}
+
+
 const syntaxTargets = [
   'main.js',
   'check-cosmic-sight-uniqueness.js',
@@ -29,6 +85,8 @@ function run(label, command, args, options = {}) {
     process.exit(result.status || 1);
   }
 }
+
+assertSourceIntegrity();
 
 run('cosmic sight name uniqueness', 'node', ['check-cosmic-sight-uniqueness.js']);
 
