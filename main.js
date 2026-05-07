@@ -11481,7 +11481,7 @@ const cosmicSights = [
     { name: "Nulling Coronagraph Mode", position: [4464, 89280, 2339], color: "#E74C3C", description: "Starlight cancellation fringe" },
     { name: "Speckle Frame Stack", position: [4465, 89300, 2340], color: "#F1C40F", description: "Short exposure atmospheric freeze" },
     { name: "Lucky Frame Selection", position: [4466, 89320, 2341], color: "#8E44AD", description: "Best-seeing image combination" },
-    { name: "Deformable Mirror Wavefront", position: [4467, 89340, 2342], color: "#2ECC71", description: "Adaptive optics atmospheric correction" }
+    { name: "Deformable Mirror Wavefront", position: [4467, 89340, 2342], color: "#2ECC71", description: "Adaptive optics atmospheric correction" },
     { name: "Proper Motion Vector", position: [4468, 89360, 2343], color: "#FF6B6B", description: "Annual stellar position change direction" },
     { name: "Parallax Measurement Epoch", position: [4469, 89380, 2344], color: "#4ECDC4", description: "Six-month baseline distance determination" },
     { name: "Reference Frame Anchor", position: [4470, 89400, 2345], color: "#E74C3C", description: "Extragalactic quasar position standard" },
@@ -11506,7 +11506,7 @@ const cosmicSights = [
     { name: "Photocenter Offset", position: [4489, 89780, 2364], color: "#E74C3C", description: "Unresolved binary light centroid shift" },
     { name: "Proper Motion Dispersion", position: [4490, 89800, 2365], color: "#F1C40F", description: "Velocity distribution width measure" },
     { name: "Tangential Velocity Component", position: [4491, 89820, 2366], color: "#8E44AD", description: "Sky-plane motion speed" },
-    { name: "Space Velocity Vector", position: [4492, 89840, 2367], color: "#2ECC71", description: "Full 3D stellar motion direction" }
+    { name: "Space Velocity Vector", position: [4492, 89840, 2367], color: "#2ECC71", description: "Full 3D stellar motion direction" },
     { name: "Photospheric Granulation Cell", position: [4500, 89860, 2370], color: "#FFD700", description: "Convective heat transport surface pattern" },
     { name: "Supergranulation Network", position: [4502, 89880, 2372], color: "#FFA500", description: "Large-scale photospheric convection structure" },
     { name: "Sunspot Penumbral Filament", position: [4504, 89900, 2374], color: "#8B4513", description: "Radiating magnetic field strand in sunspot" },
