@@ -12245,6 +12245,87 @@ function updateTeleportList() {
 
         const actions = document.createElement('div');
         actions.className = 'world-actions';
+        const distance = document.createElement('span');
+        distance.className = 'world-dist';
+        distance.textContent = `${Math.round(dist)} units`;
+        actions.appendChild(distance);
+        const visit = document.createElement('span');
+        visit.className = 'world-enter';
+        visit.textContent = 'Visit coordinates';
+        actions.appendChild(visit);
+
+        const activate = () => teleportNearPoint(sight.position, sight.name, 40);
+        entry.appendChild(info);
+        entry.appendChild(actions);
+        entry.addEventListener('click', activate);
+        entry.addEventListener('keydown', (event) => handleDirectoryEntryKeydown(event, entry, activate));
+        teleportList.appendChild(entry);
+    });
+}
+
+teleportFilter?.addEventListener('input', (event) => {
+    teleportFilterQuery = event.target.value.trim().toLowerCase();
+    updateTeleportList();
+});
+
+teleportFilter?.addEventListener('keydown', (event) => {
+    const entries = getDirectoryEntries();
+    if (event.code === 'ArrowDown') {
+        event.preventDefault();
+        event.stopPropagation();
+        entries[0]?.focus();
+    } else if (event.code === 'ArrowUp') {
+        event.preventDefault();
+        event.stopPropagation();
+        entries[entries.length - 1]?.focus();
+    } else if (event.code === 'Home') {
+        event.preventDefault();
+        event.stopPropagation();
+        entries[0]?.focus();
+    } else if (event.code === 'End') {
+        event.preventDefault();
+        event.stopPropagation();
+        entries[entries.length - 1]?.focus();
+    } else if (event.code === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        if (teleportFilterQuery) {
+            teleportFilterQuery = '';
+            teleportFilter.value = '';
+            updateTeleportList();
+            return;
+        }
+        closeTeleportMenu();
+    }
+});
+
+// ============ NEAREST WORLD + COORDS ============
+const nearestWorldEl = document.getElementById('nearest-world');
+const coordsEl = document.getElementById('coords');
+
+const closestWorldScratch = new THREE.Vector3();
+const closestSightScratch = new THREE.Vector3();
+
+function findClosestLandmark() {
+    const camPos = camera.position;
+    let closestId = null;
+    let closestDist = Infinity;
+
+    worlds.forEach((world) => {
+        closestWorldScratch.fromArray(world.position);
+        const dist = camPos.distanceTo(closestWorldScratch);
+        if (dist < closestDist) {
+            closestDist = dist;
+            closestId = world.id;
+        }
+    });
+
+    cosmicSights.forEach((sight) => {
+        if (!Array.isArray(sight.position)) return;
+        closestSightScratch.fromArray(sight.position);
+        const dist = camPos.distanceTo(closestSightScratch);
+        if (dist < closestDist) {
+            closestDist = dist;
             closestId = sight.id || sight.name;
         }
     });
