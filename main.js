@@ -13061,7 +13061,32 @@ const cosmicSights = [
   { name: 'Finger of God Velocity Dispersion', position: [8521, 155420, 6521], color: '#BC8F8F', size: 3.8, description: 'Elongated structures in redshift space from virialized cluster motions.' },
   { name: 'Two-Point Correlation Clustering Peak', position: [8522, 155440, 6522], color: '#4682B4', size: 4.5, description: 'Statistical measure of galaxy clustering strength at different separations.' },
   { name: 'Halo Occupation Distribution Node', position: [8523, 155460, 6523], color: '#DAA520', size: 4.2, description: 'Statistical framework linking galaxies to dark matter halos.' },
-  { name: 'Assembly Bias Signature', position: [8524, 155480, 6524], color: '#CD853F', size: 3.9, description: 'Environmental dependence of halo clustering beyond mass alone.' }
+  { name: 'Assembly Bias Signature', position: [8524, 155480, 6524], color: '#CD853F', size: 3.9, description: 'Environmental dependence of halo clustering beyond mass alone.' },
+{ name: 'Inside-Out Disk Growth Pattern', position: [8600, 156000, 6600], color: '#FF6B6B', size: 4.5, description: 'Galaxies building their disks from center outward over cosmic time.' },
+  { name: 'Downsizing Stellar Mass Trend', position: [8601, 156020, 6601], color: '#4ECDC4', size: 4.2, description: 'Massive galaxies forming stars earlier than lower-mass counterparts.' },
+  { name: 'Quenching Mechanism Transition', position: [8602, 156040, 6602], color: '#45B7D1', size: 4.8, description: 'Process shutting down star formation and moving galaxies to red sequence.' },
+  { name: 'Green Valley Crossing Phase', position: [8603, 156060, 6603], color: '#96CEB4', size: 4.1, description: 'Transitional state between blue star-forming and red quiescent populations.' },
+  { name: 'Morphological Transformation Event', position: [8604, 156080, 6604], color: '#FFEAA7', size: 4.6, description: 'Structural change from disk to spheroid through mergers or instabilities.' },
+  { name: 'Bulge Growth Episode', position: [8605, 156100, 6605], color: '#DDA0DD', size: 4.0, description: 'Central stellar concentration building through mergers or disk instabilities.' },
+  { name: 'Bar-Driven Secular Evolution', position: [8606, 156120, 6606], color: '#98D8C8', size: 4.3, description: 'Slow internal restructuring driven by rotating stellar bar patterns.' },
+  { name: 'Spiral Density Wave Crest', position: [8607, 156140, 6607], color: '#F7DC6F', size: 4.7, description: 'Compression zone in rotating spiral pattern triggering star formation.' },
+  { name: 'Ring Galaxy Collision Aftermath', position: [8608, 156160, 6608], color: '#BB8FCE', size: 5.1, description: 'Expanding stellar ring from head-on galaxy collision through disk center.' },
+  { name: 'Jellyfish Galaxy Ram Pressure Trail', position: [8609, 156180, 6609], color: '#85C1E9', size: 4.9, description: 'Dramatic gas stripping tail from galaxy plunging through cluster medium.' },
+  { name: 'Strangulation Gas Depletion', position: [8610, 156200, 6610], color: '#F1948A', size: 3.8, description: 'Gradual star formation decline as hot halo gas supply is cut off.' },
+  { name: 'Harassment Tidal Heating', position: [8611, 156220, 6611], color: '#82E0AA', size: 4.0, description: 'Repeated high-speed encounters puffing up dwarf galaxies in clusters.' },
+  { name: 'Preprocessing Group Environment', position: [8612, 156240, 6612], color: '#F8C471', size: 4.2, description: 'Galaxy transformation beginning in groups before cluster infall.' },
+  { name: 'Backsplash Population Zone', position: [8613, 156260, 6613], color: '#D7BDE2', size: 4.4, description: 'Galaxies that passed through cluster center and now orbit beyond virial radius.' },
+  { name: 'Conformity Correlation Signal', position: [8614, 156280, 6614], color: '#AED6F1', size: 3.9, description: 'Tendency for neighboring galaxies to have similar star formation states.' },
+  { name: 'Main Sequence Star Formation Ridge', position: [8615, 156300, 6615], color: '#A3E4D7', size: 4.5, description: 'Tight correlation between stellar mass and star formation rate in active galaxies.' },
+  { name: 'Starburst Outlier Burst', position: [8616, 156320, 6616], color: '#FAD7A0', size: 5.0, description: 'Galaxy with elevated star formation well above main sequence average.' },
+  { name: 'Post-Starburst Spectral Signature', position: [8617, 156340, 6617], color: '#D5DBDB', size: 4.1, description: 'A-star dominated spectrum indicating recently truncated star formation.' },
+  { name: 'Rejuvenation Minor Merger', position: [8618, 156360, 6618], color: '#ABEBC6', size: 4.3, description: 'Gas-rich dwarf accretion reigniting star formation in quiescent galaxy.' },
+  { name: 'Dry Merger Stellar Mixing', position: [8619, 156380, 6619], color: '#F9E79F', size: 4.6, description: 'Gas-poor galaxy collision growing mass without new star formation.' },
+  { name: 'Wet Merger Starburst Trigger', position: [8620, 156400, 6620], color: '#D4E6F1', size: 5.2, description: 'Gas-rich collision driving intense central star formation burst.' },
+  { name: 'Compact Massive Relic', position: [8621, 156420, 6621], color: '#E8DAEF', size: 3.7, description: 'Dense early-universe galaxy surviving without size growth to present day.' },
+  { name: 'Size Growth Envelope Accretion', position: [8622, 156440, 6622], color: '#FADBD8', size: 4.0, description: 'Elliptical galaxy expanding through minor mergers adding outer stellar halo.' },
+  { name: 'Metallicity Gradient Flattening', position: [8623, 156460, 6623], color: '#D5F5E3', size: 3.8, description: 'Radial abundance gradients erased by merger-driven stellar mixing.' },
+  { name: 'Alpha Enhancement Signature', position: [8624, 156480, 6624], color: '#FCF3CF', size: 4.2, description: 'Elevated oxygen-to-iron ratio indicating rapid early star formation history.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
