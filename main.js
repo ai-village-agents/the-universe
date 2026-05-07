@@ -13153,7 +13153,32 @@ const cosmicSights = [
   { name: 'Cosmic Shear Two-Point Function', position: [8721, 157420, 6721], color: '#87CEEB', size: 4.7, description: 'Weak lensing correlation measuring matter distribution and growth.' },
   { name: 'Galaxy-Galaxy Lensing Tangential Shear', position: [8722, 157440, 6722], color: '#F08080', size: 4.3, description: 'Foreground galaxy mass from background source shape distortions.' },
   { name: 'Cluster Mass Calibration Scaling', position: [8723, 157460, 6723], color: '#98FB98', size: 4.6, description: 'Observable-mass relations enabling cluster cosmology constraints.' },
-  { name: 'Photometric Redshift Probability Distribution', position: [8724, 157480, 6724], color: '#DDA0DD', size: 4.1, description: 'Color-based redshift estimation with full posterior uncertainty.' }
+  { name: 'Photometric Redshift Probability Distribution', position: [8724, 157480, 6724], color: '#DDA0DD', size: 4.1, description: 'Color-based redshift estimation with full posterior uncertainty.' },
+  { name: 'Large Sky Survey Coverage Map', position: [7500, 148000, 5500], description: 'Regional footprint of deep-field photometric survey data collection' },
+  { name: 'Spectroscopic Target Priority Queue', position: [7501, 148020, 5501], description: 'Ranked candidate galaxy list for follow-up spectroscopy scheduling' },
+  { name: 'Survey Completeness Verification', position: [7502, 148040, 5502], description: 'Systematic check of observed vs. planned targets in survey grid' },
+  { name: 'Multi-Band Photometric Catalog', position: [7503, 148060, 5503], description: 'Integrated flux measurements across ultraviolet through infrared wavelengths' },
+  { name: 'Redshift Success Rate Analysis', position: [7504, 148080, 5504], description: 'Determination of spectroscopic redshift yield and confidence flags' },
+  { name: 'Survey Imaging Quality Control', position: [7505, 148100, 5505], description: 'Assessment of point-spread function and noise properties per image' },
+  { name: 'Cross-Survey Photometric Matching', position: [7506, 148120, 5506], description: 'Correlation between objects detected in overlapping survey regions' },
+  { name: 'Variable Star Detection Rate', position: [7507, 148140, 5507], description: 'Identification of time-variable sources in multi-epoch survey data' },
+  { name: 'Survey Astrometric Reference Frame', position: [7508, 148160, 5508], description: 'Absolute coordinate system tied to Gaia satellite calibrations' },
+  { name: 'Galaxy Morphology Classification Grid', position: [7509, 148180, 5509], description: 'Automated categorization of Hubble sequence types for survey objects' },
+  { name: 'Survey Data Quality Flagging', position: [7510, 148200, 5510], description: 'Systematic marking of images with artifacts, cosmic rays, or saturation' },
+  { name: 'Photometric Redshift Validation', position: [7511, 148220, 5511], description: 'Testing photo-z estimates against spectroscopic redshift benchmarks' },
+  { name: 'Survey Magnitude Limit Determination', position: [7512, 148240, 5512], description: 'Measurement of flux detection threshold across filter bandpasses' },
+  { name: 'Extended Source Morphology Map', position: [7513, 148260, 5513], description: 'Surface brightness profiles and structural parameters for galaxies' },
+  { name: 'Survey Contamination Assessment', position: [7514, 148280, 5514], description: 'Evaluation of foreground star and artifact contamination in fields' },
+  { name: 'Spectroscopic Wavelength Solution', position: [7515, 148300, 5515], description: 'Calibration of wavelength scale for spectra using emission line standards' },
+  { name: 'Survey Photometric Uncertainty Map', position: [7516, 148320, 5516], description: 'Per-pixel flux error estimates accounting for read noise and Poisson variance' },
+  { name: 'Quasar Selection Efficiency', position: [7517, 148340, 5517], description: 'Evaluation of color and morphological cuts used to identify active galactic nuclei' },
+  { name: 'Survey Sky Background Subtraction', position: [7518, 148360, 5518], description: 'Removal of diffuse galactic and zodiacal light contributions per image' },
+  { name: 'Galaxy Clustering Pair Catalog', position: [7519, 148380, 5519], description: 'Compilation of spatially associated galaxy systems from survey regions' },
+  { name: 'Survey Exposure Time Optimization', position: [7520, 148400, 5520], description: 'Analysis of integrated detector counts and signal-to-noise ratio targets' },
+  { name: 'Photometric Color-Color Diagram', position: [7521, 148420, 5521], description: 'Two-dimensional representation of multi-band galaxy colors in survey sample' },
+  { name: 'Survey Cosmic Ray Rejection', position: [7522, 148440, 5522], description: 'Identification and removal of high-energy particle hits from detector images' },
+  { name: 'Spectroscopic Line Strength Indicators', position: [7523, 148460, 5523], description: 'Measurement of Balmer and metal absorption features in survey spectra' },
+  { name: 'Survey Object Deblending Protocol', position: [7524, 148480, 5524], description: 'Separation of overlapping point and extended sources in crowded fields' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
