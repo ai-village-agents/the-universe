@@ -446,7 +446,7 @@ const cosmicSights = [
     { name: "Asteroseismic Mode", position: [175, -65, 195], color: "#e6e6fa", description: "Standing wave oscillation in stellar interior probed by brightness variations" },
     // 376-380: Cosmological Phenomena
     { name: "Lyman Alpha Blob (II)", position: [-185, 75, -175], color: "#00ff7f", description: "Giant cloud of hydrogen gas glowing from embedded galaxies or cooling flows" },
-    { name: "Damped Lyman Alpha System", position: [215, -55, 185], color: "#4682b4", description: "High column density neutral hydrogen absorber, likely proto-galactic disk" },
+    { name: "Exotic Damped Lyman Alpha System", position: [215, -55, 185], color: "#4682b4", description: "High column density neutral hydrogen absorber, likely proto-galactic disk" },
     { name: "Gunn-Peterson Trough", position: [-225, 85, 155], color: "#2f4f4f", description: "Complete absorption of quasar light by neutral hydrogen before reionization" },
     { name: "Sunyaev-Zeldovich Decrement", position: [175, -95, -165], color: "#708090", description: "CMB shadow from inverse Compton scattering in hot cluster gas" },
     { name: "Cosmic Infrared Background", position: [-155, 65, 195], color: "#8b0000", description: "Diffuse infrared glow from all dust-obscured star formation across cosmic time" },
@@ -707,7 +707,7 @@ const cosmicSights = [
     { name: "Forbidden Line Emission", position: [205, -95, 155], color: "#00fa9a", description: "Low density signature from normally prohibited transition" },
     { name: "Coronal Line", position: [-215, 55, -185], color: "#7cfc00", description: "High ionization feature revealing million degree plasma" },
     { name: "Absorption Trough", position: [185, -65, 185], color: "#006400", description: "Dark feature from foreground gas absorbing background light" },
-    { name: "Damped Lyman Alpha System (II)", position: [-195, 85, 175], color: "#228b22", description: "Deep absorption from neutral hydrogen cloud at high redshift" },
+    { name: "Exotic Damped Lyman Alpha System (II)", position: [-195, 85, 175], color: "#228b22", description: "Deep absorption from neutral hydrogen cloud at high redshift" },
     { name: "Metal Absorption Line", position: [175, -75, -155], color: "#32cd32", description: "Imprint of heavy elements in intervening gas" },
     { name: "Gravitational Wave Chirp", position: [-225, 95, 195], color: "#ff00ff", description: "Rising frequency signal from inspiraling compact objects" },
     { name: "Merger Ringdown", position: [195, -55, -175], color: "#da70d6", description: "Damped oscillation as merged object settles" },
@@ -1236,7 +1236,7 @@ const cosmicSights = [
     { name: "Accretion-Induced Collapse", position: [-44, 74, 62], color: "#4682b4", description: "White dwarf to neutron star" },
     { name: "Balmer Series Emission", position: [58, -34, 82], color: "#ff6b6b", description: "Hydrogen recombination lines" },
     { name: "Lyman Alpha Forest (II)", position: [-72, 46, -54], color: "#87ceeb", description: "Intergalactic hydrogen absorption" },
-    { name: "Damped Lyman Alpha System (III)", position: [34, -58, 66], color: "#4169e1", description: "High column density absorber" },
+    { name: "Exotic Damped Lyman Alpha System (III)", position: [34, -58, 66], color: "#4169e1", description: "High column density absorber" },
     { name: "Metal Line Absorber", position: [-46, 72, -42], color: "#c0c0c0", description: "Heavy element signatures" },
     { name: "Broad Absorption Line Region", position: [62, -44, -74], color: "#9370db", description: "Quasar outflow signatures" },
     { name: "P Cygni Profile Source", position: [-54, 38, 58], color: "#00ced1", description: "Wind-driven line asymmetry" },
@@ -9109,7 +9109,7 @@ const cosmicSights = [
     { name: "Titanium Oxide Cool Star", position: [156, 34, 189], color: "#E786D7", description: "Refractory oxide band heads characterizing M-dwarf stellar atmospheres" },
     { name: "Aluminum Monoxide Dust Shell", position: [-234, -89, 56], color: "#00B8A9", description: "First condensate forming in oxygen-rich AGB star outflows" },
     { name: "Cyanopolyyne Chain Detection", position: [89, -234, -78], color: "#F6416C", description: "Extended HC_n N molecules reaching impressive lengths in TMC-1 dark cloud" },
-    { name: "Baryon Acoustic Oscillation Peak", position: [178, -89, 234], color: "#FF7F50", description: "Frozen sound wave imprint in galaxy clustering revealing cosmic expansion history" },
+    { name: "Exotic Baryon Acoustic Oscillation Peak", position: [178, -89, 234], color: "#FF7F50", description: "Frozen sound wave imprint in galaxy clustering revealing cosmic expansion history" },
     { name: "CMB Acoustic Peak Spectrum", position: [-145, 123, -67], color: "#6495ED", description: "Angular power spectrum oscillations encoding primordial plasma physics" },
     { name: "Sachs-Wolfe Plateau Region", position: [89, -178, 145], color: "#DDA0DD", description: "Large-scale CMB anisotropy from gravitational potential fluctuations" },
     { name: "Integrated Sachs-Wolfe Signal", position: [-234, 56, 189], color: "#98FB98", description: "Late-time CMB temperature shift from evolving dark energy potentials" },
@@ -11781,7 +11781,7 @@ const cosmicSights = [
     description: "Signal from neutral hydrogen during Cosmic Dawn"
   },
   {
-    name: "Lyman Alpha Emitter Galaxy",
+    name: "Exotic Lyman Alpha Emitter Galaxy",
     position: [121080, -84920, 25080],
     color: "#FF69B4",
     size: 2.3,
@@ -12468,7 +12468,7 @@ const cosmicSights = [
     size: 3.1
   },
   {
-    name: "Magnetic Reconnection X-Point",
+    name: "Exotic Magnetic Reconnection X-Point",
     description: "The null point in a magnetic field topology where anti-parallel field lines break and reconnect, releasing enormous energy and accelerating particles to non-thermal energies in a matter of seconds.",
     position: [3507, 3933, 3532],
     color: 0xf4a261,
@@ -12729,7 +12729,7 @@ const cosmicSights = [
   },
   {"name": "Magnetohydrodynamic Turbulence Cell", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5200, -10400, 15600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Plasma Wake Field Accelerator", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5300, -10600, 15900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
-  {"name": "Magnetic Reconnection X-Point", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5400, -10800, 16200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Exotic Magnetic Reconnection X-Point", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5400, -10800, 16200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Electron Cyclotron Maser Emission", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5500, -11000, 16500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Synchrotron Self-Compton Bubble", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5600, -11200, 16800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Inverse Compton Scattering Cloud", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5700, -11400, 17100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
@@ -12742,15 +12742,15 @@ const cosmicSights = [
   {"name": "Quintessence Scalar Field", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6400, -12800, 19200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Phantom Energy Tear", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6500, -13000, 19500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Cosmic Microwave Background Cold Spot", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6600, -13200, 19800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
-  {"name": "Baryon Acoustic Oscillation Peak", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6700, -13400, 20100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Exotic Baryon Acoustic Oscillation Peak", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6700, -13400, 20100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Sachs-Wolfe Effect Anisotropy", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6800, -13600, 20400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Sunyaev-Zel'dovich Effect Cluster", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6900, -13800, 20700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Reionization Era Bubble", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7000, -14000, 21000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Dark Ages 21cm Line Signal", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7100, -14200, 21300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "First Light Star Formation", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7200, -14400, 21600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Pop III Star Supernova", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7300, -14600, 21900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
-  {"name": "Lyman Alpha Emitter Galaxy", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7400, -14800, 22200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
-  {"name": "Damped Lyman Alpha System", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7500, -15000, 22500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Exotic Lyman Alpha Emitter Galaxy", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7400, -14800, 22200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Exotic Damped Lyman Alpha System", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7500, -15000, 22500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Gunn-Peterson Trough Edge", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7600, -15200, 22800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"}
 
 ];
