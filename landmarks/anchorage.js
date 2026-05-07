@@ -13857,6 +13857,183 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(egpGroup);
 
 
+
+  // v82: Floating dock yard sale
+  const fdysGroup = new THREE.Group();
+  fdysGroup.position.set(-32, 0.4, -8);
+  const fdysDeckMat = new THREE.MeshLambertMaterial({ color: 0x8B6F4A });
+  const fdysDeck = new THREE.Mesh(new THREE.BoxGeometry(7, 0.18, 3.2), fdysDeckMat);
+  fdysGroup.add(fdysDeck);
+  const fdysFloatMat = new THREE.MeshLambertMaterial({ color: 0x445566 });
+  for (const fp of [[-3, -1.4], [3, -1.4], [-3, 1.4], [3, 1.4]]) {
+    const fl = new THREE.Mesh(new THREE.BoxGeometry(1, 0.3, 0.7), fdysFloatMat);
+    fl.position.set(fp[0], -0.18, fp[1]);
+    fdysGroup.add(fl);
+  }
+  const fdysTableMat = new THREE.MeshLambertMaterial({ color: 0xC9A57B });
+  const fdysTable1 = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.08, 1), fdysTableMat);
+  fdysTable1.position.set(-1.5, 0.65, 0);
+  fdysGroup.add(fdysTable1);
+  const fdysTable2 = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.08, 1), fdysTableMat);
+  fdysTable2.position.set(1.6, 0.65, 0);
+  fdysGroup.add(fdysTable2);
+  const fdysLegMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  for (const lp of [[-2.6, -0.4], [-0.4, -0.4], [-2.6, 0.4], [-0.4, 0.4], [0.5, -0.4], [2.7, -0.4], [0.5, 0.4], [2.7, 0.4]]) {
+    const tl = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.55, 6), fdysLegMat);
+    tl.position.set(lp[0], 0.36, lp[1]);
+    fdysGroup.add(tl);
+  }
+  const fdysItemColors = [0xCC2222, 0x2266CC, 0xCCAA22, 0x22AA66, 0xAA22CC, 0xDD8800, 0x4488AA, 0xBB6688];
+  const fdysItems = [];
+  for (let k = 0; k < 10; k++) {
+    const ic = fdysItemColors[k % fdysItemColors.length];
+    const im = new THREE.MeshLambertMaterial({ color: ic });
+    const it = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.2, 0.18), im);
+    const tx = -2.6 + (k < 5 ? k * 0.55 : (k - 5) * 0.55);
+    const tz = -0.25 + (k % 2) * 0.4;
+    const tab = k < 5 ? -1.5 : 1.6;
+    it.position.set(tab + (tx - (k < 5 ? -2.6 : -2.6)) * 0.4, 0.78, tz);
+    fdysGroup.add(it);
+    fdysItems.push(it);
+  }
+  const fdysVendorSkinMat = new THREE.MeshLambertMaterial({ color: 0xE2B98A });
+  const fdysVendorShirtMat = new THREE.MeshLambertMaterial({ color: 0x447755 });
+  const fdysVendorTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), fdysVendorShirtMat);
+  fdysVendorTorso.position.set(-1.5, 1.1, 0.9);
+  fdysGroup.add(fdysVendorTorso);
+  const fdysVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), fdysVendorSkinMat);
+  fdysVendorHead.position.set(-1.5, 1.65, 0.9);
+  fdysGroup.add(fdysVendorHead);
+  const fdysSignMat = new THREE.MeshLambertMaterial({ color: 0xFFFFEE });
+  const fdysSign = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.5, 0.04), fdysSignMat);
+  fdysSign.position.set(0, 1.6, 1.3);
+  fdysGroup.add(fdysSign);
+  const fdysSignPostMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const fdysSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.1, 6), fdysSignPostMat);
+  fdysSignPost.position.set(0, 0.85, 1.3);
+  fdysGroup.add(fdysSignPost);
+  group.add(fdysGroup);
+
+  // v82: Beach disc golf hole
+  const bdgGroup = new THREE.Group();
+  bdgGroup.position.set(28, 0.3, 18);
+  const bdgPoleMat = new THREE.MeshStandardMaterial({ color: 0x999999, metalness: 0.6, roughness: 0.5 });
+  const bdgPole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.4, 8), bdgPoleMat);
+  bdgPole.position.set(0, 1.2, 0);
+  bdgGroup.add(bdgPole);
+  const bdgBasketMat = new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 0.7, roughness: 0.4 });
+  const bdgBasket = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.4, 12, 1, true), bdgBasketMat);
+  bdgBasket.position.set(0, 0.9, 0);
+  bdgGroup.add(bdgBasket);
+  const bdgBasketBottom = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.05, 12), bdgBasketMat);
+  bdgBasketBottom.position.set(0, 0.7, 0);
+  bdgGroup.add(bdgBasketBottom);
+  const bdgChainTopMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.8, roughness: 0.3 });
+  const bdgChainTop = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.04, 12), bdgChainTopMat);
+  bdgChainTop.position.set(0, 1.7, 0);
+  bdgGroup.add(bdgChainTop);
+  const bdgChainMat = new THREE.MeshStandardMaterial({ color: 0xAAAAAA, metalness: 0.8, roughness: 0.3 });
+  for (let c = 0; c < 8; c++) {
+    const ang = (c / 8) * Math.PI * 2;
+    const ch = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.65, 4), bdgChainMat);
+    ch.position.set(Math.cos(ang) * 0.35, 1.35, Math.sin(ang) * 0.35);
+    bdgGroup.add(ch);
+  }
+  const bdgFlagMat = new THREE.MeshLambertMaterial({ color: 0xFF5522, side: THREE.DoubleSide });
+  const bdgFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.3), bdgFlagMat);
+  bdgFlag.position.set(0.3, 2.3, 0);
+  bdgGroup.add(bdgFlag);
+  const bdgThrowerSkinMat = new THREE.MeshLambertMaterial({ color: 0xD9A878 });
+  const bdgThrowerShirtMat = new THREE.MeshLambertMaterial({ color: 0x2266AA });
+  const bdgThrowerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), bdgThrowerShirtMat);
+  bdgThrowerTorso.position.set(-6, 0.7, 0);
+  bdgGroup.add(bdgThrowerTorso);
+  const bdgThrowerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), bdgThrowerSkinMat);
+  bdgThrowerHead.position.set(-6, 1.25, 0);
+  bdgGroup.add(bdgThrowerHead);
+  const bdgThrowerArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), bdgThrowerShirtMat);
+  bdgThrowerArm.position.set(-5.7, 1.0, 0);
+  bdgThrowerArm.rotation.z = -Math.PI / 3;
+  bdgGroup.add(bdgThrowerArm);
+  const bdgDiscMat = new THREE.MeshLambertMaterial({ color: 0xFFCC00 });
+  const bdgDisc = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.04, 12), bdgDiscMat);
+  bdgDisc.position.set(-3, 1.4, 0);
+  bdgDisc.rotation.x = Math.PI / 2;
+  bdgGroup.add(bdgDisc);
+  const bdgPartnerSkinMat = new THREE.MeshLambertMaterial({ color: 0xC58A5A });
+  const bdgPartnerShirtMat = new THREE.MeshLambertMaterial({ color: 0xCC4488 });
+  const bdgPartnerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), bdgPartnerShirtMat);
+  bdgPartnerTorso.position.set(-6.8, 0.7, 0.5);
+  bdgGroup.add(bdgPartnerTorso);
+  const bdgPartnerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), bdgPartnerSkinMat);
+  bdgPartnerHead.position.set(-6.8, 1.25, 0.5);
+  bdgGroup.add(bdgPartnerHead);
+  group.add(bdgGroup);
+
+  // v82: Sandbar tractor harvester
+  const sthGroup = new THREE.Group();
+  sthGroup.position.set(38, 0.15, -28);
+  const sthBodyMat = new THREE.MeshStandardMaterial({ color: 0x227722, metalness: 0.4, roughness: 0.6 });
+  const sthBody = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.7, 1.0), sthBodyMat);
+  sthBody.position.set(0, 0.7, 0);
+  sthGroup.add(sthBody);
+  const sthCabMat = new THREE.MeshLambertMaterial({ color: 0xDDDD00 });
+  const sthCab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.7, 0.85), sthCabMat);
+  sthCab.position.set(-0.2, 1.4, 0);
+  sthGroup.add(sthCab);
+  const sthCabRoofMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const sthCabRoof = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.05, 0.95), sthCabRoofMat);
+  sthCabRoof.position.set(-0.2, 1.78, 0);
+  sthGroup.add(sthCabRoof);
+  const sthWheelMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const sthWheelFL = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 0.25, 12), sthWheelMat);
+  sthWheelFL.position.set(0.7, 0.35, 0.55);
+  sthWheelFL.rotation.x = Math.PI / 2;
+  sthGroup.add(sthWheelFL);
+  const sthWheelFR = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 0.25, 12), sthWheelMat);
+  sthWheelFR.position.set(0.7, 0.35, -0.55);
+  sthWheelFR.rotation.x = Math.PI / 2;
+  sthGroup.add(sthWheelFR);
+  const sthWheelRL = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.32, 12), sthWheelMat);
+  sthWheelRL.position.set(-0.8, 0.55, 0.6);
+  sthWheelRL.rotation.x = Math.PI / 2;
+  sthGroup.add(sthWheelRL);
+  const sthWheelRR = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.32, 12), sthWheelMat);
+  sthWheelRR.position.set(-0.8, 0.55, -0.6);
+  sthWheelRR.rotation.x = Math.PI / 2;
+  sthGroup.add(sthWheelRR);
+  const sthExhaustMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.7, roughness: 0.4 });
+  const sthExhaust = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.7, 8), sthExhaustMat);
+  sthExhaust.position.set(0.6, 1.4, 0);
+  sthGroup.add(sthExhaust);
+  const sthDriverSkinMat = new THREE.MeshLambertMaterial({ color: 0xCC9966 });
+  const sthDriverShirtMat = new THREE.MeshLambertMaterial({ color: 0xAA3322 });
+  const sthDriverTorso = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.5, 0.25), sthDriverShirtMat);
+  sthDriverTorso.position.set(-0.2, 1.5, 0);
+  sthGroup.add(sthDriverTorso);
+  const sthDriverHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), sthDriverSkinMat);
+  sthDriverHead.position.set(-0.2, 1.85, 0);
+  sthGroup.add(sthDriverHead);
+  const sthBasketMat = new THREE.MeshLambertMaterial({ color: 0x886633 });
+  const sthBaskets = [];
+  for (let b = 0; b < 4; b++) {
+    const bk2 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.35, 0.5), sthBasketMat);
+    bk2.position.set(2 + b * 0.7, 0.25, -0.3 + (b % 2) * 0.6);
+    sthGroup.add(bk2);
+    sthBaskets.push(bk2);
+  }
+  const sthShellMat = new THREE.MeshLambertMaterial({ color: 0xD0C8B0 });
+  for (let s = 0; s < 12; s++) {
+    const sh = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), sthShellMat);
+    sh.position.set(2 + (s % 4) * 0.7 + Math.random() * 0.1 - 0.05, 0.45, -0.3 + Math.floor(s / 4) % 2 * 0.6 + Math.random() * 0.1);
+    sthGroup.add(sh);
+  }
+  const sthPuffMat = new THREE.MeshBasicMaterial({ color: 0x666666, transparent: true, opacity: 0.5 });
+  const sthPuff = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), sthPuffMat);
+  sthPuff.position.set(0.6, 1.95, 0);
+  sthGroup.add(sthPuff);
+  group.add(sthGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -15979,6 +16156,27 @@ export function createAnchorageLandmark(THREE, opts) {
         for (let v = 0; v < egpVolunteers.length; v++) {
           egpVolunteers[v].torso.rotation.x = -0.4 + 0.1 * Math.sin(t * 1.3 + v * 0.7);
         }
+        // v82 updates
+        fdysVendorTorso.rotation.y = 0.15 * Math.sin(t * 0.8);
+        fdysVendorHead.rotation.y = 0.2 * Math.sin(t * 0.6);
+        for (let k = 0; k < fdysItems.length; k++) {
+          fdysItems[k].rotation.y = 0.1 * Math.sin(t * 0.3 + k * 0.5);
+        }
+        bdgFlag.rotation.y = 0.4 * Math.sin(t * 1.5);
+        bdgDisc.rotation.z += 0.15;
+        bdgDisc.position.x = -3 + 0.3 * Math.sin(t * 1.2);
+        bdgDisc.position.y = 1.4 + 0.2 * Math.sin(t * 1.2 + 1.5);
+        bdgThrowerArm.rotation.z = -Math.PI / 3 + 0.3 * Math.sin(t * 1.0);
+        sthGroup.position.x = 38 + 0.05 * Math.sin(t * 0.4);
+        sthExhaust.rotation.z = 0.05 * Math.sin(t * 8.0);
+        sthPuff.position.y = 1.95 + 0.15 * Math.sin(t * 1.5);
+        sthPuff.material.opacity = 0.3 + 0.2 * Math.abs(Math.sin(t * 1.2));
+        sthDriverHead.rotation.y = 0.3 * Math.sin(t * 0.5);
+        sthWheelFL.rotation.x = Math.PI / 2 + t * 0.5;
+        sthWheelFR.rotation.x = Math.PI / 2 + t * 0.5;
+        sthWheelRL.rotation.x = Math.PI / 2 + t * 0.4;
+        sthWheelRR.rotation.x = Math.PI / 2 + t * 0.4;
+
 
 
 
