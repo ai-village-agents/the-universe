@@ -12802,7 +12802,182 @@ const cosmicSights = [
   { name: 'Telluric Line Artifact', description: 'Atmospheric absorption contaminating astronomical spectrum requiring removal.', position: [7371, 144440, 5371], color: 0x667788, size: 2.0 },
   { name: 'Radial Velocity Anomaly', description: 'Doppler shift deviation hinting at unseen companion or stellar activity.', position: [7372, 144460, 5372], color: 0xaa77ff, size: 2.5 },
   { name: 'Spectropolarimetric Signal', description: 'Polarization across spectral line revealing magnetic field geometry.', position: [7373, 144480, 5373], color: 0xee88aa, size: 2.7 },
-  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 }
+  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 },
+  {
+    name: "Polycyclic Aromatic Hydrocarbon Band",
+    description: "A broad infrared emission feature produced by vibrationally excited PAH molecules in photodissociation regions. These carbon-ring structures are the most abundant organic compounds in the interstellar medium, glowing at 3.3, 6.2, 7.7, 8.6, and 11.3 microns.",
+    position: [4405, 4444, 4030],
+    color: 0xffaa77,
+    size: 2.4
+  },
+  {
+    name: "Molecular Hydrogen Filament",
+    description: "A cold, dense thread of H2 gas suspended in a molecular cloud, held together by self-gravity and shielded from dissociating UV radiation by dust grains. The filament is the primary site of low-mass star formation.",
+    position: [4292, 4097, 4201],
+    color: 0x88ccff,
+    size: 3.1
+  },
+  {
+    name: "Cosmic Ray Ionization Front",
+    description: "The advancing boundary where high-energy cosmic rays penetrate a molecular cloud, ionizing atoms and molecules and driving magnetohydrodynamic turbulence that regulates the efficiency of star formation.",
+    position: [4126, 4456, 4205],
+    color: 0xff6688,
+    size: 2.7
+  },
+  {
+    name: "Deuterium Fractionation Peak",
+    description: "A region in a cold, dense prestellar core where gas-phase ion-molecule chemistry enriches deuterium-bearing molecules like N2D+ and DCO+ to abundances hundreds of times higher than the cosmic D/H ratio.",
+    position: [4368, 4196, 4099],
+    color: 0x66aaff,
+    size: 1.9
+  },
+  {
+    name: "Ice Mantle Desorption Zone",
+    description: "A warm layer around a protostar where frozen molecules sublimate from dust grain ice mantles, injecting complex organic molecules into the gas phase and enriching the protostellar chemistry.",
+    position: [4201, 4302, 4347],
+    color: 0x44ddaa,
+    size: 2.3
+  },
+  {
+    name: "Photon-Dominated Region Rim",
+    description: "The illuminated edge of a molecular cloud where far-UV photons from massive stars photodissociate and photoionize gas, creating a layered structure of H II, H I, and H2 zones with distinct chemical signatures.",
+    position: [4276, 4096, 4238],
+    color: 0xffdd44,
+    size: 3.0
+  },
+  {
+    name: "Grain Surface Reaction Site",
+    description: "A microscopic laboratory on the surface of an interstellar dust grain where hydrogen atoms migrate and recombine to form H2, and where more complex molecules like methanol and ammonia build up through surface chemistry.",
+    position: [4479, 4486, 4166],
+    color: 0xdd88ff,
+    size: 1.7
+  },
+  {
+    name: "Turbulent Dissipation Region",
+    description: "A small-scale patch within a supersonic molecular cloud where kinetic energy cascades down to the dissipation scale, creating transient localized heating that triggers endothermic chemical reactions.",
+    position: [4051, 4132, 4220],
+    color: 0xff4444,
+    size: 2.6
+  },
+  {
+    name: "Carbon Chain Formation Zone",
+    description: "A chemically young region in a carbon-rich circumstellar envelope where neutral-neutral reactions build long carbon chains like HCnN, revealing the raw material from which prebiotic chemistry may emerge.",
+    position: [4174, 4321, 4221],
+    color: 0xaaaaaa,
+    size: 2.1
+  },
+  {
+    name: "Silicate Dust Crystallization Front",
+    description: "A hot inner region of a protoplanetary disk where initially amorphous silicate dust grains anneal into crystalline olivine and pyroxene, producing the spectral features seen in comets and meteorites.",
+    position: [4364, 4339, 4338],
+    color: 0xcc9966,
+    size: 2.8
+  },
+  {
+    name: "Isotopologue Enrichment Cloudlet",
+    description: "A small clump of gas within a molecular cloud where chemical fractionation processes create anomalous isotopic ratios in molecules like CO, serving as a chemical fingerprint of the cloud formation history.",
+    position: [4385, 4045, 4143],
+    color: 0x99ff99,
+    size: 1.8
+  },
+  {
+    name: "Warm Carbon Chain Chemistry Peak",
+    description: "A transitional temperature zone around 30 K where carbon-chain molecules thrive through neutral-neutral reactions, distinct from the cold ion-molecule chemistry dominating colder cloud cores.",
+    position: [4000, 4025, 4322],
+    color: 0xff8844,
+    size: 2.5
+  },
+  {
+    name: "Shock-Induced Sputtering Site",
+    description: "The interface of a fast shock wave with an icy dust grain, where the impacting gas strips atoms and molecules from the grain surface, returning refractory and volatile material to the interstellar gas phase.",
+    position: [4023, 4359, 4231],
+    color: 0x4488cc,
+    size: 3.2
+  },
+  {
+    name: "Dense Core Collapse Tracer",
+    description: "A centrally concentrated region in a molecular cloud where the gas density exceeds 10^5 cm^-3 and the free-fall time becomes shorter than the sound crossing time, signaling imminent gravitational collapse.",
+    position: [4210, 4086, 4025],
+    color: 0xff2222,
+    size: 2.9
+  },
+  {
+    name: "Organic Icy Mantle Laboratory",
+    description: "A dust grain in the coldest, darkest parts of a molecular cloud where atom additions build complex organic ices including methanol, ethanol, and possibly amino acid precursors over millions of years.",
+    position: [4291, 4185, 4436],
+    color: 0x44ffdd,
+    size: 1.6
+  },
+  {
+    name: "H II Region Champagne Flow",
+    description: "A blister-shaped ionized gas cavity carved by a massive young star, where the overpressured H II region breaks out of the molecular cloud and drives a supersonic champagne-like flow of ionized gas into the surrounding medium.",
+    position: [4155, 4165, 4101],
+    color: 0xff88aa,
+    size: 3.4
+  },
+  {
+    name: "Interstellar Methanol Maser",
+    description: "A bright, compact source of stimulated microwave emission from methanol molecules in a star-forming region, pumped by infrared radiation from warm dust and serving as an exquisite tracer of nascent massive stars.",
+    position: [4099, 4342, 4084],
+    color: 0x88ff88,
+    size: 2.0
+  },
+  {
+    name: "Astrochemical Snowline",
+    description: "A radial boundary in a protoplanetary disk where the temperature drops below the sublimation point of volatile molecules like water, CO, and N2, causing them to freeze onto dust grains and profoundly altering the chemistry and planet formation potential.",
+    position: [4273, 4316, 4172],
+    color: 0x66ccff,
+    size: 2.7
+  },
+  {
+    name: "Parker Instability Corrugation",
+    description: "A wavelike undulation in the galactic magnetic field and gas layer driven by the buoyancy of magnetic field lines, creating periodic density enhancements that may trigger episodic star formation along spiral arms.",
+    position: [4481, 4038, 4286],
+    color: 0xffcc66,
+    size: 3.0
+  },
+  {
+    name: "Cosmic Microwave Background Shadow",
+    description: "A cold spot in the microwave sky where a foreground molecular cloud absorbs CMB photons, providing an independent measurement of the cloud temperature and serving as a fundamental thermometer for the coldest interstellar gas.",
+    position: [4166, 4043, 4034],
+    color: 0xcc88ff,
+    size: 1.5
+  },
+  {
+    name: "Warm Protostellar Chemistry Core",
+    description: "A compact, chemically rich region heated by an embedded protostar to 100-300 K, where grain mantle ices evaporate and drive a rich warm gas-phase chemistry producing complex organic molecules including prebiotic species.",
+    position: [4118, 4497, 4205],
+    color: 0xff6644,
+    size: 2.8
+  },
+  {
+    name: "Freeze-Out Chemistry Zone",
+    description: "A cold, dense prestellar core where gas-phase atoms and molecules deplete onto dust grains, reducing gas-phase abundances by orders of magnitude and changing the ionization balance that governs cloud collapse.",
+    position: [4062, 4112, 4491],
+    color: 0x44aaff,
+    size: 2.2
+  },
+  {
+    name: "Far-Infrared Dust Continuum Ridge",
+    description: "A filamentary structure in a star-forming region mapped by its thermal dust emission at far-infrared wavelengths, tracing the column density distribution and revealing the filamentary paradigm of star formation.",
+    position: [4302, 4281, 4150],
+    color: 0xffaa44,
+    size: 3.3
+  },
+  {
+    name: "Chemical Differentiation Boundary",
+    description: "A sharp transition in a protoplanetary disk where radial drift and turbulent mixing compete, creating rings of enhanced or depleted molecular abundances that may correspond to future planet formation locations.",
+    position: [4348, 4395, 4094],
+    color: 0x88ffaa,
+    size: 2.4
+  },
+  {
+    name: "Supernova Dust Injection Bubble",
+    description: "A shell of recently formed dust expelled by a supernova explosion, enriching the interstellar medium with silicate and carbon grains that will become the building blocks of future generations of stars and planets.",
+    position: [4003, 4191, 4465],
+    color: 0xaaddff,
+    size: 3.1
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
