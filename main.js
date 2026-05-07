@@ -12482,7 +12482,32 @@ const cosmicSights = [
     color: "#00BFFF",
     size: 2.3,
     description: "A binary system where a compact object accretes from the decretion disk of a Be star"
-  }
+  },
+    { name: "Nova Shell Expansion", position: [4950, 94360, 2820], color: "#FF6347", description: "Thermonuclear runaway on white dwarf surface" },
+    { name: "Recurrent Nova Outburst", position: [4952, 94380, 2822], color: "#FF4500", description: "Repeated hydrogen shell flashes" },
+    { name: "Dwarf Nova Superoutburst", position: [4954, 94400, 2824], color: "#FFA500", description: "Disk instability brightening cycle" },
+    { name: "Symbiotic Star Flare", position: [4956, 94420, 2826], color: "#FF8C00", description: "Giant-white dwarf interaction eruption" },
+    { name: "Luminous Red Nova Merger", position: [4958, 94440, 2828], color: "#DC143C", description: "Stellar coalescence transient" },
+    { name: "Magnetar-Powered Hypernova", position: [4960, 94460, 2830], color: "#9400D3", description: "Massive star gamma-ray triggered collapse" },
+    { name: "Rapid Blue Extragalactic Transient", position: [4962, 94480, 2832], color: "#1E90FF", description: "Rapidly evolving blue explosion" },
+    { name: "Tidal Disruption Flare Peak", position: [4964, 94500, 2834], color: "#FF69B4", description: "Star torn apart by black hole" },
+    { name: "AGN Type Metamorphosis", position: [4966, 94520, 2836], color: "#8A2BE2", description: "Quasar spectral type rapid change" },
+    { name: "Blazar Gamma-Ray Flare", position: [4968, 94540, 2838], color: "#7B68EE", description: "Relativistic jet pointing at Earth" },
+    { name: "Magnetar Giant Burst", position: [4970, 94560, 2840], color: "#FF1493", description: "Extreme magnetic field energy release" },
+    { name: "X-Ray Binary State Transition", position: [4972, 94580, 2842], color: "#00CED1", description: "Accretion mode switching event" },
+    { name: "FUor Disk Eruption Event", position: [4974, 94600, 2844], color: "#FFD700", description: "Protostellar accretion disk brightening" },
+    { name: "EX Lupi Eruption Episode", position: [4976, 94620, 2846], color: "#FAFAD2", description: "Young star episodic accretion burst" },
+    { name: "Carbon Star Dimming Event", position: [4978, 94640, 2848], color: "#696969", description: "Carbon dust cloud obscuration" },
+    { name: "Mira Variable Maximum", position: [4980, 94660, 2850], color: "#FF7F50", description: "Long-period AGB pulsation peak" },
+    { name: "RR Lyrae Light Curve Bump", position: [4982, 94680, 2852], color: "#87CEEB", description: "Horizontal branch pulsation signature" },
+    { name: "Eclipsing Binary Minimum", position: [4984, 94700, 2854], color: "#4682B4", description: "Stellar occultation light dip" },
+    { name: "Exoplanet Primary Transit", position: [4986, 94720, 2856], color: "#32CD32", description: "Planet crossing stellar disk" },
+    { name: "Binary Lens Caustic Peak", position: [4988, 94740, 2858], color: "#00FA9A", description: "Sharp magnification spike event" },
+    { name: "Stellar Flare Impulsive Phase", position: [4990, 94760, 2860], color: "#FF6B6B", description: "Magnetic reconnection energy release" },
+    { name: "Coronal Mass Ejection Arrival", position: [4992, 94780, 2862], color: "#DDA0DD", description: "Plasma cloud impact detection" },
+    { name: "GRB Forward Shock Glow", position: [4994, 94800, 2864], color: "#BA55D3", description: "Relativistic blast wave deceleration" },
+    { name: "Gravitational Wave Chirp Peak", position: [4996, 94820, 2866], color: "#9932CC", description: "Binary merger frequency maximum" },
+    { name: "Extragalactic Radio Transient", position: [4998, 94840, 2868], color: "#00FFFF", description: "Millisecond extragalactic radio pulse" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
