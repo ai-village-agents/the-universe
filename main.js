@@ -11856,7 +11856,207 @@ const cosmicSights = [
         color: '#ffffff',
         description: 'A highly energetic astrophysical phenomenon.',
         url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
-    }
+    },
+  {
+    name: 'Magnetic Carbon Ignition 10330',
+    description: 'A magnetic carbon ignition 10330 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-37477.39, -37658.33, 25362.43],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Event'
+  },
+  {
+    name: 'Eclipsing Iron Core 10331',
+    description: 'A eclipsing iron core 10331 analyzed via high-precision cataclysmic variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-3651.29, -9283.12, 247.5],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Dwarf Light Echo 10332',
+    description: 'A dwarf light echo 10332 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [27474.27, 38828.3, 15322.58],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Thermonuclear Poltergeist 10333',
+    description: 'A thermonuclear poltergeist 10333 analyzed via high-precision supernova light echoes, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [137.4, 4114.23, 11212.77],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Stellar Remnant'
+  },
+  {
+    name: 'Symbiotic Carbon Ignition 10334',
+    description: 'A symbiotic carbon ignition 10334 analyzed via high-precision supernova light echoes, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-22372.32, -25960.82, -2544.99],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Flickering Nova Shell 10335',
+    description: 'A flickering nova shell 10335 analyzed via high-precision cataclysmic variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [1624.6, -29569.69, -26578.56],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Stellar Remnant'
+  },
+  {
+    name: 'Accreting Nova Shell 10336',
+    description: 'A accreting nova shell 10336 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-24791.17, -27364.65, -2537.66],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Symbiotic Carbon Ignition 10337',
+    description: 'A symbiotic carbon ignition 10337 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-8854.76, -11188.1, 30974.04],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Echoing Intermediate Polar 10338',
+    description: 'A echoing intermediate polar 10338 analyzed via high-precision white dwarf astroseismology, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-21109.96, -13500.62, 23978.79],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Echoing Intermediate Polar 10339',
+    description: 'A echoing intermediate polar 10339 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-29657.55, -12489.94, -32471.88],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Eclipsing AM CVn System 10340',
+    description: 'A eclipsing am cvn system 10340 analyzed via high-precision pulsating variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-4485.98, -5382.58, -29579.64],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Dwarf AM CVn System 10341',
+    description: 'A dwarf am cvn system 10341 analyzed via high-precision pulsating variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [33132.11, -28127.61, -6882.27],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Event'
+  },
+  {
+    name: 'Dwarf Helium Flash 10342',
+    description: 'A dwarf helium flash 10342 analyzed via high-precision supernova light echoes, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-27563.73, -6394.82, 21030.87],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Luminous Poltergeist 10343',
+    description: 'A luminous poltergeist 10343 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [27216.84, 20010.87, 24237.31],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Event'
+  },
+  {
+    name: 'Thermonuclear White Dwarf 10344',
+    description: 'A thermonuclear white dwarf 10344 analyzed via high-precision white dwarf astroseismology, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [31088.02, 4577.41, -23161.44],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Symbiotic Carbon Ignition 10345',
+    description: 'A symbiotic carbon ignition 10345 analyzed via high-precision cataclysmic variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [19660.27, -14971.7, -24859.21],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Pulsating AM CVn System 10346',
+    description: 'A pulsating am cvn system 10346 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [20525.9, -10217.68, -32827.9],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Dwarf Roche Lobe 10347',
+    description: 'A dwarf roche lobe 10347 analyzed via high-precision pulsating variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-2822.13, -39000.34, 6305.4],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Event'
+  },
+  {
+    name: 'Recurrent Light Echo 10348',
+    description: 'A recurrent light echo 10348 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [16744.33, 11997.6, 3258.56],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Flickering Iron Core 10349',
+    description: 'A flickering iron core 10349 analyzed via high-precision cataclysmic variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-13122.75, 30448.55, 12667.52],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Magnetic Nova Shell 10350',
+    description: 'A magnetic nova shell 10350 analyzed via high-precision white dwarf astroseismology, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-6208.39, 4388.35, 19853.96],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
+  {
+    name: 'Luminous Nova Shell 10351',
+    description: 'A luminous nova shell 10351 analyzed via high-precision pulsating variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [16250.57, 3145.49, 38524.43],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Stellar Remnant'
+  },
+  {
+    name: 'Magnetic Light Echo 10352',
+    description: 'A magnetic light echo 10352 analyzed via high-precision pulsating variables, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [13544.9, -19152.45, 17151.35],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Stellar Remnant'
+  },
+  {
+    name: 'Pulsating Accretion Disk 10353',
+    description: 'A pulsating accretion disk 10353 analyzed via high-precision supernova light echoes, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [-27173.81, 34229.59, -30539.18],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Variable Star'
+  },
+  {
+    name: 'Magnetic Light Echo 10354',
+    description: 'A magnetic light echo 10354 analyzed via high-precision nova remnants, revealing the intricate physics of stellar remnants and close binary interactions.',
+    position: [37439.05, -36507.95, -3412.1],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Binary System'
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
