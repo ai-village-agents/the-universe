@@ -48,6 +48,7 @@ scene.add(dirLight);
 // Controls
 const controls = new PointerLockControls(camera, renderer.domElement);
 scene.add(controls.getObject());
+const universeAudio = createUniverseAudio(worlds);
 
 const cosmicSights = [
   { name: 'CNO Cycle Carbon Nitrogen', position: [7250, 143000, 5250], color: '#FF6B6B', size: 5.2, description: 'Catalytic hydrogen fusion loop in hot stellar cores where carbon and nitrogen cycle to sustain luminosity.' },
