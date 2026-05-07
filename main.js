@@ -13429,6 +13429,31 @@ const cosmicSights = [
     position: [7574, 149480, 5574],
     description: "Requirement for time-invariant statistics in frequency-domain processing"
   },
+{ name: 'Isolated Neutron Star Cooling Track', description: 'Thermal evolution of solitary neutron star gradually radiating internal heat accumulated during core collapse.', position: [3789, 2345, -4123], color: 0x5E60CE, size: 4.2 },
+  { name: 'Millisecond Pulsar Spin Equilibrium', description: 'Rapidly rotating neutron star spun up by accretion to near breakup velocity in binary system.', position: [-2901, 4234, 1678], color: 0x4ECDC4, size: 4.5 },
+  { name: 'Magnetar Giant Flare Afterglow', description: 'Decaying emission following catastrophic magnetic field reconfiguration in ultra-magnetized neutron star.', position: [4456, -1567, -3012], color: 0xEF476F, size: 4.8 },
+  { name: 'Central Compact Object Supernova Remnant', description: 'Young neutron star embedded in expanding debris showing thermal emission without magnetospheric activity.', position: [-3678, 2012, 4089], color: 0x98D8C8, size: 3.9 },
+  { name: 'Rotating Radio Transient Sporadic Pulse', description: 'Neutron star emitting infrequent bright radio bursts separated by long inactive periods.', position: [1234, -4012, 2789], color: 0xFFD166, size: 3.6 },
+  { name: 'X-ray Dim Isolated Neutron Star', description: 'Nearby cooling neutron star visible only in soft X-rays with no radio emission detected.', position: [-4234, 1456, -2234], color: 0xF4A261, size: 3.4 },
+  { name: 'Pulsar Wind Nebula Termination Shock', description: 'Standing shock where relativistic pulsar wind decelerates and particles begin synchrotron emission.', position: [2678, 3567, 912], color: 0x06D6A0, size: 4.1 },
+  { name: 'Double Neutron Star Inspiral', description: 'Binary system of two neutron stars slowly spiraling together emitting gravitational waves toward merger.', position: [-1789, -3456, 4456], color: 0x118AB2, size: 4.6 },
+  { name: 'Neutron Star Crust Glitch Recovery', description: 'Sudden spin-up event from interior superfluid coupling followed by exponential relaxation to equilibrium.', position: [4012, -2234, -1456], color: 0xE9C46A, size: 3.7 },
+  { name: 'Quark Star Candidate Strange Matter', description: 'Hypothetical compact object where neutron matter transitions to deconfined quark phase in extreme density.', position: [-2567, 4012, 3234], color: 0x9B5DE5, size: 4.0 },
+  { name: 'White Dwarf Magnetic Cataclysmic Variable', description: 'Strongly magnetized white dwarf accreting material channeled onto magnetic poles in close binary.', position: [3456, 1234, -3789], color: 0xF15BB5, size: 3.8 },
+  { name: 'AM CVn Helium Transfer System', description: 'Ultra-compact binary where helium white dwarf transfers mass onto carbon-oxygen companion.', position: [-4089, 2789, 1012], color: 0x00F5D4, size: 3.5 },
+  { name: 'Type Ia Supernova Progenitor System', description: 'White dwarf approaching Chandrasekhar limit through accretion or merger pathway toward thermonuclear explosion.', position: [1567, -3891, -2901], color: 0xFEE440, size: 4.3 },
+  { name: 'Double White Dwarf Gravitational Wave Source', description: 'Close binary white dwarf pair emitting millihertz gravitational waves detectable by space missions.', position: [-3234, 3678, 2567], color: 0x00BBF9, size: 3.9 },
+  { name: 'Extremely Low Mass White Dwarf', description: 'Helium core white dwarf under half solar mass formed through binary evolution mass stripping.', position: [2901, -1678, 4178], color: 0x72EFDD, size: 3.2 },
+  { name: 'Stellar Mass Black Hole X-ray Binary', description: 'Compact remnant accreting from companion star producing variable X-ray emission and relativistic jets.', position: [-1456, -4234, -1789], color: 0x264653, size: 4.7 },
+  { name: 'Black Hole Transient Outburst Cycle', description: 'Dormant accretion disk suddenly brightening through thermal-viscous instability driving mass inflow.', position: [4234, 2901, 2012], color: 0xE63946, size: 4.4 },
+  { name: 'Microquasar Superluminal Jet', description: 'Apparent faster-than-light motion in black hole jets from relativistic beaming at small viewing angles.', position: [-2234, 1012, -4012], color: 0x457B9D, size: 4.2 },
+  { name: 'Black Hole Corona X-ray Reflection', description: 'Hard X-rays from hot corona illuminating inner accretion disk producing broadened iron line emission.', position: [3012, -4089, 1234], color: 0xA8DADC, size: 3.8 },
+  { name: 'Quasi-Periodic Oscillation Frequency', description: 'Characteristic X-ray variability timescale probing innermost accretion flow near compact object.', position: [-3891, 2456, 3456], color: 0xFF6B6B, size: 3.6 },
+  { name: 'Ultraluminous X-ray Source Intermediate Mass', description: 'Exceptionally bright X-ray point source potentially harboring intermediate mass black hole or super-Eddington neutron star.', position: [1789, -2567, -3678], color: 0xF4D03F, size: 4.5 },
+  { name: 'Hypernova Collapsar Engine', description: 'Core collapse of rapidly rotating massive star forming black hole and driving relativistic gamma-ray burst jet.', position: [-912, 3234, 4234], color: 0x45B7D1, size: 4.9 },
+  { name: 'Thorne-Zytkow Hybrid Star Interior', description: 'Hypothetical red supergiant with neutron star core formed through common envelope inspiral and merger.', position: [4178, -890, -2678], color: 0x2A9D8F, size: 3.4 },
+  { name: 'Fallback Supernova Black Hole Formation', description: 'Core collapse where initial neutron star accretes fallback material exceeding maximum mass and collapses further.', position: [-2012, -3012, 2234], color: 0xFFAFCC, size: 4.1 },
+  { name: 'Compact Binary Coalescence Kilonova', description: 'Optical-infrared transient from r-process nucleosynthesis in neutron star merger ejecta.', position: [2456, 4456, -678], color: 0xBDE0FE, size: 4.6 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
