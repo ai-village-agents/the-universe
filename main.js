@@ -13258,7 +13258,182 @@ const cosmicSights = [
     { name: "Vertical Oscillation Tracer", position: [-0.53, 0.29, -0.80], color: "#A0522D", size: 1.6, description: "Stars whose vertical motions probe past interactions with satellite galaxies." },
     { name: "Galactic Formation Epoch Marker", position: [0.86, -0.21, -0.46], color: "#DEB887", size: 2.1, description: "Ancient stellar populations dating to the earliest phases of galaxy assembly." },
     { name: "Action-Angle Coordinate Map", position: [-0.37, -0.82, 0.43], color: "#D2691E", size: 1.5, description: "A dynamical representation preserving orbital integrals that reveal galactic structure." },
-    { name: "Extragalactic Origin Star", position: [0.29, 0.47, -0.83], color: "#BC8F8F", size: 1.8, description: "A star with kinematics and chemistry indicating birth in a now-disrupted dwarf galaxy." }
+    { name: "Extragalactic Origin Star", position: [0.29, 0.47, -0.83], color: "#BC8F8F", size: 1.8, description: "A star with kinematics and chemistry indicating birth in a now-disrupted dwarf galaxy." },
+  {
+    name: "Extragalactic Background Light Peak",
+    position: [121000, -85000, 25000],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Accumulated starlight from all galaxies"
+  },
+  {
+    name: "Cosmic Infrared Background Fluctuation",
+    position: [121020, -84980, 25020],
+    color: "#FF4500",
+    size: 2.3,
+    description: "Glow from early universe dust and stars"
+  },
+  {
+    name: "Reionization Epoch Bubble Boundary",
+    position: [121040, -84960, 25040],
+    color: "#FFD700",
+    size: 2.3,
+    description: "Edge of first ionized regions in early universe"
+  },
+  {
+    name: "21cm Hydrogen Absorption Trough",
+    position: [121060, -84940, 25060],
+    color: "#8A2BE2",
+    size: 2.3,
+    description: "Signal from neutral hydrogen during Cosmic Dawn"
+  },
+  {
+    name: "Lyman Alpha Emitter Galaxy",
+    position: [121080, -84920, 25080],
+    color: "#FF69B4",
+    size: 2.3,
+    description: "High-redshift star-forming galaxy signature"
+  },
+  {
+    name: "Gunn-Peterson Trough Detection",
+    position: [121100, -84900, 25100],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "Opaque neutral hydrogen in distant quasar spectra"
+  },
+  {
+    name: "Population III Star Cluster",
+    position: [121120, -84880, 25120],
+    color: "#DC143C",
+    size: 2.3,
+    description: "First generation metal-free stars"
+  },
+  {
+    name: "Dark Ages Neutral Gas Map",
+    position: [121140, -84860, 25140],
+    color: "#32CD32",
+    size: 2.3,
+    description: "Distribution of matter before first stars"
+  },
+  {
+    name: "Quasar Proximity Effect Zone",
+    position: [121160, -84840, 25160],
+    color: "#1E90FF",
+    size: 2.3,
+    description: "Local ionization bubble around a distant quasar"
+  },
+  {
+    name: "DLA Gas Reservoir Discovery",
+    position: [121180, -84820, 25180],
+    color: "#8B008B",
+    size: 2.3,
+    description: "Massive neutral gas reservoir in early universe"
+  },
+  {
+    name: "Cosmic Web Filament Intersection",
+    position: [121200, -84800, 25200],
+    color: "#FF8C00",
+    size: 2.3,
+    description: "Junction of large-scale structure matter streams"
+  },
+  {
+    name: "Lyman Break Galaxy Candidate",
+    position: [121220, -84780, 25220],
+    color: "#4682B4",
+    size: 2.3,
+    description: "Distant star-forming galaxy identified by color"
+  },
+  {
+    name: "High-Redshift Dusty Starburst",
+    position: [121240, -84760, 25240],
+    color: "#DAA520",
+    size: 2.3,
+    description: "Intense early universe star formation obscured by dust"
+  },
+  {
+    name: "Intergalactic Medium Warm-Hot Phase",
+    position: [121260, -84740, 25260],
+    color: "#9932CC",
+    size: 2.3,
+    description: "Missing baryons in diffuse cosmic web"
+  },
+  {
+    name: "BAO Sound Wave Pattern",
+    position: [121280, -84720, 25280],
+    color: "#FF1493",
+    size: 2.3,
+    description: "Standard ruler scale from early universe sound waves"
+  },
+  {
+    name: "Sunyaev-Zel'dovich Effect Map",
+    position: [121300, -84700, 25300],
+    color: "#00FA9A",
+    size: 2.3,
+    description: "CMB photon scattering by cluster hot gas"
+  },
+  {
+    name: "Cosmic Microwave Background Polarization E-Mode",
+    position: [121320, -84680, 25320],
+    color: "#B22222",
+    size: 2.3,
+    description: "Gradient pattern in relic radiation"
+  },
+  {
+    name: "CMB B-Mode Search Signal",
+    position: [121340, -84660, 25340],
+    color: "#48D1CC",
+    size: 2.3,
+    description: "Signature of primordial gravitational waves"
+  },
+  {
+    name: "Primordial Helium Abundance Measurement",
+    position: [121360, -84640, 25360],
+    color: "#C71585",
+    size: 2.3,
+    description: "Big Bang Nucleosynthesis relic signature"
+  },
+  {
+    name: "Cosmic Variance Constraint",
+    position: [121380, -84620, 25380],
+    color: "#20B2AA",
+    size: 2.3,
+    description: "Statistical limit on observing a single universe"
+  },
+  {
+    name: "Cosmic Shear Shape Distortion",
+    position: [121400, -84600, 25400],
+    color: "#FFB6C1",
+    size: 2.3,
+    description: "Large-scale structure mapping via distorted galaxy shapes"
+  },
+  {
+    name: "Dark Matter Halo Density Profile",
+    position: [121420, -84580, 25420],
+    color: "#8B4513",
+    size: 2.3,
+    description: "Navarro-Frenk-White mass distribution"
+  },
+  {
+    name: "Redshift Space Distortion Effect",
+    position: [121440, -84560, 25440],
+    color: "#00FFFF",
+    size: 2.3,
+    description: "Galaxy map stretching due to peculiar velocities"
+  },
+  {
+    name: "ISW CMB Photon Shift",
+    position: [121460, -84540, 25460],
+    color: "#DDA0DD",
+    size: 2.3,
+    description: "CMB photon energy change passing through decaying potentials"
+  },
+  {
+    name: "Alcock-Paczynski Test Configuration",
+    position: [121480, -84520, 25480],
+    color: "#FFA500",
+    size: 2.3,
+    description: "Cosmological geometry measurement technique"
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
