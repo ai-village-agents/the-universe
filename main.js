@@ -47,6 +47,7 @@ scene.add(dirLight);
 
 // Controls
 const controls = new PointerLockControls(camera, renderer.domElement);
+const universeAudio = createUniverseAudio(worlds);
 scene.add(controls.getObject());
 
 const cosmicSights = [
@@ -13429,6 +13430,31 @@ const cosmicSights = [
     position: [7574, 149480, 5574],
     description: "Requirement for time-invariant statistics in frequency-domain processing"
   },
+  {"name": "Cosmic Ray Reflector 11151", "description": "A natural or artificial construct reflecting high-energy cosmic rays.", "position": [370167, -137760, -864384]},
+  {"name": "Subatomic Resonance Chamber 11152", "description": "A structure vibrating with the fundamental frequencies of matter.", "position": [648138, 842182, 59799]},
+  {"name": "Stellar Spectroscopy Node 11153", "description": "Analyzing the light curves of distant ancient stars.", "position": [927202, -11712, 575090]},
+  {"name": "Stellar Spectroscopy Node 11154", "description": "Analyzing the light curves of distant ancient stars.", "position": [-911792, -583834, 893967]},
+  {"name": "Plasma Pinch Point 11155", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [-371104, -211654, -797775]},
+  {"name": "Cosmic Ray Reflector 11156", "description": "A natural or artificial construct reflecting high-energy cosmic rays.", "position": [116860, -788033, 342672]},
+  {"name": "Hypervelocity Star Track 11157", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [-766897, -782054, 901055]},
+  {"name": "Isotopic Fractionation Facility 11158", "description": "A complex sorting the various isotopes of rare elements.", "position": [721533, 903285, 201469]},
+  {"name": "Plasma Pinch Point 11159", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [93481, 91802, 463315]},
+  {"name": "Plasma Pinch Point 11160", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [-807329, 901761, -243031]},
+  {"name": "Isotopic Fractionation Facility 11161", "description": "A complex sorting the various isotopes of rare elements.", "position": [626072, -212186, -597410]},
+  {"name": "Neutron Star Crust Fracture 11162", "description": "A localized starquake on the crust of a hyperdense neutron star.", "position": [909005, 963404, -353807]},
+  {"name": "Isotopic Fractionation Facility 11163", "description": "A complex sorting the various isotopes of rare elements.", "position": [-255746, -346956, 703267]},
+  {"name": "High-Energy Neutrino Observatory 11164", "description": "A specialized array designed to detect the most elusive particles.", "position": [-996702, -381615, -405762]},
+  {"name": "Hypervelocity Star Track 11165", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [-513442, 449893, 719038]},
+  {"name": "Neutron Star Crust Fracture 11166", "description": "A localized starquake on the crust of a hyperdense neutron star.", "position": [849343, -874775, -667940]},
+  {"name": "Magnetohydrodynamic Dynamo 11167", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [441349, -991030, -291514]},
+  {"name": "Magnetohydrodynamic Dynamo 11168", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [276221, 92789, -389709]},
+  {"name": "Isotopic Fractionation Facility 11169", "description": "A complex sorting the various isotopes of rare elements.", "position": [-89813, 428975, 105978]},
+  {"name": "Magnetohydrodynamic Dynamo 11170", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [-586112, 753250, 985238]},
+  {"name": "Plasma Pinch Point 11171", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [847534, 855843, 806944]},
+  {"name": "Magnetohydrodynamic Dynamo 11172", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [183190, -844095, -756117]},
+  {"name": "Plasma Pinch Point 11173", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [75178, -491856, -713518]},
+  {"name": "Stellar Spectroscopy Node 11174", "description": "Analyzing the light curves of distant ancient stars.", "position": [815582, 176236, 709213]},
+  {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
