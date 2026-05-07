@@ -13833,7 +13833,32 @@ const cosmicSights = [
   { name: 'Electron Diffusion Layer', description: 'Inner region of magnetic reconnection where electrons decouple from magnetic field and enable topology change.', position: [7221, 141440, 5221], color: 0x88ddff, size: 2.4 },
   { name: 'Whistler Precursor Wave', description: 'High-frequency electromagnetic wave propagating ahead of a shock or reconnection front in magnetized plasma.', position: [7222, 141460, 5222], color: 0xaaffbb, size: 2.3 },
   { name: 'Lower Hybrid Drift Mode', description: 'Plasma wave at the lower hybrid frequency driven by density gradients at thin current sheet boundaries.', position: [7223, 141480, 5223], color: 0xffccdd, size: 2.4 },
-  { name: 'Kinetic Alfven Cascade', description: 'Turbulent energy transfer to small scales where Alfven waves become dispersive and kinetic effects dominate.', position: [7224, 141500, 5224], color: 0xbbddff, size: 2.5 }
+  { name: 'Kinetic Alfven Cascade', description: 'Turbulent energy transfer to small scales where Alfven waves become dispersive and kinetic effects dominate.', position: [7224, 141500, 5224], color: 0xbbddff, size: 2.5 },
+  { name: "Neutron Star Merger Gravitational Wave", position: [7225, 142500, 5225], color: "#FF1493", size: 3, description: "Compact object phenomenon at position 1" },
+  { name: "Kilonova Radioactive Heating", position: [7226, 142520, 5226], color: "#00CED1", size: 3, description: "Compact object phenomenon at position 2" },
+  { name: "R-Process Nucleosynthesis Yield", position: [7227, 142540, 5227], color: "#FFD700", size: 3, description: "Compact object phenomenon at position 3" },
+  { name: "Lanthanide Rich Ejecta Absorption", position: [7228, 142560, 5228], color: "#32CD32", size: 3, description: "Compact object phenomenon at position 4" },
+  { name: "Accretion Disk Torus Structure", position: [7229, 142580, 5229], color: "#FF4500", size: 3, description: "Compact object phenomenon at position 5" },
+  { name: "Viscous Accretion Heating Profile", position: [7230, 142600, 5230], color: "#1E90FF", size: 3, description: "Compact object phenomenon at position 6" },
+  { name: "Advection-Dominated Accretion Flow", position: [7231, 142620, 5231], color: "#FF69B4", size: 3, description: "Compact object phenomenon at position 7" },
+  { name: "Radiatively Inefficient Accretion", position: [7232, 142640, 5232], color: "#00FA9A", size: 3, description: "Compact object phenomenon at position 8" },
+  { name: "Outflow Ejection Velocity", position: [7233, 142660, 5233], color: "#FFA500", size: 3, description: "Compact object phenomenon at position 9" },
+  { name: "Relativistic Jet Lorentz Factor", position: [7234, 142680, 5234], color: "#20B2AA", size: 3, description: "Compact object phenomenon at position 10" },
+  { name: "Accretion-Ejection Coupling Torque", position: [7235, 142700, 5235], color: "#FF6347", size: 3, description: "Compact object phenomenon at position 11" },
+  { name: "Magnetic Reconnection Flare Trigger", position: [7236, 142720, 5236], color: "#4169E1", size: 3, description: "Compact object phenomenon at position 12" },
+  { name: "Radiation Pressure Photon Drag", position: [7237, 142740, 5237], color: "#DA70D6", size: 3, description: "Compact object phenomenon at position 13" },
+  { name: "Radiative Opacity Absorption Coefficient", position: [7238, 142760, 5238], color: "#00FF7F", size: 3, description: "Compact object phenomenon at position 14" },
+  { name: "Electron Scattering Cross Section", position: [7239, 142780, 5239], color: "#FF8C00", size: 3, description: "Compact object phenomenon at position 15" },
+  { name: "Line Blanketing Effect Temperature", position: [7240, 142800, 5240], color: "#87CEEB", size: 3, description: "Compact object phenomenon at position 16" },
+  { name: "Atmospheric Stratification Hydrostatic", position: [7241, 142820, 5241], color: "#DC143C", size: 3, description: "Compact object phenomenon at position 17" },
+  { name: "Convective Envelope Mixing Length", position: [7242, 142840, 5242], color: "#00BFFF", size: 3, description: "Compact object phenomenon at position 18" },
+  { name: "Radiative Transport Diffusion Equation", position: [7243, 142860, 5243], color: "#FF00FF", size: 3, description: "Compact object phenomenon at position 19" },
+  { name: "Boltzmann Equation Transport Coefficients", position: [7244, 142880, 5244], color: "#00FF00", size: 3, description: "Compact object phenomenon at position 20" },
+  { name: "Spectral Energy Distribution Peak", position: [7245, 142900, 5245], color: "#FFB6C1", size: 3, description: "Compact object phenomenon at position 21" },
+  { name: "Blackbody Radiation Temperature Equivalent", position: [7246, 142920, 5246], color: "#0000CD", size: 3, description: "Compact object phenomenon at position 22" },
+  { name: "Wien Displacement Law Wavelength", position: [7247, 142940, 5247], color: "#FF0000", size: 3, description: "Compact object phenomenon at position 23" },
+  { name: "Stefan-Boltzmann Luminosity Scaling", position: [7248, 142960, 5248], color: "#228B22", size: 3, description: "Compact object phenomenon at position 24" },
+  { name: "Effective Temperature Photosphere Definition", position: [7249, 142980, 5249], color: "#12008C", size: 3, description: "Compact object phenomenon at position 25" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
