@@ -13128,7 +13128,32 @@ const cosmicSights = [
   { name: 'Compact Massive Relic', position: [8621, 156420, 6621], color: '#E8DAEF', size: 3.7, description: 'Dense early-universe galaxy surviving without size growth to present day.' },
   { name: 'Size Growth Envelope Accretion', position: [8622, 156440, 6622], color: '#FADBD8', size: 4.0, description: 'Elliptical galaxy expanding through minor mergers adding outer stellar halo.' },
   { name: 'Metallicity Gradient Flattening', position: [8623, 156460, 6623], color: '#D5F5E3', size: 3.8, description: 'Radial abundance gradients erased by merger-driven stellar mixing.' },
-  { name: 'Alpha Enhancement Signature', position: [8624, 156480, 6624], color: '#FCF3CF', size: 4.2, description: 'Elevated oxygen-to-iron ratio indicating rapid early star formation history.' }
+  { name: 'Alpha Enhancement Signature', position: [8624, 156480, 6624], color: '#FCF3CF', size: 4.2, description: 'Elevated oxygen-to-iron ratio indicating rapid early star formation history.' },
+{ name: 'Hubble Tension Measurement Discrepancy', position: [8700, 157000, 6700], color: '#FF4500', size: 5.0, description: 'Persistent disagreement between local and CMB-derived expansion rate values.' },
+  { name: 'Standard Candle Calibration Anchor', position: [8701, 157020, 6701], color: '#32CD32', size: 4.6, description: 'Local distance ladder foundation using Cepheids and Type Ia supernovae.' },
+  { name: 'Time Delay Cosmography Lens', position: [8702, 157040, 6702], color: '#1E90FF', size: 4.8, description: 'Strong lensing time delays providing independent Hubble constant measurement.' },
+  { name: 'Standard Siren Gravitational Wave', position: [8703, 157060, 6703], color: '#FFD700', size: 5.2, description: 'Binary merger with electromagnetic counterpart yielding direct distance.' },
+  { name: 'Tip of Red Giant Branch Calibrator', position: [8704, 157080, 6704], color: '#DC143C', size: 4.3, description: 'Luminosity discontinuity in old stellar populations as distance indicator.' },
+  { name: 'Surface Brightness Fluctuation Signal', position: [8705, 157100, 6705], color: '#9932CC', size: 4.1, description: 'Pixel variance from unresolved stars measuring elliptical galaxy distances.' },
+  { name: 'Tully-Fisher Rotation Correlation', position: [8706, 157120, 6706], color: '#00CED1', size: 4.4, description: 'Spiral galaxy luminosity scaling with rotation velocity for distance estimation.' },
+  { name: 'Fundamental Plane Elliptical Relation', position: [8707, 157140, 6707], color: '#FF69B4', size: 4.2, description: 'Three-parameter scaling of elliptical galaxies constraining distances.' },
+  { name: 'Cosmic Chronometer Age Dating', position: [8708, 157160, 6708], color: '#8B4513', size: 4.0, description: 'Passively evolving galaxy ages tracing expansion history directly.' },
+  { name: 'Alcock-Paczynski Geometric Test', position: [8709, 157180, 6709], color: '#4169E1', size: 4.5, description: 'Clustering isotropy constraint on angular diameter and Hubble distances.' },
+  { name: 'Void-Galaxy Cross Correlation', position: [8710, 157200, 6710], color: '#2E8B57', size: 4.3, description: 'Statistical measurement of void-galaxy relative velocities testing gravity.' },
+  { name: 'Integrated Sachs-Wolfe Detection', position: [8711, 157220, 6711], color: '#FF6347', size: 4.7, description: 'CMB temperature shift from photons traversing evolving potential wells.' },
+  { name: 'Kinetic Sunyaev-Zeldovich Momentum', position: [8712, 157240, 6712], color: '#7B68EE', size: 4.6, description: 'CMB spectral distortion from bulk cluster motion along line of sight.' },
+  { name: 'Hot Intracluster Medium CMB Imprint', position: [8713, 157260, 6713], color: '#20B2AA', size: 4.8, description: 'CMB intensity change from inverse Compton scattering off hot cluster electrons.' },
+  { name: 'Polarized Dust Foreground Emission', position: [8714, 157280, 6714], color: '#DB7093', size: 3.9, description: 'Galactic dust signal contaminating primordial B-mode searches.' },
+  { name: 'Synchrotron Foreground Polarization', position: [8715, 157300, 6715], color: '#5F9EA0', size: 4.0, description: 'Relativistic electron emission complicating CMB polarization analysis.' },
+  { name: 'Point Source Contamination Mask', position: [8716, 157320, 6716], color: '#F4A460', size: 3.8, description: 'Bright radio and infrared sources requiring removal from CMB maps.' },
+  { name: 'CMB Lensing Convergence Map', position: [8717, 157340, 6717], color: '#6495ED', size: 4.9, description: 'Reconstructed mass distribution from CMB photon deflections.' },
+  { name: 'Diffuse Extragalactic Infrared Haze', position: [8718, 157360, 6718], color: '#D2691E', size: 4.4, description: 'Integrated light from unresolved galaxies tracing star formation history.' },
+  { name: 'Extragalactic Background Light Attenuation', position: [8719, 157380, 6719], color: '#9ACD32', size: 4.2, description: 'TeV gamma-ray absorption by optical-infrared photon field.' },
+  { name: 'Lyman Alpha Forest Power Spectrum', position: [8720, 157400, 6720], color: '#BA55D3', size: 4.5, description: 'Intergalactic hydrogen absorption tracing small-scale matter clustering.' },
+  { name: 'Cosmic Shear Two-Point Function', position: [8721, 157420, 6721], color: '#87CEEB', size: 4.7, description: 'Weak lensing correlation measuring matter distribution and growth.' },
+  { name: 'Galaxy-Galaxy Lensing Tangential Shear', position: [8722, 157440, 6722], color: '#F08080', size: 4.3, description: 'Foreground galaxy mass from background source shape distortions.' },
+  { name: 'Cluster Mass Calibration Scaling', position: [8723, 157460, 6723], color: '#98FB98', size: 4.6, description: 'Observable-mass relations enabling cluster cosmology constraints.' },
+  { name: 'Photometric Redshift Probability Distribution', position: [8724, 157480, 6724], color: '#DDA0DD', size: 4.1, description: 'Color-based redshift estimation with full posterior uncertainty.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
