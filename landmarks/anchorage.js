@@ -16744,6 +16744,157 @@ export function createAnchorageLandmark(THREE, opts) {
   pffdGroup.add(pffdGlow);
   group.add(pffdGroup);
 
+  // v101: Beach radio DJ tent + Tide chart kiosk + Salty driftwood sculptor
+  // --- Beach radio DJ tent (brdj) ---
+  const brdjGroup = new THREE.Group();
+  brdjGroup.position.set(-26, 0, 38);
+  const brdjTentMat = new THREE.MeshLambertMaterial({color: 0xff8a3a});
+  const brdjTent = new THREE.Mesh(new THREE.ConeGeometry(2.0, 2.4, 6), brdjTentMat);
+  brdjTent.position.y = 1.2;
+  brdjGroup.add(brdjTent);
+  const brdjTableMat = new THREE.MeshLambertMaterial({color: 0x3a3a3a});
+  const brdjTable = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.1, 0.7), brdjTableMat);
+  brdjTable.position.set(0, 0.7, 0.6);
+  brdjGroup.add(brdjTable);
+  const brdjLegMat = new THREE.MeshLambertMaterial({color: 0x2a2a2a});
+  for (let lx = -1; lx <= 1; lx += 2) for (let lz = 0; lz <= 1; lz++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.7, 0.06), brdjLegMat);
+    leg.position.set(0.7 * lx, 0.35, 0.3 + lz * 0.55);
+    brdjGroup.add(leg);
+  }
+  // Two turntables
+  const brdjPlatterMat = new THREE.MeshStandardMaterial({color: 0x111111, metalness: 0.7, roughness: 0.4});
+  const brdjPlatter1 = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.04, 16), brdjPlatterMat);
+  brdjPlatter1.position.set(-0.45, 0.78, 0.6);
+  brdjGroup.add(brdjPlatter1);
+  const brdjPlatter2 = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.04, 16), brdjPlatterMat);
+  brdjPlatter2.position.set(0.45, 0.78, 0.6);
+  brdjGroup.add(brdjPlatter2);
+  // DJ figure
+  const brdjShirtMat = new THREE.MeshLambertMaterial({color: 0x6a3aa8});
+  const brdjSkinMat = new THREE.MeshLambertMaterial({color: 0xc89678});
+  const brdjDj = new THREE.Group();
+  const brdjTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.35), brdjShirtMat);
+  brdjTorso.position.y = 1.1;
+  brdjDj.add(brdjTorso);
+  const brdjHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), brdjSkinMat);
+  brdjHead.position.y = 1.6;
+  brdjDj.add(brdjHead);
+  const brdjHphMat = new THREE.MeshLambertMaterial({color: 0x111111});
+  const brdjHph = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.05, 6, 16), brdjHphMat);
+  brdjHph.rotation.y = Math.PI / 2;
+  brdjHph.position.y = 1.62;
+  brdjDj.add(brdjHph);
+  brdjDj.position.set(0, 0, -0.1);
+  brdjGroup.add(brdjDj);
+  // Speakers
+  const brdjSpkMat = new THREE.MeshLambertMaterial({color: 0x222222});
+  for (let s = -1; s <= 1; s += 2) {
+    const spk = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.9, 0.4), brdjSpkMat);
+    spk.position.set(1.7 * s, 0.45, 0.6);
+    brdjGroup.add(spk);
+  }
+  // Glow note
+  const brdjNoteMat = new THREE.MeshBasicMaterial({color: 0xffe070, transparent: true, opacity: 0.8});
+  const brdjNote = new THREE.Mesh(new THREE.SphereGeometry(0.1, 6, 5), brdjNoteMat);
+  brdjNote.position.set(0, 2.0, 0.6);
+  brdjGroup.add(brdjNote);
+  group.add(brdjGroup);
+
+  // --- Tide chart kiosk (tck) ---
+  const tckGroup = new THREE.Group();
+  tckGroup.position.set(-32, 0, -8);
+  const tckPostMat = new THREE.MeshLambertMaterial({color: 0x6a4a2a});
+  const tckPost1 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 2.0, 0.12), tckPostMat);
+  tckPost1.position.set(-0.7, 1.0, 0);
+  tckGroup.add(tckPost1);
+  const tckPost2 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 2.0, 0.12), tckPostMat);
+  tckPost2.position.set(0.7, 1.0, 0);
+  tckGroup.add(tckPost2);
+  const tckRoofMat = new THREE.MeshLambertMaterial({color: 0x3a5a8a});
+  const tckRoof = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.1, 0.5), tckRoofMat);
+  tckRoof.position.set(0, 2.05, 0);
+  tckRoof.rotation.x = -0.15;
+  tckGroup.add(tckRoof);
+  const tckBoardMat = new THREE.MeshLambertMaterial({color: 0xf0e8d0});
+  const tckBoard = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.1, 0.05), tckBoardMat);
+  tckBoard.position.set(0, 1.4, 0.03);
+  tckGroup.add(tckBoard);
+  // Tide curve indicator (cyan dot that moves)
+  const tckDotMat = new THREE.MeshBasicMaterial({color: 0x40d0ff});
+  const tckDot = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), tckDotMat);
+  tckDot.position.set(0, 1.4, 0.07);
+  tckGroup.add(tckDot);
+  // Reader figure
+  const tckRdShirt = new THREE.MeshLambertMaterial({color: 0x4a7a3a});
+  const tckRdSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const tckRdr = new THREE.Group();
+  const tckRdTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.3), tckRdShirt);
+  tckRdTorso.position.y = 0.9;
+  tckRdr.add(tckRdTorso);
+  const tckRdHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), tckRdSkin);
+  tckRdHead.position.y = 1.4;
+  tckRdr.add(tckRdHead);
+  tckRdr.position.set(0.3, 0, 1.1);
+  tckGroup.add(tckRdr);
+  group.add(tckGroup);
+
+  // --- Salty driftwood sculptor (sds) ---
+  const sdsGroup = new THREE.Group();
+  sdsGroup.position.set(34, 0, 32);
+  const sdsLogMat = new THREE.MeshLambertMaterial({color: 0xa89678});
+  const sdsLog1 = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 1.4, 7), sdsLogMat);
+  sdsLog1.rotation.z = 0.4;
+  sdsLog1.position.set(-0.5, 0.3, 0);
+  sdsGroup.add(sdsLog1);
+  const sdsLog2 = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 1.0, 7), sdsLogMat);
+  sdsLog2.rotation.x = 0.5;
+  sdsLog2.position.set(0.5, 0.25, 0);
+  sdsGroup.add(sdsLog2);
+  // Half-finished sculpture (a bird shape — chunky)
+  const sdsScpMat = new THREE.MeshLambertMaterial({color: 0xc8a878});
+  const sdsBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 0.3), sdsScpMat);
+  sdsBody.position.set(0, 0.85, 0);
+  sdsGroup.add(sdsBody);
+  const sdsHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), sdsScpMat);
+  sdsHead.position.set(0, 1.25, 0);
+  sdsGroup.add(sdsHead);
+  const sdsBeak = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.2, 6), sdsScpMat);
+  sdsBeak.rotation.x = Math.PI / 2;
+  sdsBeak.position.set(0, 1.25, 0.18);
+  sdsGroup.add(sdsBeak);
+  // Sculptor figure with mallet
+  const sdsShMat = new THREE.MeshLambertMaterial({color: 0x8a4a2a});
+  const sdsSkMat = new THREE.MeshLambertMaterial({color: 0xc89678});
+  const sdsSc = new THREE.Group();
+  const sdsTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.35), sdsShMat);
+  sdsTorso.position.y = 1.0;
+  sdsSc.add(sdsTorso);
+  const sdsHd = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), sdsSkMat);
+  sdsHd.position.y = 1.5;
+  sdsSc.add(sdsHd);
+  // Mallet
+  const sdsMalMat = new THREE.MeshLambertMaterial({color: 0x6a4a2a});
+  const sdsMallet = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.4, 6), sdsMalMat);
+  sdsMallet.position.set(0.4, 1.0, 0.25);
+  sdsMallet.rotation.z = -0.5;
+  const sdsMalHead = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.22, 0.18), sdsMalMat);
+  sdsMalHead.position.set(0.6, 1.2, 0.25);
+  sdsSc.add(sdsMallet);
+  sdsSc.add(sdsMalHead);
+  sdsSc.position.set(-0.7, 0, 0.5);
+  sdsSc.rotation.y = 0.4;
+  sdsGroup.add(sdsSc);
+  // Wood chips around
+  const sdsChpMat = new THREE.MeshLambertMaterial({color: 0xdcc8a8});
+  for (let c = 0; c < 6; c++) {
+    const chip = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.04, 0.06), sdsChpMat);
+    chip.position.set(Math.cos(c * 1.2) * 0.7, 0.02, Math.sin(c * 1.2) * 0.7);
+    chip.rotation.y = c * 0.7;
+    sdsGroup.add(chip);
+  }
+  group.add(sdsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19115,6 +19266,20 @@ export function createAnchorageLandmark(THREE, opts) {
         const pffdFlicker = 0.85 + Math.sin(v100t * 3.7) * 0.1 + Math.sin(v100t * 6.1) * 0.05;
         pffdLightMat.opacity = pffdFlicker;
         pffdGlowMat.opacity = 0.25 + Math.sin(v100t * 0.5) * 0.08;
+        // v101: DJ tent + tide chart + driftwood sculptor
+        const v101t = t;
+        // DJ turntables spin
+        brdjPlatter1.rotation.y = v101t * 5.0;
+        brdjPlatter2.rotation.y = -v101t * 4.5;
+        brdjDj.rotation.y = Math.sin(v101t * 1.8) * 0.2;
+        brdjNoteMat.opacity = 0.5 + Math.sin(v101t * 4.0) * 0.3;
+        brdjNote.position.y = 2.0 + Math.sin(v101t * 2.2) * 0.15;
+        brdjNote.position.x = Math.sin(v101t * 1.0) * 0.3;
+        // Tide dot bobs along curve (sine on the chart)
+        tckDot.position.x = Math.sin(v101t * 0.3) * 0.6;
+        tckDot.position.y = 1.4 + Math.sin(v101t * 0.3) * 0.2;
+        // Sculptor: mallet swings (rock the parent group)
+        sdsSc.rotation.z = Math.sin(v101t * 2.5) * 0.08;
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
