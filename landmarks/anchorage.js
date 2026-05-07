@@ -12543,6 +12543,179 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(clamDigGroup);
 
 
+  // v75: Kite-board racing pair offshore
+  const kbGroup = new THREE.Group();
+  kbGroup.position.set(-32, 0.05, -38);
+  group.add(kbGroup);
+  const kbrBoardMat1 = new THREE.MeshStandardMaterial({ color: 0xffeb3b, roughness: 0.4 });
+  const kbrBoardMat2 = new THREE.MeshStandardMaterial({ color: 0xff5722, roughness: 0.4 });
+  const kbrBoard1 = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.06, 0.5), kbrBoardMat1);
+  kbrBoard1.position.set(0, 0.06, 0);
+  kbGroup.add(kbrBoard1);
+  const kbrBoard2 = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.06, 0.5), kbrBoardMat2);
+  kbrBoard2.position.set(4, 0.06, 1.5);
+  kbGroup.add(kbrBoard2);
+  const kbrSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  const kbrSuitMat1 = new THREE.MeshStandardMaterial({ color: 0x1976d2, roughness: 0.5 });
+  const kbrSuitMat2 = new THREE.MeshStandardMaterial({ color: 0x4caf50, roughness: 0.5 });
+  const kbrRider1 = new THREE.Group();
+  kbrRider1.position.set(0, 0.1, 0);
+  kbGroup.add(kbrRider1);
+  const kbrTorso1 = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.8, 8), kbrSuitMat1);
+  kbrTorso1.position.y = 0.7;
+  kbrRider1.add(kbrTorso1);
+  const kbrHead1 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), kbrSkinMat);
+  kbrHead1.position.y = 1.25;
+  kbrRider1.add(kbrHead1);
+  const kbrLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.55, 6), kbrSuitMat1);
+  kbrLeg1.position.set(0, 0.3, 0);
+  kbrRider1.add(kbrLeg1);
+  const kbrRider2 = new THREE.Group();
+  kbrRider2.position.set(4, 0.1, 1.5);
+  kbGroup.add(kbrRider2);
+  const kbrTorso2 = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.8, 8), kbrSuitMat2);
+  kbrTorso2.position.y = 0.7;
+  kbrRider2.add(kbrTorso2);
+  const kbrHead2 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), kbrSkinMat);
+  kbrHead2.position.y = 1.25;
+  kbrRider2.add(kbrHead2);
+  const kbrLeg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.55, 6), kbrSuitMat2);
+  kbrLeg2.position.set(0, 0.3, 0);
+  kbrRider2.add(kbrLeg2);
+  // Kites in the air
+  const kbrKiteMat1 = new THREE.MeshBasicMaterial({ color: 0xffeb3b, side: THREE.DoubleSide });
+  const kbrKiteMat2 = new THREE.MeshBasicMaterial({ color: 0xff5722, side: THREE.DoubleSide });
+  const kbrKite1 = new THREE.Mesh(new THREE.SphereGeometry(1.4, 12, 4, 0, Math.PI * 2, 0, Math.PI / 2.5), kbrKiteMat1);
+  kbrKite1.position.set(-1.0, 6.0, -2.0);
+  kbrKite1.rotation.x = Math.PI;
+  kbGroup.add(kbrKite1);
+  const kbrKite2 = new THREE.Mesh(new THREE.SphereGeometry(1.4, 12, 4, 0, Math.PI * 2, 0, Math.PI / 2.5), kbrKiteMat2);
+  kbrKite2.position.set(5.0, 6.5, 0);
+  kbrKite2.rotation.x = Math.PI;
+  kbGroup.add(kbrKite2);
+  // Lines from rider to kite
+  const kbrLineMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const kbrLineG1 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 1.4, 0), new THREE.Vector3(-1.0, 6.0, -2.0)]);
+  const kbrLine1 = new THREE.Line(kbrLineG1, kbrLineMat);
+  kbrRider1.add(kbrLine1);
+  const kbrLineG2 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 1.4, 0), new THREE.Vector3(1.0, 6.4, -1.5)]);
+  const kbrLine2 = new THREE.Line(kbrLineG2, kbrLineMat);
+  kbrRider2.add(kbrLine2);
+  // Wakes
+  const kbrWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
+  const kbrWake1 = new THREE.Mesh(new THREE.RingGeometry(0.4, 1.2, 16, 1, 0, Math.PI), kbrWakeMat);
+  kbrWake1.rotation.x = -Math.PI / 2;
+  kbrWake1.position.set(-1.2, 0.04, 0);
+  kbGroup.add(kbrWake1);
+  const kbrWake2 = new THREE.Mesh(new THREE.RingGeometry(0.4, 1.2, 16, 1, 0, Math.PI), kbrWakeMat);
+  kbrWake2.rotation.x = -Math.PI / 2;
+  kbrWake2.position.set(2.8, 0.04, 1.5);
+  kbGroup.add(kbrWake2);
+
+  // v75: Beach yoga cat companion
+  const ycatGroup = new THREE.Group();
+  ycatGroup.position.set(20, 0.05, 6);
+  group.add(ycatGroup);
+  const ycatMatRaw = new THREE.MeshStandardMaterial({ color: 0xc69c6d, roughness: 0.6 });
+  const ycatBlackMat = new THREE.MeshStandardMaterial({ color: 0x2c1810, roughness: 0.7 });
+  const ycatPinkMat = new THREE.MeshStandardMaterial({ color: 0xff9aa2, roughness: 0.5 });
+  const ycatYogiSkinMat = new THREE.MeshStandardMaterial({ color: 0xd2a07a, roughness: 0.7 });
+  const ycatYogiMat = new THREE.MeshStandardMaterial({ color: 0x9c27b0, roughness: 0.5 });
+  // Yoga mat
+  const ycatMat = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.9), new THREE.MeshStandardMaterial({ color: 0x8e24aa, roughness: 0.7 }));
+  ycatMat.rotation.x = -Math.PI / 2;
+  ycatMat.position.y = 0.01;
+  ycatGroup.add(ycatMat);
+  // Yogi in cobra pose
+  const ycatYogiTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.25, 1.2), ycatYogiMat);
+  ycatYogiTorso.position.set(-0.3, 0.18, 0);
+  ycatYogiTorso.rotation.x = -0.2;
+  ycatGroup.add(ycatYogiTorso);
+  const ycatYogiHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), ycatYogiSkinMat);
+  ycatYogiHead.position.set(0.25, 0.42, 0);
+  ycatGroup.add(ycatYogiHead);
+  const ycatYogiArm = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.45, 6), ycatYogiSkinMat);
+  ycatYogiArm.position.set(0.05, 0.25, 0.3);
+  ycatYogiArm.rotation.z = -0.5;
+  ycatGroup.add(ycatYogiArm);
+  // Cat in sphinx/cobra pose next to yogi
+  const ycatBody = new THREE.Mesh(new THREE.CapsuleGeometry(0.14, 0.5, 4, 8), ycatBlackMat);
+  ycatBody.rotation.z = Math.PI / 2;
+  ycatBody.position.set(0.1, 0.16, -0.6);
+  ycatGroup.add(ycatBody);
+  const ycatChest = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), ycatMatRaw);
+  ycatChest.position.set(0.4, 0.12, -0.6);
+  ycatGroup.add(ycatChest);
+  const ycatHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), ycatBlackMat);
+  ycatHead.position.set(0.5, 0.28, -0.6);
+  ycatGroup.add(ycatHead);
+  const ycatEar1 = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.1, 6), ycatBlackMat);
+  ycatEar1.position.set(0.5, 0.42, -0.52);
+  ycatGroup.add(ycatEar1);
+  const ycatEar2 = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.1, 6), ycatBlackMat);
+  ycatEar2.position.set(0.5, 0.42, -0.68);
+  ycatGroup.add(ycatEar2);
+  const ycatNose = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), ycatPinkMat);
+  ycatNose.position.set(0.64, 0.27, -0.6);
+  ycatGroup.add(ycatNose);
+  const ycatTail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.06, 0.5, 6), ycatBlackMat);
+  ycatTail.position.set(-0.3, 0.16, -0.6);
+  ycatTail.rotation.z = Math.PI / 2;
+  ycatGroup.add(ycatTail);
+
+  // v75: Drone delivery to beach picnic
+  const ddroneGroup = new THREE.Group();
+  ddroneGroup.position.set(-12, 0.05, 22);
+  group.add(ddroneGroup);
+  // Picnic blanket
+  const ddBlanketMat = new THREE.MeshStandardMaterial({ color: 0xc62828, roughness: 0.7 });
+  const ddBlanket = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.6), ddBlanketMat);
+  ddBlanket.rotation.x = -Math.PI / 2;
+  ddBlanket.position.y = 0.02;
+  ddroneGroup.add(ddBlanket);
+  // Picnic basket
+  const ddBasketMat = new THREE.MeshStandardMaterial({ color: 0x8d6e63, roughness: 0.8 });
+  const ddBasket = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.3, 0.5), ddBasketMat);
+  ddBasket.position.set(-0.6, 0.18, -0.4);
+  ddroneGroup.add(ddBasket);
+  // Drone body (hovering ~3m up)
+  const ddDroneBodyMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.4, metalness: 0.6 });
+  const ddDroneBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.18, 0.5), ddDroneBodyMat);
+  ddDroneBody.position.set(0, 3.2, 0);
+  ddroneGroup.add(ddDroneBody);
+  // Drone arms
+  const ddArmMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.5 });
+  const ddArmPositions = [[0.3, 0.3], [-0.3, 0.3], [0.3, -0.3], [-0.3, -0.3]];
+  const ddProps = [];
+  const ddPropMat = new THREE.MeshBasicMaterial({ color: 0x666666, transparent: true, opacity: 0.55 });
+  for (let i = 0; i < ddArmPositions.length; i++) {
+    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), ddArmMat);
+    arm.rotation.x = Math.PI / 2;
+    arm.rotation.z = Math.atan2(ddArmPositions[i][1], ddArmPositions[i][0]);
+    arm.position.set(ddArmPositions[i][0] * 0.5, 3.2, ddArmPositions[i][1] * 0.5);
+    ddroneGroup.add(arm);
+    const prop = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.02, 12), ddPropMat);
+    prop.position.set(ddArmPositions[i][0], 3.3, ddArmPositions[i][1]);
+    ddroneGroup.add(prop);
+    ddProps.push(prop);
+  }
+  // Package hanging from drone
+  const ddPackMat = new THREE.MeshStandardMaterial({ color: 0xffb74d, roughness: 0.7 });
+  const ddPackage = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.35, 0.35), ddPackMat);
+  ddPackage.position.set(0, 2.5, 0);
+  ddroneGroup.add(ddPackage);
+  // Tether
+  const ddTetherMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const ddTetherG = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 3.1, 0), new THREE.Vector3(0, 2.7, 0)]);
+  const ddTether = new THREE.Line(ddTetherG, ddTetherMat);
+  ddroneGroup.add(ddTether);
+  // Indicator light
+  const ddLightMat = new THREE.MeshBasicMaterial({ color: 0xff3030 });
+  const ddLight = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), ddLightMat);
+  ddLight.position.set(0.2, 3.15, 0);
+  ddroneGroup.add(ddLight);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -14542,6 +14715,25 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       if (clamSheen) {
         clamSheen.material.opacity = 0.4 + 0.1 * Math.sin(t * 0.6);
+        // v75 Kiteboarders rocking and kites swaying
+        kbrBoard1.rotation.z = 0.1 * Math.sin(t * 1.4);
+        kbrBoard2.rotation.z = 0.1 * Math.sin(t * 1.4 + 1.0);
+        kbrKite1.position.x = -1.0 + 0.4 * Math.sin(t * 0.6);
+        kbrKite1.rotation.z = 0.15 * Math.sin(t * 0.6);
+        kbrKite2.position.x = 5.0 + 0.4 * Math.sin(t * 0.6 + 1.5);
+        kbrKite2.rotation.z = 0.15 * Math.sin(t * 0.6 + 1.5);
+        kbrWake1.material.opacity = 0.4 + 0.2 * Math.sin(t * 2.0);
+        kbrWake2.material.opacity = 0.4 + 0.2 * Math.sin(t * 2.0 + 0.7);
+        // v75 Yoga cat tail twitch
+        ycatTail.rotation.x = 0.3 * Math.sin(t * 1.5);
+        // v75 Drone propellers spinning, drone hovering
+        for (let i = 0; i < ddProps.length; i++) {
+          ddProps[i].rotation.y += 0.5;
+        }
+        ddDroneBody.position.y = 3.2 + 0.06 * Math.sin(t * 3.0);
+        ddPackage.position.y = 2.5 + 0.06 * Math.sin(t * 3.0);
+        ddLight.material.color.setHex((Math.sin(t * 4) > 0) ? 0xff3030 : 0x300000);
+
       }
 
       }
