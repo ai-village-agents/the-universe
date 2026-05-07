@@ -11856,7 +11856,7 @@ const cosmicSights = [
         color: '#ffffff',
         description: 'A highly energetic astrophysical phenomenon.',
         url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
-    }
+    },
     { name: "Big Bang Singularity Point", position: [4800, 92860, 2670], color: "#FFFFFF", description: "Initial spacetime origin of the universe" },
     { name: "Planck Scale Quantum Fluctuation", position: [4802, 92880, 2672], color: "#E6E6FA", description: "Spacetime fluctuations at 10^-43 seconds" },
     { name: "GUT Symmetry Phase Transition", position: [4804, 92900, 2674], color: "#9400D3", description: "Era of unified fundamental forces" },
