@@ -15654,6 +15654,166 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(sbrsGroup);
 
 
+  // v93: Beach skateboard half-pipe
+  const bsrGroup = new THREE.Group();
+  bsrGroup.position.set(38, 0, 0);
+  // Half-pipe (two curved walls)
+  const bsrPipeMat = new THREE.MeshLambertMaterial({ color: 0xb8b8b8 });
+  const bsrLeftWall = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.5, 4, 16, 1, true, 0, Math.PI / 2), bsrPipeMat);
+  bsrLeftWall.rotation.z = Math.PI / 2;
+  bsrLeftWall.rotation.x = Math.PI / 2;
+  bsrLeftWall.position.set(-2.5, 1.25, 0);
+  bsrGroup.add(bsrLeftWall);
+  const bsrRightWall = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.5, 4, 16, 1, true, Math.PI / 2, Math.PI / 2), bsrPipeMat);
+  bsrRightWall.rotation.z = -Math.PI / 2;
+  bsrRightWall.rotation.x = Math.PI / 2;
+  bsrRightWall.position.set(2.5, 1.25, 0);
+  bsrGroup.add(bsrRightWall);
+  // Flat bottom
+  const bsrBottom = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.06, 4), bsrPipeMat);
+  bsrBottom.position.set(0, 0.03, 0);
+  bsrGroup.add(bsrBottom);
+  // Coping (top edges)
+  const bsrCopingL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 4, 8), new THREE.MeshLambertMaterial({ color: 0xff6600 }));
+  bsrCopingL.rotation.x = Math.PI / 2;
+  bsrCopingL.position.set(-2.5, 2.5, 0);
+  bsrGroup.add(bsrCopingL);
+  const bsrCopingR = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 4, 8), new THREE.MeshLambertMaterial({ color: 0xff6600 }));
+  bsrCopingR.rotation.x = Math.PI / 2;
+  bsrCopingR.position.set(2.5, 2.5, 0);
+  bsrGroup.add(bsrCopingR);
+  // Skater
+  const bsrSkater = new THREE.Group();
+  const bsrSkBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.7, 0.25), new THREE.MeshLambertMaterial({ color: 0x33aa66 }));
+  bsrSkBody.position.y = 0.4;
+  bsrSkater.add(bsrSkBody);
+  const bsrSkLegs = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.25), new THREE.MeshLambertMaterial({ color: 0x222244 }));
+  bsrSkLegs.position.y = -0.05;
+  bsrSkater.add(bsrSkLegs);
+  const bsrSkHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  bsrSkHead.position.y = 0.95;
+  bsrSkater.add(bsrSkHead);
+  const bsrSkHelmet = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xff3322 }));
+  bsrSkHelmet.position.y = 1.0;
+  bsrSkater.add(bsrSkHelmet);
+  // Skateboard
+  const bsrBoard = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.05, 0.7), new THREE.MeshLambertMaterial({ color: 0xff7733 }));
+  bsrBoard.position.y = -0.4;
+  bsrSkater.add(bsrBoard);
+  bsrSkater.position.set(0, 0.6, 0);
+  bsrGroup.add(bsrSkater);
+  // Watching kids on edge
+  for (let bsk = 0; bsk < 2; bsk++) {
+    const bsrKid = new THREE.Group();
+    bsrKid.position.set(-3.5 + bsk * 7, 0, 1.5);
+    const bsrKBody = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.7, 0.2), new THREE.MeshLambertMaterial({ color: bsk === 0 ? 0xffcc44 : 0x4488ff }));
+    bsrKBody.position.y = 0.35;
+    bsrKid.add(bsrKBody);
+    const bsrKHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+    bsrKHead.position.y = 0.84;
+    bsrKid.add(bsrKHead);
+    bsrGroup.add(bsrKid);
+  }
+  group.add(bsrGroup);
+
+  // v93: Coastal radio antenna mast
+  const crmGroup = new THREE.Group();
+  crmGroup.position.set(46, 0, -10);
+  // Tall lattice mast (4 vertical poles)
+  const crmMastMat = new THREE.MeshLambertMaterial({ color: 0xdd2222 });
+  const crmMastWhiteMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
+  for (let crma = 0; crma < 4; crma++) {
+    const crmAng = (crma / 4) * Math.PI * 2;
+    const crmLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 12, 6), crma % 2 === 0 ? crmMastMat : crmMastWhiteMat);
+    crmLeg.position.set(Math.cos(crmAng) * 0.4, 6, Math.sin(crmAng) * 0.4);
+    crmGroup.add(crmLeg);
+  }
+  // Cross braces (horizontal rings)
+  for (let crmh = 0; crmh < 6; crmh++) {
+    const crmRing = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.03, 6, 12), new THREE.MeshLambertMaterial({ color: 0x666666 }));
+    crmRing.rotation.x = Math.PI / 2;
+    crmRing.position.set(0, 1.5 + crmh * 1.8, 0);
+    crmGroup.add(crmRing);
+  }
+  // Top antenna whip
+  const crmWhip = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 3, 6), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  crmWhip.position.set(0, 13.5, 0);
+  crmGroup.add(crmWhip);
+  // Warning light
+  const crmLight = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshBasicMaterial({ color: 0xff3322 }));
+  crmLight.position.set(0, 12.2, 0);
+  crmGroup.add(crmLight);
+  // Guy wires (4)
+  for (let crmg = 0; crmg < 4; crmg++) {
+    const crmA = (crmg / 4) * Math.PI * 2 + Math.PI / 4;
+    const crmGuy = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 11.5, 4), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    const crmDx = Math.cos(crmA) * 4.5;
+    const crmDz = Math.sin(crmA) * 4.5;
+    crmGuy.position.set(crmDx / 2, 5.5, crmDz / 2);
+    crmGuy.lookAt(crmDx, 0, crmDz);
+    crmGuy.rotateX(Math.PI / 2);
+    crmGroup.add(crmGuy);
+  }
+  // Equipment shed at base
+  const crmShed = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.0, 1.0), new THREE.MeshLambertMaterial({ color: 0x888899 }));
+  crmShed.position.set(1.5, 0.5, 0);
+  crmGroup.add(crmShed);
+  group.add(crmGroup);
+
+  // v93: Marine biologist tagging shark from RHIB
+  const mbtGroup = new THREE.Group();
+  mbtGroup.position.set(-50, 0.2, 4);
+  // RHIB hull
+  const mbtHull = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.5, 1.4), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  mbtHull.position.set(0, 0.25, 0);
+  mbtGroup.add(mbtHull);
+  // Pontoons (rounded)
+  const mbtPontL = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 3.6, 10), new THREE.MeshLambertMaterial({ color: 0x222244 }));
+  mbtPontL.rotation.z = Math.PI / 2;
+  mbtPontL.position.set(0, 0.25, 0.7);
+  mbtGroup.add(mbtPontL);
+  const mbtPontR = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 3.6, 10), new THREE.MeshLambertMaterial({ color: 0x222244 }));
+  mbtPontR.rotation.z = Math.PI / 2;
+  mbtPontR.position.set(0, 0.25, -0.7);
+  mbtGroup.add(mbtPontR);
+  // Biologist with tagging pole
+  const mbtBio = new THREE.Group();
+  mbtBio.position.set(0.8, 0.5, 0);
+  const mbtBioBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.95, 0.3), new THREE.MeshLambertMaterial({ color: 0xff8822 }));
+  mbtBioBody.position.y = 0.475;
+  mbtBio.add(mbtBioBody);
+  const mbtBioHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  mbtBioHead.position.y = 1.1;
+  mbtBio.add(mbtBioHead);
+  // Tagging pole (long arm extension over water)
+  const mbtPole = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.5, 6), new THREE.MeshLambertMaterial({ color: 0x444444 }));
+  mbtPole.position.set(1.3, 0.6, 0.7);
+  mbtPole.rotation.z = -0.5;
+  mbtPole.rotation.x = -0.3;
+  mbtBio.add(mbtPole);
+  mbtGroup.add(mbtBio);
+  // Boat captain
+  const mbtCapt = new THREE.Group();
+  mbtCapt.position.set(-1.0, 0.5, 0);
+  const mbtCaptBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.95, 0.3), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  mbtCaptBody.position.y = 0.475;
+  mbtCapt.add(mbtCaptBody);
+  const mbtCaptHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  mbtCaptHead.position.y = 1.1;
+  mbtCapt.add(mbtCaptHead);
+  mbtGroup.add(mbtCapt);
+  // Shark dorsal fin breaking surface
+  const mbtSharkFin = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.5, 4), new THREE.MeshLambertMaterial({ color: 0x444466 }));
+  mbtSharkFin.position.set(2.5, 0.25, 0);
+  mbtSharkFin.rotation.y = -0.3;
+  mbtGroup.add(mbtSharkFin);
+  const mbtSharkBack = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 6), new THREE.MeshLambertMaterial({ color: 0x444466 }));
+  mbtSharkBack.scale.set(2.5, 0.4, 0.7);
+  mbtSharkBack.position.set(2.5, 0.05, 0);
+  mbtGroup.add(mbtSharkBack);
+  group.add(mbtGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17975,6 +18135,18 @@ export function createAnchorageLandmark(THREE, opts) {
         scpBatter.rotation.y = Math.sin(t * 0.8) * 0.1;
         sbrsSander.position.x = 0.55 + Math.sin(t * 4.0) * 0.05;
         sbrsArm.rotation.z = 0.5 + Math.sin(t * 4.0) * 0.08;
+        // v93: skater oscillates pipe, antenna light blinks, RHIB bobs, shark fin moves
+        bsrSkater.position.x = Math.sin(t * 1.4) * 2.0;
+        bsrSkater.rotation.z = Math.cos(t * 1.4) * 0.5;
+        bsrSkater.position.y = 0.6 + Math.abs(Math.sin(t * 1.4)) * 1.4;
+        crmLight.material.color.setHex(Math.floor(t * 1.5) % 2 === 0 ? 0xff3322 : 0x440000);
+        const v93bob = Math.sin(t * 0.6) * 0.05;
+        mbtHull.position.y = 0.25 + v93bob;
+        mbtPontL.position.y = 0.25 + v93bob;
+        mbtPontR.position.y = 0.25 + v93bob;
+        mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+
 
 
 
