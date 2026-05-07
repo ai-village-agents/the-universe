@@ -13233,7 +13233,32 @@ const cosmicSights = [
     color: "#F0E68C",
     size: 2,
     description: "Maximum brightness of accreting protostar"
-  }
+  },
+    { name: "Chemical Tagging Signature", position: [0.91, -0.33, 0.27], color: "#B8860B", size: 1.8, description: "A distinct chemical abundance pattern linking dispersed stars to their common birth cluster, revealing the fossil record of star formation." },
+    { name: "Age-Metallicity Relation Tracer", position: [-0.44, 0.82, -0.36], color: "#CD853F", size: 1.6, description: "Stars whose ages and metal content map the chemical enrichment history of the galactic disk over billions of years." },
+    { name: "Kinematic Substructure Stream", position: [0.67, 0.51, -0.54], color: "#DEB887", size: 2.0, description: "A coherent group of stars moving together through the galaxy, remnants of an ancient accreted dwarf galaxy." },
+    { name: "Chronometric Age Indicator", position: [-0.29, -0.71, 0.64], color: "#D2691E", size: 1.5, description: "A stellar age determination method using nuclear cosmochronometry and radioactive decay timescales." },
+    { name: "Stellar Fossil Record", position: [0.83, 0.12, 0.54], color: "#8B4513", size: 1.9, description: "Ancient low-mass stars preserving the chemical composition of the early galaxy in their pristine atmospheres." },
+    { name: "Galactic Merger Debris Field", position: [-0.56, 0.44, 0.70], color: "#A0522D", size: 2.2, description: "Scattered stellar material from a past galaxy collision, now dispersed throughout the halo." },
+    { name: "Nucleosynthetic Anomaly Site", position: [0.38, -0.88, 0.28], color: "#BC8F8F", size: 1.7, description: "Stars showing unusual isotopic ratios that trace specific nucleosynthetic events in galactic history." },
+    { name: "Dynamical Fossil Signature", position: [-0.72, -0.28, 0.63], color: "#F4A460", size: 1.8, description: "Orbital characteristics of stars that preserve memory of the galaxy's dynamical evolution." },
+    { name: "Tidal Debris Arc Segment", position: [0.49, 0.69, 0.53], color: "#DAA520", size: 2.1, description: "A curved stellar stream marking the orbital path of a tidally disrupted satellite galaxy." },
+    { name: "Abundance Ratio Gradient", position: [-0.61, 0.57, -0.55], color: "#B8860B", size: 1.6, description: "Spatial variations in elemental ratios across the galaxy revealing radial mixing and migration patterns." },
+    { name: "Stellar Spin-Down Clock", position: [0.77, -0.49, -0.40], color: "#CD853F", size: 1.5, description: "A stellar rotation-age relationship benchmark used to date field stars across the galaxy." },
+    { name: "Accreted Halo Component", position: [-0.35, 0.91, 0.22], color: "#8B4513", size: 2.0, description: "Stars originating from disrupted dwarf galaxies now orbiting in the galactic halo." },
+    { name: "In-Situ Formation Region", position: [0.62, 0.33, -0.71], color: "#A0522D", size: 1.8, description: "Stars formed within the main galaxy progenitor, distinguishable from accreted populations." },
+    { name: "Neutron-Capture Element Tracer", position: [-0.48, -0.63, -0.61], color: "#DEB887", size: 1.7, description: "Heavy elements synthesized by neutron capture processes marking specific enrichment events." },
+    { name: "Velocity Dispersion Clump", position: [0.24, 0.76, 0.61], color: "#D2691E", size: 1.9, description: "A clump of stars sharing similar positions and velocities, indicating common origin." },
+    { name: "Radial Migration Evidence", position: [-0.81, 0.18, -0.56], color: "#BC8F8F", size: 1.6, description: "Stars found far from their birth radii due to gravitational interactions with spiral arms and bars." },
+    { name: "Lithium Depletion Boundary", position: [0.55, -0.72, 0.42], color: "#F4A460", size: 1.5, description: "An age indicator in young clusters based on the mass at which lithium is destroyed." },
+    { name: "Galactic Archaeology Survey Field", position: [-0.19, 0.66, 0.73], color: "#DAA520", size: 2.0, description: "A targeted observational region for systematic stellar parameter measurements." },
+    { name: "Alpha-Bimodality Interface", position: [0.71, 0.54, 0.46], color: "#B8860B", size: 1.8, description: "The boundary between high-alpha and low-alpha stellar populations in the galactic disk." },
+    { name: "Stellar Genealogy Node", position: [-0.64, -0.41, 0.65], color: "#CD853F", size: 1.7, description: "A point in chemical space where multiple stellar populations intersect, revealing shared ancestry." },
+    { name: "Birth Cluster Dispersal Remnant", position: [0.42, 0.88, -0.21], color: "#8B4513", size: 1.9, description: "Stars that once formed together but are now scattered across the galaxy." },
+    { name: "Vertical Oscillation Tracer", position: [-0.53, 0.29, -0.80], color: "#A0522D", size: 1.6, description: "Stars whose vertical motions probe past interactions with satellite galaxies." },
+    { name: "Galactic Formation Epoch Marker", position: [0.86, -0.21, -0.46], color: "#DEB887", size: 2.1, description: "Ancient stellar populations dating to the earliest phases of galaxy assembly." },
+    { name: "Action-Angle Coordinate Map", position: [-0.37, -0.82, 0.43], color: "#D2691E", size: 1.5, description: "A dynamical representation preserving orbital integrals that reveal galactic structure." },
+    { name: "Extragalactic Origin Star", position: [0.29, 0.47, -0.83], color: "#BC8F8F", size: 1.8, description: "A star with kinematics and chemistry indicating birth in a now-disrupted dwarf galaxy." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
