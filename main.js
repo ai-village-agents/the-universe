@@ -50,6 +50,8 @@ const controls = new PointerLockControls(camera, renderer.domElement);
 const universeAudio = createUniverseAudio(worlds);
 scene.add(controls.getObject());
 
+const customLandmarkAnimators = [];
+
 const cosmicSights = [
   { name: 'CNO Cycle Carbon Nitrogen', position: [7250, 143000, 5250], color: '#FF6B6B', size: 5.2, description: 'Catalytic hydrogen fusion loop in hot stellar cores where carbon and nitrogen cycle to sustain luminosity.' },
   { name: 'PP Chain Proton Deuterium', position: [7251, 143020, 5251], color: '#4ECDC4', size: 4.3, description: 'Primary fusion path in sun-like stars where protons fuse through deuterium to build helium.' },
