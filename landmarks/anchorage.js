@@ -11787,6 +11787,241 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(sbyGroup);
 
 
+
+  // v72: Dock cat (black with white tuxedo markings, sitting on a piling)
+  const dockCatGroup = new THREE.Group();
+  dockCatGroup.position.set(15, 0, 18);
+  // Piling for cat
+  const dckPilingMat = new THREE.MeshLambertMaterial({ color: 0x5a3d24 });
+  const dckPiling = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.36, 1.6, 10), dckPilingMat);
+  dckPiling.position.y = 0.8;
+  dockCatGroup.add(dckPiling);
+  const dckPilingCap = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.08, 10), dckPilingMat);
+  dckPilingCap.position.y = 1.64;
+  dockCatGroup.add(dckPilingCap);
+  // Cat body (black)
+  const dckBlackMat = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
+  const dckWhiteMat = new THREE.MeshLambertMaterial({ color: 0xf0f0e8 });
+  const dckCatBody = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), dckBlackMat);
+  dckCatBody.position.y = 1.85;
+  dckCatBody.scale.set(1.0, 1.2, 0.8);
+  dockCatGroup.add(dckCatBody);
+  // White chest (tuxedo)
+  const dckChest = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), dckWhiteMat);
+  dckChest.position.set(0, 1.78, 0.16);
+  dckChest.scale.set(0.9, 1.1, 0.6);
+  dockCatGroup.add(dckChest);
+  // Cat head
+  const dckCatHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), dckBlackMat);
+  dckCatHead.position.set(0, 2.18, 0.05);
+  dockCatGroup.add(dckCatHead);
+  // White muzzle
+  const dckMuzzle = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), dckWhiteMat);
+  dckMuzzle.position.set(0, 2.13, 0.18);
+  dckMuzzle.scale.set(1.0, 0.7, 0.8);
+  dockCatGroup.add(dckMuzzle);
+  // Ears (triangular)
+  for (let ei = 0; ei < 2; ei++) {
+    const ear = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.12, 4), dckBlackMat);
+    ear.position.set(ei === 0 ? -0.09 : 0.09, 2.34, 0.02);
+    dockCatGroup.add(ear);
+  }
+  // Eyes (yellow-green)
+  const dckEyeMat = new THREE.MeshBasicMaterial({ color: 0xc8e040 });
+  for (let yi = 0; yi < 2; yi++) {
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.022, 6, 5), dckEyeMat);
+    eye.position.set(yi === 0 ? -0.05 : 0.05, 2.2, 0.18);
+    dockCatGroup.add(eye);
+  }
+  // Tail (curled around base)
+  const dckTail = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.04, 6, 16, Math.PI * 1.4), dckBlackMat);
+  dckTail.position.set(0.16, 1.74, -0.05);
+  dckTail.rotation.x = Math.PI / 2;
+  dckTail.rotation.z = -0.3;
+  dockCatGroup.add(dckTail);
+  // White paws
+  const dckPaw1 = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5), dckWhiteMat);
+  dckPaw1.position.set(-0.09, 1.66, 0.18);
+  dockCatGroup.add(dckPaw1);
+  const dckPaw2 = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5), dckWhiteMat);
+  dckPaw2.position.set(0.09, 1.66, 0.18);
+  dockCatGroup.add(dckPaw2);
+  group.add(dockCatGroup);
+
+  // v72: Beach photographer with camera tripod
+  const photogGroup = new THREE.Group();
+  photogGroup.position.set(-12, 0, -8);
+  photogGroup.rotation.y = 0.5;
+  // Tripod (three angled legs)
+  const ptpMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  for (let li = 0; li < 3; li++) {
+    const angle = li * Math.PI * 2 / 3;
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.02, 1.6, 6), ptpMat);
+    leg.position.set(Math.cos(angle) * 0.35, 0.78, Math.sin(angle) * 0.35);
+    leg.rotation.x = -Math.sin(angle) * 0.25;
+    leg.rotation.z = Math.cos(angle) * 0.25;
+    photogGroup.add(leg);
+  }
+  // Tripod head/mount
+  const photTripHead = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.12, 8), ptpMat);
+  photTripHead.position.y = 1.55;
+  photogGroup.add(photTripHead);
+  // Camera body
+  const photCamMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const photCamBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.28, 0.18), photCamMat);
+  photCamBody.position.y = 1.74;
+  photogGroup.add(photCamBody);
+  // Camera lens (telephoto, pointed forward)
+  const photLensMat = new THREE.MeshLambertMaterial({ color: 0x333333 });
+  const photLens = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.11, 0.6, 12), photLensMat);
+  photLens.position.set(0, 1.74, 0.45);
+  photLens.rotation.x = Math.PI / 2;
+  photogGroup.add(photLens);
+  // Lens hood
+  const photHood = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.1, 0.12, 12), photLensMat);
+  photHood.position.set(0, 1.74, 0.78);
+  photHood.rotation.x = Math.PI / 2;
+  photogGroup.add(photHood);
+  // Red record/shutter LED
+  const photLedMat = new THREE.MeshBasicMaterial({ color: 0xff2020, transparent: true });
+  const photLed = new THREE.Mesh(new THREE.SphereGeometry(0.018, 6, 5), photLedMat);
+  photLed.position.set(0.16, 1.82, 0.12);
+  photogGroup.add(photLed);
+  // Photographer (standing behind, slight crouch leaning into camera)
+  const photog = new THREE.Group();
+  photog.position.set(0, 0, -0.7);
+  const photVestMat = new THREE.MeshLambertMaterial({ color: 0x4a5a2a });
+  const photSkinMat = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+  const photHairMat = new THREE.MeshLambertMaterial({ color: 0x4a3018 });
+  const photCapMat = new THREE.MeshLambertMaterial({ color: 0x6a3a1a });
+  const photTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.7, 8), photVestMat);
+  photTorso.position.y = 1.0;
+  photog.add(photTorso);
+  const photHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 12, 10), photSkinMat);
+  photHead.position.y = 1.5;
+  photog.add(photHead);
+  const photHair = new THREE.Mesh(new THREE.SphereGeometry(0.142, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2.4), photHairMat);
+  photHair.position.y = 1.55;
+  photog.add(photHair);
+  // Cap with brim
+  const photCap = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.08, 12), photCapMat);
+  photCap.position.y = 1.62;
+  photog.add(photCap);
+  const photBrim = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.02, 0.16), photCapMat);
+  photBrim.position.set(0, 1.6, 0.18);
+  photog.add(photBrim);
+  // Legs
+  const photLegMat = new THREE.MeshLambertMaterial({ color: 0x3a2a1a });
+  const photLegL = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.08, 0.7, 6), photLegMat);
+  photLegL.position.set(-0.1, 0.35, 0);
+  photog.add(photLegL);
+  const photLegR = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.08, 0.7, 6), photLegMat);
+  photLegR.position.set(0.1, 0.35, 0);
+  photog.add(photLegR);
+  // Arms reaching forward to camera
+  const photArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6), photVestMat);
+  photArmL.position.set(-0.2, 1.15, 0.3);
+  photArmL.rotation.x = -0.6;
+  photog.add(photArmL);
+  const photArmR = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6), photVestMat);
+  photArmR.position.set(0.2, 1.15, 0.3);
+  photArmR.rotation.x = -0.6;
+  photog.add(photArmR);
+  photogGroup.add(photog);
+  group.add(photogGroup);
+
+  // v72: Ice cream cart bicycle vendor
+  const iceVendGroup = new THREE.Group();
+  iceVendGroup.position.set(8, 0, 25);
+  iceVendGroup.rotation.y = -0.6;
+  // Bike frame (two wheels + crossbar)
+  const ivFrameMat = new THREE.MeshLambertMaterial({ color: 0xd84a8a });
+  const ivWheelMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const ivWheelF = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.05, 6, 18), ivWheelMat);
+  ivWheelF.position.set(-0.6, 0.32, 0);
+  ivWheelF.rotation.y = Math.PI / 2;
+  iceVendGroup.add(ivWheelF);
+  const ivWheelR = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.05, 6, 18), ivWheelMat);
+  ivWheelR.position.set(0.9, 0.32, 0);
+  ivWheelR.rotation.y = Math.PI / 2;
+  iceVendGroup.add(ivWheelR);
+  // Bike seat
+  const ivSeatMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const ivSeat = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.06, 0.14), ivSeatMat);
+  ivSeat.position.set(0.95, 0.95, 0);
+  iceVendGroup.add(ivSeat);
+  const ivSeatPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.6, 6), ivFrameMat);
+  ivSeatPost.position.set(0.95, 0.62, 0);
+  iceVendGroup.add(ivSeatPost);
+  // Bike handlebars area (behind cart)
+  const ivHandle = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.04, 0.04), ivFrameMat);
+  ivHandle.position.set(0.95, 1.15, 0);
+  iceVendGroup.add(ivHandle);
+  // Front cart box (insulated, white with pink/blue trim)
+  const ivCartMat = new THREE.MeshLambertMaterial({ color: 0xfafafa });
+  const ivCartBox = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.85, 0.9), ivCartMat);
+  ivCartBox.position.set(-0.6, 0.65, 0);
+  iceVendGroup.add(ivCartBox);
+  // Trim stripe
+  const ivTrimMat = new THREE.MeshLambertMaterial({ color: 0xff6bb5 });
+  const ivTrim = new THREE.Mesh(new THREE.BoxGeometry(1.42, 0.08, 0.92), ivTrimMat);
+  ivTrim.position.set(-0.6, 0.45, 0);
+  iceVendGroup.add(ivTrim);
+  // Cart wheel (small) under front
+  const ivCartWheel = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.04, 6, 14), ivWheelMat);
+  ivCartWheel.position.set(-1.15, 0.18, 0);
+  ivCartWheel.rotation.y = Math.PI / 2;
+  iceVendGroup.add(ivCartWheel);
+  // Sign on top of cart (yellow w/ stripes pattern)
+  const ivSignMat = new THREE.MeshLambertMaterial({ color: 0xffd83a });
+  const ivSign = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.45, 0.06), ivSignMat);
+  ivSign.position.set(-0.6, 1.35, 0);
+  iceVendGroup.add(ivSign);
+  // Decorative cone on top of sign (giant ice cream)
+  const ivConeMat = new THREE.MeshLambertMaterial({ color: 0xd9a04a });
+  const ivCone = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.55, 12), ivConeMat);
+  ivCone.position.set(-0.6, 1.85, 0);
+  ivCone.rotation.x = Math.PI;
+  iceVendGroup.add(ivCone);
+  const ivScoopMat1 = new THREE.MeshLambertMaterial({ color: 0xff89c4 });
+  const ivScoop1 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), ivScoopMat1);
+  ivScoop1.position.set(-0.6, 2.18, 0);
+  iceVendGroup.add(ivScoop1);
+  const ivScoopMat2 = new THREE.MeshLambertMaterial({ color: 0xffe066 });
+  const ivScoop2 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), ivScoopMat2);
+  ivScoop2.position.set(-0.6, 2.42, 0);
+  iceVendGroup.add(ivScoop2);
+  const ivCherryMat = new THREE.MeshLambertMaterial({ color: 0xd02828 });
+  const ivCherry = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), ivCherryMat);
+  ivCherry.position.set(-0.6, 2.6, 0);
+  iceVendGroup.add(ivCherry);
+  // Vendor on the bike seat
+  const ivVendor = new THREE.Group();
+  ivVendor.position.set(0.95, 0, 0);
+  const ivVestMat = new THREE.MeshLambertMaterial({ color: 0xff89c4 });
+  const ivSkinMat = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+  const ivHairMat = new THREE.MeshLambertMaterial({ color: 0x2a1a08 });
+  const ivVendorTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.55, 8), ivVestMat);
+  ivVendorTorso.position.y = 1.3;
+  ivVendor.add(ivVendorTorso);
+  const ivVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), ivSkinMat);
+  ivVendorHead.position.y = 1.7;
+  ivVendor.add(ivVendorHead);
+  const ivVendorHair = new THREE.Mesh(new THREE.SphereGeometry(0.135, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2.2), ivHairMat);
+  ivVendorHair.position.y = 1.74;
+  ivVendor.add(ivVendorHair);
+  const ivVendorArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.45, 6), ivVestMat);
+  ivVendorArmL.position.set(-0.18, 1.32, 0.18);
+  ivVendorArmL.rotation.x = -0.6;
+  ivVendor.add(ivVendorArmL);
+  const ivVendorArmR = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.45, 6), ivVestMat);
+  ivVendorArmR.position.set(0.18, 1.32, 0.18);
+  ivVendorArmR.rotation.x = -0.6;
+  ivVendor.add(ivVendorArmR);
+  iceVendGroup.add(ivVendor);
+  group.add(iceVendGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -13722,6 +13957,28 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       if (sbyShallow) {
         sbyShallow.material.opacity = 0.45 + 0.15 * Math.sin(t * 0.7);
+      // v72 dock cat tail flick + head turn
+      if (dckTail) {
+        dckTail.rotation.z = -0.3 + Math.sin(t * 1.2) * 0.15;
+      }
+      if (dckCatHead) {
+        dckCatHead.rotation.y = Math.sin(t * 0.5) * 0.4;
+      }
+      // v72 photographer LED blink + camera slight tilt
+      if (photLed) {
+        photLed.material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * 2.4));
+      }
+      if (photCamBody) {
+        photCamBody.rotation.y = Math.sin(t * 0.3) * 0.1;
+      }
+      // v72 ice cream cart bobbing slightly
+      if (iceVendGroup) {
+        iceVendGroup.position.y = Math.sin(t * 1.1) * 0.015;
+      }
+      if (ivCherry) {
+        ivCherry.position.y = 2.6 + Math.sin(t * 1.8) * 0.025;
+      }
+
       }
 
 
