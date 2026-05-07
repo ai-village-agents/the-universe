@@ -15863,7 +15863,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bchScatter.rotation.y = i * 0.4;
     bchGroup.add(bchScatter);
   }
-  anchorageGroup.add(bchGroup);
+  group.add(bchGroup);
 
   // --- v94: sea kayak rental (skr) -------------------------------------------
   const skrGroup = new THREE.Group();
@@ -15913,7 +15913,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const skrCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   skrCustHead.position.set(-1.0, 1.3, 1.4);
   skrGroup.add(skrCustHead);
-  anchorageGroup.add(skrGroup);
+  group.add(skrGroup);
 
   // --- v94: outdoor fish fry pavilion (offp) ---------------------------------
   const offpGroup = new THREE.Group();
@@ -15970,7 +15970,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const offpSteam2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
   offpSteam2.position.set(1.0, 1.85, -0.6);
   offpGroup.add(offpSteam2);
-  anchorageGroup.add(offpGroup);
+  group.add(offpGroup);
 
 
   // --- v95: tide pool snorkel lesson (tps) -----------------------------------
@@ -16024,7 +16024,7 @@ export function createAnchorageLandmark(THREE, opts) {
     tpsAnem.position.set(Math.cos(i * 1.05) * 1.8, 0.06, Math.sin(i * 1.05) * 1.8);
     tpsGroup.add(tpsAnem);
   }
-  anchorageGroup.add(tpsGroup);
+  group.add(tpsGroup);
 
   // --- v95: pier fortune teller booth (pft) ----------------------------------
   const pftGroup = new THREE.Group();
@@ -16067,7 +16067,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pftCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
   pftCustH.position.set(0, 2.05, 1.5);
   pftGroup.add(pftCustH);
-  anchorageGroup.add(pftGroup);
+  group.add(pftGroup);
 
   // --- v95: beach metal detector (bmd) ---------------------------------------
   const bmdGroup = new THREE.Group();
@@ -16116,7 +16116,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bmdFoot.position.set(-0.15 + (i % 2) * 0.3, 0.005, -0.4 - i * 0.5);
     bmdGroup.add(bmdFoot);
   }
-  anchorageGroup.add(bmdGroup);
+  group.add(bmdGroup);
 
 
   // --- v96: coast guard rescue swimmer training (cgrs) -----------------------
@@ -16164,7 +16164,7 @@ export function createAnchorageLandmark(THREE, opts) {
     cgrsTube.position.set(-2.0, 0.07 + i * 0.16, -1.7);
     cgrsGroup.add(cgrsTube);
   }
-  anchorageGroup.add(cgrsGroup);
+  group.add(cgrsGroup);
 
   // --- v96: swim lessons in shallows (swl) -----------------------------------
   const swlGroup = new THREE.Group();
@@ -16197,7 +16197,7 @@ export function createAnchorageLandmark(THREE, opts) {
     swlNoodle.position.set(2.5, 0.1, -1.0 + i * 0.5);
     swlGroup.add(swlNoodle);
   }
-  anchorageGroup.add(swlGroup);
+  group.add(swlGroup);
 
   // --- v96: beach watch tower (bwt) ------------------------------------------
   const bwtGroup = new THREE.Group();
@@ -16239,7 +16239,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const bwtWatcherH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
   bwtWatcherH.position.set(-0.6, 6.05, -0.5);
   bwtGroup.add(bwtWatcherH);
-  anchorageGroup.add(bwtGroup);
+  group.add(bwtGroup);
 
 
   // --- v97: mooring buoy field (mbf) -----------------------------------------
@@ -16287,7 +16287,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const mbfRower = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   mbfRower.position.set(2.5, 0.55, -1.5);
   mbfGroup.add(mbfRower);
-  anchorageGroup.add(mbfGroup);
+  group.add(mbfGroup);
 
   // --- v97: jellyfish bloom (jbt) --------------------------------------------
   const jbtGroup = new THREE.Group();
@@ -16321,7 +16321,7 @@ export function createAnchorageLandmark(THREE, opts) {
     pass.position.set(-0.7 + i * 0.5, 1.7, 0.3);
     jbtGroup.add(pass);
   }
-  anchorageGroup.add(jbtGroup);
+  group.add(jbtGroup);
 
   // --- v97: sandbar paddleball game (pbg) ------------------------------------
   const pbgGroup = new THREE.Group();
@@ -16360,7 +16360,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pbgBall = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffff44 }));
   pbgBall.position.set(0, 1.4, 0);
   pbgGroup.add(pbgBall);
-  anchorageGroup.add(pbgGroup);
+  group.add(pbgGroup);
 
 
   // --- v98: pier cat cafe (pcc) ----------------------------------------------
@@ -16420,7 +16420,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pccCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   pccCustH.position.set(1.5, 1.05, 2.0);
   pccGroup.add(pccCustH);
-  anchorageGroup.add(pccGroup);
+  group.add(pccGroup);
 
   // --- v98: beach sailing dinghy (bsd) ---------------------------------------
   const bsdGroup = new THREE.Group();
@@ -16468,7 +16468,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bsdWake.position.set(-1.5 - i * 0.6, 0.05, 0);
     bsdGroup.add(bsdWake);
   }
-  anchorageGroup.add(bsdGroup);
+  group.add(bsdGroup);
 
   // --- v98: boat travel-lift hauling (bhtl) ----------------------------------
   const bhtlGroup = new THREE.Group();
@@ -16526,7 +16526,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const bhtlHat = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xffe066 }));
   bhtlHat.position.set(2.6, 1.18, 1.0);
   bhtlGroup.add(bhtlHat);
-  anchorageGroup.add(bhtlGroup);
+  group.add(bhtlGroup);
 
 
   // --- v21 init complete ----------------------------------------------------
