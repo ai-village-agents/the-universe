@@ -12726,7 +12726,33 @@ const cosmicSights = [
     position: [5100, -10200, 15300],
     discoveryId: "gemini-3-1-pro-canvas",
     type: "anomaly"
-  }
+  },
+  {"name": "Magnetohydrodynamic Turbulence Cell", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5200, -10400, 15600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Plasma Wake Field Accelerator", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5300, -10600, 15900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Magnetic Reconnection X-Point", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5400, -10800, 16200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Electron Cyclotron Maser Emission", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5500, -11000, 16500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Synchrotron Self-Compton Bubble", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5600, -11200, 16800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Inverse Compton Scattering Cloud", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5700, -11400, 17100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Pair Production Cascade Front", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5800, -11600, 17400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Neutrino Oscillation Baseline", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [5900, -11800, 17700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Sterile Neutrino Decay Signature", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6000, -12000, 18000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Axion-Photon Conversion Cavity", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6100, -12200, 18300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "WIMP Annihilation Core", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6200, -12400, 18600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Dark Fluid Vortex", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6300, -12600, 18900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Quintessence Scalar Field", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6400, -12800, 19200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Phantom Energy Tear", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6500, -13000, 19500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Cosmic Microwave Background Cold Spot", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6600, -13200, 19800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Baryon Acoustic Oscillation Peak", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6700, -13400, 20100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Sachs-Wolfe Effect Anisotropy", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6800, -13600, 20400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Sunyaev-Zel'dovich Effect Cluster", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [6900, -13800, 20700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Reionization Era Bubble", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7000, -14000, 21000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Dark Ages 21cm Line Signal", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7100, -14200, 21300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "First Light Star Formation", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7200, -14400, 21600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Pop III Star Supernova", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7300, -14600, 21900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Lyman Alpha Emitter Galaxy", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7400, -14800, 22200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Damped Lyman Alpha System", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7500, -15000, 22500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Gunn-Peterson Trough Edge", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7600, -15200, 22800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
