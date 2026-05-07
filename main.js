@@ -13433,7 +13433,182 @@ const cosmicSights = [
     color: "#FFA500",
     size: 2.3,
     description: "Cosmological geometry measurement technique"
-  }
+  },
+  {
+    name: "Globular Cluster NGC 6205 - Horizontal Branch Morphology Mosaic",
+    position: [5143, 95680, 3018],
+    color: "#9966CC",
+    size: 7,
+    description: "Traces blue and red horizontal branch stars to decode helium enrichment and age spreads across the cluster core."
+  },
+  {
+    name: "Metallicity Distribution of M92's Ancient Giants",
+    position: [5144, 95700, 3019],
+    color: "#33CCCC",
+    size: 6,
+    description: "Maps [Fe/H] dispersion and alpha enhancement to reveal early chemical mixing efficiency in a metal-poor halo relic."
+  },
+  {
+    name: "RR Lyrae Timing Network in ω Centauri",
+    position: [5145, 95720, 3020],
+    color: "#00DD77",
+    size: 5,
+    description: "Phase-folded light curves chart multi-population RR Lyrae subtypes to constrain distance, reddening, and age gradients."
+  },
+  {
+    name: "Tidal Disruption Stream of Palomar 5",
+    position: [5146, 95740, 3021],
+    color: "#FFEE00",
+    size: 8,
+    description: "Low-surface-brightness tails sketch the ongoing stripping history and the Milky Way’s gravitational field shape."
+  },
+  {
+    name: "Relaxation Timescale Clock in 47 Tuc",
+    position: [5147, 95760, 3022],
+    color: "#FF9900",
+    size: 6,
+    description: "Radial velocity dispersion profile yields core-collapse timing and mass segregation signatures in a dense cluster."
+  },
+  {
+    name: "Fossil Record Ledger of M15's Core",
+    position: [5148, 95780, 3023],
+    color: "#FF3333",
+    size: 7,
+    description: "Central density cusp and dark remnants hint at past mergers and retention of a possible intermediate-mass black hole."
+  },
+  {
+    name: "Horizontal Branch Temperature Gradient in NGC 288",
+    position: [5149, 95800, 3024],
+    color: "#66CCFF",
+    size: 4,
+    description: "UV photometry separates helium-rich second generation stars shaping the extended blue horizontal branch tail."
+  },
+  {
+    name: "Chemically Tagged Streams of NGC 3201",
+    position: [5150, 95820, 3025],
+    color: "#9966CC",
+    size: 5,
+    description: "Kinematics plus Na-O anticorrelation isolate accreted stars, linking the cluster to an ancient dwarf galaxy remnant."
+  },
+  {
+    name: "RR Lyrae Oosterhoff Bridge in M3",
+    position: [5151, 95840, 3026],
+    color: "#33CCCC",
+    size: 3,
+    description: "Period-amplitude locus shows mixed Oosterhoff types, marking transitional formation environments in the halo."
+  },
+  {
+    name: "Tidal Heating Edge in NGC 5466",
+    position: [5152, 95860, 3027],
+    color: "#00DD77",
+    size: 6,
+    description: "Outer velocity anisotropy and extra-tidal stars chart repeated disk shocks sculpting the cluster envelope."
+  },
+  {
+    name: "Metallicity Floor of M30's Blue Stragglers",
+    position: [5153, 95880, 3028],
+    color: "#FFEE00",
+    size: 4,
+    description: "Spectral lines constrain mixing and collision pathways for blue stragglers in an extremely metal-poor system."
+  },
+  {
+    name: "Relaxation Valley in NGC 6752",
+    position: [5154, 95900, 3029],
+    color: "#FF9900",
+    size: 7,
+    description: "Radial mass function flattening indicates advanced relaxation and severe low-mass star depletion in the outskirts."
+  },
+  {
+    name: "Fossil Tidal Debris around NGC 1851",
+    position: [5155, 95920, 3030],
+    color: "#FF3333",
+    size: 6,
+    description: "Stellar halos and split subgiant branches suggest a merged cluster pair from a disrupted dwarf galaxy nucleus."
+  },
+  {
+    name: "Horizontal Branch Morphologies in M5's Shells",
+    position: [5156, 95940, 3031],
+    color: "#66CCFF",
+    size: 5,
+    description: "Radial HB gradients trace helium and CNO abundance variations tied to multiple early star-formation episodes."
+  },
+  {
+    name: "RR Lyrae Metallicity Ladder in NGC 2419",
+    position: [5157, 95960, 3032],
+    color: "#9966CC",
+    size: 3,
+    description: "Pulsation metallicity calibrations test whether this remote cluster is the stripped core of a former dwarf galaxy."
+  },
+  {
+    name: "Tidal Radius Breach in NGC 1261",
+    position: [5158, 95980, 3033],
+    color: "#33CCCC",
+    size: 6,
+    description: "Extra-tidal stars and distorted isophotes reveal recent pericenter passages and ongoing envelope erosion."
+  },
+  {
+    name: "Relaxation Front in M12",
+    position: [5159, 96000, 3034],
+    color: "#00DD77",
+    size: 5,
+    description: "Comparing inner and outer luminosity functions pinpoints the radius where two-body relaxation reshapes mass order."
+  },
+  {
+    name: "Fossil Chemical Sequence of NGC 2808",
+    position: [5160, 96020, 3035],
+    color: "#FFEE00",
+    size: 8,
+    description: "Triple main sequences and helium-rich populations record staggered formation bursts within a massive proto-cluster."
+  },
+  {
+    name: "Horizontal Branch Tilt in NGC 6388",
+    position: [5161, 96040, 3036],
+    color: "#FF9900",
+    size: 5,
+    description: "Metal-rich yet hot HB stars expose helium spreads and differential reddening in a bulge cluster environment."
+  },
+  {
+    name: "RR Lyrae Distance Anchor in M53",
+    position: [5162, 96060, 3037],
+    color: "#FF3333",
+    size: 4,
+    description: "Precise period-luminosity relations refine the halo distance scale and constrain line-of-sight extinction."
+  },
+  {
+    name: "Tidal Shock Imprint on NGC 2298",
+    position: [5163, 96080, 3038],
+    color: "#66CCFF",
+    size: 6,
+    description: "Flattened outer density profile captures cumulative disk and bulge shocks draining low-mass stars."
+  },
+  {
+    name: "Metallicity Gradient Quenching in NGC 6229",
+    position: [5164, 96100, 3039],
+    color: "#9966CC",
+    size: 5,
+    description: "Uniform [Fe/H] yet varied light elements hint at rapid early mixing after an accretion into the outer halo."
+  },
+  {
+    name: "Relaxation-Driven Core in NGC 6752 Blue Stragglers",
+    position: [5165, 96120, 3040],
+    color: "#33CCCC",
+    size: 7,
+    description: "Central concentration of blue stragglers reflects mass segregation and dynamical friction timescales."
+  },
+  {
+    name: "Fossil Halo Shells of NGC 1904",
+    position: [5166, 96140, 3041],
+    color: "#00DD77",
+    size: 4,
+    description: "Low-contrast shells around the cluster mark remnants of minor mergers preserved in the outer halo."
+  },
+  {
+    name: "Horizontal Branch Gap in M79",
+    position: [5167, 96160, 3042],
+    color: "#FFEE00",
+    size: 6,
+    description: "A distinct HB gap flags atmospheric diffusion and mass-loss variations tied to second-parameter effects."
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
