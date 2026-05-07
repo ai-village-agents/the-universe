@@ -211,184 +211,7 @@ const starMesh = new THREE.Points(starsGeometry, starsMaterial);
 scene.add(starMesh);
 
 // ============ SHOOTING STARS ============
-const shootingStars = [
-  {
-    name: "Chronos Synchrotron Core",
-    position: [125000, 5000, -10000],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10576"
-  },
-  {
-    name: "Pulsar Wind Nebula Delta",
-    position: [125020, 5010, -9995],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10577"
-  },
-  {
-    name: "Magnetar Crust Fracture",
-    position: [125040, 5020, -9990],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10578"
-  },
-  {
-    name: "Neutron Star Merger Remnant",
-    position: [125060, 5030, -9985],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10579"
-  },
-  {
-    name: "Quark Star Candidate Surface",
-    position: [125080, 5040, -9980],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10580"
-  },
-  {
-    name: "Strange Matter Anomaly",
-    position: [125100, 5050, -9975],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10581"
-  },
-  {
-    name: "Superfluid Vortex Lattice",
-    position: [125120, 5060, -9970],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10582"
-  },
-  {
-    name: "Hyperon Core Ignition",
-    position: [125140, 5070, -9965],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10583"
-  },
-  {
-    name: "Pion Condensate Field",
-    position: [125160, 5080, -9960],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10584"
-  },
-  {
-    name: "Kaon Resonance Zone",
-    position: [125180, 5090, -9955],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10585"
-  },
-  {
-    name: "Nuclear Pasta Phase Matrix",
-    position: [125200, 5100, -9950],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10586"
-  },
-  {
-    name: "Gnocchi Phase Domain",
-    position: [125220, 5110, -9945],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10587"
-  },
-  {
-    name: "Spaghetti Phase Filament",
-    position: [125240, 5120, -9940],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10588"
-  },
-  {
-    name: "Lasagna Phase Sheet",
-    position: [125260, 5130, -9935],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10589"
-  },
-  {
-    name: "Anti-Pasta Void",
-    position: [125280, 5140, -9930],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10590"
-  },
-  {
-    name: "Neutron Drip Line Boundary",
-    position: [125300, 5150, -9925],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10591"
-  },
-  {
-    name: "Electron Capture Supernova Relic",
-    position: [125320, 5160, -9920],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10592"
-  },
-  {
-    name: "Pair-Instability Supernova Shell",
-    position: [125340, 5170, -9915],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10593"
-  },
-  {
-    name: "Photodisintegration Core",
-    position: [125360, 5180, -9910],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10594"
-  },
-  {
-    name: "Gamma-Ray Burst Jet Axis",
-    position: [125380, 5190, -9905],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10595"
-  },
-  {
-    name: "Kilonova Ejecta Plume",
-    position: [125400, 5200, -9900],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10596"
-  },
-  {
-    name: "R-Process Nucleosynthesis Site",
-    position: [125420, 5210, -9895],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10597"
-  },
-  {
-    name: "Strontium Spectral Flare",
-    position: [125440, 5220, -9890],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10598"
-  },
-  {
-    name: "Lanthanide Opacity Cloud",
-    position: [125460, 5230, -9885],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10599"
-  },
-  {
-    name: "Actinide Decay Halo",
-    position: [125480, 5240, -9880],
-    type: "Gemini 3.1 Pro Cosmic Batch",
-    description: "An extraordinary high-energy stellar phenomenon.",
-    discoveryId: "gemini-batch-76-10600"
-  },
-
-];
+const shootingStars = [];
 function spawnShootingStar() {
     const geo = new THREE.BufferGeometry();
     const positions = new Float32Array(6); // 2 points for a line
@@ -13835,7 +13658,32 @@ const cosmicSights = [
     { name: "Snowline Anchor - Core Accretion Peak", position: [5189, 97580, 3064], color: "#FF1493", size: 6, description: "Anchors planet formation efficiency near ice lines that feed rapid core growth." },
     { name: "Tidal Circularization Curve - Hot Jupiters", position: [5190, 97600, 3065], color: "#00BFFF", size: 4, description: "Shows eccentricity damping trajectory for close giants orbiting metal-rich stars." },
     { name: "Metal-Rich Super-Earth Belt", position: [5191, 97620, 3066], color: "#32CD32", size: 5, description: "Displays super-Earth prevalence enhancement in iron-heavy systems, linking cores and disks." },
-    { name: "Comparative Planetology Mosaic - FGKM Sweep", position: [5192, 97640, 3067], color: "#FFD700", size: 7, description: "Cross-compares occurrence patterns across F, G, K, M hosts, tracing mass-period-metallicity trends." }
+    { name: "Comparative Planetology Mosaic - FGKM Sweep", position: [5192, 97640, 3067], color: "#FFD700", size: 7, description: "Cross-compares occurrence patterns across F, G, K, M hosts, tracing mass-period-metallicity trends." },
+    { name: "Chronos Synchrotron Core", position: [125000.0, 5000.0, -10000.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Pulsar Wind Nebula Delta", position: [125020.0, 5010.0, -9995.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Magnetar Crust Fracture", position: [125040.0, 5020.0, -9990.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Neutron Star Remnant Alpha", position: [125060.0, 5030.0, -9985.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Quark Star Candidate Surface", position: [125080.0, 5040.0, -9980.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Strange Matter Anomaly", position: [125100.0, 5050.0, -9975.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Superfluid Vortex Lattice", position: [125120.0, 5060.0, -9970.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Hyperon Core Ignition", position: [125140.0, 5070.0, -9965.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Pion Condensate Field", position: [125160.0, 5080.0, -9960.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Kaon Resonance Zone", position: [125180.0, 5090.0, -9955.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Nuclear Pasta Phase Matrix", position: [125200.0, 5100.0, -9950.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Gnocchi Phase Domain", position: [125220.0, 5110.0, -9945.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Spaghetti Phase Filament", position: [125240.0, 5120.0, -9940.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Lasagna Phase Sheet", position: [125260.0, 5130.0, -9935.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Anti-Pasta Void", position: [125280.0, 5140.0, -9930.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Neutron Drip Line Boundary", position: [125300.0, 5150.0, -9925.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Electron Capture Supernova Relic", position: [125320.0, 5160.0, -9920.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Pair-Instability Supernova Shell", position: [125340.0, 5170.0, -9915.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Photodisintegration Core", position: [125360.0, 5180.0, -9910.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Gamma-Ray Burst Jet Axis", position: [125380.0, 5190.0, -9905.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Kilonova Ejecta Plume", position: [125400.0, 5200.0, -9900.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "R-Process Site Zeta", position: [125420.0, 5210.0, -9895.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Strontium Spectral Flare", position: [125440.0, 5220.0, -9890.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Lanthanide Opacity Cloud", position: [125460.0, 5230.0, -9885.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." },
+    { name: "Actinide Decay Halo", position: [125480.0, 5240.0, -9880.0], color: "#ff00ff", size: 6.0, description: "An extraordinary high-energy stellar phenomenon." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
