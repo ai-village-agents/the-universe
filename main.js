@@ -14008,6 +14008,181 @@ const cosmicSights = [
     position: [3796, 3639, 3961],
     color: 0xff6688,
     size: 3.3
+  },
+  {
+    name: "Neutron Star Merger Gravitational Wave",
+    description: "Compact object phenomenon at position 1",
+    position: [7225, 142500, 5225],
+    color: "#FF1493",
+    size: 3
+  },
+  {
+    name: "Kilonova Radioactive Heating",
+    description: "Compact object phenomenon at position 2",
+    position: [7226, 142520, 5226],
+    color: "#00CED1",
+    size: 3
+  },
+  {
+    name: "R-Process Nucleosynthesis Yield",
+    description: "Compact object phenomenon at position 3",
+    position: [7227, 142540, 5227],
+    color: "#FFD700",
+    size: 3
+  },
+  {
+    name: "Lanthanide Rich Ejecta Absorption",
+    description: "Compact object phenomenon at position 4",
+    position: [7228, 142560, 5228],
+    color: "#32CD32",
+    size: 3
+  },
+  {
+    name: "Accretion Disk Torus Structure",
+    description: "Compact object phenomenon at position 5",
+    position: [7229, 142580, 5229],
+    color: "#FF4500",
+    size: 3
+  },
+  {
+    name: "Viscous Accretion Heating Profile",
+    description: "Compact object phenomenon at position 6",
+    position: [7230, 142600, 5230],
+    color: "#1E90FF",
+    size: 3
+  },
+  {
+    name: "Advection-Dominated Accretion Flow",
+    description: "Compact object phenomenon at position 7",
+    position: [7231, 142620, 5231],
+    color: "#FF69B4",
+    size: 3
+  },
+  {
+    name: "Radiatively Inefficient Accretion",
+    description: "Compact object phenomenon at position 8",
+    position: [7232, 142640, 5232],
+    color: "#00FA9A",
+    size: 3
+  },
+  {
+    name: "Outflow Ejection Velocity",
+    description: "Compact object phenomenon at position 9",
+    position: [7233, 142660, 5233],
+    color: "#FFA500",
+    size: 3
+  },
+  {
+    name: "Relativistic Jet Lorentz Factor",
+    description: "Compact object phenomenon at position 10",
+    position: [7234, 142680, 5234],
+    color: "#20B2AA",
+    size: 3
+  },
+  {
+    name: "Accretion-Ejection Coupling Torque",
+    description: "Compact object phenomenon at position 11",
+    position: [7235, 142700, 5235],
+    color: "#FF6347",
+    size: 3
+  },
+  {
+    name: "Magnetic Reconnection Flare Trigger",
+    description: "Compact object phenomenon at position 12",
+    position: [7236, 142720, 5236],
+    color: "#4169E1",
+    size: 3
+  },
+  {
+    name: "Radiation Pressure Photon Drag",
+    description: "Compact object phenomenon at position 13",
+    position: [7237, 142740, 5237],
+    color: "#DA70D6",
+    size: 3
+  },
+  {
+    name: "Radiative Opacity Absorption Coefficient",
+    description: "Compact object phenomenon at position 14",
+    position: [7238, 142760, 5238],
+    color: "#00FF7F",
+    size: 3
+  },
+  {
+    name: "Electron Scattering Cross Section",
+    description: "Compact object phenomenon at position 15",
+    position: [7239, 142780, 5239],
+    color: "#FF8C00",
+    size: 3
+  },
+  {
+    name: "Line Blanketing Effect Temperature",
+    description: "Compact object phenomenon at position 16",
+    position: [7240, 142800, 5240],
+    color: "#87CEEB",
+    size: 3
+  },
+  {
+    name: "Atmospheric Stratification Hydrostatic",
+    description: "Compact object phenomenon at position 17",
+    position: [7241, 142820, 5241],
+    color: "#DC143C",
+    size: 3
+  },
+  {
+    name: "Convective Envelope Mixing Length",
+    description: "Compact object phenomenon at position 18",
+    position: [7242, 142840, 5242],
+    color: "#00BFFF",
+    size: 3
+  },
+  {
+    name: "Radiative Transport Diffusion Equation",
+    description: "Compact object phenomenon at position 19",
+    position: [7243, 142860, 5243],
+    color: "#FF00FF",
+    size: 3
+  },
+  {
+    name: "Boltzmann Equation Transport Coefficients",
+    description: "Compact object phenomenon at position 20",
+    position: [7244, 142880, 5244],
+    color: "#00FF00",
+    size: 3
+  },
+  {
+    name: "Spectral Energy Distribution Peak",
+    description: "Compact object phenomenon at position 21",
+    position: [7245, 142900, 5245],
+    color: "#FFB6C1",
+    size: 3
+  },
+  {
+    name: "Blackbody Radiation Temperature Equivalent",
+    description: "Compact object phenomenon at position 22",
+    position: [7246, 142920, 5246],
+    color: "#0000CD",
+    size: 3
+  },
+  {
+    name: "Wien Displacement Law Wavelength",
+    description: "Compact object phenomenon at position 23",
+    position: [7247, 142940, 5247],
+    color: "#FF0000",
+    size: 3
+  },
+  {
+    name: "Stefan-Boltzmann Luminosity Scaling",
+    description: "Compact object phenomenon at position 24",
+    position: [7248, 142960, 5248],
+    color: "#228B22",
+    size: 3
+  },
+  {
+    name: "Effective Temperature Photosphere Definition",
+    description: "Compact object phenomenon at position 25",
+    position: [7249, 142980, 5249],
+    color: "#12008C",
+    size: 3
   }
 ];
 
