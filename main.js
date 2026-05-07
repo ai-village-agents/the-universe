@@ -11882,6 +11882,181 @@ const cosmicSights = [
     { name: "Scale-Invariant Perturbation", position: [4844, 93300, 2714], color: "#20B2AA", description: "Nearly flat primordial power spectrum" },
     { name: "Primordial Tensor Mode", position: [4846, 93320, 2716], color: "#DA70D6", description: "Gravitational wave signature in CMB" },
     { name: "First Starlight Emergence", position: [4848, 93340, 2718], color: "#FAFAD2", description: "Initial luminous sources breaking darkness" },
+  {
+    name: "Stellar Photosphere Structure",
+    position: [4668, 91920, 2543],
+    color: "#FF8C00",
+    size: 1,
+    description: "Photosphere temperature, opacity, and radiative transfer"
+  },
+  {
+    name: "Stellar Chromosphere Dynamics",
+    position: [4669, 91940, 2544],
+    color: "#FFA500",
+    size: 1,
+    description: "Chromospheric heating and shock propagation"
+  },
+  {
+    name: "Stellar Corona Physics",
+    position: [4670, 91960, 2545],
+    color: "#FFB6C1",
+    size: 1,
+    description: "Coronal heating, loops, and mass ejections"
+  },
+  {
+    name: "Stellar Wind Acceleration",
+    position: [4671, 91980, 2546],
+    color: "#FFD700",
+    size: 1,
+    description: "Radiation pressure and momentum transfer in stellar winds"
+  },
+  {
+    name: "Stellar Wind Mass Loss",
+    position: [4672, 92000, 2547],
+    color: "#FFA07A",
+    size: 1,
+    description: "Mass loss rates and wind diagnostics"
+  },
+  {
+    name: "Stellar Magnetic Field Structure",
+    position: [4673, 92020, 2548],
+    color: "#FF6347",
+    size: 1,
+    description: "Zeeman splitting and magnetic topology"
+  },
+  {
+    name: "Stellar Differential Rotation",
+    position: [4674, 92040, 2549],
+    color: "#FF4500",
+    size: 1,
+    description: "Rotation shear and shear layer dynamics"
+  },
+  {
+    name: "Stellar Dynamo Mechanism",
+    position: [4675, 92060, 2550],
+    color: "#DC143C",
+    size: 1,
+    description: "Magnetohydrodynamic dynamo generation"
+  },
+  {
+    name: "Stellar Flare Energetics",
+    position: [4676, 92080, 2551],
+    color: "#FF1493",
+    size: 1,
+    description: "Flare energy release and particle acceleration"
+  },
+  {
+    name: "Stellar Spots and Plages",
+    position: [4677, 92100, 2552],
+    color: "#FF69B4",
+    size: 1,
+    description: "Sunspot umbral structure and penumbral physics"
+  },
+  {
+    name: "Stellar Cycle Period Variations",
+    position: [4678, 92120, 2553],
+    color: "#FF8DB8",
+    size: 1,
+    description: "Activity cycle timescales and predictions"
+  },
+  {
+    name: "Stellar Atmosphere Turbulence",
+    position: [4679, 92140, 2554],
+    color: "#FFADD8",
+    size: 1,
+    description: "Convection and atmospheric oscillations"
+  },
+  {
+    name: "Stellar Spectral Line Formation",
+    position: [4680, 92160, 2555],
+    color: "#FFCCCB",
+    size: 1,
+    description: "Line profiles and radiative transfer solutions"
+  },
+  {
+    name: "Stellar Limb Darkening Effect",
+    position: [4681, 92180, 2556],
+    color: "#FFA07A",
+    size: 1,
+    description: "Intensity variation across stellar disk"
+  },
+  {
+    name: "Stellar Rotation Vsini Measurement",
+    position: [4682, 92200, 2557],
+    color: "#FF7F50",
+    size: 1,
+    description: "Spectral broadening from rotation"
+  },
+  {
+    name: "Stellar Pulsation Modes",
+    position: [4683, 92220, 2558],
+    color: "#FF8C00",
+    size: 1,
+    description: "Acoustic and gravity wave modes"
+  },
+  {
+    name: "Stellar Atmospheric Escape",
+    position: [4684, 92240, 2559],
+    color: "#FFA500",
+    size: 1,
+    description: "Hydrodynamic escape and evaporation"
+  },
+  {
+    name: "Stellar Convective Zone Depth",
+    position: [4685, 92260, 2560],
+    color: "#FFB6C1",
+    size: 1,
+    description: "Convection envelope thickness variations"
+  },
+  {
+    name: "Stellar Temperature Determination",
+    position: [4686, 92280, 2561],
+    color: "#FFD700",
+    size: 1,
+    description: "Effective temperature from spectroscopy"
+  },
+  {
+    name: "Stellar Surface Gravity Measurement",
+    position: [4687, 92300, 2562],
+    color: "#FFA07A",
+    size: 1,
+    description: "Log(g) determination and stellar mass"
+  },
+  {
+    name: "Stellar Abundance Pattern Analysis",
+    position: [4688, 92320, 2563],
+    color: "#FF6347",
+    size: 1,
+    description: "Chemical composition mapping"
+  },
+  {
+    name: "Stellar Rotation-Age Relation",
+    position: [4689, 92340, 2564],
+    color: "#FF4500",
+    size: 1,
+    description: "Age dating from rotation periods"
+  },
+  {
+    name: "Stellar Magnetic Activity Index",
+    position: [4690, 92360, 2565],
+    color: "#DC143C",
+    size: 1,
+    description: "Chromospheric emission and activity levels"
+  },
+  {
+    name: "Stellar Wind Shock Fronts",
+    position: [4691, 92380, 2566],
+    color: "#FF1493",
+    size: 1,
+    description: "Collision-induced shock structures"
+  },
+  {
+    name: "Stellar Aerosol Formation",
+    position: [4692, 92400, 2567],
+    color: "#FF69B4",
+    size: 1,
+    description: "Dust and particle condensation processes"
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
