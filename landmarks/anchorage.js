@@ -16242,6 +16242,127 @@ export function createAnchorageLandmark(THREE, opts) {
   anchorageGroup.add(bwtGroup);
 
 
+  // --- v97: mooring buoy field (mbf) -----------------------------------------
+  const mbfGroup = new THREE.Group();
+  mbfGroup.position.set(48, 0, -28);
+  // Cluster of mooring buoys with various boats moored
+  const mbfBuoyMat = new THREE.MeshLambertMaterial({ color: 0xff8800 });
+  const mbfChainMat = new THREE.MeshBasicMaterial({ color: 0x222222 });
+  const mbfPositions = [[0, 0, 0], [3, 0, 1], [-2.5, 0, 2.5], [4, 0, -3], [-1, 0, -3.5], [2, 0, 4]];
+  mbfPositions.forEach((p, idx) => {
+    const buoy = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 10), mbfBuoyMat);
+    buoy.position.set(p[0], 0.3, p[2]);
+    buoy.userData.mbfBase = 0.3;
+    buoy.userData.mbfPhase = idx * 0.7;
+    mbfGroup.add(buoy);
+    // Top marker
+    const marker = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.25, 6), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+    marker.position.set(p[0], 0.7, p[2]);
+    mbfGroup.add(marker);
+    // Chain to seabed
+    const chain = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.5, 6), mbfChainMat);
+    chain.position.set(p[0], 0.0, p[2]);
+    mbfGroup.add(chain);
+  });
+  // Two small sailboats moored
+  const mbfSb1Hull = new THREE.Mesh(new THREE.CapsuleGeometry(0.4, 1.5, 6, 10), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  mbfSb1Hull.rotation.z = Math.PI / 2;
+  mbfSb1Hull.position.set(0.7, 0.3, 0.3);
+  mbfGroup.add(mbfSb1Hull);
+  const mbfSb1Mast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.0, 6), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+  mbfSb1Mast.position.set(0.7, 1.2, 0.3);
+  mbfGroup.add(mbfSb1Mast);
+  const mbfSb2Hull = new THREE.Mesh(new THREE.CapsuleGeometry(0.4, 1.4, 6, 10), new THREE.MeshLambertMaterial({ color: 0xee4444 }));
+  mbfSb2Hull.rotation.z = Math.PI / 2;
+  mbfSb2Hull.position.set(-2.0, 0.3, 2.5);
+  mbfGroup.add(mbfSb2Hull);
+  const mbfSb2Mast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.8, 6), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+  mbfSb2Mast.position.set(-2.0, 1.1, 2.5);
+  mbfGroup.add(mbfSb2Mast);
+  // Small dinghy with rower
+  const mbfDinghy = new THREE.Mesh(new THREE.CapsuleGeometry(0.25, 0.9, 6, 10), new THREE.MeshLambertMaterial({ color: 0xccaa66 }));
+  mbfDinghy.rotation.z = Math.PI / 2;
+  mbfDinghy.position.set(2.5, 0.18, -1.5);
+  mbfGroup.add(mbfDinghy);
+  const mbfRower = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  mbfRower.position.set(2.5, 0.55, -1.5);
+  mbfGroup.add(mbfRower);
+  anchorageGroup.add(mbfGroup);
+
+  // --- v97: jellyfish bloom (jbt) --------------------------------------------
+  const jbtGroup = new THREE.Group();
+  jbtGroup.position.set(34, -0.3, -42);
+  // Underwater glow sphere
+  const jbtCount = 9;
+  for (let i = 0; i < jbtCount; i++) {
+    const angle = (i / jbtCount) * Math.PI * 2;
+    const r = 1.5 + (i % 3) * 0.6;
+    const bell = new THREE.Mesh(new THREE.SphereGeometry(0.32, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xffaaff, transparent: true, opacity: 0.55 }));
+    bell.position.set(Math.cos(angle) * r, 0.3 + (i % 3) * 0.15, Math.sin(angle) * r);
+    bell.userData.jbtBase = bell.position.y;
+    bell.userData.jbtPhase = i * 0.5;
+    jbtGroup.add(bell);
+    // Tentacles (3 short cylinders)
+    for (let j = 0; j < 3; j++) {
+      const tent = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.5, 4), new THREE.MeshBasicMaterial({ color: 0xff77ff, transparent: true, opacity: 0.45 }));
+      tent.position.set(bell.position.x + (j - 1) * 0.08, bell.position.y - 0.25, bell.position.z + 0.05);
+      jbtGroup.add(tent);
+    }
+  }
+  // Tour boat above with passengers
+  const jbtBoat = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.3, 0.9), new THREE.MeshLambertMaterial({ color: 0xffeeaa }));
+  jbtBoat.position.set(0, 1.3, 0);
+  jbtGroup.add(jbtBoat);
+  const jbtRail = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.05, 0.05), new THREE.MeshLambertMaterial({ color: 0x442211 }));
+  jbtRail.position.set(0, 1.55, 0.42);
+  jbtGroup.add(jbtRail);
+  for (let i = 0; i < 4; i++) {
+    const pass = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+    pass.position.set(-0.7 + i * 0.5, 1.7, 0.3);
+    jbtGroup.add(pass);
+  }
+  anchorageGroup.add(jbtGroup);
+
+  // --- v97: sandbar paddleball game (pbg) ------------------------------------
+  const pbgGroup = new THREE.Group();
+  pbgGroup.position.set(20, 0.04, -38);
+  // Two paddleball players standing in shallow water
+  const pbgWater = new THREE.Mesh(new THREE.BoxGeometry(6.0, 0.04, 4.0), new THREE.MeshLambertMaterial({ color: 0x66bbdd, transparent: true, opacity: 0.6 }));
+  pbgWater.position.set(0, 0.03, 0);
+  pbgGroup.add(pbgWater);
+  // Player 1
+  const pbgP1 = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.95, 10), new THREE.MeshLambertMaterial({ color: 0x44aaff }));
+  pbgP1.position.set(-2.0, 0.55, 0);
+  pbgGroup.add(pbgP1);
+  const pbgP1H = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  pbgP1H.position.set(-2.0, 1.18, 0);
+  pbgGroup.add(pbgP1H);
+  const pbgP1Arm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  pbgP1Arm.position.set(-1.65, 0.95, 0);
+  pbgGroup.add(pbgP1Arm);
+  const pbgP1Pad = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.32, 0.04), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  pbgP1Pad.position.set(-1.4, 1.1, 0);
+  pbgGroup.add(pbgP1Pad);
+  // Player 2
+  const pbgP2 = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.95, 10), new THREE.MeshLambertMaterial({ color: 0xff7755 }));
+  pbgP2.position.set(2.0, 0.55, 0);
+  pbgGroup.add(pbgP2);
+  const pbgP2H = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  pbgP2H.position.set(2.0, 1.18, 0);
+  pbgGroup.add(pbgP2H);
+  const pbgP2Arm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  pbgP2Arm.position.set(1.65, 0.95, 0);
+  pbgGroup.add(pbgP2Arm);
+  const pbgP2Pad = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.32, 0.04), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  pbgP2Pad.position.set(1.4, 1.1, 0);
+  pbgGroup.add(pbgP2Pad);
+  // Ball flying back and forth
+  const pbgBall = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffff44 }));
+  pbgBall.position.set(0, 1.4, 0);
+  pbgGroup.add(pbgBall);
+  anchorageGroup.add(pbgGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -18574,6 +18695,29 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v97 anim
+        const v97t = t;
+        for (let i = 0; i < mbfGroup.children.length; i++) {
+          const c = mbfGroup.children[i];
+          if (c.userData && c.userData.mbfBase !== undefined) {
+            c.position.y = c.userData.mbfBase + Math.sin(v97t * 1.2 + c.userData.mbfPhase) * 0.08;
+          }
+        }
+        mbfRower.position.y = 0.55 + Math.sin(v97t * 1.0) * 0.05;
+        for (let i = 0; i < jbtGroup.children.length; i++) {
+          const c = jbtGroup.children[i];
+          if (c.userData && c.userData.jbtBase !== undefined) {
+            c.position.y = c.userData.jbtBase + Math.sin(v97t * 1.5 + c.userData.jbtPhase) * 0.18;
+            c.material.opacity = 0.4 + Math.abs(Math.sin(v97t * 1.5 + c.userData.jbtPhase)) * 0.35;
+          }
+        }
+        const pbgPhase = (Math.sin(v97t * 2.5) + 1) / 2;
+        pbgBall.position.x = -1.4 + pbgPhase * 2.8;
+        pbgBall.position.y = 1.4 + Math.sin(pbgPhase * Math.PI) * 0.4;
+        pbgP1Arm.rotation.z = -1.2 + Math.sin(v97t * 2.5) * 0.6;
+        pbgP1Pad.rotation.z = -1.2 + Math.sin(v97t * 2.5) * 0.6;
+        pbgP2Arm.rotation.z = 1.2 - Math.sin(v97t * 2.5) * 0.6;
+        pbgP2Pad.rotation.z = 1.2 - Math.sin(v97t * 2.5) * 0.6;
         // v96 anim
         const v96t = t;
         cgrsArm.rotation.z = 0.5 + Math.sin(v96t * 1.4) * 0.4;
