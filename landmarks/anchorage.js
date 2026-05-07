@@ -14971,6 +14971,172 @@ export function createAnchorageLandmark(THREE, opts) {
   fdsGroup.add(fdsPilotHead);
   group.add(fdsGroup);
 
+  // v89: Coastal weather buoy maintenance team
+  const cwbmGroup = new THREE.Group();
+  cwbmGroup.position.set(-44, 0, -36);
+  // Maintenance boat hull
+  const cwbmHullMat = new THREE.MeshStandardMaterial({ color: 0xf2c14e, roughness: 0.6 });
+  const cwbmHull = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.8, 1.6), cwbmHullMat);
+  cwbmHull.position.set(0, 0.4, 0);
+  cwbmGroup.add(cwbmHull);
+  const cwbmCabin = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.9, 1.4), new THREE.MeshLambertMaterial({ color: 0xe8e8e8 }));
+  cwbmCabin.position.set(-0.6, 1.2, 0);
+  cwbmGroup.add(cwbmCabin);
+  const cwbmBuoy = new THREE.Group();
+  cwbmBuoy.position.set(2.4, 0, 0);
+  const cwbmBuoyBase = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.9, 0.5, 12), new THREE.MeshLambertMaterial({ color: 0xffaa00 }));
+  cwbmBuoyBase.position.y = 0.25;
+  cwbmBuoy.add(cwbmBuoyBase);
+  const cwbmBuoyMast = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  cwbmBuoyMast.position.y = 1.3;
+  cwbmBuoy.add(cwbmBuoyMast);
+  const cwbmBuoyTop = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xff3333 }));
+  cwbmBuoyTop.position.y = 2.15;
+  cwbmBuoy.add(cwbmBuoyTop);
+  // Solar panel
+  const cwbmSolar = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.04, 0.5), new THREE.MeshLambertMaterial({ color: 0x223366 }));
+  cwbmSolar.position.set(0, 0.7, 0);
+  cwbmBuoy.add(cwbmSolar);
+  cwbmGroup.add(cwbmBuoy);
+  // Two technicians on the boat
+  const cwbmSuitMat = new THREE.MeshLambertMaterial({ color: 0xff7733 });
+  const cwbmSkinMat = new THREE.MeshLambertMaterial({ color: 0xf2c79a });
+  const cwbmTech1 = new THREE.Group();
+  cwbmTech1.position.set(1.4, 0.8, 0.3);
+  const cwbmT1Body = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.6, 0.25), cwbmSuitMat);
+  cwbmT1Body.position.y = 0.3;
+  cwbmTech1.add(cwbmT1Body);
+  const cwbmT1Head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), cwbmSkinMat);
+  cwbmT1Head.position.y = 0.75;
+  cwbmTech1.add(cwbmT1Head);
+  const cwbmT1Arm = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.5, 0.1), cwbmSuitMat);
+  cwbmT1Arm.position.set(0.25, 0.45, 0.15);
+  cwbmT1Arm.rotation.x = -1.0;
+  cwbmTech1.add(cwbmT1Arm);
+  cwbmGroup.add(cwbmTech1);
+  const cwbmTech2 = new THREE.Group();
+  cwbmTech2.position.set(0.5, 0.8, -0.4);
+  const cwbmT2Body = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.6, 0.25), cwbmSuitMat);
+  cwbmT2Body.position.y = 0.3;
+  cwbmTech2.add(cwbmT2Body);
+  const cwbmT2Head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), cwbmSkinMat);
+  cwbmT2Head.position.y = 0.75;
+  cwbmTech2.add(cwbmT2Head);
+  cwbmGroup.add(cwbmTech2);
+  group.add(cwbmGroup);
+
+  // v89: Beach archery range
+  const barGroup = new THREE.Group();
+  barGroup.position.set(20, 0.05, -22);
+  // Three round targets on stands
+  const barTargetColors = [0xffffff, 0x000000, 0x3399ff, 0xff3333, 0xffcc00];
+  for (let bi = 0; bi < 3; bi++) {
+    const barStand = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0x6b4226 }));
+    barStand.position.set(bi * 2 - 2, 0.8, 0);
+    barGroup.add(barStand);
+    const barBack = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.9, 0.06), new THREE.MeshLambertMaterial({ color: 0xb8a070 }));
+    barBack.position.set(bi * 2 - 2, 1.6, 0);
+    barGroup.add(barBack);
+    for (let bj = 0; bj < 5; bj++) {
+      const barRing = new THREE.Mesh(new THREE.CircleGeometry(0.4 - bj * 0.07, 16), new THREE.MeshBasicMaterial({ color: barTargetColors[bj], side: THREE.DoubleSide }));
+      barRing.position.set(bi * 2 - 2, 1.6, 0.04 + bj * 0.001);
+      barGroup.add(barRing);
+    }
+  }
+  // Two archers at shooting line
+  const barShirtMat = new THREE.MeshLambertMaterial({ color: 0x336633 });
+  const barSkinMat = new THREE.MeshLambertMaterial({ color: 0xeec79a });
+  for (let ba = 0; ba < 2; ba++) {
+    const barArcher = new THREE.Group();
+    barArcher.position.set(ba * 2 - 1, 0, 6);
+    const barABody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.0, 0.3), barShirtMat);
+    barABody.position.y = 0.5;
+    barArcher.add(barABody);
+    const barAHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), barSkinMat);
+    barAHead.position.y = 1.2;
+    barArcher.add(barAHead);
+    const barAArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.6, 0.12), barShirtMat);
+    barAArm.position.set(0.35, 0.85, 0);
+    barAArm.rotation.z = Math.PI / 2;
+    barArcher.add(barAArm);
+    // Bow
+    const barBow = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.04, 6, 12, Math.PI), new THREE.MeshLambertMaterial({ color: 0x4a3015 }));
+    barBow.position.set(0.7, 0.85, 0);
+    barBow.rotation.z = Math.PI / 2;
+    barArcher.add(barBow);
+    barGroup.add(barArcher);
+  }
+  // Range markers
+  for (let bm = 0; bm < 4; bm++) {
+    const barMarker = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.3, 6), new THREE.MeshLambertMaterial({ color: 0xff8800 }));
+    barMarker.position.set(-3 + bm * 2, 0.15, 4);
+    barGroup.add(barMarker);
+  }
+  group.add(barGroup);
+
+  // v89: Dock fish auction
+  const dfaGroup = new THREE.Group();
+  dfaGroup.position.set(-12, 0.5, 28);
+  // Ice-table with fish
+  const dfaTable = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.15, 1.4), new THREE.MeshLambertMaterial({ color: 0x886644 }));
+  dfaTable.position.y = 0.7;
+  dfaGroup.add(dfaTable);
+  const dfaIce = new THREE.Mesh(new THREE.BoxGeometry(2.9, 0.1, 1.3), new THREE.MeshStandardMaterial({ color: 0xddeeff, roughness: 0.4, metalness: 0.1 }));
+  dfaIce.position.y = 0.83;
+  dfaGroup.add(dfaIce);
+  // Fish on ice (rows)
+  const dfaFishMats = [
+    new THREE.MeshLambertMaterial({ color: 0x9ab8c8 }),
+    new THREE.MeshLambertMaterial({ color: 0xb89070 }),
+    new THREE.MeshLambertMaterial({ color: 0xa0a8b0 })
+  ];
+  for (let dfi = 0; dfi < 6; dfi++) {
+    for (let dfj = 0; dfj < 2; dfj++) {
+      const dfaFish = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), dfaFishMats[(dfi + dfj) % 3]);
+      dfaFish.scale.set(1.6, 0.6, 0.7);
+      dfaFish.position.set(-1.2 + dfi * 0.45, 0.92, -0.35 + dfj * 0.6);
+      dfaFish.rotation.y = (dfi + dfj) * 0.3;
+      dfaGroup.add(dfaFish);
+    }
+  }
+  // Auctioneer at podium
+  const dfaPodium = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.9, 0.5), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+  dfaPodium.position.set(2.0, 0.45, 0);
+  dfaGroup.add(dfaPodium);
+  const dfaAuctioneer = new THREE.Group();
+  dfaAuctioneer.position.set(2.5, 0, 0);
+  const dfaAucBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  dfaAucBody.position.y = 0.5;
+  dfaAuctioneer.add(dfaAucBody);
+  const dfaAucHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  dfaAucHead.position.y = 1.2;
+  dfaAuctioneer.add(dfaAucHead);
+  const dfaAucArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  dfaAucArm.position.set(-0.3, 0.85, 0.1);
+  dfaAuctioneer.add(dfaAucArm);
+  dfaGroup.add(dfaAuctioneer);
+  // Three bidders
+  const dfaBidderColors = [0x884422, 0x447733, 0x886622];
+  for (let db = 0; db < 3; db++) {
+    const dfaBidder = new THREE.Group();
+    dfaBidder.position.set(-0.5 + db * 0.9, 0, 1.6);
+    const dfaBBody = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.95, 0.3), new THREE.MeshLambertMaterial({ color: dfaBidderColors[db] }));
+    dfaBBody.position.y = 0.475;
+    dfaBidder.add(dfaBBody);
+    const dfaBHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+    dfaBHead.position.y = 1.15;
+    dfaBidder.add(dfaBHead);
+    // Raised paddle
+    const dfaBPaddle = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.3, 0.04), new THREE.MeshLambertMaterial({ color: 0xffffaa }));
+    dfaBPaddle.position.set(0, 1.5 + db * 0.05, 0);
+    dfaBidder.add(dfaBPaddle);
+    dfaGroup.add(dfaBidder);
+  }
+  group.add(dfaGroup);
+  // v89: store refs for update
+  const cwbmAnim = { buoy: cwbmBuoy, hull: cwbmHull, cabin: cwbmCabin, t1: cwbmTech1, t2: cwbmTech2 };
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17254,6 +17420,17 @@ export function createAnchorageLandmark(THREE, opts) {
         fdsProp.rotation.x = t * 8;
         fdsGroup.position.y = 0.3 + 0.04 * Math.sin(t * 0.6);
         fdsPilotHead.rotation.y = 0.25 * Math.sin(t * 0.5);
+        // v89: Coastal weather buoy maintenance — boat & buoy bob, tech arm wave
+        if (cwbmAnim) {
+          const v89bob = Math.sin(t * 0.7) * 0.08;
+          cwbmAnim.hull.position.y = 0.4 + v89bob;
+          cwbmAnim.cabin.position.y = 1.2 + v89bob;
+          cwbmAnim.buoy.position.y = Math.sin(t * 0.5 + 1.0) * 0.12;
+          cwbmAnim.buoy.rotation.z = Math.sin(t * 0.6) * 0.08;
+          cwbmAnim.t1.children[2].rotation.x = -1.0 + Math.sin(t * 1.4) * 0.4;
+          cwbmAnim.t2.rotation.y = Math.sin(t * 0.8) * 0.3;
+        }
+
 
 
 
