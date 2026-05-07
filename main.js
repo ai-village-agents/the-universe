@@ -11682,6 +11682,181 @@ const cosmicSights = [
     { name: "Solar Ground Level Event", position: [4794, 92800, 2664], color: "#FFDAB9", description: "Solar particle surge detected at Earth surface" },
     { name: "Neutron Monitor Detection", position: [4796, 92820, 2666], color: "#708090", description: "Ground-based cosmic ray intensity measurement" },
     { name: "Cosmic Ray Albedo Neutron", position: [4798, 92840, 2668], color: "#B0C4DE", description: "Secondary neutron escaping planetary atmosphere" },
+    {
+        name: 'Relativistic Remnant (High-Energy Astrophysics)',
+        position: [-784, 3620, 9634],
+        color: '#ff5555',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Magnetic Jet (Supernova Remnants)',
+        position: [5565, -8730, 7543],
+        color: '#ff5555',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Luminous Nebula (Blazars)',
+        position: [4686, 2672, 6896],
+        color: '#55ffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Hypervelocity Burst (Magnetars)',
+        position: [8394, 7448, -154],
+        color: '#ffaaaa',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Relativistic Emission (Active Galactic Nuclei)',
+        position: [9624, 7621, 276],
+        color: '#aaaaff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Magnetic Jet (Blazars)',
+        position: [1936, 1697, 322],
+        color: '#aaff00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Energetic Disk (Gamma-Ray Bursts)',
+        position: [-7787, 8753, 3550],
+        color: '#ffaaaa',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Turbulent Nebula (Magnetars)',
+        position: [8492, -4164, -2544],
+        color: '#ff5555',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Relativistic Flare (Supernova Remnants)',
+        position: [7907, -9095, -1602],
+        color: '#aaff00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Relativistic Anomaly (Blazars)',
+        position: [3367, 2160, 8741],
+        color: '#ffaa00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Energetic Pulsar (X-ray Binaries)',
+        position: [-3160, 2557, -1494],
+        color: '#ffffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Radiant Nebula (Microquasars)',
+        position: [-8129, -1282, -3473],
+        color: '#aaff00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Hypervelocity Remnant Beta (Active Galactic Nuclei)',
+        position: [-5207, -6990, -4224],
+        color: '#aaff00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Radiant Shockwave (Blazars)',
+        position: [4967, 7398, -2199],
+        color: '#ff5555',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Relativistic Nebula (Pulsar Wind Nebulae)',
+        position: [-6563, -2525, 1348],
+        color: '#ffaa00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Dynamic Burst (Gamma-Ray Bursts)',
+        position: [-3384, 8755, 8850],
+        color: '#55ffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Magnetic Filament (Magnetars)',
+        position: [-5974, 3411, -4119],
+        color: '#ffaaaa',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Radiant Remnant (Active Galactic Nuclei)',
+        position: [5056, -6625, 5199],
+        color: '#ffaaaa',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Radiant Flare (Blazars)',
+        position: [6136, -9724, -8808],
+        color: '#ffffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Relativistic Nebula (Active Galactic Nuclei)',
+        position: [-963, -7549, -1048],
+        color: '#ff5555',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Luminous Remnant (X-ray Binaries)',
+        position: [4780, 9639, 7329],
+        color: '#ffffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Dynamic Flare (High-Energy Astrophysics)',
+        position: [-5531, -7930, -5284],
+        color: '#ff55ff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Energetic Anomaly Alpha (Supernova Remnants)',
+        position: [-8624, 6180, -2230],
+        color: '#ffaa00',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Hypervelocity Remnant (Active Galactic Nuclei)',
+        position: [-9517, 8558, -1568],
+        color: '#ffaaaa',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    },
+    {
+        name: 'Energetic Anomaly (Supernova Remnants)',
+        position: [-5793, -3478, 6231],
+        color: '#ffffff',
+        description: 'A highly energetic astrophysical phenomenon.',
+        url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
+    }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
