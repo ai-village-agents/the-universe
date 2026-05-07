@@ -13833,7 +13833,182 @@ const cosmicSights = [
   { name: 'Electron Diffusion Layer', description: 'Inner region of magnetic reconnection where electrons decouple from magnetic field and enable topology change.', position: [7221, 141440, 5221], color: 0x88ddff, size: 2.4 },
   { name: 'Whistler Precursor Wave', description: 'High-frequency electromagnetic wave propagating ahead of a shock or reconnection front in magnetized plasma.', position: [7222, 141460, 5222], color: 0xaaffbb, size: 2.3 },
   { name: 'Lower Hybrid Drift Mode', description: 'Plasma wave at the lower hybrid frequency driven by density gradients at thin current sheet boundaries.', position: [7223, 141480, 5223], color: 0xffccdd, size: 2.4 },
-  { name: 'Kinetic Alfven Cascade', description: 'Turbulent energy transfer to small scales where Alfven waves become dispersive and kinetic effects dominate.', position: [7224, 141500, 5224], color: 0xbbddff, size: 2.5 }
+  { name: 'Kinetic Alfven Cascade', description: 'Turbulent energy transfer to small scales where Alfven waves become dispersive and kinetic effects dominate.', position: [7224, 141500, 5224], color: 0xbbddff, size: 2.5 },
+  {
+    name: "Magnetar Polar Cap Hotspot",
+    description: "A searingly bright thermal emission region atop a magnetar's crust, where magnetic fields exceeding 10^14 gauss channel heat into a concentrated spot visible across the galaxy. The X-ray glow pulses with the star's 2.3-second rotation period.",
+    position: [3993, 3715, 3847],
+    color: 0xf4a261,
+    size: 2.2
+  },
+  {
+    name: "Synchrotron Jet Lobes",
+    description: "Giant radio-emitting lobes inflated by a supermassive black hole relativistic jet. Magnetized plasma spirals along field lines, producing polarized synchrotron emission that maps the invisible magnetic architecture of the intergalactic medium.",
+    position: [3623, 3807, 3826],
+    color: 0xe76f51,
+    size: 3.5
+  },
+  {
+    name: "Magnetic Reconnection Flare",
+    description: "A violent rearrangement of magnetic field lines in a stellar corona, releasing stored magnetic energy as a sudden burst of X-rays and accelerated particles. The topology change is visible as bright ribbon-like structures in ultraviolet.",
+    position: [3627, 3904, 3609],
+    color: 0x2a9d8f,
+    size: 2.8
+  },
+  {
+    name: "Alfven Wave Cascade Zone",
+    description: "A turbulent region in a stellar chromosphere where Alfven waves propagate upward from the photosphere, depositing their energy through a cascade of smaller-scale wave modes that heat the corona to millions of degrees.",
+    position: [3587, 3559, 3603],
+    color: 0x4a90d9,
+    size: 2.5
+  },
+  {
+    name: "Pulsar Magnetosphere Gap",
+    description: "A narrow vacuum region in a pulsar magnetosphere where electron-positron pairs are created by curvature radiation, launching a coherent beam of radio emission that sweeps across space like a cosmic lighthouse.",
+    position: [3806, 3928, 3918],
+    color: 0x9b5de5,
+    size: 1.8
+  },
+  {
+    name: "Plasma Dynamo Shear Layer",
+    description: "A boundary in a stellar convection zone where differential rotation stretches and amplifies magnetic field lines, powering the dynamo that regenerates the star global magnetic field every activity cycle.",
+    position: [3971, 3912, 3946],
+    color: 0xe9c46a,
+    size: 3.0
+  },
+  {
+    name: "Kelvin-Helmholtz Plasma Instability",
+    description: "Rolling vortices formed where a fast-moving magnetized plasma stream shears past a slower one. The curling fingers of mixing plasma create aurora-like emission patterns that trace the unstable boundary layer.",
+    position: [3883, 3850, 3735],
+    color: 0x88ccaa,
+    size: 2.6
+  },
+  {
+    name: "Magnetic Tower Jet Launch",
+    description: "A vertical column of twisted magnetic flux erupting from an accretion disk, launching a collimated jet by converting magnetic energy into bulk kinetic energy of plasma at velocities approaching light speed.",
+    position: [3675, 3982, 3746],
+    color: 0xff6688,
+    size: 3.2
+  },
+  {
+    name: "Supernova Remnant Non-Thermal Electrons",
+    description: "A swarm of electrons accelerated to near-light speed by diffusive shock acceleration in a supernova remnant. Their spiraling motion in the ambient magnetic field produces a broad spectrum of non-thermal radiation from radio to gamma rays.",
+    position: [3835, 3513, 3721],
+    color: 0x77e2ff,
+    size: 2.4
+  },
+  {
+    name: "Ion Cyclotron Resonance Layer",
+    description: "An altitude in a magnetized atmosphere where ions undergo resonant heating by electromagnetic waves at their cyclotron frequency. The layer appears as a thin, bright shell in far-ultraviolet emission from ionized oxygen.",
+    position: [3781, 3782, 3584],
+    color: 0x66aaff,
+    size: 1.9
+  },
+  {
+    name: "Magnetohydrodynamic Shock Front",
+    description: "A collisionless shock in a magnetized plasma where the fluid approximation breaks down and particle kinetics dominate. The shock front emits X-rays as suprathermal electrons radiate away their directed kinetic energy.",
+    position: [3644, 3572, 3881],
+    color: 0xa8dadc,
+    size: 2.7
+  },
+  {
+    name: "Current Sheet Dissipation Region",
+    description: "A thin, elongated structure in a magnetized plasma where opposing magnetic field lines are pressed together, driving intense electric currents that dissipate through magnetic reconnection and particle acceleration.",
+    position: [3765, 3978, 3527],
+    color: 0xff4444,
+    size: 2.1
+  },
+  {
+    name: "Turbulent Magnetic Amplification",
+    description: "A region of plasma turbulence where small-scale dynamo action rapidly amplifies seed magnetic fields to equipartition strength, creating a chaotic tangle of field lines that scatter cosmic rays and regulate heat transport.",
+    position: [3930, 3599, 3621],
+    color: 0xc9a96e,
+    size: 3.4
+  },
+  {
+    name: "Pair Plasma Cascade Zone",
+    description: "A zone near a compact object where gamma-ray photons convert to electron-positron pairs in strong magnetic fields, initiating an avalanche that fills the magnetosphere with a dense, relativistic pair plasma.",
+    position: [3614, 3824, 3930],
+    color: 0xcc88ff,
+    size: 2.0
+  },
+  {
+    name: "Photon Bubble Oscillation",
+    description: "A periodic instability in a radiation-dominated magnetized atmosphere where photon pressure and magnetic tension compete, creating oscillating bubbles of low-density gas that modulate the emergent radiation field.",
+    position: [3791, 3971, 3967],
+    color: 0xffdd88,
+    size: 2.3
+  },
+  {
+    name: "Magnetic Flux Rope Eruption",
+    description: "A twisted bundle of magnetic field lines rising through a stellar atmosphere, storing energy like a coiled spring until it erupts as a coronal mass ejection, hurling billions of tons of magnetized plasma into space.",
+    position: [3780, 3577, 3890],
+    color: 0x4488cc,
+    size: 3.6
+  },
+  {
+    name: "Whistler Wave Precursor",
+    description: "A train of low-frequency electromagnetic waves propagating ahead of a collisionless shock in a magnetized plasma, pre-conditioning the upstream medium by pre-accelerating particles through resonant interactions.",
+    position: [3729, 3729, 3584],
+    color: 0x2a9d8f,
+    size: 1.7
+  },
+  {
+    name: "Hall-MHD Decoupling Front",
+    description: "A boundary in a weakly ionized plasma where ions and electrons decouple due to the Hall effect, causing magnetic field lines to slip through the neutral fluid and creating thin, intense current layers.",
+    position: [3856, 3510, 3635],
+    color: 0x9a8c98,
+    size: 2.9
+  },
+  {
+    name: "Plasma Sheet Boundary Layer",
+    description: "The inner edge of a planetary plasma sheet where hot plasma populations transition to cold dense flows. The boundary hosts field-aligned currents that close the magnetospheric convection circuit.",
+    position: [3796, 3881, 3891],
+    color: 0x4a90d9,
+    size: 2.2
+  },
+  {
+    name: "Diffusive Shock Acceleration Site",
+    description: "A region at a magnetized collisionless shock where particles gain energy through repeated crossings of the shock front, diffusing back and forth across the magnetic discontinuity until they reach relativistic energies.",
+    position: [3629, 3933, 3605],
+    color: 0xe76f51,
+    size: 3.1
+  },
+  {
+    name: "Magnetic Reconnection X-Point",
+    description: "The null point in a magnetic field topology where anti-parallel field lines break and reconnect, releasing enormous energy and accelerating particles to non-thermal energies in a matter of seconds.",
+    position: [3507, 3933, 3532],
+    color: 0xf4a261,
+    size: 1.6
+  },
+  {
+    name: "Kink Mode Instability Core",
+    description: "The central region of a magnetized plasma column where a helical kink perturbation grows, deforming the magnetic axis into a corkscrew shape and eventually disrupting the confining field configuration.",
+    position: [3699, 3938, 3751],
+    color: 0x9b5de5,
+    size: 2.5
+  },
+  {
+    name: "Plasma Beta Transition Zone",
+    description: "A layer in an astrophysical plasma where the thermal pressure equals the magnetic pressure (beta = 1), marking the transition from magnetically dominated to thermally dominated dynamics with dramatic consequences for stability.",
+    position: [3654, 3988, 3986],
+    color: 0x88ffaa,
+    size: 2.8
+  },
+  {
+    name: "Sausage Mode Oscillation Node",
+    description: "A radial pulsation node in a magnetized plasma loop where periodic compressions and rarefactions of the plasma column create intensity oscillations observable in extreme ultraviolet coronal imaging.",
+    position: [3605, 3888, 3771],
+    color: 0x77e2ff,
+    size: 2.0
+  },
+  {
+    name: "Fast Magnetosonic Shock",
+    description: "A shock wave in a magnetized plasma propagating faster than the fast magnetosonic speed, compressing both the gas and the magnetic field while accelerating particles at the discontinuity.",
+    position: [3796, 3639, 3961],
+    color: 0xff6688,
+    size: 3.3
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
