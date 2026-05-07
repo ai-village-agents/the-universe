@@ -11331,7 +11331,7 @@ const cosmicSights = [
     { name: "Flare Energy Release Peak", position: [4364, 87280, 2239], color: "#FF0000", description: "Moment of maximum magnetic energy dissipation during X-class flare" },
     { name: "Particle Acceleration Region", position: [4365, 87300, 2240], color: "#FFD700", description: "Shock front where protons and electrons accelerated to near light speed" },
     { name: "Neutrino Production in Core", position: [4366, 87320, 2241], color: "#00BFFF", description: "Continuous production of solar neutrinos from pp and CNO fusion cycles" },
-    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" }
+    { name: "Convection Zone Mixing", position: [4367, 87340, 2242], color: "#4169E1", description: "Deep circulation patterns transporting heat and magnetic field from radiative zone" },
     { name: "Solar Five-Minute p-Mode", position: [4368, 87360, 2243], color: "#FFD700", description: "Dominant acoustic oscillation period in Sun revealing interior sound speed" },
     { name: "Core g-Mode Detection Zone", position: [4369, 87380, 2244], color: "#E6E6FA", description: "Deep gravity wave cavity probing stellar nuclear burning regions" },
     { name: "Delta Scuti Multimode Pattern", position: [4370, 87400, 2245], color: "#00CED1", description: "Complex frequency spectrum from simultaneous radial and non-radial modes" },
@@ -11356,7 +11356,7 @@ const cosmicSights = [
     { name: "Convective Flux Freezing Layer", position: [4389, 87780, 2264], color: "#8B4513", description: "Depth where convective timescale exceeds pulsation period" },
     { name: "Acoustic Cavity Upper Boundary", position: [4390, 87800, 2265], color: "#6495ED", description: "Temperature minimum reflecting acoustic waves back into star" },
     { name: "Surface Gravity Mode Leakage", position: [4391, 87820, 2266], color: "#7B68EE", description: "Atmospheric extension of internal gravity wave oscillations" },
-    { name: "Buoyancy Frequency Profile", position: [4392, 87840, 2267], color: "#48D1CC", description: "Radial variation of Brunt-Vaisala frequency controlling g-mode spectrum" }
+    { name: "Buoyancy Frequency Profile", position: [4392, 87840, 2267], color: "#48D1CC", description: "Radial variation of Brunt-Vaisala frequency controlling g-mode spectrum" },
     { name: "Protoplanetary Disk Midplane", position: [4393, 87860, 2268], color: "#D2691E", description: "Dense dust-rich layer where planetesimals begin to form" },
     { name: "Snow Line Condensation Front", position: [4394, 87880, 2269], color: "#ADD8E6", description: "Temperature boundary where water ice becomes stable in disk" },
     { name: "Pebble Accretion Stream", position: [4395, 87900, 2270], color: "#DEB887", description: "Aerodynamic drift feeding cm-sized particles onto growing cores" },
@@ -11381,7 +11381,7 @@ const cosmicSights = [
     { name: "Yarkovsky Drift Trajectory", position: [4414, 88280, 2289], color: "#6B4423", description: "Asymmetric thermal emission slowly changing small body orbit" },
     { name: "YORP Spin-Up Disruption", position: [4415, 88300, 2290], color: "#8B7355", description: "Rotational acceleration from anisotropic thermal radiation" },
     { name: "Nice Model Migration Path", position: [4416, 88320, 2291], color: "#C4A484", description: "Giant planet orbital instability reshaping outer solar system" },
-    { name: "Grand Tack Reversal Point", position: [4417, 88340, 2292], color: "#D2691E", description: "Jupiter inward-then-outward migration sculpting inner disk" }
+    { name: "Grand Tack Reversal Point", position: [4417, 88340, 2292], color: "#D2691E", description: "Jupiter inward-then-outward migration sculpting inner disk" },
     { name: "Emission Line Nebula Core", position: [4418, 88360, 2293], color: "#FF6B6B", description: "Ionized gas emitting characteristic spectral signatures" },
     { name: "Absorption Line Forest", position: [4419, 88380, 2294], color: "#4ECDC4", description: "Multiple absorption features from intervening gas clouds" },
     { name: "Balmer Series Transition", position: [4420, 88400, 2295], color: "#E74C3C", description: "Hydrogen electron jumps to second energy level" },
@@ -11406,7 +11406,7 @@ const cosmicSights = [
     { name: "Continuum Normalization Point", position: [4439, 88780, 2314], color: "#E74C3C", description: "Spectral baseline calibration reference" },
     { name: "Blaze Function Correction", position: [4440, 88800, 2315], color: "#F1C40F", description: "Grating efficiency variation compensation" },
     { name: "Order Overlap Region", position: [4441, 88820, 2316], color: "#8E44AD", description: "Echelle spectrum adjacent order boundary" },
-    { name: "Wavelength Calibration Arc", position: [4442, 88840, 2317], color: "#2ECC71", description: "Reference lamp emission line mapping" }
+    { name: "Wavelength Calibration Arc", position: [4442, 88840, 2317], color: "#2ECC71", description: "Reference lamp emission line mapping" },
     { name: "Baseline Vector Projection", position: [4443, 88860, 2318], color: "#FF6B6B", description: "Interferometer arm orientation in UV plane" },
     { name: "Visibility Amplitude Peak", position: [4444, 88880, 2319], color: "#4ECDC4", description: "Correlated signal strength measurement" },
     { name: "Closure Phase Triangle", position: [4445, 88900, 2320], color: "#E74C3C", description: "Three-baseline phase combination" },
