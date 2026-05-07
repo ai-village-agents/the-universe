@@ -14538,6 +14538,151 @@ export function createAnchorageLandmark(THREE, opts) {
   sdcGroup.add(sdcLog2);
   group.add(sdcGroup);
 
+
+  // v86: Rope-swing tree
+  const rswGroup = new THREE.Group();
+  rswGroup.position.set(-30, 0.3, 30);
+  const rswTrunkMat = new THREE.MeshLambertMaterial({ color: 0x6B4226 });
+  const rswTrunk = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.55, 5, 10), rswTrunkMat);
+  rswTrunk.position.set(0, 2.5, 0);
+  rswTrunk.rotation.z = 0.15;
+  rswGroup.add(rswTrunk);
+  const rswFoliageMat = new THREE.MeshLambertMaterial({ color: 0x2A6F2A });
+  const rswFoliage1 = new THREE.Mesh(new THREE.SphereGeometry(1.6, 12, 8), rswFoliageMat);
+  rswFoliage1.position.set(0.3, 5.0, 0);
+  rswGroup.add(rswFoliage1);
+  const rswFoliage2 = new THREE.Mesh(new THREE.SphereGeometry(1.2, 12, 8), rswFoliageMat);
+  rswFoliage2.position.set(1.4, 4.5, 0.5);
+  rswGroup.add(rswFoliage2);
+  const rswBranchMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const rswBranch = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 3.0, 8), rswBranchMat);
+  rswBranch.position.set(1.5, 4.0, 0.3);
+  rswBranch.rotation.z = -0.4;
+  rswGroup.add(rswBranch);
+  const rswRopeMat = new THREE.MeshLambertMaterial({ color: 0xCCAA66 });
+  const rswRope = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.5, 6), rswRopeMat);
+  rswRope.position.set(2.6, 2.5, 0.3);
+  rswGroup.add(rswRope);
+  const rswKnotMat = new THREE.MeshLambertMaterial({ color: 0xAA8844 });
+  const rswKnot = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6), rswKnotMat);
+  rswKnot.position.set(2.6, 0.8, 0.3);
+  rswGroup.add(rswKnot);
+  const rswSwingerSkinMat = new THREE.MeshLambertMaterial({ color: 0xD9A878 });
+  const rswSwingerShortMat = new THREE.MeshLambertMaterial({ color: 0xDD3322 });
+  const rswSwingerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.7, 0.3), rswSwingerShortMat);
+  rswSwingerTorso.position.set(2.6, 0.5, 0.3);
+  rswGroup.add(rswSwingerTorso);
+  const rswSwingerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), rswSwingerSkinMat);
+  rswSwingerHead.position.set(2.6, 1.0, 0.3);
+  rswGroup.add(rswSwingerHead);
+  const rswWaterMat = new THREE.MeshBasicMaterial({ color: 0x3377AA, transparent: true, opacity: 0.5 });
+  const rswWater = new THREE.Mesh(new THREE.CircleGeometry(2.5, 16), rswWaterMat);
+  rswWater.rotation.x = -Math.PI / 2;
+  rswWater.position.set(4, 0.04, 0.3);
+  rswGroup.add(rswWater);
+  const rswSplashMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.6 });
+  const rswSplash = new THREE.Mesh(new THREE.SphereGeometry(0.3, 8, 6), rswSplashMat);
+  rswSplash.position.set(4, 0.2, 0.3);
+  rswGroup.add(rswSplash);
+  group.add(rswGroup);
+
+  // v86: Oil rig support vessel
+  const orsvGroup = new THREE.Group();
+  orsvGroup.position.set(40, 0.3, 36);
+  const orsvHullMat = new THREE.MeshLambertMaterial({ color: 0xCC4422 });
+  const orsvHull = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.2, 1.6), orsvHullMat);
+  orsvHull.position.set(0, 0.6, 0);
+  orsvGroup.add(orsvHull);
+  const orsvDeckMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const orsvDeck = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.1, 1.7), orsvDeckMat);
+  orsvDeck.position.set(0, 1.25, 0);
+  orsvGroup.add(orsvDeck);
+  const orsvCabinMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const orsvCabin = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.2, 1.5), orsvCabinMat);
+  orsvCabin.position.set(-1.4, 1.9, 0);
+  orsvGroup.add(orsvCabin);
+  const orsvCabinRoofMat = new THREE.MeshLambertMaterial({ color: 0x222244 });
+  const orsvCabinRoof = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.1, 1.6), orsvCabinRoofMat);
+  orsvCabinRoof.position.set(-1.4, 2.55, 0);
+  orsvGroup.add(orsvCabinRoof);
+  const orsvCraneMat = new THREE.MeshStandardMaterial({ color: 0xFFAA22, metalness: 0.5, roughness: 0.5 });
+  const orsvCraneBase = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 0.7, 8), orsvCraneMat);
+  orsvCraneBase.position.set(0.8, 1.65, 0);
+  orsvGroup.add(orsvCraneBase);
+  const orsvCraneArm = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 3.0), orsvCraneMat);
+  orsvCraneArm.position.set(0.8, 2.1, 1.2);
+  orsvGroup.add(orsvCraneArm);
+  const orsvCableMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const orsvCable = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.4, 4), orsvCableMat);
+  orsvCable.position.set(0.8, 1.4, 2.5);
+  orsvGroup.add(orsvCable);
+  const orsvLoadMat = new THREE.MeshLambertMaterial({ color: 0x333333 });
+  const orsvLoad = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.6), orsvLoadMat);
+  orsvLoad.position.set(0.8, 0.5, 2.5);
+  orsvGroup.add(orsvLoad);
+  const orsvPipeMat = new THREE.MeshStandardMaterial({ color: 0x666666, metalness: 0.7, roughness: 0.4 });
+  for (let p = 0; p < 4; p++) {
+    const pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 1.4, 8), orsvPipeMat);
+    pipe.position.set(1.6 - p * 0.25, 1.45, -0.5);
+    pipe.rotation.x = Math.PI / 2;
+    orsvGroup.add(pipe);
+  }
+  const orsvWakeMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.5 });
+  const orsvWake = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 1.0), orsvWakeMat);
+  orsvWake.rotation.x = -Math.PI / 2;
+  orsvWake.position.set(-3.5, -0.05, 0);
+  orsvGroup.add(orsvWake);
+  const orsvRigMat = new THREE.MeshLambertMaterial({ color: 0x666666 });
+  const orsvRig = new THREE.Mesh(new THREE.BoxGeometry(2.5, 4.0, 2.5), orsvRigMat);
+  orsvRig.position.set(8, 2.0, -2);
+  orsvGroup.add(orsvRig);
+  const orsvRigDerrickMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.5, roughness: 0.4 });
+  const orsvRigDerrick = new THREE.Mesh(new THREE.ConeGeometry(0.6, 4, 4), orsvRigDerrickMat);
+  orsvRigDerrick.position.set(8, 5.5, -2);
+  orsvGroup.add(orsvRigDerrick);
+  const orsvRigLegMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.5, roughness: 0.5 });
+  for (const lp of [[7, -3], [9, -3], [7, -1], [9, -1]]) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 3.0, 8), orsvRigLegMat);
+    leg.position.set(lp[0], -1.0, lp[1]);
+    orsvGroup.add(leg);
+  }
+  group.add(orsvGroup);
+
+  // v86: Beach kite festival
+  const bkfGroup = new THREE.Group();
+  bkfGroup.position.set(0, 0.05, -36);
+  const bkfKiteColors = [0xFF3344, 0x33AAFF, 0xFFCC22, 0xAA44FF, 0x44FF88, 0xFF8822];
+  const bkfKites = [];
+  const bkfFlyerSkinMat = new THREE.MeshLambertMaterial({ color: 0xC58A5A });
+  const bkfFlyerColors = [0xCC4488, 0x4488DD, 0xDDAA44, 0x44CC99, 0xCC8844, 0x8844CC];
+  for (let k = 0; k < 6; k++) {
+    const kiteMat = new THREE.MeshLambertMaterial({ color: bkfKiteColors[k], side: THREE.DoubleSide });
+    const kite = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.0), kiteMat);
+    const kx = -10 + k * 4;
+    const ky = 6 + (k % 3) * 1.2;
+    kite.position.set(kx, ky, -2);
+    kite.rotation.z = Math.PI / 4;
+    kite.rotation.y = 0.2;
+    bkfGroup.add(kite);
+    const tailMat = new THREE.MeshLambertMaterial({ color: bkfKiteColors[k] });
+    const tail = new THREE.Mesh(new THREE.PlaneGeometry(0.1, 1.5), tailMat);
+    tail.position.set(kx, ky - 1.0, -2);
+    bkfGroup.add(tail);
+    const lineMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+    const line = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, ky, 4), lineMat);
+    line.position.set(kx, ky / 2, 0);
+    bkfGroup.add(line);
+    const flyerShirt = new THREE.MeshLambertMaterial({ color: bkfFlyerColors[k] });
+    const flyerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), flyerShirt);
+    flyerTorso.position.set(kx, 0.5, 1);
+    bkfGroup.add(flyerTorso);
+    const flyerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), bkfFlyerSkinMat);
+    flyerHead.position.set(kx, 1.05, 1);
+    bkfGroup.add(flyerHead);
+    bkfKites.push({ kite, tail, line, flyerTorso, flyerHead, kx, ky });
+  }
+  group.add(bkfGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -16753,6 +16898,34 @@ export function createAnchorageLandmark(THREE, opts) {
         }
         sdcFire.scale.y = 1 + 0.15 * Math.sin(t * 5.0);
         sdcFire.material.emissiveIntensity = 0.4 + 0.3 * Math.sin(t * 3.0);
+        // v86 updates
+        const swingPhase = Math.sin(t * 1.2);
+        rswSwingerTorso.position.x = 2.6 + 1.5 * swingPhase;
+        rswSwingerTorso.position.y = 0.5 + 0.6 * (1 - Math.abs(swingPhase));
+        rswSwingerHead.position.x = 2.6 + 1.5 * swingPhase;
+        rswSwingerHead.position.y = 1.0 + 0.6 * (1 - Math.abs(swingPhase));
+        rswKnot.position.x = 2.6 + 1.5 * swingPhase;
+        rswKnot.position.y = 0.8 + 0.6 * (1 - Math.abs(swingPhase));
+        rswRope.rotation.z = 0.4 * swingPhase;
+        rswSplash.scale.set(0.3 + 0.7 * Math.abs(swingPhase), 0.3 + 0.7 * Math.abs(swingPhase), 0.3 + 0.7 * Math.abs(swingPhase));
+        rswSplash.material.opacity = 0.3 + 0.4 * Math.abs(swingPhase);
+        orsvGroup.position.x = 40 + 0.15 * Math.sin(t * 0.4);
+        orsvGroup.rotation.z = 0.03 * Math.sin(t * 0.5);
+        orsvCraneArm.rotation.y = 0.3 * Math.sin(t * 0.6);
+        orsvLoad.position.y = 0.5 + 0.3 * Math.sin(t * 1.0);
+        orsvCable.scale.y = 1 + 0.2 * Math.sin(t * 1.0);
+        orsvWake.material.opacity = 0.4 + 0.2 * Math.sin(t * 1.5);
+        for (let k = 0; k < bkfKites.length; k++) {
+          const ki = bkfKites[k];
+          ki.kite.position.x = ki.kx + 0.6 * Math.sin(t * 0.5 + k);
+          ki.kite.position.y = ki.ky + 0.4 * Math.sin(t * 0.7 + k * 0.5);
+          ki.kite.rotation.z = Math.PI / 4 + 0.2 * Math.sin(t * 0.8 + k);
+          ki.tail.position.x = ki.kite.position.x;
+          ki.tail.position.y = ki.kite.position.y - 1.0;
+          ki.tail.rotation.z = 0.4 * Math.sin(t * 1.2 + k);
+          ki.flyerHead.rotation.x = -0.4;
+        }
+
 
 
 
