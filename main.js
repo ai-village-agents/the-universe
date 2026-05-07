@@ -12082,6 +12082,181 @@ const cosmicSights = [
     discoveryDate: '2026-05-07',
     type: 'Phenomenon'
   },
+  {
+    name: "Planetary Transit Photometry",
+    position: [4693, 91940, 2568],
+    color: "#FF8C00",
+    size: 1,
+    description: "Detection via periodic stellar brightness dips during transit"
+  },
+  {
+    name: "Stellar Radial Velocity Wobble",
+    position: [4694, 91960, 2569],
+    color: "#FFA500",
+    size: 1,
+    description: "Doppler shift reveals planetary orbital dynamics"
+  },
+  {
+    name: "Direct Planet Imaging Method",
+    position: [4695, 91980, 2570],
+    color: "#FFB6C1",
+    size: 1,
+    description: "Scattered photon detection of young massive planets"
+  },
+  {
+    name: "Gravitational Microlensing Peak",
+    position: [4696, 92000, 2571],
+    color: "#FFD700",
+    size: 1,
+    description: "Light magnification from planetary gravity bending"
+  },
+  {
+    name: "Stellar Astrometric Jitter",
+    position: [4697, 92020, 2572],
+    color: "#FFA07A",
+    size: 1,
+    description: "Star center-of-mass motion from planetary attraction"
+  },
+  {
+    name: "Millisecond Pulsar Timing",
+    position: [4698, 92040, 2573],
+    color: "#FF6347",
+    size: 1,
+    description: "Pulsar signal delay variation from orbiting planets"
+  },
+  {
+    name: "Periodic Flux Modulation",
+    position: [4699, 92060, 2574],
+    color: "#FF4500",
+    size: 1,
+    description: "Light curve periodicity from planetary reflection"
+  },
+  {
+    name: "Tidal Pulsation Forcing",
+    position: [4700, 92080, 2575],
+    color: "#DC143C",
+    size: 1,
+    description: "Planet-induced stellar oscillation patterns"
+  },
+  {
+    name: "Exoplanet Atmosphere Detection",
+    position: [4701, 92100, 2576],
+    color: "#FF1493",
+    size: 1,
+    description: "Transmission spectroscopy reveals atmospheric composition"
+  },
+  {
+    name: "Thermal Emission Peak",
+    position: [4702, 92120, 2577],
+    color: "#FF69B4",
+    size: 1,
+    description: "Secondary eclipse infrared emission from planet"
+  },
+  {
+    name: "Orbital Phase Brightness Curve",
+    position: [4703, 92140, 2578],
+    color: "#FF8DB8",
+    size: 1,
+    description: "Photometry variation through complete orbital cycle"
+  },
+  {
+    name: "Spectral Line Distortion Signal",
+    position: [4704, 92160, 2579],
+    color: "#FFADD8",
+    size: 1,
+    description: "Hot Jupiter transit spectroscopic signature"
+  },
+  {
+    name: "Albedo Reflection Detection",
+    position: [4705, 92180, 2580],
+    color: "#FFCCCB",
+    size: 1,
+    description: "Sunlight reflection from planetary atmosphere"
+  },
+  {
+    name: "Infrared Bolometric Flux",
+    position: [4706, 92200, 2581],
+    color: "#FFA07A",
+    size: 1,
+    description: "Thermal radiation detection from distant planets"
+  },
+  {
+    name: "Multi-Wavelength Photometry Filter",
+    position: [4707, 92220, 2582],
+    color: "#FF7F50",
+    size: 1,
+    description: "Broad spectral detection sensitivity for planets"
+  },
+  {
+    name: "Molecular Species Narrowband",
+    position: [4708, 92240, 2583],
+    color: "#FF8C00",
+    size: 1,
+    description: "Water, methane, and chemical species detection"
+  },
+  {
+    name: "Extreme Contrast Suppression",
+    position: [4709, 92260, 2584],
+    color: "#FFA500",
+    size: 1,
+    description: "Ultra-high contrast starlight rejection technique"
+  },
+  {
+    name: "Baseline Masking Optics",
+    position: [4710, 92280, 2585],
+    color: "#FFB6C1",
+    size: 1,
+    description: "Interferometric masking for planet detection"
+  },
+  {
+    name: "Diffraction-Limited Resolution",
+    position: [4711, 92300, 2586],
+    color: "#FFD700",
+    size: 1,
+    description: "Speckle photometry for sub-arcsecond precision"
+  },
+  {
+    name: "Stellar Photon Null",
+    position: [4712, 92320, 2587],
+    color: "#FFA07A",
+    size: 1,
+    description: "Nulling interferometry cancels central starlight"
+  },
+  {
+    name: "Circumstellar Dust Detection",
+    position: [4713, 92340, 2588],
+    color: "#FF6347",
+    size: 1,
+    description: "Debris disk via infrared excess signature"
+  },
+  {
+    name: "Biohabitable Zone Boundary",
+    position: [4714, 92360, 2589],
+    color: "#FF4500",
+    size: 1,
+    description: "Orbital regime where liquid water can exist"
+  },
+  {
+    name: "Equilibrium Temperature Calculation",
+    position: [4715, 92380, 2590],
+    color: "#DC143C",
+    size: 1,
+    description: "Planet surface temperature from stellar heating balance"
+  },
+  {
+    name: "Precise Orbital Period",
+    position: [4716, 92400, 2591],
+    color: "#FF1493",
+    size: 1,
+    description: "Orbital cycle from repeated transit observations"
+  },
+  {
+    name: "Planetary Mass Inference",
+    position: [4717, 92420, 2592],
+    color: "#FF69B4",
+    size: 1,
+    description: "Planet mass from dynamical constraints and models"
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
