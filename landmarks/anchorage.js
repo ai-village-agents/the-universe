@@ -15468,6 +15468,192 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(bbgcGroup);
 
 
+  // v92: Sand cricket pitch
+  const scpGroup = new THREE.Group();
+  scpGroup.position.set(28, 0.05, 6);
+  // Pitch (long sandy strip)
+  const scpPitch = new THREE.Mesh(new THREE.BoxGeometry(2, 0.02, 9), new THREE.MeshLambertMaterial({ color: 0xeed8b0 }));
+  scpPitch.position.set(0, 0.01, 0);
+  scpGroup.add(scpPitch);
+  // Wickets at both ends
+  for (let scw = 0; scw < 2; scw++) {
+    const scpZ = scw === 0 ? -4.5 : 4.5;
+    for (let scs = -1; scs <= 1; scs++) {
+      const scpStump = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 6), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+      scpStump.position.set(scs * 0.15, 0.35, scpZ);
+      scpGroup.add(scpStump);
+    }
+    const scpBail = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+    scpBail.position.set(0, 0.7, scpZ);
+    scpBail.rotation.z = Math.PI / 2;
+    scpGroup.add(scpBail);
+  }
+  // Batter
+  const scpBatter = new THREE.Group();
+  scpBatter.position.set(0.4, 0, 4.0);
+  const scpBatterPads = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.6, 0.3), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  scpBatterPads.position.y = 0.3;
+  scpBatter.add(scpBatterPads);
+  const scpBatterTorso = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.6, 0.3), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  scpBatterTorso.position.y = 0.9;
+  scpBatter.add(scpBatterTorso);
+  const scpBatterHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  scpBatterHead.position.y = 1.4;
+  scpBatter.add(scpBatterHead);
+  const scpBatterHelmet = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  scpBatterHelmet.position.y = 1.45;
+  scpBatter.add(scpBatterHelmet);
+  // Cricket bat
+  const scpBat = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.9, 0.06), new THREE.MeshLambertMaterial({ color: 0xddb877 }));
+  scpBat.position.set(0.3, 0.7, 0);
+  scpBat.rotation.z = -0.6;
+  scpBatter.add(scpBat);
+  scpGroup.add(scpBatter);
+  // Bowler
+  const scpBowler = new THREE.Group();
+  scpBowler.position.set(-0.3, 0, -3.8);
+  const scpBowlerLegs = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  scpBowlerLegs.position.y = 0.5;
+  scpBowler.add(scpBowlerLegs);
+  const scpBowlerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.6, 0.3), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  scpBowlerTorso.position.y = 1.3;
+  scpBowler.add(scpBowlerTorso);
+  const scpBowlerHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  scpBowlerHead.position.y = 1.78;
+  scpBowler.add(scpBowlerHead);
+  const scpBowlerArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.6, 0.12), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  scpBowlerArm.position.set(0.25, 1.55, 0.05);
+  scpBowler.add(scpBowlerArm);
+  // Cricket ball
+  const scpBall = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), new THREE.MeshLambertMaterial({ color: 0x882222 }));
+  scpBall.position.set(0.35, 1.3, 0.2);
+  scpBowler.add(scpBall);
+  scpGroup.add(scpBowler);
+  // Wicket-keeper
+  const scpKeeper = new THREE.Group();
+  scpKeeper.position.set(0.0, 0, 5.5);
+  const scpKeeperBody = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: 0xeeffee }));
+  scpKeeperBody.position.y = 0.5;
+  scpKeeper.add(scpKeeperBody);
+  const scpKeeperHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+  scpKeeperHead.position.y = 1.18;
+  scpKeeper.add(scpKeeperHead);
+  scpGroup.add(scpKeeper);
+  // Two fielders at slip
+  for (let scf = 0; scf < 2; scf++) {
+    const scpF = new THREE.Group();
+    scpF.position.set(2.0 + scf * 1.2, 0, 5.8);
+    const scpFB = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+    scpFB.position.y = 0.5;
+    scpF.add(scpFB);
+    const scpFH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+    scpFH.position.y = 1.18;
+    scpF.add(scpFH);
+    scpGroup.add(scpF);
+  }
+  group.add(scpGroup);
+
+  // v92: Beach bocce game
+  const boccGroup = new THREE.Group();
+  boccGroup.position.set(-12, 0.05, 22);
+  // Bocce court (sandy)
+  const boccCourt = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.02, 8), new THREE.MeshLambertMaterial({ color: 0xe8d4a8 }));
+  boccCourt.position.y = 0.01;
+  boccGroup.add(boccCourt);
+  // Pallino (small white target ball)
+  const boccPallino = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  boccPallino.position.set(0.2, 0.07, 2.5);
+  boccGroup.add(boccPallino);
+  // Bocce balls clustered around pallino
+  const boccBallColors = [0xcc2222, 0xcc2222, 0x2266cc, 0x2266cc, 0xcc8822, 0xcc8822];
+  for (let bb = 0; bb < 6; bb++) {
+    const boccBall = new THREE.Mesh(new THREE.SphereGeometry(0.13, 8, 6), new THREE.MeshLambertMaterial({ color: boccBallColors[bb] }));
+    const boccA = (bb / 6) * Math.PI * 2;
+    boccBall.position.set(0.2 + Math.cos(boccA) * 0.5, 0.13, 2.5 + Math.sin(boccA) * 0.5);
+    boccGroup.add(boccBall);
+  }
+  // 4 elderly players, 2 per end
+  const boccPColors = [0xaa3344, 0x336688, 0x668833, 0x884466];
+  for (let bp = 0; bp < 4; bp++) {
+    const boccP = new THREE.Group();
+    boccP.position.set(bp < 2 ? -0.7 + bp * 1.4 : -0.7 + (bp - 2) * 1.4, 0, bp < 2 ? -3.8 : 3.8);
+    const boccPBody = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.95, 0.3), new THREE.MeshLambertMaterial({ color: boccPColors[bp] }));
+    boccPBody.position.y = 0.475;
+    boccP.add(boccPBody);
+    const boccPHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+    boccPHead.position.y = 1.1;
+    boccP.add(boccPHead);
+    // Gray hair
+    const boccPHair = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+    boccPHair.position.y = 1.18;
+    boccPHair.scale.y = 0.6;
+    boccP.add(boccPHair);
+    boccGroup.add(boccP);
+  }
+  group.add(boccGroup);
+
+  // v92: Surfboard repair shed
+  const sbrsGroup = new THREE.Group();
+  sbrsGroup.position.set(34, 0, 12);
+  // Shed walls (open front)
+  const sbrsWallMat = new THREE.MeshLambertMaterial({ color: 0xb0a07c });
+  const sbrsBack = new THREE.Mesh(new THREE.BoxGeometry(4, 2.5, 0.1), sbrsWallMat);
+  sbrsBack.position.set(0, 1.25, -1.4);
+  sbrsGroup.add(sbrsBack);
+  const sbrsLeft = new THREE.Mesh(new THREE.BoxGeometry(0.1, 2.5, 2.8), sbrsWallMat);
+  sbrsLeft.position.set(-2, 1.25, 0);
+  sbrsGroup.add(sbrsLeft);
+  const sbrsRight = new THREE.Mesh(new THREE.BoxGeometry(0.1, 2.5, 2.8), sbrsWallMat);
+  sbrsRight.position.set(2, 1.25, 0);
+  sbrsGroup.add(sbrsRight);
+  // Slanted roof
+  const sbrsRoof = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.1, 3.0), new THREE.MeshLambertMaterial({ color: 0x554433 }));
+  sbrsRoof.position.set(0, 2.7, -0.05);
+  sbrsRoof.rotation.x = -0.15;
+  sbrsGroup.add(sbrsRoof);
+  // Saw horses with surfboard being shaped
+  const sbrsSawhorse1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.9, 1.5), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+  sbrsSawhorse1.position.set(-0.8, 0.45, -0.2);
+  sbrsGroup.add(sbrsSawhorse1);
+  const sbrsSawhorse2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.9, 1.5), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+  sbrsSawhorse2.position.set(0.8, 0.45, -0.2);
+  sbrsGroup.add(sbrsSawhorse2);
+  // Surfboard being shaped
+  const sbrsBoard = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 0.5), new THREE.MeshLambertMaterial({ color: 0xfafafa }));
+  sbrsBoard.position.set(0, 1.0, -0.2);
+  sbrsGroup.add(sbrsBoard);
+  // Shaper with sander
+  const sbrsShaper = new THREE.Group();
+  sbrsShaper.position.set(0, 0, 0.6);
+  const sbrsShaperBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.1, 0.3), new THREE.MeshLambertMaterial({ color: 0xeeffee }));
+  sbrsShaperBody.position.y = 0.55;
+  sbrsShaper.add(sbrsShaperBody);
+  const sbrsShaperHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  sbrsShaperHead.position.y = 1.3;
+  sbrsShaper.add(sbrsShaperHead);
+  // Dust mask
+  const sbrsMask = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.1, 0.05), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  sbrsMask.position.set(0, 1.25, 0.18);
+  sbrsShaper.add(sbrsMask);
+  const sbrsArm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.12), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+  sbrsArm.position.set(0.3, 0.9, 0.1);
+  sbrsArm.rotation.z = 0.5;
+  sbrsShaper.add(sbrsArm);
+  // Sander
+  const sbrsSander = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.1, 0.18), new THREE.MeshLambertMaterial({ color: 0xff8800 }));
+  sbrsSander.position.set(0.55, 1.0, -0.1);
+  sbrsShaper.add(sbrsSander);
+  sbrsGroup.add(sbrsShaper);
+  // Repaired boards on wall rack
+  const sbrsBoardColors = [0x66ccff, 0xff6644, 0xffaa00];
+  for (let sbi = 0; sbi < 3; sbi++) {
+    const sbrsRBoard = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.8, 0.45), new THREE.MeshLambertMaterial({ color: sbrsBoardColors[sbi] }));
+    sbrsRBoard.position.set(-1.7 + sbi * 0.18, 1.4, -1.3);
+    sbrsGroup.add(sbrsRBoard);
+  }
+  group.add(sbrsGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17783,6 +17969,13 @@ export function createAnchorageLandmark(THREE, opts) {
           }
         }
         fpftFish.rotation.z = 0.2 + Math.sin(t * 1.2) * 0.05;
+        // v92: cricket bowler arm wind up + bocce pallino glint + sander vibration
+        scpBowlerArm.rotation.z = Math.sin(t * 1.5) * 1.4 - 0.6;
+        scpBall.position.y = 1.3 + Math.sin(t * 1.5) * 0.15;
+        scpBatter.rotation.y = Math.sin(t * 0.8) * 0.1;
+        sbrsSander.position.x = 0.55 + Math.sin(t * 4.0) * 0.05;
+        sbrsArm.rotation.z = 0.5 + Math.sin(t * 4.0) * 0.08;
+
 
 
 
