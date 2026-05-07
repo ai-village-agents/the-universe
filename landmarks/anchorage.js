@@ -10822,6 +10822,216 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(miniGolfGroup);
 
 
+
+  // v68: Buoy tender ship + Marina restaurant + Lobster boat hauling traps
+  // ----- Buoy tender ship (large vessel offshore w/ deck cranes) -----
+  const buoyTenderGroup = new THREE.Group();
+  buoyTenderGroup.position.set(-46, 0.05, -42);
+  buoyTenderGroup.rotation.y = 0.4;
+  group.add(buoyTenderGroup);
+  const btHullMat = new THREE.MeshStandardMaterial({ color: 0xc8281c, roughness: 0.7 });
+  const btHull = new THREE.Mesh(new THREE.BoxGeometry(11, 1.4, 3.2), btHullMat);
+  btHull.position.y = 0.7;
+  buoyTenderGroup.add(btHull);
+  const btBow = new THREE.Mesh(new THREE.ConeGeometry(1.6, 2.4, 4), btHullMat);
+  btBow.rotation.z = -Math.PI / 2;
+  btBow.rotation.y = Math.PI / 4;
+  btBow.position.set(6.3, 0.7, 0);
+  btBow.scale.set(0.7, 1, 0.9);
+  buoyTenderGroup.add(btBow);
+  const btSuperMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.6 });
+  const btSuper = new THREE.Mesh(new THREE.BoxGeometry(3.2, 1.6, 2.6), btSuperMat);
+  btSuper.position.set(-2.4, 2.2, 0);
+  buoyTenderGroup.add(btSuper);
+  const btBridge = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1, 2.2), btSuperMat);
+  btBridge.position.set(-2.4, 3.5, 0);
+  buoyTenderGroup.add(btBridge);
+  const btStack = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.4, 1.2, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+  btStack.position.set(-3.4, 4.6, 0);
+  buoyTenderGroup.add(btStack);
+  const btCraneBaseMat = new THREE.MeshStandardMaterial({ color: 0xf5b400, roughness: 0.7 });
+  const btCraneBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.6, 12), btCraneBaseMat);
+  btCraneBase.position.set(1.5, 1.7, 0);
+  buoyTenderGroup.add(btCraneBase);
+  const btCraneArm = new THREE.Mesh(new THREE.BoxGeometry(0.35, 4.5, 0.35), btCraneBaseMat);
+  btCraneArm.position.set(1.5, 3.9, 0);
+  buoyTenderGroup.add(btCraneArm);
+  const btCraneJib = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.3, 0.3), btCraneBaseMat);
+  btCraneJib.position.set(2.9, 6, 0);
+  buoyTenderGroup.add(btCraneJib);
+  const btCableMat = new THREE.MeshBasicMaterial({ color: 0x222222 });
+  const btCable = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.5, 6), btCableMat);
+  btCable.position.set(4.4, 3.7, 0);
+  buoyTenderGroup.add(btCable);
+  // hanging buoy from crane
+  const btHangBuoyMat = new THREE.MeshStandardMaterial({ color: 0x18ad2e, emissive: 0x062908, emissiveIntensity: 0.6, roughness: 0.5 });
+  const btHangBuoy = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 1.2, 12), btHangBuoyMat);
+  btHangBuoy.position.set(4.4, 1.2, 0);
+  buoyTenderGroup.add(btHangBuoy);
+  const btHangCage = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.45, 0.7, 8, 1, true), new THREE.MeshStandardMaterial({ color: 0xaaaaaa, wireframe: true }));
+  btHangCage.position.set(4.4, 2.0, 0);
+  buoyTenderGroup.add(btHangCage);
+  // deck-stored buoys
+  const btDeckBuoyMatA = new THREE.MeshStandardMaterial({ color: 0xd11a1a, emissive: 0x2a0606, emissiveIntensity: 0.4, roughness: 0.5 });
+  const btDeckBuoyA = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 1.0, 12), btDeckBuoyMatA);
+  btDeckBuoyA.position.set(0.4, 1.9, 0.9);
+  btDeckBuoyA.rotation.z = Math.PI / 2;
+  buoyTenderGroup.add(btDeckBuoyA);
+  const btDeckBuoyB = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 1.0, 12), btDeckBuoyMatA);
+  btDeckBuoyB.position.set(0.4, 1.9, -0.9);
+  btDeckBuoyB.rotation.z = Math.PI / 2;
+  buoyTenderGroup.add(btDeckBuoyB);
+  const btDeckHand = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.55, 4, 8), new THREE.MeshStandardMaterial({ color: 0xff8800 }));
+  btDeckHand.position.set(2.6, 2.05, 0.7);
+  buoyTenderGroup.add(btDeckHand);
+  const btDeckHandHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshStandardMaterial({ color: 0xf2c096 }));
+  btDeckHandHead.position.set(2.6, 2.55, 0.7);
+  buoyTenderGroup.add(btDeckHandHead);
+  const btWakeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
+  const btWake = new THREE.Mesh(new THREE.PlaneGeometry(8, 2.6), btWakeMat);
+  btWake.rotation.x = -Math.PI / 2;
+  btWake.position.set(-9.5, 0.06, 0);
+  buoyTenderGroup.add(btWake);
+
+  // ----- Marina restaurant w/ outdoor diners -----
+  const marRestGroup = new THREE.Group();
+  marRestGroup.position.set(8, 0.05, -16);
+  group.add(marRestGroup);
+  // deck platform
+  const marDeckMat = new THREE.MeshStandardMaterial({ color: 0xa6764a, roughness: 0.85 });
+  const marDeck = new THREE.Mesh(new THREE.BoxGeometry(7, 0.18, 5), marDeckMat);
+  marDeck.position.y = 0.09;
+  marRestGroup.add(marDeck);
+  // building
+  const marBuildMat = new THREE.MeshStandardMaterial({ color: 0xe8d5a8, roughness: 0.85 });
+  const marBuild = new THREE.Mesh(new THREE.BoxGeometry(3.5, 2.6, 4.5), marBuildMat);
+  marBuild.position.set(-1.5, 1.4, 0);
+  marRestGroup.add(marBuild);
+  const marRoofMat = new THREE.MeshStandardMaterial({ color: 0x8a3624, roughness: 0.8 });
+  const marRoof = new THREE.Mesh(new THREE.ConeGeometry(2.8, 1, 4), marRoofMat);
+  marRoof.position.set(-1.5, 3.2, 0);
+  marRoof.rotation.y = Math.PI / 4;
+  marRestGroup.add(marRoof);
+  const marSignMat = new THREE.MeshStandardMaterial({ color: 0x223a78, emissive: 0x101a30, emissiveIntensity: 0.5 });
+  const marSign = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.5, 0.1), marSignMat);
+  marSign.position.set(0.3, 1.9, 0);
+  marRestGroup.add(marSign);
+  // 3 outdoor tables w/ umbrellas
+  const marTableGroup = new THREE.Group();
+  marRestGroup.add(marTableGroup);
+  const marTablePos = [[1.5, 1.3], [2.4, -1.1], [0.5, -1.4]];
+  const marUmbColors = [0xff5544, 0x44aaff, 0xffd84a];
+  const marDinerColors = [0xee8855, 0x55ccaa, 0xa466e8, 0xffaa44, 0x2266dd, 0x44dd66];
+  marTablePos.forEach((p, i) => {
+    const tg = new THREE.Group();
+    tg.position.set(p[0], 0, p[1]);
+    marTableGroup.add(tg);
+    const top = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.05, 12), new THREE.MeshStandardMaterial({ color: 0xffffff }));
+    top.position.y = 0.7;
+    tg.add(top);
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.7, 8), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+    post.position.y = 0.35;
+    tg.add(post);
+    const umbPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+    umbPole.position.y = 1.5;
+    tg.add(umbPole);
+    const umbCanopy = new THREE.Mesh(new THREE.ConeGeometry(0.95, 0.45, 12), new THREE.MeshStandardMaterial({ color: marUmbColors[i], roughness: 0.7 }));
+    umbCanopy.position.y = 2.35;
+    tg.add(umbCanopy);
+    // 2 diners per table
+    for (let d = 0; d < 2; d++) {
+      const dx = d === 0 ? -0.65 : 0.65;
+      const diner = new THREE.Mesh(new THREE.CapsuleGeometry(0.13, 0.4, 4, 8), new THREE.MeshStandardMaterial({ color: marDinerColors[(i * 2 + d) % marDinerColors.length] }));
+      diner.position.set(dx, 0.55, 0);
+      tg.add(diner);
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshStandardMaterial({ color: 0xf2c096 }));
+      head.position.set(dx, 0.95, 0);
+      tg.add(head);
+    }
+    // small plate/glass
+    const plate = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.02, 10), new THREE.MeshStandardMaterial({ color: 0xffffff }));
+    plate.position.set(-0.15, 0.74, 0);
+    tg.add(plate);
+    const glass = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.18, 8), new THREE.MeshStandardMaterial({ color: 0xaaffff, transparent: true, opacity: 0.7 }));
+    glass.position.set(0.2, 0.81, 0);
+    tg.add(glass);
+  });
+  // waiter walking between tables
+  const marWaiterGroup = new THREE.Group();
+  marRestGroup.add(marWaiterGroup);
+  const marWaiterBody = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.55, 4, 8), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+  marWaiterBody.position.y = 0.65;
+  marWaiterGroup.add(marWaiterBody);
+  const marWaiterShirt = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.4, 0.22), new THREE.MeshStandardMaterial({ color: 0xffffff }));
+  marWaiterShirt.position.y = 0.85;
+  marWaiterGroup.add(marWaiterShirt);
+  const marWaiterHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 10), new THREE.MeshStandardMaterial({ color: 0xe2b896 }));
+  marWaiterHead.position.y = 1.18;
+  marWaiterGroup.add(marWaiterHead);
+  const marWaiterTray = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.03, 12), new THREE.MeshStandardMaterial({ color: 0x884422 }));
+  marWaiterTray.position.set(0.25, 0.95, 0);
+  marWaiterGroup.add(marWaiterTray);
+  let marWaiterCycle = 0;
+
+  // ----- Lobster boat hauling traps from water (winch lifting line) -----
+  const lobBoatGroup = new THREE.Group();
+  lobBoatGroup.position.set(34, 0.05, -28);
+  lobBoatGroup.rotation.y = -0.3;
+  group.add(lobBoatGroup);
+  const lobHullMat = new THREE.MeshStandardMaterial({ color: 0x2a5b9a, roughness: 0.7 });
+  const lobHull = new THREE.Mesh(new THREE.BoxGeometry(5, 0.9, 1.8), lobHullMat);
+  lobHull.position.y = 0.45;
+  lobBoatGroup.add(lobHull);
+  const lobBow = new THREE.Mesh(new THREE.ConeGeometry(0.95, 1.4, 4), lobHullMat);
+  lobBow.rotation.z = -Math.PI / 2;
+  lobBow.rotation.y = Math.PI / 4;
+  lobBow.position.set(2.9, 0.45, 0);
+  lobBow.scale.set(0.6, 1, 0.85);
+  lobBoatGroup.add(lobBow);
+  const lobCabinMat = new THREE.MeshStandardMaterial({ color: 0xfaf0d8, roughness: 0.8 });
+  const lobCabin = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1, 1.5), lobCabinMat);
+  lobCabin.position.set(0.5, 1.4, 0);
+  lobBoatGroup.add(lobCabin);
+  // davit (winch arm) on starboard
+  const lobDavitMat = new THREE.MeshStandardMaterial({ color: 0x3a3a3a });
+  const lobDavit = new THREE.Mesh(new THREE.BoxGeometry(0.15, 1.6, 0.15), lobDavitMat);
+  lobDavit.position.set(-0.5, 1.55, 0.95);
+  lobBoatGroup.add(lobDavit);
+  const lobDavitArm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.15, 1.0), lobDavitMat);
+  lobDavitArm.position.set(-0.5, 2.3, 1.45);
+  lobBoatGroup.add(lobDavitArm);
+  // hauling line from davit into water — this animates
+  const lobLineMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
+  const lobLine = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.4, 6), lobLineMat);
+  lobLine.position.set(-0.5, 1.05, 1.95);
+  lobBoatGroup.add(lobLine);
+  // lobster trap being hauled — animates up & down
+  const lobTrapMat = new THREE.MeshStandardMaterial({ color: 0x664422, roughness: 0.8 });
+  const lobTrap = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.4, 0.55), lobTrapMat);
+  lobTrap.position.set(-0.5, 0.3, 1.95);
+  lobBoatGroup.add(lobTrap);
+  // captain at controls
+  const lobCaptain = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.5, 4, 8), new THREE.MeshStandardMaterial({ color: 0xffaa66 }));
+  lobCaptain.position.set(-0.5, 1.15, 0.5);
+  lobBoatGroup.add(lobCaptain);
+  const lobCaptainHead = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 10), new THREE.MeshStandardMaterial({ color: 0xd9a06b }));
+  lobCaptainHead.position.set(-0.5, 1.6, 0.5);
+  lobBoatGroup.add(lobCaptainHead);
+  // stack of empty traps on deck
+  for (let s = 0; s < 3; s++) {
+    const stack = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.32, 0.5), lobTrapMat);
+    stack.position.set(-2.0 + s * 0.05, 1.1 + s * 0.34, -0.3);
+    lobBoatGroup.add(stack);
+  }
+  // splash where line enters water
+  const lobSplashMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
+  const lobSplash = new THREE.Mesh(new THREE.RingGeometry(0.1, 0.35, 12), lobSplashMat);
+  lobSplash.rotation.x = -Math.PI / 2;
+  lobSplash.position.set(-0.5, 0.07, 1.95);
+  lobBoatGroup.add(lobSplash);
+  let lobTrapCycle = 0;
+  let lobTrapPhase = 0;
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -12665,6 +12875,50 @@ export function createAnchorageLandmark(THREE, opts) {
         // ball stays in hole briefly, then resets (in next cycle)
         mgBall.visible = false;
       }
+
+      // v68 buoy tender wake shimmer
+      btWake.material.opacity = 0.45 + Math.sin(t * 1.4) * 0.12;
+      btHangBuoy.position.y = 1.2 + Math.sin(t * 0.9) * 0.05;
+      btHangCage.position.y = 2.0 + Math.sin(t * 0.9) * 0.05;
+      btCable.scale.y = 1 + Math.sin(t * 0.9) * 0.012;
+
+      // v68 marina restaurant: waiter walks a small loop between tables
+      marWaiterCycle = (marWaiterCycle + dt * 0.35) % 1;
+      const wpath = [
+        [0, 1.6], [1.5, 0.5], [2.4, -1.0], [0.5, -1.4], [-0.6, 0.3]
+      ];
+      const wIdx = Math.floor(marWaiterCycle * wpath.length);
+      const wNext = (wIdx + 1) % wpath.length;
+      const wT = (marWaiterCycle * wpath.length) - wIdx;
+      const wx = wpath[wIdx][0] * (1 - wT) + wpath[wNext][0] * wT;
+      const wz = wpath[wIdx][1] * (1 - wT) + wpath[wNext][1] * wT;
+      marWaiterGroup.position.set(wx, 0, wz);
+      marWaiterGroup.rotation.y = Math.atan2(wpath[wNext][0] - wpath[wIdx][0], wpath[wNext][1] - wpath[wIdx][1]);
+
+      // v68 lobster boat hauling: trap rises, pauses on deck, drops back
+      lobTrapCycle += dt * 0.25;
+      if (lobTrapCycle > 1) { lobTrapCycle = 0; lobTrapPhase = (lobTrapPhase + 1) % 3; }
+      let lobTrapY;
+      if (lobTrapPhase === 0) {
+        // hauling up
+        lobTrapY = 0.3 + lobTrapCycle * 1.5; // from 0.3 to 1.8
+      } else if (lobTrapPhase === 1) {
+        // sitting on deck briefly
+        lobTrapY = 1.8;
+      } else {
+        // dropping back
+        lobTrapY = 1.8 - lobTrapCycle * 1.5;
+      }
+      lobTrap.position.y = lobTrapY;
+      // stretch/move line so it always connects davit to trap top
+      const lineLen = 2.3 - (lobTrapY - 0.3);
+      lobLine.scale.y = Math.max(0.05, lineLen / 2.4);
+      lobLine.position.y = lobTrapY + lineLen / 2 + 0.05;
+      // splash visible only when trap is near water
+      lobSplash.visible = lobTrapY < 0.6;
+      lobSplash.material.opacity = Math.max(0, 0.8 - lobTrapY);
+      lobSplash.scale.set(1 + Math.sin(t * 4) * 0.15, 1 + Math.sin(t * 4) * 0.15, 1);
+
     }
 
   }
