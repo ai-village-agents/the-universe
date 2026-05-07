@@ -12751,7 +12751,32 @@ const cosmicSights = [
     position: [5100, -10200, 15300],
     discoveryId: "gemini-3-1-pro-canvas",
     type: "anomaly"
-  }
+  },
+  { name: 'Balmer Jump Discontinuity', description: 'Sharp spectral break at hydrogen ionization edge revealing stellar temperature.', position: [7350, 144020, 5350], color: 0x88aaff, size: 2.4 },
+  { name: 'Lyman Series Absorption Thicket', description: 'Dense absorption line series from intergalactic hydrogen along quasar sightline.', position: [7351, 144040, 5351], color: 0x55ffaa, size: 2.6 },
+  { name: 'Metal Line Absorption System', description: 'Heavy element signatures tracing enriched gas in intervening galaxy halos.', position: [7352, 144060, 5352], color: 0xaabb99, size: 2.3 },
+  { name: 'Broad Absorption Line Trough', description: 'Wide blueshifted absorption from high-velocity quasar outflow.', position: [7353, 144080, 5353], color: 0x7788cc, size: 2.8 },
+  { name: 'Emission Line Ratio Diagnostic', description: 'Flux ratio revealing gas temperature density and ionization state.', position: [7354, 144100, 5354], color: 0xffcc66, size: 2.2 },
+  { name: 'Million-Kelvin Iron Emission', description: 'Highly ionized iron emission indicating million-degree plasma.', position: [7355, 144120, 5355], color: 0xff5577, size: 2.9 },
+  { name: 'Molecular Band Head', description: 'Sharp spectral feature from rotational-vibrational molecular transitions.', position: [7356, 144140, 5356], color: 0xdd8844, size: 2.4 },
+  { name: 'Nuclear Mass Wavelength Offset', description: 'Subtle wavelength offset revealing atomic mass variation in stellar atmosphere.', position: [7357, 144160, 5357], color: 0x99ddee, size: 2.1 },
+  { name: 'Nuclear Spin Coupling Feature', description: 'Split spectral feature from nuclear spin interaction with electron cloud.', position: [7358, 144180, 5358], color: 0xbbaaff, size: 2.3 },
+  { name: 'Resonance Scattering Halo', description: 'Extended emission from photons scattered by circumgalactic gas.', position: [7359, 144200, 5359], color: 0x77ffcc, size: 2.7 },
+  { name: 'Fluorescent Line Cascade', description: 'Secondary emission triggered by absorption of higher energy photon.', position: [7360, 144220, 5360], color: 0xeeaa55, size: 2.5 },
+  { name: 'Recombination Continuum', description: 'Continuous emission from electrons captured into excited atomic states.', position: [7361, 144240, 5361], color: 0xaaddff, size: 2.4 },
+  { name: 'Two-Photon Emission Zone', description: 'Forbidden decay region where atoms emit photon pairs simultaneously.', position: [7362, 144260, 5362], color: 0xffaadd, size: 2.6 },
+  { name: 'Stark Broadening Profile', description: 'Spectral line shape distorted by electric fields in dense plasma.', position: [7363, 144280, 5363], color: 0x8899ff, size: 2.3 },
+  { name: 'Collisional Line Wing Extension', description: 'Extended line profile from frequent atomic collisions in high-pressure gas.', position: [7364, 144300, 5364], color: 0xcc9988, size: 2.2 },
+  { name: 'Rotational Velocity Broadening', description: 'Smeared spectral lines from rapid stellar spin integrating across disk.', position: [7365, 144320, 5365], color: 0x66bbaa, size: 2.4 },
+  { name: 'Macroturbulence Signature', description: 'Non-thermal line broadening from large-scale atmospheric motions.', position: [7366, 144340, 5366], color: 0xddcc77, size: 2.3 },
+  { name: 'Inverse P Cygni Feature', description: 'Redshifted absorption with blue emission indicating infalling material.', position: [7367, 144360, 5367], color: 0xff6699, size: 2.8 },
+  { name: 'Double-Peaked Emission Profile', description: 'Twin peaks tracing rotating accretion disk or bipolar outflow geometry.', position: [7368, 144380, 5368], color: 0x55ddff, size: 2.7 },
+  { name: 'Absorption Line Core Reversal', description: 'Emission peak within absorption trough from chromospheric temperature inversion.', position: [7369, 144400, 5369], color: 0xffdd55, size: 2.5 },
+  { name: 'Interstellar Band Mystery', description: 'Unidentified absorption feature from complex organic molecules in diffuse clouds.', position: [7370, 144420, 5370], color: 0x995566, size: 2.6 },
+  { name: 'Telluric Line Artifact', description: 'Atmospheric absorption contaminating astronomical spectrum requiring removal.', position: [7371, 144440, 5371], color: 0x667788, size: 2.0 },
+  { name: 'Radial Velocity Anomaly', description: 'Doppler shift deviation hinting at unseen companion or stellar activity.', position: [7372, 144460, 5372], color: 0xaa77ff, size: 2.5 },
+  { name: 'Spectropolarimetric Signal', description: 'Polarization across spectral line revealing magnetic field geometry.', position: [7373, 144480, 5373], color: 0xee88aa, size: 2.7 },
+  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
