@@ -13018,6 +13018,249 @@ export function createAnchorageLandmark(THREE, opts) {
   reefBoatGroup.add(rbAntenna);
 
 
+
+  // v78: Fishing pier kiosk - bait & tackle stand on pier with vendor
+  const kioskGroup = new THREE.Group();
+  kioskGroup.position.set(11.6, 0, -7.2);
+  kioskGroup.rotation.y = -0.5;
+  // Counter base
+  const kioskCounterMat = new THREE.MeshLambertMaterial({ color: 0x6f4220 });
+  const kioskCounter = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.9, 0.8), kioskCounterMat);
+  kioskCounter.position.y = 0.45;
+  kioskGroup.add(kioskCounter);
+  // Counter top
+  const kioskTopMat = new THREE.MeshLambertMaterial({ color: 0xc8a878 });
+  const kioskTop = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.05, 0.85), kioskTopMat);
+  kioskTop.position.y = 0.93;
+  kioskGroup.add(kioskTop);
+  // Posts holding canopy
+  const kioskPostMat = new THREE.MeshLambertMaterial({ color: 0x4a3018 });
+  const kioskPostXs = [-0.95, 0.95];
+  for (const px of kioskPostXs) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 8), kioskPostMat);
+    post.position.set(px, 1.7, -0.35);
+    kioskGroup.add(post);
+    const post2 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 8), kioskPostMat);
+    post2.position.set(px, 1.7, 0.35);
+    kioskGroup.add(post2);
+  }
+  // Striped canopy
+  const kioskCanopyMat = new THREE.MeshLambertMaterial({ color: 0xd02020, side: THREE.DoubleSide });
+  const kioskCanopy = new THREE.Mesh(new THREE.BoxGeometry(2.3, 0.04, 1.0), kioskCanopyMat);
+  kioskCanopy.position.y = 2.5;
+  kioskGroup.add(kioskCanopy);
+  const kioskCanopyStripeMat = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  for (let s = 0; s < 4; s++) {
+    const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.041, 1.01), kioskCanopyStripeMat);
+    stripe.position.set(-0.85 + s * 0.55, 2.501, 0);
+    kioskGroup.add(stripe);
+  }
+  // Hanging sign "BAIT"
+  const kioskSignMat = new THREE.MeshLambertMaterial({ color: 0xfff2c0 });
+  const kioskSign = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.4, 0.04), kioskSignMat);
+  kioskSign.position.set(0, 2.1, 0.55);
+  kioskGroup.add(kioskSign);
+  const kioskSignTextMat = new THREE.MeshLambertMaterial({ color: 0x202050 });
+  const kioskSignBar = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.07, 0.05), kioskSignTextMat);
+  kioskSignBar.position.set(0, 2.1, 0.575);
+  kioskGroup.add(kioskSignBar);
+  // Bait buckets on counter
+  const kioskBucketMat = new THREE.MeshLambertMaterial({ color: 0x4080a0 });
+  for (let b = 0; b < 3; b++) {
+    const bucket = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.11, 0.22, 12), kioskBucketMat);
+    bucket.position.set(-0.7 + b * 0.5, 1.07, 0.1);
+    kioskGroup.add(bucket);
+  }
+  // Vendor behind counter (apron)
+  const kioskVendorSkinMat = new THREE.MeshLambertMaterial({ color: 0xd9a575 });
+  const kioskVendorShirtMat = new THREE.MeshLambertMaterial({ color: 0x205030 });
+  const kioskVendorTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.85, 12), kioskVendorShirtMat);
+  kioskVendorTorso.position.set(-0.2, 1.35, -0.2);
+  kioskGroup.add(kioskVendorTorso);
+  const kioskVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 14, 12), kioskVendorSkinMat);
+  kioskVendorHead.position.set(-0.2, 1.95, -0.2);
+  kioskGroup.add(kioskVendorHead);
+  const kioskVendorHatMat = new THREE.MeshLambertMaterial({ color: 0x803020 });
+  const kioskVendorHat = new THREE.Mesh(new THREE.CylinderGeometry(0.21, 0.23, 0.07, 14), kioskVendorHatMat);
+  kioskVendorHat.position.set(-0.2, 2.13, -0.2);
+  kioskGroup.add(kioskVendorHat);
+  const kioskVendorBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.31, 0.025, 14), kioskVendorHatMat);
+  kioskVendorBrim.position.set(-0.2, 2.10, -0.2);
+  kioskGroup.add(kioskVendorBrim);
+  // Customer in front
+  const kioskCustomerMat = new THREE.MeshLambertMaterial({ color: 0x8090b0 });
+  const kioskCustomerTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.24, 0.8, 12), kioskCustomerMat);
+  kioskCustomerTorso.position.set(0.4, 1.3, 0.7);
+  kioskGroup.add(kioskCustomerTorso);
+  const kioskCustomerHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 14, 12), kioskVendorSkinMat);
+  kioskCustomerHead.position.set(0.4, 1.88, 0.7);
+  kioskGroup.add(kioskCustomerHead);
+  group.add(kioskGroup);
+
+  // v78: Lookout tower with binocular spotter
+  const ltGroup = new THREE.Group();
+  ltGroup.position.set(-13, 0, 12.5);
+  ltGroup.rotation.y = 0.4;
+  const ltLegMat = new THREE.MeshLambertMaterial({ color: 0x4a3018 });
+  const ltLegPositions = [[-0.7, 0, -0.7], [0.7, 0, -0.7], [-0.7, 0, 0.7], [0.7, 0, 0.7]];
+  for (const [lx, ly, lz] of ltLegPositions) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 4.0, 8), ltLegMat);
+    leg.position.set(lx, 2.0, lz);
+    ltGroup.add(leg);
+  }
+  // Cross-braces
+  const ltBraceMat = new THREE.MeshLambertMaterial({ color: 0x6a4828 });
+  for (let by = 0; by < 4; by++) {
+    const brace = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.05, 0.05), ltBraceMat);
+    brace.position.set(0, 0.7 + by * 0.9, -0.7);
+    ltGroup.add(brace);
+    const brace2 = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.05, 0.05), ltBraceMat);
+    brace2.position.set(0, 0.7 + by * 0.9, 0.7);
+    ltGroup.add(brace2);
+  }
+  // Platform
+  const ltPlatMat = new THREE.MeshLambertMaterial({ color: 0x8a6240 });
+  const ltPlat = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.1, 2.0), ltPlatMat);
+  ltPlat.position.y = 4.05;
+  ltGroup.add(ltPlat);
+  // Railing
+  const ltRailMat = new THREE.MeshLambertMaterial({ color: 0x6a4828 });
+  const ltRailPositions = [[-1, 4.45, 0, 0, 0, 0, 1.95, 0.05, 0.05], [1, 4.45, 0, 0, 0, 0, 1.95, 0.05, 0.05], [0, 4.45, -1, 0, 0, 0, 0.05, 0.05, 1.95], [0, 4.45, 1, 0, 0, 0, 0.05, 0.05, 1.95]];
+  // Simpler: 4 rail bars
+  for (let r = 0; r < 4; r++) {
+    const angle = r * Math.PI / 2;
+    const rail = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.05, 0.05), ltRailMat);
+    rail.position.set(Math.sin(angle) * 1.0, 4.5, Math.cos(angle) * 1.0);
+    rail.rotation.y = angle + Math.PI / 2;
+    ltGroup.add(rail);
+  }
+  // Roof
+  const ltRoofMat = new THREE.MeshLambertMaterial({ color: 0x803020 });
+  const ltRoof = new THREE.Mesh(new THREE.ConeGeometry(1.6, 0.7, 4), ltRoofMat);
+  ltRoof.position.y = 5.5;
+  ltRoof.rotation.y = Math.PI / 4;
+  ltGroup.add(ltRoof);
+  // Spotter on platform
+  const ltSpotterShirtMat = new THREE.MeshLambertMaterial({ color: 0xd06030 });
+  const ltSpotterSkinMat = new THREE.MeshLambertMaterial({ color: 0xe8c0a0 });
+  const ltSpotterTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.8, 12), ltSpotterShirtMat);
+  ltSpotterTorso.position.set(0, 4.55, 0);
+  ltGroup.add(ltSpotterTorso);
+  const ltSpotterHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 14, 12), ltSpotterSkinMat);
+  ltSpotterHead.position.set(0, 5.13, 0);
+  ltGroup.add(ltSpotterHead);
+  // Binoculars
+  const ltBinoMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+  const ltBino1 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.18, 10), ltBinoMat);
+  ltBino1.rotation.x = Math.PI / 2;
+  ltBino1.position.set(-0.06, 5.13, 0.25);
+  ltGroup.add(ltBino1);
+  const ltBino2 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.18, 10), ltBinoMat);
+  ltBino2.rotation.x = Math.PI / 2;
+  ltBino2.position.set(0.06, 5.13, 0.25);
+  ltGroup.add(ltBino2);
+  // Ladder
+  const ltLadderMat = new THREE.MeshLambertMaterial({ color: 0x5a3a20 });
+  const ltLadderRail1 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 4.0, 0.05), ltLadderMat);
+  ltLadderRail1.position.set(-0.2, 2.0, 1.05);
+  ltGroup.add(ltLadderRail1);
+  const ltLadderRail2 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 4.0, 0.05), ltLadderMat);
+  ltLadderRail2.position.set(0.2, 2.0, 1.05);
+  ltGroup.add(ltLadderRail2);
+  for (let lr = 0; lr < 8; lr++) {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 0.04), ltLadderMat);
+    rung.position.set(0, 0.4 + lr * 0.5, 1.05);
+    ltGroup.add(rung);
+  }
+  group.add(ltGroup);
+
+  // v78: Dragon boat team rowing in unison
+  const dbGroup = new THREE.Group();
+  dbGroup.position.set(-15, 0, 0);
+  dbGroup.rotation.y = 0.3;
+  const dbHullMat = new THREE.MeshLambertMaterial({ color: 0xc02020 });
+  const dbHull = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.35, 0.85), dbHullMat);
+  dbHull.position.y = -0.05;
+  dbGroup.add(dbHull);
+  const dbHullTrimMat = new THREE.MeshLambertMaterial({ color: 0xf0d040 });
+  const dbHullTrim = new THREE.Mesh(new THREE.BoxGeometry(5.55, 0.07, 0.86), dbHullTrimMat);
+  dbHullTrim.position.y = 0.13;
+  dbGroup.add(dbHullTrim);
+  // Dragon head bow
+  const dbDragonHeadMat = new THREE.MeshLambertMaterial({ color: 0xe0a020 });
+  const dbDragonHead = new THREE.Mesh(new THREE.ConeGeometry(0.45, 0.7, 6), dbDragonHeadMat);
+  dbDragonHead.rotation.z = -Math.PI / 2;
+  dbDragonHead.position.set(2.95, 0.3, 0);
+  dbGroup.add(dbDragonHead);
+  const dbDragonEyeMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+  const dbDragonEye1 = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 8), dbDragonEyeMat);
+  dbDragonEye1.position.set(2.85, 0.42, 0.2);
+  dbGroup.add(dbDragonEye1);
+  const dbDragonEye2 = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 8), dbDragonEyeMat);
+  dbDragonEye2.position.set(2.85, 0.42, -0.2);
+  dbGroup.add(dbDragonEye2);
+  // Tail
+  const dbTailMat = new THREE.MeshLambertMaterial({ color: 0xe0a020 });
+  const dbTail = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.55, 5), dbTailMat);
+  dbTail.rotation.z = Math.PI / 2;
+  dbTail.position.set(-3.0, 0.3, 0);
+  dbGroup.add(dbTail);
+  // Drummer at bow
+  const dbDrumMat = new THREE.MeshLambertMaterial({ color: 0x803020 });
+  const dbDrum = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.3, 14), dbDrumMat);
+  dbDrum.position.set(2.2, 0.3, 0);
+  dbGroup.add(dbDrum);
+  const dbDrumTopMat = new THREE.MeshLambertMaterial({ color: 0xfff0d0 });
+  const dbDrumTop = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.02, 14), dbDrumTopMat);
+  dbDrumTop.position.set(2.2, 0.46, 0);
+  dbGroup.add(dbDrumTop);
+  const dbDrummerShirtMat = new THREE.MeshLambertMaterial({ color: 0xff4040 });
+  const dbDrummerSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0b080 });
+  const dbDrummerTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.55, 12), dbDrummerShirtMat);
+  dbDrummerTorso.position.set(2.6, 0.5, 0);
+  dbGroup.add(dbDrummerTorso);
+  const dbDrummerHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), dbDrummerSkinMat);
+  dbDrummerHead.position.set(2.6, 0.92, 0);
+  dbGroup.add(dbDrummerHead);
+  // 8 rowers (4 pairs)
+  const dbRowerColors = [0x2060c0, 0x2060c0, 0x2060c0, 0x2060c0];
+  const dbRowers = [];
+  const dbPaddles = [];
+  for (let r = 0; r < 4; r++) {
+    const xPos = 1.4 - r * 0.9;
+    for (const side of [-1, 1]) {
+      const rowerMat = new THREE.MeshLambertMaterial({ color: dbRowerColors[r] });
+      const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.5, 10), rowerMat);
+      torso.position.set(xPos, 0.45, side * 0.25);
+      dbGroup.add(torso);
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 10), dbDrummerSkinMat);
+      head.position.set(xPos, 0.78, side * 0.25);
+      dbGroup.add(head);
+      dbRowers.push({ torso, head });
+      // Paddle
+      const paddleShaftMat = new THREE.MeshLambertMaterial({ color: 0xc89060 });
+      const paddleShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.1, 6), paddleShaftMat);
+      const paddleBlade = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.4, 0.04), paddleShaftMat);
+      const paddleGroup = new THREE.Group();
+      paddleShaft.position.y = 0.0;
+      paddleBlade.position.y = -0.55;
+      paddleGroup.add(paddleShaft);
+      paddleGroup.add(paddleBlade);
+      paddleGroup.position.set(xPos, 0.4, side * 0.55);
+      paddleGroup.rotation.z = side * 0.4;
+      dbGroup.add(paddleGroup);
+      dbPaddles.push({ group: paddleGroup, side, idx: r });
+    }
+  }
+  // Wake
+  const dbWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const dbWake = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.7, 16, 1, 0, Math.PI), dbWakeMat);
+  dbWake.rotation.x = -Math.PI / 2;
+  dbWake.position.set(-3.4, 0.02, 0);
+  dbGroup.add(dbWake);
+  group.add(dbGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -15064,6 +15307,30 @@ export function createAnchorageLandmark(THREE, opts) {
         // v77 Research boat bob + sample bob below water
         reefBoatGroup.position.y = 0.05 + 0.06 * Math.sin(t * 1.0);
         rbSample.position.y = -0.3 + 0.06 * Math.sin(t * 1.4);
+        // v78: Pier kiosk vendor sways slightly
+        kioskVendorTorso.rotation.z = 0.04 * Math.sin(t * 0.8);
+        kioskCustomerHead.rotation.y = 0.4 * Math.sin(t * 0.5);
+        // v78: Lookout spotter scans horizon
+        ltSpotterHead.rotation.y = 0.6 * Math.sin(t * 0.3);
+        ltBino1.position.x = -0.06 + 0.0;
+        // Spotter slightly turns whole torso
+        ltSpotterTorso.rotation.y = 0.6 * Math.sin(t * 0.3);
+        ltBino1.rotation.y = 0.6 * Math.sin(t * 0.3);
+        ltBino2.rotation.y = 0.6 * Math.sin(t * 0.3);
+        // v78: Dragon boat rowers paddle in unison
+        const dbStrokeT = t * 1.6;
+        const dbStroke = Math.sin(dbStrokeT);
+        for (const p of dbPaddles) {
+          p.group.rotation.x = dbStroke * 0.6;
+          p.group.children[1].position.y = -0.55 + Math.max(0, dbStroke) * 0.2;
+        }
+        for (const r of dbRowers) {
+          r.torso.rotation.x = dbStroke * 0.15;
+        }
+        dbDrummerTorso.position.y = 0.5 + 0.04 * Math.sin(t * 1.6);
+        // Boat bobbing
+        dbGroup.position.y = 0.05 * Math.sin(t * 0.7);
+
 
 
 
