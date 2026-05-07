@@ -17067,6 +17067,145 @@ export function createAnchorageLandmark(THREE, opts) {
   cfgGroup.add(cfgGd);
   group.add(cfgGroup);
 
+  // v103: Sand gnome statue + Hammock under palm tree + Beach scavenger hunt kids
+  // --- Sand gnome / mascot statue (sgm) ---
+  const sgmGroup = new THREE.Group();
+  sgmGroup.position.set(-22, 0, -22);
+  // Pedestal
+  const sgmPedMat = new THREE.MeshLambertMaterial({color: 0xc8b888});
+  const sgmPed = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.85, 0.4, 14), sgmPedMat);
+  sgmPed.position.y = 0.2;
+  sgmGroup.add(sgmPed);
+  // Gnome body (sand-colored cone-ish)
+  const sgmBodyMat = new THREE.MeshLambertMaterial({color: 0xe8d8a8});
+  const sgmBody = new THREE.Mesh(new THREE.ConeGeometry(0.55, 0.9, 12), sgmBodyMat);
+  sgmBody.position.y = 0.85;
+  sgmGroup.add(sgmBody);
+  // Head
+  const sgmHead = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 8), sgmBodyMat);
+  sgmHead.position.y = 1.5;
+  sgmGroup.add(sgmHead);
+  // Pointy red hat
+  const sgmHatMat = new THREE.MeshLambertMaterial({color: 0xd03020});
+  const sgmHat = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.8, 12), sgmHatMat);
+  sgmHat.position.y = 1.95;
+  sgmGroup.add(sgmHat);
+  // White beard
+  const sgmBeard = new THREE.Mesh(new THREE.SphereGeometry(0.28, 10, 8), new THREE.MeshLambertMaterial({color: 0xfafafa}));
+  sgmBeard.scale.set(1, 1.3, 0.7);
+  sgmBeard.position.set(0, 1.35, 0.18);
+  sgmGroup.add(sgmBeard);
+  // Eyes
+  const sgmEyeMat = new THREE.MeshLambertMaterial({color: 0x111111});
+  const sgmEye1 = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 6), sgmEyeMat);
+  sgmEye1.position.set(-0.12, 1.6, 0.3);
+  sgmGroup.add(sgmEye1);
+  const sgmEye2 = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 6), sgmEyeMat);
+  sgmEye2.position.set(0.12, 1.6, 0.3);
+  sgmGroup.add(sgmEye2);
+  // Plaque
+  const sgmPlaque = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.2, 0.04), new THREE.MeshLambertMaterial({color: 0x8a6a4a}));
+  sgmPlaque.position.set(0, 0.2, 0.83);
+  sgmGroup.add(sgmPlaque);
+  group.add(sgmGroup);
+
+  // --- Hammock between two palm trees (hpt) ---
+  const hptGroup = new THREE.Group();
+  hptGroup.position.set(42, 0, 28);
+  const hptTrunkMat = new THREE.MeshLambertMaterial({color: 0x6a4a2a});
+  const hptFrondMat = new THREE.MeshLambertMaterial({color: 0x4a8a3a});
+  // Two palm trees
+  for (let p = -1; p <= 1; p += 2) {
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 3.0, 8), hptTrunkMat);
+    trunk.position.set(p * 1.8, 1.5, 0);
+    trunk.rotation.z = p * 0.05;
+    hptGroup.add(trunk);
+    // Fronds
+    for (let f = 0; f < 5; f++) {
+      const frond = new THREE.Mesh(new THREE.SphereGeometry(0.4, 8, 5), hptFrondMat);
+      frond.scale.set(1.1, 0.18, 0.5);
+      frond.position.set(p * 1.8, 3.1, 0);
+      frond.rotation.y = f * (Math.PI * 2 / 5);
+      frond.rotation.z = -0.5 + Math.cos(f * (Math.PI * 2 / 5)) * 0.3;
+      hptGroup.add(frond);
+    }
+  }
+  // Hammock cloth
+  const hptHmkMat = new THREE.MeshLambertMaterial({color: 0xff8a3a, side: THREE.DoubleSide});
+  const hptCloth = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.9), hptHmkMat);
+  hptCloth.rotation.x = -Math.PI / 2;
+  hptCloth.position.y = 1.0;
+  hptGroup.add(hptCloth);
+  // Hammock ropes
+  const hptRopeMat = new THREE.MeshLambertMaterial({color: 0xc8b888});
+  for (let s = -1; s <= 1; s += 2) {
+    const rope = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.0, 4), hptRopeMat);
+    rope.position.set(s * 1.5, 1.5, 0);
+    rope.rotation.z = -s * 0.5;
+    hptGroup.add(rope);
+  }
+  // Lounger figure on hammock
+  const hptLgrShirt = new THREE.MeshLambertMaterial({color: 0x3a7aa8});
+  const hptLgrSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const hptLgr = new THREE.Group();
+  const hptLgrTorso = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.25, 0.4), hptLgrShirt);
+  hptLgrTorso.position.y = 1.1;
+  hptLgr.add(hptLgrTorso);
+  const hptLgrHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), hptLgrSkin);
+  hptLgrHead.position.set(0.6, 1.2, 0);
+  hptLgr.add(hptLgrHead);
+  hptGroup.add(hptLgr);
+  group.add(hptGroup);
+
+  // --- Beach scavenger hunt (bsh) — three kids with bags hunting shells ---
+  const bshGroup = new THREE.Group();
+  bshGroup.position.set(-12, 0, 38);
+  const bshKidShirts = [
+    new THREE.MeshLambertMaterial({color: 0xff5a8a}),
+    new THREE.MeshLambertMaterial({color: 0x5aff8a}),
+    new THREE.MeshLambertMaterial({color: 0x5a8aff})
+  ];
+  const bshSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const bshKids = [];
+  for (let k = 0; k < 3; k++) {
+    const kid = new THREE.Group();
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.5, 0.22), bshKidShirts[k]);
+    torso.position.y = 0.65;
+    kid.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), bshSkin);
+    head.position.y = 1.05;
+    kid.add(head);
+    // Bag
+    const bag = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.25, 0.15), new THREE.MeshLambertMaterial({color: 0xc8a060}));
+    bag.position.set(0.2, 0.6, 0);
+    kid.add(bag);
+    kid.position.set(-1.5 + k * 1.5, 0, Math.sin(k) * 0.5);
+    kid.rotation.y = k * 0.4;
+    bshGroup.add(kid);
+    bshKids.push(kid);
+  }
+  // Shell scatter
+  const bshShellMats = [
+    new THREE.MeshLambertMaterial({color: 0xf8d8b8}),
+    new THREE.MeshLambertMaterial({color: 0xe8a888}),
+    new THREE.MeshLambertMaterial({color: 0xfafadc})
+  ];
+  for (let s = 0; s < 12; s++) {
+    const shell = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 5), bshShellMats[s % 3]);
+    shell.scale.set(1, 0.4, 0.7);
+    shell.position.set(-2 + Math.random() * 4, 0.04, -1 + Math.random() * 2.5);
+    shell.rotation.y = s * 0.5;
+    bshGroup.add(shell);
+  }
+  // Hunt-list sign
+  const bshSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.0, 6), new THREE.MeshLambertMaterial({color: 0x8a6a4a}));
+  bshSignPost.position.set(2.3, 0.5, 0);
+  bshGroup.add(bshSignPost);
+  const bshSignBoard = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.04), new THREE.MeshLambertMaterial({color: 0xfafadc}));
+  bshSignBoard.position.set(2.3, 1.1, 0);
+  bshGroup.add(bshSignBoard);
+  group.add(bshGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19475,6 +19614,19 @@ export function createAnchorageLandmark(THREE, opts) {
         for (let i = 0; i < cfgFronds.length; i++) {
           cfgFronds[i].rotation.z = Math.sin(v102t * 0.7 + i * 0.4) * 0.06;
         }
+        // v103: gnome statue (static), hammock sway, kids scavenger hunt
+        const v103t = t;
+        // Hammock sways gently
+        hptCloth.rotation.z = Math.sin(v103t * 0.6) * 0.04;
+        hptLgr.position.y = Math.sin(v103t * 0.6) * 0.04;
+        hptLgr.rotation.z = Math.sin(v103t * 0.6) * 0.04;
+        // Kids bend to pick up shells
+        for (let i = 0; i < bshKids.length; i++) {
+          bshKids[i].rotation.x = Math.abs(Math.sin(v103t * 0.7 + i * 1.4)) * 0.3;
+          bshKids[i].rotation.y = i * 0.4 + Math.sin(v103t * 0.4 + i) * 0.2;
+        }
+        // Gnome plaque (static); slight bobble of beard for life
+        sgmBeard.position.y = 1.35 + Math.sin(v103t * 0.5) * 0.01;
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
