@@ -12483,6 +12483,32 @@ const cosmicSights = [
     size: 2.3,
     description: "A binary system where a compact object accretes from the decretion disk of a Be star"
   }
+  ,
+  { name: "Einstein Ring Arc", position: [114700, -81400, 22500], color: "#77e2ff", description: "A circular lensed image formed by near-perfect source-lens alignment" },
+  { name: "Strong Lensing Critical Curve", position: [114900, -81600, 22700], color: "#8fe7ff", description: "Image-plane curve where magnification formally diverges in strong lensing" },
+  { name: "Tangential Arc System", position: [115100, -81800, 22900], color: "#a7ecff", description: "Extended background galaxy images stretched tangentially around a lens" },
+  { name: "Radial Arc Interior", position: [115300, -82000, 23100], color: "#bff1ff", description: "Rare inner arc tracing the radial lensing configuration near the core" },
+  { name: "Fold Caustic Crossing", position: [115500, -82200, 23300], color: "#d7f6ff", description: "A source trajectory intersecting a fold caustic and sharply boosting magnification" },
+  { name: "Cusp Caustic Triple Image", position: [115700, -82400, 23500], color: "#effbff", description: "A three-image configuration produced as a source nears a cusp caustic" },
+  { name: "Quad Quasar Lens", position: [115900, -82600, 23700], color: "#d9f0ff", description: "A multiply imaged quasar appearing in a classic four-image lens arrangement" },
+  { name: "Time Delay Image Pair", position: [116100, -82800, 23900], color: "#c3e5ff", description: "Two lensed sightlines arriving at different times through unequal gravitational paths" },
+  { name: "Microlensing Magnification Map", position: [116300, -83000, 24100], color: "#addaff", description: "A fine-scale amplification pattern caused by compact objects within a larger lens" },
+  { name: "Microlensing Caustic Network", position: [116500, -83200, 24300], color: "#97cfff", description: "Interwoven caustic structures that produce rapid brightness variability in lensed sources" },
+  { name: "Weak Shear Field", position: [116700, -83400, 24500], color: "#81c4ff", description: "Subtle coherent distortions in galaxy shapes induced by large-scale foreground mass" },
+  { name: "Convergence Mass Map", position: [116900, -83600, 24700], color: "#6bb9ff", description: "A reconstructed projected mass distribution derived from lensing convergence" },
+  { name: "Flexion Distortion Signal", position: [117100, -83800, 24900], color: "#55aeff", description: "Higher-order image bending that reveals sharp gradients in the lens potential" },
+  { name: "Galaxy-Galaxy Lens Halo", position: [117300, -84000, 25100], color: "#3fa3ff", description: "The dark halo of one galaxy inferred through the lensed shapes of background galaxies" },
+  { name: "Cluster Lensing Mass Peak", position: [117500, -84200, 25300], color: "#2998ff", description: "A dense cluster substructure revealed by strong and weak lensing reconstruction" },
+  { name: "Dark Matter Subhalo Perturber", position: [117700, -84400, 25500], color: "#138dff", description: "A small invisible mass clump detected through anomalies in lensed images" },
+  { name: "Einstein Radius Aperture", position: [117900, -84600, 25700], color: "#2ca6ff", description: "The characteristic angular scale enclosing strong-lensing image formation" },
+  { name: "Arclet Tomography Layer", position: [118100, -84800, 25900], color: "#46b0ff", description: "A depth-sliced weak-lensing reconstruction built from numerous faint arclets" },
+  { name: "Mass Sheet Degeneracy Plane", position: [118300, -85000, 26100], color: "#60baff", description: "A lens-model ambiguity where rescaled mass sheets preserve many observables" },
+  { name: "Source Plane Reconstruction", position: [118500, -85200, 26300], color: "#7ac4ff", description: "An inferred unlensed source morphology recovered from distorted multiple images" },
+  { name: "Lens Potential Saddle Point", position: [118700, -85400, 26500], color: "#94ceff", description: "A stationary point in the arrival-time surface associated with one lensed image class" },
+  { name: "Arrival Time Surface Basin", position: [118900, -85600, 26700], color: "#aed8ff", description: "A gravitational-delay landscape whose contours determine image positions and delays" },
+  { name: "Fermat Potential Minimum", position: [119100, -85800, 26900], color: "#c8e2ff", description: "A low point in the Fermat surface corresponding to a stable lensed image" },
+  { name: "Demagnified Central Image", position: [119300, -86000, 27100], color: "#e2ecff", description: "A faint lensing image near the center of the lens, often suppressed by dense cores" },
+  { name: "Lensed Supernova Reappearance", position: [119500, -86200, 27300], color: "#f4f7ff", description: "A transient source seen again later as delayed light follows alternate lens paths" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
