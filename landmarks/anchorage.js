@@ -11293,6 +11293,299 @@ export function createAnchorageLandmark(THREE, opts) {
   chessClubGroup.add(chessThinkMark);
   group.add(chessClubGroup);
 
+  // === v70: Lighthouse keeper's cottage =================================
+  const cottageGroup = new THREE.Group();
+  cottageGroup.position.set(46, 0, -38);
+  cottageGroup.rotation.y = 0.4;
+  // foundation slab
+  const cottStoneMat = new THREE.MeshStandardMaterial({ color: 0x6e6e6e, roughness: 0.95 });
+  const cottFoundation = new THREE.Mesh(new THREE.BoxGeometry(7, 0.4, 5.4), cottStoneMat);
+  cottFoundation.position.y = 0.2;
+  cottageGroup.add(cottFoundation);
+  // walls (white clapboard)
+  const cottWallMat = new THREE.MeshStandardMaterial({ color: 0xeae5d4, roughness: 0.85 });
+  const cottWalls = new THREE.Mesh(new THREE.BoxGeometry(6.4, 3.2, 4.8), cottWallMat);
+  cottWalls.position.y = 2.0;
+  cottageGroup.add(cottWalls);
+  // gabled roof (red)
+  const cottRoofMat = new THREE.MeshStandardMaterial({ color: 0x8a3030, roughness: 0.85 });
+  // gable roof slopes
+  for (let rs = 0; rs < 2; rs++) {
+    const slope = new THREE.Mesh(new THREE.BoxGeometry(6.6, 0.18, 3.0), cottRoofMat);
+    slope.position.set(0, 4.45, rs === 0 ? -0.95 : 0.95);
+    slope.rotation.x = rs === 0 ? -0.6 : 0.6;
+    cottageGroup.add(slope);
+  }
+  // gable triangles (front + back)
+  const cottGableShape = new THREE.Shape();
+  cottGableShape.moveTo(-2.4, 0);
+  cottGableShape.lineTo(2.4, 0);
+  cottGableShape.lineTo(0, 1.6);
+  cottGableShape.lineTo(-2.4, 0);
+  const cottGableGeom = new THREE.ShapeGeometry(cottGableShape);
+  for (let g = 0; g < 2; g++) {
+    const gable = new THREE.Mesh(cottGableGeom, cottWallMat);
+    gable.position.set(0, 3.6, g === 0 ? 2.41 : -2.41);
+    if (g === 1) gable.rotation.y = Math.PI;
+    cottageGroup.add(gable);
+  }
+  // chimney with smoke
+  const cottChimneyMat = new THREE.MeshStandardMaterial({ color: 0x884a3a, roughness: 0.9 });
+  const cottChimney = new THREE.Mesh(new THREE.BoxGeometry(0.6, 1.6, 0.6), cottChimneyMat);
+  cottChimney.position.set(1.6, 4.7, 0);
+  cottageGroup.add(cottChimney);
+  const cottSmokeMat = new THREE.MeshBasicMaterial({ color: 0xdadadc, transparent: true, opacity: 0.5 });
+  const cottSmokePuffs = [];
+  for (let s = 0; s < 4; s++) {
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(0.3 + s * 0.08, 10, 8), cottSmokeMat);
+    puff.position.set(1.6 + s * 0.04, 5.7 + s * 0.55, s * 0.05);
+    cottageGroup.add(puff);
+    cottSmokePuffs.push(puff);
+  }
+  // door
+  const cottDoorMat = new THREE.MeshStandardMaterial({ color: 0x335577, roughness: 0.85 });
+  const cottDoor = new THREE.Mesh(new THREE.BoxGeometry(1, 1.8, 0.08), cottDoorMat);
+  cottDoor.position.set(0, 1.3, 2.42);
+  cottageGroup.add(cottDoor);
+  const cottKnob = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 8),
+    new THREE.MeshStandardMaterial({ color: 0xffd060, roughness: 0.4, metalness: 0.6 }));
+  cottKnob.position.set(0.36, 1.25, 2.47);
+  cottageGroup.add(cottKnob);
+  // windows with shutters
+  const cottWindowMat = new THREE.MeshStandardMaterial({ color: 0x88c2dd, roughness: 0.4, emissive: 0x444466, emissiveIntensity: 0.3 });
+  const cottShutterMat = new THREE.MeshStandardMaterial({ color: 0x335577, roughness: 0.85 });
+  for (const wxs of [-1.7, 1.7]) {
+    const cottWin = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.9, 0.06), cottWindowMat);
+    cottWin.position.set(wxs, 2.2, 2.42);
+    cottageGroup.add(cottWin);
+    for (const sxs of [-0.6, 0.6]) {
+      const shutter = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.95, 0.04), cottShutterMat);
+      shutter.position.set(wxs + sxs, 2.2, 2.45);
+      cottageGroup.add(shutter);
+    }
+  }
+  // garden flower bed in front
+  const cottBedMat = new THREE.MeshStandardMaterial({ color: 0x4a3220, roughness: 0.9 });
+  const cottBed = new THREE.Mesh(new THREE.BoxGeometry(5, 0.15, 0.8), cottBedMat);
+  cottBed.position.set(0, 0.07, 3.4);
+  cottageGroup.add(cottBed);
+  const cottFlowerColors = [0xff6b6b, 0xffd06b, 0xff8a4a, 0xffffff, 0xea6bff];
+  for (let f = 0; f < 14; f++) {
+    const flowerColor = cottFlowerColors[f % cottFlowerColors.length];
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.4, 6),
+      new THREE.MeshStandardMaterial({ color: 0x3a8030, roughness: 0.85 }));
+    stem.position.set(-2.3 + f * 0.34, 0.32, 3.4);
+    cottageGroup.add(stem);
+    const bloom = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 8),
+      new THREE.MeshStandardMaterial({ color: flowerColor, roughness: 0.7 }));
+    bloom.position.set(-2.3 + f * 0.34, 0.55, 3.4);
+    cottageGroup.add(bloom);
+  }
+  // welcome mat
+  const cottMat = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.04, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0x884030, roughness: 0.95 }));
+  cottMat.position.set(0, 0.42, 2.92);
+  cottageGroup.add(cottMat);
+  // window box of flowers under each window
+  for (const bxs of [-1.7, 1.7]) {
+    const wbox = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.18, 0.25),
+      new THREE.MeshStandardMaterial({ color: 0x884030, roughness: 0.85 }));
+    wbox.position.set(bxs, 1.55, 2.55);
+    cottageGroup.add(wbox);
+    for (let bf = 0; bf < 3; bf++) {
+      const wbloom = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8),
+        new THREE.MeshStandardMaterial({ color: cottFlowerColors[(bf + 1) % cottFlowerColors.length], roughness: 0.7 }));
+      wbloom.position.set(bxs - 0.3 + bf * 0.3, 1.72, 2.6);
+      cottageGroup.add(wbloom);
+    }
+  }
+  group.add(cottageGroup);
+
+  // === v70: Pelican preening on piling ==================================
+  const preenGroup = new THREE.Group();
+  preenGroup.position.set(20, 0, -28);
+  // piling
+  const preenPilingMat = new THREE.MeshStandardMaterial({ color: 0x5a3e22, roughness: 0.95 });
+  const preenPiling = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.36, 4, 10), preenPilingMat);
+  preenPiling.position.y = 2;
+  preenGroup.add(preenPiling);
+  // piling top cap (worn)
+  const preenCap = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.08, 10),
+    new THREE.MeshStandardMaterial({ color: 0x3e2812, roughness: 0.95 }));
+  preenCap.position.y = 4.04;
+  preenGroup.add(preenCap);
+  // pelican body
+  const preenBodyMat = new THREE.MeshStandardMaterial({ color: 0xe8e4d0, roughness: 0.7 });
+  const preenWingMat = new THREE.MeshStandardMaterial({ color: 0xc8c0a8, roughness: 0.75 });
+  const preenBody = new THREE.Mesh(new THREE.SphereGeometry(0.55, 14, 12), preenBodyMat);
+  preenBody.scale.set(1.0, 0.85, 1.5);
+  preenBody.position.y = 4.5;
+  preenGroup.add(preenBody);
+  // tucked wing on near side
+  const preenWing = new THREE.Mesh(new THREE.SphereGeometry(0.5, 12, 10), preenWingMat);
+  preenWing.scale.set(0.4, 0.6, 1.2);
+  preenWing.position.set(0.45, 4.5, 0);
+  preenGroup.add(preenWing);
+  // pelican neck (curved down to body for preening)
+  const preenNeckGroup = new THREE.Group();
+  preenNeckGroup.position.set(-0.55, 4.6, 0.4);
+  const preenNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.7, 8), preenBodyMat);
+  preenNeck.rotation.z = 0.9;
+  preenNeck.position.set(0, -0.1, 0);
+  preenNeckGroup.add(preenNeck);
+  preenGroup.add(preenNeckGroup);
+  // head tucked into wing/back
+  const preenHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), preenBodyMat);
+  preenHead.position.set(0.0, 4.4, 0.3);
+  preenGroup.add(preenHead);
+  // long bill (yellow/orange)
+  const preenBillMat = new THREE.MeshStandardMaterial({ color: 0xe09030, roughness: 0.6 });
+  const preenBill = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.55, 8), preenBillMat);
+  preenBill.rotation.x = -1.4;
+  preenBill.rotation.z = 0.4;
+  preenBill.position.set(0.18, 4.32, 0.55);
+  preenGroup.add(preenBill);
+  // eye
+  const preenEye = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6),
+    new THREE.MeshBasicMaterial({ color: 0x101010 }));
+  preenEye.position.set(0.05, 4.45, 0.45);
+  preenGroup.add(preenEye);
+  // tail feathers
+  const preenTail = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.5, 6), preenWingMat);
+  preenTail.rotation.x = Math.PI / 2;
+  preenTail.position.set(0, 4.5, -0.85);
+  preenGroup.add(preenTail);
+  // bird-dropping streaks on piling (subtle)
+  for (let pd = 0; pd < 3; pd++) {
+    const streak = new THREE.Mesh(new THREE.PlaneGeometry(0.06, 0.8 + pd * 0.3),
+      new THREE.MeshBasicMaterial({ color: 0xe0e0e0, transparent: true, opacity: 0.55 }));
+    streak.position.set(0.31 - pd * 0.04, 2 - pd * 0.2, 0.3 - pd * 0.2);
+    streak.rotation.y = pd * 0.6;
+    preenGroup.add(streak);
+  }
+  group.add(preenGroup);
+
+  // === v70: Touch tank with kids peering in =============================
+  const touchGroup = new THREE.Group();
+  touchGroup.position.set(-20, 0, -8);
+  touchGroup.rotation.y = -0.3;
+  // tank base (cement-like)
+  const touchBaseMat = new THREE.MeshStandardMaterial({ color: 0x9a8e74, roughness: 0.95 });
+  const touchBase = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.2, 2.6), touchBaseMat);
+  touchBase.position.y = 0.6;
+  touchGroup.add(touchBase);
+  // tank inner depression - water surface
+  const touchWaterMat = new THREE.MeshStandardMaterial({
+    color: 0x2a8da8, transparent: true, opacity: 0.75, roughness: 0.2, metalness: 0.3
+  });
+  const touchWater = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.04, 2.2), touchWaterMat);
+  touchWater.position.y = 1.18;
+  touchGroup.add(touchWater);
+  // tank rim lip
+  const touchRimMat = new THREE.MeshStandardMaterial({ color: 0x6a5e44, roughness: 0.9 });
+  for (const [rx, rz, rsx, rsz] of [[0, 1.25, 4.5, 0.18], [0, -1.25, 4.5, 0.18], [2.18, 0, 0.18, 2.6], [-2.18, 0, 0.18, 2.6]]) {
+    const rim = new THREE.Mesh(new THREE.BoxGeometry(rsx, 0.18, rsz), touchRimMat);
+    rim.position.set(rx, 1.25, rz);
+    touchGroup.add(rim);
+  }
+  // sand bottom + decorations (visible through water)
+  const touchSand = new THREE.Mesh(new THREE.BoxGeometry(4, 0.05, 2.2),
+    new THREE.MeshStandardMaterial({ color: 0xe8d8a0, roughness: 0.95 }));
+  touchSand.position.y = 1.04;
+  touchGroup.add(touchSand);
+  // sea creatures: starfish, sea cucumber, hermit crab, urchin
+  const touchStarMat = new THREE.MeshStandardMaterial({ color: 0xea8a40, roughness: 0.8 });
+  for (let st = 0; st < 2; st++) {
+    const star = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.05, 5), touchStarMat);
+    star.position.set(-1.2 + st * 2.2, 1.08, -0.4 + st * 0.6);
+    touchGroup.add(star);
+  }
+  const touchUrchin = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10),
+    new THREE.MeshStandardMaterial({ color: 0x6a2078, roughness: 0.85 }));
+  touchUrchin.position.set(0.4, 1.13, 0.3);
+  touchGroup.add(touchUrchin);
+  // urchin spines
+  for (let us = 0; us < 16; us++) {
+    const spine = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.02, 0.18, 4),
+      new THREE.MeshStandardMaterial({ color: 0x301038, roughness: 0.9 }));
+    const ang = (us / 16) * Math.PI * 2;
+    spine.position.set(0.4 + Math.cos(ang) * 0.18, 1.13 + Math.sin(ang) * 0.05, 0.3 + Math.sin(ang) * 0.18);
+    spine.rotation.z = ang;
+    touchGroup.add(spine);
+  }
+  // hermit crab shell
+  const touchCrabShell = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshStandardMaterial({ color: 0xc89060, roughness: 0.85 }));
+  touchCrabShell.position.set(-0.6, 1.11, 0.5);
+  touchGroup.add(touchCrabShell);
+  // sea cucumber
+  const touchCuke = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.5, 8),
+    new THREE.MeshStandardMaterial({ color: 0x6a4030, roughness: 0.95 }));
+  touchCuke.rotation.z = Math.PI / 2;
+  touchCuke.position.set(1.1, 1.09, 0.6);
+  touchGroup.add(touchCuke);
+  // water ripples (animated)
+  const touchRippleMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.3 });
+  const touchRipples = [];
+  for (let r = 0; r < 3; r++) {
+    const ripple = new THREE.Mesh(new THREE.RingGeometry(0.05, 0.15, 16), touchRippleMat);
+    ripple.rotation.x = -Math.PI / 2;
+    ripple.position.set(-1 + r * 0.9, 1.21, 0);
+    touchGroup.add(ripple);
+    touchRipples.push(ripple);
+  }
+  // Two kids peering in - kid A on near side, kid B on far side
+  const touchKidColors = [0xffaa44, 0x44aaff];
+  const touchKids = [];
+  for (let k = 0; k < 2; k++) {
+    const kx = k === 0 ? -0.6 : 0.8;
+    const kz = k === 0 ? 1.7 : -1.7;
+    const facing = k === 0 ? -1 : 1;
+    const kidShirtMat = new THREE.MeshStandardMaterial({ color: touchKidColors[k], roughness: 0.85 });
+    const kidPantMat = new THREE.MeshStandardMaterial({ color: 0x3b4d6a, roughness: 0.85 });
+    const kidSkinMat = new THREE.MeshStandardMaterial({ color: 0xe8c0a0, roughness: 0.7 });
+    const kidHairMat = new THREE.MeshStandardMaterial({ color: k === 0 ? 0x4a2d18 : 0xc89048, roughness: 0.85 });
+    // legs
+    for (const lx2 of [-0.1, 0.1]) {
+      const kleg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.6, 8), kidPantMat);
+      kleg.position.set(kx + lx2, 0.3, kz);
+      touchGroup.add(kleg);
+    }
+    // torso (leaning forward over tank)
+    const ktorso = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.6, 10), kidShirtMat);
+    ktorso.rotation.x = facing * 0.5;
+    ktorso.position.set(kx, 0.85, kz - facing * 0.15);
+    touchGroup.add(ktorso);
+    // head (looking down into tank)
+    const khead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), kidSkinMat);
+    khead.position.set(kx, 1.18, kz - facing * 0.45);
+    touchGroup.add(khead);
+    const khair = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10, 0, Math.PI * 2, 0, Math.PI / 2), kidHairMat);
+    khair.position.set(kx, 1.22, kz - facing * 0.47);
+    khair.rotation.x = facing * 0.4;
+    touchGroup.add(khair);
+    // arm reaching into tank
+    const karm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.7, 8), kidShirtMat);
+    karm.rotation.x = facing * 1.2;
+    karm.position.set(kx + 0.05, 1.05, kz - facing * 0.55);
+    touchGroup.add(karm);
+    // hand reaching for water
+    const khand = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8), kidSkinMat);
+    khand.position.set(kx + 0.05, 1.25, kz - facing * 0.95);
+    touchGroup.add(khand);
+    touchKids.push({ head: khead, hair: khair });
+  }
+  // sign on tank
+  const touchSignMat = new THREE.MeshStandardMaterial({ color: 0xfff8e0, roughness: 0.85 });
+  const touchSign = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.5, 0.04), touchSignMat);
+  touchSign.position.set(0, 1.6, -1.32);
+  touchGroup.add(touchSign);
+  const touchSignPostMat = new THREE.MeshStandardMaterial({ color: 0x4a3220, roughness: 0.9 });
+  const touchSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.0, 6), touchSignPostMat);
+  touchSignPost.position.set(0, 0.85, -1.34);
+  touchGroup.add(touchSignPost);
+  group.add(touchGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -13189,6 +13482,26 @@ export function createAnchorageLandmark(THREE, opts) {
       benchHeart.position.y = 2.2 + Math.sin(t * 1.5) * 0.05;
       // v69: chess thinking icon bobs
       chessThinkMark.position.y = 2.4 + Math.sin(t * 2) * 0.08;
+      // v70: cottage chimney smoke drifts upward
+      for (let sp = 0; sp < cottSmokePuffs.length; sp++) {
+        const puff = cottSmokePuffs[sp];
+        puff.position.y = 5.7 + sp * 0.55 + ((t * 0.4 + sp * 0.3) % 1) * 0.4;
+        puff.position.x = 1.6 + Math.sin(t * 0.5 + sp) * 0.15;
+        puff.material.opacity = 0.5 - sp * 0.08 - ((t * 0.4 + sp * 0.3) % 1) * 0.3;
+      }
+      // v70: pelican preening - head bobs into wing
+      preenHead.position.y = 4.4 + Math.sin(t * 1.8) * 0.1;
+      preenBill.rotation.x = -1.4 + Math.sin(t * 1.8) * 0.3;
+      // v70: touch tank ripples expand
+      for (let tr = 0; tr < touchRipples.length; tr++) {
+        const ripple = touchRipples[tr];
+        const phase = (t * 0.8 + tr * 0.7) % 1.5;
+        ripple.scale.set(1 + phase * 1.5, 1 + phase * 1.5, 1);
+        ripple.material.opacity = Math.max(0, 0.35 - phase * 0.25);
+      }
+      // v70: kid heads tilt slightly as they peer
+      touchKids[0].head.rotation.x = 0.4 + Math.sin(t * 0.6) * 0.08;
+      touchKids[1].head.rotation.x = -0.4 + Math.sin(t * 0.7 + 1) * 0.08;
 
     }
 
