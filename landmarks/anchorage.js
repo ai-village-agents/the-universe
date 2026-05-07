@@ -10574,6 +10574,254 @@ export function createAnchorageLandmark(THREE, opts) {
   let scubaCycle = 0;
 
 
+
+  // === v67 SCENE 1: Skim-boarder splash on wet sand ===
+  const skimGroup = new THREE.Group();
+  // Wet sand sheen (thin reflective plane)
+  const skimSheenMat = new THREE.MeshBasicMaterial({ color: 0xbae6fd, transparent: true, opacity: 0.4 });
+  const skimSheen = new THREE.Mesh(new THREE.PlaneGeometry(8, 4), skimSheenMat);
+  skimSheen.rotation.x = -Math.PI / 2;
+  skimSheen.position.y = 0.05;
+  skimGroup.add(skimSheen);
+  // Skimboard
+  const skimBoardMat = new THREE.MeshLambertMaterial({ color: 0xfde68a });
+  const skimBoard = new THREE.Mesh(new THREE.CapsuleGeometry(0.35, 0.6, 4, 8), skimBoardMat);
+  skimBoard.rotation.x = Math.PI / 2;
+  skimBoard.scale.set(1, 0.15, 1);
+  skimBoard.position.y = 0.08;
+  skimGroup.add(skimBoard);
+  // Rider
+  const skimRider = new THREE.Group();
+  const skimRiderBody = new THREE.Mesh(
+    new THREE.BoxGeometry(0.35, 0.7, 0.25),
+    new THREE.MeshLambertMaterial({ color: 0x16a34a })
+  );
+  skimRiderBody.position.y = 0.55;
+  skimRiderBody.rotation.z = -0.3;
+  skimRider.add(skimRiderBody);
+  const skimRiderHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  skimRiderHead.position.set(-0.15, 1.0, 0);
+  skimRider.add(skimRiderHead);
+  // Arms outstretched for balance
+  const skimArmGeom = new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6);
+  const skimArmMat = new THREE.MeshLambertMaterial({ color: 0xfbcfa0 });
+  const skimArmL = new THREE.Mesh(skimArmGeom, skimArmMat);
+  skimArmL.position.set(-0.4, 0.7, -0.2);
+  skimArmL.rotation.z = 1.2;
+  skimRider.add(skimArmL);
+  const skimArmR = new THREE.Mesh(skimArmGeom, skimArmMat);
+  skimArmR.position.set(0.2, 0.8, 0.3);
+  skimArmR.rotation.z = -0.8;
+  skimRider.add(skimArmR);
+  skimGroup.add(skimRider);
+  // Spray sprites
+  const skimSprayMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const skimSprays = [];
+  for (let i = 0; i < 8; i++) {
+    const sk = new THREE.Mesh(
+      new THREE.ConeGeometry(0.08, 0.3, 4),
+      skimSprayMat
+    );
+    sk.position.set(-0.5 - i * 0.15, 0.15, (i % 2 === 0 ? 0.2 : -0.2) + (i * 0.05));
+    sk.rotation.z = Math.PI / 2;
+    skimGroup.add(sk);
+    skimSprays.push(sk);
+  }
+  skimGroup.position.set(-25, 0.05, 28);
+  skimGroup.rotation.y = -0.6;
+  group.add(skimGroup);
+
+  // === v67 SCENE 2: Crab boat with stacked traps ===
+  const crabBoatGroup = new THREE.Group();
+  const cbHullMat = new THREE.MeshLambertMaterial({ color: 0x991b1b });
+  const cbHull = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.7, 1.4), cbHullMat);
+  cbHull.position.y = 0.35;
+  crabBoatGroup.add(cbHull);
+  const cbBow = new THREE.Mesh(
+    new THREE.ConeGeometry(0.7, 1.2, 4),
+    cbHullMat
+  );
+  cbBow.rotation.z = -Math.PI / 2;
+  cbBow.rotation.y = Math.PI / 4;
+  cbBow.position.set(2.2, 0.35, 0);
+  crabBoatGroup.add(cbBow);
+  const cbCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(1.0, 1.0, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0xfafaf9 })
+  );
+  cbCabin.position.set(0.6, 1.2, 0);
+  crabBoatGroup.add(cbCabin);
+  const cbCabinRoof = new THREE.Mesh(
+    new THREE.BoxGeometry(1.1, 0.1, 1.3),
+    new THREE.MeshLambertMaterial({ color: 0x991b1b })
+  );
+  cbCabinRoof.position.set(0.6, 1.75, 0);
+  crabBoatGroup.add(cbCabinRoof);
+  // Mast w/ small derrick boom
+  const cbMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 2.5, 6),
+    new THREE.MeshLambertMaterial({ color: 0xa16207 })
+  );
+  cbMast.position.set(1.0, 2.5, 0);
+  crabBoatGroup.add(cbMast);
+  const cbBoom = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 1.5, 6),
+    new THREE.MeshLambertMaterial({ color: 0xa16207 })
+  );
+  cbBoom.position.set(0.4, 3.4, 0);
+  cbBoom.rotation.z = -0.4;
+  crabBoatGroup.add(cbBoom);
+  // Stack of crab traps on stern
+  const cbTrapMat = new THREE.MeshLambertMaterial({ color: 0x57534e, wireframe: true });
+  const cbTrapPos = [
+    [-1.0, 0.95, -0.4], [-0.4, 0.95, -0.4], [-1.0, 0.95, 0.4],
+    [-1.0, 1.55, 0], [-0.4, 1.55, -0.4], [-1.0, 2.15, -0.4]
+  ];
+  const cbTraps = [];
+  cbTrapPos.forEach(p => {
+    const trap = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.5, 0.55), cbTrapMat);
+    trap.position.set(p[0], p[1], p[2]);
+    crabBoatGroup.add(trap);
+    cbTraps.push(trap);
+  });
+  // Fisherman at the rail
+  const cbFisher = new THREE.Group();
+  const cbFisherBody = new THREE.Mesh(
+    new THREE.BoxGeometry(0.35, 0.85, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0xfde047 })
+  );
+  cbFisherBody.position.y = 0.45;
+  cbFisher.add(cbFisherBody);
+  const cbFisherHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  cbFisherHead.position.y = 1.05;
+  cbFisher.add(cbFisherHead);
+  cbFisher.position.set(0.2, 0.7, 0.5);
+  crabBoatGroup.add(cbFisher);
+  // Wake
+  const cbWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const cbWake = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 0.7), cbWakeMat);
+  cbWake.rotation.x = -Math.PI / 2;
+  cbWake.position.set(3.4, 0.04, 0);
+  crabBoatGroup.add(cbWake);
+  crabBoatGroup.position.set(-50, 0.05, -38);
+  crabBoatGroup.rotation.y = 0.4;
+  group.add(crabBoatGroup);
+
+  // === v67 SCENE 3: Mini-golf hole with lighthouse ===
+  const miniGolfGroup = new THREE.Group();
+  // Green astroturf base
+  const mgGreenMat = new THREE.MeshLambertMaterial({ color: 0x16a34a });
+  const mgGreen = new THREE.Mesh(new THREE.BoxGeometry(5, 0.05, 3), mgGreenMat);
+  mgGreen.position.y = 0.025;
+  miniGolfGroup.add(mgGreen);
+  // White edging
+  const mgEdgeMat = new THREE.MeshLambertMaterial({ color: 0xfafafa });
+  const mgEdgeN = new THREE.Mesh(new THREE.BoxGeometry(5, 0.1, 0.1), mgEdgeMat);
+  mgEdgeN.position.set(0, 0.08, -1.5);
+  miniGolfGroup.add(mgEdgeN);
+  const mgEdgeS = new THREE.Mesh(new THREE.BoxGeometry(5, 0.1, 0.1), mgEdgeMat);
+  mgEdgeS.position.set(0, 0.08, 1.5);
+  miniGolfGroup.add(mgEdgeS);
+  const mgEdgeE = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 3), mgEdgeMat);
+  mgEdgeE.position.set(2.5, 0.08, 0);
+  miniGolfGroup.add(mgEdgeE);
+  const mgEdgeW = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 3), mgEdgeMat);
+  mgEdgeW.position.set(-2.5, 0.08, 0);
+  miniGolfGroup.add(mgEdgeW);
+  // Mini lighthouse obstacle
+  const mgLightHouse = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.3, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  mgLightHouse.position.set(0, 0.65, 0);
+  miniGolfGroup.add(mgLightHouse);
+  // red stripes
+  const mgStripeMat = new THREE.MeshLambertMaterial({ color: 0xdc2626 });
+  for (let i = 0; i < 3; i++) {
+    const mgStripe = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.27, 0.28, 0.18, 8),
+      mgStripeMat
+    );
+    mgStripe.position.set(0, 0.25 + i * 0.4, 0);
+    miniGolfGroup.add(mgStripe);
+  }
+  // Lighthouse top dome
+  const mgDome = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xdc2626 })
+  );
+  mgDome.position.set(0, 1.4, 0);
+  miniGolfGroup.add(mgDome);
+  // Lighthouse beacon (rotates)
+  const mgBeacon = new THREE.Mesh(
+    new THREE.BoxGeometry(0.15, 0.08, 0.4),
+    new THREE.MeshBasicMaterial({ color: 0xfde047 })
+  );
+  mgBeacon.position.set(0, 1.25, 0);
+  miniGolfGroup.add(mgBeacon);
+  // Hole (small dark cylinder at far end)
+  const mgHole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.05, 12),
+    new THREE.MeshLambertMaterial({ color: 0x0a0a0a })
+  );
+  mgHole.position.set(2.0, 0.06, 0);
+  miniGolfGroup.add(mgHole);
+  // Flag at hole
+  const mgFlagPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.2, 6),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  mgFlagPole.position.set(2.0, 0.65, 0);
+  miniGolfGroup.add(mgFlagPole);
+  const mgFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.4, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0xef4444, side: THREE.DoubleSide })
+  );
+  mgFlag.position.set(2.2, 1.1, 0);
+  miniGolfGroup.add(mgFlag);
+  // Golf ball at start
+  const mgBall = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  mgBall.position.set(-2.0, 0.13, 0);
+  miniGolfGroup.add(mgBall);
+  // Golfer
+  const mgGolfer = new THREE.Group();
+  const mgGolferBody = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.9, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0x1d4ed8 })
+  );
+  mgGolferBody.position.y = 0.45;
+  mgGolfer.add(mgGolferBody);
+  const mgGolferHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  mgGolferHead.position.y = 1.05;
+  mgGolfer.add(mgGolferHead);
+  // Golf club
+  const mgClub = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.0, 6),
+    new THREE.MeshLambertMaterial({ color: 0x44403c })
+  );
+  mgClub.position.set(0.3, 0.5, 0.3);
+  mgClub.rotation.z = 0.6;
+  mgGolfer.add(mgClub);
+  mgGolfer.position.set(-2.6, 0, 0.3);
+  mgGolfer.rotation.y = -0.3;
+  miniGolfGroup.add(mgGolfer);
+  miniGolfGroup.position.set(35, 0.05, 18);
+  miniGolfGroup.rotation.y = 0.2;
+  group.add(miniGolfGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -12391,6 +12639,31 @@ export function createAnchorageLandmark(THREE, opts) {
           s.position.z = 1.0 + Math.sin(ang) * r;
           s.material.opacity = 0.7 * (1 - sp);
         });
+      }
+      // v67: Skim spray motion + rider sway
+      skimSprays.forEach((s, i) => {
+        const phase = (t * 1.5 + i * 0.15) % 1.0;
+        s.material.opacity = 0.6 * (1 - phase);
+        s.position.y = 0.15 + phase * 0.3;
+      });
+      skimRider.rotation.y = Math.sin(t * 1.2) * 0.2;
+      skimSheen.material.opacity = 0.35 + 0.1 * Math.sin(t * 3);
+      // v67: Crab boat sways gently with sea
+      crabBoatGroup.rotation.z = Math.sin(t * 0.7) * 0.04;
+      crabBoatGroup.position.y = 0.05 + Math.sin(t * 0.7) * 0.08;
+      cbWake.material.opacity = 0.4 + 0.15 * Math.sin(t * 5);
+      // v67: Mini-golf beacon rotates, flag flutters, ball rolls toward hole
+      mgBeacon.rotation.y = t * 2;
+      mgFlag.rotation.y = Math.sin(t * 2) * 0.4;
+      const mgBallCycle = (t * 0.25) % 1.5;
+      if (mgBallCycle < 1.0) {
+        // ball rolls from start to hole
+        mgBall.position.x = -2.0 + mgBallCycle * 4.0;
+        mgBall.position.y = 0.13;
+        mgBall.visible = true;
+      } else {
+        // ball stays in hole briefly, then resets (in next cycle)
+        mgBall.visible = false;
       }
     }
 
