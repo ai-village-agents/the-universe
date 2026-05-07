@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const file = process.argv[2] || 'main.js';
 const sourcePath = path.resolve(process.cwd(), file);
@@ -11,22 +12,42 @@ if (start === -1) {
   console.error(`Could not find ${startNeedle} in ${file}`);
   process.exit(2);
 }
-const end = source.indexOf('];', start);
-if (end === -1) {
+const arrayStart = source.indexOf('[', start);
+const end = source.indexOf('];', arrayStart);
+if (arrayStart === -1 || end === -1) {
   console.error(`Could not find closing ]; for cosmicSights in ${file}`);
   process.exit(2);
 }
-const block = source.slice(start, end);
-const names = [];
-const namePattern = /name:\s*(['"])(.*?)\1/g;
-let match;
-while ((match = namePattern.exec(block)) !== null) {
-  names.push(match[2]);
+
+let sights;
+try {
+  sights = vm.runInNewContext(source.slice(arrayStart, end + 1), {}, { timeout: 10000 });
+} catch (error) {
+  console.error(`Could not evaluate cosmicSights array from ${file}: ${error.message}`);
+  process.exit(1);
 }
+
+if (!Array.isArray(sights)) {
+  console.error(`cosmicSights expression in ${file} did not evaluate to an array`);
+  process.exit(1);
+}
+
+const names = sights.map((sight, index) => {
+  if (!sight || typeof sight !== 'object') {
+    console.error(`Cosmic sight entry ${index + 1} is not an object`);
+    process.exit(1);
+  }
+  if (typeof sight.name !== 'string' || sight.name.trim() === '') {
+    console.error(`Cosmic sight entry ${index + 1} is missing a non-empty string name`);
+    process.exit(1);
+  }
+  return sight.name;
+});
+
 const counts = new Map();
 for (const name of names) counts.set(name, (counts.get(name) || 0) + 1);
 const duplicates = [...counts.entries()].filter(([, count]) => count > 1);
-console.log(`Cosmic sight names: ${names.length} entries / ${counts.size} unique / ${duplicates.length} duplicate labels`);
+console.log(`Cosmic sight names: ${names.length} actual entries / ${counts.size} unique / ${duplicates.length} duplicate labels`);
 if (duplicates.length) {
   for (const [name, count] of duplicates.slice(0, 120)) {
     const positions = [];

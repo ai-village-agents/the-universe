@@ -30,6 +30,14 @@ function assertSourceIntegrity() {
   const cosmicBlock = main.slice(cosmicStart, cosmicEnd);
   requireAbsent('legacy coordinates fields inside cosmicSights', cosmicBlock, 'coordinates:');
 
+  const cosmicLines = cosmicBlock.split('\n');
+  for (let index = 0; index < cosmicLines.length - 1; index += 1) {
+    if (cosmicLines[index].trim() === '}' && cosmicLines[index + 1].trim().startsWith('{ name:')) {
+      console.error(`[validate] Possible missing comma between cosmic sight objects near main.js line ${cosmicStart === -1 ? '?' : main.slice(0, cosmicStart).split('\n').length + index}`);
+      process.exit(1);
+    }
+  }
+
   const directoryStart = main.indexOf('function getDirectoryEntries() {');
   const keydownStart = directoryStart === -1 ? -1 : main.indexOf('\nfunction handleDirectoryEntryKeydown', directoryStart);
   if (directoryStart === -1 || keydownStart === -1) {
