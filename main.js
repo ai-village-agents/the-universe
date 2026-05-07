@@ -13002,7 +13002,182 @@ const cosmicSights = [
 { "name": "Cosmic Censorship Violation", "description": "Naked singularity candidate visible without event horizon shielding contrary to theoretical expectations", "beacon": "Bare Singularity", "position": [9970, 1205, 955] },
 { "name": "Anthropic Selection Window", "description": "Parameter space where physical constants permit complex chemistry and observer existence", "beacon": "Life Window", "position": [9980, 1210, 960] },
 { "name": "Ultimate Fate Indicator", "description": "Cosmological measurement constraining universe's destiny between expansion, contraction, or heat death", "beacon": "Final Destiny", "position": [9990, 1215, 965] },
-{ "name": "Omega Point Convergence", "description": "Far future state where information processing capacity approaches infinity at universe's end", "beacon": "Final Thought", "position": [10000, 1220, 970] }
+{ "name": "Omega Point Convergence", "description": "Far future state where information processing capacity approaches infinity at universe's end", "beacon": "Final Thought", "position": [10000, 1220, 970] },
+  {
+    name: "Stellar Stream Orphan Tail",
+    description: "A thin ribbon of stars stripped from a long-destroyed dwarf galaxy, now arcing through the Milky Way halo as a ghostly tracer of ancient accretion.",
+    position: [4399, 4251, 4246],
+    color: 0xd4a574,
+    size: 2.6
+  },
+  {
+    name: "Blue Straggler Collision Product",
+    description: "A massive rejuvenated star formed by the merger of two smaller stars in a dense cluster, appearing younger and hotter than its neighbors.",
+    position: [4569, 4232, 4475],
+    color: 0x6688ff,
+    size: 2.3
+  },
+  {
+    name: "Galactic Thick Disk Fossil",
+    description: "An ancient population of metal-poor stars orbiting in a puffed-up disk, preserving the chemical signature of the Milky Way earliest formation epoch.",
+    position: [4225, 4003, 4189],
+    color: 0xffaa66,
+    size: 3.1
+  },
+  {
+    name: "Ultra-Faint Dwarf Galaxy Shard",
+    description: "A tiny dark-matter-dominated satellite galaxy with only hundreds of stars, representing the smallest building blocks of galaxy assembly.",
+    position: [4415, 4421, 4103],
+    color: 0x88ffaa,
+    size: 2.1
+  },
+  {
+    name: "Globular Cluster Escapee",
+    description: "A high-velocity star ejected from a globular cluster by dynamical interactions, now wandering alone through the galactic halo.",
+    position: [4566, 4534, 4455],
+    color: 0xff6644,
+    size: 2.9
+  },
+  {
+    name: "Sagittarius Stream Crossover",
+    description: "The intersection point of multiple wraps of the Sagittarius dwarf galaxy tidal stream, mapping repeated orbital passages through the Milky Way.",
+    position: [4432, 4395, 4199],
+    color: 0x44ddff,
+    size: 2.7
+  },
+  {
+    name: "Galactic Bar Resonance Zone",
+    description: "A region in the Milky Way disk where orbital periods are in resonance with the rotating central bar, driving spiral structure and stellar migration.",
+    position: [4431, 4493, 4319],
+    color: 0xffaa77,
+    size: 2.4
+  },
+  {
+    name: "Merger Remnant Shell",
+    description: "A faint spherical shell of stars thrown outward during a past galactic merger, now slowly expanding through the halo as a fossil of violence.",
+    position: [4328, 4316, 4248],
+    color: 0xcc88ff,
+    size: 3
+  },
+  {
+    name: "Population III Supernova Cradle",
+    description: "The metal-enriched relic site of the first generation of stars, where primordial gas collapsed into massive stars that exploded and seeded the cosmos with metals.",
+    position: [4101, 4377, 4447],
+    color: 0x88ffaa,
+    size: 1.9
+  },
+  {
+    name: "Stellar Halo Density Cusp",
+    description: "A localized overdensity in the diffuse stellar halo tracing the recent infall of a disrupted satellite galaxy.",
+    position: [4147, 4168, 4213],
+    color: 0xffdd44,
+    size: 2.5
+  },
+  {
+    name: "Ancient Halo Abundance Outlier",
+    description: "An old star in the galactic halo with an unusual abundance pattern betraying birth in a now-destroyed dwarf galaxy with distinct nucleosynthetic history.",
+    position: [4022, 4434, 4323],
+    color: 0xff2222,
+    size: 3.3
+  },
+  {
+    name: "Disk Warping Resonance",
+    description: "A vertical bending wave propagating through the galactic disk, excited by a passing satellite and revealing the disks responsive elasticity.",
+    position: [4120, 4337, 4294],
+    color: 0x44ffaa,
+    size: 2.2
+  },
+  {
+    name: "Outer Lindblad Resonance Ring",
+    description: "A star-forming ring at the outer Lindblad resonance radius where the galactic pattern speed matches stellar orbital frequencies.",
+    position: [4399, 4554, 4362],
+    color: 0x44aaff,
+    size: 2.3
+  },
+  {
+    name: "Inner Lindblad Resonance Bar",
+    description: "The leading end of a galactic bar where orbits align with the bars pattern speed, creating a dense stellar concentration.",
+    position: [4438, 4009, 4339],
+    color: 0xdd88ff,
+    size: 2.8
+  },
+  {
+    name: "Dwarf Galaxy Tidal Extension",
+    description: "A elongated plume of stars stretching from a dwarf spheroidal galaxy as it succumbs to the Milky Ways tidal forces.",
+    position: [4258, 4183, 4104],
+    color: 0xaaddff,
+    size: 2.6
+  },
+  {
+    name: "Stellar Moving Group Streamlet",
+    description: "A coherent stream of young stars born together in a molecular cloud, now dispersing but still tracing a common trajectory through space.",
+    position: [4460, 4383, 4377],
+    color: 0xff6688,
+    size: 3.2
+  },
+  {
+    name: "Galactic Fountain Ejecta Plume",
+    description: "A towering column of metal-enriched gas launched from the galactic disk by supernova feedback, now cooling and raining back as fresh star-forming material.",
+    position: [4213, 4159, 4075],
+    color: 0x88ff88,
+    size: 2
+  },
+  {
+    name: "High-Velocity Cloud Accretion",
+    description: "A massive cloud of neutral hydrogen falling onto the galactic disk from the intergalactic medium, fueling future generations of star formation.",
+    position: [4573, 4061, 4102],
+    color: 0xffaa44,
+    size: 2.4
+  },
+  {
+    name: "Magellanic Stream Debris",
+    description: "A long gaseous trail stripped from the Magellanic Clouds by tidal interaction with the Milky Way, mapping a billion years of orbital decay.",
+    position: [4520, 4456, 4024],
+    color: 0x44ddff,
+    size: 2.7
+  },
+  {
+    name: "Stellar Halo Retrograde Stream",
+    description: "A population of stars orbiting the Milky Way in the opposite direction to the disk, captured from a long-ago retrograde merger event.",
+    position: [4393, 4435, 4249],
+    color: 0xffdd88,
+    size: 2.1
+  },
+  {
+    name: "Galactic Center Old Star Cluster",
+    description: "A dense cluster of evolved red giants orbiting within parsecs of the supermassive black hole, survivors of extreme dynamical environments.",
+    position: [4132, 4313, 4468],
+    color: 0xff8844,
+    size: 3
+  },
+  {
+    name: "Faint Young Sun Paradox Layer",
+    description: "A geological stratum recording evidence of liquid water under a much dimmer early Sun, constraining atmospheric greenhouse solutions.",
+    position: [4324, 4418, 4515],
+    color: 0x44ff88,
+    size: 2.3
+  },
+  {
+    name: "Cosmochronometer White Dwarf",
+    description: "A cooling white dwarf used as an age indicator, its fading luminosity encoding the time since its parent star formation.",
+    position: [4518, 4332, 4571],
+    color: 0x88ccff,
+    size: 2.9
+  },
+  {
+    name: "Galactic Habitable Zone Migration",
+    description: "The radial region in a galaxy where stellar densities and metallicities permit long-term planetary habitability, shifting over cosmic time.",
+    position: [4056, 4190, 4474],
+    color: 0xaaddff,
+    size: 3.4
+  },
+  {
+    name: "Stellar Population Gradient",
+    description: "A smooth change in stellar ages and metallicities across a galactic disk, recording inside-out formation and radial mixing processes.",
+    position: [4166, 4534, 4510],
+    color: 0xff44ff,
+    size: 2.5
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
