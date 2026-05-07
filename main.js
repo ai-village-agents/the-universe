@@ -13708,7 +13708,32 @@ const cosmicSights = [
     { name: "Accretion Shock Hotspot", position: [-0.38, -0.73, 0.57], color: "#A0522D", size: 1.7, description: "A localized bright region where infalling material impacts the stellar surface." },
     { name: "Magnetospheric Accretion Column", position: [0.61, 0.26, 0.75], color: "#CD853F", size: 1.8, description: "A funnel flow channeling disk material along magnetic field lines." },
     { name: "Pre-Main-Sequence Binary", position: [-0.69, 0.49, 0.53], color: "#D2691E", size: 2.1, description: "A gravitationally bound pair of young stars still contracting toward the main sequence." },
-    { name: "Birthline Crossing Star", position: [0.48, -0.56, -0.68], color: "#8B4513", size: 1.6, description: "A protostar just becoming optically visible as it emerges from its cocoon." }
+    { name: "Birthline Crossing Star", position: [0.48, -0.56, -0.68], color: "#8B4513", size: 1.6, description: "A protostar just becoming optically visible as it emerges from its cocoon." },
+    { name: "Cluster Virial Equilibrium Core", position: [0.58, -0.51, 0.64], color: "#4169E1", size: 2.3, description: "The central region where cluster galaxies move in dynamic equilibrium with the dark matter potential." },
+    { name: "Brightest Cluster Galaxy Halo", position: [-0.63, 0.49, -0.60], color: "#4682B4", size: 2.1, description: "The extended stellar envelope surrounding the dominant galaxy at a cluster center." },
+    { name: "Cluster Cooling Flow Region", position: [0.42, 0.74, 0.52], color: "#5F9EA0", size: 1.9, description: "A zone where hot intracluster gas radiates and flows toward the cluster center." },
+    { name: "AGN Feedback Bubble Complex", position: [-0.71, -0.38, 0.59], color: "#6495ED", size: 2.0, description: "Cavities in the cluster gas inflated by relativistic jets from the central active galaxy." },
+    { name: "Cluster Radio Relic Arc", position: [0.35, -0.68, -0.65], color: "#4169E1", size: 1.8, description: "An elongated radio source at a cluster periphery tracing a merger shock." },
+    { name: "Giant Radio Halo Center", position: [-0.54, 0.63, 0.55], color: "#4682B4", size: 2.2, description: "A diffuse radio-emitting region pervading a merging cluster's core." },
+    { name: "Cluster Cold Front Interface", position: [0.77, 0.28, -0.57], color: "#5F9EA0", size: 1.7, description: "A sharp density discontinuity marking sloshing gas in a disturbed cluster." },
+    { name: "Cluster Gas Stripping Wake", position: [-0.38, -0.72, -0.58], color: "#6495ED", size: 1.9, description: "A gaseous wake trailing a galaxy as cluster medium strips its interstellar gas." },
+    { name: "Cluster Fossil Group Remnant", position: [0.61, 0.55, 0.57], color: "#4169E1", size: 1.6, description: "An old relaxed system where smaller galaxies merged into one dominant elliptical." },
+    { name: "Cluster Strong Lensing Arc", position: [-0.79, 0.33, 0.51], color: "#4682B4", size: 2.0, description: "A gravitationally distorted background galaxy stretched into an arc by cluster mass." },
+    { name: "Cluster Weak Lensing Mass Map", position: [0.29, -0.81, 0.51], color: "#5F9EA0", size: 1.8, description: "A statistical measurement revealing dark matter distribution from slight galaxy distortions." },
+    { name: "Intracluster Light Bridge", position: [-0.47, 0.57, -0.68], color: "#6495ED", size: 1.5, description: "Diffuse starlight from tidally stripped stellar populations between cluster galaxies." },
+    { name: "Cluster Collision Bow Wave", position: [0.68, -0.44, 0.59], color: "#4169E1", size: 2.1, description: "A bow shock propagating through the intracluster medium during a cluster collision." },
+    { name: "Bullet Cluster Offset Region", position: [-0.32, 0.79, 0.52], color: "#4682B4", size: 1.9, description: "A zone where dark matter and gas have separated after a high-speed cluster collision." },
+    { name: "Cluster Infall Velocity Caustic", position: [0.51, 0.39, -0.77], color: "#5F9EA0", size: 1.7, description: "A boundary in velocity space marking the edge of infalling cluster members." },
+    { name: "Proto-Cluster Density Peak", position: [-0.66, -0.48, 0.57], color: "#6495ED", size: 2.0, description: "A high-redshift galaxy overdensity that will evolve into a massive cluster." },
+    { name: "Cluster Jellyfish Galaxy", position: [0.44, 0.71, 0.55], color: "#4169E1", size: 1.8, description: "A galaxy with dramatic gas tails showing extreme ram pressure stripping." },
+    { name: "Cluster Substructure Clump", position: [-0.58, 0.26, -0.77], color: "#4682B4", size: 1.6, description: "A bound group of galaxies still distinct within the larger cluster." },
+    { name: "Sunyaev-Zeldovich Signal Peak", position: [0.73, -0.53, -0.43], color: "#5F9EA0", size: 1.9, description: "A CMB spectral distortion revealing hot cluster gas through inverse Compton scattering." },
+    { name: "Cluster Mass Concentration Core", position: [-0.41, -0.63, 0.66], color: "#6495ED", size: 2.2, description: "The region of highest dark matter density at a cluster center." },
+    { name: "Cluster Tidal Bridge Filament", position: [0.36, 0.82, -0.44], color: "#4169E1", size: 1.5, description: "A stream of stars and gas connecting interacting cluster galaxies." },
+    { name: "Cluster Red Sequence Ridge", position: [-0.74, 0.47, 0.48], color: "#4682B4", size: 1.8, description: "The color-magnitude relation of passively evolving cluster elliptical galaxies." },
+    { name: "Cluster Backsplash Population", position: [0.59, -0.36, 0.73], color: "#5F9EA0", size: 1.7, description: "Galaxies that passed through the cluster core and now orbit in the outskirts." },
+    { name: "Cluster X-ray Cavitation Zone", position: [-0.52, 0.68, -0.52], color: "#6495ED", size: 2.0, description: "A depression in X-ray emission from a jet-inflated bubble in the hot gas." },
+    { name: "Cluster Dynamical Friction Track", position: [0.47, 0.54, 0.70], color: "#4169E1", size: 1.6, description: "The orbital decay path of a massive galaxy spiraling toward the cluster center." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
