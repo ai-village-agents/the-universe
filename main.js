@@ -11657,6 +11657,181 @@ const cosmicSights = [
     { name: "Double Pulsar System", position: [4744, 92300, 2614], color: "#9370DB", description: "Two-pulsar binary laboratory" },
     { name: "Neutron Star Merger Remnant", position: [4746, 92320, 2616], color: "#F0E68C", description: "Post-collision compact object" },
     { name: "Kilonova Ejecta Cloud", position: [4748, 92340, 2618], color: "#FF69B4", description: "Heavy element synthesis site" },
+id: 'c-64-f-1',
+        name: "Extreme Energy Superluminal Node",
+        description: "A compact region within an active galactic nucleus jet appearing to move faster than light due to relativistic projection.",
+        position: [45200, 19500, -33000],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-2',
+        name: "Catastrophic Magnetar Crust Quake",
+        description: "A catastrophic fracture in the ultra-dense crust of a magnetar, releasing a devastating blast of gamma rays.",
+        position: [45220, 19520, -33020],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-3',
+        name: "Macroscopic Quantum BEC Star Core",
+        description: "A theoretical stellar core where extreme pressure forces quantum particles into a single collective macroscopic quantum state.",
+        position: [45240, 19540, -33040],
+        type: 'structure'
+    },
+    {
+        id: 'c-64-f-4',
+        name: "Total Disintegration Pair Instability Remnant",
+        description: "The complete disintegration of a hypermassive star, leaving no core remnant, only a sprawling web of heavy elements.",
+        position: [45260, 19560, -33060],
+        type: 'nebula'
+    },
+    {
+        id: 'c-64-f-5',
+        name: "Transient QCD Plasma Pool",
+        description: "A transient zone where protons and neutrons dissolve into a hot soup of free quarks and gluons.",
+        position: [45280, 19580, -33080],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-6',
+        name: "Merging Black Holes GW Interference Pattern",
+        description: "A region of spacetime dynamically warping where ripples from multiple merging black holes intersect.",
+        position: [45300, 19600, -33100],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-7',
+        name: "High-Energy Pulsar Wind Nebula Bow Shock",
+        description: "A brilliant bow wave of high-energy particles driven ahead of a rapidly moving pulsar through the interstellar medium.",
+        position: [45320, 19620, -33120],
+        type: 'nebula'
+    },
+    {
+        id: 'c-64-f-8',
+        name: "Ejected Strange Quark Matter Nugget",
+        description: "A dense clump of theoretically stable matter containing strange quarks, ejected from a colliding neutron star.",
+        position: [45340, 19640, -33140],
+        type: 'artifact'
+    },
+    {
+        id: 'c-64-f-9',
+        name: "Turbulent Microquasar Accretion Wake",
+        description: "The turbulent trailing spiral of matter drawn from a companion star into a stellar-mass black hole.",
+        position: [45360, 19660, -33160],
+        type: 'structure'
+    },
+    {
+        id: 'c-64-f-10',
+        name: "Perfect Line-of-Sight Relativistic Beaming Corridor",
+        description: "The narrow cone of intensely bright radiation focused perfectly along the line of sight from an active blazar.",
+        position: [45380, 19680, -33180],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-11',
+        name: "Simultaneous Neutrino Oscillation Front",
+        description: "A boundary where the flavor state of trillions of neutrinos shifts simultaneously as they stream from a collapsed core.",
+        position: [45400, 19700, -33200],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-12',
+        name: "Closed Loop Photon Sphere Trajectory",
+        description: "The innermost stable circular orbit where photons become trapped in closed loops around a massive black hole.",
+        position: [45420, 19720, -33220],
+        type: 'structure'
+    },
+    {
+        id: 'c-64-f-13',
+        name: "Penrose Process Ergosphere Energy Extraction Zone",
+        description: "A region within the ergosphere where the Penrose process actively extracts rotational energy from a Kerr black hole.",
+        position: [45440, 19740, -33240],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-14',
+        name: "Colossal GRB Afterglow Shockwave",
+        description: "The expanding shell of high-energy particles colliding with surrounding gas days after a colossal gamma-ray burst.",
+        position: [45460, 19760, -33260],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-15',
+        name: "Deep Interior White Dwarf Crystallization Lattice",
+        description: "The deep interior of a cooling white dwarf star where carbon and oxygen have formed a massive solid crystal.",
+        position: [45480, 19780, -33280],
+        type: 'structure'
+    },
+    {
+        id: 'c-64-f-16',
+        name: "Turbulent MRI Current in Accretion Disk",
+        description: "A turbulent magnetic dynamo driving the rapid inward flow of matter in a hot accretion disk.",
+        position: [45500, 19800, -33300],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-17',
+        name: "Primordial Micro Black Hole Evaporation Front",
+        description: "The extremely faint halo of particles spontaneously emitted by a primordial micro black hole as it slowly evaporates.",
+        position: [45520, 19820, -33320],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-18',
+        name: "Spiraling Electron Synchrotron Emission Filament",
+        description: "A glowing thread of radiation produced by electrons spiraling along the intense magnetic field lines of a supernova remnant.",
+        position: [45540, 19840, -33340],
+        type: 'structure'
+    },
+    {
+        id: 'c-64-f-19',
+        name: "Superfluid to Solid Crust Neutron Star Glitch Epicenter",
+        description: "The sudden transfer of angular momentum from the superfluid interior to the solid crust of a spinning neutron star.",
+        position: [45560, 19860, -33360],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-20',
+        name: "Intensely Luminous Tidal Disruption Flare Peak",
+        description: "The intensely luminous moment when a star is ripped apart and consumed by a supermassive black hole.",
+        position: [45580, 19880, -33400],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-21',
+        name: "Vibrating Cosmic String Oscillation Node",
+        description: "A kink in a hypothetical topological defect from the early universe, releasing tremendous gravitational energy as it vibrates.",
+        position: [45600, 19900, -33420],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-22',
+        name: "Galactic Center Dark Matter Annihilation Halo",
+        description: "A dense central region of a galaxy where colliding dark matter particles produce a faint, unexplained gamma-ray glow.",
+        position: [45620, 19920, -33440],
+        type: 'nebula'
+    },
+    {
+        id: 'c-64-f-23',
+        name: "Spontaneous Symmetry Breaking False Vacuum Void",
+        description: "A pocket of false vacuum where the fundamental forces of nature briefly separate from their unified state.",
+        position: [45640, 19940, -33460],
+        type: 'anomaly'
+    },
+    {
+        id: 'c-64-f-24',
+        name: "Absolute Limit Hypernova Collapse Horizon",
+        description: "The absolute limit of observation as a massive star collapses inward to form a new black hole singularity.",
+        position: [45660, 19960, -33480],
+        type: 'event'
+    },
+    {
+        id: 'c-64-f-25',
+        name: "Kerr Singularity Ring Event Horizon Boundary",
+        description: "The point of no return for matter entering the terrifying gravitational grip of a rapidly spinning black hole.",
+        position: [45680, 19980, -33500],
+        type: 'anomaly'
+    }
+]
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
