@@ -16119,6 +16119,129 @@ export function createAnchorageLandmark(THREE, opts) {
   anchorageGroup.add(bmdGroup);
 
 
+  // --- v96: coast guard rescue swimmer training (cgrs) -----------------------
+  const cgrsGroup = new THREE.Group();
+  cgrsGroup.position.set(38, -0.05, 14);
+  // Pool / training water
+  const cgrsPool = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.06, 4.0), new THREE.MeshLambertMaterial({ color: 0x2a8acc, transparent: true, opacity: 0.85 }));
+  cgrsPool.position.set(0, 0.04, 0);
+  cgrsGroup.add(cgrsPool);
+  // Pool deck rim
+  const cgrsDeck = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.02, 4.6), new THREE.MeshLambertMaterial({ color: 0xcccccc }));
+  cgrsDeck.position.set(0, 0.0, 0);
+  cgrsGroup.add(cgrsDeck);
+  // Trainee swimmer with rescue board
+  const cgrsBoard = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.08, 0.3), new THREE.MeshLambertMaterial({ color: 0xee2222 }));
+  cgrsBoard.position.set(-0.5, 0.12, 0.5);
+  cgrsGroup.add(cgrsBoard);
+  // Trainee head/torso
+  const cgrsTrainee = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  cgrsTrainee.position.set(-1.2, 0.18, 0.5);
+  cgrsGroup.add(cgrsTrainee);
+  const cgrsArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.4, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  cgrsArm.position.set(-0.95, 0.15, 0.62);
+  cgrsArm.rotation.z = 0.5;
+  cgrsGroup.add(cgrsArm);
+  // Victim being rescued (face up, life vest)
+  const cgrsVictim = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0xff5500 }));
+  cgrsVictim.position.set(0.3, 0.08, 0.5);
+  cgrsVictim.rotation.x = Math.PI / 2;
+  cgrsGroup.add(cgrsVictim);
+  const cgrsVictimH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  cgrsVictimH.position.set(0.85, 0.12, 0.5);
+  cgrsGroup.add(cgrsVictimH);
+  // Instructor on deck
+  const cgrsIns = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.26, 1.0, 10), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  cgrsIns.position.set(2.6, 0.55, -1.6);
+  cgrsGroup.add(cgrsIns);
+  const cgrsInsH = new THREE.Mesh(new THREE.SphereGeometry(0.19, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  cgrsInsH.position.set(2.6, 1.18, -1.6);
+  cgrsGroup.add(cgrsInsH);
+  // Stack of rescue tubes on deck
+  for (let i = 0; i < 3; i++) {
+    const cgrsTube = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0xee2222 }));
+    cgrsTube.rotation.z = Math.PI / 2;
+    cgrsTube.position.set(-2.0, 0.07 + i * 0.16, -1.7);
+    cgrsGroup.add(cgrsTube);
+  }
+  anchorageGroup.add(cgrsGroup);
+
+  // --- v96: swim lessons in shallows (swl) -----------------------------------
+  const swlGroup = new THREE.Group();
+  swlGroup.position.set(8, -0.04, 36);
+  const swlWater = new THREE.Mesh(new THREE.BoxGeometry(6.0, 0.04, 3.5), new THREE.MeshLambertMaterial({ color: 0x66bbdd, transparent: true, opacity: 0.7 }));
+  swlWater.position.set(0, 0.04, 0);
+  swlGroup.add(swlWater);
+  const swlIns = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 1.1, 10), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  swlIns.position.set(0, 0.2, 0);
+  swlGroup.add(swlIns);
+  const swlInsH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  swlInsH.position.set(0, 0.85, 0);
+  swlGroup.add(swlInsH);
+  for (let i = 0; i < 4; i++) {
+    const swlKidH = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+    swlKidH.position.set(-2.3 + i * 1.0, 0.16, 1.2);
+    swlGroup.add(swlKidH);
+    const swlKidB = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.05, 0.25), new THREE.MeshLambertMaterial({ color: i === 0 ? 0xff44aa : i === 1 ? 0xffee44 : i === 2 ? 0x44eeaa : 0x4488ee }));
+    swlKidB.position.set(-2.3 + i * 1.0, 0.13, 1.5);
+    swlGroup.add(swlKidB);
+    const swlSplash = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 }));
+    swlSplash.position.set(-2.3 + i * 1.0, 0.18, 0.95);
+    swlSplash.userData.swlBase = -2.3 + i * 1.0;
+    swlSplash.userData.swlPhase = i * 0.7;
+    swlGroup.add(swlSplash);
+  }
+  for (let i = 0; i < 3; i++) {
+    const swlNoodle = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.0, 10), new THREE.MeshLambertMaterial({ color: i === 0 ? 0xff44ee : i === 1 ? 0x44eeff : 0xeeff44 }));
+    swlNoodle.rotation.z = Math.PI / 2;
+    swlNoodle.position.set(2.5, 0.1, -1.0 + i * 0.5);
+    swlGroup.add(swlNoodle);
+  }
+  anchorageGroup.add(swlGroup);
+
+  // --- v96: beach watch tower (bwt) ------------------------------------------
+  const bwtGroup = new THREE.Group();
+  bwtGroup.position.set(-30, 0.04, -36);
+  const bwtPostMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2e });
+  const bwtPostPos = [[-1.0, 0, -1.0], [1.0, 0, -1.0], [-1.0, 0, 1.0], [1.0, 0, 1.0]];
+  bwtPostPos.forEach(p => {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.16, 5.5, 0.16), bwtPostMat);
+    post.position.set(p[0], 2.75, p[2]);
+    bwtGroup.add(post);
+  });
+  for (let i = 0; i < 12; i++) {
+    const bwtRung = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.04, 0.04), bwtPostMat);
+    bwtRung.position.set(0, 0.4 + i * 0.4, 1.05);
+    bwtGroup.add(bwtRung);
+  }
+  const bwtPlatform = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.08, 2.4), bwtPostMat);
+  bwtPlatform.position.set(0, 5.0, 0);
+  bwtGroup.add(bwtPlatform);
+  const bwtRoof = new THREE.Mesh(new THREE.ConeGeometry(2.0, 1.0, 4), new THREE.MeshLambertMaterial({ color: 0x884422 }));
+  bwtRoof.rotation.y = Math.PI / 4;
+  bwtRoof.position.set(0, 6.0, 0);
+  bwtGroup.add(bwtRoof);
+  // Rotating searchlight rig as a sub-group (centered on tower top)
+  const bwtSpotRig = new THREE.Group();
+  bwtSpotRig.position.set(0, 5.45, 0);
+  const bwtSpot = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.3, 12), new THREE.MeshLambertMaterial({ color: 0xffeebb, emissive: 0x884400 }));
+  bwtSpot.rotation.z = Math.PI / 2;
+  bwtSpot.position.set(0.3, 0, 0);
+  bwtSpotRig.add(bwtSpot);
+  const bwtBeam = new THREE.Mesh(new THREE.ConeGeometry(1.6, 6.0, 14, 1, true), new THREE.MeshBasicMaterial({ color: 0xffeeaa, transparent: true, opacity: 0.18, side: THREE.DoubleSide }));
+  bwtBeam.rotation.z = -Math.PI / 2;
+  bwtBeam.position.set(3.3, 0, 0);
+  bwtSpotRig.add(bwtBeam);
+  bwtGroup.add(bwtSpotRig);
+  const bwtWatcher = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  bwtWatcher.position.set(-0.6, 5.5, -0.5);
+  bwtGroup.add(bwtWatcher);
+  const bwtWatcherH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
+  bwtWatcherH.position.set(-0.6, 6.05, -0.5);
+  bwtGroup.add(bwtWatcherH);
+  anchorageGroup.add(bwtGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -18451,6 +18574,20 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v96 anim
+        const v96t = t;
+        cgrsArm.rotation.z = 0.5 + Math.sin(v96t * 1.4) * 0.4;
+        cgrsTrainee.position.x = -1.2 + Math.sin(v96t * 0.4) * 0.06;
+        cgrsBoard.position.x = -0.5 + Math.sin(v96t * 0.4) * 0.06;
+        cgrsInsH.rotation.y = Math.sin(v96t * 0.6) * 0.5;
+        for (let i = 0; i < swlGroup.children.length; i++) {
+          const c = swlGroup.children[i];
+          if (c.userData && c.userData.swlBase !== undefined) {
+            c.position.y = 0.12 + Math.abs(Math.sin(v96t * 4 + c.userData.swlPhase)) * 0.18;
+            c.material.opacity = 0.7 - Math.abs(Math.sin(v96t * 4 + c.userData.swlPhase)) * 0.4;
+          }
+        }
+        bwtSpotRig.rotation.y = v96t * 0.4;
         // v95 anim
         const v95t = t;
         pftStar.rotation.y = v95t * 1.2;
