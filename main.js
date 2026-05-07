@@ -13609,6 +13609,31 @@ const cosmicSights = [
     size: 6,
     description: "A distinct HB gap flags atmospheric diffusion and mass-loss variations tied to second-parameter effects."
   },
+    { name: "Runaway Greenhouse Threshold", position: [0.64, -0.55, 0.53], color: "#228B22", size: 1.9, description: "The boundary where runaway greenhouse effects begin, limiting habitability inward." },
+    { name: "Maximum Greenhouse Limit", position: [-0.47, 0.73, -0.49], color: "#32CD32", size: 1.9, description: "The limit where CO2 condensation causes permanent glaciation, ending habitability." },
+    { name: "Biosignature Detection Target", position: [0.81, 0.34, 0.48], color: "#2E8B57", size: 2.0, description: "An exoplanet atmosphere showing potential chemical disequilibrium from life." },
+    { name: "Oxygen Rise Analog World", position: [-0.38, -0.68, 0.63], color: "#3CB371", size: 1.7, description: "A planet exhibiting signs of photosynthetic oxygen accumulation in its atmosphere." },
+    { name: "Methane-Oxygen Coexistence Zone", position: [0.52, 0.77, -0.37], color: "#228B22", size: 1.8, description: "An atmospheric region where both gases persist, requiring continuous biological replenishment." },
+    { name: "Phosphine Detection Site", position: [-0.72, 0.41, 0.56], color: "#32CD32", size: 1.6, description: "A location showing unexpected phosphine abundance potentially indicating biological activity." },
+    { name: "Chlorophyll Red Edge Analog", position: [0.33, -0.81, -0.49], color: "#2E8B57", size: 1.8, description: "A surface spectral signature resembling vegetation's characteristic reflectance pattern." },
+    { name: "Subsurface Ocean World", position: [-0.59, 0.24, -0.77], color: "#3CB371", size: 2.1, description: "An icy moon harboring a liquid water ocean beneath its frozen crust." },
+    { name: "Hydrothermal Vent Analog", position: [0.76, -0.42, -0.50], color: "#228B22", size: 1.9, description: "A seafloor environment providing chemical energy for potential chemosynthetic life." },
+    { name: "Tidal Heating Habitability Zone", position: [-0.44, 0.86, 0.26], color: "#32CD32", size: 1.7, description: "A moon heated by tidal forces maintaining liquid water beyond the stellar habitable zone." },
+    { name: "Prebiotic Chemistry Laboratory", position: [0.68, 0.51, 0.53], color: "#2E8B57", size: 1.6, description: "An environment where organic molecules form and concentrate, seeding potential life." },
+    { name: "Amino Acid Detection Site", position: [-0.83, -0.29, 0.48], color: "#3CB371", size: 1.8, description: "A location where life's building blocks have been spectroscopically identified." },
+    { name: "Nitrogen Fixation Indicator", position: [0.41, 0.64, -0.65], color: "#228B22", size: 1.5, description: "Atmospheric nitrogen chemistry suggesting biological nitrogen processing." },
+    { name: "Carbon Cycle Equilibrium World", position: [-0.26, -0.79, -0.55], color: "#32CD32", size: 1.9, description: "A planet with carbonate-silicate weathering maintaining long-term climate stability." },
+    { name: "Liquid Water Surface Detection", position: [0.89, 0.18, -0.42], color: "#2E8B57", size: 2.0, description: "Evidence of stable liquid water on a planetary surface enabling life as we know it." },
+    { name: "SETI Candidate Signal Source", position: [-0.51, 0.58, 0.64], color: "#3CB371", size: 1.7, description: "A radio source exhibiting artificial-looking characteristics warranting follow-up observation." },
+    { name: "Technosignature Search Target", position: [0.57, -0.66, 0.49], color: "#228B22", size: 1.8, description: "A system targeted for signs of technological activity such as megastructures or pollution." },
+    { name: "Exomoon Habitability Candidate", position: [-0.69, 0.48, -0.53], color: "#32CD32", size: 1.6, description: "A moon orbiting a giant planet within the habitable zone with potential for life." },
+    { name: "Photosynthesis Analog Region", position: [0.34, 0.88, 0.33], color: "#2E8B57", size: 1.9, description: "A surface showing spectral features consistent with light-harvesting pigments." },
+    { name: "Abiotic Oxygen Source", position: [-0.77, -0.41, -0.49], color: "#3CB371", size: 1.5, description: "A non-biological oxygen production mechanism that complicates biosignature interpretation." },
+    { name: "Planetary Protection Zone", position: [0.62, 0.39, -0.68], color: "#228B22", size: 1.7, description: "A region designated for contamination control to preserve potential native biospheres." },
+    { name: "Extremophile Analog Environment", position: [-0.35, 0.72, 0.60], color: "#32CD32", size: 1.8, description: "A habitat with extreme conditions similar to Earth environments hosting resilient life." },
+    { name: "Panspermia Transit Corridor", position: [0.79, -0.33, 0.52], color: "#2E8B57", size: 2.0, description: "A pathway between worlds where meteoritic life transfer could theoretically occur." },
+    { name: "Chemical Disequilibrium Marker", position: [-0.54, -0.63, 0.56], color: "#3CB371", size: 1.6, description: "An atmospheric signature showing reactions far from equilibrium, hinting at biological maintenance." },
+    { name: "M-Dwarf Habitable Zone Planet", position: [0.46, 0.71, 0.53], color: "#228B22", size: 1.9, description: "A terrestrial world orbiting in the habitable zone of a red dwarf star." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
