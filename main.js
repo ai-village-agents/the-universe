@@ -14008,7 +14008,32 @@ const cosmicSights = [
     position: [3796, 3639, 3961],
     color: 0xff6688,
     size: 3.3
-  }
+  },
+  { name: 'Coronal Mass Ejection Shock', description: 'Powerful plasma and magnetic field eruption driving interplanetary shock waves through the heliosphere.', position: [7225, 141520, 5225], color: 0xff6644, size: 2.6 },
+  { name: 'High-Speed Solar Wind Corridor', description: 'Persistent fast plasma channel emerging from polar coronal holes reaching 800 km/s.', position: [7226, 141540, 5226], color: 0xffaa33, size: 2.5 },
+  { name: 'Slow Solar Wind Source', description: 'Dense, variable plasma flow originating from helmet streamers and active regions at 400 km/s.', position: [7227, 141560, 5227], color: 0xddcc66, size: 2.4 },
+  { name: 'Wolf-Rayet Wind Bubble', description: 'Fast stellar wind from evolved massive star creating shock-heated cavity in surrounding medium.', position: [7228, 141580, 5228], color: 0xaa55ff, size: 2.7 },
+  { name: 'O-Star Wind Terminal Velocity', description: 'Radiatively driven wind from hot luminous star reaching terminal speeds of 2000-3000 km/s.', position: [7229, 141600, 5229], color: 0x6688ff, size: 2.5 },
+  { name: 'Red Supergiant Mass Loss Zone', description: 'Dusty outflow from cool supergiant losing solar masses over thousands of years.', position: [7230, 141620, 5230], color: 0xff4422, size: 2.8 },
+  { name: 'AGB Thermal Pulse Ejecta', description: 'Periodic mass loss episodes from asymptotic giant branch star enriching interstellar medium.', position: [7231, 141640, 5231], color: 0xffcc88, size: 2.6 },
+  { name: 'Planetary Nebula Rim', description: 'Ionized shell of ejected stellar envelope expanding from hot central white dwarf.', position: [7232, 141660, 5232], color: 0x44ffaa, size: 2.4 },
+  { name: 'YSO Bipolar Outflow Condensation', description: 'Shock-heated clump in collimated jet from young stellar object impacting ambient cloud.', position: [7233, 141680, 5233], color: 0x88aaff, size: 2.3 },
+  { name: 'Herbig-Haro Bow Shock', description: 'Arc-shaped emission nebula where protostellar jet impacts ambient molecular cloud.', position: [7234, 141700, 5234], color: 0xffaaee, size: 2.5 },
+  { name: 'T Tauri Wind Magnetosphere', description: 'Complex interaction zone where stellar wind meets accretion disk magnetic field.', position: [7235, 141720, 5235], color: 0xaadd77, size: 2.4 },
+  { name: 'Rapidly Rotating B Star Outflow', description: 'Viscous equatorial mass ejection from fast-spinning emission-line B star.', position: [7236, 141740, 5236], color: 0x77ccff, size: 2.6 },
+  { name: 'S Doradus Instability Outburst', description: 'Giant eruption from unstable supergiant ejecting solar masses in dramatic events.', position: [7237, 141760, 5237], color: 0x55aaff, size: 2.9 },
+  { name: 'Eta Carinae Homunculus', description: 'Bipolar reflection nebula from 19th century great eruption of massive stellar system.', position: [7238, 141780, 5238], color: 0xffdd44, size: 3.0 },
+  { name: 'Symbiotic Star Wind Collision', description: 'Shock interface where red giant wind meets white dwarf radiation and wind.', position: [7239, 141800, 5239], color: 0xff77aa, size: 2.5 },
+  { name: 'Crab Pulsar Wind Boundary', description: 'Relativistic outflow deceleration zone at inner edge of synchrotron nebula.', position: [7240, 141820, 5240], color: 0xaa77ff, size: 2.7 },
+  { name: 'Crab Nebula Wisps', description: 'Dynamic filamentary structures in pulsar wind nebula showing rapid variability.', position: [7241, 141840, 5241], color: 0x99ddff, size: 2.4 },
+  { name: 'SGR Wind-Blown Cavity', description: 'Compact bubble powered by soft gamma repeater ultra-strong magnetic field decay.', position: [7242, 141860, 5242], color: 0xff5599, size: 2.6 },
+  { name: 'Post-AGB Fast Wind', description: 'Accelerating outflow during brief transition phase between AGB and planetary nebula.', position: [7243, 141880, 5243], color: 0xbbee55, size: 2.5 },
+  { name: 'Carbon Star Dust Shell', description: 'Circumstellar envelope of carbon-rich dust grains around cool evolved star.', position: [7244, 141900, 5244], color: 0xdd8844, size: 2.4 },
+  { name: 'Mira Variable Shock Front', description: 'Pulsation-driven shock propagating through extended atmosphere of long-period variable.', position: [7245, 141920, 5245], color: 0xff6699, size: 2.5 },
+  { name: 'Blue Supergiant Wind Clumping', description: 'Density inhomogeneities in line-driven stellar wind creating X-ray emission variability.', position: [7246, 141940, 5246], color: 0x6699ff, size: 2.6 },
+  { name: 'Colliding Wind Binary Apex', description: 'Shock cone vertex where stellar winds from massive binary components collide.', position: [7247, 141960, 5247], color: 0xffbb77, size: 2.7 },
+  { name: 'Wind-Fed X-ray Binary Stream', description: 'Focused stellar wind flow captured by compact object in high-mass X-ray binary.', position: [7248, 141980, 5248], color: 0xee55cc, size: 2.5 },
+  { name: 'Supernova Ejecta Interaction Zone', description: 'Region where fast supernova debris overtakes and shocks slower circumstellar wind.', position: [7249, 142000, 5249], color: 0xff4488, size: 2.8 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
