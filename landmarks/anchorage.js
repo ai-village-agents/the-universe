@@ -11586,6 +11586,207 @@ export function createAnchorageLandmark(THREE, opts) {
   touchGroup.add(touchSignPost);
   group.add(touchGroup);
 
+
+  // v71: Sand-art zen rake patterns with artist
+  const zenGroup = new THREE.Group();
+  zenGroup.position.set(-22, 0.05, 8);
+  // Smooth sand patch (slightly raised, lighter sand color)
+  const zenSandMat = new THREE.MeshLambertMaterial({ color: 0xe6d5a8 });
+  const zenSand = new THREE.Mesh(new THREE.CircleGeometry(3.5, 32), zenSandMat);
+  zenSand.rotation.x = -Math.PI / 2;
+  zenSand.position.y = 0.02;
+  zenGroup.add(zenSand);
+  // Concentric raked rings (thin torus loops at ground level)
+  const zenRakeMat = new THREE.MeshLambertMaterial({ color: 0xc9b78a });
+  for (let r = 0; r < 4; r++) {
+    const radius = 0.7 + r * 0.6;
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(radius, 0.04, 6, 48), zenRakeMat);
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = 0.04;
+    zenGroup.add(ring);
+  }
+  // Three small zen stones at center
+  const zenStoneMat = new THREE.MeshLambertMaterial({ color: 0x4a4a4a });
+  const zenStonePositions = [[0, 0.12, 0], [0.18, 0.08, 0.1], [-0.12, 0.05, -0.08]];
+  const zenStoneSizes = [0.18, 0.13, 0.1];
+  for (let i = 0; i < 3; i++) {
+    const stone = new THREE.Mesh(new THREE.SphereGeometry(zenStoneSizes[i], 8, 6), zenStoneMat);
+    stone.position.set(zenStonePositions[i][0], zenStonePositions[i][1], zenStonePositions[i][2]);
+    stone.scale.y = 0.55;
+    zenGroup.add(stone);
+  }
+  // Zen artist (kneeling beside)
+  const zenArtist = new THREE.Group();
+  zenArtist.position.set(2.8, 0, 2.2);
+  const zenRobeMat = new THREE.MeshLambertMaterial({ color: 0xf0e6d8 });
+  const zenSkinMat = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+  const zenHairMat = new THREE.MeshLambertMaterial({ color: 0x2a1a10 });
+  const zenTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 0.6, 8), zenRobeMat);
+  zenTorso.position.y = 0.45;
+  zenArtist.add(zenTorso);
+  const zenHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), zenSkinMat);
+  zenHead.position.y = 0.88;
+  zenArtist.add(zenHead);
+  const zenHair = new THREE.Mesh(new THREE.SphereGeometry(0.135, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2.2), zenHairMat);
+  zenHair.position.y = 0.92;
+  zenArtist.add(zenHair);
+  const zenLeg = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.16, 0.32), zenRobeMat);
+  zenLeg.position.y = 0.08;
+  zenLeg.position.x = -0.05;
+  zenArtist.add(zenLeg);
+  // Rake (handle + tines)
+  const zenRakeHandleMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2a });
+  const zenRakeHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 6), zenRakeHandleMat);
+  zenRakeHandle.position.set(-1.0, 0.4, -0.3);
+  zenRakeHandle.rotation.z = Math.PI / 2.4;
+  zenRakeHandle.rotation.y = -0.4;
+  zenArtist.add(zenRakeHandle);
+  const zenRakeHead = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.06), zenRakeHandleMat);
+  zenRakeHead.position.set(-1.7, 0.06, -0.6);
+  zenArtist.add(zenRakeHead);
+  for (let ti = 0; ti < 5; ti++) {
+    const tine = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.12, 4), zenRakeHandleMat);
+    tine.position.set(-1.9 + ti * 0.1, -0.02, -0.6);
+    zenArtist.add(tine);
+  }
+  zenArtist.rotation.y = -0.6;
+  zenGroup.add(zenArtist);
+  group.add(zenGroup);
+
+  // v71: Harbor master's office (small wooden building)
+  const hmGroup = new THREE.Group();
+  hmGroup.position.set(20, 0, -16);
+  hmGroup.rotation.y = -0.3;
+  // Foundation (stone)
+  const hmFoundMat = new THREE.MeshLambertMaterial({ color: 0x8c8378 });
+  const hmFoundation = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.3, 3.4), hmFoundMat);
+  hmFoundation.position.y = 0.15;
+  hmGroup.add(hmFoundation);
+  // Walls (white painted wood)
+  const hmWallMat = new THREE.MeshLambertMaterial({ color: 0xf5f0e4 });
+  const hmWalls = new THREE.Mesh(new THREE.BoxGeometry(4, 2.4, 3), hmWallMat);
+  hmWalls.position.y = 1.5;
+  hmGroup.add(hmWalls);
+  // Red roof
+  const hmRoofMat = new THREE.MeshLambertMaterial({ color: 0xa83a26 });
+  const hmRoof = new THREE.Mesh(new THREE.ConeGeometry(2.9, 1.3, 4), hmRoofMat);
+  hmRoof.position.y = 3.35;
+  hmRoof.rotation.y = Math.PI / 4;
+  hmRoof.scale.x = 1.2;
+  hmGroup.add(hmRoof);
+  // Door (front face, dark wood)
+  const hmDoorMat = new THREE.MeshLambertMaterial({ color: 0x3d2618 });
+  const hmDoor = new THREE.Mesh(new THREE.BoxGeometry(0.7, 1.4, 0.05), hmDoorMat);
+  hmDoor.position.set(-1.2, 1.0, 1.51);
+  hmGroup.add(hmDoor);
+  // Window (front face, blue)
+  const hmWinMat = new THREE.MeshLambertMaterial({ color: 0x6db4d4, emissive: 0x1a3a4a, emissiveIntensity: 0.3 });
+  const hmWin1 = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.7, 0.05), hmWinMat);
+  hmWin1.position.set(0.6, 1.6, 1.51);
+  hmGroup.add(hmWin1);
+  // Sign above door
+  const hmSignMat = new THREE.MeshLambertMaterial({ color: 0x1a3a5a });
+  const hmSign = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.4, 0.08), hmSignMat);
+  hmSign.position.set(0, 2.55, 1.55);
+  hmGroup.add(hmSign);
+  // Radio antenna (thin tall pole on roof)
+  const hmAntennaMat = new THREE.MeshLambertMaterial({ color: 0x666666 });
+  const hmAntenna = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.2, 6), hmAntennaMat);
+  hmAntenna.position.set(0.8, 4.6, 0);
+  hmGroup.add(hmAntenna);
+  // Antenna blinking light tip
+  const hmAntennaLightMat = new THREE.MeshBasicMaterial({ color: 0xff3333, transparent: true });
+  const hmAntennaLight = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), hmAntennaLightMat);
+  hmAntennaLight.position.set(0.8, 5.75, 0);
+  hmGroup.add(hmAntennaLight);
+  // Flag pole + flag (signal flag)
+  const hmFlagPoleMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const hmFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 3.4, 6), hmFlagPoleMat);
+  hmFlagPole.position.set(2.4, 1.7, 1.0);
+  hmGroup.add(hmFlagPole);
+  const hmFlagMat = new THREE.MeshLambertMaterial({ color: 0xddc844, side: THREE.DoubleSide });
+  const hmFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.45), hmFlagMat);
+  hmFlag.position.set(2.78, 3.0, 1.0);
+  hmGroup.add(hmFlag);
+  // Steps to door
+  const hmStepsMat = new THREE.MeshLambertMaterial({ color: 0x8a8077 });
+  const hmSteps = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.15, 0.4), hmStepsMat);
+  hmSteps.position.set(-1.2, 0.35, 1.7);
+  hmGroup.add(hmSteps);
+  group.add(hmGroup);
+
+  // v71: Sandbar paddleboard yoga (multiple paddleboards on a thin sandbar with yogis)
+  const sbyGroup = new THREE.Group();
+  sbyGroup.position.set(-6, 0, 30);
+  // Sandbar (long shallow strip just at water level)
+  const sbyBarMat = new THREE.MeshLambertMaterial({ color: 0xd9c896 });
+  const sbyBar = new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.6, 0.3, 16), sbyBarMat);
+  sbyBar.scale.x = 5.5;
+  sbyBar.position.y = 0.05;
+  sbyGroup.add(sbyBar);
+  // Surrounding shallow water ring (slight blue tint)
+  const sbyShallowMat = new THREE.MeshLambertMaterial({ color: 0x76c2d8, transparent: true, opacity: 0.55 });
+  const sbyShallow = new THREE.Mesh(new THREE.RingGeometry(1.6, 4, 32), sbyShallowMat);
+  sbyShallow.rotation.x = -Math.PI / 2;
+  sbyShallow.position.y = 0.06;
+  sbyShallow.scale.x = 5;
+  sbyGroup.add(sbyShallow);
+  // Three paddleboards (different colors) with yogis on top
+  const sbyBoardColors = [0xff6b6b, 0xffe066, 0x6bd6ff];
+  const sbyYogiColors = [0x4a5a8a, 0x8a4a5a, 0x5a8a4a];
+  const sbyYogis = [];
+  const sbyPaddles = [];
+  const sbyBoardPositions = [-5, 0, 5];
+  for (let i = 0; i < 3; i++) {
+    const board = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.12, 0.7), new THREE.MeshLambertMaterial({ color: sbyBoardColors[i] }));
+    board.position.set(sbyBoardPositions[i], 0.22, 0);
+    sbyGroup.add(board);
+    // Yogi (in tree pose: standing on one leg)
+    const yogi = new THREE.Group();
+    yogi.position.set(sbyBoardPositions[i], 0.28, 0);
+    const yogiSuit = new THREE.MeshLambertMaterial({ color: sbyYogiColors[i] });
+    const yogiSkin = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+    const yogiTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.6, 8), yogiSuit);
+    yogiTorso.position.y = 0.6;
+    yogi.add(yogiTorso);
+    const yogiHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), yogiSkin);
+    yogiHead.position.y = 1.05;
+    yogi.add(yogiHead);
+    const yogiStanding = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.6, 6), yogiSuit);
+    yogiStanding.position.y = 0.3;
+    yogi.add(yogiStanding);
+    // Bent leg (foot on knee)
+    const yogiBentLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.5, 6), yogiSuit);
+    yogiBentLeg.position.set(0.18, 0.4, 0);
+    yogiBentLeg.rotation.z = Math.PI / 2.3;
+    yogi.add(yogiBentLeg);
+    // Arms raised over head (palms together)
+    const yogiArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6), yogiSuit);
+    yogiArmL.position.set(-0.1, 1.25, 0);
+    yogiArmL.rotation.z = -0.3;
+    yogi.add(yogiArmL);
+    const yogiArmR = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6), yogiSuit);
+    yogiArmR.position.set(0.1, 1.25, 0);
+    yogiArmR.rotation.z = 0.3;
+    yogi.add(yogiArmR);
+    sbyYogis.push(yogi);
+    sbyGroup.add(yogi);
+    // Paddle laying flat on board next to yogi
+    const paddleShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0xe8e0d0 }));
+    paddleShaft.position.set(sbyBoardPositions[i], 0.31, 0.32);
+    paddleShaft.rotation.z = Math.PI / 2;
+    sbyGroup.add(paddleShaft);
+    sbyPaddles.push(paddleShaft);
+  }
+  // Subtle ripple ring around sandbar
+  const sbyRipMat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.35, side: THREE.DoubleSide });
+  const sbyRipple = new THREE.Mesh(new THREE.RingGeometry(7.0, 7.3, 48), sbyRipMat);
+  sbyRipple.rotation.x = -Math.PI / 2;
+  sbyRipple.position.y = 0.07;
+  sbyGroup.add(sbyRipple);
+  group.add(sbyGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -13502,6 +13703,27 @@ export function createAnchorageLandmark(THREE, opts) {
       // v70: kid heads tilt slightly as they peer
       touchKids[0].head.rotation.x = 0.4 + Math.sin(t * 0.6) * 0.08;
       touchKids[1].head.rotation.x = -0.4 + Math.sin(t * 0.7 + 1) * 0.08;
+      // v71 zen artist gentle rake motion
+      if (zenArtist) {
+        zenArtist.rotation.y = -0.6 + Math.sin(t * 0.4) * 0.1;
+      }
+      // v71 harbor master antenna light blink + flag wave
+      if (hmAntennaLight) {
+        hmAntennaLight.material.opacity = 0.5 + 0.5 * Math.abs(Math.sin(t * 1.6));
+        hmAntennaLight.material.transparent = true;
+      }
+      if (hmFlag) {
+        hmFlag.rotation.y = Math.sin(t * 1.4) * 0.4;
+      }
+      // v71 paddleboards bob slightly, yogis sway
+      for (let yi = 0; yi < sbyYogis.length; yi++) {
+        sbyYogis[yi].position.y = 0.28 + Math.sin(t * 0.8 + yi * 1.0) * 0.04;
+        sbyYogis[yi].rotation.z = Math.sin(t * 0.6 + yi * 0.7) * 0.025;
+      }
+      if (sbyShallow) {
+        sbyShallow.material.opacity = 0.45 + 0.15 * Math.sin(t * 0.7);
+      }
+
 
     }
 
