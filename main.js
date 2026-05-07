@@ -11882,6 +11882,206 @@ const cosmicSights = [
     { name: "Scale-Invariant Perturbation", position: [4844, 93300, 2714], color: "#20B2AA", description: "Nearly flat primordial power spectrum" },
     { name: "Primordial Tensor Mode", position: [4846, 93320, 2716], color: "#DA70D6", description: "Gravitational wave signature in CMB" },
     { name: "First Starlight Emergence", position: [4848, 93340, 2718], color: "#FAFAD2", description: "Initial luminous sources breaking darkness" },
+  {
+    name: 'Fossil Recombination Era Relic 10305',
+    description: 'A fossil recombination era relic 10305 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-34502.61, -32242.8, -28561.49],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Anomalous Recombination Era Relic 10306',
+    description: 'A anomalous recombination era relic 10306 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-32377.2, 17455.79, 31101.69],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Source'
+  },
+  {
+    name: 'Primordial Dispersion Measure 10307',
+    description: 'A primordial dispersion measure 10307 detected via advanced magnetar outbursts techniques, offering key insights into extreme cosmic physics.',
+    position: [21170.51, 32245.96, -25640.0],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Source'
+  },
+  {
+    name: 'Fossil Pulsar Glitch 10308',
+    description: 'A fossil pulsar glitch 10308 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-20150.95, -18877.15, -38103.55],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Scintillating Megamasers 10309',
+    description: 'A scintillating megamasers 10309 detected via advanced pulsar timing arrays techniques, offering key insights into extreme cosmic physics.',
+    position: [12631.9, 25055.72, -33105.64],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Echoing Starquake 10310',
+    description: 'A echoing starquake 10310 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-29303.0, -31264.92, 7425.53],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Phenomenon'
+  },
+  {
+    name: 'Polarized Dark Ages Signal 10311',
+    description: 'A polarized dark ages signal 10311 detected via advanced magnetar outbursts techniques, offering key insights into extreme cosmic physics.',
+    position: [-3294.21, -29715.19, 30990.47],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Source'
+  },
+  {
+    name: 'Relativistic Dark Ages Signal 10312',
+    description: 'A relativistic dark ages signal 10312 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-14937.64, 13306.07, -18671.17],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Anomalous Faraday Rotation 10313',
+    description: 'A anomalous faraday rotation 10313 detected via advanced cosmic microwave background structures techniques, offering key insights into extreme cosmic physics.',
+    position: [20578.61, 29197.08, -39476.88],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Relativistic Dark Ages Signal 10314',
+    description: 'A relativistic dark ages signal 10314 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-20658.55, 31567.64, -22951.57],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Polarized Synchrotron Flare 10315',
+    description: 'A polarized synchrotron flare 10315 detected via advanced magnetar outbursts techniques, offering key insights into extreme cosmic physics.',
+    position: [-16311.23, -26313.38, -10240.68],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Source'
+  },
+  {
+    name: 'Fossil Radio Lobe 10316',
+    description: 'A fossil radio lobe 10316 detected via advanced pulsar timing arrays techniques, offering key insights into extreme cosmic physics.',
+    position: [36376.22, -7684.05, 17214.78],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Phenomenon'
+  },
+  {
+    name: 'Anomalous Micro-quasar Jet 10317',
+    description: 'A anomalous micro-quasar jet 10317 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-17944.45, 20482.28, -13413.98],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Phenomenon'
+  },
+  {
+    name: 'Scintillating Dark Ages Signal 10318',
+    description: 'A scintillating dark ages signal 10318 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-29278.72, 31209.9, 24125.84],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Fossil Faraday Rotation 10319',
+    description: 'A fossil faraday rotation 10319 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-7755.81, -2461.12, 22430.57],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Transient Megamasers 10320',
+    description: 'A transient megamasers 10320 detected via advanced pulsar timing arrays techniques, offering key insights into extreme cosmic physics.',
+    position: [31932.65, 21824.99, 18917.15],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Dispersed Pulsar Glitch 10321',
+    description: 'A dispersed pulsar glitch 10321 detected via advanced pulsar timing arrays techniques, offering key insights into extreme cosmic physics.',
+    position: [25312.62, 15995.78, 34632.23],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Redshifted Starquake 10322',
+    description: 'A redshifted starquake 10322 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-31460.66, 1667.9, 13455.27],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Dispersed Megamasers 10323',
+    description: 'A dispersed megamasers 10323 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-29094.34, -3446.97, 14615.7],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Redshifted 21cm Absorption Line 10324',
+    description: 'A redshifted 21cm absorption line 10324 detected via advanced cosmic microwave background structures techniques, offering key insights into extreme cosmic physics.',
+    position: [-14543.24, 200.56, -5143.12],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Dispersed Recombination Era Relic 10325',
+    description: 'A dispersed recombination era relic 10325 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-25333.73, -129.36, -21381.92],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Phenomenon'
+  },
+  {
+    name: 'Primordial Faraday Rotation 10326',
+    description: 'A primordial faraday rotation 10326 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-34693.03, -33033.54, 15934.7],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Transient Masers 10327',
+    description: 'A transient masers 10327 detected via advanced fast radio bursts (frbs) techniques, offering key insights into extreme cosmic physics.',
+    position: [-5629.23, -26530.58, -22701.72],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Anomaly'
+  },
+  {
+    name: 'Fossil Synchrotron Flare 10328',
+    description: 'A fossil synchrotron flare 10328 detected via advanced radio astronomy anomalies techniques, offering key insights into extreme cosmic physics.',
+    position: [-29892.67, -9158.08, -13910.48],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Structure'
+  },
+  {
+    name: 'Hyper-magnetized Faraday Rotation 10329',
+    description: 'A hyper-magnetized faraday rotation 10329 detected via advanced pulsar timing arrays techniques, offering key insights into extreme cosmic physics.',
+    position: [8850.15, -19606.13, 22652.61],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Phenomenon'
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
