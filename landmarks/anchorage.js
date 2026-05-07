@@ -10081,6 +10081,254 @@ export function createAnchorageLandmark(THREE, opts) {
   let fluke2Cycle = 0;
 
 
+
+  // === v65 SCENE 1: Boardwalk arcade with skee-ball machine ===
+  const arcadeGroup = new THREE.Group();
+  // Cabinet body
+  const arcCabMat = new THREE.MeshLambertMaterial({ color: 0x9b1c1c });
+  const arcCab = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.4, 0.9), arcCabMat);
+  arcCab.position.y = 0.7;
+  arcadeGroup.add(arcCab);
+  // Ball ramp (long sloped board sticking forward)
+  const arcRampMat = new THREE.MeshLambertMaterial({ color: 0xfde68a });
+  const arcRamp = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.08, 2.4), arcRampMat);
+  arcRamp.position.set(0, 0.42, 1.4);
+  arcRamp.rotation.x = -0.18;
+  arcadeGroup.add(arcRamp);
+  // Side rails of ramp
+  const arcRailMat = new THREE.MeshLambertMaterial({ color: 0x4b1d1d });
+  const arcRailGeom = new THREE.BoxGeometry(0.06, 0.18, 2.4);
+  const arcRailL = new THREE.Mesh(arcRailGeom, arcRailMat);
+  arcRailL.position.set(-0.6, 0.5, 1.4);
+  arcRailL.rotation.x = -0.18;
+  arcadeGroup.add(arcRailL);
+  const arcRailR = new THREE.Mesh(arcRailGeom, arcRailMat);
+  arcRailR.position.set(0.6, 0.5, 1.4);
+  arcRailR.rotation.x = -0.18;
+  arcadeGroup.add(arcRailR);
+  // Target ring backboard with concentric rings
+  const arcBackMat = new THREE.MeshLambertMaterial({ color: 0x451a03 });
+  const arcBack = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.0, 0.05), arcBackMat);
+  arcBack.position.set(0, 1.1, 0.55);
+  arcBack.rotation.x = 0.5;
+  arcadeGroup.add(arcBack);
+  const arcRingColors = [0xfacc15, 0xf97316, 0xef4444, 0x22d3ee];
+  arcRingColors.forEach((c, i) => {
+    const r = 0.4 - i * 0.08;
+    const arcRing = new THREE.Mesh(
+      new THREE.TorusGeometry(r, 0.04, 6, 16),
+      new THREE.MeshLambertMaterial({ color: c })
+    );
+    arcRing.position.set((i - 1.5) * 0.36, 1.1, 0.6);
+    arcRing.rotation.x = 0.5;
+    arcadeGroup.add(arcRing);
+  });
+  // Scoring lights row at top
+  const arcScoreLights = [];
+  for (let i = 0; i < 5; i++) {
+    const arcLight = new THREE.Mesh(
+      new THREE.SphereGeometry(0.07, 6, 6),
+      new THREE.MeshBasicMaterial({ color: 0xfde047 })
+    );
+    arcLight.position.set(-0.6 + i * 0.3, 1.55, -0.4);
+    arcadeGroup.add(arcLight);
+    arcScoreLights.push(arcLight);
+  }
+  // Skee balls on ramp
+  const arcBallMat = new THREE.MeshLambertMaterial({ color: 0xe5e7eb });
+  const arcBalls = [];
+  for (let i = 0; i < 3; i++) {
+    const arcBall = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), arcBallMat);
+    arcBall.position.set(-0.3 + i * 0.3, 0.55, 1.6);
+    arcadeGroup.add(arcBall);
+    arcBalls.push(arcBall);
+  }
+  // Player figure (kid)
+  const arcPlayer = new THREE.Group();
+  const arcPlayerBody = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.8, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0x3b82f6 })
+  );
+  arcPlayerBody.position.y = 0.4;
+  arcPlayer.add(arcPlayerBody);
+  const arcPlayerHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  arcPlayerHead.position.y = 0.95;
+  arcPlayer.add(arcPlayerHead);
+  arcPlayer.position.set(0, 0, 2.8);
+  arcadeGroup.add(arcPlayer);
+  // Awning canopy
+  const arcAwningMat = new THREE.MeshLambertMaterial({ color: 0xdc2626 });
+  const arcAwning = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.08, 1.4), arcAwningMat);
+  arcAwning.position.set(0, 1.95, 0.2);
+  arcAwning.rotation.x = -0.1;
+  arcadeGroup.add(arcAwning);
+  arcadeGroup.position.set(-12, 0.05, 6);
+  arcadeGroup.rotation.y = -0.5;
+  group.add(arcadeGroup);
+
+  // === v65 SCENE 2: Tow boat with hawser line pulling sailboat ===
+  const towSceneGroup = new THREE.Group();
+  // Tow boat
+  const towBoatGroup = new THREE.Group();
+  const towHullMat = new THREE.MeshLambertMaterial({ color: 0x1e3a8a });
+  const towHull = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.6, 1.0), towHullMat);
+  towHull.position.y = 0.3;
+  towBoatGroup.add(towHull);
+  const towBow = new THREE.Mesh(
+    new THREE.ConeGeometry(0.5, 1.0, 4),
+    towHullMat
+  );
+  towBow.rotation.z = -Math.PI / 2;
+  towBow.rotation.y = Math.PI / 4;
+  towBow.position.set(1.7, 0.3, 0);
+  towBoatGroup.add(towBow);
+  const towCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.7, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa })
+  );
+  towCabin.position.set(0.2, 0.95, 0);
+  towBoatGroup.add(towCabin);
+  const towStack = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.15, 0.18, 0.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0x111827 })
+  );
+  towStack.position.set(-0.3, 1.6, 0);
+  towBoatGroup.add(towStack);
+  // Stern bollard for hawser
+  const towBollard = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 0.3, 6),
+    new THREE.MeshLambertMaterial({ color: 0x6b7280 })
+  );
+  towBollard.position.set(-1.0, 0.7, 0);
+  towBoatGroup.add(towBollard);
+  // Wake
+  const towWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const towWake = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 0.6), towWakeMat);
+  towWake.rotation.x = -Math.PI / 2;
+  towWake.position.set(2.5, 0.04, 0);
+  towBoatGroup.add(towWake);
+  towBoatGroup.position.set(0, 0, 0);
+  towSceneGroup.add(towBoatGroup);
+  // Sailboat being towed (no sails up - that's why it needs towing)
+  const towedSailGroup = new THREE.Group();
+  const towedHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.4, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0xfde68a })
+  );
+  towedHull.position.y = 0.2;
+  towedSailGroup.add(towedHull);
+  const towedBow = new THREE.Mesh(
+    new THREE.ConeGeometry(0.35, 0.7, 4),
+    new THREE.MeshLambertMaterial({ color: 0xfde68a })
+  );
+  towedBow.rotation.z = -Math.PI / 2;
+  towedBow.rotation.y = Math.PI / 4;
+  towedBow.position.set(1.3, 0.2, 0);
+  towedSailGroup.add(towedBow);
+  const towedMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 2.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0xa16207 })
+  );
+  towedMast.position.set(0, 1.4, 0);
+  towedSailGroup.add(towedMast);
+  // Furled sail (rolled up bundle around mast)
+  const towedFurled = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.12, 1.8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xfafaf9 })
+  );
+  towedFurled.position.set(0, 1.3, 0);
+  towedSailGroup.add(towedFurled);
+  // Sailboat bow cleat
+  const towedCleat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.2, 6),
+    new THREE.MeshLambertMaterial({ color: 0x6b7280 })
+  );
+  towedCleat.position.set(1.5, 0.5, 0);
+  towedSailGroup.add(towedCleat);
+  towedSailGroup.position.set(-4.5, 0, 0);
+  towSceneGroup.add(towedSailGroup);
+  // Hawser line (rope between bollard and cleat)
+  const hawserMat = new THREE.MeshLambertMaterial({ color: 0xfafaf9 });
+  const hawserLine = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 4.0, 6),
+    hawserMat
+  );
+  hawserLine.rotation.z = Math.PI / 2;
+  hawserLine.position.set(-2.0, 0.6, 0);
+  towSceneGroup.add(hawserLine);
+  towSceneGroup.position.set(45, 0.05, -22);
+  towSceneGroup.rotation.y = -0.3;
+  group.add(towSceneGroup);
+
+  // === v65 SCENE 3: Cliff diver from rocks ===
+  const cliffDiveGroup = new THREE.Group();
+  // Cliff rocks (stacked angular blocks)
+  const diverRockMat = new THREE.MeshLambertMaterial({ color: 0x57534e });
+  const cliffRock1 = new THREE.Mesh(new THREE.BoxGeometry(2.5, 3.0, 2.0), diverRockMat);
+  cliffRock1.position.set(0, 1.5, 0);
+  cliffDiveGroup.add(cliffRock1);
+  const cliffRock2 = new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.8, 1.6), diverRockMat);
+  cliffRock2.position.set(0.4, 3.7, 0.2);
+  cliffRock2.rotation.y = 0.2;
+  cliffDiveGroup.add(cliffRock2);
+  const cliffRock3 = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.6, 1.4), diverRockMat);
+  cliffRock3.position.set(0.6, 4.9, 0.3);
+  cliffDiveGroup.add(cliffRock3);
+  // Diver figure (mid-dive)
+  const cliffDiver = new THREE.Group();
+  const cliffDiverBody = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.18, 0.7, 4, 8),
+    new THREE.MeshLambertMaterial({ color: 0xef4444 })
+  );
+  cliffDiver.add(cliffDiverBody);
+  const cliffDiverHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  cliffDiverHead.position.y = 0.55;
+  cliffDiver.add(cliffDiverHead);
+  // Arms together (streamlined dive)
+  const cliffArmGeom = new THREE.CylinderGeometry(0.05, 0.05, 0.6, 6);
+  const cliffArmMat = new THREE.MeshLambertMaterial({ color: 0xfbcfa0 });
+  const cliffArmL = new THREE.Mesh(cliffArmGeom, cliffArmMat);
+  cliffArmL.position.set(-0.05, 0.65, 0);
+  cliffDiver.add(cliffArmL);
+  const cliffArmR = new THREE.Mesh(cliffArmGeom, cliffArmMat);
+  cliffArmR.position.set(0.05, 0.65, 0);
+  cliffDiver.add(cliffArmR);
+  cliffDiveGroup.add(cliffDiver);
+  // Splash sprites at water entry point
+  const cliffSplashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 });
+  const cliffSplashes = [];
+  for (let i = 0; i < 8; i++) {
+    const cliffSplash = new THREE.Mesh(
+      new THREE.ConeGeometry(0.15, 0.5, 4),
+      cliffSplashMat
+    );
+    const ang = (i / 8) * Math.PI * 2;
+    cliffSplash.position.set(Math.cos(ang) * 0.4, 0.05, Math.sin(ang) * 0.4);
+    cliffSplash.rotation.z = -Math.cos(ang) * 0.3;
+    cliffSplash.rotation.x = Math.sin(ang) * 0.3;
+    cliffSplash.visible = false;
+    cliffDiveGroup.add(cliffSplash);
+    cliffSplashes.push(cliffSplash);
+  }
+  cliffDiveGroup.position.set(-65, 0.05, -55);
+  cliffDiveGroup.rotation.y = 0.4;
+  group.add(cliffDiveGroup);
+  // dive cycle position [0..1]: 0 = top of rock, 1 = entry
+  let cliffDiveCycle = 0;
+  const cliffDiveTopY = 5.5;
+  const cliffDiveTopX = 0.6;
+  const cliffDiveTopZ = 0.3;
+  const cliffDiveEntryX = 4.5;
+  const cliffDiveEntryY = 0;
+  const cliffDiveEntryZ = 1.5;
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -11825,6 +12073,40 @@ export function createAnchorageLandmark(THREE, opts) {
         });
       } else {
         fluke2Group.visible = false;
+      }
+      // v65: Skee-ball arcade scoring lights flicker
+      arcScoreLights.forEach((sl, i) => {
+        const phase = (t * 4 + i * 0.7) % 1.0;
+        sl.material.color.setHex(phase < 0.5 ? 0xfde047 : 0xf97316);
+      });
+      // v65: Tow boat slowly drifts forward (z), wake bobs
+      towSceneGroup.position.x = 45 + Math.sin(t * 0.15) * 1.2;
+      towWake.material.opacity = 0.4 + 0.15 * Math.sin(t * 6);
+      // v65: Cliff diver parabolic dive cycle (~6 sec total)
+      cliffDiveCycle = (cliffDiveCycle + dt * 0.16) % 1.5;
+      if (cliffDiveCycle < 1.0) {
+        cliffDiver.visible = true;
+        const u = cliffDiveCycle;
+        // parabolic arc: x linear, y starts at top, drops with gravity
+        cliffDiver.position.x = cliffDiveTopX + (cliffDiveEntryX - cliffDiveTopX) * u;
+        cliffDiver.position.y = cliffDiveTopY + (cliffDiveEntryY - cliffDiveTopY) * (u * u);
+        cliffDiver.position.z = cliffDiveTopZ + (cliffDiveEntryZ - cliffDiveTopZ) * u;
+        // rotation: tumble forward through dive
+        cliffDiver.rotation.x = -Math.PI / 2 + u * Math.PI * 1.3;
+        cliffSplashes.forEach(s => { s.visible = false; });
+      } else {
+        cliffDiver.visible = false;
+        // splash burst for 0.5s
+        const sp = (cliffDiveCycle - 1.0) / 0.5;
+        cliffSplashes.forEach((s, i) => {
+          s.visible = true;
+          const ang = (i / 8) * Math.PI * 2;
+          const r = 0.4 + sp * 1.2;
+          s.position.x = cliffDiveEntryX + Math.cos(ang) * r;
+          s.position.z = cliffDiveEntryZ + Math.sin(ang) * r;
+          s.position.y = 0.05 + sp * 0.6 * (1 - sp) * 4;
+          s.material.opacity = 0.8 * (1 - sp);
+        });
       }
     }
 
