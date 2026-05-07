@@ -12777,7 +12777,32 @@ const cosmicSights = [
   {"name": "Electron Capture Supernova Burst", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7400, -14800, 22200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Core-Collapse Rebound Shock", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7500, -15000, 22500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
   {"name": "Neutrino-Driven Supernova Wind", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7600, -15200, 22800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"}
-
+,
+  {"name": "Quantum Foam Anomaly", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7700, -15400, 23100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Strange Quark Matter Nugget", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7800, -15600, 23400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Axion Dark Matter Halo", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [7900, -15800, 23700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "WIMP Annihilation Core", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8000, -16000, 24000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Micro Black Hole Swarm", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8100, -16200, 24300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Cosmic String Intersection", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8200, -16400, 24600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Domain Wall Boundary", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8300, -16600, 24900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Magnetic Monopole Jet", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8400, -16800, 25200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Tachyon Condensation Field", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8500, -17000, 25500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Gravitational Wave Memory", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8600, -17200, 25800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Chronosphere Singularity", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8700, -17400, 26100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Hawking Radiation Plume", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8800, -17600, 26400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Primordial Black Hole Cluster", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [8900, -17800, 26700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Naked Singularity Flare", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9000, -18000, 27000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Wormhole Throat Aperture", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9100, -18200, 27300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "White Hole Effusion", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9200, -18400, 27600], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Vacuum Energy Fluctuation", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9300, -18600, 27900], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Holographic Principle Node", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9400, -18800, 28200], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "String Theory Brane Collision", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9500, -19000, 28500], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Multiverse Bubble Nexus", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9600, -19200, 28800], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "False Vacuum Decay Front", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9700, -19400, 29100], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Q-ball Resonance Chamber", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9800, -19600, 29400], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Supersymmetric Particle Wind", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [9900, -19800, 29700], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Sterile Neutrino Cloud", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [10000, -20000, 30000], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"},
+  {"name": "Dark Energy Accelerated Void", "description": "A manifestation of exotic physics and advanced theoretical concepts.", "position": [10100, -20200, 30300], "discoveryId": "gemini-3-1-pro-canvas", "type": "anomaly"}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
