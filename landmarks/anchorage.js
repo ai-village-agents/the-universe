@@ -13675,6 +13675,188 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(tpdGroup);
 
 
+
+  // v81: Sand-castle judging panel - 3 judges with clipboards behind a tall castle
+  const scjpGroup = new THREE.Group();
+  scjpGroup.position.set(11, 0, 9);
+  scjpGroup.rotation.y = -0.3;
+  // Tall multi-tier sand castle
+  const scjpSandMat = new THREE.MeshLambertMaterial({ color: 0xe8c890 });
+  const scjpBase = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.4, 1.4), scjpSandMat);
+  scjpBase.position.y = 0.2;
+  scjpGroup.add(scjpBase);
+  const scjpMid = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 1.0), scjpSandMat);
+  scjpMid.position.y = 0.6;
+  scjpGroup.add(scjpMid);
+  const scjpUpper = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.5, 0.6), scjpSandMat);
+  scjpUpper.position.y = 1.05;
+  scjpGroup.add(scjpUpper);
+  // Towers at corners
+  for (const [tx, tz] of [[-0.55, -0.55], [0.55, -0.55], [-0.55, 0.55], [0.55, 0.55]]) {
+    const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.15, 0.7, 10), scjpSandMat);
+    tower.position.set(tx, 0.55, tz);
+    scjpGroup.add(tower);
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.2, 10), scjpSandMat);
+    cone.position.set(tx, 1.0, tz);
+    scjpGroup.add(cone);
+  }
+  // Top spire
+  const scjpSpire = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.5, 10), scjpSandMat);
+  scjpSpire.position.set(0, 1.55, 0);
+  scjpGroup.add(scjpSpire);
+  // Flag on top
+  const scjpFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0x404040 }));
+  scjpFlagPole.position.set(0, 2.0, 0);
+  scjpGroup.add(scjpFlagPole);
+  const scjpFlagMat = new THREE.MeshLambertMaterial({ color: 0xff4040, side: THREE.DoubleSide });
+  const scjpFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.12), scjpFlagMat);
+  scjpFlag.position.set(0.09, 2.1, 0);
+  scjpGroup.add(scjpFlag);
+  // 3 judges seated behind castle
+  const scjpJudgeColors = [0x205080, 0x802050, 0x508020];
+  const scjpJudgeSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0c0a0 });
+  const scjpJudges = [];
+  for (let j = 0; j < 3; j++) {
+    const jx = -1.4 + j * 1.4;
+    const jz = -1.8;
+    const jacketMat = new THREE.MeshLambertMaterial({ color: scjpJudgeColors[j] });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.8, 12), jacketMat);
+    torso.position.set(jx, 0.6, jz);
+    scjpGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 14, 12), scjpJudgeSkinMat);
+    head.position.set(jx, 1.18, jz);
+    scjpGroup.add(head);
+    // Clipboard
+    const clipMat = new THREE.MeshLambertMaterial({ color: 0xfff0d0 });
+    const clip = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.3, 0.02), clipMat);
+    clip.position.set(jx + 0.15, 0.85, jz + 0.3);
+    clip.rotation.x = -0.4;
+    scjpGroup.add(clip);
+    // Score number on clipboard
+    const scoreMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+    const score = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.06, 0.025), scoreMat);
+    score.position.set(jx + 0.15, 0.78, jz + 0.32);
+    score.rotation.x = -0.4;
+    scjpGroup.add(score);
+    scjpJudges.push({ torso, head });
+  }
+  // Score sign held up: "10!"
+  const scjpScoreSignMat = new THREE.MeshLambertMaterial({ color: 0xfff080 });
+  const scjpScoreSign = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.4, 0.04), scjpScoreSignMat);
+  scjpScoreSign.position.set(0, 1.5, -2.4);
+  scjpGroup.add(scjpScoreSign);
+  group.add(scjpGroup);
+
+  // v81: Sunset paragliding pair (two paragliders aloft)
+  const spgGroup = new THREE.Group();
+  spgGroup.position.set(-25, 0, -22);
+  // Paraglider 1 - lower
+  const spgCanopy1Mat = new THREE.MeshLambertMaterial({ color: 0xff6020, side: THREE.DoubleSide });
+  const spgCanopy1 = new THREE.Mesh(new THREE.SphereGeometry(1.0, 20, 8, 0, Math.PI * 2, 0, Math.PI / 3), spgCanopy1Mat);
+  spgCanopy1.position.set(0, 8.0, 0);
+  spgCanopy1.scale.set(1.4, 0.5, 0.8);
+  spgGroup.add(spgCanopy1);
+  // Pilot 1
+  const spgPilot1ShirtMat = new THREE.MeshLambertMaterial({ color: 0x202060 });
+  const spgPilotSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0c0a0 });
+  const spgPilot1Torso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 10), spgPilot1ShirtMat);
+  spgPilot1Torso.position.set(0, 6.8, 0);
+  spgGroup.add(spgPilot1Torso);
+  const spgPilot1Head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 12, 10), spgPilotSkinMat);
+  spgPilot1Head.position.set(0, 7.18, 0);
+  spgGroup.add(spgPilot1Head);
+  // Lines from pilot to canopy
+  const spgLineMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const spgLines1 = new THREE.Group();
+  for (const [lx, lz] of [[-1.0, 0.4], [1.0, 0.4], [-1.0, -0.4], [1.0, -0.4]]) {
+    const lineGeom = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(lx, 7.7, lz),
+      new THREE.Vector3(0, 7.0, 0),
+    ]);
+    const line = new THREE.Line(lineGeom, spgLineMat);
+    spgLines1.add(line);
+  }
+  spgGroup.add(spgLines1);
+  // Paraglider 2 - higher and offset
+  const spgCanopy2Mat = new THREE.MeshLambertMaterial({ color: 0xffe040, side: THREE.DoubleSide });
+  const spgCanopy2 = new THREE.Mesh(new THREE.SphereGeometry(1.0, 20, 8, 0, Math.PI * 2, 0, Math.PI / 3), spgCanopy2Mat);
+  spgCanopy2.position.set(4, 11.0, 1.5);
+  spgCanopy2.scale.set(1.4, 0.5, 0.8);
+  spgGroup.add(spgCanopy2);
+  const spgPilot2ShirtMat = new THREE.MeshLambertMaterial({ color: 0x802040 });
+  const spgPilot2Torso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 10), spgPilot2ShirtMat);
+  spgPilot2Torso.position.set(4, 9.8, 1.5);
+  spgGroup.add(spgPilot2Torso);
+  const spgPilot2Head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 12, 10), spgPilotSkinMat);
+  spgPilot2Head.position.set(4, 10.18, 1.5);
+  spgGroup.add(spgPilot2Head);
+  const spgLines2 = new THREE.Group();
+  for (const [lx, lz] of [[-1.0, 0.4], [1.0, 0.4], [-1.0, -0.4], [1.0, -0.4]]) {
+    const lineGeom = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(4 + lx, 10.7, 1.5 + lz),
+      new THREE.Vector3(4, 10.0, 1.5),
+    ]);
+    const line = new THREE.Line(lineGeom, spgLineMat);
+    spgLines2.add(line);
+  }
+  spgGroup.add(spgLines2);
+  group.add(spgGroup);
+
+  // v81: Eelgrass restoration patch (volunteers planting eelgrass in shallows)
+  const egpGroup = new THREE.Group();
+  egpGroup.position.set(-21, 0.05, 5);
+  egpGroup.rotation.y = 0.4;
+  // Shallow water patch
+  const egpWaterMat = new THREE.MeshLambertMaterial({ color: 0x4080a0, transparent: true, opacity: 0.6 });
+  const egpWater = new THREE.Mesh(new THREE.CircleGeometry(2.5, 24), egpWaterMat);
+  egpWater.rotation.x = -Math.PI / 2;
+  egpWater.position.y = 0.05;
+  egpGroup.add(egpWater);
+  // Eelgrass blades (tall thin green strips)
+  const egpGrassMat = new THREE.MeshLambertMaterial({ color: 0x208060, side: THREE.DoubleSide });
+  const egpBlades = [];
+  for (let g = 0; g < 60; g++) {
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.random() * 2.0;
+    const blade = new THREE.Mesh(new THREE.PlaneGeometry(0.04, 0.5), egpGrassMat);
+    blade.position.set(Math.cos(angle) * radius, 0.3, Math.sin(angle) * radius);
+    blade.rotation.y = Math.random() * Math.PI;
+    egpGroup.add(blade);
+    egpBlades.push(blade);
+  }
+  // 2 volunteers wading
+  const egpVolColors = [0xc0e040, 0x4080c0];
+  const egpVolSkinMat = new THREE.MeshLambertMaterial({ color: 0xd0a080 });
+  const egpVolunteers = [];
+  for (let v = 0; v < 2; v++) {
+    const wadersMat = new THREE.MeshLambertMaterial({ color: egpVolColors[v] });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.7, 12), wadersMat);
+    torso.position.set(-1.0 + v * 2.0, 0.45, -0.5);
+    egpGroup.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), egpVolSkinMat);
+    head.position.set(-1.0 + v * 2.0, 0.95, -0.5);
+    egpGroup.add(head);
+    // Bend forward planting
+    torso.rotation.x = -0.4;
+    head.position.z = -0.3;
+    head.position.y = 0.85;
+    egpVolunteers.push({ torso, head });
+  }
+  // Restoration project sign
+  const egpSignMat = new THREE.MeshLambertMaterial({ color: 0xfff0c0 });
+  const egpSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.0, 8), new THREE.MeshLambertMaterial({ color: 0x6a4828 }));
+  egpSignPost.position.set(2.6, 0.5, 0);
+  egpGroup.add(egpSignPost);
+  const egpSign = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.04), egpSignMat);
+  egpSign.position.set(2.6, 1.05, 0);
+  egpGroup.add(egpSign);
+  const egpSignTextMat = new THREE.MeshLambertMaterial({ color: 0x206040 });
+  const egpSignText = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.06, 0.045), egpSignTextMat);
+  egpSignText.position.set(2.6, 1.1, 0);
+  egpGroup.add(egpSignText);
+  group.add(egpGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -15780,6 +15962,24 @@ export function createAnchorageLandmark(THREE, opts) {
         }
         tpdDocentHead.rotation.y = 0.5 * Math.sin(t * 0.6);
         tpdAnemone.scale.y = 1 + 0.2 * Math.sin(t * 1.8);
+        // v81: Sand-castle judges - flag waves, judges nod
+        scjpFlag.rotation.z = 0.3 * Math.sin(t * 3);
+        for (let j = 0; j < scjpJudges.length; j++) {
+          scjpJudges[j].head.rotation.x = 0.15 * Math.sin(t * 1.2 + j * 0.5);
+        }
+        scjpScoreSign.position.y = 1.5 + 0.05 * Math.sin(t * 2);
+        // v81: Paragliders drift gently
+        spgGroup.position.x = -25 + 1.0 * Math.sin(t * 0.2);
+        spgGroup.position.y = 1.0 * Math.sin(t * 0.15);
+        spgGroup.rotation.y = 0.1 * Math.sin(t * 0.1);
+        // v81: Eelgrass blades sway in current
+        for (let g = 0; g < egpBlades.length; g++) {
+          egpBlades[g].rotation.z = 0.3 * Math.sin(t * 1.0 + g * 0.2);
+        }
+        for (let v = 0; v < egpVolunteers.length; v++) {
+          egpVolunteers[v].torso.rotation.x = -0.4 + 0.1 * Math.sin(t * 1.3 + v * 0.7);
+        }
+
 
 
 
