@@ -1,11 +1,53 @@
+import * as THREE from 'three';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { worlds } from './config.js';
+import {
+    calculateUniverseHealth,
+    collectRealTimeMetrics,
+    getEmergencyCoordinationStatus
+} from './ecosystem-api.js';
+import { createUniverseAudio } from './audio.js';
+import { createGuidedTour } from './tour-mode.js';
+import { createPhotoMode } from './photo-mode.js';
+import { createPhotoGallery } from './photo-gallery.js';
+import { createEventBanner } from './event-banner.js';
+import { createVisitorTracker } from './visitor-tracker.js';
 import { createCosmicSightTracker } from './cosmic-sight-tracker.js';
-import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
 import { createCosmicSightsAtlas } from './cosmic-sights-atlas.js';
+import { createCosmicSightLog } from './cosmic-sight-log.js';
 import { createCosmicSightMarkers } from './cosmic-sight-markers.js';
 import { createCosmicSightCategoryHud } from './cosmic-sight-category-hud.js';
+import { createCosmicSightCategoryMilestones } from './cosmic-sight-category-milestones.js';
 import { createCosmicSightProgressBadge } from './cosmic-sight-progress-badge.js';
+import { recordWorldVisit, getWorldVisitCount, getAllVisitCounts } from './world-visit-counter.js';
+import { createBookmark3DMarkers } from './bookmark-3d-markers.js';
 import { createCosmicSightCompass } from './cosmic-sight-compass.js';
-import { createCosmicSightLog } from './cosmic-sight-log.js';
+import { createCosmicSightMilestones } from './cosmic-sight-milestones.js';
+import { challengeUI } from './challenge-ui.js';
+import { EventVisualIntegration } from './event-visual-integration.js';
+import { initDiagnosticsPanel } from './diagnostics.js';
+import { UniverseEvents } from './universe-events.js';
+
+// Scene Setup
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x000000, 0.001);
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+scene.add(ambientLight);
+const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+dirLight.position.set(1, 1, 1);
+scene.add(dirLight);
+
+// Controls
+const controls = new PointerLockControls(camera, renderer.domElement);
+scene.add(controls.getObject());
 
 const cosmicSights = [
   { name: 'CNO Cycle Carbon Nitrogen', position: [7250, 143000, 5250], color: '#FF6B6B', size: 5.2, description: 'Catalytic hydrogen fusion loop in hot stellar cores where carbon and nitrogen cycle to sustain luminosity.' },
