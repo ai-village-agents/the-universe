@@ -13304,6 +13304,131 @@ const cosmicSights = [
     position: [7549, 148980, 5549],
     description: "Tolerance to displacement damage from high-energy particle bombardment"
   },
+  {
+    name: "Fourier Transform Spectral Resolution",
+    position: [7550, 149000, 5550],
+    description: "Frequency bin width determined by observation duration in spectral analysis"
+  },
+  {
+    name: "Windowing Function Sidelobe Suppression",
+    position: [7551, 149020, 5551],
+    description: "Reduction of spectral leakage from non-rectangular apodization"
+  },
+  {
+    name: "Signal-to-Noise Ratio Enhancement",
+    position: [7552, 149040, 5552],
+    description: "Coherent integration gain from time-averaging repeated measurements"
+  },
+  {
+    name: "Filter Passband Ripple Specification",
+    position: [7553, 149060, 5553],
+    description: "Magnitude variation within designed frequency response region"
+  },
+  {
+    name: "Anti-Aliasing Filter Cutoff",
+    position: [7554, 149080, 5554],
+    description: "Low-pass filter frequency set to Nyquist limit for sampling theorem"
+  },
+  {
+    name: "Phase Coherence Measurement",
+    position: [7555, 149100, 5555],
+    description: "Stability of phase relationship between signal components"
+  },
+  {
+    name: "Adaptive Filter Convergence Rate",
+    position: [7556, 149120, 5556],
+    description: "Speed of least-mean-squares algorithm tracking changing interference"
+  },
+  {
+    name: "Cross-Correlation Peak Detection",
+    position: [7557, 149140, 5557],
+    description: "Identification of maximum similarity between delayed signal copies"
+  },
+  {
+    name: "Spectral Whitening Normalization",
+    position: [7558, 149160, 5558],
+    description: "Flattening of frequency-dependent power spectrum for equal weighting"
+  },
+  {
+    name: "Polyphase Filter Bank Efficiency",
+    position: [7559, 149180, 5559],
+    description: "Multi-rate processing reducing computational load in channelization"
+  },
+  {
+    name: "Matched Filter Optimization",
+    position: [7560, 149200, 5560],
+    description: "Time-reversed replica correlation for maximum detection probability"
+  },
+  {
+    name: "Digital Downconversion Frequency Shift",
+    position: [7561, 149220, 5561],
+    description: "Translation of interest band to baseband using local oscillator"
+  },
+  {
+    name: "Decimation Ratio Selection",
+    position: [7562, 149240, 5562],
+    description: "Reduction factor for sampling rate after low-pass filtering"
+  },
+  {
+    name: "Quantization Noise Floor",
+    position: [7563, 149260, 5563],
+    description: "Minimum detectable signal limited by bit depth of analog-digital conversion"
+  },
+  {
+    name: "Phase Unwrapping Algorithm",
+    position: [7564, 149280, 5564],
+    description: "Correction of 2-pi discontinuities in phase measurements"
+  },
+  {
+    name: "Autocorrelation Lag Window",
+    position: [7565, 149300, 5565],
+    description: "Truncation of self-correlation function to reduce estimation variance"
+  },
+  {
+    name: "Spectral Leakage Mitigation",
+    position: [7566, 149320, 5566],
+    description: "Minimization of energy spread beyond intended frequency band"
+  },
+  {
+    name: "Peak Picking Interpolation",
+    position: [7567, 149340, 5567],
+    description: "Sub-bin frequency estimation using parabolic fitting"
+  },
+  {
+    name: "Kalman Filter State Update",
+    position: [7568, 149360, 5568],
+    description: "Optimal recursive estimation combining measurement and process models"
+  },
+  {
+    name: "Noise Power Estimation",
+    position: [7569, 149380, 5569],
+    description: "Variance measurement from silent periods or spectral floor"
+  },
+  {
+    name: "Group Delay Distortion",
+    position: [7570, 149400, 5570],
+    description: "Frequency-dependent phase lag causing signal dispersion"
+  },
+  {
+    name: "Hilbert Transform Analytic Signal",
+    position: [7571, 149420, 5571],
+    description: "Complex representation enabling amplitude and phase extraction"
+  },
+  {
+    name: "Short-Time Fourier Transform Window",
+    position: [7572, 149440, 5572],
+    description: "Overlapping segments for time-frequency localization"
+  },
+  {
+    name: "Coherence Function Magnitude",
+    position: [7573, 149460, 5573],
+    description: "Normalized cross-spectral density indicating correlation degree"
+  },
+  {
+    name: "Signal Stationarity Assumption",
+    position: [7574, 149480, 5574],
+    description: "Requirement for time-invariant statistics in frequency-domain processing"
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
