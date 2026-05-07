@@ -12269,6 +12269,280 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(sandMermGroup);
 
 
+
+  // v74: Sandbag erosion wall with workers stacking bags
+  const sbWallGroup = new THREE.Group();
+  sbWallGroup.position.set(28, 0, -8);
+  sbWallGroup.rotation.y = -0.4;
+  // Long row of stacked sandbags (3 rows x 8 wide)
+  const sbBagMat = new THREE.MeshLambertMaterial({ color: 0xc8b078 });
+  const sbBagMatDark = new THREE.MeshLambertMaterial({ color: 0xa88858 });
+  const sbBags = [];
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 8; col++) {
+      const bag = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.32, 0.45), col % 2 === 0 ? sbBagMat : sbBagMatDark);
+      bag.position.set(col * 0.62 - 2.2 + (row % 2) * 0.31, 0.16 + row * 0.32, 0);
+      // Slight random tilt
+      bag.rotation.z = (Math.random() - 0.5) * 0.04;
+      bag.rotation.y = (Math.random() - 0.5) * 0.06;
+      sbBags.push(bag);
+      sbWallGroup.add(bag);
+    }
+  }
+  // Pile of unused sandbags to the side
+  for (let pi = 0; pi < 6; pi++) {
+    const pileBag = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.3, 0.45), pi % 2 === 0 ? sbBagMat : sbBagMatDark);
+    const px = 3.2 + (pi % 3) * 0.18;
+    const py = 0.15 + Math.floor(pi / 3) * 0.3;
+    pileBag.position.set(px, py, -0.1 + (pi % 2) * 0.05);
+    pileBag.rotation.z = (Math.random() - 0.5) * 0.2;
+    pileBag.rotation.y = (Math.random() - 0.5) * 0.4;
+    sbWallGroup.add(pileBag);
+  }
+  // Two workers in hi-vis vests
+  const sbWorkers = [];
+  const sbWorkerArms = [];
+  for (let wi = 0; wi < 2; wi++) {
+    const worker = new THREE.Group();
+    worker.position.set(wi === 0 ? -1.0 : 1.5, 0, 1.1);
+    worker.rotation.y = wi === 0 ? -0.4 : 0.5;
+    const vestMat = new THREE.MeshLambertMaterial({ color: 0xffea3a, emissive: 0x3a3a10, emissiveIntensity: 0.3 });
+    const helmetMat = new THREE.MeshLambertMaterial({ color: 0xff6a1a });
+    const skinMat = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+    const pantsMat = new THREE.MeshLambertMaterial({ color: 0x3a3a4a });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.7, 8), vestMat);
+    torso.position.y = 1.0;
+    worker.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), skinMat);
+    head.position.y = 1.5;
+    worker.add(head);
+    const helmet = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2.2), helmetMat);
+    helmet.position.y = 1.55;
+    worker.add(helmet);
+    const legL = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.7, 6), pantsMat);
+    legL.position.set(-0.1, 0.35, 0);
+    worker.add(legL);
+    const legR = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.7, 6), pantsMat);
+    legR.position.set(0.1, 0.35, 0);
+    worker.add(legR);
+    // Arms (one carrying a sandbag in front)
+    const armL = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6), vestMat);
+    armL.position.set(-0.25, 1.05, 0.2);
+    armL.rotation.x = -0.7;
+    worker.add(armL);
+    const armR = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.55, 6), vestMat);
+    armR.position.set(0.25, 1.05, 0.2);
+    armR.rotation.x = -0.7;
+    worker.add(armR);
+    // Sandbag held in arms
+    const heldBag = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.28, 0.4), sbBagMat);
+    heldBag.position.set(0, 0.95, 0.45);
+    heldBag.rotation.x = -0.2;
+    worker.add(heldBag);
+    sbWorkers.push(worker);
+    sbWorkerArms.push({ armL, armR, heldBag, torso });
+    sbWallGroup.add(worker);
+  }
+  group.add(sbWallGroup);
+
+  // v74: Yacht crew polishing brass
+  const yachtGroup = new THREE.Group();
+  yachtGroup.position.set(-30, 0.05, -28);
+  yachtGroup.rotation.y = 0.3;
+  // Yacht hull (long sleek)
+  const ychHullMat = new THREE.MeshLambertMaterial({ color: 0xfafafa });
+  const ychHullStripe = new THREE.MeshLambertMaterial({ color: 0x1a3a6a });
+  const ychHull = new THREE.Mesh(new THREE.BoxGeometry(8.0, 1.0, 2.4), ychHullMat);
+  ychHull.position.y = 0.55;
+  yachtGroup.add(ychHull);
+  // Bow taper (cone front)
+  const ychBow = new THREE.Mesh(new THREE.ConeGeometry(1.2, 1.6, 4), ychHullMat);
+  ychBow.rotation.z = -Math.PI / 2;
+  ychBow.rotation.x = Math.PI / 2;
+  ychBow.position.set(4.5, 0.55, 0);
+  ychBow.scale.y = 1.5;
+  yachtGroup.add(ychBow);
+  // Hull blue stripe
+  const ychStripe = new THREE.Mesh(new THREE.BoxGeometry(8.05, 0.12, 2.42), ychHullStripe);
+  ychStripe.position.y = 0.4;
+  yachtGroup.add(ychStripe);
+  // Cabin (mid)
+  const ychCabin = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.4, 2.0), ychHullMat);
+  ychCabin.position.set(-0.5, 1.75, 0);
+  yachtGroup.add(ychCabin);
+  // Cabin roof / flybridge
+  const ychFlyBridge = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.7, 1.6), ychHullMat);
+  ychFlyBridge.position.set(-0.5, 2.85, 0);
+  yachtGroup.add(ychFlyBridge);
+  // Tinted windows (long blue band)
+  const ychWinMat = new THREE.MeshLambertMaterial({ color: 0x6ab0d4, emissive: 0x1a3a4a, emissiveIntensity: 0.3 });
+  const ychWin = new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.5, 2.05), ychWinMat);
+  ychWin.position.set(-0.5, 2.0, 0);
+  yachtGroup.add(ychWin);
+  // Brass fittings (gleaming) - rails and bollards
+  const ychBrassMat = new THREE.MeshStandardMaterial({ color: 0xeebb40, metalness: 0.85, roughness: 0.2 });
+  const ychRail = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 7.5, 8), ychBrassMat);
+  ychRail.rotation.z = Math.PI / 2;
+  ychRail.position.set(0, 1.15, 1.05);
+  yachtGroup.add(ychRail);
+  const ychRail2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 7.5, 8), ychBrassMat);
+  ychRail2.rotation.z = Math.PI / 2;
+  ychRail2.position.set(0, 1.15, -1.05);
+  yachtGroup.add(ychRail2);
+  // Brass bollard (a few)
+  const ychBollards = [];
+  for (let bi = 0; bi < 3; bi++) {
+    const bol = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.32, 10), ychBrassMat);
+    bol.position.set(-3 + bi * 3, 1.2, 1.05);
+    yachtGroup.add(bol);
+    ychBollards.push(bol);
+  }
+  // Anchor chain crank (decorative brass)
+  const ychChainCrank = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.18, 12), ychBrassMat);
+  ychChainCrank.position.set(3.5, 1.15, 0);
+  yachtGroup.add(ychChainCrank);
+  // 2 crew polishing brass on deck
+  const ychCrew = [];
+  for (let ci = 0; ci < 2; ci++) {
+    const crew = new THREE.Group();
+    crew.position.set(ci === 0 ? -2.3 : 2.0, 1.05, ci === 0 ? 0.7 : 0.7);
+    const polo = new THREE.MeshLambertMaterial({ color: 0xfafafa });
+    const shorts = new THREE.MeshLambertMaterial({ color: 0x1a3a6a });
+    const skin = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 8), polo);
+    torso.position.y = 0.4;
+    crew.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), skin);
+    head.position.y = 0.78;
+    crew.add(head);
+    const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.17, 0.18, 6), shorts);
+    sh.position.y = 0.07;
+    crew.add(sh);
+    // Polishing arm
+    const polishArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.45, 6), polo);
+    polishArm.position.set(0.18, 0.45, 0.2);
+    polishArm.rotation.x = -0.9;
+    crew.add(polishArm);
+    // Cloth in hand
+    const cloth = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.18), new THREE.MeshLambertMaterial({ color: 0xe05a5a }));
+    cloth.position.set(0.32, 0.18, 0.32);
+    crew.add(cloth);
+    crew.userData.polishArm = polishArm;
+    crew.userData.cloth = cloth;
+    ychCrew.push(crew);
+    yachtGroup.add(crew);
+  }
+  // Sparkle motes around brass (pulsing white spheres)
+  const ychSparkleMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true });
+  const ychSparkles = [];
+  for (let si = 0; si < 5; si++) {
+    const sp = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), ychSparkleMat);
+    sp.position.set(-3 + si * 1.4, 1.3 + (si % 2) * 0.05, 1.1);
+    yachtGroup.add(sp);
+    ychSparkles.push(sp);
+  }
+  group.add(yachtGroup);
+
+  // v74: Tidal flat clam diggers
+  const clamDigGroup = new THREE.Group();
+  clamDigGroup.position.set(-12, 0.05, 26);
+  // Tidal flat surface (wet sand, slightly darker)
+  const clamFlatMat = new THREE.MeshLambertMaterial({ color: 0xa89868 });
+  const clamFlat = new THREE.Mesh(new THREE.PlaneGeometry(8, 6), clamFlatMat);
+  clamFlat.rotation.x = -Math.PI / 2;
+  clamFlat.position.y = 0.02;
+  clamDigGroup.add(clamFlat);
+  // Wet sheen on flat (translucent)
+  const clamSheenMat = new THREE.MeshLambertMaterial({ color: 0x87b8c8, transparent: true, opacity: 0.45 });
+  const clamSheen = new THREE.Mesh(new THREE.PlaneGeometry(8, 6), clamSheenMat);
+  clamSheen.rotation.x = -Math.PI / 2;
+  clamSheen.position.y = 0.025;
+  clamDigGroup.add(clamSheen);
+  // Bucket (each digger has one)
+  const clamDiggers = [];
+  const clamRakes = [];
+  const clamDiggerPositions = [[-2.0, 0, 0.5], [1.5, 0, -1.0]];
+  for (let di = 0; di < 2; di++) {
+    const digger = new THREE.Group();
+    digger.position.set(clamDiggerPositions[di][0], 0, clamDiggerPositions[di][2]);
+    digger.rotation.y = di === 0 ? 0.5 : -0.4;
+    // Digger leaning/bent over
+    const overallsMat = new THREE.MeshLambertMaterial({ color: di === 0 ? 0x4a5a8a : 0x7a3a5a });
+    const skinMat = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+    const hatMat = new THREE.MeshLambertMaterial({ color: 0xa88a4a });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 8), overallsMat);
+    torso.position.set(0, 0.7, 0.0);
+    torso.rotation.x = 0.6;
+    digger.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), skinMat);
+    head.position.set(0, 0.95, 0.4);
+    digger.add(head);
+    const hat = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.18, 8), hatMat);
+    hat.position.set(0, 1.05, 0.4);
+    hat.rotation.x = 0.4;
+    digger.add(hat);
+    const hatBrim = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.32, 12), hatMat);
+    hatBrim.rotation.x = -Math.PI / 2 + 0.3;
+    hatBrim.position.set(0, 0.99, 0.42);
+    digger.add(hatBrim);
+    // Legs
+    const pantMat = new THREE.MeshLambertMaterial({ color: 0x3a3a4a });
+    const legL = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.8, 6), pantMat);
+    legL.position.set(-0.1, 0.4, -0.1);
+    digger.add(legL);
+    const legR = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.8, 6), pantMat);
+    legR.position.set(0.1, 0.4, -0.1);
+    digger.add(legR);
+    // Arms reaching forward (one holding rake)
+    const armL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6), overallsMat);
+    armL.position.set(-0.18, 0.85, 0.4);
+    armL.rotation.x = 1.0;
+    digger.add(armL);
+    const armR = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6), overallsMat);
+    armR.position.set(0.18, 0.85, 0.4);
+    armR.rotation.x = 1.0;
+    digger.add(armR);
+    // Clam rake (long handle + tined head)
+    const rake = new THREE.Group();
+    rake.position.set(0, 0.6, 0.7);
+    const handleMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+    const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.4, 6), handleMat);
+    handle.rotation.x = -Math.PI / 2.4;
+    handle.position.y = 0;
+    rake.add(handle);
+    const headHandle = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.06, 0.06), handleMat);
+    headHandle.position.set(0, -0.5, 0.5);
+    rake.add(headHandle);
+    for (let ti = 0; ti < 5; ti++) {
+      const tine = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.18, 4), handleMat);
+      tine.position.set(-0.18 + ti * 0.09, -0.6, 0.55);
+      rake.add(tine);
+    }
+    digger.add(rake);
+    clamRakes.push(rake);
+    // Bucket beside digger
+    const bucketMat = new THREE.MeshLambertMaterial({ color: 0xc0c0c0 });
+    const bucket = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.18, 0.35, 12), bucketMat);
+    bucket.position.set(0.6, 0.18, -0.1);
+    digger.add(bucket);
+    const bucketRim = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.025, 6, 12), bucketMat);
+    bucketRim.position.set(0.6, 0.36, -0.1);
+    bucketRim.rotation.x = Math.PI / 2;
+    digger.add(bucketRim);
+    clamDiggers.push(digger);
+    clamDigGroup.add(digger);
+  }
+  // Small clam shells scattered
+  const clamShellMat = new THREE.MeshLambertMaterial({ color: 0xe8d8b0 });
+  for (let si = 0; si < 9; si++) {
+    const sh = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 5, 0, Math.PI), clamShellMat);
+    sh.position.set((Math.random() - 0.5) * 6, 0.04, (Math.random() - 0.5) * 4);
+    sh.rotation.y = Math.random() * Math.PI * 2;
+    clamDigGroup.add(sh);
+  }
+  group.add(clamDigGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -14239,6 +14513,37 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       if (catWakeMat) {
         catWakeMat.opacity = 0.4 + 0.2 * Math.sin(t * 1.2);
+      // v74 sandbag workers: lift cycle (rise/lower while turning toward wall)
+      for (let wi2 = 0; wi2 < sbWorkers.length; wi2++) {
+        const phase = t * 0.6 + wi2 * 1.5;
+        sbWorkers[wi2].position.y = Math.abs(Math.sin(phase)) * 0.06;
+        sbWorkers[wi2].rotation.y = (wi2 === 0 ? -0.4 : 0.5) + Math.sin(phase * 0.5) * 0.15;
+      }
+      // v74 yacht crew: polishing motion
+      for (let cw = 0; cw < ychCrew.length; cw++) {
+        const cdata = ychCrew[cw].userData;
+        if (cdata.cloth) {
+          cdata.cloth.position.x = 0.32 + Math.sin(t * 4 + cw * 1.0) * 0.08;
+          cdata.cloth.position.z = 0.32 + Math.cos(t * 4 + cw * 1.0) * 0.05;
+        }
+        if (cdata.polishArm) {
+          cdata.polishArm.rotation.z = Math.sin(t * 4 + cw * 1.0) * 0.15;
+        }
+      }
+      // v74 brass sparkles pulse
+      for (let sp2 = 0; sp2 < ychSparkles.length; sp2++) {
+        ychSparkles[sp2].material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * 1.8 + sp2 * 0.6));
+      }
+      // v74 clam diggers: rake digging motion
+      for (let cd = 0; cd < clamDiggers.length; cd++) {
+        if (clamRakes[cd]) {
+          clamRakes[cd].rotation.x = Math.sin(t * 1.4 + cd * 1.0) * 0.2;
+        }
+      }
+      if (clamSheen) {
+        clamSheen.material.opacity = 0.4 + 0.1 * Math.sin(t * 0.6);
+      }
+
       }
 
       }
