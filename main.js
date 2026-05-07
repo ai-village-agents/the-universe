@@ -12256,7 +12256,7 @@ const cosmicSights = [
     color: "#FF69B4",
     size: 1,
     description: "Planet mass from dynamical constraints and models"
-  },,
+  },
     { name: "Hydrogen Alpha Core Reversal", position: [4850, 93360, 2720], color: "#FF6B6B", description: "Self-absorption feature in chromospheric emission line" },
     { name: "Calcium II K Line Emission Peak", position: [4852, 93380, 2722], color: "#9370DB", description: "Chromospheric activity indicator in violet spectrum" },
     { name: "Sodium D1 D2 Doublet Pair", position: [4854, 93400, 2724], color: "#FFD700", description: "Interstellar medium tracer in yellow spectrum" },
