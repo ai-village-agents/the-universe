@@ -10329,6 +10329,251 @@ export function createAnchorageLandmark(THREE, opts) {
   const cliffDiveEntryZ = 1.5;
 
 
+
+  // === v66 SCENE 1: Fly-fishermen wading in shallows ===
+  const flyFishGroup = new THREE.Group();
+  // Fisherman 1
+  const flyFisher1 = new THREE.Group();
+  const flyWaderMat = new THREE.MeshLambertMaterial({ color: 0x14532d });
+  const ff1Body = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 1.2, 8), flyWaderMat);
+  ff1Body.position.y = 0.6;
+  flyFisher1.add(ff1Body);
+  const ff1Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  ff1Head.position.y = 1.4;
+  flyFisher1.add(ff1Head);
+  const ff1Hat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.32, 0.12, 8),
+    new THREE.MeshLambertMaterial({ color: 0x713f12 })
+  );
+  ff1Hat.position.y = 1.6;
+  flyFisher1.add(ff1Hat);
+  // Rod
+  const ff1Rod = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.015, 0.025, 2.6, 6),
+    new THREE.MeshLambertMaterial({ color: 0x44403c })
+  );
+  ff1Rod.position.set(0.3, 1.6, 0.4);
+  ff1Rod.rotation.x = -0.5;
+  ff1Rod.rotation.z = 0.3;
+  flyFisher1.add(ff1Rod);
+  flyFisher1.position.set(0, 0, 0);
+  flyFishGroup.add(flyFisher1);
+  // Fisherman 2
+  const flyFisher2 = new THREE.Group();
+  const ff2Body = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x78350f }));
+  ff2Body.position.y = 0.6;
+  flyFisher2.add(ff2Body);
+  const ff2Head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+  );
+  ff2Head.position.y = 1.4;
+  flyFisher2.add(ff2Head);
+  const ff2Rod = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.015, 0.025, 2.6, 6),
+    new THREE.MeshLambertMaterial({ color: 0x44403c })
+  );
+  ff2Rod.position.set(-0.3, 1.5, 0.3);
+  ff2Rod.rotation.x = -0.3;
+  ff2Rod.rotation.z = -0.4;
+  flyFisher2.add(ff2Rod);
+  flyFisher2.position.set(2.4, 0, 0.5);
+  flyFisher2.rotation.y = 0.3;
+  flyFishGroup.add(flyFisher2);
+  // Ripples around legs
+  const flyRippleMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const flyRipples = [];
+  for (let i = 0; i < 4; i++) {
+    const flyRipple = new THREE.Mesh(
+      new THREE.RingGeometry(0.3, 0.5, 16),
+      flyRippleMat
+    );
+    flyRipple.rotation.x = -Math.PI / 2;
+    flyRipple.position.set(i < 2 ? 0 : 2.4, 0.04, i % 2 === 0 ? 0 : 0.5);
+    flyFishGroup.add(flyRipple);
+    flyRipples.push(flyRipple);
+  }
+  flyFishGroup.position.set(-30, 0.05, 38);
+  flyFishGroup.rotation.y = 0.5;
+  group.add(flyFishGroup);
+
+  // === v66 SCENE 2: Tug-of-war on sand ===
+  const tugGroup = new THREE.Group();
+  // Rope
+  const tugRopeMat = new THREE.MeshLambertMaterial({ color: 0xfbbf24 });
+  const tugRope = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 4.0, 6),
+    tugRopeMat
+  );
+  tugRope.rotation.z = Math.PI / 2;
+  tugRope.position.y = 0.7;
+  tugGroup.add(tugRope);
+  // Center marker flag
+  const tugFlagPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 0.5, 6),
+    new THREE.MeshLambertMaterial({ color: 0x44403c })
+  );
+  tugFlagPole.position.set(0, 0.45, 0);
+  tugGroup.add(tugFlagPole);
+  const tugFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.3, 0.2),
+    new THREE.MeshLambertMaterial({ color: 0xef4444, side: THREE.DoubleSide })
+  );
+  tugFlag.position.set(0.15, 0.6, 0);
+  tugGroup.add(tugFlag);
+  // Team A (left, blue)
+  const tugTeamA = [];
+  const tugAColor = 0x2563eb;
+  for (let i = 0; i < 3; i++) {
+    const tugA = new THREE.Group();
+    const tugABody = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.9, 0.3),
+      new THREE.MeshLambertMaterial({ color: tugAColor })
+    );
+    tugABody.position.y = 0.45;
+    tugA.add(tugABody);
+    const tugAHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+    );
+    tugAHead.position.y = 1.05;
+    tugA.add(tugAHead);
+    tugA.position.set(-2.2 - i * 0.7, 0, 0);
+    tugA.rotation.y = -0.1;
+    tugGroup.add(tugA);
+    tugTeamA.push(tugA);
+  }
+  // Team B (right, red)
+  const tugTeamB = [];
+  const tugBColor = 0xdc2626;
+  for (let i = 0; i < 3; i++) {
+    const tugB = new THREE.Group();
+    const tugBBody = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.9, 0.3),
+      new THREE.MeshLambertMaterial({ color: tugBColor })
+    );
+    tugBBody.position.y = 0.45;
+    tugB.add(tugBBody);
+    const tugBHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xfbcfa0 })
+    );
+    tugBHead.position.y = 1.05;
+    tugB.add(tugBHead);
+    tugB.position.set(2.2 + i * 0.7, 0, 0);
+    tugB.rotation.y = 0.1;
+    tugGroup.add(tugB);
+    tugTeamB.push(tugB);
+  }
+  tugGroup.position.set(20, 0.05, 36);
+  tugGroup.rotation.y = -0.4;
+  group.add(tugGroup);
+  // sway tracker
+  let tugSway = 0;
+
+  // === v66 SCENE 3: Scuba diver entering water from boat ===
+  const scubaSceneGroup = new THREE.Group();
+  // Boat (small dive boat)
+  const scubaBoat = new THREE.Group();
+  const scubaBoatHull = new THREE.Mesh(
+    new THREE.BoxGeometry(2.6, 0.5, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0x0891b2 })
+  );
+  scubaBoatHull.position.y = 0.3;
+  scubaBoat.add(scubaBoatHull);
+  const scubaBoatBow = new THREE.Mesh(
+    new THREE.ConeGeometry(0.6, 1.0, 4),
+    new THREE.MeshLambertMaterial({ color: 0x0891b2 })
+  );
+  scubaBoatBow.rotation.z = -Math.PI / 2;
+  scubaBoatBow.rotation.y = Math.PI / 4;
+  scubaBoatBow.position.set(1.8, 0.3, 0);
+  scubaBoat.add(scubaBoatBow);
+  // Dive flag (red w/ white stripe) on stern pole
+  const scubaFlagPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.03, 0.03, 1.2, 6),
+    new THREE.MeshLambertMaterial({ color: 0xfafaf9 })
+  );
+  scubaFlagPole.position.set(-1.0, 0.9, 0);
+  scubaBoat.add(scubaFlagPole);
+  const scubaFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0xdc2626, side: THREE.DoubleSide })
+  );
+  scubaFlag.position.set(-0.75, 1.3, 0);
+  scubaBoat.add(scubaFlag);
+  const scubaFlagStripe = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.08, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0xfafaf9, side: THREE.DoubleSide })
+  );
+  scubaFlagStripe.position.set(-0.75, 1.3, 0.01);
+  scubaFlagStripe.rotation.z = -0.5;
+  scubaBoat.add(scubaFlagStripe);
+  scubaSceneGroup.add(scubaBoat);
+  // Diver figure (mid-fall backwards into water)
+  const scubaDiver = new THREE.Group();
+  const scubaDiverBody = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.2, 0.7, 4, 8),
+    new THREE.MeshLambertMaterial({ color: 0x111827 })
+  );
+  scubaDiver.add(scubaDiverBody);
+  const scubaDiverHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0x111827 })
+  );
+  scubaDiverHead.position.y = 0.5;
+  scubaDiver.add(scubaDiverHead);
+  // Mask
+  const scubaMask = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.1, 0.1),
+    new THREE.MeshBasicMaterial({ color: 0x67e8f9 })
+  );
+  scubaMask.position.set(0, 0.5, 0.13);
+  scubaDiver.add(scubaMask);
+  // Air tank
+  const scubaTank = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.13, 0.55, 8),
+    new THREE.MeshLambertMaterial({ color: 0xfde047 })
+  );
+  scubaTank.position.set(0, 0.05, -0.25);
+  scubaDiver.add(scubaTank);
+  // Fins
+  const scubaFinMat = new THREE.MeshLambertMaterial({ color: 0x000000 });
+  const scubaFinL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.1, 0.4, 0.04),
+    scubaFinMat
+  );
+  scubaFinL.position.set(-0.12, -0.6, 0);
+  scubaDiver.add(scubaFinL);
+  const scubaFinR = new THREE.Mesh(
+    new THREE.BoxGeometry(0.1, 0.4, 0.04),
+    scubaFinMat
+  );
+  scubaFinR.position.set(0.12, -0.6, 0);
+  scubaDiver.add(scubaFinR);
+  scubaSceneGroup.add(scubaDiver);
+  // Splash sprites
+  const scubaSplashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 });
+  const scubaSplashes = [];
+  for (let i = 0; i < 6; i++) {
+    const sp = new THREE.Mesh(
+      new THREE.ConeGeometry(0.12, 0.4, 4),
+      scubaSplashMat
+    );
+    sp.visible = false;
+    scubaSceneGroup.add(sp);
+    scubaSplashes.push(sp);
+  }
+  scubaSceneGroup.position.set(60, 0.05, 30);
+  scubaSceneGroup.rotation.y = 0.7;
+  group.add(scubaSceneGroup);
+  let scubaCycle = 0;
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -12106,6 +12351,45 @@ export function createAnchorageLandmark(THREE, opts) {
           s.position.z = cliffDiveEntryZ + Math.sin(ang) * r;
           s.position.y = 0.05 + sp * 0.6 * (1 - sp) * 4;
           s.material.opacity = 0.8 * (1 - sp);
+        });
+      }
+      // v66: Fly-fishermen rod tips bob, ripples expand
+      ff1Rod.rotation.x = -0.5 + Math.sin(t * 1.5) * 0.15;
+      ff2Rod.rotation.x = -0.3 + Math.sin(t * 1.7 + 0.5) * 0.12;
+      flyRipples.forEach((r, i) => {
+        const phase = (t * 0.6 + i * 0.25) % 1.0;
+        r.scale.setScalar(0.5 + phase * 1.5);
+        r.material.opacity = 0.5 * (1 - phase);
+      });
+      // v66: Tug-of-war rope sways back and forth
+      tugSway = Math.sin(t * 2) * 0.4;
+      tugRope.position.x = tugSway;
+      tugFlagPole.position.x = tugSway;
+      tugFlag.position.x = tugSway + 0.15;
+      tugTeamA.forEach((p, i) => { p.position.x = -2.2 - i * 0.7 + tugSway; });
+      tugTeamB.forEach((p, i) => { p.position.x = 2.2 + i * 0.7 + tugSway; });
+      // v66: Scuba diver back-roll cycle (~5 sec)
+      scubaCycle = (scubaCycle + dt * 0.2) % 1.5;
+      if (scubaCycle < 1.0) {
+        scubaDiver.visible = true;
+        const u = scubaCycle;
+        // start sitting on boat edge (y=0.7), arc backward into water
+        scubaDiver.position.x = -1.2 + u * -1.0; // moves left away from boat
+        scubaDiver.position.y = 0.7 - u * 1.2;
+        scubaDiver.position.z = 0.6 + u * 0.4;
+        scubaDiver.rotation.x = u * Math.PI * 1.2;
+        scubaSplashes.forEach(s => { s.visible = false; });
+      } else {
+        scubaDiver.visible = false;
+        const sp = (scubaCycle - 1.0) / 0.5;
+        scubaSplashes.forEach((s, i) => {
+          s.visible = true;
+          const ang = (i / 6) * Math.PI * 2;
+          const r = 0.3 + sp * 1.0;
+          s.position.x = -2.2 + Math.cos(ang) * r;
+          s.position.y = 0.05 + sp * 0.5 * (1 - sp) * 4;
+          s.position.z = 1.0 + Math.sin(ang) * r;
+          s.material.opacity = 0.7 * (1 - sp);
         });
       }
     }
