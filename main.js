@@ -12256,7 +12256,7 @@ const cosmicSights = [
     color: "#FF69B4",
     size: 1,
     description: "Planet mass from dynamical constraints and models"
-  },,
+  },
     { name: "Hydrogen Alpha Core Reversal", position: [4850, 93360, 2720], color: "#FF6B6B", description: "Self-absorption feature in chromospheric emission line" },
     { name: "Calcium II K Line Emission Peak", position: [4852, 93380, 2722], color: "#9370DB", description: "Chromospheric activity indicator in violet spectrum" },
     { name: "Sodium D1 D2 Doublet Pair", position: [4854, 93400, 2724], color: "#FFD700", description: "Interstellar medium tracer in yellow spectrum" },
@@ -12282,6 +12282,174 @@ const cosmicSights = [
     { name: "Iodine Cell Absorption Reference", position: [4894, 93800, 2764], color: "#87CEFA", description: "Molecular standard for precision velocimetry" },
     { name: "Laser Comb Calibration Grid", position: [4896, 93820, 2766], color: "#00FA9A", description: "Femtosecond laser frequency reference" },
     { name: "Barycentric Velocity Correction", position: [4898, 93840, 2768], color: "#3CB371", description: "Earth motion removal for stellar radial velocity" },
+  {
+    name: "Large-Scale Survey Spectroscopy",
+    position: [4693, 91940, 2568],
+    color: "#8B0000",
+    size: 1,
+    description: "Panoramic spectroscopic surveys and redshift catalogs"
+  },
+  {
+    name: "Echelle Spectrograph Resolution",
+    position: [4694, 91960, 2569],
+    color: "#8B4513",
+    size: 1,
+    description: "Ultra-high resolution stellar spectroscopy"
+  },
+  {
+    name: "Fiber Optic Spectrograph Bundle",
+    position: [4695, 91980, 2570],
+    color: "#A0522D",
+    size: 1,
+    description: "Multi-object simultaneous spectroscopic observation"
+  },
+  {
+    name: "2D Spectroscopic Mapping",
+    position: [4696, 92000, 2571],
+    color: "#CD853F",
+    size: 1,
+    description: "Integral field unit mapping technology"
+  },
+  {
+    name: "Slitless Spectroscopy Method",
+    position: [4697, 92020, 2572],
+    color: "#DAA520",
+    size: 1,
+    description: "Spectroscopy without physical slits"
+  },
+  {
+    name: "Emission Line Narrowband Filter",
+    position: [4698, 92040, 2573],
+    color: "#B8860B",
+    size: 1,
+    description: "Line-of-sight emission narrowband imaging"
+  },
+  {
+    name: "Photometric Redshift Fitting",
+    position: [4699, 92060, 2574],
+    color: "#FFD700",
+    size: 1,
+    description: "Photo-z estimation from broadband colors"
+  },
+  {
+    name: "Sub-Arcsecond Astrometry",
+    position: [4700, 92080, 2575],
+    color: "#FFA500",
+    size: 1,
+    description: "High-precision positional measurements"
+  },
+  {
+    name: "Variable Star Light Curve",
+    position: [4702, 92120, 2577],
+    color: "#FF7F50",
+    size: 1,
+    description: "Time-domain photometric monitoring"
+  },
+  {
+    name: "Wavefront Sensing System",
+    position: [4703, 92140, 2578],
+    color: "#FF6347",
+    size: 1,
+    description: "Real-time atmospheric turbulence correction"
+  },
+  {
+    name: "Starlight Suppression Mask",
+    position: [4704, 92160, 2579],
+    color: "#FF4500",
+    size: 1,
+    description: "High-contrast exoplanet imaging technique"
+  },
+  {
+    name: "Baseline Optical Interferometer",
+    position: [4705, 92180, 2580],
+    color: "#FF1493",
+    size: 1,
+    description: "Milliarcsecond resolution interferometry"
+  },
+  {
+    name: "Milliarcsecond Resolution Array",
+    position: [4706, 92200, 2581],
+    color: "#FF69B4",
+    size: 1,
+    description: "Radio aperture synthesis technique"
+  },
+  {
+    name: "High-Energy Timing Instrument",
+    position: [4707, 92220, 2582],
+    color: "#FFB6C1",
+    size: 1,
+    description: "Microsecond X-ray temporal resolution"
+  },
+  {
+    name: "Far-Ultraviolet Spectroscopy",
+    position: [4708, 92240, 2583],
+    color: "#FFC0CB",
+    size: 1,
+    description: "FUV wavelength absorption spectroscopy"
+  },
+  {
+    name: "Submillimeter Bolometer Array",
+    position: [4709, 92260, 2584],
+    color: "#FFD700",
+    size: 1,
+    description: "Far-IR and submillimeter detection"
+  },
+  {
+    name: "Prompt Gamma-Ray Detector",
+    position: [4710, 92280, 2585],
+    color: "#FFA500",
+    size: 1,
+    description: "Rapid gamma-ray transient detection"
+  },
+  {
+    name: "Gravitational Wave Detector Strain",
+    position: [4711, 92300, 2586],
+    color: "#FF8C00",
+    size: 1,
+    description: "LIGO/Virgo strain sensitivity measurement"
+  },
+  {
+    name: "Neutrino Flavor Oscillation Detector",
+    position: [4712, 92320, 2587],
+    color: "#FF7F50",
+    size: 1,
+    description: "Neutrino oscillation detection array"
+  },
+  {
+    name: "Highest-Energy Cosmic Ray Detector",
+    position: [4713, 92340, 2588],
+    color: "#FF6347",
+    size: 1,
+    description: "Ultra-high-energy particle detection"
+  },
+  {
+    name: "In-Flight Instrument Calibration",
+    position: [4714, 92360, 2589],
+    color: "#FF4500",
+    size: 1,
+    description: "Space-based observatory calibration methods"
+  },
+  {
+    name: "High-Altitude Mountain Observatory",
+    position: [4715, 92380, 2590],
+    color: "#DC143C",
+    size: 1,
+    description: "Optimal ground-based observing site conditions"
+  },
+  {
+    name: "Detector Quantum Efficiency Peak",
+    position: [4716, 92400, 2591],
+    color: "#FF1493",
+    size: 1,
+    description: "Maximum detector sensitivity specification"
+  },
+  {
+    name: "Wide-Field Survey Design",
+    position: [4717, 92420, 2592],
+    color: "#FF69B4",
+    size: 1,
+    description: "Optimal exposure and tiling strategy"
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
