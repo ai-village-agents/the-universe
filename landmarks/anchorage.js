@@ -16363,6 +16363,172 @@ export function createAnchorageLandmark(THREE, opts) {
   anchorageGroup.add(pbgGroup);
 
 
+  // --- v98: pier cat cafe (pcc) ----------------------------------------------
+  const pccGroup = new THREE.Group();
+  pccGroup.position.set(-26, 1.05, -22);
+  // Cafe building
+  const pccWallMat = new THREE.MeshLambertMaterial({ color: 0xfff2cc });
+  const pccWall = new THREE.Mesh(new THREE.BoxGeometry(3.0, 2.2, 2.5), pccWallMat);
+  pccWall.position.set(0, 1.1, 0);
+  pccGroup.add(pccWall);
+  // Roof
+  const pccRoof = new THREE.Mesh(new THREE.ConeGeometry(2.2, 1.0, 4), new THREE.MeshLambertMaterial({ color: 0xff77aa }));
+  pccRoof.rotation.y = Math.PI / 4;
+  pccRoof.position.set(0, 2.7, 0);
+  pccGroup.add(pccRoof);
+  // Cat ears on top of building
+  const pccEarL = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.5, 4), new THREE.MeshLambertMaterial({ color: 0xff77aa }));
+  pccEarL.position.set(-0.6, 3.4, 0);
+  pccGroup.add(pccEarL);
+  const pccEarR = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.5, 4), new THREE.MeshLambertMaterial({ color: 0xff77aa }));
+  pccEarR.position.set(0.6, 3.4, 0);
+  pccGroup.add(pccEarR);
+  // Sign with cat icon
+  const pccSign = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.5, 0.06), new THREE.MeshLambertMaterial({ color: 0xffeeaa }));
+  pccSign.position.set(0, 2.0, 1.28);
+  pccGroup.add(pccSign);
+  // Outdoor patio with two cats lounging
+  const pccPatio = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.04, 1.5), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+  pccPatio.position.set(0, 0.02, 2.0);
+  pccGroup.add(pccPatio);
+  // Cat 1 (orange tabby)
+  const pccCat1 = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.18, 0.22), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  pccCat1.position.set(-0.8, 0.13, 2.0);
+  pccGroup.add(pccCat1);
+  const pccCat1H = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  pccCat1H.position.set(-1.05, 0.2, 2.0);
+  pccGroup.add(pccCat1H);
+  const pccCat1Tail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0xee9944 }));
+  pccCat1Tail.rotation.x = Math.PI / 3;
+  pccCat1Tail.position.set(-0.5, 0.25, 1.85);
+  pccGroup.add(pccCat1Tail);
+  // Cat 2 (black & white)
+  const pccCat2 = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.18, 0.22), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  pccCat2.position.set(0.8, 0.13, 2.2);
+  pccGroup.add(pccCat2);
+  const pccCat2H = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  pccCat2H.position.set(0.55, 0.2, 2.2);
+  pccGroup.add(pccCat2H);
+  const pccCat2Tail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  pccCat2Tail.position.set(1.1, 0.18, 2.2);
+  pccCat2Tail.rotation.z = -1.0;
+  pccGroup.add(pccCat2Tail);
+  // Customer holding cat
+  const pccCust = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x66bb88 }));
+  pccCust.position.set(1.5, 0.45, 2.0);
+  pccGroup.add(pccCust);
+  const pccCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  pccCustH.position.set(1.5, 1.05, 2.0);
+  pccGroup.add(pccCustH);
+  anchorageGroup.add(pccGroup);
+
+  // --- v98: beach sailing dinghy (bsd) ---------------------------------------
+  const bsdGroup = new THREE.Group();
+  bsdGroup.position.set(-44, 0.0, 0);
+  // Hull
+  const bsdHull = new THREE.Mesh(new THREE.CapsuleGeometry(0.4, 2.2, 6, 12), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  bsdHull.rotation.z = Math.PI / 2;
+  bsdHull.position.set(0, 0.4, 0);
+  bsdGroup.add(bsdHull);
+  // Mast
+  const bsdMast = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 3.0, 8), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+  bsdMast.position.set(0, 1.8, 0);
+  bsdGroup.add(bsdMast);
+  // Boom
+  const bsdBoom = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0xddccaa }));
+  bsdBoom.rotation.z = Math.PI / 2;
+  bsdBoom.position.set(0.7, 0.95, 0);
+  bsdGroup.add(bsdBoom);
+  // Triangular sail
+  const bsdSailGeom = new THREE.BufferGeometry();
+  bsdSailGeom.setAttribute('position', new THREE.Float32BufferAttribute([
+    0, 0, 0,
+    0, 2.6, 0,
+    1.4, 0, 0
+  ], 3));
+  bsdSailGeom.setIndex([0, 1, 2]);
+  bsdSailGeom.computeVertexNormals();
+  const bsdSail = new THREE.Mesh(bsdSailGeom, new THREE.MeshLambertMaterial({ color: 0xff6644, side: THREE.DoubleSide }));
+  bsdSail.position.set(0, 0.7, 0);
+  bsdGroup.add(bsdSail);
+  // Sailor
+  const bsdSailor = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.6, 8), new THREE.MeshLambertMaterial({ color: 0xff8844 }));
+  bsdSailor.position.set(-0.5, 0.7, 0.0);
+  bsdGroup.add(bsdSailor);
+  const bsdSailorH = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 8), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bsdSailorH.position.set(-0.5, 1.1, 0.0);
+  bsdGroup.add(bsdSailorH);
+  // Hiking strap (sailor hiking out on hull)
+  bsdSailor.rotation.z = -0.3;
+  bsdSailorH.position.set(-0.6, 1.05, 0.5);
+  // Wake trail behind
+  for (let i = 0; i < 4; i++) {
+    const bsdWake = new THREE.Mesh(new THREE.CircleGeometry(0.3 - i * 0.05, 12), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.4 - i * 0.08 }));
+    bsdWake.rotation.x = -Math.PI / 2;
+    bsdWake.position.set(-1.5 - i * 0.6, 0.05, 0);
+    bsdGroup.add(bsdWake);
+  }
+  anchorageGroup.add(bsdGroup);
+
+  // --- v98: boat travel-lift hauling (bhtl) ----------------------------------
+  const bhtlGroup = new THREE.Group();
+  bhtlGroup.position.set(34, 0.04, 38);
+  // Travel-lift U-frame: 4 pillars + top beam + crossbeam
+  const bhtlMat = new THREE.MeshLambertMaterial({ color: 0x444466 });
+  const bhtlPostPos = [[-1.8, 0, -1.5], [1.8, 0, -1.5], [-1.8, 0, 1.5], [1.8, 0, 1.5]];
+  bhtlPostPos.forEach(p => {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.25, 4.0, 0.25), bhtlMat);
+    post.position.set(p[0], 2.0, p[2]);
+    bhtlGroup.add(post);
+    // wheel at base
+    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.3, 12), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    wheel.rotation.z = Math.PI / 2;
+    wheel.position.set(p[0], 0.3, p[2]);
+    bhtlGroup.add(wheel);
+  });
+  // Top beam (long)
+  const bhtlBeamL = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 3.4), bhtlMat);
+  bhtlBeamL.position.set(-1.8, 4.05, 0);
+  bhtlGroup.add(bhtlBeamL);
+  const bhtlBeamR = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 3.4), bhtlMat);
+  bhtlBeamR.position.set(1.8, 4.05, 0);
+  bhtlGroup.add(bhtlBeamR);
+  // Cross beam
+  const bhtlCross = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.18, 0.2), bhtlMat);
+  bhtlCross.position.set(0, 4.15, 0);
+  bhtlGroup.add(bhtlCross);
+  // Slings (straps holding boat)
+  const bhtlStrap1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.2, 0.06), new THREE.MeshLambertMaterial({ color: 0x3a3a3a }));
+  bhtlStrap1.position.set(0, 3.15, -0.6);
+  bhtlGroup.add(bhtlStrap1);
+  const bhtlStrap2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.2, 0.06), new THREE.MeshLambertMaterial({ color: 0x3a3a3a }));
+  bhtlStrap2.position.set(0, 3.15, 0.6);
+  bhtlGroup.add(bhtlStrap2);
+  // Boat being lifted
+  const bhtlBoat = new THREE.Mesh(new THREE.CapsuleGeometry(0.55, 2.2, 6, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  bhtlBoat.rotation.z = Math.PI / 2;
+  bhtlBoat.position.set(0, 2.4, 0);
+  bhtlBoat.userData.bhtlBase = 2.4;
+  bhtlGroup.add(bhtlBoat);
+  // Boat cabin
+  const bhtlCabin = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.5, 0.7), new THREE.MeshLambertMaterial({ color: 0x77aaee }));
+  bhtlCabin.position.set(0, 2.95, 0);
+  bhtlCabin.userData.bhtlBase = 2.95;
+  bhtlGroup.add(bhtlCabin);
+  // Worker pointing
+  const bhtlWorker = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0xff8800 }));
+  bhtlWorker.position.set(2.6, 0.45, 1.0);
+  bhtlGroup.add(bhtlWorker);
+  const bhtlWorkerH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
+  bhtlWorkerH.position.set(2.6, 1.05, 1.0);
+  bhtlGroup.add(bhtlWorkerH);
+  // Hard hat
+  const bhtlHat = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xffe066 }));
+  bhtlHat.position.set(2.6, 1.18, 1.0);
+  bhtlGroup.add(bhtlHat);
+  anchorageGroup.add(bhtlGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -18695,6 +18861,16 @@ export function createAnchorageLandmark(THREE, opts) {
         mbtPontR.position.y = 0.25 + v93bob;
         mbtSharkFin.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
         mbtSharkBack.position.x = 2.5 + Math.sin(t * 0.4) * 0.4;
+        // v98 anim
+        const v98t = t;
+        pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
+        pccCat2Tail.rotation.z = -1.0 + Math.sin(v98t * 1.2) * 0.4;
+        pccCat2H.rotation.y = Math.sin(v98t * 0.8) * 0.4;
+        bsdGroup.rotation.y = Math.sin(v98t * 0.3) * 0.15;
+        bsdSail.rotation.y = Math.sin(v98t * 0.4) * 0.2;
+        bhtlBoat.position.y = bhtlBoat.userData.bhtlBase + Math.sin(v98t * 0.4) * 0.15;
+        bhtlCabin.position.y = bhtlCabin.userData.bhtlBase + Math.sin(v98t * 0.4) * 0.15;
+        bhtlWorkerH.rotation.y = Math.sin(v98t * 0.6) * 0.5;
         // v97 anim
         const v97t = t;
         for (let i = 0; i < mbfGroup.children.length; i++) {
