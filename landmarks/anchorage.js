@@ -9207,6 +9207,139 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(fctGroup);
 
 
+
+  // --- v60: beach soccer match (2 teams + ball + goal posts) ---
+  const soccerGroup = new THREE.Group();
+  const soccerFieldMat = new THREE.MeshLambertMaterial({ color: 0xe9d18a, transparent: true, opacity: 0.5 });
+  const soccerField = new THREE.Mesh(new THREE.PlaneGeometry(10, 6), soccerFieldMat);
+  soccerField.rotation.x = -Math.PI / 2;
+  soccerField.position.y = 0.04;
+  soccerGroup.add(soccerField);
+  const goalPostMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const goalPostGeom = new THREE.CylinderGeometry(0.04, 0.04, 1.0, 6);
+  const soccerGoals = [];
+  for (let g = 0; g < 2; g++) {
+    const goal = new THREE.Group();
+    const post1 = new THREE.Mesh(goalPostGeom, goalPostMat);
+    post1.position.set(0, 0.5, -0.6);
+    goal.add(post1);
+    const post2 = new THREE.Mesh(goalPostGeom, goalPostMat);
+    post2.position.set(0, 0.5, 0.6);
+    goal.add(post2);
+    const cross = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.2, 6), goalPostMat);
+    cross.rotation.x = Math.PI / 2;
+    cross.position.set(0, 1.0, 0);
+    goal.add(cross);
+    goal.position.set((g === 0 ? -5 : 5), 0, 0);
+    soccerGroup.add(goal);
+    soccerGoals.push(goal);
+  }
+  const soccerBall = new THREE.Mesh(new THREE.SphereGeometry(0.15, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  soccerBall.position.set(0, 0.18, 0);
+  soccerGroup.add(soccerBall);
+  // Two teams of 3 players each
+  const soccerTeam1Mat = new THREE.MeshLambertMaterial({ color: 0xd9534f });
+  const soccerTeam2Mat = new THREE.MeshLambertMaterial({ color: 0x4a8fc2 });
+  const soccerHeadMat = new THREE.MeshLambertMaterial({ color: 0xfdd9b5 });
+  const soccerPlayers = [];
+  const soccerPositions = [
+    [-3, 0, -1, soccerTeam1Mat], [-2, 0, 1.5, soccerTeam1Mat], [-1, 0, -1, soccerTeam1Mat],
+    [3, 0, 1, soccerTeam2Mat], [2, 0, -1.5, soccerTeam2Mat], [1, 0, 0.5, soccerTeam2Mat],
+  ];
+  soccerPositions.forEach((p) => {
+    const pl = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.55, 8), p[3]);
+    body.position.y = 0.28;
+    pl.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8), soccerHeadMat);
+    head.position.y = 0.7;
+    pl.add(head);
+    pl.position.set(p[0], p[1], p[2]);
+    soccerGroup.add(pl);
+    soccerPlayers.push(pl);
+  });
+  soccerGroup.position.set(50, 0, -28);
+  group.add(soccerGroup);
+
+  // --- v60: pelican standing on top of lifeguard tower ---
+  const towerPelicanGroup = new THREE.Group();
+  const tpBodyMat = new THREE.MeshLambertMaterial({ color: 0xf5f0e0 });
+  const tpBody = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 10), tpBodyMat);
+  tpBody.scale.set(1, 0.85, 1.5);
+  tpBody.position.y = 0.32;
+  towerPelicanGroup.add(tpBody);
+  const tpHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), tpBodyMat);
+  tpHead.position.set(0, 0.65, 0.45);
+  towerPelicanGroup.add(tpHead);
+  const tpBeakMat = new THREE.MeshLambertMaterial({ color: 0xf2b240 });
+  const tpBeak = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.5, 6), tpBeakMat);
+  tpBeak.position.set(0, 0.55, 0.85);
+  tpBeak.rotation.x = Math.PI / 2;
+  towerPelicanGroup.add(tpBeak);
+  const tpEyeMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const tpEyeL = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), tpEyeMat);
+  tpEyeL.position.set(0.08, 0.7, 0.55);
+  towerPelicanGroup.add(tpEyeL);
+  const tpEyeR = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), tpEyeMat);
+  tpEyeR.position.set(-0.08, 0.7, 0.55);
+  towerPelicanGroup.add(tpEyeR);
+  const tpLegMat = new THREE.MeshLambertMaterial({ color: 0xc97a30 });
+  const tpLeg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.18, 6), tpLegMat);
+  tpLeg1.position.set(0.08, 0.06, 0);
+  towerPelicanGroup.add(tpLeg1);
+  const tpLeg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.18, 6), tpLegMat);
+  tpLeg2.position.set(-0.08, 0.06, 0);
+  towerPelicanGroup.add(tpLeg2);
+  // place on top of v50 lifeguard tower (lifeguardTowerGroup at known position)
+  // lifeguard tower position is -38, 0, 12 with platform around y=2.5; perch on roof y~3.6
+  towerPelicanGroup.position.set(14, 4.85, 14);
+  towerPelicanGroup.rotation.y = -0.4;
+  group.add(towerPelicanGroup);
+
+  // --- v60: octopus in tide pool (purple, 8 wavy tentacles) ---
+  const octopusGroup = new THREE.Group();
+  const octoPoolMat = new THREE.MeshLambertMaterial({ color: 0x2a6080, transparent: true, opacity: 0.6 });
+  const octoPool = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.6, 0.18, 16), octoPoolMat);
+  octoPool.position.y = 0.09;
+  octopusGroup.add(octoPool);
+  const octoRockMat = new THREE.MeshLambertMaterial({ color: 0x6e6058 });
+  const octoRock = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.18, 6, 20), octoRockMat);
+  octoRock.rotation.x = Math.PI / 2;
+  octoRock.position.y = 0.18;
+  octopusGroup.add(octoRock);
+  const octoBodyMat = new THREE.MeshLambertMaterial({ color: 0x9a4ec2 });
+  const octoBody = new THREE.Mesh(new THREE.SphereGeometry(0.42, 14, 10), octoBodyMat);
+  octoBody.scale.set(1, 1.2, 1);
+  octoBody.position.set(0, 0.4, 0);
+  octopusGroup.add(octoBody);
+  const octoEyeMat = new THREE.MeshLambertMaterial({ color: 0xfff5e0 });
+  const octoEyeL = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), octoEyeMat);
+  octoEyeL.position.set(0.18, 0.55, 0.32);
+  octopusGroup.add(octoEyeL);
+  const octoEyeR = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), octoEyeMat);
+  octoEyeR.position.set(-0.18, 0.55, 0.32);
+  octopusGroup.add(octoEyeR);
+  const octoPupilMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const octoPupilL = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), octoPupilMat);
+  octoPupilL.position.set(0.21, 0.55, 0.38);
+  octopusGroup.add(octoPupilL);
+  const octoPupilR = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), octoPupilMat);
+  octoPupilR.position.set(-0.21, 0.55, 0.38);
+  octopusGroup.add(octoPupilR);
+  const octoTentacles = [];
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const t = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.04, 0.55, 6), octoBodyMat);
+    t.position.set(Math.cos(a) * 0.32, 0.2, Math.sin(a) * 0.32);
+    t.rotation.z = Math.cos(a) * 0.6;
+    t.rotation.x = Math.sin(a) * 0.6;
+    octopusGroup.add(t);
+    octoTentacles.push({ mesh: t, baseAng: a });
+  }
+  octopusGroup.position.set(-50, 0.05, -16);
+  group.add(octopusGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10851,6 +10984,21 @@ export function createAnchorageLandmark(THREE, opts) {
       millWheel.rotation.x += 0.03;
       // v59: fish & chips serving window: customer sways slightly
       fctCustomer.rotation.y = Math.sin(t * 0.7) * 0.15;
+      // v60: soccer ball bounces back and forth in field; players bob
+      soccerBall.position.x = Math.sin(t * 0.8) * 3.5;
+      soccerBall.position.y = 0.18 + Math.abs(Math.sin(t * 4)) * 0.15;
+      soccerPlayers.forEach((p, i) => {
+        p.position.y = Math.abs(Math.sin(t * 3 + i * 0.7)) * 0.06;
+        p.rotation.y = Math.sin(t * 1.2 + i) * 0.4;
+      });
+      // v60: tower pelican preens (head turns periodically)
+      tpHead.rotation.y = Math.sin(t * 0.5) * 0.7;
+      // v60: octopus tentacles wave; eyes blink occasionally
+      octoTentacles.forEach((tent, i) => {
+        const wob = Math.sin(t * 2 + tent.baseAng * 2) * 0.3;
+        tent.mesh.rotation.z = Math.cos(tent.baseAng) * 0.6 + wob;
+        tent.mesh.rotation.x = Math.sin(tent.baseAng) * 0.6 + wob;
+      });
     }
 
   }
