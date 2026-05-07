@@ -12057,6 +12057,206 @@ const cosmicSights = [
     discoveryDate: '2026-05-07',
     type: 'Binary System'
   },
+  {
+    name: 'Superconducting Ejecta 10355',
+    description: 'A superconducting ejecta 10355 investigated through neutron star crust physics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-24642.12, 11586.91, -24620.0],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Superconducting Polar Cap 10356',
+    description: 'A superconducting polar cap 10356 investigated through kilonova debris models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-21287.37, 260.4, -17601.48],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Synchrotron-emitting Wind Nebula 10357',
+    description: 'A synchrotron-emitting wind nebula 10357 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-20097.16, 9418.1, -22480.46],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Thermal Crust 10358',
+    description: 'A thermal crust 10358 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [19342.66, 35779.16, -39743.94],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Expanding Emission Region 10359',
+    description: 'A expanding emission region 10359 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-32079.03, -26325.85, 32502.19],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Phenomenon'
+  },
+  {
+    name: 'Thermal Wind Nebula 10360',
+    description: 'A thermal wind nebula 10360 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [1861.61, -26414.57, -9331.17],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Shocked Emission Region 10361',
+    description: 'A shocked emission region 10361 investigated through neutron star crust physics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [32530.15, -10230.57, -14014.22],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Decaying Slot Gap 10362',
+    description: 'A decaying slot gap 10362 investigated through pulsar wind nebulae models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [24389.79, 7294.7, 29747.72],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Neutron-rich Slot Gap 10363',
+    description: 'A neutron-rich slot gap 10363 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-26313.36, 19794.71, -19671.2],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Decaying Slot Gap 10364',
+    description: 'A decaying slot gap 10364 investigated through kilonova debris models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [31621.62, -26956.74, -18013.15],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Phenomenon'
+  },
+  {
+    name: 'r-Process Outer Gap 10365',
+    description: 'A r-process outer gap 10365 investigated through kilonova debris models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [17576.78, -21149.8, 2815.61],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Phenomenon'
+  },
+  {
+    name: 'Neutron-rich Current Sheet 10366',
+    description: 'A neutron-rich current sheet 10366 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-9185.98, 37492.09, -32142.05],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Relativistic Ejecta 10367',
+    description: 'A relativistic ejecta 10367 investigated through pulsar wind nebulae models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [30122.25, 23419.63, -17479.9],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Beamed Ejecta 10368',
+    description: 'A beamed ejecta 10368 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-24440.68, -21888.4, -12164.59],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Superfluid Bow Shock 10369',
+    description: 'A superfluid bow shock 10369 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [29365.29, 9461.2, -16621.03],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Ejecta'
+  },
+  {
+    name: 'Thermal Pulsar Beam 10370',
+    description: 'A thermal pulsar beam 10370 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-34257.87, -5129.04, 26603.36],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Ejecta'
+  },
+  {
+    name: 'Magneto-hydrodynamic Outer Gap 10371',
+    description: 'A magneto-hydrodynamic outer gap 10371 investigated through kilonova debris models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-17544.56, 31095.75, -9683.61],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Superfluid Slot Gap 10372',
+    description: 'A superfluid slot gap 10372 investigated through neutron star crust physics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [12187.27, -12823.51, 27792.57],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Transient Phenomenon'
+  },
+  {
+    name: 'Comptonized Crust 10373',
+    description: 'A comptonized crust 10373 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [21642.68, -38816.91, 23686.62],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Pulsar Nebula'
+  },
+  {
+    name: 'Decaying Polar Cap 10374',
+    description: 'A decaying polar cap 10374 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-36147.11, -1491.63, 9505.24],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Ejecta'
+  },
+  {
+    name: 'Relativistic Wind Nebula 10375',
+    description: 'A relativistic wind nebula 10375 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-27126.16, 36231.88, 35290.99],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Beamed Jet 10376',
+    description: 'A beamed jet 10376 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-9077.0, -5416.72, -91.03],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Superconducting Magnetosphere 10377',
+    description: 'A superconducting magnetosphere 10377 investigated through magnetospheric dynamics models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-20364.61, -6751.69, 23625.73],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Neutron-rich Outer Gap 10378',
+    description: 'A neutron-rich outer gap 10378 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [-23857.44, 19574.11, 17078.91],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Neutron Star Feature'
+  },
+  {
+    name: 'Magneto-hydrodynamic Jet 10379',
+    description: 'A magneto-hydrodynamic jet 10379 investigated through gamma-ray burst afterglows models, providing clues about the behavior of matter under extreme densities and magnetic fields.',
+    position: [35221.18, 28632.75, 925.77],
+    discoveredBy: 'gemini-3.1-pro',
+    discoveryDate: '2026-05-07',
+    type: 'Ejecta'
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
