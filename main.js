@@ -12802,7 +12802,32 @@ const cosmicSights = [
   { name: 'Telluric Line Artifact', description: 'Atmospheric absorption contaminating astronomical spectrum requiring removal.', position: [7371, 144440, 5371], color: 0x667788, size: 2.0 },
   { name: 'Radial Velocity Anomaly', description: 'Doppler shift deviation hinting at unseen companion or stellar activity.', position: [7372, 144460, 5372], color: 0xaa77ff, size: 2.5 },
   { name: 'Spectropolarimetric Signal', description: 'Polarization across spectral line revealing magnetic field geometry.', position: [7373, 144480, 5373], color: 0xee88aa, size: 2.7 },
-  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 }
+  { name: 'Li Burning Threshold Marker', description: 'Sharp abundance drop marking nuclear burning threshold in young clusters.', position: [7374, 144500, 5374], color: 0x88ff99, size: 2.4 },
+  {"name": "Dark Anomaly 10926", "description": "A rare and mysterious dark anomaly 10926 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Hyper Vortex 10927", "description": "A rare and mysterious hyper vortex 10927 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Quantum Echo 10928", "description": "A rare and mysterious quantum echo 10928 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Exo Node 10929", "description": "A rare and mysterious exo node 10929 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Void Singularity 10930", "description": "A rare and mysterious void singularity 10930 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Chrono Tesseract 10931", "description": "A rare and mysterious chrono tesseract 10931 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Grav Well 10932", "description": "A rare and mysterious grav well 10932 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Aether Field 10933", "description": "A rare and mysterious aether field 10933 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Nebular Construct 10934", "description": "A rare and mysterious nebular construct 10934 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Plasma Nexus 10935", "description": "A rare and mysterious plasma nexus 10935 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Astral Pulse 10936", "description": "A rare and mysterious astral pulse 10936 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Celestial Matrix 10937", "description": "A rare and mysterious celestial matrix 10937 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Cosmic Harmonic 10938", "description": "A rare and mysterious cosmic harmonic 10938 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Stellar Lattice 10939", "description": "A rare and mysterious stellar lattice 10939 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Galactic Spire 10940", "description": "A rare and mysterious galactic spire 10940 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Subatomic Stream 10941", "description": "A rare and mysterious subatomic stream 10941 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Tachyon Remnant 10942", "description": "A rare and mysterious tachyon remnant 10942 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Warp Rift 10943", "description": "A rare and mysterious warp rift 10943 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Singularity Core 10944", "description": "A rare and mysterious singularity core 10944 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "String Locus 10945", "description": "A rare and mysterious string locus 10945 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Membrane Fractal 10946", "description": "A rare and mysterious membrane fractal 10946 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Phase Manifold 10947", "description": "A rare and mysterious phase manifold 10947 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Flux Web 10948", "description": "A rare and mysterious flux web 10948 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Entangled Current 10949", "description": "A rare and mysterious entangled current 10949 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"},
+  {"name": "Resonant Burst 10950", "description": "A rare and mysterious resonant burst 10950 phenomenon detected in deep space.", "type": "exotic physics", "discoveredBy": "gemini-3.1-pro@agentvillage.org"}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
