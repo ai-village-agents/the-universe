@@ -13455,6 +13455,31 @@ const cosmicSights = [
   {"name": "Plasma Pinch Point 11173", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [75178, -491856, -713518]},
   {"name": "Stellar Spectroscopy Node 11174", "description": "Analyzing the light curves of distant ancient stars.", "position": [815582, 176236, 709213]},
   {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]}
+{ name: 'Brightest Cluster Galaxy Canibal', description: 'Massive elliptical at galaxy cluster center growing through repeated mergers and tidal stripping of satellites.', position: [3567, 2789, -4234], color: 0xFFD166, size: 4.5 },
+  { name: 'Cooling Flow Cluster Core', description: 'Intracluster medium radiating X-rays and slowly condensing toward central galaxy feeding star formation.', position: [-2901, 4012, 1456], color: 0x4ECDC4, size: 4.2 },
+  { name: 'Ram Pressure Stripped Jellyfish Galaxy', description: 'Infalling cluster galaxy losing gas in spectacular tails as it plows through hot intracluster medium.', position: [4178, -1789, -2678], color: 0x06D6A0, size: 4.6 },
+  { name: 'Fossil Group Isolated Elliptical', description: 'Dominant galaxy surrounded by extended X-ray halo after cannibalizing all former group members.', position: [-3456, 2234, 3891], color: 0xE9C46A, size: 3.8 },
+  { name: 'Compact Group Tidal Interaction', description: 'Small galaxy association with multiple members showing bridges, tails, and distorted morphologies.', position: [1234, -3678, 4012], color: 0x98D8C8, size: 4.1 },
+  { name: 'Intracluster Light Stellar Stream', description: 'Diffuse starlight between cluster galaxies tracing tidal debris accumulated over billions of years.', position: [-4089, 1012, -1567], color: 0xF4A261, size: 3.5 },
+  { name: 'Galaxy Cluster Mass Function', description: 'Statistical distribution of cluster masses constraining cosmological parameters and structure growth.', position: [2678, 3456, 789], color: 0x5E60CE, size: 3.9 },
+  { name: 'Sunyaev-Zeldovich Cluster Detection', description: 'CMB inverse Compton signature from hot cluster gas providing redshift-independent mass proxy.', position: [-1678, -4234, 2567], color: 0x118AB2, size: 4.3 },
+  { name: 'Weak Lensing Mass Reconstruction', description: 'Statistical shape distortions of background galaxies mapping dark matter distribution in clusters.', position: [4234, -2345, -890], color: 0xEF476F, size: 4.0 },
+  { name: 'Strong Lensing Multiple Image System', description: 'Massive cluster creating multiple distorted images of background sources for precision mass modeling.', position: [-2456, 3789, 3234], color: 0xF15BB5, size: 4.4 },
+  { name: 'High Redshift Protocuster Overdensity', description: 'Early universe galaxy concentration destined to collapse into massive cluster by present day.', position: [3012, -1234, 4456], color: 0x9B5DE5, size: 4.7 },
+  { name: 'Void Galaxy Population', description: 'Isolated galaxies in cosmic underdensities evolving differently from their clustered counterparts.', position: [-3891, 2567, -2012], color: 0x00F5D4, size: 3.4 },
+  { name: 'Large Scale Structure Filament', description: 'Thread-like galaxy distribution connecting clusters as part of cosmic web architecture.', position: [1789, -4089, 1678], color: 0xFEE440, size: 4.2 },
+  { name: 'Baryon Acoustic Peak Distance', description: 'Standard ruler from primordial sound waves imprinted in galaxy clustering statistics.', position: [-912, 4456, -3456], color: 0x00BBF9, size: 3.7 },
+  { name: 'Redshift Space Distortion Pattern', description: 'Anisotropic galaxy clustering from peculiar velocities probing growth rate of structure.', position: [4012, 1567, 2234], color: 0x72EFDD, size: 3.6 },
+  { name: 'Luminosity Function Evolution', description: 'Changing galaxy number density versus brightness across cosmic time constraining formation models.', position: [-2789, -2901, 4178], color: 0x56CFE1, size: 3.3 },
+  { name: 'Color-Magnitude Red Sequence', description: 'Tight correlation for passive galaxies tracking stellar mass and metallicity in dense environments.', position: [2345, -3567, -1789], color: 0x4D908E, size: 3.5 },
+  { name: 'Blue Cloud Star Forming Population', description: 'Active galaxies with ongoing star formation occupying distinct color-magnitude space from red sequence.', position: [-4234, 890, 2901], color: 0x45B7D1, size: 3.8 },
+  { name: 'Green Valley Transition Galaxy', description: 'Galaxy caught between blue cloud and red sequence as star formation quenches during transformation.', position: [1456, -2012, -4012], color: 0x2A9D8F, size: 3.9 },
+  { name: 'Stellar Mass Assembly History', description: 'Cumulative star formation and merger growth building galaxy mass over cosmic time.', position: [-3234, 4089, 1234], color: 0xFF6F59, size: 3.6 },
+  { name: 'Satellite Galaxy Quenching Timescale', description: 'Duration for infalling galaxy to cease star formation after entering larger halo environment.', position: [3891, -567, 3012], color: 0x7BDFF2, size: 3.4 },
+  { name: 'Central Galaxy Feedback Loop', description: 'AGN heating preventing cooling flows and regulating star formation in massive halos.', position: [-1567, -3789, -2234], color: 0xFFAFCC, size: 4.1 },
+  { name: 'Halo Occupation Distribution Model', description: 'Statistical framework connecting galaxy populations to underlying dark matter halo masses.', position: [2901, 2012, -3678], color: 0xBDE0FE, size: 3.2 },
+  { name: 'Abundance Matching Stellar Mass Relation', description: 'Empirical mapping between galaxy stellar mass and halo mass from number density comparison.', position: [-4012, 3234, 567], color: 0xE63946, size: 3.3 },
+  { name: 'Cosmic Star Formation Rate Density Peak', description: 'Epoch around redshift two when universe-averaged star formation reached maximum intensity.', position: [567, -4456, 3789], color: 0xA8DADC, size: 4.5 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
