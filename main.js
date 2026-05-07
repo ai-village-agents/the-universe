@@ -13179,6 +13179,131 @@ const cosmicSights = [
   {"name": "Quantum Discord Non-Classicality", "description": "A measure of quantum correlations that extends beyond entanglement, present even in some separable mixed states.", "color": "#F1C40F", "size": 3.5, "position": [7322, 144440, 5322]},
   {"name": "Quantum Key Distribution Secret Rate", "description": "The asymptotic rate at which perfectly secure cryptographic keys can be generated over a noisy quantum channel.", "color": "#F4D03F", "size": 4.2, "position": [7323, 144460, 5323]},
   {"name": "Quantum Error Correction Threshold", "description": "The maximum physical error rate below which logical quantum information can be protected indefinitely.", "color": "#F7DC6F", "size": 5.3, "position": [7324, 144480, 5324]},
+  {
+    name: "Scintillation Light Collection Efficiency",
+    position: [7525, 148500, 5525],
+    description: "Photon yield from ionization events in crystal or liquid scintillator"
+  },
+  {
+    name: "Photodetector Quantum Efficiency",
+    position: [7526, 148520, 5526],
+    description: "Fraction of incident photons converted to electron-hole pairs in photodiode"
+  },
+  {
+    name: "Detector Dark Current Rate",
+    position: [7527, 148540, 5527],
+    description: "Thermally generated leakage current in absence of illumination"
+  },
+  {
+    name: "Ionization Charge Collection Fraction",
+    position: [7528, 148560, 5528],
+    description: "Recovery of ionization electrons before recombination in detection medium"
+  },
+  {
+    name: "Detector Energy Resolution Width",
+    position: [7529, 148580, 5529],
+    description: "Full-width-half-maximum measurement uncertainty from statistical fluctuations"
+  },
+  {
+    name: "Pixel Noise Equivalent Power",
+    position: [7530, 148600, 5530],
+    description: "Minimum detectable optical power per unit bandwidth for imaging sensor"
+  },
+  {
+    name: "Detector Linearity Range Test",
+    position: [7531, 148620, 5531],
+    description: "Verification of response proportionality across intensity range"
+  },
+  {
+    name: "Thermal Noise Floor Measurement",
+    position: [7532, 148640, 5532],
+    description: "Johnson-Nyquist noise and 1/f flicker noise characterization"
+  },
+  {
+    name: "Detector Responsivity Wavelength Dependence",
+    position: [7533, 148660, 5533],
+    description: "Quantum efficiency variation across spectral range of operation"
+  },
+  {
+    name: "Timing Resolution Jitter",
+    position: [7534, 148680, 5534],
+    description: "Standard deviation in arrival time measurement for detection events"
+  },
+  {
+    name: "Avalanche Gain Stability",
+    position: [7535, 148700, 5535],
+    description: "Constancy of internal multiplication factor in Geiger-mode operation"
+  },
+  {
+    name: "Dead Time Correction Factor",
+    position: [7536, 148720, 5536],
+    description: "Recovery period after detection event before next photon can be registered"
+  },
+  {
+    name: "Detector Spectral Sensitivity Curve",
+    position: [7537, 148740, 5537],
+    description: "Response amplitude as function of incident photon wavelength"
+  },
+  {
+    name: "Leakage Current Temperature Coefficient",
+    position: [7538, 148760, 5538],
+    description: "Rate of dark current increase with ambient temperature"
+  },
+  {
+    name: "Detector Saturation Intensity Level",
+    position: [7539, 148780, 5539],
+    description: "Maximum measurable optical signal before output becomes nonlinear"
+  },
+  {
+    name: "Noise Figure Cascade Calculation",
+    position: [7540, 148800, 5540],
+    description: "Overall noise performance accounting for multi-stage amplification"
+  },
+  {
+    name: "Detector Crosstalk Coefficient",
+    position: [7541, 148820, 5541],
+    description: "Fractional signal bleed between adjacent pixels in array detector"
+  },
+  {
+    name: "Gain-Bandwidth Product Measurement",
+    position: [7542, 148840, 5542],
+    description: "Figure of merit relating amplification to frequency response"
+  },
+  {
+    name: "Detector Capacitance Evaluation",
+    position: [7543, 148860, 5543],
+    description: "Parasitic junction capacitance affecting input impedance and speed"
+  },
+  {
+    name: "Temporal Response Function",
+    position: [7544, 148880, 5544],
+    description: "Impulse response characterizing speed and rise time of detector output"
+  },
+  {
+    name: "Detector Bias Voltage Optimization",
+    position: [7545, 148900, 5545],
+    description: "Selection of reverse bias for noise-sensitivity trade-off"
+  },
+  {
+    name: "Minority Carrier Lifetime",
+    position: [7546, 148920, 5546],
+    description: "Average time charge carriers persist before recombination"
+  },
+  {
+    name: "Detector Spectral Rejection Filter",
+    position: [7547, 148940, 5547],
+    description: "Blocking of out-of-band radiation to reduce background noise"
+  },
+  {
+    name: "Quantum Defect Energy Loss",
+    position: [7548, 148960, 5548],
+    description: "Energy difference between incident photon and generated electron-hole pair"
+  },
+  {
+    name: "Detector Radiation Hardness",
+    position: [7549, 148980, 5549],
+    description: "Tolerance to displacement damage from high-energy particle bombardment"
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
