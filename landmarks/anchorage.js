@@ -15320,6 +15320,154 @@ export function createAnchorageLandmark(THREE, opts) {
   // Refs for animation
 
 
+  // v91: Dock crane unloading container ship
+  const dcuGroup = new THREE.Group();
+  dcuGroup.position.set(-26, 0, -34);
+  // Container ship hull
+  const dcuShipMat = new THREE.MeshLambertMaterial({ color: 0x224466 });
+  const dcuShip = new THREE.Mesh(new THREE.BoxGeometry(10, 1.6, 3), dcuShipMat);
+  dcuShip.position.set(0, 0.8, 4);
+  dcuGroup.add(dcuShip);
+  const dcuShipHouse = new THREE.Mesh(new THREE.BoxGeometry(2, 1.5, 2.4), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  dcuShipHouse.position.set(-3.5, 2.35, 4);
+  dcuGroup.add(dcuShipHouse);
+  // Containers stacked on ship
+  const dcuContainerColors = [0xcc3322, 0x2266aa, 0x33aa44, 0xddaa22, 0xaa44aa, 0xcc7733];
+  for (let dci = 0; dci < 5; dci++) {
+    for (let dcj = 0; dcj < 2; dcj++) {
+      const dcuC = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.7, 1.4), new THREE.MeshLambertMaterial({ color: dcuContainerColors[(dci + dcj) % 6] }));
+      dcuC.position.set(-2.5 + dci * 1.7, 1.95 + dcj * 0.75, 4);
+      dcuGroup.add(dcuC);
+    }
+  }
+  // Crane gantry
+  const dcuCraneMat = new THREE.MeshLambertMaterial({ color: 0xff6600 });
+  const dcuLeg1 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 8, 0.3), dcuCraneMat);
+  dcuLeg1.position.set(-3, 4, -0.5);
+  dcuGroup.add(dcuLeg1);
+  const dcuLeg2 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 8, 0.3), dcuCraneMat);
+  dcuLeg2.position.set(3, 4, -0.5);
+  dcuGroup.add(dcuLeg2);
+  const dcuLeg3 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 8, 0.3), dcuCraneMat);
+  dcuLeg3.position.set(-3, 4, 1.5);
+  dcuGroup.add(dcuLeg3);
+  const dcuLeg4 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 8, 0.3), dcuCraneMat);
+  dcuLeg4.position.set(3, 4, 1.5);
+  dcuGroup.add(dcuLeg4);
+  // Top horizontal beam
+  const dcuBeam = new THREE.Mesh(new THREE.BoxGeometry(11, 0.4, 0.4), dcuCraneMat);
+  dcuBeam.position.set(0, 8, 0.5);
+  dcuGroup.add(dcuBeam);
+  // Trolley
+  const dcuTrolley = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 0.6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  dcuTrolley.position.set(0, 7.7, 0.5);
+  dcuGroup.add(dcuTrolley);
+  // Hanging cable
+  const dcuCable = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 4.0, 6), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+  dcuCable.position.set(0, 5.6, 0.5);
+  dcuGroup.add(dcuCable);
+  // Container being lifted
+  const dcuLiftedC = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.7, 1.4), new THREE.MeshLambertMaterial({ color: 0xddcc11 }));
+  dcuLiftedC.position.set(0, 3.4, 0.5);
+  dcuGroup.add(dcuLiftedC);
+  group.add(dcuGroup);
+
+  // v91: Fishing pier fluke tournament
+  const fpftGroup = new THREE.Group();
+  fpftGroup.position.set(-3, 1.9, 30);
+  // 5 anglers along pier railing
+  const fpftJacketColors = [0x224488, 0x886622, 0x553322, 0x447733, 0x882244];
+  for (let fp = 0; fp < 5; fp++) {
+    const fpftAngler = new THREE.Group();
+    fpftAngler.position.set(fp * 1.5 - 3, 0, 0);
+    const fpftBody = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.0, 0.3), new THREE.MeshLambertMaterial({ color: fpftJacketColors[fp] }));
+    fpftBody.position.y = 0.5;
+    fpftAngler.add(fpftBody);
+    const fpftHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xddb088 }));
+    fpftHead.position.y = 1.18;
+    fpftAngler.add(fpftHead);
+    // Cap
+    const fpftCap = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.06, 12), new THREE.MeshLambertMaterial({ color: 0x222255 }));
+    fpftCap.position.y = 1.4;
+    fpftAngler.add(fpftCap);
+    // Rod
+    const fpftRod = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.04, 2.2, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    fpftRod.rotation.x = -1.2;
+    fpftRod.position.set(0.25, 1.2, 1.0);
+    fpftAngler.add(fpftRod);
+    fpftGroup.add(fpftAngler);
+  }
+  // Tournament leaderboard sign
+  const fpftSign = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.4, 0.08), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  fpftSign.position.set(4.5, 1.3, 0);
+  fpftGroup.add(fpftSign);
+  const fpftSignPole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2, 6), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+  fpftSignPole.position.set(4.5, 0.7, 0);
+  fpftGroup.add(fpftSignPole);
+  // Trophy fish on display
+  const fpftFish = new THREE.Mesh(new THREE.SphereGeometry(0.35, 10, 8), new THREE.MeshLambertMaterial({ color: 0xb8a070 }));
+  fpftFish.scale.set(2.2, 0.7, 0.5);
+  fpftFish.position.set(4.5, 0.3, 0.5);
+  fpftFish.rotation.z = 0.2;
+  fpftGroup.add(fpftFish);
+  // Tournament banner
+  const fpftBanner = new THREE.Mesh(new THREE.BoxGeometry(5, 0.5, 0.04), new THREE.MeshBasicMaterial({ color: 0xff3322 }));
+  fpftBanner.position.set(0, 2.5, 0);
+  fpftGroup.add(fpftBanner);
+  group.add(fpftGroup);
+
+  // v91: Beach checkers / board game club
+  const bbgcGroup = new THREE.Group();
+  bbgcGroup.position.set(16, 0.05, 14);
+  // Two square game tables with parasols
+  for (let bg = 0; bg < 2; bg++) {
+    const bbgcTable = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.06, 1.2), new THREE.MeshLambertMaterial({ color: 0xddcc99 }));
+    bbgcTable.position.set(bg * 3.5, 0.7, 0);
+    bbgcGroup.add(bbgcTable);
+    // Table legs
+    const bbgcTLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.7, 6), new THREE.MeshLambertMaterial({ color: 0x553311 }));
+    bbgcTLeg.position.set(bg * 3.5, 0.35, 0);
+    bbgcGroup.add(bbgcTLeg);
+    // Checkerboard pattern
+    for (let bgi = 0; bgi < 8; bgi++) {
+      for (let bgj = 0; bgj < 8; bgj++) {
+        if ((bgi + bgj) % 2 === 1) {
+          const bbgcSq = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.13), new THREE.MeshBasicMaterial({ color: 0x553311 }));
+          bbgcSq.rotation.x = -Math.PI / 2;
+          bbgcSq.position.set(bg * 3.5 + (bgi - 3.5) * 0.135, 0.74, (bgj - 3.5) * 0.135);
+          bbgcGroup.add(bbgcSq);
+        }
+      }
+    }
+    // Checker pieces
+    for (let bgp = 0; bgp < 6; bgp++) {
+      const bbgcP = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.03, 8), new THREE.MeshLambertMaterial({ color: bgp < 3 ? 0x111111 : 0xdd2222 }));
+      bbgcP.position.set(bg * 3.5 + (bgp % 3 - 1) * 0.27, 0.76, bgp < 3 ? -0.4 : 0.4);
+      bbgcGroup.add(bbgcP);
+    }
+    // Parasol pole
+    const bbgcPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.5, 6), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+    bbgcPole.position.set(bg * 3.5, 1.95, 0);
+    bbgcGroup.add(bbgcPole);
+    const bbgcParasol = new THREE.Mesh(new THREE.ConeGeometry(1.0, 0.4, 12, 1, true), new THREE.MeshLambertMaterial({ color: bg === 0 ? 0xff6688 : 0x66aaff, side: THREE.DoubleSide }));
+    bbgcParasol.position.set(bg * 3.5, 3.0, 0);
+    bbgcGroup.add(bbgcParasol);
+    // Two players per table
+    for (let bp = 0; bp < 2; bp++) {
+      const bbgcPl = new THREE.Group();
+      bbgcPl.position.set(bg * 3.5, 0, bp === 0 ? -1.2 : 1.2);
+      const bbgcPlBody = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.7, 0.3), new THREE.MeshLambertMaterial({ color: bp === 0 ? 0x4488dd : 0xdd8844 }));
+      bbgcPlBody.position.y = 0.55;
+      bbgcPl.add(bbgcPlBody);
+      const bbgcPlHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeec79a }));
+      bbgcPlHead.position.y = 1.08;
+      bbgcPl.add(bbgcPlHead);
+      bbgcGroup.add(bbgcPl);
+    }
+  }
+  group.add(bbgcGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -17622,6 +17770,20 @@ export function createAnchorageLandmark(THREE, opts) {
           rcsOars[v90i].rotation.z = v90s * 0.4;
         }
         rcsGroup.position.x = -30 + Math.sin(t * 0.2) * 1.2;
+        // v91: dock crane trolley slides + container sways; tournament fish wiggles
+        dcuTrolley.position.x = Math.sin(t * 0.4) * 2.5;
+        dcuCable.position.x = dcuTrolley.position.x;
+        dcuLiftedC.position.x = dcuTrolley.position.x;
+        dcuLiftedC.rotation.y = Math.sin(t * 0.7) * 0.05;
+        // Anglers gentle bob
+        for (let v91i = 0; v91i < fpftGroup.children.length; v91i++) {
+          const v91c = fpftGroup.children[v91i];
+          if (v91c.children && v91c.children.length >= 4) {
+            v91c.rotation.y = Math.sin(t * 0.4 + v91i) * 0.08;
+          }
+        }
+        fpftFish.rotation.z = 0.2 + Math.sin(t * 1.2) * 0.05;
+
 
 
 
