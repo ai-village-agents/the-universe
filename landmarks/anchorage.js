@@ -13261,6 +13261,202 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(dbGroup);
 
 
+
+  // v79: Beachfront ice sculpture demo - sculptor with chainsaw, ice swan
+  const isGroup = new THREE.Group();
+  isGroup.position.set(2, 0.05, 12);
+  isGroup.rotation.y = -0.3;
+  // Ice block pedestal
+  const isIceMat = new THREE.MeshStandardMaterial({ color: 0xc0e8ff, transparent: true, opacity: 0.7, roughness: 0.1, metalness: 0.0 });
+  const isPedestal = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, 0.9), isIceMat);
+  isPedestal.position.y = 0.5;
+  isGroup.add(isPedestal);
+  // Ice swan body
+  const isSwanBody = new THREE.Mesh(new THREE.SphereGeometry(0.3, 14, 12), isIceMat);
+  isSwanBody.position.set(0, 1.2, 0);
+  isSwanBody.scale.set(1, 0.7, 1.4);
+  isGroup.add(isSwanBody);
+  // Ice swan neck (S-curve approximated by 3 angled cylinders)
+  const isSwanNeck1 = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 0.4, 10), isIceMat);
+  isSwanNeck1.position.set(0, 1.45, 0.3);
+  isSwanNeck1.rotation.x = -0.4;
+  isGroup.add(isSwanNeck1);
+  const isSwanNeck2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.35, 10), isIceMat);
+  isSwanNeck2.position.set(0, 1.7, 0.4);
+  isSwanNeck2.rotation.x = 0.3;
+  isGroup.add(isSwanNeck2);
+  // Swan head
+  const isSwanHead = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 10), isIceMat);
+  isSwanHead.position.set(0, 1.85, 0.55);
+  isGroup.add(isSwanHead);
+  const isSwanBeakMat = new THREE.MeshLambertMaterial({ color: 0xff8000 });
+  const isSwanBeak = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.1, 6), isSwanBeakMat);
+  isSwanBeak.rotation.x = Math.PI / 2;
+  isSwanBeak.position.set(0, 1.85, 0.65);
+  isGroup.add(isSwanBeak);
+  // Sculptor
+  const isSculptorPantsMat = new THREE.MeshLambertMaterial({ color: 0x404040 });
+  const isSculptorJacketMat = new THREE.MeshLambertMaterial({ color: 0xc04020 });
+  const isSculptorSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0b890 });
+  const isSculptorLegs = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.7, 10), isSculptorPantsMat);
+  isSculptorLegs.position.set(-0.9, 0.35, 0.5);
+  isGroup.add(isSculptorLegs);
+  const isSculptorTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.6, 12), isSculptorJacketMat);
+  isSculptorTorso.position.set(-0.9, 1.0, 0.5);
+  isGroup.add(isSculptorTorso);
+  const isSculptorHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), isSculptorSkinMat);
+  isSculptorHead.position.set(-0.9, 1.42, 0.5);
+  isGroup.add(isSculptorHead);
+  // Goggles
+  const isGogglesMat = new THREE.MeshLambertMaterial({ color: 0x202060 });
+  const isGoggles = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.08, 0.04), isGogglesMat);
+  isGoggles.position.set(-0.9, 1.45, 0.65);
+  isGroup.add(isGoggles);
+  // Chainsaw
+  const isSawBodyMat = new THREE.MeshLambertMaterial({ color: 0xe0a020 });
+  const isSawBody = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.18, 0.12), isSawBodyMat);
+  isSawBody.position.set(-0.5, 1.1, 0.4);
+  isGroup.add(isSawBody);
+  const isSawBladeMat = new THREE.MeshLambertMaterial({ color: 0xa0a0a0 });
+  const isSawBlade = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.05, 0.04), isSawBladeMat);
+  isSawBlade.position.set(-0.15, 1.1, 0.4);
+  isGroup.add(isSawBlade);
+  // Ice chips on ground
+  const isChipMat = new THREE.MeshLambertMaterial({ color: 0xe0f4ff, transparent: true, opacity: 0.8 });
+  const isChips = [];
+  for (let c = 0; c < 12; c++) {
+    const chip = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, 0.06), isChipMat);
+    chip.position.set(-0.3 + Math.random() * 0.5, 0.02, -0.1 + Math.random() * 0.5);
+    isGroup.add(chip);
+    isChips.push(chip);
+  }
+  group.add(isGroup);
+
+  // v79: Floating swim platform with diving board
+  const swpGroup = new THREE.Group();
+  swpGroup.position.set(28, 0, -5);
+  const swpDeckMat = new THREE.MeshLambertMaterial({ color: 0xc8a878 });
+  const swpDeck = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.18, 3.0), swpDeckMat);
+  swpDeck.position.y = 0.05;
+  swpGroup.add(swpDeck);
+  // Floats underneath
+  const swpFloatMat = new THREE.MeshLambertMaterial({ color: 0xe04040 });
+  const swpFloatPos = [[-1.5, -0.05, -1.2], [1.5, -0.05, -1.2], [-1.5, -0.05, 1.2], [1.5, -0.05, 1.2]];
+  for (const [fx, fy, fz] of swpFloatPos) {
+    const float = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.4, 12), swpFloatMat);
+    float.position.set(fx, fy, fz);
+    swpGroup.add(float);
+  }
+  // Ladder up to deck
+  const swpLadderMat = new THREE.MeshLambertMaterial({ color: 0xa0a0a0 });
+  const swpLadderRail1 = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.04), swpLadderMat);
+  swpLadderRail1.position.set(1.65, 0, -0.4);
+  swpGroup.add(swpLadderRail1);
+  const swpLadderRail2 = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.04), swpLadderMat);
+  swpLadderRail2.position.set(1.65, 0, 0.0);
+  swpGroup.add(swpLadderRail2);
+  // Diving board base
+  const swpBoardBaseMat = new THREE.MeshLambertMaterial({ color: 0x808080 });
+  const swpBoardBase = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.6, 10), swpBoardBaseMat);
+  swpBoardBase.position.set(-0.5, 0.45, 0);
+  swpGroup.add(swpBoardBase);
+  // Diving board
+  const swpBoardMat = new THREE.MeshLambertMaterial({ color: 0xfff0d0 });
+  const swpBoard = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.1, 0.5), swpBoardMat);
+  swpBoard.position.set(-1.5, 0.78, 0);
+  swpGroup.add(swpBoard);
+  // Diver about to jump
+  const swpDiverSkinMat = new THREE.MeshLambertMaterial({ color: 0xe0b890 });
+  const swpDiverSuitMat = new THREE.MeshLambertMaterial({ color: 0x2080c0 });
+  const swpDiverTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.5, 12), swpDiverSuitMat);
+  swpDiverTorso.position.set(-2.4, 1.1, 0);
+  swpGroup.add(swpDiverTorso);
+  const swpDiverHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 12), swpDiverSkinMat);
+  swpDiverHead.position.set(-2.4, 1.5, 0);
+  swpGroup.add(swpDiverHead);
+  // Splash zone marker - water ripple
+  const swpRippleMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const swpRipple = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.7, 24), swpRippleMat);
+  swpRipple.rotation.x = -Math.PI / 2;
+  swpRipple.position.set(-3.2, 0.02, 0);
+  swpGroup.add(swpRipple);
+  group.add(swpGroup);
+
+  // v79: Beach bonfire band - musicians around fire
+  const bbbGroup = new THREE.Group();
+  bbbGroup.position.set(-7, 0, 14.5);
+  // Small fire ring
+  const bbbLogMat = new THREE.MeshLambertMaterial({ color: 0x4a2818 });
+  for (let l = 0; l < 5; l++) {
+    const angle = (l / 5) * Math.PI * 2;
+    const log = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.5, 8), bbbLogMat);
+    log.position.set(Math.cos(angle) * 0.25, 0.1, Math.sin(angle) * 0.25);
+    log.rotation.y = angle + Math.PI / 2;
+    log.rotation.z = Math.PI / 2;
+    bbbGroup.add(log);
+  }
+  // Flame
+  const bbbFlameOuterMat = new THREE.MeshBasicMaterial({ color: 0xff6020, transparent: true, opacity: 0.7 });
+  const bbbFlameOuter = new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.7, 10), bbbFlameOuterMat);
+  bbbFlameOuter.position.y = 0.45;
+  bbbGroup.add(bbbFlameOuter);
+  const bbbFlameInnerMat = new THREE.MeshBasicMaterial({ color: 0xffe080, transparent: true, opacity: 0.8 });
+  const bbbFlameInner = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.5, 8), bbbFlameInnerMat);
+  bbbFlameInner.position.y = 0.4;
+  bbbGroup.add(bbbFlameInner);
+  // Guitar player
+  const bbbGuitarSkinMat = new THREE.MeshLambertMaterial({ color: 0xc89070 });
+  const bbbGuitarShirtMat = new THREE.MeshLambertMaterial({ color: 0x208040 });
+  const bbbGuitarTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 12), bbbGuitarShirtMat);
+  bbbGuitarTorso.position.set(1.4, 0.6, 0);
+  bbbGroup.add(bbbGuitarTorso);
+  const bbbGuitarHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), bbbGuitarSkinMat);
+  bbbGuitarHead.position.set(1.4, 1.05, 0);
+  bbbGroup.add(bbbGuitarHead);
+  // Guitar
+  const bbbGuitarBodyMat = new THREE.MeshLambertMaterial({ color: 0xa0501c });
+  const bbbGuitarBody = new THREE.Mesh(new THREE.SphereGeometry(0.22, 14, 10), bbbGuitarBodyMat);
+  bbbGuitarBody.scale.set(1, 0.85, 0.4);
+  bbbGuitarBody.position.set(1.0, 0.6, 0.3);
+  bbbGroup.add(bbbGuitarBody);
+  const bbbGuitarNeck = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.06, 0.04), bbbGuitarBodyMat);
+  bbbGuitarNeck.position.set(0.55, 0.7, 0.3);
+  bbbGuitarNeck.rotation.z = 0.4;
+  bbbGroup.add(bbbGuitarNeck);
+  // Bongo player
+  const bbbBongoShirtMat = new THREE.MeshLambertMaterial({ color: 0xc02080 });
+  const bbbBongoTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 12), bbbBongoShirtMat);
+  bbbBongoTorso.position.set(-1.4, 0.6, 0);
+  bbbGroup.add(bbbBongoTorso);
+  const bbbBongoHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), bbbGuitarSkinMat);
+  bbbBongoHead.position.set(-1.4, 1.05, 0);
+  bbbGroup.add(bbbBongoHead);
+  // Bongos
+  const bbbBongoMat = new THREE.MeshLambertMaterial({ color: 0x803020 });
+  const bbbBongoTopMat = new THREE.MeshLambertMaterial({ color: 0xfff0d0 });
+  const bbbBongo1 = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.22, 14), bbbBongoMat);
+  bbbBongo1.position.set(-1.0, 0.5, 0.35);
+  bbbGroup.add(bbbBongo1);
+  const bbbBongo1Top = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.02, 14), bbbBongoTopMat);
+  bbbBongo1Top.position.set(-1.0, 0.62, 0.35);
+  bbbGroup.add(bbbBongo1Top);
+  const bbbBongo2 = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.22, 14), bbbBongoMat);
+  bbbBongo2.position.set(-0.7, 0.5, 0.4);
+  bbbGroup.add(bbbBongo2);
+  const bbbBongo2Top = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.02, 14), bbbBongoTopMat);
+  bbbBongo2Top.position.set(-0.7, 0.62, 0.4);
+  bbbGroup.add(bbbBongo2Top);
+  // Singer
+  const bbbSingerShirtMat = new THREE.MeshLambertMaterial({ color: 0xf0c020 });
+  const bbbSingerTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 12), bbbSingerShirtMat);
+  bbbSingerTorso.position.set(0, 0.6, -1.4);
+  bbbGroup.add(bbbSingerTorso);
+  const bbbSingerHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 14, 12), bbbGuitarSkinMat);
+  bbbSingerHead.position.set(0, 1.05, -1.4);
+  bbbGroup.add(bbbSingerHead);
+  group.add(bbbGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -15330,6 +15526,25 @@ export function createAnchorageLandmark(THREE, opts) {
         dbDrummerTorso.position.y = 0.5 + 0.04 * Math.sin(t * 1.6);
         // Boat bobbing
         dbGroup.position.y = 0.05 * Math.sin(t * 0.7);
+        // v79: Ice sculpture demo - sawing motion
+        isSawBody.position.x = -0.5 + 0.06 * Math.sin(t * 6);
+        isSawBlade.position.x = -0.15 + 0.06 * Math.sin(t * 6);
+        isSculptorTorso.rotation.z = 0.05 * Math.sin(t * 6);
+        // v79: Swim platform diver bobs slightly, ripple expands
+        swpDiverTorso.position.y = 1.1 + 0.04 * Math.sin(t * 1.5);
+        swpDiverHead.position.y = 1.5 + 0.04 * Math.sin(t * 1.5);
+        const swpRippleScale = 1 + 0.4 * ((t * 0.7) % 1);
+        swpRipple.scale.set(swpRippleScale, swpRippleScale, 1);
+        swpRipple.material.opacity = 0.5 * (1 - ((t * 0.7) % 1));
+        swpGroup.position.y = 0.04 * Math.sin(t * 0.8);
+        // v79: Bonfire band - flame flicker, bongo player drumming, singer head bobbing
+        bbbFlameOuter.scale.y = 1 + 0.18 * Math.sin(t * 9);
+        bbbFlameInner.scale.y = 1 + 0.25 * Math.sin(t * 11 + 1);
+        bbbBongoTorso.rotation.z = 0.08 * Math.sin(t * 4);
+        bbbSingerHead.rotation.y = 0.3 * Math.sin(t * 1.2);
+        bbbSingerHead.position.y = 1.05 + 0.04 * Math.sin(t * 2.4);
+        bbbGuitarTorso.rotation.z = 0.05 * Math.sin(t * 2);
+
 
 
 
