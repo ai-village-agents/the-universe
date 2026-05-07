@@ -12533,6 +12533,182 @@ const cosmicSights = [
     { name: "Hyper-K Mega-Tank Array", position: [5044, 95300, 2914], color: "#87CEEB", description: "Japanese next-gen water Cherenkov" },
     { name: "JUNO Reactor Oscillation", position: [5046, 95320, 2916], color: "#B0C4DE", description: "Chinese neutrino mass hierarchy probe" },
     { name: "Einstein Telescope Concept", position: [5048, 95340, 2918], color: "#E6E6FA", description: "Future underground GW observatory" }
+,
+  {
+    name: "Extragalactic Background Light Peak",
+    position: [115000, -82000, 23000],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Accumulated starlight from all galaxies"
+  },
+  {
+    name: "Cosmic Infrared Background Fluctuation",
+    position: [115010, -81990, 23010],
+    color: "#FF4500",
+    size: 2.3,
+    description: "Glow from early universe dust and stars"
+  },
+  {
+    name: "Reionization Epoch Bubble Boundary",
+    position: [115020, -81980, 23020],
+    color: "#FFD700",
+    size: 2.3,
+    description: "Edge of first ionized regions in early universe"
+  },
+  {
+    name: "21cm Hydrogen Absorption Trough",
+    position: [115030, -81970, 23030],
+    color: "#8A2BE2",
+    size: 2.3,
+    description: "Signal from neutral hydrogen during Cosmic Dawn"
+  },
+  {
+    name: "Lyman Alpha Emitter Galaxy",
+    position: [115040, -81960, 23040],
+    color: "#FF69B4",
+    size: 2.3,
+    description: "High-redshift star-forming galaxy signature"
+  },
+  {
+    name: "Gunn-Peterson Trough Detection",
+    position: [115050, -81950, 23050],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "Opaque neutral hydrogen in distant quasar spectra"
+  },
+  {
+    name: "Population III Star Cluster",
+    position: [115060, -81940, 23060],
+    color: "#DC143C",
+    size: 2.3,
+    description: "First generation metal-free stars"
+  },
+  {
+    name: "Dark Ages Neutral Gas Map",
+    position: [115070, -81930, 23070],
+    color: "#32CD32",
+    size: 2.3,
+    description: "Distribution of matter before first stars"
+  },
+  {
+    name: "Quasar Proximity Effect Zone",
+    position: [115080, -81920, 23080],
+    color: "#1E90FF",
+    size: 2.3,
+    description: "Local ionization bubble around a distant quasar"
+  },
+  {
+    name: "DLA Gas Reservoir Discovery",
+    position: [115090, -81910, 23090],
+    color: "#8B008B",
+    size: 2.3,
+    description: "Massive neutral gas reservoir in early universe"
+  },
+  {
+    name: "Cosmic Web Filament Intersection",
+    position: [115100, -81900, 23100],
+    color: "#FF8C00",
+    size: 2.3,
+    description: "Junction of large-scale structure matter streams"
+  },
+  {
+    name: "Lyman Break Galaxy Candidate",
+    position: [115110, -81890, 23110],
+    color: "#4682B4",
+    size: 2.3,
+    description: "Distant star-forming galaxy identified by color"
+  },
+  {
+    name: "High-Redshift Dusty Starburst",
+    position: [115120, -81880, 23120],
+    color: "#DAA520",
+    size: 2.3,
+    description: "Intense early universe star formation obscured by dust"
+  },
+  {
+    name: "Intergalactic Medium Warm-Hot Phase",
+    position: [115130, -81870, 23130],
+    color: "#9932CC",
+    size: 2.3,
+    description: "Missing baryons in diffuse cosmic web"
+  },
+  {
+    name: "BAO Sound Wave Pattern",
+    position: [115140, -81860, 23140],
+    color: "#FF1493",
+    size: 2.3,
+    description: "Standard ruler scale from early universe sound waves"
+  },
+  {
+    name: "Sunyaev-Zel'dovich Effect Map",
+    position: [115150, -81850, 23150],
+    color: "#00FA9A",
+    size: 2.3,
+    description: "CMB photon scattering by cluster hot gas"
+  },
+  {
+    name: "Cosmic Microwave Background Polarization E-Mode",
+    position: [115160, -81840, 23160],
+    color: "#B22222",
+    size: 2.3,
+    description: "Gradient pattern in relic radiation"
+  },
+  {
+    name: "CMB B-Mode Search Signal",
+    position: [115170, -81830, 23170],
+    color: "#48D1CC",
+    size: 2.3,
+    description: "Signature of primordial gravitational waves"
+  },
+  {
+    name: "Primordial Helium Abundance Measurement",
+    position: [115180, -81820, 23180],
+    color: "#C71585",
+    size: 2.3,
+    description: "Big Bang Nucleosynthesis relic signature"
+  },
+  {
+    name: "Cosmic Variance Constraint",
+    position: [115190, -81810, 23190],
+    color: "#20B2AA",
+    size: 2.3,
+    description: "Statistical limit on observing a single universe"
+  },
+  {
+    name: "Cosmic Shear Shape Distortion",
+    position: [115200, -81800, 23200],
+    color: "#FFB6C1",
+    size: 2.3,
+    description: "Large-scale structure mapping via distorted galaxy shapes"
+  },
+  {
+    name: "Dark Matter Halo Density Profile",
+    position: [115210, -81790, 23210],
+    color: "#8B4513",
+    size: 2.3,
+    description: "Navarro-Frenk-White mass distribution"
+  },
+  {
+    name: "Redshift Space Distortion Effect",
+    position: [115220, -81780, 23220],
+    color: "#00FFFF",
+    size: 2.3,
+    description: "Galaxy map stretching due to peculiar velocities"
+  },
+  {
+    name: "ISW CMB Photon Shift",
+    position: [115230, -81770, 23230],
+    color: "#DDA0DD",
+    size: 2.3,
+    description: "CMB photon energy change passing through decaying potentials"
+  },
+  {
+    name: "Alcock-Paczynski Test Configuration",
+    position: [115240, -81760, 23240],
+    color: "#FFA500",
+    size: 2.3,
+    description: "Cosmological geometry measurement technique"
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
