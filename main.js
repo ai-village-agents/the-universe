@@ -13058,7 +13058,32 @@ const cosmicSights = [
     color: "#1E90FF",
     size: 2.3,
     description: "Ejected massive star from birth cluster"
-  }
+  },
+  { name: "Convergent Point Lanterns of Orion", position: [5018, 92200, 2893], color: "#FF9900", size: 2.5, description: "Ancient convergent point where scattered stars once clustered, now drift apart" },
+  { name: "Moving Group Signature over Perseus Mare", position: [5019, 92220, 2894], color: "#00CCFF", size: 2.2, description: "Kinematic signature of a stellar moving group traversing the galaxy" },
+  { name: "Orbital Weave at the Schedar Concourse", position: [5020, 92240, 2895], color: "#FF6699", size: 2.4, description: "Complex orbital patterns where multiple stellar orbits interweave" },
+  { name: "Galactic Dynamics Canticle beneath Lyra", position: [5021, 92260, 2896], color: "#99FF00", size: 2.3, description: "Melodic resonance of galactic dynamics rendered as light and sound" },
+  { name: "Convergent Beacon in the Hyades Wake", position: [5022, 92280, 2897], color: "#FF3366", size: 2.5, description: "Luminous trail marking where the Hyades cluster once gathered together" },
+  { name: "Stellar Archaeology Lantern over Carina", position: [5023, 92300, 2898], color: "#00FF99", size: 2.3, description: "Archaeological site revealing ancient stellar movements and interactions" },
+  { name: "Orbit-Linked Choir of the Pleiades", position: [5024, 92320, 2899], color: "#FF00CC", size: 2.4, description: "Seven stars harmonizing in their eternal orbital cycles" },
+  { name: "Trail of Converging Suns near Altair", position: [5025, 92340, 2900], color: "#FFFF00", size: 2.2, description: "Convergence trail showing where stars once drew together gravitationally" },
+  { name: "Moving Group Choreography in Hercules", position: [5026, 92360, 2901], color: "#00FFFF", size: 2.5, description: "Dance patterns of stars moving in loose association across space" },
+  { name: "Convergent Point Radiance of Cygnus", position: [5027, 92380, 2902], color: "#FF6600", size: 2.3, description: "Brilliant focal point where stellar streams converge momentarily" },
+  { name: "Galactic Dynamics Flame in Scorpius", position: [5028, 92400, 2903], color: "#FF0099", size: 2.4, description: "Fiery kinematic structure visible in the galactic rotation field" },
+  { name: "Orbital Tapestry beyond the Summer Triangle", position: [5029, 92420, 2904], color: "#00FF66", size: 2.2, description: "Intricate weaving of orbital paths visible against summer stars" },
+  { name: "Convergent Signal at the Sagittarius Gate", position: [5030, 92440, 2905], color: "#6600FF", size: 2.5, description: "Strong kinematic signal of converging stars at the galactic center gate" },
+  { name: "Moving Group Footprints under Andromeda", position: [5031, 92460, 2906], color: "#FF9999", size: 2.3, description: "Traced footprints of moving groups viewed against Andromeda backdrop" },
+  { name: "Orbit-Threaded Hymn above Auriga", position: [5032, 92480, 2907], color: "#99FFFF", size: 2.4, description: "Sacred hymn woven from the orbital threads of Auriga's stars" },
+  { name: "Convergent Starfall over the Vela Verge", position: [5033, 92500, 2908], color: "#FF3300", size: 2.2, description: "Cascading starfall converging at the edge of the Vela region" },
+  { name: "Galactic Dynamics Veil along Cetus", position: [5034, 92520, 2909], color: "#33FF00", size: 2.5, description: "Veiled kinematic structure barely visible through the Cetus field" },
+  { name: "Orbital Lattice at the Thuban Ascent", position: [5035, 92540, 2910], color: "#0066FF", size: 2.3, description: "Geometric lattice of orbits ascending toward the ancient pole star" },
+  { name: "Convergent Point Halo by Lacerta", position: [5036, 92560, 2911], color: "#FF00FF", size: 2.4, description: "Halo of stellar convergence surrounding the Lacerta region" },
+  { name: "Moving Group Glyphs in Canis Major", position: [5037, 92580, 2912], color: "#FFCC00", size: 2.2, description: "Ancient glyphs marking kinematic signatures in Canis Major" },
+  { name: "Orbit-Bound Anthem near Procyon", position: [5038, 92600, 2913], color: "#00CCFF", size: 2.5, description: "Triumphant anthem sung by stars bound in mutual orbits near Procyon" },
+  { name: "Convergent Dawn inside the Perseus Spur", position: [5039, 92620, 2914], color: "#99FF99", size: 2.3, description: "Dawn breaking where stellar streams converge in the Perseus Spur" },
+  { name: "Galactic Dynamics Loom over Cassiopeia", position: [5040, 92640, 2915], color: "#FF99FF", size: 2.4, description: "Celestial loom weaving kinematic patterns over Cassiopeia" },
+  { name: "Orbital Concord at the Deneb Apex", position: [5041, 92660, 2916], color: "#CCFF00", size: 2.2, description: "Perfect orbital harmony achieved at the bright apex of Deneb" },
+  { name: "Moving Group Whisper through Monoceros", position: [5042, 92680, 2917], color: "#00FF33", size: 2.5, description: "Soft whisper of moving stars traversing through Monoceros" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
