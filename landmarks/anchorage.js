@@ -17206,6 +17206,106 @@ export function createAnchorageLandmark(THREE, opts) {
   bshGroup.add(bshSignBoard);
   group.add(bshGroup);
 
+  // v104: Coastal storm shutters carpenter (cssc) + Beach yoga sunrise circle (bysc)
+  // --- Storm shutters carpenter (cssc) ---
+  const csscGroup = new THREE.Group();
+  csscGroup.position.set(-44, 0, -32);
+  // Workbench
+  const csscBenchMat = new THREE.MeshLambertMaterial({color: 0x8a6a4a});
+  const csscBench = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.1, 0.8), csscBenchMat);
+  csscBench.position.set(0, 0.85, 0);
+  csscGroup.add(csscBench);
+  for (let lx = -1; lx <= 1; lx += 2) for (let lz = -1; lz <= 1; lz += 2) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.85, 0.08), new THREE.MeshLambertMaterial({color: 0x6a4a2a}));
+    leg.position.set(0.85 * lx, 0.42, 0.32 * lz);
+    csscGroup.add(leg);
+  }
+  // Shutter being built
+  const csscShutterMat = new THREE.MeshLambertMaterial({color: 0xc8b888});
+  const csscShutter = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.05, 0.6), csscShutterMat);
+  csscShutter.position.set(0, 0.95, 0);
+  csscGroup.add(csscShutter);
+  // Slats
+  for (let s = 0; s < 6; s++) {
+    const slat = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.04, 0.08), new THREE.MeshLambertMaterial({color: 0xa8987a}));
+    slat.position.set(0, 1.0, -0.25 + s * 0.1);
+    csscGroup.add(slat);
+  }
+  // Carpenter
+  const csscCarpMat = new THREE.MeshLambertMaterial({color: 0x7a5a3a});
+  const csscCarpSkin = new THREE.MeshLambertMaterial({color: 0xc89678});
+  const csscCarp = new THREE.Group();
+  const csscCarpTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.35), csscCarpMat);
+  csscCarpTorso.position.y = 1.0;
+  csscCarp.add(csscCarpTorso);
+  const csscCarpHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), csscCarpSkin);
+  csscCarpHead.position.y = 1.5;
+  csscCarp.add(csscCarpHead);
+  // Hammer
+  const csscHammerHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.4, 6), new THREE.MeshLambertMaterial({color: 0x6a4a2a}));
+  csscHammerHandle.position.set(0.3, 1.0, 0.3);
+  csscHammerHandle.rotation.z = -0.5;
+  csscCarp.add(csscHammerHandle);
+  const csscHammerHead = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.1, 0.1), new THREE.MeshStandardMaterial({color: 0x444444, metalness: 0.7, roughness: 0.4}));
+  csscHammerHead.position.set(0.5, 1.15, 0.3);
+  csscCarp.add(csscHammerHead);
+  csscCarp.position.set(0, 0, 0.7);
+  csscGroup.add(csscCarp);
+  // Stack of completed shutters
+  for (let st = 0; st < 4; st++) {
+    const stshutter = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.06, 0.5), csscShutterMat);
+    stshutter.position.set(-2.5, 0.05 + st * 0.07, 0);
+    csscGroup.add(stshutter);
+  }
+  group.add(csscGroup);
+
+  // --- Beach yoga sunrise circle (bysc) ---
+  const byscGroup = new THREE.Group();
+  byscGroup.position.set(8, 0, -42);
+  // Sunrise glow disc
+  const byscGlow = new THREE.Mesh(new THREE.CircleGeometry(3.5, 32), new THREE.MeshBasicMaterial({color: 0xffd070, transparent: true, opacity: 0.4}));
+  byscGlow.rotation.x = -Math.PI / 2;
+  byscGlow.position.y = 0.02;
+  byscGroup.add(byscGlow);
+  // Six yoga practitioners in a circle
+  const byscShirts = [
+    new THREE.MeshLambertMaterial({color: 0xb858a0}),
+    new THREE.MeshLambertMaterial({color: 0x58a0b8}),
+    new THREE.MeshLambertMaterial({color: 0xa8b858}),
+    new THREE.MeshLambertMaterial({color: 0xb87a58}),
+    new THREE.MeshLambertMaterial({color: 0x58b878}),
+    new THREE.MeshLambertMaterial({color: 0x7858b8})
+  ];
+  const byscSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const byscPpl = [];
+  for (let p = 0; p < 6; p++) {
+    const yp = new THREE.Group();
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.6, 0.3), byscShirts[p]);
+    torso.position.y = 0.75;
+    yp.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), byscSkin);
+    head.position.y = 1.2;
+    yp.add(head);
+    // Mat
+    const matColor = new THREE.MeshLambertMaterial({color: 0xc8a8c8});
+    const mat = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.04, 0.5), matColor);
+    mat.position.y = 0.02;
+    yp.add(mat);
+    const angle = (p / 6) * Math.PI * 2;
+    yp.position.set(Math.cos(angle) * 2.0, 0, Math.sin(angle) * 2.0);
+    yp.rotation.y = -angle + Math.PI / 2;
+    byscGroup.add(yp);
+    byscPpl.push(yp);
+  }
+  // Instructor in center
+  const byscInsTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.35), new THREE.MeshLambertMaterial({color: 0xfafadc}));
+  byscInsTorso.position.y = 1.0;
+  byscGroup.add(byscInsTorso);
+  const byscInsHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), byscSkin);
+  byscInsHead.position.y = 1.5;
+  byscGroup.add(byscInsHead);
+  group.add(byscGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19627,6 +19727,17 @@ export function createAnchorageLandmark(THREE, opts) {
         }
         // Gnome plaque (static); slight bobble of beard for life
         sgmBeard.position.y = 1.35 + Math.sin(v103t * 0.5) * 0.01;
+        // v104: carpenter hammers + yoga sunrise breathing
+        const v104t = t;
+        // Hammer swing
+        csscCarp.rotation.z = Math.sin(v104t * 4) * 0.08;
+        // Yoga: synchronized rise/fall
+        for (let i = 0; i < byscPpl.length; i++) {
+          byscPpl[i].position.y = Math.abs(Math.sin(v104t * 0.6)) * 0.2;
+          byscPpl[i].rotation.x = Math.sin(v104t * 0.6) * 0.15;
+        }
+        // Sunrise glow pulses
+        byscGlow.material.opacity = 0.3 + Math.sin(v104t * 0.5) * 0.15;
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
