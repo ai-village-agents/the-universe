@@ -15863,7 +15863,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bchScatter.rotation.y = i * 0.4;
     bchGroup.add(bchScatter);
   }
-  anchorageGroup.add(bchGroup);
+  group.add(bchGroup);
 
   // --- v94: sea kayak rental (skr) -------------------------------------------
   const skrGroup = new THREE.Group();
@@ -15913,7 +15913,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const skrCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xeec39a }));
   skrCustHead.position.set(-1.0, 1.3, 1.4);
   skrGroup.add(skrCustHead);
-  anchorageGroup.add(skrGroup);
+  group.add(skrGroup);
 
   // --- v94: outdoor fish fry pavilion (offp) ---------------------------------
   const offpGroup = new THREE.Group();
@@ -15970,7 +15970,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const offpSteam2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
   offpSteam2.position.set(1.0, 1.85, -0.6);
   offpGroup.add(offpSteam2);
-  anchorageGroup.add(offpGroup);
+  group.add(offpGroup);
 
 
   // --- v95: tide pool snorkel lesson (tps) -----------------------------------
@@ -16024,7 +16024,7 @@ export function createAnchorageLandmark(THREE, opts) {
     tpsAnem.position.set(Math.cos(i * 1.05) * 1.8, 0.06, Math.sin(i * 1.05) * 1.8);
     tpsGroup.add(tpsAnem);
   }
-  anchorageGroup.add(tpsGroup);
+  group.add(tpsGroup);
 
   // --- v95: pier fortune teller booth (pft) ----------------------------------
   const pftGroup = new THREE.Group();
@@ -16067,7 +16067,7 @@ export function createAnchorageLandmark(THREE, opts) {
   const pftCustH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xd9a679 }));
   pftCustH.position.set(0, 2.05, 1.5);
   pftGroup.add(pftCustH);
-  anchorageGroup.add(pftGroup);
+  group.add(pftGroup);
 
   // --- v95: beach metal detector (bmd) ---------------------------------------
   const bmdGroup = new THREE.Group();
@@ -16116,7 +16116,7 @@ export function createAnchorageLandmark(THREE, opts) {
     bmdFoot.position.set(-0.15 + (i % 2) * 0.3, 0.005, -0.4 - i * 0.5);
     bmdGroup.add(bmdFoot);
   }
-  anchorageGroup.add(bmdGroup);
+  group.add(bmdGroup);
 
 
   // --- v21 init complete ----------------------------------------------------
