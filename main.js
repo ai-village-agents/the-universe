@@ -12533,6 +12533,182 @@ const cosmicSights = [
     { name: "Hyper-K Mega-Tank Array", position: [5044, 95300, 2914], color: "#87CEEB", description: "Japanese next-gen water Cherenkov" },
     { name: "JUNO Reactor Oscillation", position: [5046, 95320, 2916], color: "#B0C4DE", description: "Chinese neutrino mass hierarchy probe" },
     { name: "Einstein Telescope Concept", position: [5048, 95340, 2918], color: "#E6E6FA", description: "Future underground GW observatory" }
+,
+  {
+    name: "Millisecond Pulsar Glitch Event",
+    position: [115000, -82000, 23000],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Sudden spin-up in an old, recycled pulsar"
+  },
+  {
+    name: "Magnetar Crust Quake Fracture",
+    position: [115010, -81990, 23010],
+    color: "#FF4500",
+    size: 2.3,
+    description: "Fracture in a hyper-magnetized neutron star crust"
+  },
+  {
+    name: "Neutron Star Surface Explosion Flash",
+    position: [115020, -81980, 23020],
+    color: "#FFD700",
+    size: 2.3,
+    description: "Thermonuclear flash on an accreting neutron star"
+  },
+  {
+    name: "Pulsar Wind Nebula Bow Shock Edge",
+    position: [115030, -81970, 23030],
+    color: "#8A2BE2",
+    size: 2.3,
+    description: "Interaction between relativistic wind and ISM"
+  },
+  {
+    name: "Soft Gamma Repeater Burst Peak",
+    position: [115040, -81960, 23040],
+    color: "#FF69B4",
+    size: 2.3,
+    description: "Intense emission from magnetar magnetic reconnection"
+  },
+  {
+    name: "Anomalous X-ray Pulsar Emission Phase",
+    position: [115050, -81950, 23050],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "Magnetar powered by magnetic field decay"
+  },
+  {
+    name: "Neutron Star Ocean Ignition Point",
+    position: [115060, -81940, 23060],
+    color: "#DC143C",
+    size: 2.3,
+    description: "Carbon flash deep within a neutron star envelope"
+  },
+  {
+    name: "Binary Pulsar Orbital Decay Rate",
+    position: [115070, -81930, 23070],
+    color: "#32CD32",
+    size: 2.3,
+    description: "System losing energy to gravitational waves"
+  },
+  {
+    name: "Superfluid Neutron Vortex Pinning Action",
+    position: [115080, -81920, 23080],
+    color: "#1E90FF",
+    size: 2.3,
+    description: "Interior dynamics causing pulsar glitches"
+  },
+  {
+    name: "Neutron Star Mountain Gravitational Waves Peak",
+    position: [115090, -81910, 23090],
+    color: "#8B008B",
+    size: 2.3,
+    description: "Continuous GW emission from crustal asymmetry"
+  },
+  {
+    name: "Accreting Millisecond Pulsar Outburst Event",
+    position: [115100, -81900, 23100],
+    color: "#FF8C00",
+    size: 2.3,
+    description: "Transient X-ray binary showing rapid pulsations"
+  },
+  {
+    name: "Vela Pulsar Glitch Recovery Phase",
+    position: [115110, -81890, 23110],
+    color: "#4682B4",
+    size: 2.3,
+    description: "Post-glitch spin relaxation in young pulsar"
+  },
+  {
+    name: "Crab Pulsar Giant Pulse Burst",
+    position: [115120, -81880, 23120],
+    color: "#DAA520",
+    size: 2.3,
+    description: "Extremely bright, short-duration radio burst"
+  },
+  {
+    name: "Magnetar Flare Echo Reflection",
+    position: [115130, -81870, 23130],
+    color: "#9932CC",
+    size: 2.3,
+    description: "Light echo scattered by interstellar dust"
+  },
+  {
+    name: "Neutron Star Merger Kilonova Glow",
+    position: [115140, -81860, 23140],
+    color: "#FF1493",
+    size: 2.3,
+    description: "Radioactive glow from r-process nucleosynthesis"
+  },
+  {
+    name: "Pulsar Light Cylinder Reconnection Zone",
+    position: [115150, -81850, 23150],
+    color: "#00FA9A",
+    size: 2.3,
+    description: "Particle acceleration at the magnetosphere boundary"
+  },
+  {
+    name: "Neutron Star EOS Phase Transition State",
+    position: [115160, -81840, 23160],
+    color: "#B22222",
+    size: 2.3,
+    description: "Core material transforming to hyperons or quarks"
+  },
+  {
+    name: "Magnetar Polar Cap Cascade Event",
+    position: [115170, -81830, 23170],
+    color: "#48D1CC",
+    size: 2.3,
+    description: "Pair production in ultra-strong magnetic fields"
+  },
+  {
+    name: "Pulsar Wind Termination Shock Boundary Zone",
+    position: [115180, -81820, 23180],
+    color: "#C71585",
+    size: 2.3,
+    description: "Boundary where relativistic wind decelerates"
+  },
+  {
+    name: "Neutron Star Cooling Curve Anomaly Phase",
+    position: [115190, -81810, 23190],
+    color: "#20B2AA",
+    size: 2.3,
+    description: "Rapid interior cooling via neutrino emission"
+  },
+  {
+    name: "Transitional Millisecond Pulsar State Change Event",
+    position: [115200, -81800, 23200],
+    color: "#FFB6C1",
+    size: 2.3,
+    description: "Switching between accretion and rotation power"
+  },
+  {
+    name: "Spider Pulsar Wind Ablation Process",
+    position: [115210, -81790, 23210],
+    color: "#8B4513",
+    size: 2.3,
+    description: "Black widow pulsar evaporating its companion"
+  },
+  {
+    name: "Neutron Star Jet Launch Event",
+    position: [115220, -81780, 23220],
+    color: "#00FFFF",
+    size: 2.3,
+    description: "Relativistic outflow from an accreting neutron star"
+  },
+  {
+    name: "Pulsar Timing Array Signal Detection Trace",
+    position: [115230, -81770, 23230],
+    color: "#DDA0DD",
+    size: 2.3,
+    description: "Correlated arrival time variations from GWs"
+  },
+  {
+    name: "Magnetar Asteroseismology Mode Oscillation",
+    position: [115240, -81760, 23240],
+    color: "#FFA500",
+    size: 2.3,
+    description: "Crustal oscillations following a giant flare"
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
