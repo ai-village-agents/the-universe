@@ -9881,6 +9881,206 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(wedGroup);
 
 
+
+  // --- v64: picnic table + boardwalk ice cream truck + breaching whale ----
+  // Picnic table with red checked cloth, food, and tiny ants
+  const picTableGroup = new THREE.Group();
+  const picTopMat = new THREE.MeshLambertMaterial({ color: 0xa9764a });
+  const picTop = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.08, 1.0), picTopMat);
+  picTop.position.y = 0.74;
+  picTableGroup.add(picTop);
+  const picBenchGeom = new THREE.BoxGeometry(2.6, 0.06, 0.3);
+  const picBench1 = new THREE.Mesh(picBenchGeom, picTopMat);
+  picBench1.position.set(0, 0.42, 0.6);
+  picTableGroup.add(picBench1);
+  const picBench2 = new THREE.Mesh(picBenchGeom, picTopMat);
+  picBench2.position.set(0, 0.42, -0.6);
+  picTableGroup.add(picBench2);
+  const picLegMat = new THREE.MeshLambertMaterial({ color: 0x6e4a2a });
+  const picLegGeom = new THREE.BoxGeometry(0.08, 0.74, 0.08);
+  for (let lx of [-1.15, 1.15]) {
+    for (let lz of [-0.4, 0.4]) {
+      const lg = new THREE.Mesh(picLegGeom, picLegMat);
+      lg.position.set(lx, 0.37, lz);
+      picTableGroup.add(lg);
+    }
+  }
+  // checkered cloth (canvas)
+  const clothCanvas = document.createElement('canvas');
+  clothCanvas.width = 64; clothCanvas.height = 64;
+  const clothCtx = clothCanvas.getContext('2d');
+  for (let cy = 0; cy < 8; cy++) {
+    for (let cx = 0; cx < 8; cx++) {
+      clothCtx.fillStyle = ((cx + cy) % 2 === 0) ? '#cc2222' : '#fff7e8';
+      clothCtx.fillRect(cx * 8, cy * 8, 8, 8);
+    }
+  }
+  const clothTex = new THREE.CanvasTexture(clothCanvas);
+  clothTex.wrapS = clothTex.wrapT = THREE.RepeatWrapping;
+  clothTex.repeat.set(3, 1.5);
+  const picCloth = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.9), new THREE.MeshLambertMaterial({ map: clothTex }));
+  picCloth.rotation.x = -Math.PI / 2;
+  picCloth.position.y = 0.785;
+  picTableGroup.add(picCloth);
+  // food: watermelon slice (half disk), bread loaf, lemonade pitcher
+  const picMelon = new THREE.Mesh(new THREE.SphereGeometry(0.22, 14, 10, 0, Math.PI), new THREE.MeshLambertMaterial({ color: 0xe2435a }));
+  picMelon.rotation.z = Math.PI / 2;
+  picMelon.position.set(-0.6, 0.86, 0.1);
+  picTableGroup.add(picMelon);
+  const picMelonRind = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.04, 6, 14, Math.PI), new THREE.MeshLambertMaterial({ color: 0x3a8a3a }));
+  picMelonRind.rotation.z = Math.PI / 2;
+  picMelonRind.position.set(-0.6, 0.86, 0.1);
+  picTableGroup.add(picMelonRind);
+  const picBread = new THREE.Mesh(new THREE.CapsuleGeometry(0.13, 0.4, 4, 8), new THREE.MeshLambertMaterial({ color: 0xd9a55a }));
+  picBread.rotation.z = Math.PI / 2;
+  picBread.position.set(0.2, 0.88, -0.2);
+  picTableGroup.add(picBread);
+  const picPitcher = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.32, 12), new THREE.MeshLambertMaterial({ color: 0xfdee76, transparent: true, opacity: 0.85 }));
+  picPitcher.position.set(0.85, 0.94, 0.2);
+  picTableGroup.add(picPitcher);
+  const picPitcherLid = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.03, 12), new THREE.MeshLambertMaterial({ color: 0xddd0a0 }));
+  picPitcherLid.position.set(0.85, 1.12, 0.2);
+  picTableGroup.add(picPitcherLid);
+  // tiny ants (small dark spheres) marching toward food
+  const antMat = new THREE.MeshLambertMaterial({ color: 0x101010 });
+  const antGeom = new THREE.SphereGeometry(0.03, 6, 5);
+  const ants = [];
+  for (let ai = 0; ai < 9; ai++) {
+    const a = new THREE.Mesh(antGeom, antMat);
+    ants.push({ mesh: a, phase: ai / 9, line: ai % 3 });
+    picTableGroup.add(a);
+  }
+  // grass patch
+  const picGrassMat = new THREE.MeshLambertMaterial({ color: 0x6a9a48 });
+  const picGrass = new THREE.Mesh(new THREE.CircleGeometry(2.0, 16), picGrassMat);
+  picGrass.rotation.x = -Math.PI / 2;
+  picGrass.position.y = 0.04;
+  picTableGroup.add(picGrass);
+  picTableGroup.position.set(-32, 0.05, 4);
+  picTableGroup.rotation.y = 0.3;
+  group.add(picTableGroup);
+
+  // Boardwalk ice cream truck w/ vendor and customer
+  const ictGroup = new THREE.Group();
+  const ictBodyMat = new THREE.MeshStandardMaterial({ color: 0xeed8f0, metalness: 0.3, roughness: 0.5 });
+  const ictBody = new THREE.Mesh(new THREE.BoxGeometry(2.6, 1.4, 1.2), ictBodyMat);
+  ictBody.position.y = 0.95;
+  ictGroup.add(ictBody);
+  const ictCabMat = new THREE.MeshStandardMaterial({ color: 0xeed8f0, metalness: 0.3, roughness: 0.5 });
+  const ictCab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, 1.2), ictCabMat);
+  ictCab.position.set(1.7, 0.75, 0);
+  ictGroup.add(ictCab);
+  const ictWindshield = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.5, 1.0), new THREE.MeshLambertMaterial({ color: 0x7090b0, transparent: true, opacity: 0.6 }));
+  ictWindshield.position.set(2.18, 1.0, 0);
+  ictGroup.add(ictWindshield);
+  // serve window
+  const ictServe = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.8), new THREE.MeshLambertMaterial({ color: 0x202020 }));
+  ictServe.position.set(-0.02, 1.1, 0.61);
+  ictGroup.add(ictServe);
+  // sign on top: ICE CREAM (canvas)
+  const ictSignCanvas = document.createElement('canvas');
+  ictSignCanvas.width = 256; ictSignCanvas.height = 64;
+  const ictSignCtx = ictSignCanvas.getContext('2d');
+  ictSignCtx.fillStyle = '#fff';
+  ictSignCtx.fillRect(0, 0, 256, 64);
+  ictSignCtx.fillStyle = '#d83a8a';
+  ictSignCtx.font = 'bold 36px sans-serif';
+  ictSignCtx.textAlign = 'center';
+  ictSignCtx.fillText('ICE CREAM', 128, 46);
+  const ictSignTex = new THREE.CanvasTexture(ictSignCanvas);
+  const ictSign = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.4, 0.05), new THREE.MeshBasicMaterial({ map: ictSignTex }));
+  ictSign.position.set(0, 1.85, 0);
+  ictGroup.add(ictSign);
+  // wheels
+  const ictWheelMat = new THREE.MeshLambertMaterial({ color: 0x202020 });
+  const ictWheelGeom = new THREE.CylinderGeometry(0.28, 0.28, 0.18, 14);
+  const ictWheelPos = [[-0.9, 0.28, 0.65], [-0.9, 0.28, -0.65], [1.5, 0.28, 0.65], [1.5, 0.28, -0.65]];
+  ictWheelPos.forEach(p => {
+    const w = new THREE.Mesh(ictWheelGeom, ictWheelMat);
+    w.rotation.x = Math.PI / 2;
+    w.position.set(p[0], p[1], p[2]);
+    ictGroup.add(w);
+  });
+  // giant ice cream cone on roof
+  const ictConeRoof = new THREE.Group();
+  const ictConePart = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.6, 14), new THREE.MeshLambertMaterial({ color: 0xd9a55a }));
+  ictConePart.rotation.x = Math.PI;
+  ictConePart.position.y = 0.3;
+  ictConeRoof.add(ictConePart);
+  const ictScoop1 = new THREE.Mesh(new THREE.SphereGeometry(0.28, 14, 10), new THREE.MeshLambertMaterial({ color: 0xff8eb0 }));
+  ictScoop1.position.y = 0.7;
+  ictConeRoof.add(ictScoop1);
+  const ictScoop2 = new THREE.Mesh(new THREE.SphereGeometry(0.24, 14, 10), new THREE.MeshLambertMaterial({ color: 0xfff5b0 }));
+  ictScoop2.position.y = 1.0;
+  ictConeRoof.add(ictScoop2);
+  ictConeRoof.position.set(-0.5, 1.65, 0);
+  ictGroup.add(ictConeRoof);
+  // vendor (in window)
+  const ictVendor = new THREE.Group();
+  const ictVendorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.7, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  ictVendorBody.position.y = 0.95;
+  ictVendor.add(ictVendorBody);
+  const ictVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd5b3 }));
+  ictVendorHead.position.y = 1.45;
+  ictVendor.add(ictVendorHead);
+  const ictVendorHat = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.06, 12), new THREE.MeshLambertMaterial({ color: 0xff66aa }));
+  ictVendorHat.position.y = 1.6;
+  ictVendor.add(ictVendorHat);
+  ictVendor.position.set(-0.3, 0, 0.4);
+  ictGroup.add(ictVendor);
+  // customer at window with cone
+  const ictCustomer = new THREE.Group();
+  const ictCustBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x4eb45e }));
+  ictCustBody.position.y = 0.85;
+  ictCustomer.add(ictCustBody);
+  const ictCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd5b3 }));
+  ictCustHead.position.y = 1.4;
+  ictCustomer.add(ictCustHead);
+  const ictCustCone = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.2, 8), new THREE.MeshLambertMaterial({ color: 0xd9a55a }));
+  ictCustCone.rotation.x = Math.PI;
+  ictCustCone.position.set(0.0, 1.2, 0.2);
+  ictCustomer.add(ictCustCone);
+  const ictCustScoop = new THREE.Mesh(new THREE.SphereGeometry(0.09, 10, 8), new THREE.MeshLambertMaterial({ color: 0xa67648 }));
+  ictCustScoop.position.set(0.0, 1.32, 0.2);
+  ictCustomer.add(ictCustScoop);
+  ictCustomer.position.set(-0.2, 0, 1.4);
+  ictGroup.add(ictCustomer);
+  ictGroup.position.set(-22, 0.05, 28);
+  ictGroup.rotation.y = -0.6;
+  group.add(ictGroup);
+
+  // Distant whale fluke breaching offshore (occasional — long cycle)
+  const fluke2Group = new THREE.Group();
+  const fluke2Mat = new THREE.MeshLambertMaterial({ color: 0x303a44 });
+  // tail/peduncle (long cylinder rising)
+  const fluke2Stem = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.4, 1.6, 12), fluke2Mat);
+  fluke2Stem.position.y = 0.8;
+  fluke2Group.add(fluke2Stem);
+  // wide flukes (lobed shape via box flattened + tapered)
+  const fluke2L = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.12, 0.5), fluke2Mat);
+  fluke2L.position.set(-0.6, 1.7, 0);
+  fluke2L.rotation.z = -0.3;
+  fluke2Group.add(fluke2L);
+  const fluke2R = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.12, 0.5), fluke2Mat);
+  fluke2R.position.set(0.6, 1.7, 0);
+  fluke2R.rotation.z = 0.3;
+  fluke2Group.add(fluke2R);
+  // splash particles (white spheres) at base
+  const fluke2SplashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
+  const fluke2Splashes = [];
+  for (let i = 0; i < 10; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), fluke2SplashMat);
+    fluke2Splashes.push(s);
+    fluke2Group.add(s);
+  }
+  fluke2Group.position.set(-90, -2, 50);
+  fluke2Group.rotation.y = 0.7;
+  fluke2Group.visible = false;
+  group.add(fluke2Group);
+  // cycle time tracker
+  let fluke2Cycle = 0;
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -11595,6 +11795,37 @@ export function createAnchorageLandmark(THREE, opts) {
       });
       wedBride.rotation.y = Math.sin(t * 0.4) * 0.05;
       wedGroom.rotation.y = -Math.sin(t * 0.4) * 0.05;
+      // v63: ... (kept above)
+      // v64: ants march toward food in lines
+      ants.forEach((a, ai) => {
+        a.phase = (a.phase + dt * 0.15) % 1.0;
+        const path = a.phase;
+        const linez = (a.line - 1) * 0.18;
+        a.mesh.position.set(-1.0 + path * 1.6, 0.81, linez + Math.sin(path * 12 + ai) * 0.04);
+      });
+      // v64: ice cream truck cone wobbles slightly; vendor leans
+      ictConeRoof.rotation.y = Math.sin(t * 0.6) * 0.15;
+      ictVendor.position.y = Math.abs(Math.sin(t * 1.2)) * 0.04;
+      ictCustomer.rotation.y = Math.sin(t * 0.5) * 0.1;
+      // v64: distant whale fluke — long cycle, breach + splash
+      fluke2Cycle = (fluke2Cycle + dt) % 22.0;
+      if (fluke2Cycle < 4.0) {
+        fluke2Group.visible = true;
+        const fp = fluke2Cycle / 4.0;
+        const rise = Math.sin(fp * Math.PI);
+        fluke2Group.position.y = -2 + rise * 3.5;
+        fluke2L.rotation.z = -0.3 + Math.sin(fp * Math.PI * 2) * 0.15;
+        fluke2R.rotation.z = 0.3 - Math.sin(fp * Math.PI * 2) * 0.15;
+        fluke2Splashes.forEach((s, si) => {
+          const sp = (fp + si * 0.07) % 1.0;
+          s.visible = sp < 0.6 && fp > 0.3;
+          const ang = (si / 10) * Math.PI * 2;
+          s.position.set(Math.cos(ang) * sp * 1.4, sp * 1.2, Math.sin(ang) * sp * 1.4);
+          s.material.opacity = 0.8 * (1 - sp);
+        });
+      } else {
+        fluke2Group.visible = false;
+      }
     }
 
   }
