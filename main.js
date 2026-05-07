@@ -11857,6 +11857,31 @@ const cosmicSights = [
         description: 'A highly energetic astrophysical phenomenon.',
         url: 'https://en.wikipedia.org/wiki/High-energy_astronomy'
     }
+    { name: "Big Bang Singularity Point", position: [4800, 92860, 2670], color: "#FFFFFF", description: "Initial spacetime origin of the universe" },
+    { name: "Planck Scale Quantum Fluctuation", position: [4802, 92880, 2672], color: "#E6E6FA", description: "Spacetime fluctuations at 10^-43 seconds" },
+    { name: "GUT Symmetry Phase Transition", position: [4804, 92900, 2674], color: "#9400D3", description: "Era of unified fundamental forces" },
+    { name: "Electroweak Symmetry Breaking", position: [4806, 92920, 2676], color: "#4B0082", description: "Separation of electromagnetic and weak forces" },
+    { name: "QGP Deconfinement Phase", position: [4808, 92940, 2678], color: "#FF6B6B", description: "Primordial soup of free quarks and gluons" },
+    { name: "Hadron Formation Era", position: [4810, 92960, 2680], color: "#FF8C00", description: "Quark confinement into protons and neutrons" },
+    { name: "Lepton Era Dominance", position: [4812, 92980, 2682], color: "#00CED1", description: "Electron-positron pair creation era" },
+    { name: "Primordial Nucleosynthesis Zone", position: [4814, 93000, 2684], color: "#FFD700", description: "Formation of primordial helium and deuterium" },
+    { name: "Deuterium Bottleneck Passage", position: [4816, 93020, 2686], color: "#87CEEB", description: "Temperature threshold for nuclear fusion" },
+    { name: "Primordial Lithium Production", position: [4818, 93040, 2688], color: "#CD853F", description: "Light element creation in early universe" },
+    { name: "Baryon Asymmetry Genesis", position: [4820, 93060, 2690], color: "#C71585", description: "Matter excess enabling universe existence" },
+    { name: "Relic Neutrino Sea", position: [4822, 93080, 2692], color: "#DDA0DD", description: "Background neutrinos from early decoupling" },
+    { name: "CMB Decoupling Epoch", position: [4824, 93100, 2694], color: "#FFF8DC", description: "Origin of cosmic microwave background" },
+    { name: "Hydrogen Recombination Front", position: [4826, 93120, 2696], color: "#F0E68C", description: "Electrons binding to nuclei forming atoms" },
+    { name: "Pre-Stellar Dark Phase", position: [4828, 93140, 2698], color: "#2F4F4F", description: "Era before first stars ignited" },
+    { name: "Quantum Fluctuation Seed", position: [4830, 93160, 2700], color: "#708090", description: "Quantum fluctuation imprint on matter" },
+    { name: "Inflationary Exponential Phase", position: [4832, 93180, 2702], color: "#00FA9A", description: "Rapid spacetime stretching solving horizon problem" },
+    { name: "Reheating Thermalization", position: [4834, 93200, 2704], color: "#FF4500", description: "Inflaton decay populating standard model particles" },
+    { name: "Causal Horizon Connection", position: [4836, 93220, 2706], color: "#7CFC00", description: "Causal contact enabling CMB uniformity" },
+    { name: "Spatial Flatness Attractor", position: [4838, 93240, 2708], color: "#ADD8E6", description: "Inflation driving spatial curvature to zero" },
+    { name: "Magnetic Monopole Dilution", position: [4840, 93260, 2710], color: "#B8860B", description: "Inflation suppressing monopole density" },
+    { name: "Inflaton Slow Roll Regime", position: [4842, 93280, 2712], color: "#9370DB", description: "Scalar field potential driving expansion" },
+    { name: "Scale-Invariant Perturbation", position: [4844, 93300, 2714], color: "#20B2AA", description: "Nearly flat primordial power spectrum" },
+    { name: "Primordial Tensor Mode", position: [4846, 93320, 2716], color: "#DA70D6", description: "Gravitational wave signature in CMB" },
+    { name: "First Starlight Emergence", position: [4848, 93340, 2718], color: "#FAFAD2", description: "Initial luminous sources breaking darkness" },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
