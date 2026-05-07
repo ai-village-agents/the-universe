@@ -16895,6 +16895,178 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(sdsGroup);
 
+  // v102: Outdoor lobster boil cauldron + Beach treasure chest discovery + Coastal fern garden
+  // --- Outdoor lobster boil (olbc) ---
+  const olbcGroup = new THREE.Group();
+  olbcGroup.position.set(28, 0, -38);
+  // Fire ring
+  const olbcStoneMat = new THREE.MeshLambertMaterial({color: 0x4a4a4a});
+  for (let s = 0; s < 8; s++) {
+    const stone = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.18, 0.25), olbcStoneMat);
+    stone.position.set(Math.cos(s * Math.PI / 4) * 0.85, 0.09, Math.sin(s * Math.PI / 4) * 0.85);
+    olbcGroup.add(stone);
+  }
+  // Cauldron
+  const olbcPotMat = new THREE.MeshStandardMaterial({color: 0x2a2a2a, metalness: 0.6, roughness: 0.4});
+  const olbcPot = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.6, 0.9, 14), olbcPotMat);
+  olbcPot.position.y = 0.65;
+  olbcGroup.add(olbcPot);
+  // Steam puffs
+  const olbcSteamMat = new THREE.MeshBasicMaterial({color: 0xfafaff, transparent: true, opacity: 0.5});
+  const olbcSteamPuffs = [];
+  for (let p = 0; p < 4; p++) {
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(0.18 + p * 0.04, 8, 6), olbcSteamMat.clone());
+    puff.position.set((Math.random() - 0.5) * 0.4, 1.2 + p * 0.3, (Math.random() - 0.5) * 0.4);
+    olbcGroup.add(puff);
+    olbcSteamPuffs.push(puff);
+  }
+  // Flames (cones)
+  const olbcFlameMat = new THREE.MeshBasicMaterial({color: 0xff7030, transparent: true, opacity: 0.85});
+  const olbcFlames = [];
+  for (let f = 0; f < 5; f++) {
+    const flame = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.45, 6), olbcFlameMat.clone());
+    flame.position.set(Math.cos(f * 1.2) * 0.4, 0.3, Math.sin(f * 1.2) * 0.4);
+    olbcGroup.add(flame);
+    olbcFlames.push(flame);
+  }
+  // Cook with ladle
+  const olbcCookMat = new THREE.MeshLambertMaterial({color: 0xfafafa});
+  const olbcCookSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const olbcCook = new THREE.Group();
+  const olbcCookTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.35), olbcCookMat);
+  olbcCookTorso.position.y = 1.0;
+  olbcCook.add(olbcCookTorso);
+  const olbcCookHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 6), olbcCookSkin);
+  olbcCookHead.position.y = 1.5;
+  olbcCook.add(olbcCookHead);
+  const olbcHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.2, 12), olbcCookMat);
+  olbcHat.position.y = 1.75;
+  olbcCook.add(olbcHat);
+  const olbcLadle = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 6), new THREE.MeshLambertMaterial({color: 0x6a4a2a}));
+  olbcLadle.position.set(0.4, 1.0, 0.3);
+  olbcLadle.rotation.z = -0.6;
+  olbcCook.add(olbcLadle);
+  olbcCook.position.set(1.4, 0, 0);
+  olbcGroup.add(olbcCook);
+  // Picnic bench nearby
+  const olbcBnMat = new THREE.MeshLambertMaterial({color: 0x8a6a4a});
+  const olbcBnTop = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.08, 0.5), olbcBnMat);
+  olbcBnTop.position.set(-2.2, 0.5, 0);
+  olbcGroup.add(olbcBnTop);
+  group.add(olbcGroup);
+
+  // --- Beach treasure chest discovery (btcd) ---
+  const btcdGroup = new THREE.Group();
+  btcdGroup.position.set(-38, 0, 22);
+  const btcdSandMound = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8), new THREE.MeshLambertMaterial({color: 0xe8d8a0}));
+  btcdSandMound.scale.y = 0.4;
+  btcdSandMound.position.y = 0.05;
+  btcdGroup.add(btcdSandMound);
+  // Chest
+  const btcdChMat = new THREE.MeshLambertMaterial({color: 0x6a4a2a});
+  const btcdChTrim = new THREE.MeshLambertMaterial({color: 0xc0a040});
+  const btcdChest = new THREE.Group();
+  const btcdBody = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.6), btcdChMat);
+  btcdBody.position.y = 0.25;
+  btcdChest.add(btcdBody);
+  const btcdLid = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.15, 0.62), btcdChMat);
+  btcdLid.position.y = 0.55;
+  btcdChest.add(btcdLid);
+  // Gold trim bands
+  for (let by = 0; by < 2; by++) {
+    const band = new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.04, 0.62), btcdChTrim);
+    band.position.y = 0.15 + by * 0.25;
+    btcdChest.add(band);
+  }
+  // Glow inside
+  const btcdGlowMat = new THREE.MeshBasicMaterial({color: 0xffe070, transparent: true, opacity: 0.7});
+  const btcdGlow = new THREE.Mesh(new THREE.SphereGeometry(0.3, 10, 8), btcdGlowMat);
+  btcdGlow.position.y = 0.5;
+  btcdChest.add(btcdGlow);
+  btcdChest.position.set(0, 0.15, 0);
+  btcdChest.rotation.y = 0.3;
+  btcdGroup.add(btcdChest);
+  // Discoverer (kid pointing)
+  const btcdKidShirt = new THREE.MeshLambertMaterial({color: 0xff5050});
+  const btcdKidSkin = new THREE.MeshLambertMaterial({color: 0xe8b896});
+  const btcdKid = new THREE.Group();
+  const btcdKidTorso = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.5, 0.25), btcdKidShirt);
+  btcdKidTorso.position.y = 0.7;
+  btcdKid.add(btcdKidTorso);
+  const btcdKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), btcdKidSkin);
+  btcdKidHead.position.y = 1.1;
+  btcdKid.add(btcdKidHead);
+  const btcdShovel = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 6), new THREE.MeshLambertMaterial({color: 0xc0c0c0}));
+  btcdShovel.position.set(0.3, 0.6, 0.2);
+  btcdShovel.rotation.z = -0.5;
+  btcdKid.add(btcdShovel);
+  btcdKid.position.set(-1.3, 0, 0.5);
+  btcdGroup.add(btcdKid);
+  // Coins scatter
+  const btcdCoinMat = new THREE.MeshStandardMaterial({color: 0xffe070, metalness: 0.7, roughness: 0.3});
+  for (let c = 0; c < 8; c++) {
+    const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.02, 10), btcdCoinMat);
+    coin.position.set(Math.cos(c * 0.9) * 0.7 + Math.random() * 0.2, 0.05, Math.sin(c * 0.9) * 0.7);
+    btcdGroup.add(coin);
+  }
+  group.add(btcdGroup);
+
+  // --- Coastal fern garden (cfg) ---
+  const cfgGroup = new THREE.Group();
+  cfgGroup.position.set(38, 0, 8);
+  // Stone border ring
+  const cfgStoneMat = new THREE.MeshLambertMaterial({color: 0x6a6a5a});
+  for (let s = 0; s < 12; s++) {
+    const stone = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), cfgStoneMat);
+    stone.scale.y = 0.5;
+    stone.position.set(Math.cos(s * Math.PI / 6) * 1.8, 0.1, Math.sin(s * Math.PI / 6) * 1.8);
+    cfgGroup.add(stone);
+  }
+  // Soil patch
+  const cfgSoil = new THREE.Mesh(new THREE.CircleGeometry(1.7, 18), new THREE.MeshLambertMaterial({color: 0x3a2a1a}));
+  cfgSoil.rotation.x = -Math.PI / 2;
+  cfgSoil.position.y = 0.05;
+  cfgGroup.add(cfgSoil);
+  // Ferns
+  const cfgFernMat1 = new THREE.MeshLambertMaterial({color: 0x4a8a4a});
+  const cfgFernMat2 = new THREE.MeshLambertMaterial({color: 0x3a7a3a});
+  const cfgFernMats = [cfgFernMat1, cfgFernMat2];
+  const cfgFronds = [];
+  for (let f = 0; f < 11; f++) {
+    const fern = new THREE.Group();
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 5), cfgFernMats[f % 2]);
+    stem.position.y = 0.35;
+    fern.add(stem);
+    // Side fronds
+    for (let fr = 0; fr < 5; fr++) {
+      const frond = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 5), cfgFernMats[f % 2]);
+      frond.scale.set(1, 0.25, 0.6);
+      frond.position.y = 0.2 + fr * 0.13;
+      frond.rotation.z = (fr % 2 === 0 ? 0.4 : -0.4);
+      fern.add(frond);
+    }
+    fern.position.set(Math.cos(f * 0.6) * (0.3 + Math.random() * 1.2), 0, Math.sin(f * 0.6) * (0.3 + Math.random() * 1.2));
+    fern.rotation.y = f * 0.7;
+    cfgGroup.add(fern);
+    cfgFronds.push(fern);
+  }
+  // Tiny gardener
+  const cfgGdShirt = new THREE.MeshLambertMaterial({color: 0xa8c8a8});
+  const cfgGd = new THREE.Group();
+  const cfgGdTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.3), cfgGdShirt);
+  cfgGdTorso.position.y = 0.9;
+  cfgGd.add(cfgGdTorso);
+  const cfgGdHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), new THREE.MeshLambertMaterial({color: 0xe8b896}));
+  cfgGdHead.position.y = 1.4;
+  cfgGd.add(cfgGdHead);
+  const cfgHat2 = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.18, 12), new THREE.MeshLambertMaterial({color: 0xc8a060}));
+  cfgHat2.position.y = 1.6;
+  cfgGd.add(cfgHat2);
+  cfgGd.position.set(2.4, 0, 0);
+  cfgGd.rotation.y = -1.0;
+  cfgGroup.add(cfgGd);
+  group.add(cfgGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19280,6 +19452,29 @@ export function createAnchorageLandmark(THREE, opts) {
         tckDot.position.y = 1.4 + Math.sin(v101t * 0.3) * 0.2;
         // Sculptor: mallet swings (rock the parent group)
         sdsSc.rotation.z = Math.sin(v101t * 2.5) * 0.08;
+        // v102: lobster boil + treasure chest + fern garden
+        const v102t = t;
+        // Steam rises and fades
+        for (let i = 0; i < olbcSteamPuffs.length; i++) {
+          const puff = olbcSteamPuffs[i];
+          puff.position.y = 1.2 + i * 0.3 + ((v102t * 0.4 + i) % 2) * 0.4;
+          puff.material.opacity = 0.5 - ((v102t * 0.4 + i) % 2) * 0.25;
+        }
+        // Flames flicker
+        for (let i = 0; i < olbcFlames.length; i++) {
+          olbcFlames[i].scale.y = 0.7 + Math.abs(Math.sin(v102t * 8 + i)) * 0.5;
+          olbcFlames[i].material.opacity = 0.7 + Math.sin(v102t * 12 + i * 1.3) * 0.2;
+        }
+        // Cook stirs
+        olbcCook.rotation.y = Math.sin(v102t * 1.5) * 0.3;
+        // Treasure chest glows pulsing
+        btcdGlowMat.opacity = 0.5 + Math.sin(v102t * 1.8) * 0.25;
+        btcdChest.rotation.y = 0.3 + Math.sin(v102t * 0.4) * 0.05;
+        btcdKid.rotation.y = Math.sin(v102t * 1.2) * 0.2;
+        // Ferns sway
+        for (let i = 0; i < cfgFronds.length; i++) {
+          cfgFronds[i].rotation.z = Math.sin(v102t * 0.7 + i * 0.4) * 0.06;
+        }
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
