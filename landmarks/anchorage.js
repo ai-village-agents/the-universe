@@ -14374,6 +14374,170 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(cbcGroup);
 
+
+  // v85: Lobster pound restaurant
+  const lprGroup = new THREE.Group();
+  lprGroup.position.set(-26, 0.4, -22);
+  const lprWallMat = new THREE.MeshLambertMaterial({ color: 0xCC4422 });
+  const lprWall = new THREE.Mesh(new THREE.BoxGeometry(5, 2.4, 4), lprWallMat);
+  lprWall.position.set(0, 1.2, 0);
+  lprGroup.add(lprWall);
+  const lprRoofMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const lprRoof = new THREE.Mesh(new THREE.ConeGeometry(3.6, 1.2, 4), lprRoofMat);
+  lprRoof.position.set(0, 3.0, 0);
+  lprRoof.rotation.y = Math.PI / 4;
+  lprGroup.add(lprRoof);
+  const lprDoorMat = new THREE.MeshLambertMaterial({ color: 0x3a2010 });
+  const lprDoor = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.6, 0.05), lprDoorMat);
+  lprDoor.position.set(0, 0.8, 2.03);
+  lprGroup.add(lprDoor);
+  const lprWindowMat = new THREE.MeshLambertMaterial({ color: 0xFFFFAA, emissive: 0xFFEE88, emissiveIntensity: 0.3 });
+  const lprWindow1 = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.7), lprWindowMat);
+  lprWindow1.position.set(-1.5, 1.4, 2.03);
+  lprGroup.add(lprWindow1);
+  const lprWindow2 = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.7), lprWindowMat);
+  lprWindow2.position.set(1.5, 1.4, 2.03);
+  lprGroup.add(lprWindow2);
+  const lprSignMat = new THREE.MeshLambertMaterial({ color: 0xFFFFEE });
+  const lprSign = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.6, 0.06), lprSignMat);
+  lprSign.position.set(0, 2.7, 2.05);
+  lprGroup.add(lprSign);
+  const lprTankMat = new THREE.MeshBasicMaterial({ color: 0x6699BB, transparent: true, opacity: 0.5 });
+  const lprTank = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.7, 0.8), lprTankMat);
+  lprTank.position.set(2.5, 0.85, 0);
+  lprGroup.add(lprTank);
+  const lprLobsterMat = new THREE.MeshLambertMaterial({ color: 0x882211 });
+  const lprLobsters = [];
+  for (let l = 0; l < 4; l++) {
+    const lob = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.08, 0.32), lprLobsterMat);
+    lob.position.set(2.2 + (l % 2) * 0.5, 0.65, -0.25 + Math.floor(l / 2) * 0.4);
+    lprGroup.add(lob);
+    lprLobsters.push(lob);
+  }
+  const lprChimneyMat = new THREE.MeshLambertMaterial({ color: 0x666666 });
+  const lprChimney = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.2, 0.4), lprChimneyMat);
+  lprChimney.position.set(-1.6, 3.4, 0);
+  lprGroup.add(lprChimney);
+  const lprSmokeMat = new THREE.MeshBasicMaterial({ color: 0xCCCCCC, transparent: true, opacity: 0.6 });
+  const lprSmoke = new THREE.Mesh(new THREE.SphereGeometry(0.3, 8, 6), lprSmokeMat);
+  lprSmoke.position.set(-1.6, 4.2, 0);
+  lprGroup.add(lprSmoke);
+  const lprCustomerSkinMat = new THREE.MeshLambertMaterial({ color: 0xD9A878 });
+  const lprCustomerShirtMat = new THREE.MeshLambertMaterial({ color: 0x224477 });
+  const lprCustomerTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 0.3), lprCustomerShirtMat);
+  lprCustomerTorso.position.set(0.8, 0.8, 2.5);
+  lprGroup.add(lprCustomerTorso);
+  const lprCustomerHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), lprCustomerSkinMat);
+  lprCustomerHead.position.set(0.8, 1.4, 2.5);
+  lprGroup.add(lprCustomerHead);
+  group.add(lprGroup);
+
+  // v85: Beach trash cleanup crew
+  const btcGroup = new THREE.Group();
+  btcGroup.position.set(14, 0.05, -32);
+  const btcCrewSkinMat = new THREE.MeshLambertMaterial({ color: 0xC58A5A });
+  const btcCrewColors = [0xFFAA22, 0x22DDAA, 0xDD22AA];
+  const btcCrew = [];
+  for (let c = 0; c < 3; c++) {
+    const member = new THREE.Group();
+    member.position.set(c * 2.5 - 2.5, 0, c % 2 * 1.5);
+    const shirt = new THREE.MeshLambertMaterial({ color: btcCrewColors[c] });
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.8, 0.32), shirt);
+    torso.position.y = 0.8;
+    torso.rotation.x = -0.3;
+    member.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), btcCrewSkinMat);
+    head.position.set(0, 1.35, 0.2);
+    member.add(head);
+    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), shirt);
+    arm.position.set(0.18, 0.6, 0.3);
+    arm.rotation.x = -0.6;
+    member.add(arm);
+    const bag = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.55, 0.4), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+    bag.position.set(-0.45, 0.4, 0);
+    member.add(bag);
+    btcGroup.add(member);
+    btcCrew.push({ root: member, torso, head, arm, bag });
+  }
+  const btcDebrisColors = [0xCCCC88, 0x4488AA, 0xCC4444, 0xAA8866, 0xCCAA44];
+  const btcDebris = [];
+  for (let d = 0; d < 8; d++) {
+    const dm = new THREE.MeshLambertMaterial({ color: btcDebrisColors[d % btcDebrisColors.length] });
+    const ds = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.06, 0.18), dm);
+    ds.position.set(-3 + d * 0.7, 0.05, -1 - (d % 3) * 0.5);
+    ds.rotation.y = Math.random() * Math.PI;
+    btcGroup.add(ds);
+    btcDebris.push(ds);
+  }
+  const btcSignMat = new THREE.MeshLambertMaterial({ color: 0x44AA66 });
+  const btcSign = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.6, 0.05), btcSignMat);
+  btcSign.position.set(4, 1.3, 0);
+  btcGroup.add(btcSign);
+  const btcSignPostMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const btcSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 6), btcSignPostMat);
+  btcSignPost.position.set(4, 0.8, 0);
+  btcGroup.add(btcSignPost);
+  group.add(btcGroup);
+
+  // v85: Sandbar drum circle
+  const sdcGroup = new THREE.Group();
+  sdcGroup.position.set(28, 0.05, 32);
+  const sdcMatMat = new THREE.MeshLambertMaterial({ color: 0xB58050 });
+  const sdcMat = new THREE.Mesh(new THREE.CircleGeometry(2.5, 16), sdcMatMat);
+  sdcMat.rotation.x = -Math.PI / 2;
+  sdcMat.position.y = 0.02;
+  sdcGroup.add(sdcMat);
+  const sdcDrumColors = [0x884422, 0xA0522D, 0x6B3E1F, 0x9E4F2B, 0x804020];
+  const sdcDrummerColors = [0xCC4488, 0x4488DD, 0xDDAA44, 0x88DD44, 0xDD8844];
+  const sdcDrummerSkinMat = new THREE.MeshLambertMaterial({ color: 0xC68642 });
+  const sdcDrummers = [];
+  for (let d = 0; d < 5; d++) {
+    const drummer = new THREE.Group();
+    const ang = (d / 5) * Math.PI * 2;
+    drummer.position.set(Math.cos(ang) * 1.7, 0, Math.sin(ang) * 1.7);
+    drummer.rotation.y = ang + Math.PI;
+    const shirt = new THREE.MeshLambertMaterial({ color: sdcDrummerColors[d] });
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.7, 0.3), shirt);
+    torso.position.y = 0.55;
+    drummer.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), sdcDrummerSkinMat);
+    head.position.y = 1.05;
+    drummer.add(head);
+    const drumMat = new THREE.MeshLambertMaterial({ color: sdcDrumColors[d] });
+    const drum = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.22, 0.5, 12), drumMat);
+    drum.position.set(0, 0.25, 0.4);
+    drummer.add(drum);
+    const drumSkinMat = new THREE.MeshLambertMaterial({ color: 0xEEDDBB });
+    const drumSkin = new THREE.Mesh(new THREE.CircleGeometry(0.25, 12), drumSkinMat);
+    drumSkin.rotation.x = -Math.PI / 2;
+    drumSkin.position.set(0, 0.51, 0.4);
+    drummer.add(drumSkin);
+    const arm1 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), shirt);
+    arm1.position.set(0.08, 0.65, 0.3);
+    arm1.rotation.x = 0.7;
+    drummer.add(arm1);
+    const arm2 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), shirt);
+    arm2.position.set(-0.08, 0.65, 0.3);
+    arm2.rotation.x = 0.7;
+    drummer.add(arm2);
+    sdcGroup.add(drummer);
+    sdcDrummers.push({ root: drummer, torso, head, arm1, arm2, drumSkin });
+  }
+  const sdcFireMat = new THREE.MeshLambertMaterial({ color: 0xFF6622, emissive: 0xFF3300, emissiveIntensity: 0.5 });
+  const sdcFire = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.6, 8), sdcFireMat);
+  sdcFire.position.set(0, 0.3, 0);
+  sdcGroup.add(sdcFire);
+  const sdcLogMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const sdcLog1 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), sdcLogMat);
+  sdcLog1.position.set(0.1, 0.05, 0);
+  sdcLog1.rotation.z = Math.PI / 2;
+  sdcGroup.add(sdcLog1);
+  const sdcLog2 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), sdcLogMat);
+  sdcLog2.position.set(0, 0.05, 0.1);
+  sdcLog2.rotation.x = Math.PI / 2;
+  sdcGroup.add(sdcLog2);
+  group.add(sdcGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -16562,6 +16726,34 @@ export function createAnchorageLandmark(THREE, opts) {
           cbcBirds[b].position.x = -8 + b * 0.7 + 2 * Math.sin(t * 0.3 + b);
           cbcBirds[b].position.y = 4 + 0.5 * Math.sin(t * 1.0 + b);
         }
+        // v85 updates
+        lprWindow1.material.emissiveIntensity = 0.25 + 0.1 * Math.sin(t * 1.0);
+        lprWindow2.material.emissiveIntensity = 0.25 + 0.1 * Math.sin(t * 1.2 + 1.0);
+        lprSmoke.position.y = 4.2 + 0.4 * Math.sin(t * 0.5);
+        lprSmoke.position.x = -1.6 + 0.3 * Math.sin(t * 0.4);
+        lprSmoke.material.opacity = 0.4 + 0.2 * Math.sin(t * 0.7);
+        for (let l = 0; l < lprLobsters.length; l++) {
+          lprLobsters[l].position.y = 0.65 + 0.05 * Math.sin(t * 1.5 + l);
+          lprLobsters[l].rotation.y = 0.2 * Math.sin(t * 0.8 + l);
+        }
+        for (let c = 0; c < btcCrew.length; c++) {
+          const m = btcCrew[c];
+          m.torso.rotation.x = -0.3 + 0.1 * Math.sin(t * 1.5 + c);
+          m.arm.rotation.x = -0.6 + 0.4 * Math.sin(t * 1.5 + c);
+          m.head.rotation.y = 0.2 * Math.sin(t * 0.8 + c);
+          m.root.position.x = (c * 2.5 - 2.5) + 0.05 * Math.sin(t * 0.5 + c);
+        }
+        for (let d = 0; d < sdcDrummers.length; d++) {
+          const dr = sdcDrummers[d];
+          const beat = Math.sin(t * 4.0 + d * 0.5);
+          dr.arm1.rotation.x = 0.7 + 0.5 * beat;
+          dr.arm2.rotation.x = 0.7 - 0.5 * beat;
+          dr.torso.rotation.z = 0.05 * beat;
+          dr.drumSkin.scale.y = 1 + 0.05 * Math.abs(beat);
+        }
+        sdcFire.scale.y = 1 + 0.15 * Math.sin(t * 5.0);
+        sdcFire.material.emissiveIntensity = 0.4 + 0.3 * Math.sin(t * 3.0);
+
 
 
 
