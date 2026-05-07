@@ -14217,6 +14217,163 @@ export function createAnchorageLandmark(THREE, opts) {
   thcGroup.add(thcSign);
   group.add(thcGroup);
 
+
+  // v84: Sandbar yoga circle
+  const sycGroup = new THREE.Group();
+  sycGroup.position.set(-12, 0.05, 32);
+  const sycMatMat = new THREE.MeshLambertMaterial({ color: 0xC09060 });
+  const sycMat = new THREE.Mesh(new THREE.CircleGeometry(3.2, 18), sycMatMat);
+  sycMat.rotation.x = -Math.PI / 2;
+  sycMat.position.y = 0.02;
+  sycGroup.add(sycMat);
+  const sycYogiColors = [0xE56060, 0x6080E5, 0xE5C060, 0x60C080, 0xC060E5, 0xE57060];
+  const sycYogiSkinMat = new THREE.MeshLambertMaterial({ color: 0xD0A070 });
+  const sycYogis = [];
+  for (let y = 0; y < 6; y++) {
+    const yogi = new THREE.Group();
+    const ang = (y / 6) * Math.PI * 2;
+    yogi.position.set(Math.cos(ang) * 2.3, 0, Math.sin(ang) * 2.3);
+    yogi.rotation.y = ang + Math.PI;
+    const yogiShirtMat = new THREE.MeshLambertMaterial({ color: sycYogiColors[y] });
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.7, 0.3), yogiShirtMat);
+    torso.position.y = 0.45;
+    yogi.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), sycYogiSkinMat);
+    head.position.y = 0.95;
+    yogi.add(head);
+    const arm1 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.65, 6), yogiShirtMat);
+    arm1.position.set(0.25, 0.95, 0);
+    arm1.rotation.z = 0.4;
+    yogi.add(arm1);
+    const arm2 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.65, 6), yogiShirtMat);
+    arm2.position.set(-0.25, 0.95, 0);
+    arm2.rotation.z = -0.4;
+    yogi.add(arm2);
+    sycGroup.add(yogi);
+    sycYogis.push({ root: yogi, torso: torso, head: head, arm1: arm1, arm2: arm2 });
+  }
+  const sycInsSkinMat = new THREE.MeshLambertMaterial({ color: 0xC68856 });
+  const sycInsShirtMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const sycInsTorso = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.75, 0.3), sycInsShirtMat);
+  sycInsTorso.position.set(0, 0.5, 0);
+  sycGroup.add(sycInsTorso);
+  const sycInsHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), sycInsSkinMat);
+  sycInsHead.position.set(0, 1.05, 0);
+  sycGroup.add(sycInsHead);
+  group.add(sycGroup);
+
+  // v84: Sand mandala artist
+  const sandmGroup = new THREE.Group();
+  sandmGroup.position.set(20, 0.05, -22);
+  const sandmRingMat1 = new THREE.MeshLambertMaterial({ color: 0xFF6622 });
+  const sandmRingMat2 = new THREE.MeshLambertMaterial({ color: 0x4488FF });
+  const sandmRingMat3 = new THREE.MeshLambertMaterial({ color: 0xFFD700 });
+  const sandmRingMat4 = new THREE.MeshLambertMaterial({ color: 0x88DD44 });
+  const sandmRing1 = new THREE.Mesh(new THREE.RingGeometry(0.0, 0.5, 24), sandmRingMat3);
+  sandmRing1.rotation.x = -Math.PI / 2;
+  sandmRing1.position.y = 0.025;
+  sandmGroup.add(sandmRing1);
+  const sandmRing2 = new THREE.Mesh(new THREE.RingGeometry(0.5, 1.0, 24), sandmRingMat1);
+  sandmRing2.rotation.x = -Math.PI / 2;
+  sandmRing2.position.y = 0.026;
+  sandmGroup.add(sandmRing2);
+  const sandmRing3 = new THREE.Mesh(new THREE.RingGeometry(1.0, 1.5, 32), sandmRingMat2);
+  sandmRing3.rotation.x = -Math.PI / 2;
+  sandmRing3.position.y = 0.025;
+  sandmGroup.add(sandmRing3);
+  const sandmRing4 = new THREE.Mesh(new THREE.RingGeometry(1.5, 2.0, 36), sandmRingMat4);
+  sandmRing4.rotation.x = -Math.PI / 2;
+  sandmRing4.position.y = 0.024;
+  sandmGroup.add(sandmRing4);
+  const sandmPetalMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const sandmPetals = [];
+  for (let p = 0; p < 12; p++) {
+    const ang = (p / 12) * Math.PI * 2;
+    const petal = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.18), sandmPetalMat);
+    petal.rotation.x = -Math.PI / 2;
+    petal.rotation.z = ang;
+    petal.position.set(Math.cos(ang) * 1.75, 0.027, Math.sin(ang) * 1.75);
+    sandmGroup.add(petal);
+    sandmPetals.push(petal);
+  }
+  const sandmArtistSkinMat = new THREE.MeshLambertMaterial({ color: 0xCC9966 });
+  const sandmArtistRobeMat = new THREE.MeshLambertMaterial({ color: 0xCC4422 });
+  const sandmArtistTorso = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.8, 0.35), sandmArtistRobeMat);
+  sandmArtistTorso.position.set(2.5, 0.5, 0);
+  sandmGroup.add(sandmArtistTorso);
+  const sandmArtistHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), sandmArtistSkinMat);
+  sandmArtistHead.position.set(2.5, 1.05, 0);
+  sandmGroup.add(sandmArtistHead);
+  const sandmFunnelMat = new THREE.MeshStandardMaterial({ color: 0xCC8844, metalness: 0.6, roughness: 0.4 });
+  const sandmFunnel = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.02, 0.25, 8), sandmFunnelMat);
+  sandmFunnel.position.set(2.0, 0.3, 0);
+  sandmFunnel.rotation.z = -0.6;
+  sandmGroup.add(sandmFunnel);
+  group.add(sandmGroup);
+
+  // v84: Coastal bird census team
+  const cbcGroup = new THREE.Group();
+  cbcGroup.position.set(34, 0.15, 8);
+  const cbcTripodMat = new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.6, roughness: 0.4 });
+  const cbcTripodLegs = [];
+  for (let l = 0; l < 3; l++) {
+    const ang = (l / 3) * Math.PI * 2;
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 1.4, 5), cbcTripodMat);
+    leg.position.set(Math.cos(ang) * 0.18, 0.7, Math.sin(ang) * 0.18);
+    leg.rotation.x = Math.sin(ang) * 0.18;
+    leg.rotation.z = -Math.cos(ang) * 0.18;
+    cbcGroup.add(leg);
+    cbcTripodLegs.push(leg);
+  }
+  const cbcScopeMat = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.7, roughness: 0.3 });
+  const cbcScope = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 0.6, 10), cbcScopeMat);
+  cbcScope.position.set(0, 1.45, 0);
+  cbcScope.rotation.z = Math.PI / 2;
+  cbcGroup.add(cbcScope);
+  const cbcEyepieceMat = new THREE.MeshStandardMaterial({ color: 0x333333, metalness: 0.5, roughness: 0.5 });
+  const cbcEyepiece = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.12, 8), cbcEyepieceMat);
+  cbcEyepiece.position.set(-0.36, 1.45, 0);
+  cbcEyepiece.rotation.z = Math.PI / 2;
+  cbcGroup.add(cbcEyepiece);
+  const cbcSpotterSkinMat = new THREE.MeshLambertMaterial({ color: 0xE2B98A });
+  const cbcSpotterShirtMat = new THREE.MeshLambertMaterial({ color: 0x666666 });
+  const cbcSpotterTorso = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.8, 0.32), cbcSpotterShirtMat);
+  cbcSpotterTorso.position.set(-0.7, 0.85, 0);
+  cbcGroup.add(cbcSpotterTorso);
+  const cbcSpotterHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), cbcSpotterSkinMat);
+  cbcSpotterHead.position.set(-0.7, 1.45, 0);
+  cbcGroup.add(cbcSpotterHead);
+  const cbcHatMat = new THREE.MeshLambertMaterial({ color: 0x886633 });
+  const cbcHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.1, 12), cbcHatMat);
+  cbcHat.position.set(-0.7, 1.6, 0);
+  cbcGroup.add(cbcHat);
+  const cbcHatBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.03, 12), cbcHatMat);
+  cbcHatBrim.position.set(-0.7, 1.55, 0);
+  cbcGroup.add(cbcHatBrim);
+  const cbcRecorderSkinMat = new THREE.MeshLambertMaterial({ color: 0xC8956A });
+  const cbcRecorderShirtMat = new THREE.MeshLambertMaterial({ color: 0x224477 });
+  const cbcRecorderTorso = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.8, 0.32), cbcRecorderShirtMat);
+  cbcRecorderTorso.position.set(0.9, 0.85, 0.5);
+  cbcGroup.add(cbcRecorderTorso);
+  const cbcRecorderHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), cbcRecorderSkinMat);
+  cbcRecorderHead.position.set(0.9, 1.45, 0.5);
+  cbcGroup.add(cbcRecorderHead);
+  const cbcClipMat = new THREE.MeshLambertMaterial({ color: 0xCC9966 });
+  const cbcClip = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, 0.04), cbcClipMat);
+  cbcClip.position.set(0.9, 1.05, 0.7);
+  cbcClip.rotation.x = -0.4;
+  cbcGroup.add(cbcClip);
+  const cbcBirdMat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  const cbcBirds = [];
+  for (let b = 0; b < 5; b++) {
+    const bird = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.25, 6), cbcBirdMat);
+    bird.position.set(-8 + b * 0.7, 4 + Math.sin(b) * 0.5, -2 - b * 0.3);
+    bird.rotation.z = Math.PI / 2;
+    cbcGroup.add(bird);
+    cbcBirds.push(bird);
+  }
+  group.add(cbcGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -16383,6 +16540,29 @@ export function createAnchorageLandmark(THREE, opts) {
           crab.position.z += 0.003 * Math.cos(t * 0.4 + c);
         }
         thcWater.material.opacity = 0.3 + 0.15 * Math.sin(t * 0.6);
+        // v84 updates
+        for (let y = 0; y < sycYogis.length; y++) {
+          const yog = sycYogis[y];
+          yog.arm1.rotation.z = 0.4 + 0.4 * Math.sin(t * 0.7 + y);
+          yog.arm2.rotation.z = -0.4 - 0.4 * Math.sin(t * 0.7 + y);
+          yog.torso.scale.y = 1.0 + 0.05 * Math.sin(t * 1.0 + y);
+        }
+        sycInsTorso.rotation.y = 0.5 * Math.sin(t * 0.6);
+        sycInsHead.rotation.y = 0.5 * Math.sin(t * 0.6);
+        sandmGroup.rotation.y = 0.05 * Math.sin(t * 0.2);
+        sandmArtistTorso.rotation.z = 0.1 * Math.sin(t * 1.5);
+        sandmFunnel.rotation.z = -0.6 + 0.15 * Math.sin(t * 2.0);
+        for (let p = 0; p < sandmPetals.length; p++) {
+          sandmPetals[p].material.opacity = 0.7 + 0.3 * Math.sin(t * 0.8 + p * 0.5);
+        }
+        cbcScope.rotation.y = 0.3 * Math.sin(t * 0.4);
+        cbcSpotterHead.rotation.y = 0.3 * Math.sin(t * 0.4);
+        cbcRecorderHead.rotation.x = 0.2 * Math.sin(t * 1.2);
+        for (let b = 0; b < cbcBirds.length; b++) {
+          cbcBirds[b].position.x = -8 + b * 0.7 + 2 * Math.sin(t * 0.3 + b);
+          cbcBirds[b].position.y = 4 + 0.5 * Math.sin(t * 1.0 + b);
+        }
+
 
 
 
