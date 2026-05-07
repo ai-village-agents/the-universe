@@ -24,6 +24,281 @@ const cosmicSights = [
   { name: 'Planetary Nebula Ejection Velocity', position: [7272, 143440, 5272], color: '#4D908E', size: 3.2, description: 'Outflow speeds of expelled shells revealing central star winds and envelope stripping.' },
   { name: 'White Dwarf Cooling Luminosity', position: [7273, 143460, 5273], color: '#FF6F59', size: 2.8, description: 'Residual thermal glow from degenerate cores slowly radiating stored heat into space.' },
   { name: 'Chandrasekhar Mass Limit Degeneracy', position: [7274, 143480, 5274], color: '#7BDFF2', size: 4.4, description: 'Maximum mass electron degeneracy can support before collapse drives supernovae or neutron stars.' },
+  {
+    "name": "Transit Depth Radius Measurement",
+    "position": [
+      7350,
+      145000,
+      5350
+    ],
+    "color": "#FFB3D9",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: transit depth radius measurement."
+  },
+  {
+    "name": "Transit Timing Variation Anomaly",
+    "position": [
+      7351,
+      145020,
+      5351
+    ],
+    "color": "#B3D9FF",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: transit timing variation anomaly."
+  },
+  {
+    "name": "Doppler Shift Orbital Velocity",
+    "position": [
+      7352,
+      145040,
+      5352
+    ],
+    "color": "#D9FFB3",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: doppler shift orbital velocity."
+  },
+  {
+    "name": "Astrometric Wobble Detection",
+    "position": [
+      7353,
+      145060,
+      5353
+    ],
+    "color": "#FFD9B3",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: astrometric wobble detection."
+  },
+  {
+    "name": "Direct Imaging Thermal Contrast",
+    "position": [
+      7354,
+      145080,
+      5354
+    ],
+    "color": "#D9B3FF",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: direct imaging thermal contrast."
+  },
+  {
+    "name": "Coronagraphic Starlight Suppression",
+    "position": [
+      7355,
+      145100,
+      5355
+    ],
+    "color": "#FFB3D9",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: coronagraphic starlight suppression."
+  },
+  {
+    "name": "Habitable Zone Circumstellar Equilibrium",
+    "position": [
+      7356,
+      145120,
+      5356
+    ],
+    "color": "#B3D9FF",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: habitable zone circumstellar equilibrium."
+  },
+  {
+    "name": "Stellar Flux Energy Balance",
+    "position": [
+      7357,
+      145140,
+      5357
+    ],
+    "color": "#D9FFB3",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: stellar flux energy balance."
+  },
+  {
+    "name": "Planetary Energy Budget",
+    "position": [
+      7358,
+      145160,
+      5358
+    ],
+    "color": "#FFD9B3",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: planetary energy budget."
+  },
+  {
+    "name": "Greenhouse Gas Atmospheric Warming",
+    "position": [
+      7359,
+      145180,
+      5359
+    ],
+    "color": "#D9B3FF",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: greenhouse gas atmospheric warming."
+  },
+  {
+    "name": "Water Vapor Feedback Mechanism",
+    "position": [
+      7360,
+      145200,
+      5360
+    ],
+    "color": "#FFB3D9",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: water vapor feedback mechanism."
+  },
+  {
+    "name": "Atmospheric Escape Hydrodynamic Wind",
+    "position": [
+      7361,
+      145220,
+      5361
+    ],
+    "color": "#B3D9FF",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: atmospheric escape hydrodynamic wind."
+  },
+  {
+    "name": "Magnetic Field Magnetosphere Protection",
+    "position": [
+      7362,
+      145240,
+      5362
+    ],
+    "color": "#D9FFB3",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: magnetic field magnetosphere protection."
+  },
+  {
+    "name": "Stellar Flare Radiation Dose",
+    "position": [
+      7363,
+      145260,
+      5363
+    ],
+    "color": "#FFD9B3",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: stellar flare radiation dose."
+  },
+  {
+    "name": "Exoplanet Magnetic Moment Estimate",
+    "position": [
+      7364,
+      145280,
+      5364
+    ],
+    "color": "#D9B3FF",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: exoplanet magnetic moment estimate."
+  },
+  {
+    "name": "Core Dynamo Generation Mechanism",
+    "position": [
+      7365,
+      145300,
+      5365
+    ],
+    "color": "#FFB3D9",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: core dynamo generation mechanism."
+  },
+  {
+    "name": "Rotation Rate Period Synchronization",
+    "position": [
+      7366,
+      145320,
+      5366
+    ],
+    "color": "#B3D9FF",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: rotation rate period synchronization."
+  },
+  {
+    "name": "Obliquity Axial Tilt Climate",
+    "position": [
+      7367,
+      145340,
+      5367
+    ],
+    "color": "#D9FFB3",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: obliquity axial tilt climate."
+  },
+  {
+    "name": "Orbital Resonance Stability Window",
+    "position": [
+      7368,
+      145360,
+      5368
+    ],
+    "color": "#FFD9B3",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: orbital resonance stability window."
+  },
+  {
+    "name": "Tidal Dissipation Heat Output",
+    "position": [
+      7369,
+      145380,
+      5369
+    ],
+    "color": "#D9B3FF",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: tidal dissipation heat output."
+  },
+  {
+    "name": "Cryosphere Glacial Extent Coverage",
+    "position": [
+      7370,
+      145400,
+      5370
+    ],
+    "color": "#FFB3D9",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: cryosphere glacial extent coverage."
+  },
+  {
+    "name": "Biosphere Atmospheric Oxygen Production",
+    "position": [
+      7371,
+      145420,
+      5371
+    ],
+    "color": "#B3D9FF",
+    "size": 5.55,
+    "description": "Exoplanet habitability assessment factor: biosphere atmospheric oxygen production."
+  },
+  {
+    "name": "Photosynthetic Efficiency Yield Rate",
+    "position": [
+      7372,
+      145440,
+      5372
+    ],
+    "color": "#D9FFB3",
+    "size": 5.8,
+    "description": "Exoplanet habitability assessment factor: photosynthetic efficiency yield rate."
+  },
+  {
+    "name": "Extremophile Temperature Range Tolerance",
+    "position": [
+      7373,
+      145460,
+      5373
+    ],
+    "color": "#FFD9B3",
+    "size": 6.05,
+    "description": "Exoplanet habitability assessment factor: extremophile temperature range tolerance."
+  },
+  {
+    "name": "Panspermia Meteorite Transfer Likelihood",
+    "position": [
+      7374,
+      145480,
+      5374
+    ],
+    "color": "#D9B3FF",
+    "size": 5.3,
+    "description": "Exoplanet habitability assessment factor: panspermia meteorite transfer likelihood."
+  },
   { name: 'Lyman Break Galaxy Dropout', description: 'A distant young galaxy identified by the abrupt drop in flux shortward of the Lyman limit due to absorption by intervening hydrogen.', position: [2912, 1884, -3188], color: 0xaecbff, size: 2.8 },
   { name: 'Green Pea Galaxy Intense Starburst', description: 'A compact low-mass galaxy with strong [O III] emission lines and rapid star formation that gives it a green appearance in optical composites.', position: [2889, 1916, -3227], color: 0x66ff88, size: 2.5 },
   { name: 'Luminous Blue Variable Outburst', description: 'A massive unstable star undergoing dramatic episodic mass-loss eruptions that temporarily increase brightness and reshape its circumstellar envelope.', position: [2937, 1868, -3199], color: 0xb8dcff, size: 2.9 },
