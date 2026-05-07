@@ -12482,6 +12482,181 @@ const cosmicSights = [
     color: "#00BFFF",
     size: 2.3,
     description: "A binary system where a compact object accretes from the decretion disk of a Be star"
+  },
+  {
+    name: "CCD Aurora Node",
+    position: [4818, 92040, 2693],
+    color: "#7FB3FF",
+    size: 6,
+    description: "High-quantum-efficiency charge-coupled gateway catching faint aurorae."
+  },
+  {
+    name: "CMOS Photon Gate",
+    position: [4819, 92060, 2694],
+    color: "#6EE0FF",
+    size: 5,
+    description: "Low-noise complementary metal-oxide channel for rapid photon mapping."
+  },
+  {
+    name: "EMCCD Whisper Well",
+    position: [4820, 92080, 2695],
+    color: "#89C2F5",
+    size: 7,
+    description: "Electron-multiplying reservoir amplifying near-silent sky signals."
+  },
+  {
+    name: "Back-Illuminated Lattice",
+    position: [4821, 92100, 2696],
+    color: "#A3D8FF",
+    size: 4,
+    description: "Deep-depletion lattice optimized for backside illumination capture."
+  },
+  {
+    name: "Deep-Depletion Prism",
+    position: [4822, 92120, 2697],
+    color: "#9AD1E6",
+    size: 3,
+    description: "Thick silicon prism maximizing near-IR sensitivity."
+  },
+  {
+    name: "Avalanche Photon Forge",
+    position: [4823, 92140, 2698],
+    color: "#5CE0C2",
+    size: 8,
+    description: "Geiger-mode APD forge boosting single-photon strikes."
+  },
+  {
+    name: "SiPM Nebula Mesh",
+    position: [4824, 92160, 2699],
+    color: "#55CC99",
+    size: 6,
+    description: "Silicon photomultiplier mesh resolving nebular graininess."
+  },
+  {
+    name: "Microchannel Star Amp",
+    position: [4825, 92180, 2700],
+    color: "#66FFAA",
+    size: 5,
+    description: "Microchannel plate amplifier brightening ultraviolet flashes."
+  },
+  {
+    name: "GaN UV Sentinel",
+    position: [4826, 92200, 2701],
+    color: "#7CFFE0",
+    size: 4,
+    description: "Gallium nitride sentinel tuned for ultraviolet sentinel duty."
+  },
+  {
+    name: "Bolometric Quiet Well",
+    position: [4827, 92220, 2702],
+    color: "#FFC27A",
+    size: 7,
+    description: "Cryogenic bolometer well capturing far-IR whispers."
+  },
+  {
+    name: "TES Horizon Edge",
+    position: [4828, 92240, 2703],
+    color: "#FF9F6E",
+    size: 6,
+    description: "Transition-edge sensor perched at superconducting threshold."
+  },
+  {
+    name: "KID Harmonic Net",
+    position: [4829, 92260, 2704],
+    color: "#F5A05D",
+    size: 3,
+    description: "Kinetic inductance net sorting submillimeter harmonics."
+  },
+  {
+    name: "Graphene Quantum Veil",
+    position: [4830, 92280, 2705],
+    color: "#4BD1B0",
+    size: 5,
+    description: "Atom-thin graphene veil sensing broadband quanta."
+  },
+  {
+    name: "SQUID Flux Halo",
+    position: [4831, 92300, 2706],
+    color: "#6FA9FF",
+    size: 8,
+    description: "SQUID halo measuring magnetic flux from cosmic dust lanes."
+  },
+  {
+    name: "MKID Phase Lattice",
+    position: [4832, 92320, 2707],
+    color: "#A9C2FF",
+    size: 4,
+    description: "Microwave kinetic inductance lattice decoding photon phase."
+  },
+  {
+    name: "Superpixel Nova Cell",
+    position: [4833, 92340, 2708],
+    color: "#9DE6FF",
+    size: 6,
+    description: "Adaptive superpixel cell aggregating nova outbursts."
+  },
+  {
+    name: "Time-Delay Integrator",
+    position: [4834, 92360, 2709],
+    color: "#67B8E8",
+    size: 5,
+    description: "Drift-scanning integrator aligning moving sky streaks."
+  },
+  {
+    name: "Correlated Double Gate",
+    position: [4835, 92380, 2710],
+    color: "#5FB2CC",
+    size: 3,
+    description: "Noise-canceling gate using correlated double sampling."
+  },
+  {
+    name: "Photon-Counting Ridge",
+    position: [4836, 92400, 2711],
+    color: "#4DD2FF",
+    size: 4,
+    description: "Counting ridge resolving discrete high-altitude photons."
+  },
+  {
+    name: "Superconducting Nanowire Arc",
+    position: [4837, 92420, 2712],
+    color: "#8FE0F0",
+    size: 7,
+    description: "Nanowire arc triggering on picosecond photon arrivals."
+  },
+  {
+    name: "Drift-Scan Meridian",
+    position: [4838, 92440, 2713],
+    color: "#B3E6FF",
+    size: 5,
+    description: "Meridian line scanning continuous sidereal drift."
+  },
+  {
+    name: "Photon Transfer Curve",
+    position: [4839, 92460, 2714],
+    color: "#FFD480",
+    size: 6,
+    description: "Curve-calibrated plane balancing gain and full well."
+  },
+  {
+    name: "Single-Electron Ridge",
+    position: [4840, 92480, 2715],
+    color: "#8CD4A2",
+    size: 3,
+    description: "Ridge isolating single-electron response steps."
+  },
+  {
+    name: "Dark Current Abyss",
+    position: [4841, 92500, 2716],
+    color: "#334455",
+    size: 8,
+    description: "Cryo-cooled abyss minimizing thermally generated charge."
+  },
+  {
+    name: "Linearity Prism Gate",
+    position: [4842, 92520, 2717],
+    color: "#FFB4A2",
+    size: 4,
+    description: "Calibration prism maintaining linearity across spectra."
   }
 ];
 
