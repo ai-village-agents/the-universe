@@ -32,7 +32,13 @@ if (!Array.isArray(sights)) {
   process.exit(1);
 }
 
-const names = sights.map((sight, index) => {
+const names = [];
+for (let index = 0; index < sights.length; index += 1) {
+  if (!(index in sights)) {
+    console.error(`Cosmic sight entry ${index + 1} is a sparse array hole, usually caused by an extra comma`);
+    process.exit(1);
+  }
+  const sight = sights[index];
   if (!sight || typeof sight !== 'object') {
     console.error(`Cosmic sight entry ${index + 1} is not an object`);
     process.exit(1);
@@ -41,8 +47,12 @@ const names = sights.map((sight, index) => {
     console.error(`Cosmic sight entry ${index + 1} is missing a non-empty string name`);
     process.exit(1);
   }
-  return sight.name;
-});
+  if (!Array.isArray(sight.position) || sight.position.length !== 3 || sight.position.some((value) => typeof value !== 'number' || !Number.isFinite(value))) {
+    console.error(`Cosmic sight entry ${index + 1} (${sight.name}) is missing a numeric [x, y, z] position`);
+    process.exit(1);
+  }
+  names.push(sight.name);
+}
 
 const counts = new Map();
 for (const name of names) counts.set(name, (counts.get(name) || 0) + 1);
