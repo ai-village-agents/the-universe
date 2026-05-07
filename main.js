@@ -13835,7 +13835,32 @@ const cosmicSights = [
     { name: "Snowline Anchor - Core Accretion Peak", position: [5189, 97580, 3064], color: "#FF1493", size: 6, description: "Anchors planet formation efficiency near ice lines that feed rapid core growth." },
     { name: "Tidal Circularization Curve - Hot Jupiters", position: [5190, 97600, 3065], color: "#00BFFF", size: 4, description: "Shows eccentricity damping trajectory for close giants orbiting metal-rich stars." },
     { name: "Metal-Rich Super-Earth Belt", position: [5191, 97620, 3066], color: "#32CD32", size: 5, description: "Displays super-Earth prevalence enhancement in iron-heavy systems, linking cores and disks." },
-    { name: "Comparative Planetology Mosaic - FGKM Sweep", position: [5192, 97640, 3067], color: "#FFD700", size: 7, description: "Cross-compares occurrence patterns across F, G, K, M hosts, tracing mass-period-metallicity trends." }
+    { name: "Comparative Planetology Mosaic - FGKM Sweep", position: [5192, 97640, 3067], color: "#FFD700", size: 7, description: "Cross-compares occurrence patterns across F, G, K, M hosts, tracing mass-period-metallicity trends." },
+    { name: "Baseline Fringe Pattern", position: [0.72, -0.48, 0.51], color: "#9370DB", size: 1.8, description: "An interference pattern revealing spatial information at angular scales set by telescope separation." },
+    { name: "Visibility Amplitude Measurement", position: [-0.55, 0.64, -0.53], color: "#8A2BE2", size: 1.7, description: "The contrast of interference fringes encoding source brightness distribution on the sky." },
+    { name: "Bispectrum Phase Invariant", position: [0.43, 0.79, 0.43], color: "#9932CC", size: 1.9, description: "A combination of three baseline phases immune to atmospheric turbulence errors." },
+    { name: "Optical Path Equalizer", position: [-0.67, -0.39, 0.63], color: "#BA55D3", size: 1.6, description: "Optical path matching that maintains coherence as Earth rotates during observation." },
+    { name: "Aperture Masking Interferogram", position: [0.58, 0.52, -0.63], color: "#DA70D6", size: 2.0, description: "A pupil-plane mask converting a single telescope into a sparse interferometric array." },
+    { name: "Nulling Interferometer Dark Zone", position: [-0.34, 0.87, 0.36], color: "#9370DB", size: 1.8, description: "A destructive interference region suppressing starlight to reveal faint companions." },
+    { name: "Image Plane Reconstruction", position: [0.81, -0.31, -0.50], color: "#8A2BE2", size: 1.9, description: "A synthesized image built from sparse Fourier components measured by interferometry." },
+    { name: "Coherence Time Window", position: [-0.49, -0.68, -0.55], color: "#9932CC", size: 1.5, description: "The brief interval during which atmospheric turbulence remains frozen for fringe detection." },
+    { name: "Beam Combiner Optics", position: [0.66, 0.57, 0.49], color: "#BA55D3", size: 1.7, description: "The optical system merging light from multiple telescopes to produce interference." },
+    { name: "Stellar Diameter Measurement", position: [-0.78, 0.26, 0.57], color: "#DA70D6", size: 2.1, description: "A direct angular size determination from the first visibility null position." },
+    { name: "Binary Orbit Astrometry Point", position: [0.35, -0.82, 0.45], color: "#9370DB", size: 1.6, description: "A precision position measurement tracking stellar companions at milliarcsecond scales." },
+    { name: "Spectro-Interferometry Channel", position: [-0.52, 0.49, -0.70], color: "#8A2BE2", size: 1.8, description: "Wavelength-resolved interference probing velocity structure within astronomical sources." },
+    { name: "UV Plane Coverage Gap", position: [0.74, 0.44, -0.51], color: "#9932CC", size: 1.5, description: "An unsampled spatial frequency region limiting image reconstruction fidelity." },
+    { name: "Fast Steering Actuator", position: [-0.41, -0.57, 0.71], color: "#BA55D3", size: 1.7, description: "A fast-steering mirror stabilizing the stellar image against atmospheric tip-tilt motion." },
+    { name: "Fringe Tracker Lock Point", position: [0.63, -0.59, -0.50], color: "#DA70D6", size: 1.9, description: "The real-time feedback system maintaining fringe position during long integrations." },
+    { name: "Intensity Interferometer Site", position: [-0.59, 0.71, 0.38], color: "#9370DB", size: 1.6, description: "A correlation measurement using photon arrival times rather than electric field amplitude." },
+    { name: "Heterodyne Detection System", position: [0.47, 0.33, 0.82], color: "#8A2BE2", size: 1.8, description: "Radio-style detection preserving phase information by mixing with a local oscillator." },
+    { name: "Sparse Aperture Synthesis Map", position: [-0.73, -0.44, -0.52], color: "#9932CC", size: 2.0, description: "An image reconstructed from incomplete UV coverage using regularized algorithms." },
+    { name: "Limb Darkening Profile", position: [0.56, 0.68, -0.47], color: "#BA55D3", size: 1.7, description: "The center-to-edge brightness variation of a stellar disk resolved by interferometry." },
+    { name: "Phase Reference Calibrator", position: [-0.28, 0.68, 0.68], color: "#DA70D6", size: 1.5, description: "A nearby point source used to calibrate atmospheric phase fluctuations." },
+    { name: "Angular Diameter Distance Node", position: [0.82, 0.21, 0.53], color: "#9370DB", size: 1.9, description: "A resolved star whose linear size is known, enabling geometric distance measurement." },
+    { name: "Differential Phase Signal", position: [-0.64, -0.28, 0.72], color: "#8A2BE2", size: 1.6, description: "Phase differences between spectral channels revealing photocentroid shifts across a source." },
+    { name: "Baseline Bootstrapping Sequence", position: [0.39, 0.86, 0.33], color: "#9932CC", size: 1.8, description: "A calibration strategy using short baselines to phase-reference longer ones." },
+    { name: "Dual-Field Interferometry Target", position: [-0.51, 0.54, -0.67], color: "#BA55D3", size: 1.7, description: "Simultaneous observation of two objects for precision relative astrometry." },
+    { name: "Model-Fitting Residual Map", position: [0.29, -0.74, -0.61], color: "#DA70D6", size: 1.5, description: "Differences between observed visibilities and a geometric model revealing source complexity." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
