@@ -9340,6 +9340,177 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(octopusGroup);
 
 
+
+  // --- v61: boat ramp with truck + trailer ---
+  const rampGroup = new THREE.Group();
+  const rampMat = new THREE.MeshLambertMaterial({ color: 0x9a948a });
+  const rampPlane = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 6.0), rampMat);
+  rampPlane.position.set(0, 0.06, 0);
+  rampPlane.rotation.x = 0.18;
+  rampGroup.add(rampPlane);
+  // truck
+  const rampTruckGroup = new THREE.Group();
+  const rampTruckBodyMat = new THREE.MeshLambertMaterial({ color: 0x2c5fa2 });
+  const rampTruckCab = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.7, 1.0), rampTruckBodyMat);
+  rampTruckCab.position.set(0.55, 0.65, 0);
+  rampTruckGroup.add(rampTruckCab);
+  const rampTruckBed = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.5, 1.0), rampTruckBodyMat);
+  rampTruckBed.position.set(-0.5, 0.55, 0);
+  rampTruckGroup.add(rampTruckBed);
+  const rampTruckWindshield = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.4, 0.85), new THREE.MeshLambertMaterial({ color: 0x88bbdd, transparent: true, opacity: 0.7 }));
+  rampTruckWindshield.position.set(1.05, 0.85, 0);
+  rampTruckGroup.add(rampTruckWindshield);
+  const rampWheelMat = new THREE.MeshLambertMaterial({ color: 0x111111 });
+  const rampWheelGeom = new THREE.CylinderGeometry(0.22, 0.22, 0.16, 12);
+  const rampTruckWheels = [[0.5, 0.22, 0.5], [0.5, 0.22, -0.5], [-0.6, 0.22, 0.5], [-0.6, 0.22, -0.5]];
+  rampTruckWheels.forEach((p) => {
+    const w = new THREE.Mesh(rampWheelGeom, rampWheelMat);
+    w.position.set(p[0], p[1], p[2]);
+    w.rotation.x = Math.PI / 2;
+    rampTruckGroup.add(w);
+  });
+  rampTruckGroup.position.set(0, 0.4, 2.6);
+  rampGroup.add(rampTruckGroup);
+  // trailer
+  const rampTrailerGroup = new THREE.Group();
+  const rampTrailerBeamMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const rampTrailerBeam = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.06, 0.6), rampTrailerBeamMat);
+  rampTrailerBeam.position.y = 0.3;
+  rampTrailerGroup.add(rampTrailerBeam);
+  const rampTrailerWheels = [[0.6, 0.18, 0.4], [0.6, 0.18, -0.4]];
+  rampTrailerWheels.forEach((p) => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.12, 10), rampWheelMat);
+    w.position.set(p[0], p[1], p[2]);
+    w.rotation.x = Math.PI / 2;
+    rampTrailerGroup.add(w);
+  });
+  // small fishing boat on trailer
+  const rampBoatMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
+  const rampBoat = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.32, 0.7), rampBoatMat);
+  rampBoat.position.y = 0.55;
+  rampTrailerGroup.add(rampBoat);
+  const rampBoatTrim = new THREE.Mesh(new THREE.BoxGeometry(2.05, 0.06, 0.74), new THREE.MeshLambertMaterial({ color: 0xc94434 }));
+  rampBoatTrim.position.y = 0.72;
+  rampTrailerGroup.add(rampBoatTrim);
+  rampTrailerGroup.position.set(-1.0, 0.4, 1.2);
+  rampGroup.add(rampTrailerGroup);
+  rampGroup.position.set(-22, 0, 38);
+  rampGroup.rotation.y = 0.3;
+  group.add(rampGroup);
+
+  // --- v61: marina fuel dock with customer at pump ---
+  const fuelDockGroup = new THREE.Group();
+  const fuelDeckMat = new THREE.MeshLambertMaterial({ color: 0x9b7340 });
+  const fuelDeck = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.18, 2.4), fuelDeckMat);
+  fuelDeck.position.y = 0.5;
+  fuelDockGroup.add(fuelDeck);
+  // pilings
+  const fuelPilingMat = new THREE.MeshLambertMaterial({ color: 0x5e4424 });
+  const fuelPilingGeom = new THREE.CylinderGeometry(0.1, 0.12, 1.2, 8);
+  const fuelPilingPos = [[1.6, 0.0, 1.0], [-1.6, 0.0, 1.0], [1.6, 0.0, -1.0], [-1.6, 0.0, -1.0]];
+  fuelPilingPos.forEach((p) => {
+    const pl = new THREE.Mesh(fuelPilingGeom, fuelPilingMat);
+    pl.position.set(p[0], p[1], p[2]);
+    fuelDockGroup.add(pl);
+  });
+  // pump tower
+  const fuelPump = new THREE.Group();
+  const fuelPumpBody = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.2, 0.4), new THREE.MeshLambertMaterial({ color: 0xd9534f }));
+  fuelPumpBody.position.y = 1.2;
+  fuelPump.add(fuelPumpBody);
+  const fuelPumpDisplay = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.05), new THREE.MeshLambertMaterial({ color: 0x111111, emissive: 0x66ff66, emissiveIntensity: 0.4 }));
+  fuelPumpDisplay.position.set(0, 1.5, 0.22);
+  fuelPump.add(fuelPumpDisplay);
+  const fuelPumpHose = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.6, 6), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  fuelPumpHose.position.set(0.3, 1.2, 0);
+  fuelPumpHose.rotation.z = -0.3;
+  fuelPump.add(fuelPumpHose);
+  const fuelSignCanvas = document.createElement('canvas');
+  fuelSignCanvas.width = 256; fuelSignCanvas.height = 64;
+  const fuelSignCtx = fuelSignCanvas.getContext('2d');
+  fuelSignCtx.fillStyle = '#fff5e0';
+  fuelSignCtx.fillRect(0, 0, 256, 64);
+  fuelSignCtx.fillStyle = '#a02828';
+  fuelSignCtx.font = 'bold 32px sans-serif';
+  fuelSignCtx.textAlign = 'center';
+  fuelSignCtx.fillText('MARINE FUEL', 128, 42);
+  const fuelSignTex = new THREE.CanvasTexture(fuelSignCanvas);
+  const fuelSign = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.4), new THREE.MeshBasicMaterial({ map: fuelSignTex }));
+  fuelSign.position.set(0, 2.0, 0);
+  fuelPump.add(fuelSign);
+  fuelPump.position.set(-1.0, 0.6, 0);
+  fuelDockGroup.add(fuelPump);
+  // customer at pump
+  const fuelCustGroup = new THREE.Group();
+  const fuelCustBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.6, 8), new THREE.MeshLambertMaterial({ color: 0xffaa44 }));
+  fuelCustBody.position.y = 0.3;
+  fuelCustGroup.add(fuelCustBody);
+  const fuelCustHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xc99078 }));
+  fuelCustHead.position.y = 0.78;
+  fuelCustGroup.add(fuelCustHead);
+  const fuelCustArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0xc99078 }));
+  fuelCustArm.position.set(0.18, 0.5, 0.05);
+  fuelCustArm.rotation.z = -0.5;
+  fuelCustGroup.add(fuelCustArm);
+  fuelCustGroup.position.set(-0.3, 0.6, 0.5);
+  fuelDockGroup.add(fuelCustGroup);
+  // small motorboat tied up at fuel dock
+  const fuelBoat = new THREE.Group();
+  const fuelBoatHull = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.4, 0.9), new THREE.MeshLambertMaterial({ color: 0xddffff }));
+  fuelBoatHull.position.y = 0.2;
+  fuelBoat.add(fuelBoatHull);
+  const fuelBoatWindshield = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.3, 0.85), new THREE.MeshLambertMaterial({ color: 0x88bbdd, transparent: true, opacity: 0.7 }));
+  fuelBoatWindshield.position.set(0.4, 0.55, 0);
+  fuelBoat.add(fuelBoatWindshield);
+  fuelBoat.position.set(0.5, 0.05, 1.6);
+  fuelDockGroup.add(fuelBoat);
+  fuelDockGroup.position.set(28, 0, -38);
+  fuelDockGroup.rotation.y = 0.6;
+  group.add(fuelDockGroup);
+
+  // --- v61: dolphin show (jumping arc, two dolphins splashing) ---
+  const dolphinShowGroup = new THREE.Group();
+  const dShowMat = new THREE.MeshLambertMaterial({ color: 0x6a9bbe });
+  const dShowBellyMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
+  function makeShowDolphin() {
+    const d = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.32, 1.0, 6, 10), dShowMat);
+    body.rotation.z = Math.PI / 2;
+    d.add(body);
+    const belly = new THREE.Mesh(new THREE.CapsuleGeometry(0.28, 0.8, 6, 10), dShowBellyMat);
+    belly.rotation.z = Math.PI / 2;
+    belly.position.y = -0.05;
+    d.add(belly);
+    const fin = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.4, 6), dShowMat);
+    fin.position.y = 0.32;
+    fin.rotation.x = Math.PI;
+    d.add(fin);
+    const tailFin = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, 0.4), dShowMat);
+    tailFin.position.x = -0.7;
+    d.add(tailFin);
+    const beak = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.3, 6), dShowMat);
+    beak.position.x = 0.78;
+    beak.rotation.z = -Math.PI / 2;
+    d.add(beak);
+    return d;
+  }
+  const dShow1 = makeShowDolphin();
+  dolphinShowGroup.add(dShow1);
+  const dShow2 = makeShowDolphin();
+  dolphinShowGroup.add(dShow2);
+  // splash particles
+  const dShowSplashMat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 });
+  const dShowSplashes = [];
+  for (let i = 0; i < 6; i++) {
+    const sp = new THREE.Mesh(new THREE.SphereGeometry(0.1, 6, 5), dShowSplashMat);
+    sp.position.set(0, 0, 0);
+    dolphinShowGroup.add(sp);
+    dShowSplashes.push(sp);
+  }
+  dolphinShowGroup.position.set(60, 0, -52);
+  group.add(dolphinShowGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -10998,6 +11169,23 @@ export function createAnchorageLandmark(THREE, opts) {
         const wob = Math.sin(t * 2 + tent.baseAng * 2) * 0.3;
         tent.mesh.rotation.z = Math.cos(tent.baseAng) * 0.6 + wob;
         tent.mesh.rotation.x = Math.sin(tent.baseAng) * 0.6 + wob;
+      });
+      // v61: customer arm at fuel dock pumps
+      fuelCustArm.rotation.z = -0.5 + Math.sin(t * 2.5) * 0.3;
+      // v61: dolphin show — two dolphins arc, splash on landing
+      const dPhase = t * 1.4;
+      const arcY1 = Math.max(0, Math.sin(dPhase) * 2.6);
+      const arcY2 = Math.max(0, Math.sin(dPhase + Math.PI) * 2.6);
+      dShow1.position.set(Math.cos(dPhase) * 1.5, arcY1, 0);
+      dShow1.rotation.z = -dPhase * 0.6;
+      dShow2.position.set(Math.cos(dPhase + Math.PI) * 1.5 + 3.0, arcY2, 0);
+      dShow2.rotation.z = -(dPhase + Math.PI) * 0.6;
+      dShowSplashes.forEach((sp, i) => {
+        const phase = (t * 2 + i * 0.4) % 1.0;
+        const visible = arcY1 < 0.2 || arcY2 < 0.2;
+        sp.visible = visible && phase < 0.5;
+        const targetX = arcY1 < 0.2 ? Math.cos(dPhase) * 1.5 : Math.cos(dPhase + Math.PI) * 1.5 + 3.0;
+        sp.position.set(targetX + (i % 3 - 1) * 0.3, phase * 0.8, (Math.floor(i / 3) - 0.5) * 0.6);
       });
     }
 
