@@ -12022,6 +12022,253 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(iceVendGroup);
 
 
+
+  // v73: Beach book club under umbrellas (3 readers in beach chairs with books)
+  const bookClubGroup = new THREE.Group();
+  bookClubGroup.position.set(-18, 0, -22);
+  bookClubGroup.rotation.y = 0.4;
+  // Two large beach umbrellas with stripes
+  const bcUmbColors = [0xd84a3a, 0x3a8ad8];
+  const bcUmbPositions = [-2.5, 2.5];
+  const bcUmbrellas = [];
+  for (let ui = 0; ui < 2; ui++) {
+    const umbrella = new THREE.Group();
+    umbrella.position.set(bcUmbPositions[ui], 0, 0);
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.6, 6), new THREE.MeshLambertMaterial({ color: 0x8a6a4a }));
+    pole.position.y = 1.3;
+    umbrella.add(pole);
+    const canopy = new THREE.Mesh(new THREE.ConeGeometry(1.4, 0.5, 12), new THREE.MeshLambertMaterial({ color: bcUmbColors[ui], side: THREE.DoubleSide }));
+    canopy.position.y = 2.55;
+    umbrella.add(canopy);
+    // Decorative tip
+    const tip = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), new THREE.MeshLambertMaterial({ color: 0xeed040 }));
+    tip.position.y = 2.85;
+    umbrella.add(tip);
+    bcUmbrellas.push(umbrella);
+    bookClubGroup.add(umbrella);
+  }
+  // 3 beach chairs with readers
+  const bcReaderColors = [0x4a6a8a, 0xb88aa0, 0x8a8a4a];
+  const bcShirtColors = [0xeed8c0, 0xf0d8e0, 0xc0d0c0];
+  const bcReaders = [];
+  const bcBooks = [];
+  const bcChairPositions = [[-2.6, 0, 1.8], [-0.0, 0, 2.0], [2.6, 0, 1.8]];
+  for (let ri = 0; ri < 3; ri++) {
+    const reader = new THREE.Group();
+    reader.position.set(bcChairPositions[ri][0], 0, bcChairPositions[ri][2]);
+    reader.rotation.y = -0.3 + ri * 0.3;
+    // Beach chair (low reclining)
+    const chairMat = new THREE.MeshLambertMaterial({ color: bcReaderColors[ri] });
+    const chairBack = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.9, 0.08), chairMat);
+    chairBack.position.set(0, 0.75, -0.3);
+    chairBack.rotation.x = -0.4;
+    reader.add(chairBack);
+    const chairSeat = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.08, 0.6), chairMat);
+    chairSeat.position.set(0, 0.4, 0);
+    reader.add(chairSeat);
+    const chairFrameMat = new THREE.MeshLambertMaterial({ color: 0x8a7050 });
+    for (let lf = 0; lf < 4; lf++) {
+      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.4, 4), chairFrameMat);
+      leg.position.set(lf < 2 ? -0.3 : 0.3, 0.2, lf % 2 === 0 ? -0.25 : 0.25);
+      reader.add(leg);
+    }
+    // Reader (sitting back)
+    const readerSkin = new THREE.MeshLambertMaterial({ color: 0xe8c098 });
+    const readerShirt = new THREE.MeshLambertMaterial({ color: bcShirtColors[ri] });
+    const readerHair = new THREE.MeshLambertMaterial({ color: ri === 0 ? 0x2a1810 : (ri === 1 ? 0x9a6a3a : 0x6a5040) });
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.6, 8), readerShirt);
+    torso.position.set(0, 0.8, -0.05);
+    torso.rotation.x = -0.3;
+    reader.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), readerSkin);
+    head.position.set(0, 1.1, 0.05);
+    reader.add(head);
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.135, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2.2), readerHair);
+    hair.position.set(0, 1.14, 0.05);
+    reader.add(hair);
+    // Legs (extended forward)
+    const legMat = new THREE.MeshLambertMaterial({ color: 0x4a3020 });
+    const legs = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.14, 0.7), legMat);
+    legs.position.set(0, 0.5, 0.4);
+    reader.add(legs);
+    // Book in hands (open, white pages)
+    const bookGroup = new THREE.Group();
+    bookGroup.position.set(0, 0.95, 0.18);
+    const bookCoverMat = new THREE.MeshLambertMaterial({ color: ri === 0 ? 0x8a3030 : (ri === 1 ? 0x305a8a : 0x305a30) });
+    const bookCover = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.04, 0.22), bookCoverMat);
+    bookGroup.add(bookCover);
+    const pageMat = new THREE.MeshLambertMaterial({ color: 0xf0ece4 });
+    const pageL = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.02, 0.2), pageMat);
+    pageL.position.set(-0.07, 0.03, 0);
+    pageL.rotation.z = -0.2;
+    bookGroup.add(pageL);
+    const pageR = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.02, 0.2), pageMat);
+    pageR.position.set(0.07, 0.03, 0);
+    pageR.rotation.z = 0.2;
+    bookGroup.add(pageR);
+    bookGroup.rotation.x = -0.3;
+    reader.add(bookGroup);
+    bcBooks.push(bookGroup);
+    bcReaders.push(reader);
+    bookClubGroup.add(reader);
+  }
+  // Cooler between chairs
+  const bcCoolerMat = new THREE.MeshLambertMaterial({ color: 0xe0e0e0 });
+  const bcCooler = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.35), bcCoolerMat);
+  bcCooler.position.set(0, 0.2, 0.7);
+  bookClubGroup.add(bcCooler);
+  const bcCoolerLid = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.05, 0.37), new THREE.MeshLambertMaterial({ color: 0x305a8a }));
+  bcCoolerLid.position.set(0, 0.42, 0.7);
+  bookClubGroup.add(bcCoolerLid);
+  group.add(bookClubGroup);
+
+  // v73: Catamaran race (two catamarans heeling on the water)
+  const catRaceGroup = new THREE.Group();
+  catRaceGroup.position.set(0, 0, -38);
+  const catColors = [[0xff6b3a, 0xfafafa], [0x3a8ad8, 0xfafafa]];
+  const catamarans = [];
+  for (let ci = 0; ci < 2; ci++) {
+    const cat = new THREE.Group();
+    cat.position.set(ci === 0 ? -3.5 : 3.5, 0.2, ci === 0 ? 0 : 1.5);
+    cat.rotation.y = ci === 0 ? -0.2 : 0.15;
+    const hullMat = new THREE.MeshLambertMaterial({ color: catColors[ci][1] });
+    const hullStripeMat = new THREE.MeshLambertMaterial({ color: catColors[ci][0] });
+    // Two parallel hulls
+    const hullL = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.18, 3.2, 8), hullMat);
+    hullL.rotation.z = Math.PI / 2;
+    hullL.position.set(0, 0, -0.5);
+    cat.add(hullL);
+    const hullR = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.18, 3.2, 8), hullMat);
+    hullR.rotation.z = Math.PI / 2;
+    hullR.position.set(0, 0, 0.5);
+    cat.add(hullR);
+    // Stripe on hulls
+    const stripeL = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.06, 0.06), hullStripeMat);
+    stripeL.position.set(0, 0.05, -0.5);
+    cat.add(stripeL);
+    const stripeR = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.06, 0.06), hullStripeMat);
+    stripeR.position.set(0, 0.05, 0.5);
+    cat.add(stripeR);
+    // Trampoline deck between hulls
+    const tramp = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 0.9), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    tramp.position.set(0, 0.18, 0);
+    cat.add(tramp);
+    // Mast
+    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.0, 6), hullMat);
+    mast.position.set(0.0, 2.18, 0);
+    cat.add(mast);
+    // Triangular mainsail (heeled)
+    const sailMat = new THREE.MeshLambertMaterial({ color: 0xfafafa, side: THREE.DoubleSide });
+    const sailGeo = new THREE.BufferGeometry();
+    sailGeo.setFromPoints([
+      new THREE.Vector3(0, 0.2, 0),
+      new THREE.Vector3(0, 4.2, 0),
+      new THREE.Vector3(2.0, 0.2, 0)
+    ]);
+    sailGeo.setIndex([0, 1, 2]);
+    sailGeo.computeVertexNormals();
+    const sail = new THREE.Mesh(sailGeo, sailMat);
+    sail.position.set(0.0, 0, 0);
+    cat.add(sail);
+    // Sail number stripe (catColors[ci][0])
+    const sailStripe = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.4), new THREE.MeshLambertMaterial({ color: catColors[ci][0], side: THREE.DoubleSide }));
+    sailStripe.position.set(0.5, 1.0, 0.01);
+    cat.add(sailStripe);
+    // Sailor on tramp leaning out
+    const sailor = new THREE.Group();
+    sailor.position.set(-0.2, 0.2, ci === 0 ? -0.5 : 0.5);
+    const sailorVest = new THREE.MeshLambertMaterial({ color: 0xff8a3a });
+    const sailorTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.55, 8), sailorVest);
+    sailorTorso.position.y = 0.45;
+    sailor.add(sailorTorso);
+    const sailorHead = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), new THREE.MeshLambertMaterial({ color: 0xe8c098 }));
+    sailorHead.position.y = 0.85;
+    sailor.add(sailorHead);
+    sailor.rotation.z = ci === 0 ? -0.3 : 0.3;
+    cat.add(sailor);
+    // Heel angle
+    cat.rotation.z = ci === 0 ? 0.15 : -0.12;
+    catamarans.push(cat);
+    catRaceGroup.add(cat);
+  }
+  // Wake foam
+  const catWakeMat = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const catWake1 = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.5), catWakeMat);
+  catWake1.rotation.x = -Math.PI / 2;
+  catWake1.position.set(-5.0, 0.06, -0.5);
+  catRaceGroup.add(catWake1);
+  const catWake2 = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.5), catWakeMat);
+  catWake2.rotation.x = -Math.PI / 2;
+  catWake2.position.set(2.0, 0.06, 0.8);
+  catRaceGroup.add(catWake2);
+  group.add(catRaceGroup);
+
+  // v73: Sand sculpture mermaid (sculpted in sand, with shells around)
+  const sandMermGroup = new THREE.Group();
+  sandMermGroup.position.set(-26, 0.05, -2);
+  sandMermGroup.rotation.y = 0.2;
+  // Sand base mound
+  const mermSandMat = new THREE.MeshLambertMaterial({ color: 0xd9c896 });
+  const mermBase = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.4, 0.4, 16), mermSandMat);
+  mermBase.position.y = 0.2;
+  sandMermGroup.add(mermBase);
+  // Mermaid body (lying on side, sculpted)
+  // Head + upper torso (sand colored)
+  const mermHead = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 10), mermSandMat);
+  mermHead.position.set(-1.1, 0.6, 0);
+  mermHead.scale.set(1.0, 1.0, 0.85);
+  sandMermGroup.add(mermHead);
+  // Hair flowing back (sculpted ridges)
+  for (let hi = 0; hi < 5; hi++) {
+    const hairStrand = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.05, 0.6, 6), mermSandMat);
+    hairStrand.position.set(-1.4 - hi * 0.05, 0.45 + (hi % 2) * 0.03, -0.18 + hi * 0.08);
+    hairStrand.rotation.z = -0.3;
+    sandMermGroup.add(hairStrand);
+  }
+  // Torso
+  const mermTorso = new THREE.Mesh(new THREE.SphereGeometry(0.45, 14, 10), mermSandMat);
+  mermTorso.position.set(-0.4, 0.55, 0);
+  mermTorso.scale.set(1.4, 0.7, 1.0);
+  sandMermGroup.add(mermTorso);
+  // Tail (long curved, sculpted)
+  const mermTail = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.18, 1.4, 10), mermSandMat);
+  mermTail.rotation.z = Math.PI / 2;
+  mermTail.position.set(0.7, 0.5, 0);
+  sandMermGroup.add(mermTail);
+  // Tail fluke (vertical fin)
+  const mermFluke = new THREE.Mesh(new THREE.ConeGeometry(0.45, 0.6, 4), mermSandMat);
+  mermFluke.rotation.z = Math.PI / 2;
+  mermFluke.rotation.y = Math.PI / 2;
+  mermFluke.position.set(1.55, 0.55, 0);
+  mermFluke.scale.set(1, 1, 0.4);
+  sandMermGroup.add(mermFluke);
+  // Scale ridges along tail (decorative bumps)
+  for (let si = 0; si < 6; si++) {
+    const scale = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), mermSandMat);
+    scale.position.set(0.2 + si * 0.2, 0.7, 0.05 * (si % 2));
+    sandMermGroup.add(scale);
+  }
+  // Decorative seashells around the base
+  const mermShellColors = [0xf0d8a0, 0xd8a878, 0xe8c098, 0xc89878];
+  for (let sh = 0; sh < 7; sh++) {
+    const angle = sh * Math.PI * 2 / 7;
+    const shell = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6, 0, Math.PI), new THREE.MeshLambertMaterial({ color: mermShellColors[sh % 4] }));
+    shell.position.set(Math.cos(angle) * 1.9, 0.42, Math.sin(angle) * 1.9);
+    shell.rotation.y = angle + Math.PI / 2;
+    sandMermGroup.add(shell);
+  }
+  // Small "Do Not Disturb" sign in sand
+  const mermSignMat = new THREE.MeshLambertMaterial({ color: 0xe8d8a8 });
+  const mermSign = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.32, 0.04), mermSignMat);
+  mermSign.position.set(-2.0, 0.7, 0.5);
+  sandMermGroup.add(mermSign);
+  const mermSignPostMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  const mermSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 5), mermSignPostMat);
+  mermSignPost.position.set(-2.0, 0.4, 0.5);
+  sandMermGroup.add(mermSignPost);
+  group.add(sandMermGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -13977,6 +14224,23 @@ export function createAnchorageLandmark(THREE, opts) {
       }
       if (ivCherry) {
         ivCherry.position.y = 2.6 + Math.sin(t * 1.8) * 0.025;
+      // v73 book club: readers gently turn pages and rock
+      for (let bi = 0; bi < bcReaders.length; bi++) {
+        bcReaders[bi].rotation.z = Math.sin(t * 0.3 + bi * 1.1) * 0.02;
+        if (bcBooks[bi]) {
+          bcBooks[bi].rotation.x = -0.3 + Math.sin(t * 0.5 + bi) * 0.05;
+        }
+      }
+      // v73 catamarans heel oscillation + bob
+      for (let ci2 = 0; ci2 < catamarans.length; ci2++) {
+        const baseHeel = ci2 === 0 ? 0.15 : -0.12;
+        catamarans[ci2].rotation.z = baseHeel + Math.sin(t * 0.7 + ci2 * 1.5) * 0.05;
+        catamarans[ci2].position.y = 0.2 + Math.sin(t * 0.9 + ci2 * 0.8) * 0.04;
+      }
+      if (catWakeMat) {
+        catWakeMat.opacity = 0.4 + 0.2 * Math.sin(t * 1.2);
+      }
+
       }
 
       }
