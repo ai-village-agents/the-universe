@@ -13683,7 +13683,32 @@ const cosmicSights = [
     { name: "Differential Phase Signal", position: [-0.64, -0.28, 0.72], color: "#8A2BE2", size: 1.6, description: "Phase differences between spectral channels revealing photocentroid shifts across a source." },
     { name: "Baseline Bootstrapping Sequence", position: [0.39, 0.86, 0.33], color: "#9932CC", size: 1.8, description: "A calibration strategy using short baselines to phase-reference longer ones." },
     { name: "Dual-Field Interferometry Target", position: [-0.51, 0.54, -0.67], color: "#BA55D3", size: 1.7, description: "Simultaneous observation of two objects for precision relative astrometry." },
-    { name: "Model-Fitting Residual Map", position: [0.29, -0.74, -0.61], color: "#DA70D6", size: 1.5, description: "Differences between observed visibilities and a geometric model revealing source complexity." }
+    { name: "Model-Fitting Residual Map", position: [0.29, -0.74, -0.61], color: "#DA70D6", size: 1.5, description: "Differences between observed visibilities and a geometric model revealing source complexity." },
+    { name: "Protostellar Cloud Core Collapse", position: [0.53, -0.62, 0.58], color: "#8B4513", size: 2.2, description: "A dense cold region within a molecular cloud where stars will form." },
+    { name: "Dense Molecular Filament Spine", position: [-0.71, 0.44, -0.55], color: "#A0522D", size: 1.8, description: "A dense filamentary structure seen in silhouette against the infrared background." },
+    { name: "Class 0 Protostar Envelope", position: [0.38, 0.79, 0.49], color: "#CD853F", size: 1.9, description: "The earliest protostellar phase still deeply embedded in its natal envelope." },
+    { name: "Class I Protostar Disk", position: [-0.46, -0.57, 0.68], color: "#D2691E", size: 1.7, description: "A young protostar with both envelope and disk contributing to its luminosity." },
+    { name: "Class II T Tauri System", position: [0.82, 0.31, -0.48], color: "#8B4513", size: 2.0, description: "A classical T Tauri star with an optically thick circumstellar disk." },
+    { name: "Post-Disk Young Stellar Object", position: [-0.59, 0.63, 0.50], color: "#A0522D", size: 1.6, description: "A pre-main-sequence star with minimal disk emission remaining." },
+    { name: "Herbig Ae Star Disk", position: [0.47, -0.74, -0.48], color: "#CD853F", size: 1.8, description: "An intermediate-mass young star with a prominent circumstellar disk." },
+    { name: "Herbig-Haro Object Chain", position: [-0.33, 0.42, -0.84], color: "#D2691E", size: 1.9, description: "Shock-excited nebulae formed by protostellar jet impacts on surrounding gas." },
+    { name: "Bipolar Molecular Outflow", position: [0.68, 0.55, 0.49], color: "#8B4513", size: 2.1, description: "High-velocity gas ejected along the rotation axis of a forming star." },
+    { name: "Protostellar Jet Knot", position: [-0.76, -0.38, 0.53], color: "#A0522D", size: 1.5, description: "A discrete emission knot in a protostellar jet indicating episodic ejection." },
+    { name: "FU Orionis Variable Disk", position: [0.29, 0.81, -0.51], color: "#CD853F", size: 1.7, description: "A young star undergoing a dramatic accretion outburst lasting decades." },
+    { name: "EX Lupi Outburst Source", position: [-0.54, 0.28, 0.79], color: "#D2691E", size: 1.8, description: "A T Tauri star showing repetitive smaller-scale accretion events." },
+    { name: "Embedded Protostellar Cluster", position: [0.73, -0.48, 0.49], color: "#8B4513", size: 2.0, description: "A group of protostars still forming within their parental cloud." },
+    { name: "Stellar Nursery Ionization Front", position: [-0.41, 0.72, -0.56], color: "#A0522D", size: 1.6, description: "The boundary where massive star radiation ionizes the surrounding birth cloud." },
+    { name: "Triggered Star Formation Region", position: [0.56, -0.33, -0.76], color: "#CD853F", size: 1.9, description: "A site where external compression has induced new star formation." },
+    { name: "Protoplanetary Disk Gap", position: [-0.67, -0.51, -0.54], color: "#D2691E", size: 1.7, description: "A cleared annulus in a young disk indicating planet formation." },
+    { name: "Transition Disk Cavity", position: [0.44, 0.68, 0.59], color: "#8B4513", size: 1.8, description: "An inner disk hole suggesting planet clearing or photoevaporation." },
+    { name: "Debris Disk Ring Structure", position: [-0.78, 0.36, 0.51], color: "#A0522D", size: 2.0, description: "A dusty ring around a young star shaped by unseen planetary bodies." },
+    { name: "Outflow Cavity Wall", position: [0.35, -0.79, 0.50], color: "#CD853F", size: 1.6, description: "The illuminated surface of a cavity carved by protostellar winds." },
+    { name: "Hot Corino Chemistry Zone", position: [-0.52, 0.59, -0.62], color: "#D2691E", size: 1.5, description: "A warm inner envelope region rich in complex organic molecules." },
+    { name: "Disk Wind Launch Region", position: [0.79, 0.41, -0.46], color: "#8B4513", size: 1.9, description: "The disk surface where magnetocentrifugal winds are accelerated." },
+    { name: "Accretion Shock Hotspot", position: [-0.38, -0.73, 0.57], color: "#A0522D", size: 1.7, description: "A localized bright region where infalling material impacts the stellar surface." },
+    { name: "Magnetospheric Accretion Column", position: [0.61, 0.26, 0.75], color: "#CD853F", size: 1.8, description: "A funnel flow channeling disk material along magnetic field lines." },
+    { name: "Pre-Main-Sequence Binary", position: [-0.69, 0.49, 0.53], color: "#D2691E", size: 2.1, description: "A gravitationally bound pair of young stars still contracting toward the main sequence." },
+    { name: "Birthline Crossing Star", position: [0.48, -0.56, -0.68], color: "#8B4513", size: 1.6, description: "A protostar just becoming optically visible as it emerges from its cocoon." }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
