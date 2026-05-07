@@ -9683,6 +9683,204 @@ export function createAnchorageLandmark(THREE, opts) {
   group.add(slBuoyGroup);
 
 
+
+  // --- v63: outdoor shower + submarine + beach wedding arch ----------------
+  // Outdoor shower stall (vertical post, head, spray particles, bather)
+  const showerGroup = new THREE.Group();
+  const shPostMat = new THREE.MeshStandardMaterial({ color: 0x9aa6b0, metalness: 0.4, roughness: 0.5 });
+  const shPost = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.6, 10), shPostMat);
+  shPost.position.y = 1.3;
+  showerGroup.add(shPost);
+  const shArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 8), shPostMat);
+  shArm.rotation.z = Math.PI / 2;
+  shArm.position.set(0.25, 2.45, 0);
+  showerGroup.add(shArm);
+  const shHeadMat = new THREE.MeshStandardMaterial({ color: 0xb8c0c8, metalness: 0.6, roughness: 0.3 });
+  const shHead = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.14, 0.12, 12), shHeadMat);
+  shHead.position.set(0.5, 2.4, 0);
+  showerGroup.add(shHead);
+  const shBaseMat = new THREE.MeshLambertMaterial({ color: 0x6b7178 });
+  const shBase = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.8, 0.06, 16), shBaseMat);
+  shBase.position.y = 0.03;
+  showerGroup.add(shBase);
+  // privacy partial wall (low slat)
+  const shWallMat = new THREE.MeshLambertMaterial({ color: 0x7a5a3a });
+  const shWall = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.4, 1.2), shWallMat);
+  shWall.position.set(-0.6, 0.7, 0);
+  showerGroup.add(shWall);
+  // spray particles
+  const shSprayMat = new THREE.MeshBasicMaterial({ color: 0xc8e8ff, transparent: true, opacity: 0.7 });
+  const shSprayGeom = new THREE.SphereGeometry(0.04, 5, 5);
+  const shDrops = [];
+  for (let i = 0; i < 14; i++) {
+    const d = new THREE.Mesh(shSprayGeom, shSprayMat);
+    shDrops.push({ mesh: d, phase: Math.random() });
+    showerGroup.add(d);
+  }
+  // bather (back to viewer)
+  const shBatherMat = new THREE.MeshLambertMaterial({ color: 0xffd5b3 });
+  const shBatherBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.16, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x224488 }));
+  shBatherBody.position.set(0.5, 0.85, 0);
+  showerGroup.add(shBatherBody);
+  const shBatherHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), shBatherMat);
+  shBatherHead.position.set(0.5, 1.45, 0);
+  showerGroup.add(shBatherHead);
+  const shBatherArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 8), shBatherMat);
+  shBatherArm.position.set(0.5, 1.6, 0.0);
+  shBatherArm.rotation.z = -0.6;
+  showerGroup.add(shBatherArm);
+  showerGroup.position.set(-26, 0.05, -8);
+  group.add(showerGroup);
+
+  // Submarine surfacing offshore (long dark hull, conning tower, periscope, wake)
+  const subGroup = new THREE.Group();
+  const subHullMat = new THREE.MeshStandardMaterial({ color: 0x202830, metalness: 0.6, roughness: 0.45 });
+  const subHull = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 7.0, 18), subHullMat);
+  subHull.rotation.z = Math.PI / 2;
+  subHull.position.y = 0.55;
+  subGroup.add(subHull);
+  // tapered bow + stern caps
+  const subBow = new THREE.Mesh(new THREE.SphereGeometry(0.9, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2), subHullMat);
+  subBow.rotation.z = -Math.PI / 2;
+  subBow.position.set(3.5, 0.55, 0);
+  subGroup.add(subBow);
+  const subStern = new THREE.Mesh(new THREE.SphereGeometry(0.9, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2), subHullMat);
+  subStern.rotation.z = Math.PI / 2;
+  subStern.position.set(-3.5, 0.55, 0);
+  subGroup.add(subStern);
+  // conning tower (sail)
+  const subSailMat = new THREE.MeshStandardMaterial({ color: 0x181c22, metalness: 0.5, roughness: 0.5 });
+  const subSail = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.9, 0.7), subSailMat);
+  subSail.position.set(0, 1.4, 0);
+  subGroup.add(subSail);
+  // periscope
+  const subPeriscope = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 8), subSailMat);
+  subPeriscope.position.set(0.2, 2.1, 0);
+  subGroup.add(subPeriscope);
+  const subPerHead = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.1, 0.18), subSailMat);
+  subPerHead.position.set(0.3, 2.4, 0);
+  subGroup.add(subPerHead);
+  // dive plane
+  const subPlane = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.04, 0.5), subHullMat);
+  subPlane.position.set(0.3, 0.95, 0);
+  subGroup.add(subPlane);
+  // wake / foam ring
+  const subWakeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+  const subWake = new THREE.Mesh(new THREE.RingGeometry(2.0, 4.5, 28), subWakeMat);
+  subWake.rotation.x = -Math.PI / 2;
+  subWake.position.y = 0.06;
+  subGroup.add(subWake);
+  subGroup.position.set(70, 0, -90);
+  subGroup.rotation.y = 0.3;
+  group.add(subGroup);
+
+  // Beach wedding arch + couple
+  const wedGroup = new THREE.Group();
+  const wedArchMat = new THREE.MeshLambertMaterial({ color: 0xfaf3e6 });
+  const wedPostGeom = new THREE.CylinderGeometry(0.07, 0.07, 2.4, 10);
+  const wedPostL = new THREE.Mesh(wedPostGeom, wedArchMat);
+  wedPostL.position.set(-1.0, 1.2, 0);
+  wedGroup.add(wedPostL);
+  const wedPostR = new THREE.Mesh(wedPostGeom, wedArchMat);
+  wedPostR.position.set(1.0, 1.2, 0);
+  wedGroup.add(wedPostR);
+  // arched top - use TorusGeometry half
+  const wedTop = new THREE.Mesh(new THREE.TorusGeometry(1.0, 0.07, 8, 18, Math.PI), wedArchMat);
+  wedTop.position.set(0, 2.4, 0);
+  wedGroup.add(wedTop);
+  // floral decorations on arch (clusters of pink/white spheres)
+  const wedFlowerGeom = new THREE.SphereGeometry(0.12, 8, 6);
+  const wedFlowerMats = [
+    new THREE.MeshLambertMaterial({ color: 0xffb6c1 }),
+    new THREE.MeshLambertMaterial({ color: 0xffffff }),
+    new THREE.MeshLambertMaterial({ color: 0xffd6e0 }),
+    new THREE.MeshLambertMaterial({ color: 0xffe4b5 }),
+  ];
+  const wedFlowers = [];
+  for (let i = 0; i < 18; i++) {
+    const ang = Math.PI * (i / 17);
+    const r = 1.0;
+    const f = new THREE.Mesh(wedFlowerGeom, wedFlowerMats[i % wedFlowerMats.length]);
+    f.position.set(Math.cos(ang) * r, 2.4 + Math.sin(ang) * r, (Math.random() - 0.5) * 0.2);
+    wedFlowers.push(f);
+    wedGroup.add(f);
+  }
+  // greenery base bunches at posts
+  for (let p of [-1.0, 1.0]) {
+    for (let j = 0; j < 5; j++) {
+      const g1 = new THREE.Mesh(wedFlowerGeom, new THREE.MeshLambertMaterial({ color: 0x4a7a3a }));
+      g1.position.set(p + (Math.random() - 0.5) * 0.3, 0.15 + j * 0.18, (Math.random() - 0.5) * 0.25);
+      wedGroup.add(g1);
+    }
+  }
+  // bride (white dress, dark hair)
+  const wedBride = new THREE.Group();
+  const wedBrideDress = new THREE.Mesh(new THREE.ConeGeometry(0.45, 1.3, 14), new THREE.MeshLambertMaterial({ color: 0xfffafa }));
+  wedBrideDress.position.y = 0.65;
+  wedBride.add(wedBrideDress);
+  const wedBrideTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.4, 10), new THREE.MeshLambertMaterial({ color: 0xfffafa }));
+  wedBrideTorso.position.y = 1.5;
+  wedBride.add(wedBrideTorso);
+  const wedBrideHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd5b3 }));
+  wedBrideHead.position.y = 1.85;
+  wedBride.add(wedBrideHead);
+  const wedBrideHair = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x3a2410 }));
+  wedBrideHair.position.y = 1.92;
+  wedBride.add(wedBrideHair);
+  // bouquet
+  const wedBouquet = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), wedFlowerMats[0]);
+  wedBouquet.position.set(0.18, 1.25, 0.15);
+  wedBride.add(wedBouquet);
+  wedBride.position.set(-0.35, 0, 0.4);
+  wedGroup.add(wedBride);
+  // groom (dark suit, light shirt)
+  const wedGroom = new THREE.Group();
+  const wedGroomLegs = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0x202028 }));
+  wedGroomLegs.position.y = 0.45;
+  wedGroom.add(wedGroomLegs);
+  const wedGroomTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.9, 10), new THREE.MeshLambertMaterial({ color: 0x202028 }));
+  wedGroomTorso.position.y = 1.35;
+  wedGroom.add(wedGroomTorso);
+  const wedGroomHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd5b3 }));
+  wedGroomHead.position.y = 1.95;
+  wedGroom.add(wedGroomHead);
+  const wedGroomHair = new THREE.Mesh(new THREE.SphereGeometry(0.17, 12, 10, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x6a4424 }));
+  wedGroomHair.position.y = 2.02;
+  wedGroom.add(wedGroomHair);
+  // groom's bow tie
+  const wedGroomTie = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.06, 0.04), new THREE.MeshLambertMaterial({ color: 0x880000 }));
+  wedGroomTie.position.set(0, 1.72, 0.18);
+  wedGroom.add(wedGroomTie);
+  wedGroom.position.set(0.35, 0, 0.4);
+  wedGroup.add(wedGroom);
+  // aisle runner
+  const wedRunner = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 4.0), new THREE.MeshLambertMaterial({ color: 0xfff5e6 }));
+  wedRunner.rotation.x = -Math.PI / 2;
+  wedRunner.position.set(0, 0.02, 2.0);
+  wedGroup.add(wedRunner);
+  // a couple of guest chairs
+  const wedChairMat = new THREE.MeshLambertMaterial({ color: 0xf0e6d6 });
+  for (let cz = 1.6; cz <= 3.4; cz += 0.9) {
+    for (let cx of [-1.2, 1.2]) {
+      const ch = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.08, 0.3), wedChairMat);
+      ch.position.set(cx, 0.35, cz);
+      wedGroup.add(ch);
+      const back = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.45, 0.05), wedChairMat);
+      back.position.set(cx, 0.6, cz + 0.13);
+      wedGroup.add(back);
+      const lg1 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.35, 0.05), wedChairMat);
+      lg1.position.set(cx - 0.15, 0.18, cz - 0.12);
+      wedGroup.add(lg1);
+      const lg2 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.35, 0.05), wedChairMat);
+      lg2.position.set(cx + 0.15, 0.18, cz - 0.12);
+      wedGroup.add(lg2);
+    }
+  }
+  wedGroup.position.set(20, 0.05, 22);
+  wedGroup.rotation.y = -0.5;
+  group.add(wedGroup);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -11372,6 +11570,31 @@ export function createAnchorageLandmark(THREE, opts) {
       slBuoyGroup.position.y = 0.18 + Math.sin(t * 1.2) * 0.06;
       slBuoyGroup.rotation.z = Math.sin(t * 0.8) * 0.04;
       slBuoyLight.material.emissiveIntensity = 0.5 + Math.abs(Math.sin(t * 1.5)) * 0.4;
+      // v63: shower spray drops fall, bather sways slightly
+      shDrops.forEach((d, di) => {
+        d.phase = (d.phase + dt * 0.8) % 1.0;
+        const fall = d.phase * 2.4;
+        d.mesh.position.set(0.5 + (Math.random() - 0.5) * 0.04, 2.4 - fall, (Math.random() - 0.5) * 0.18);
+        d.mesh.material.opacity = 0.7 * (1 - d.phase);
+        d.mesh.visible = d.phase < 0.95;
+      });
+      shBatherBody.rotation.y = Math.sin(t * 0.6) * 0.15;
+      shBatherHead.rotation.y = Math.sin(t * 0.6) * 0.15;
+      shBatherArm.rotation.z = -0.6 + Math.sin(t * 1.4) * 0.25;
+      // v63: submarine slowly bobs and translates along the horizon
+      const subBaseX = 70 + Math.sin(t * 0.04) * 18;
+      subGroup.position.x = subBaseX;
+      subGroup.position.y = -0.3 + Math.sin(t * 0.4) * 0.06;
+      subGroup.rotation.y = 0.3 + Math.sin(t * 0.05) * 0.04;
+      subPeriscope.rotation.y = Math.sin(t * 0.5) * 0.6;
+      subPerHead.rotation.y = subPeriscope.rotation.y;
+      subWake.material.opacity = 0.4 + 0.2 * Math.sin(t * 0.7);
+      // v63: wedding flowers gently breathe; bride+groom subtle sway
+      wedFlowers.forEach((f, fi) => {
+        f.position.y = (2.4 + Math.sin(Math.PI * (fi / 17)) * 1.0) + Math.sin(t * 0.5 + fi) * 0.02;
+      });
+      wedBride.rotation.y = Math.sin(t * 0.4) * 0.05;
+      wedGroom.rotation.y = -Math.sin(t * 0.4) * 0.05;
     }
 
   }
