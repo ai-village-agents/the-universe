@@ -12883,6 +12883,181 @@ const cosmicSights = [
     color: "#FFE4B5",
     size: 2.3,
     description: "Antenna pattern sensitivity falloff boundary"
+  },
+  {
+    name: "Population III Star Remnant",
+    position: [115500, -81500, 23500],
+    color: "#FFD700",
+    size: 2.3,
+    description: "First generation zero-metallicity stellar fossil"
+  },
+  {
+    name: "Pristine Iron-Deficient Star",
+    position: [115510, -81490, 23510],
+    color: "#C0C0C0",
+    size: 2.3,
+    description: "Ancient halo star with primordial composition"
+  },
+  {
+    name: "Carbon-Enhanced Metal-Poor Star",
+    position: [115520, -81480, 23520],
+    color: "#8B4513",
+    size: 2.3,
+    description: "C-rich survivor from early Universe nucleosynthesis"
+  },
+  {
+    name: "Actinide-Boost Halo Star",
+    position: [115530, -81470, 23530],
+    color: "#9400D3",
+    size: 2.3,
+    description: "Heavy element enriched by neutron capture events"
+  },
+  {
+    name: "Alpha-Enhanced Giant",
+    position: [115540, -81460, 23540],
+    color: "#FF6347",
+    size: 2.3,
+    description: "Old population star with SNe II abundance pattern"
+  },
+  {
+    name: "Thick Disk Population",
+    position: [115550, -81450, 23550],
+    color: "#DAA520",
+    size: 2.3,
+    description: "Intermediate age galactic stellar component"
+  },
+  {
+    name: "Thin Disk Population",
+    position: [115560, -81440, 23560],
+    color: "#87CEEB",
+    size: 2.3,
+    description: "Young metal-rich galactic plane population"
+  },
+  {
+    name: "Bulge Red Clump Star",
+    position: [115570, -81430, 23570],
+    color: "#DC143C",
+    size: 2.3,
+    description: "Core helium-burning standard candle in bulge"
+  },
+  {
+    name: "Halo Field Star",
+    position: [115580, -81420, 23580],
+    color: "#4682B4",
+    size: 2.3,
+    description: "Ancient metal-poor outer galactic wanderer"
+  },
+  {
+    name: "Globular Cluster Blue Horizontal Branch",
+    position: [115590, -81410, 23590],
+    color: "#00BFFF",
+    size: 2.3,
+    description: "Hot evolved low-mass helium burner"
+  },
+  {
+    name: "Thermal Pulse AGB Luminosity Peak",
+    position: [115600, -81400, 23600],
+    color: "#FF4500",
+    size: 2.3,
+    description: "Luminous thermal-pulsing shell burning giant"
+  },
+  {
+    name: "Planetary Nebula Central Star",
+    position: [115610, -81390, 23610],
+    color: "#E0FFFF",
+    size: 2.3,
+    description: "Hot exposed core ionizing ejected envelope"
+  },
+  {
+    name: "White Dwarf Cooling Sequence",
+    position: [115620, -81380, 23620],
+    color: "#F0F8FF",
+    size: 2.3,
+    description: "Degenerate stellar remnant age indicator"
+  },
+  {
+    name: "Hot Subdwarf sdB Variable",
+    position: [115630, -81370, 23630],
+    color: "#6495ED",
+    size: 2.3,
+    description: "Core helium burner with thin hydrogen envelope"
+  },
+  {
+    name: "Horizontal Branch Instability Strip",
+    position: [115640, -81360, 23640],
+    color: "#FFE4B5",
+    size: 2.3,
+    description: "RR Lyrae variable pulsation zone crossing"
+  },
+  {
+    name: "Main Sequence Turnoff Point",
+    position: [115650, -81350, 23650],
+    color: "#FAFAD2",
+    size: 2.3,
+    description: "Cluster age diagnostic hydrogen exhaustion"
+  },
+  {
+    name: "Subgiant Branch Crossing",
+    position: [115660, -81340, 23660],
+    color: "#FFA500",
+    size: 2.3,
+    description: "Shell hydrogen ignition evolutionary transition"
+  },
+  {
+    name: "RGB Luminosity Function Bump",
+    position: [115670, -81330, 23670],
+    color: "#CD853F",
+    size: 2.3,
+    description: "H-shell meets discontinuity luminosity feature"
+  },
+  {
+    name: "Second Parameter Effect Region",
+    position: [115680, -81320, 23680],
+    color: "#9370DB",
+    size: 2.3,
+    description: "HB morphology metallicity-independent variation"
+  },
+  {
+    name: "Multiple Population Cluster",
+    position: [115690, -81310, 23690],
+    color: "#20B2AA",
+    size: 2.3,
+    description: "Globular with distinct chemical subpopulations"
+  },
+  {
+    name: "Stellar Stream Member",
+    position: [115700, -81300, 23700],
+    color: "#778899",
+    size: 2.3,
+    description: "Tidally stripped dwarf galaxy remnant star"
+  },
+  {
+    name: "Ultra-Faint Dwarf Stellar Population",
+    position: [115710, -81290, 23710],
+    color: "#696969",
+    size: 2.3,
+    description: "Fossil galaxy minimal star formation relic"
+  },
+  {
+    name: "Nuclear Star Cluster Core",
+    position: [115720, -81280, 23720],
+    color: "#FFD700",
+    size: 2.3,
+    description: "Dense central galactic stellar concentration"
+  },
+  {
+    name: "Young Massive Cluster Member",
+    position: [115730, -81270, 23730],
+    color: "#00CED1",
+    size: 2.3,
+    description: "Starburst region proto-globular candidate star"
+  },
+  {
+    name: "Field OB Association Runaway",
+    position: [115740, -81260, 23740],
+    color: "#1E90FF",
+    size: 2.3,
+    description: "Ejected massive star from birth cluster"
   }
 ];
 
