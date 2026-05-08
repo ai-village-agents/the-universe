@@ -19612,7 +19612,32 @@ const cosmicSights = [
     position: [18476, -20364, -4409],
     color: '#8B008B',
     size: 350
-  }
+  },
+  { name: 'Coma Cluster Core Galactic Cannibalism', position: [-300, 80, -100], color: '#e74c3c', description: 'central dominant elliptical galaxy accreting nearby cluster members via dynamical friction' },
+  { name: 'Bullet Cluster Dark Matter Separation', position: [350, -60, 200], color: '#9b59b6', description: 'collisionless dark matter halo passing through baryonic gas shock front' },
+  { name: 'Perseus Cluster X-Ray Cavities', position: [-220, 150, -280], color: '#3498db', description: 'giant buoyant bubbles inflated by AGN jets in hot intracluster medium' },
+  { name: 'Virgo Cluster Infall Quadrupole Distortion', position: [120, -200, 350], color: '#2ecc71', description: 'tidal distortion of outer galaxy orbits from ongoing cluster assembly' },
+  { name: 'Galaxy Cluster Sunyaev-Zeldovich Decrement', position: [-180, 100, -320], color: '#f39c12', description: 'CMB temperature distortion from inverse Compton scattering by hot electrons' },
+  { name: 'Cluster Cool Core Sloshing Cold Front', position: [280, -90, 180], color: '#1abc9c', description: 'spiral cold front pattern from gas sloshing in cluster gravitational potential' },
+  { name: 'El Gordo Colliding Cluster Shock Front', position: [-340, 70, 90], color: '#e67e22', description: 'Mach 3 bow shock from massive galaxy cluster merger at z=0.87' },
+  { name: 'Coma Cluster Radio Halo Relic Edge', position: [-305, 85, -105], color: '#c0392b', description: 'diffuse synchrotron emission boundary from turbulent reacceleration in merger' },
+  { name: 'Cluster Entropy Floor Metallicity Gradient', position: [260, -80, 170], color: '#16a085', description: 'flattened entropy profile with radial iron abundance gradient in cool core' },
+  { name: 'Virgo M87 Relativistic Jet Knot HST-1', position: [125, -205, 355], color: '#8e44ad', description: 'superluminal brightening knot in M87 jet downstream from nucleus' },
+  { name: 'Cluster Weak Lensing Mass Reconstruction', position: [-190, 110, -330], color: '#d35400', description: 'gravitational shear tomography mapping dark matter distribution in cluster' },
+  { name: 'Perseus Halpha Filament Cold Gas Stream', position: [-225, 155, -285], color: '#27ae60', description: 'ten-kiloparsec filament of cold gas rising from center into hot X-ray halo' },
+  { name: 'Cluster AGN Mechanical Feedback Bubble', position: [270, -85, 175], color: '#2980b9', description: 'cavities inflated by intermittent radio-mode AGN outbursts preventing catastrophic cooling' },
+  { name: 'MACS J0717 Filamentary Large-Scale Structure', position: [-360, 50, 60], color: '#e91e63', description: 'cosmic web filament feeding matter into massive cluster along preferred axis' },
+  { name: 'Cluster Brightest Galaxy Stellar Halo Tidal Tail', position: [-310, 90, -110], color: '#f1c40f', description: 'extended intracluster light from disrupted dwarf galaxies around cD galaxy' },
+  { name: 'Coma Cluster Dwarf Galaxy Quenching Front', position: [-295, 75, -95], color: '#00bcd4', description: 'ram-pressure stripping boundary truncating star formation in infalling dwarfs' },
+  { name: 'Cluster Turbulence Hitomi X-Ray Spectroscopy', position: [250, -75, 165], color: '#ff5722', description: 'Hitomi SXS measurement of bulk gas motions and turbulence in Perseus core' },
+  { name: 'Cluster Backlit Lyman-Alpha Absorption Map', position: [-170, 95, -310], color: '#795548', description: 'UV background transmission map revealing cool gas clouds in cluster outskirts' },
+  { name: 'Phoenix Cluster Starbursting Central Galaxy', position: [380, -70, -220], color: '#607d8b', description: 'extreme cooling flow feeding massive star formation rate in BCG nucleus' },
+  { name: 'Cluster Radio Mini-Halo Turbulent Boundary', position: [-315, 95, -115], color: '#673ab7', description: 'diffuse steep-spectrum emission surrounding central AGN in relaxed cluster' },
+  { name: 'Cluster Outskirt Galaxy Pre-Processing Region', position: [200, -100, 140], color: '#3f51b5', description: 'environmental transformation of spirals before entering cluster virial radius' },
+  { name: 'El Gordo Wake Turbulent Merger Tail', position: [-345, 75, 95], color: '#009688', description: 'elongated X-ray surface brightness tail from stripped gas in post-merger cluster' },
+  { name: 'Cluster Magnetic Field Faraday Rotation Measure', position: [-185, 105, -325], color: '#4caf50', description: 'polarized radio source depolarization mapping cluster-scale magnetic field' },
+  { name: 'Coma Cluster UDG Diffuse Galaxy Population', position: [-308, 88, -108], color: '#ff9800', description: 'population of ultra-diffuse galaxies surviving in high-density cluster environment' },
+  { name: 'Cluster Cosmic Ray Proton Calorimetry', position: [240, -70, 160], color: '#9c27b0', description: 'gamma-ray emission from hadronic cosmic ray interactions with intracluster gas' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
