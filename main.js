@@ -25259,6 +25259,206 @@ const cosmicSights = [
 { name: 'Lambda Bootis Metal-Weak Shell', position: [0.43, 0.62, 0.31], color: '#FAFAD2', size: 4.1, description: 'A-type stars with unusually weak metal lines from selective accretion.' },
 { name: 'T Tauri Pre-Main Sequence Disk', position: [0.66, 0.29, 0.58], color: '#FFA07A', size: 5.0, description: 'Young variable stars still contracting toward the main sequence.' },
 { name: 'Herbig Ae/Be Emission Region', position: [0.35, 0.51, 0.74], color: '#FF6347', size: 5.2, description: 'Pre-main sequence intermediate mass stars with strong emission features.' },
+  {
+    name: 'Alpha Loop 13601',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [34151, -1085, 9971],
+    color: '#ff4500',
+    size: 374
+  },
+  {
+    name: 'Beta Loop 13602',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-8183, 11215, 32365],
+    color: '#ffff00',
+    size: 324
+  },
+  {
+    name: 'Gamma Loop 13603',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [18923, 13500, -16276],
+    color: '#ff4500',
+    size: 355
+  },
+  {
+    name: 'Delta Loop 13604',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [5804, 766, -338],
+    color: '#ff00ff',
+    size: 360
+  },
+  {
+    name: 'Epsilon Loop 13605',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-37364, 31723, -34489],
+    color: '#ff4500',
+    size: 253
+  },
+  {
+    name: 'Zeta Loop 13606',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [11961, -17091, -38594],
+    color: '#ffff00',
+    size: 161
+  },
+  {
+    name: 'Eta Loop 13607',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-38108, -35886, 26188],
+    color: '#00ffff',
+    size: 68
+  },
+  {
+    name: 'Theta Loop 13608',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [38672, -12752, 20579],
+    color: '#ff4500',
+    size: 69
+  },
+  {
+    name: 'Iota Loop 13609',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-15152, 22564, -32493],
+    color: '#00ffff',
+    size: 240
+  },
+  {
+    name: 'Kappa Loop 13610',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [24471, 19593, 20016],
+    color: '#ff4500',
+    size: 155
+  },
+  {
+    name: 'Lambda Loop 13611',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-17148, 15163, -1797],
+    color: '#ff00ff',
+    size: 369
+  },
+  {
+    name: 'Mu Loop 13612',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [23604, 31610, 6491],
+    color: '#ff00ff',
+    size: 111
+  },
+  {
+    name: 'Nu Loop 13613',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-30672, 10062, -16528],
+    color: '#00ffff',
+    size: 371
+  },
+  {
+    name: 'Xi Loop 13614',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-20472, 18675, 26604],
+    color: '#00ffff',
+    size: 129
+  },
+  {
+    name: 'Omicron Loop 13615',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [23769, 29983, -12246],
+    color: '#ffff00',
+    size: 89
+  },
+  {
+    name: 'Pi Loop 13616',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-656, -37193, 4728],
+    color: '#ffff00',
+    size: 182
+  },
+  {
+    name: 'Rho Loop 13617',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [32013, -34560, 4683],
+    color: '#ffff00',
+    size: 312
+  },
+  {
+    name: 'Sigma Loop 13618',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [21538, -14193, 29366],
+    color: '#ff00ff',
+    size: 269
+  },
+  {
+    name: 'Tau Loop 13619',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [39715, -31185, 6798],
+    color: '#ffff00',
+    size: 282
+  },
+  {
+    name: 'Upsilon Loop 13620',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [8037, 15529, -688],
+    color: '#00ffff',
+    size: 154
+  },
+  {
+    name: 'Phi Loop 13621',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-33289, 29861, -10111],
+    color: '#00ffff',
+    size: 177
+  },
+  {
+    name: 'Chi Loop 13622',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [30544, 5847, 224],
+    color: '#ffff00',
+    size: 63
+  },
+  {
+    name: 'Psi Loop 13623',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [35906, -3199, -7909],
+    color: '#ff4500',
+    size: 191
+  },
+  {
+    name: 'Omega Loop 13624',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [39729, 38606, -13090],
+    color: '#ffff00',
+    size: 126
+  },
+  {
+    name: 'Prime Loop 13625',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-29832, 26204, -36464],
+    color: '#00ffff',
+    size: 159
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
