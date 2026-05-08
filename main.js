@@ -14935,7 +14935,32 @@ const cosmicSights = [
   {"name": "AGN Polarization Scattered Light", "description": "Polarimetry reveals hidden broad lines scattered into our line of sight.", "position": [11197, 3010, -4710]},
   {"name": "Megamaser Water Vapor Disk Tracer", "description": "Powerful water masers mapping the geometry of the accretion disk.", "position": [11198, 3020, -4720]},
   {"name": "AGN Jet Precession Wobble Pattern", "description": "A jet that traces a corkscrew path due to disk or binary precession.", "position": [11199, 3030, -4730]},
-  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]}
+  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]},
+  { name: "Jovian Magnetosphere Bow Shock", category: "Solar System", position: [390, 80, -220], color: 0xD4A574 },
+  { name: "Saturnian Ring Shepherd Moon", category: "Solar System", position: [-310, 45, 280], color: 0xE8DCC8 },
+  { name: "Martian Dust Devil Swirl", category: "Solar System", position: [250, -30, 150], color: 0xC1440E },
+  { name: "Titanian Methane Lake Shoreline", category: "Solar System", position: [-180, 60, -340], color: 0x8B956D },
+  { name: "Europan Chaos Terrain Fracture", category: "Solar System", position: [420, -15, 80], color: 0xA8C8EC },
+  { name: "Venusian Corona Tectonic Feature", category: "Solar System", position: [-90, 120, 210], color: 0xE6B89C },
+  { name: "Mercurian Hollow Formation", category: "Solar System", position: [70, 150, -90], color: 0xB5A08A },
+  { name: "Neptunian Great Dark Spot Vortex", category: "Solar System", position: [-400, -70, -180], color: 0x4B70A3 },
+  { name: "Plutonian Nitrogen Ice Plain", category: "Solar System", position: [150, -180, 380], color: 0xD4B8A8 },
+  { name: "Ionian Sulfur Volcano Plume", category: "Solar System", position: [-250, 10, -120], color: 0xF4D03F },
+  { name: "Enceladidean Cryovolcanic Jet", category: "Solar System", position: [330, 25, -290], color: 0xE0F7FA },
+  { name: "Tritonian Cantaloupe Terrain Ridge", category: "Solar System", position: [-170, -140, 260], color: 0x9FA8B0 },
+  { name: "Ceres Bright Spot Occator Crater", category: "Solar System", position: [200, -60, -200], color: 0xF5F5F5 },
+  { name: "Uranian Ring Epsilon Arc", category: "Solar System", position: [-380, 95, 40], color: 0x7EC8C8 },
+  { name: "Phobos Stickney Impact Groove", category: "Solar System", position: [110, 40, 130], color: 0x8C7B6B },
+  { name: "Ganymedean Polar Cap Deposit", category: "Solar System", position: [-360, -25, -310], color: 0xC5D3E0 },
+  { name: "Callistoan Valhalla Multi-Ring Basin", category: "Solar System", position: [280, -45, 330], color: 0x6B6B6B },
+  { name: "Mirandan Verona Rupes Cliff", category: "Solar System", position: [-130, 180, -60], color: 0xC8B89A },
+  { name: "Asteroidal Vesta Rheasilvia Basin", category: "Solar System", position: [40, -110, 250], color: 0xA09080 },
+  { name: "Kuiper Belt Object Contact Binary", category: "Solar System", position: [-220, -200, -380], color: 0xB8A99A },
+  { name: "Cometary Jet Active Region", category: "Solar System", position: [360, 140, 170], color: 0x87CEEB },
+  { name: "Lunar Mare Basalt Flow Front", category: "Solar System", position: [-50, 30, -50], color: 0x4A4A4A },
+  { name: "Jovian Co-Orbital Trojan Asteroid", category: "Solar System", position: [180, 70, -150], color: 0xD2B48C },
+  { name: "Martian Recurring Slope Lineae", category: "Solar System", position: [90, -20, 290], color: 0x8B4513 },
+  { name: "Titanian Dune Field Corridor", category: "Solar System", position: [-290, 55, -240], color: 0xD4AF37 }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
