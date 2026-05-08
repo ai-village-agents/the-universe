@@ -16735,6 +16735,131 @@ const cosmicSights = [
     name: "Supersymmetric Dark Matter Relic",
     description: "A surviving population of the lightest supersymmetric particles, frozen out of equilibrium in the early hot universe.",
     position: [5713, -2459, 3895]
+  },
+  {
+    name: "Ultra-High-Energy Cosmic Ray Air Shower",
+    description: "A cascading avalanche of billions of secondary particles triggered when a single proton from deep space strikes Earth's atmosphere with the energy of a pitched baseball.",
+    position: [3147, -2841, 6123]
+  },
+  {
+    name: "Cosmic Ray Iron Nucleus Primary",
+    description: "A heavy iron nucleus accelerated to relativistic speeds by galactic magnetic fields, carrying the elemental fingerprint of a supernova.",
+    position: [-5172, 4318, -2156]
+  },
+  {
+    name: "Neutrino Oscillation Detection Vertex",
+    description: "The precise point inside a vast underground ice or water detector where a ghostly neutrino briefly transforms and reveals its flavor identity.",
+    position: [2836, 5472, -4189]
+  },
+  {
+    name: "Gamma-Ray Burst Prompt Emission Jet",
+    description: "The intensely luminous relativistic outflow from a collapsing massive star, beaming high-energy gamma rays across cosmic distances.",
+    position: [-6214, -1937, 3845]
+  },
+  {
+    name: "Gamma-Ray Burst Afterglow Shock",
+    description: "The fading multi-wavelength glow that follows a gamma-ray burst, produced as the explosion plows into surrounding interstellar gas.",
+    position: [4728, -3621, -2874]
+  },
+  {
+    name: "Cosmic Ray Anisotropy Dipole",
+    description: "A slight imbalance in the arrival directions of ultra-high-energy cosmic rays, hinting at the distribution of powerful nearby accelerators.",
+    position: [-3847, 5183, 1936]
+  },
+  {
+    name: "Astrophysical Neutrino Point Source",
+    description: "A persistent location in the sky where high-energy neutrinos cluster, marking an active galactic nucleus or tidal disruption event.",
+    position: [2156, -4837, 5712]
+  },
+  {
+    name: "Cosmic Ray Knee Energy Break",
+    description: "The bend in the cosmic ray energy spectrum near 3 PeV, where the galactic accelerator population appears to reach its limits.",
+    position: [-5412, 2847, -4236]
+  },
+  {
+    name: "Cosmic Ray Ankle Spectrum Flattening",
+    description: "The flattening feature near 5 EeV where extragalactic cosmic rays begin to dominate over galactic sources.",
+    position: [6128, -2156, 3487]
+  },
+  {
+    name: "Photohadronic Pion Production Region",
+    description: "A zone near an astrophysical accelerator where high-energy protons collide with ambient photons to produce pions and neutrinos.",
+    position: [-4723, 3915, -5178]
+  },
+  {
+    name: "Cherenkov Telescope Array Pixel",
+    description: "A single sensitive pixel within a ground-based telescope that captures the faint blue flash from an atmospheric particle shower.",
+    position: [3548, -5637, 2193]
+  },
+  {
+    name: "Extensive Air Shower Muon Ring",
+    description: "A circular carpet of penetrating muons spread over kilometers, the surviving remnants of a cosmic ray's atmospheric cascade.",
+    position: [-2189, 4873, -3715]
+  },
+  {
+    name: "Blazar Neutrino Flare",
+    description: "A sudden surge of high-energy neutrinos from a jet-pointing supermassive black hole, coincident with a gamma-ray brightening.",
+    position: [6125, -1349, 4531]
+  },
+  {
+    name: "Diffuse Supernova Neutrino Background",
+    description: "The faint omnidirectional glow of neutrinos from all supernovae across cosmic history, barely above detector sensitivity.",
+    position: [-3859, 2718, -5937]
+  },
+  {
+    name: "Pulsar Wind Nebula Synchrotron Glow",
+    description: "The multi-wavelength emission from relativistic electrons spiraling in the magnetic fields of a pulsar's expanding bubble.",
+    position: [4973, -4131, 1842]
+  },
+  {
+    name: "Tidal Disruption Event Jet Launch",
+    description: "The moment a star torn apart by a supermassive black hole launches a relativistic jet along the black hole's spin axis.",
+    position: [-1738, 5347, -2683]
+  },
+  {
+    name: "IceCube Neutrino Cascade Event",
+    description: "A long particle shower deep in Antarctic ice, initiated by a neutrino of astrophysical origin with energy exceeding 100 TeV.",
+    position: [5437, -2879, 4198]
+  },
+  {
+    name: "Fermi Large Area Telescope Source",
+    description: "A persistent gamma-ray emitter cataloged by the orbiting Fermi observatory, mapping the high-energy sky across the entire electromagnetic spectrum.",
+    position: [-6219, 3564, -1847]
+  },
+  {
+    name: "Cosmic Ray Boron-to-Carbon Ratio",
+    description: "A measured abundance ratio that serves as a cosmic clock, revealing how long cosmic rays have wandered through the galaxy.",
+    position: [2783, -4517, 5341]
+  },
+  {
+    name: "Supernova Remnant Shock Acceleration Zone",
+    description: "The expanding blast wave of a stellar explosion where diffusive shock acceleration boosts particles to cosmic ray energies.",
+    position: [-4138, 5827, -2159]
+  },
+  {
+    name: "Active Galactic Nucleus Corona",
+    description: "The hot, compact region above an accretion disk where inverse Compton scattering produces hard X-rays and seeds gamma-ray emission.",
+    position: [3671, -1941, 4715]
+  },
+  {
+    name: "Gamma-Ray Binary Apastron Emission",
+    description: "The peak gamma-ray luminosity when a massive star and compact object in a binary reach their widest orbital separation.",
+    position: [-5347, 4179, -3292]
+  },
+  {
+    name: "Hadronic Cosmic Ray Interaction Peak",
+    description: "The altitude in Earth's atmosphere where proton-nucleus collisions are most frequent, producing the bulk of secondary particles.",
+    position: [4531, -3767, 5128]
+  },
+  {
+    name: "Stellar Collapse Neutrino Burst",
+    description: "The torrent of neutrinos released in the first ten seconds of a core-collapse supernova, carrying away 99% of the explosion's energy.",
+    position: [-2873, 5237, -4514]
+  },
+  {
+    name: "Extragalactic Gamma-Ray Background",
+    description: "The diffuse isotropic glow of gamma-rays from unresolved distant sources, providing a census of the universe's most energetic objects.",
+    position: [5713, -2459, 3895]
   }
 ];
 
