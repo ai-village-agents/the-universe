@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+globalThis.THREE = THREE;
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { worlds } from './config.js';
 import {
@@ -12,8 +13,8 @@ import { createPhotoMode } from './photo-mode.js';
 import { createEventBanner } from './event-banner.js';
 import { createVisitorTracker } from './visitor-tracker.js';
 import { EventVisualIntegration } from './event-visual-integration.js';
-import { initDiagnosticsPanel } from './diagnostics.js';
 import { UniverseEvents } from './universe-events.js';
+import { initAchievements, togglePanel } from './achievements.js';
 
 // Scene Setup
 const scene = new THREE.Scene();
@@ -132,7 +133,44 @@ document.addEventListener('keydown', (event) => {
         toggleTeleportMenu();
         return;
     }
+    if (event.code === 'KeyE' && currentFocus) {
+        openFocusedWorld();
+    }
+    if (event.code === 'KeyM' && !teleportMenuOpen) {
+        if (!universeAudio.isStarted()) universeAudio.start();
+        else universeAudio.toggleMute();
+    }
+    if (event.code === 'KeyT' && !teleportMenuOpen) {
+        guidedTour.toggle();
+    }
+    if (event.code === 'KeyP' && !teleportMenuOpen) {
+        photoMode.capture(() => {
+            const closest = findClosestLandmark();
+            const landmarkId = closest?.id;
+            if (!landmarkId) return;
+            if (UniverseEvents && typeof UniverseEvents.recordPhotoCapture === 'function') {
+                UniverseEvents.recordPhotoCapture(visitorTracker.getVisitorId(), landmarkId);
+            }
+        });
+    }
+    if (!teleportMenuOpen && !welcomeOverlayOpen) {
+        const m = event.code.match(/^Digit([1-9])$/);
+        if (m) {
+            const slot = parseInt(m[1], 10);
+            if (event.shiftKey) {
+                event.preventDefault();
+                saveBookmark(slot);
+            } else if (controls.isLocked || guidedTour.isActive() === false) {
+                event.preventDefault();
+                teleportToBookmark(slot);
+            }
+        }
+    }
     if (teleportMenuOpen) return;
+    if (event.key === 'u' || event.key === 'U') {
+        togglePanel();
+        return;
+    }
     if (guidedTour && guidedTour.isActive() && (event.code === 'KeyW' || event.code === 'KeyA' || event.code === 'KeyS' || event.code === 'KeyD' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowLeft' || event.code === 'ArrowRight')) {
         guidedTour.endTour(false);
     }
@@ -438,6 +476,24 @@ import { createDistantGalaxies } from "./landmarks/distant-galaxies.js";
 // Load Worlds
 const interactables = [];
 const customLandmarkAnimators = [];
+
+const hostileEnvironmentWorld = {
+    id: "hostile-environment-world",
+    name: "Hostile Environment World",
+    agent: "Gemini 2.5 Pro",
+    url: "https://ai-village-agents.github.io/hostile-environment-world/",
+    position: [0, -100, 0],
+    color: "#ff4136",
+    blurb: "A world that is actively hostile to the player.",
+    landmark: "terminal"
+};
+
+const existingHostileWorld = worlds.find((world) => world.id === hostileEnvironmentWorld.id);
+if (existingHostileWorld) {
+    Object.assign(existingHostileWorld, hostileEnvironmentWorld);
+} else {
+    worlds.push(hostileEnvironmentWorld);
+}
 
 function findInteractableTarget(group) {
     if (!group || typeof group.traverse !== 'function') return null;
@@ -1082,43 +1138,6 @@ function openFocusedWorld() {
     }
 }
 
-document.addEventListener('keydown', (event) => {
-    if (welcomeOverlayOpen) return;
-    if(event.code === 'KeyE' && currentFocus) {
-        openFocusedWorld();
-    }
-    if (event.code === 'KeyM' && !teleportMenuOpen) {
-        if (!universeAudio.isStarted()) universeAudio.start();
-        else universeAudio.toggleMute();
-    }
-    if (event.code === 'KeyT' && !teleportMenuOpen) {
-        guidedTour.toggle();
-    }
-    if (event.code === 'KeyP' && !teleportMenuOpen) {
-        photoMode.capture(() => {
-            const closest = findClosestLandmark();
-            const landmarkId = closest?.id;
-            if (!landmarkId) return;
-            if (UniverseEvents && typeof UniverseEvents.recordPhotoCapture === 'function') {
-                UniverseEvents.recordPhotoCapture(visitorTracker.getVisitorId(), landmarkId);
-            }
-        });
-    }
-    // Camera bookmarks (1-9 teleport, Shift+1-9 save) — only when not in teleport menu/welcome
-    if (!teleportMenuOpen && !welcomeOverlayOpen) {
-        const m = event.code.match(/^Digit([1-9])$/);
-        if (m) {
-            const slot = parseInt(m[1], 10);
-            if (event.shiftKey) {
-                event.preventDefault();
-                saveBookmark(slot);
-            } else if (controls.isLocked || guidedTour.isActive() === false) {
-                event.preventDefault();
-                teleportToBookmark(slot);
-            }
-        }
-    }
-});
 document.addEventListener('mousedown', (event) => {
     if(controls.isLocked && currentFocus) {
         openFocusedWorld();
@@ -1274,10 +1293,10 @@ const cosmicSights = [
     { name: 'Hypervelocity Star', position: [0, -150, 500], color: '#88ccff', description: 'star ejected at extreme speed with bow shock and motion trail' },
     { name: 'Ring Galaxy', position: [-400, 200, 800], color: '#6699ff', description: 'collision-formed galaxy with blue stellar ring and intruder galaxy' },
     { name: 'Cepheid Variable', position: [200, -80, -700], color: '#ffffaa', description: 'pulsating supergiant star used as cosmic distance marker' },
-    { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' }
+    { name: 'Red Giant', position: [-300, -150, -600], color: '#ff6633', description: 'bloated aging star with mass loss wind and surviving planet' },
     { name: 'White Dwarf', position: [600, -50, -150], color: '#f0f8ff', description: 'compact stellar remnant with crystallizing carbon core and cooling envelope' },
     { name: 'Brown Dwarf', position: [-150, -100, 400], color: '#8B4513', description: 'substellar object with methane clouds, lithium signature, and orbiting moon' },
-    { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' },
+    { name: 'Gamma Ray Burst', position: [850, 0, -400], color: '#8800ff', description: 'most energetic explosion with relativistic jets, shock waves, and afterglow' }
 ];
 
 function openTeleportMenu() {
@@ -1938,6 +1957,7 @@ async function init() {
 
     initHealthMonitoring();
     await initEventSystem();
+    initAchievements();
     animate();
 }
 
@@ -1945,4 +1965,4 @@ init().catch((error) => {
     console.error('Failed to initialize world loading:', error);
 });
 
-initDiagnosticsPanel();
+window.initDiagnosticsPanel();
