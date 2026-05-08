@@ -25883,7 +25883,207 @@ const cosmicSights = [
   { name: 'UHECR Hotspot Correlation', position: [-2922, 1474, -2226], color: '#FF69B4', size: 4.9, description: 'Arrival direction clustering suggesting nearby extragalactic accelerators as ultra-high energy sources.' },
   { name: 'Starburst Galaxy CR Factory', position: [2923, -1475, 2227], color: '#DB7093', size: 5.2, description: 'Intense star formation region with enhanced supernova rate driving cosmic ray production.' },
   { name: 'AGN Jet CR Acceleration Zone', position: [-2924, 1476, -2228], color: '#C71585', size: 5.3, description: 'Relativistic jet termination shock accelerating particles to highest observed cosmic ray energies.' },
-  { name: 'Fermi Bubble CR Population', position: [2925, -1477, 2229], color: '#FF00FF', size: 5.1, description: 'Giant gamma-ray lobes above galactic center harboring energetic cosmic ray electron population.' }
+  { name: 'Fermi Bubble CR Population', position: [2925, -1477, 2229], color: '#FF00FF', size: 5.1, description: 'Giant gamma-ray lobes above galactic center harboring energetic cosmic ray electron population.' },
+  {
+    name: 'Protostellar Jet Alpha 13701',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-1106, -31947, 16675],
+    color: '#ffff00',
+    size: 252
+  },
+  {
+    name: 'Protostellar Jet Beta 13702',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [37925, -20899, 34451],
+    color: '#ffff00',
+    size: 352
+  },
+  {
+    name: 'Protostellar Jet Gamma 13703',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-25624, -12490, 2156],
+    color: '#ffff00',
+    size: 127
+  },
+  {
+    name: 'Protostellar Jet Delta 13704',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-32786, 26023, 5551],
+    color: '#ffff00',
+    size: 393
+  },
+  {
+    name: 'Protostellar Jet Epsilon 13705',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-1711, 9332, 25252],
+    color: '#00ffff',
+    size: 366
+  },
+  {
+    name: 'Protostellar Jet Zeta 13706',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [12955, 3074, 15770],
+    color: '#ffff00',
+    size: 298
+  },
+  {
+    name: 'Protostellar Jet Eta 13707',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-38470, 37747, -26242],
+    color: '#ffff00',
+    size: 117
+  },
+  {
+    name: 'Protostellar Jet Theta 13708',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-265, -23285, 889],
+    color: '#ff4500',
+    size: 353
+  },
+  {
+    name: 'Protostellar Jet Iota 13709',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-21508, -13970, 7494],
+    color: '#ff4500',
+    size: 370
+  },
+  {
+    name: 'Protostellar Jet Kappa 13710',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [13370, -728, 13447],
+    color: '#ffff00',
+    size: 355
+  },
+  {
+    name: 'Protostellar Jet Lambda 13711',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [17953, -13279, 2046],
+    color: '#00ffff',
+    size: 367
+  },
+  {
+    name: 'Protostellar Jet Mu 13712',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-22311, 3287, -26617],
+    color: '#ff00ff',
+    size: 155
+  },
+  {
+    name: 'Protostellar Jet Nu 13713',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-29724, -31807, 5111],
+    color: '#ff4500',
+    size: 372
+  },
+  {
+    name: 'Protostellar Jet Xi 13714',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [17055, -25558, 34404],
+    color: '#ff4500',
+    size: 322
+  },
+  {
+    name: 'Protostellar Jet Omicron 13715',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [4741, 27494, 479],
+    color: '#00ffff',
+    size: 397
+  },
+  {
+    name: 'Protostellar Jet Pi 13716',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [36478, 32590, -27861],
+    color: '#ff00ff',
+    size: 237
+  },
+  {
+    name: 'Protostellar Jet Rho 13717',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [25389, 38155, -4221],
+    color: '#ffff00',
+    size: 314
+  },
+  {
+    name: 'Protostellar Jet Sigma 13718',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-36800, 20919, 5905],
+    color: '#ffff00',
+    size: 359
+  },
+  {
+    name: 'Protostellar Jet Tau 13719',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-26618, -3558, 27675],
+    color: '#ff4500',
+    size: 252
+  },
+  {
+    name: 'Protostellar Jet Upsilon 13720',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-30578, -26741, 15806],
+    color: '#ff00ff',
+    size: 61
+  },
+  {
+    name: 'Protostellar Jet Phi 13721',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [16261, 5868, 19345],
+    color: '#00ffff',
+    size: 342
+  },
+  {
+    name: 'Protostellar Jet Chi 13722',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [6011, -3302, -13730],
+    color: '#ff00ff',
+    size: 364
+  },
+  {
+    name: 'Protostellar Jet Psi 13723',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [17372, -28522, -32089],
+    color: '#ffff00',
+    size: 147
+  },
+  {
+    name: 'Protostellar Jet Omega 13724',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [28049, 33535, 32142],
+    color: '#00ffff',
+    size: 257
+  },
+  {
+    name: 'Protostellar Jet Prime 13725',
+    category: 'Protostellar Jets',
+    description: 'A mesmerizing manifestation of protostellar jets observed in deep space.', 
+    position: [-21081, 35298, -4581],
+    color: '#ff4500',
+    size: 51
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
