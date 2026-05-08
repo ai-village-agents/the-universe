@@ -17306,6 +17306,151 @@ export function createAnchorageLandmark(THREE, opts) {
   byscGroup.add(byscInsHead);
   group.add(byscGroup);
 
+  // v105: coastal swing set with kids (cssk)
+  const csskGroup = new THREE.Group();
+  csskGroup.position.set(38, 0.05, -42);
+  const csskFrameMat = new THREE.MeshLambertMaterial({ color: 0x8b4513 });
+  const csskBarMat = new THREE.MeshLambertMaterial({ color: 0x6b4423 });
+  // A-frame posts
+  for (let i = 0; i < 2; i++) {
+    const sx = i === 0 ? -2.2 : 2.2;
+    const csskPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 3.0, 8), csskFrameMat);
+    csskPostL.position.set(sx - 0.3, 1.5, -0.5);
+    csskPostL.rotation.z = (i === 0 ? 1 : -1) * 0.18;
+    csskGroup.add(csskPostL);
+    const csskPostR = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 3.0, 8), csskFrameMat);
+    csskPostR.position.set(sx + 0.3, 1.5, 0.5);
+    csskPostR.rotation.z = (i === 0 ? 1 : -1) * 0.18;
+    csskGroup.add(csskPostR);
+  }
+  // Top bar
+  const csskTopBar = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 5.2, 10), csskBarMat);
+  csskTopBar.rotation.z = Math.PI / 2;
+  csskTopBar.position.set(0, 2.85, 0);
+  csskGroup.add(csskTopBar);
+  // Two swings with kids
+  const csskSwings = [];
+  const csskKids = [];
+  for (let i = 0; i < 2; i++) {
+    const sx = i === 0 ? -1.4 : 1.4;
+    const swingPivot = new THREE.Group();
+    swingPivot.position.set(sx, 2.85, 0);
+    const ropeL = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0xaa9966 }));
+    ropeL.position.set(-0.25, -0.8, 0);
+    swingPivot.add(ropeL);
+    const ropeR = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0xaa9966 }));
+    ropeR.position.set(0.25, -0.8, 0);
+    swingPivot.add(ropeR);
+    const seat = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.06, 0.25), new THREE.MeshLambertMaterial({ color: 0x4a4a4a }));
+    seat.position.set(0, -1.6, 0);
+    swingPivot.add(seat);
+    // Kid
+    const kidColor = i === 0 ? 0xff6633 : 0x33aaff;
+    const kidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.55, 8), new THREE.MeshLambertMaterial({ color: kidColor }));
+    kidBody.position.set(0, -1.32, 0);
+    swingPivot.add(kidBody);
+    const kidHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+    kidHead.position.set(0, -0.95, 0);
+    swingPivot.add(kidHead);
+    csskGroup.add(swingPivot);
+    csskSwings.push({ pivot: swingPivot, phase: i * Math.PI });
+  }
+  group.add(csskGroup);
+
+  // v105: beach polaroid photographer (bpp)
+  const bppGroup = new THREE.Group();
+  bppGroup.position.set(-26, 0.05, 32);
+  // Photographer
+  const bppPhotog = new THREE.Group();
+  const bppTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.3, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x6a4f8a }));
+  bppTorso.position.y = 0.95;
+  bppPhotog.add(bppTorso);
+  const bppHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+  bppHead.position.y = 1.55;
+  bppPhotog.add(bppHead);
+  const bppHat = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 16), new THREE.MeshLambertMaterial({ color: 0xddbb55 }));
+  bppHat.position.y = 1.74;
+  bppPhotog.add(bppHat);
+  // Camera held up
+  const bppCam = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.28, 0.18), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  bppCam.position.set(0, 1.4, 0.45);
+  bppPhotog.add(bppCam);
+  const bppLens = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.1, 12), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  bppLens.rotation.x = Math.PI / 2;
+  bppLens.position.set(0, 1.4, 0.59);
+  bppPhotog.add(bppLens);
+  // Flash bulb
+  const bppFlashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.0 });
+  const bppFlash = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), bppFlashMat);
+  bppFlash.position.set(0, 1.5, 0.7);
+  bppPhotog.add(bppFlash);
+  bppGroup.add(bppPhotog);
+  // Subjects: couple posing
+  const bppCouple = new THREE.Group();
+  bppCouple.position.set(0, 0, 3.2);
+  for (let i = 0; i < 2; i++) {
+    const sx = i === 0 ? -0.45 : 0.45;
+    const sb = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.32, 0.95, 10), new THREE.MeshLambertMaterial({ color: i === 0 ? 0xff6699 : 0x66aacc }));
+    sb.position.set(sx, 1.0, 0);
+    bppCouple.add(sb);
+    const sh = new THREE.Mesh(new THREE.SphereGeometry(0.23, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+    sh.position.set(sx, 1.65, 0);
+    bppCouple.add(sh);
+  }
+  bppGroup.add(bppCouple);
+  // Polaroid prints scattered on a small table
+  const bppTable = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.05, 0.6), new THREE.MeshLambertMaterial({ color: 0x8b6f47 }));
+  bppTable.position.set(-1.2, 0.5, -0.4);
+  bppGroup.add(bppTable);
+  for (let i = 0; i < 3; i++) {
+    const polaroid = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.22), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    polaroid.rotation.x = -Math.PI / 2;
+    polaroid.rotation.z = (i - 1) * 0.3;
+    polaroid.position.set(-1.2 + (i - 1) * 0.22, 0.53, -0.4);
+    bppGroup.add(polaroid);
+  }
+  group.add(bppGroup);
+
+  // v105: driftwood letter mailbox (dwm)
+  const dwmGroup = new THREE.Group();
+  dwmGroup.position.set(28, 0.05, 22);
+  const dwmPost = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.13, 1.4, 8), new THREE.MeshLambertMaterial({ color: 0x9c7a5a }));
+  dwmPost.position.y = 0.7;
+  dwmGroup.add(dwmPost);
+  const dwmBox = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.4, 0.7), new THREE.MeshLambertMaterial({ color: 0x6f4a2a }));
+  dwmBox.position.y = 1.55;
+  dwmGroup.add(dwmBox);
+  // Driftwood roof slats
+  for (let i = 0; i < 3; i++) {
+    const slat = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.04, 0.18), new THREE.MeshLambertMaterial({ color: 0xc8a878 }));
+    slat.position.set(0, 1.83, -0.22 + i * 0.22);
+    slat.rotation.z = (i - 1) * 0.05;
+    dwmGroup.add(slat);
+  }
+  // Letter slot
+  const dwmSlot = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.05, 0.04), new THREE.MeshBasicMaterial({ color: 0x111111 }));
+  dwmSlot.position.set(0, 1.62, 0.36);
+  dwmGroup.add(dwmSlot);
+  // Flag
+  const dwmFlag = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.16, 0.03), new THREE.MeshLambertMaterial({ color: 0xcc4422 }));
+  dwmFlag.position.set(0.36, 1.7, 0);
+  dwmGroup.add(dwmFlag);
+  // A child reading a letter
+  const dwmChild = new THREE.Group();
+  dwmChild.position.set(-0.85, 0, 0.6);
+  const dwmKidBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.23, 0.7, 10), new THREE.MeshLambertMaterial({ color: 0xffaa44 }));
+  dwmKidBody.position.y = 0.7;
+  dwmChild.add(dwmKidBody);
+  const dwmKidHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+  dwmKidHead.position.y = 1.15;
+  dwmChild.add(dwmKidHead);
+  const dwmLetter = new THREE.Mesh(new THREE.PlaneGeometry(0.22, 0.3), new THREE.MeshBasicMaterial({ color: 0xfff8e0, side: THREE.DoubleSide }));
+  dwmLetter.position.set(0.05, 0.95, 0.25);
+  dwmLetter.rotation.x = -0.4;
+  dwmChild.add(dwmLetter);
+  dwmGroup.add(dwmChild);
+  group.add(dwmGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19738,6 +19883,16 @@ export function createAnchorageLandmark(THREE, opts) {
         }
         // Sunrise glow pulses
         byscGlow.material.opacity = 0.3 + Math.sin(v104t * 0.5) * 0.15;
+        // v105: swing kids swinging, photographer flash, mailbox flag wave
+        const v105t = t * 1.0;
+        for (let i = 0; i < csskSwings.length; i++) {
+          const sw = csskSwings[i];
+          sw.pivot.rotation.x = Math.sin(v105t * 1.6 + sw.phase) * 0.55;
+        }
+        bppFlash.material.opacity = (Math.sin(v105t * 0.7) > 0.97) ? 0.9 : 0.0;
+        dwmFlag.rotation.x = Math.sin(v105t * 2.0) * 0.18;
+        dwmChild.rotation.y = Math.sin(v105t * 0.5) * 0.1;
+
         // v98 anim
         const v98t = t;
         pccCat1Tail.rotation.x = Math.PI / 3 + Math.sin(v98t * 1.5) * 0.5;
