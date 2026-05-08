@@ -23170,7 +23170,32 @@ const cosmicSights = [
     position: [-10480, 22494, -18354],
     color: '#fa8072',
     size: 66
-  }
+  },
+{ name: "Lyman Break Galaxy z=3", position: [2701.0, 1600.5, 2050.7] },
+  { name: "Lyman Alpha Emitter z=6", position: [2702.1, 1601.2, 2051.4] },
+  { name: "Submillimeter Galaxy Core", position: [2703.2, 1602.3, 2052.1] },
+  { name: "High-z Quasar Host", position: [2704.3, 1603.4, 2053.2] },
+  { name: "DLA Absorber Cloud Complex", position: [2705.4, 1604.5, 2054.3] },
+  { name: "Cosmic Reionization Bubble", position: [2706.5, 1605.6, 2055.4] },
+  { name: "First Light Galaxy Candidate", position: [2707.6, 1606.7, 2056.5] },
+  { name: "Stellar Mass Buildup Phase", position: [2708.7, 1607.8, 2057.6] },
+  { name: "Gas Accretion Filament z=4", position: [2709.8, 1608.9, 2058.7] },
+  { name: "Protocluster Overdensity", position: [2710.9, 1609.0, 2059.8] },
+  { name: "UV Luminosity Function Peak", position: [2711.0, 1610.1, 2060.9] },
+  { name: "Dust Obscured Galaxy z=2", position: [2712.1, 1611.2, 2061.0] },
+  { name: "Compact Star Forming Clump", position: [2713.2, 1612.3, 2062.1] },
+  { name: "Galaxy Morphology Transition", position: [2714.3, 1613.4, 2063.2] },
+  { name: "High-z AGN Feedback Zone", position: [2715.4, 1614.5, 2064.3] },
+  { name: "Intergalactic Medium Enrichment", position: [2716.5, 1615.6, 2065.4] },
+  { name: "Cosmic Star Formation Peak z=2", position: [2717.6, 1616.7, 2066.5] },
+  { name: "Galaxy Size Evolution Track", position: [2718.7, 1617.8, 2067.6] },
+  { name: "Metallicity Gradient Evolution", position: [2719.8, 1618.9, 2068.7] },
+  { name: "Outflow Driven Enrichment", position: [2720.9, 1619.0, 2069.8] },
+  { name: "Quiescent Galaxy Progenitor", position: [2721.0, 1620.1, 2070.9] },
+  { name: "Merger Driven Starburst z=3", position: [2722.1, 1621.2, 2071.0] },
+  { name: "Circumgalactic Medium z=4", position: [2723.2, 1622.3, 2072.1] },
+  { name: "Galaxy Angular Momentum Growth", position: [2724.3, 1623.4, 2073.2] },
+  { name: "High-z Disk Formation Epoch", position: [2725.4, 1624.5, 2074.3] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
