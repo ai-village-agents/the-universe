@@ -21215,6 +21215,144 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(chsGroup);
 
+
+  // v129: coastal driftwood arch (cdwa)
+  const cdwaGroup = new THREE.Group();
+  cdwaGroup.position.set(-322, 0, -198);
+  const cdwaMat = new THREE.MeshLambertMaterial({ color: 0x9b7a5b });
+  const cdwaLeftPts = [];
+  for (let i = 0; i <= 12; i++) {
+    const ang = i / 12 * Math.PI * 0.55;
+    cdwaLeftPts.push(new THREE.Vector3(-3.0 + Math.sin(ang) * 0.4, i * 0.55, 0));
+  }
+  const cdwaLeftCurve = new THREE.CatmullRomCurve3(cdwaLeftPts);
+  const cdwaLeft = new THREE.Mesh(new THREE.TubeGeometry(cdwaLeftCurve, 14, 0.28, 6, false), cdwaMat);
+  cdwaGroup.add(cdwaLeft);
+  const cdwaRightPts = [];
+  for (let i = 0; i <= 12; i++) {
+    const ang = i / 12 * Math.PI * 0.55;
+    cdwaRightPts.push(new THREE.Vector3(3.0 - Math.sin(ang) * 0.4, i * 0.55, 0));
+  }
+  const cdwaRightCurve = new THREE.CatmullRomCurve3(cdwaRightPts);
+  const cdwaRight = new THREE.Mesh(new THREE.TubeGeometry(cdwaRightCurve, 14, 0.28, 6, false), cdwaMat);
+  cdwaGroup.add(cdwaRight);
+  const cdwaTopPts = [
+    new THREE.Vector3(-2.6, 6.6, 0),
+    new THREE.Vector3(-1.5, 7.2, 0.2),
+    new THREE.Vector3(0, 7.4, -0.1),
+    new THREE.Vector3(1.5, 7.2, 0.2),
+    new THREE.Vector3(2.6, 6.6, 0),
+  ];
+  const cdwaTopCurve = new THREE.CatmullRomCurve3(cdwaTopPts);
+  const cdwaTop = new THREE.Mesh(new THREE.TubeGeometry(cdwaTopCurve, 18, 0.32, 6, false), cdwaMat);
+  cdwaGroup.add(cdwaTop);
+  // hanging shells
+  const cdwaShells = [];
+  for (let i = 0; i < 7; i++) {
+    const sh = new THREE.Mesh(new THREE.SphereGeometry(0.16, 6, 5), new THREE.MeshLambertMaterial({ color: 0xfff0d4 }));
+    sh.position.set(-2.4 + i * 0.8, 6.4 - Math.abs(i - 3) * 0.1, 0);
+    cdwaGroup.add(sh);
+    cdwaShells.push(sh);
+  }
+  // a beach walker passing under
+  const cdwaWalker = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.2, 7), new THREE.MeshLambertMaterial({ color: 0x6c8fb8 }));
+  cdwaWalker.position.set(-2.5, 0.6, 0.6);
+  cdwaGroup.add(cdwaWalker);
+  const cdwaWalkerHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xf2c8a4 }));
+  cdwaWalkerHead.position.set(-2.5, 1.4, 0.6);
+  cdwaGroup.add(cdwaWalkerHead);
+  group.add(cdwaGroup);
+
+  // v129: pier balloon-arch wedding (pbaw)
+  const pbawGroup = new THREE.Group();
+  pbawGroup.position.set(238, 4.3, -64);
+  // arch poles
+  const pbawPoleMat = new THREE.MeshLambertMaterial({ color: 0xe8e2d4 });
+  const pbawPoleL = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 4.5, 8), pbawPoleMat);
+  pbawPoleL.position.set(-2.4, 2.25, 0);
+  pbawGroup.add(pbawPoleL);
+  const pbawPoleR = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 4.5, 8), pbawPoleMat);
+  pbawPoleR.position.set(2.4, 2.25, 0);
+  pbawGroup.add(pbawPoleR);
+  // balloons along the arch
+  const pbawBalloonColors = [0xff8fb8, 0xfff0a8, 0xb8e0ff, 0xffc080, 0xd8a8ff];
+  const pbawBalloons = [];
+  for (let i = 0; i <= 18; i++) {
+    const tt = i / 18;
+    const ang = tt * Math.PI;
+    const x = -2.4 + (1 - Math.cos(ang)) * 2.4;
+    const y = 4.5 + Math.sin(ang) * 1.4;
+    const c = pbawBalloonColors[i % pbawBalloonColors.length];
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.28, 8, 6), new THREE.MeshLambertMaterial({ color: c }));
+    b.position.set(x, y, 0);
+    pbawGroup.add(b);
+    pbawBalloons.push(b);
+  }
+  // bride and groom
+  const pbawBride = new THREE.Mesh(new THREE.ConeGeometry(0.45, 1.5, 10), new THREE.MeshLambertMaterial({ color: 0xfafafa }));
+  pbawBride.position.set(-0.5, 0.75, 0.4);
+  pbawGroup.add(pbawBride);
+  const pbawBrideH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xf0c8a0 }));
+  pbawBrideH.position.set(-0.5, 1.7, 0.4);
+  pbawGroup.add(pbawBrideH);
+  const pbawGroom = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.4, 8), new THREE.MeshLambertMaterial({ color: 0x202028 }));
+  pbawGroom.position.set(0.5, 0.7, 0.4);
+  pbawGroup.add(pbawGroom);
+  const pbawGroomH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  pbawGroomH.position.set(0.5, 1.6, 0.4);
+  pbawGroup.add(pbawGroomH);
+  // officiant
+  const pbawOff = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.3, 8), new THREE.MeshLambertMaterial({ color: 0x6a3a3a }));
+  pbawOff.position.set(0, 0.65, -0.6);
+  pbawGroup.add(pbawOff);
+  const pbawOffH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xd8a880 }));
+  pbawOffH.position.set(0, 1.45, -0.6);
+  pbawGroup.add(pbawOffH);
+  group.add(pbawGroup);
+
+  // v129: pier stargazer pair (psgp)
+  const psgpGroup = new THREE.Group();
+  psgpGroup.position.set(216, 4.3, 142);
+  // blanket
+  const psgpBlanket = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2.4), new THREE.MeshLambertMaterial({ color: 0x4a6e8c, side: THREE.DoubleSide }));
+  psgpBlanket.rotation.x = -Math.PI / 2;
+  psgpBlanket.position.y = 0.02;
+  psgpGroup.add(psgpBlanket);
+  // two figures lying down
+  const psgpA = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.5, 8), new THREE.MeshLambertMaterial({ color: 0xc06080 }));
+  psgpA.rotation.z = Math.PI / 2;
+  psgpA.position.set(-0.5, 0.3, -0.4);
+  psgpGroup.add(psgpA);
+  const psgpAH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xf2c8a4 }));
+  psgpAH.position.set(-1.4, 0.32, -0.4);
+  psgpGroup.add(psgpAH);
+  const psgpB = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.5, 8), new THREE.MeshLambertMaterial({ color: 0x4060a8 }));
+  psgpB.rotation.z = Math.PI / 2;
+  psgpB.position.set(-0.5, 0.3, 0.4);
+  psgpGroup.add(psgpB);
+  const psgpBH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  psgpBH.position.set(-1.4, 0.32, 0.4);
+  psgpGroup.add(psgpBH);
+  // telescope
+  const psgpScopeMat = new THREE.MeshLambertMaterial({ color: 0x202028 });
+  const psgpScopeTri = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.7, 6), psgpScopeMat);
+  psgpScopeTri.position.set(1.0, 0.4, 0);
+  psgpGroup.add(psgpScopeTri);
+  const psgpScope = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.2, 8), psgpScopeMat);
+  psgpScope.position.set(1.0, 1.05, 0);
+  psgpScope.rotation.z = -Math.PI / 6;
+  psgpGroup.add(psgpScope);
+  // floating "stars" overhead (small spheres that drift)
+  const psgpStarMat = new THREE.MeshBasicMaterial({ color: 0xfff8d8, transparent: true, opacity: 0.85 });
+  const psgpStars = [];
+  for (let i = 0; i < 9; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.05, 5, 4), psgpStarMat.clone());
+    s.position.set(-1.5 + Math.random() * 3.2, 2.2 + Math.random() * 1.5, -1.0 + Math.random() * 2);
+    psgpGroup.add(s);
+    psgpStars.push(s);
+  }
+  group.add(psgpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24146,6 +24284,25 @@ export function createAnchorageLandmark(THREE, opts) {
     chsReeds[i].rotation.z = Math.sin(v128t * 0.8 + i * 0.4) * 0.06;
   }
   chsWater.material.opacity = 0.55 + Math.sin(v128t * 1.0) * 0.08;
+
+  // v129 updates
+  const v129t = t;
+  // cdwa - shells sway gently
+  for (let i = 0; i < cdwaShells.length; i++) {
+    cdwaShells[i].position.y = (6.4 - Math.abs(i - 3) * 0.1) + Math.sin(v129t * 1.2 + i * 0.6) * 0.05;
+  }
+  // walker bobs
+  cdwaWalker.position.y = 0.6 + Math.sin(v129t * 1.5) * 0.04;
+  cdwaWalkerHead.position.y = 1.4 + Math.sin(v129t * 1.5) * 0.04;
+  // pbaw - balloons bob
+  for (let i = 0; i < pbawBalloons.length; i++) {
+    pbawBalloons[i].position.x += Math.sin(v129t * 1.0 + i * 0.4) * 0.0005;
+    pbawBalloons[i].scale.setScalar(1 + Math.sin(v129t * 1.4 + i * 0.5) * 0.03);
+  }
+  // psgp - stars twinkle
+  for (let i = 0; i < psgpStars.length; i++) {
+    psgpStars[i].material.opacity = 0.55 + Math.sin(v129t * 2.5 + i * 0.7) * 0.35;
+  }
 
 
 
