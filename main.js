@@ -21249,6 +21249,131 @@ const cosmicSights = [
     position: [-14319, -13579, 38189],
     color: '#FF4500',
     size: 127
+  },
+  {
+    name: "Molecular Cloud Collapse Trigger 12601",
+    description: "Cosmic sight 12601: Molecular Cloud Collapse Trigger observed in the star formation network of the universe.",
+    position: [-189.9, 310.6, -460.2]
+  },
+  {
+    name: "Protostellar Core Fragmentation 12602",
+    description: "Cosmic sight 12602: Protostellar Core Fragmentation observed in the star formation network of the universe.",
+    position: [614.0, 222.0, -863.4]
+  },
+  {
+    name: "Bipolar Outflow Jet Launch 12603",
+    description: "Cosmic sight 12603: Bipolar Outflow Jet Launch observed in the star formation network of the universe.",
+    position: [387.3, -217.5, -837.2]
+  },
+  {
+    name: "Protoplanetary Disk Accretion 12604",
+    description: "Cosmic sight 12604: Protoplanetary Disk Accretion observed in the star formation network of the universe.",
+    position: [306.7, -505.1, -167.3]
+  },
+  {
+    name: "Herbig Haro Object Shock 12605",
+    description: "Cosmic sight 12605: Herbig Haro Object Shock observed in the star formation network of the universe.",
+    position: [-372.1, 291.9, -329.4]
+  },
+  {
+    name: "T Tauri Star Flare Event 12606",
+    description: "Cosmic sight 12606: T Tauri Star Flare Event observed in the star formation network of the universe.",
+    position: [-852.3, 141.0, -519.7]
+  },
+  {
+    name: "Pre Main Sequence Contraction 12607",
+    description: "Cosmic sight 12607: Pre Main Sequence Contraction observed in the star formation network of the universe.",
+    position: [-4.9, 244.0, -736.1]
+  },
+  {
+    name: "Deuterium Burning Phase 12608",
+    description: "Cosmic sight 12608: Deuterium Burning Phase observed in the star formation network of the universe.",
+    position: [323.3, -282.7, -2.6]
+  },
+  {
+    name: "Hydrostatic Core Ignition 12609",
+    description: "Cosmic sight 12609: Hydrostatic Core Ignition observed in the star formation network of the universe.",
+    position: [433.5, -529.4, -485.8]
+  },
+  {
+    name: "Jeans Mass Instability Threshold 12610",
+    description: "Cosmic sight 12610: Jeans Mass Instability Threshold observed in the star formation network of the universe.",
+    position: [60.9, 610.5, 169.4]
+  },
+  {
+    name: "Ambipolar Diffusion Rate 12611",
+    description: "Cosmic sight 12611: Ambipolar Diffusion Rate observed in the star formation network of the universe.",
+    position: [-756.4, -595.6, 71.8]
+  },
+  {
+    name: "Turbulent Core Accretion Model 12612",
+    description: "Cosmic sight 12612: Turbulent Core Accretion Model observed in the star formation network of the universe.",
+    position: [195.3, -764.1, -272.6]
+  },
+  {
+    name: "Competitive Accretion Scenario 12613",
+    description: "Cosmic sight 12613: Competitive Accretion Scenario observed in the star formation network of the universe.",
+    position: [-784.8, 496.0, 314.9]
+  },
+  {
+    name: "Monolithic Core Collapse 12614",
+    description: "Cosmic sight 12614: Monolithic Core Collapse observed in the star formation network of the universe.",
+    position: [843.1, -388.9, -93.8]
+  },
+  {
+    name: "Radiative Feedback Bubble 12615",
+    description: "Cosmic sight 12615: Radiative Feedback Bubble observed in the star formation network of the universe.",
+    position: [-890.4, 171.1, -528.3]
+  },
+  {
+    name: "Photoionization Front Propagation 12616",
+    description: "Cosmic sight 12616: Photoionization Front Propagation observed in the star formation network of the universe.",
+    position: [360.3, 267.6, -20.0]
+  },
+  {
+    name: "HII Region Expansion 12617",
+    description: "Cosmic sight 12617: HII Region Expansion observed in the star formation network of the universe.",
+    position: [-181.8, -466.8, -403.4]
+  },
+  {
+    name: "Triggered Star Formation 12618",
+    description: "Cosmic sight 12618: Triggered Star Formation observed in the star formation network of the universe.",
+    position: [180.9, -362.9, 569.4]
+  },
+  {
+    name: "Superbubble Chimney Outflow 12619",
+    description: "Cosmic sight 12619: Superbubble Chimney Outflow observed in the star formation network of the universe.",
+    position: [-619.0, -759.4, 491.7]
+  },
+  {
+    name: "Pillar of Creation Erosion 12620",
+    description: "Cosmic sight 12620: Pillar of Creation Erosion observed in the star formation network of the universe.",
+    position: [347.3, 705.0, -165.5]
+  },
+  {
+    name: "Evaporating Gaseous Globule 12621",
+    description: "Cosmic sight 12621: Evaporating Gaseous Globule observed in the star formation network of the universe.",
+    position: [-686.4, 287.8, 675.5]
+  },
+  {
+    name: "Embedded Cluster Disruption 12622",
+    description: "Cosmic sight 12622: Embedded Cluster Disruption observed in the star formation network of the universe.",
+    position: [-754.7, -808.7, 780.8]
+  },
+  {
+    name: "Initial Mass Function Slope 12623",
+    description: "Cosmic sight 12623: Initial Mass Function Slope observed in the star formation network of the universe.",
+    position: [776.1, -434.7, 548.5]
+  },
+  {
+    name: "Core Accretion Giant Planet 12624",
+    description: "Cosmic sight 12624: Core Accretion Giant Planet observed in the star formation network of the universe.",
+    position: [745.9, -155.0, 269.7]
+  },
+  {
+    name: "Disk Instability Brown Dwarf 12625",
+    description: "Cosmic sight 12625: Disk Instability Brown Dwarf observed in the star formation network of the universe.",
+    position: [-548.0, -601.0, 566.0]
   }
 ];
 
