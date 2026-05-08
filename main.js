@@ -22718,7 +22718,32 @@ const cosmicSights = [
     position: [-18551, -33989, 3799],
     color: '#9b59b6',
     size: 332
-  }
+  },
+{ id: 13026, name: "Intracluster Plasma Core", position: [0.71, 0.33, 0.88] },
+  { id: 13027, name: "Cluster Virial Boundary", position: [-0.42, 0.67, 0.15] },
+  { id: 13028, name: "ICM Entropy Floor Region", position: [0.29, -0.81, 0.54] },
+  { id: 13029, name: "Cluster Mass Concentration Peak", position: [-0.63, 0.11, -0.77] },
+  { id: 13030, name: "BCG Dominant Halo Center", position: [0.88, -0.25, 0.41] },
+  { id: 13031, name: "Ram Pressure Stripping Front", position: [-0.17, 0.93, -0.32] },
+  { id: 13032, name: "ICM Subhalo Merger Remnant", position: [0.55, 0.47, -0.69] },
+  { id: 13033, name: "ICM Turbulence Cascade Zone", position: [-0.79, -0.38, 0.48] },
+  { id: 13034, name: "Peripheral Shock Radio Arc", position: [0.13, 0.72, 0.67] },
+  { id: 13035, name: "Mini Halo Diffuse Emission", position: [-0.91, 0.04, -0.41] },
+  { id: 13036, name: "Cluster Giant Radio Halo", position: [0.46, -0.59, -0.66] },
+  { id: 13037, name: "ICM Metallicity Gradient Slope", position: [-0.22, -0.87, 0.44] },
+  { id: 13038, name: "Cluster Splashback Radius", position: [0.68, 0.19, 0.71] },
+  { id: 13039, name: "Fossil Cluster Remnant Core", position: [-0.54, 0.78, -0.33] },
+  { id: 13040, name: "Cluster Weak Lensing Shear Map", position: [0.37, -0.41, 0.83] },
+  { id: 13041, name: "Strong Lensing Critical Curve", position: [-0.83, -0.52, -0.19] },
+  { id: 13042, name: "Cluster SZ Decrement Center", position: [0.92, 0.28, -0.27] },
+  { id: 13043, name: "Thermal SZ Pressure Profile", position: [-0.08, 0.65, 0.76] },
+  { id: 13044, name: "Kinetic SZ Peculiar Velocity Signal", position: [0.74, -0.68, 0.07] },
+  { id: 13045, name: "Cluster X-ray Luminosity Peak", position: [-0.49, 0.36, -0.79] },
+  { id: 13046, name: "ICM Conduction Suppression Zone", position: [0.21, 0.89, 0.39] },
+  { id: 13047, name: "Cluster Galaxy Velocity Dispersion Field", position: [-0.66, -0.24, 0.71] },
+  { id: 13048, name: "Infall Region Galaxy Population", position: [0.58, -0.76, -0.31] },
+  { id: 13049, name: "Cluster Baryon Fraction Measurement", position: [-0.33, 0.55, 0.77] },
+  { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
