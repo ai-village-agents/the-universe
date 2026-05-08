@@ -26083,6 +26083,206 @@ const cosmicSights = [
     position: [-21081, 35298, -4581],
     color: '#ff4500',
     size: 51
+  },
+  {
+    name: 'IGM Cloud Alpha 13726',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [11732, -37344, 7435],
+    color: '#ffff00',
+    size: 376
+  },
+  {
+    name: 'IGM Cloud Beta 13727',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [34046, -34356, -18595],
+    color: '#ff4500',
+    size: 332
+  },
+  {
+    name: 'IGM Cloud Gamma 13728',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [5069, -13279, -18165],
+    color: '#ffff00',
+    size: 390
+  },
+  {
+    name: 'IGM Cloud Delta 13729',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [8705, 37675, 25833],
+    color: '#ff00ff',
+    size: 373
+  },
+  {
+    name: 'IGM Cloud Epsilon 13730',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [10430, 9476, -38834],
+    color: '#ffff00',
+    size: 346
+  },
+  {
+    name: 'IGM Cloud Zeta 13731',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-26260, -20442, -13230],
+    color: '#ff4500',
+    size: 320
+  },
+  {
+    name: 'IGM Cloud Eta 13732',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [16308, 28633, 23971],
+    color: '#00ffff',
+    size: 372
+  },
+  {
+    name: 'IGM Cloud Theta 13733',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-36508, -39766, 13150],
+    color: '#ff00ff',
+    size: 141
+  },
+  {
+    name: 'IGM Cloud Iota 13734',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-32614, 38660, -4255],
+    color: '#ffff00',
+    size: 141
+  },
+  {
+    name: 'IGM Cloud Kappa 13735',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-7004, 27606, 13524],
+    color: '#ffff00',
+    size: 384
+  },
+  {
+    name: 'IGM Cloud Lambda 13736',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [27248, 35573, 35248],
+    color: '#ffff00',
+    size: 264
+  },
+  {
+    name: 'IGM Cloud Mu 13737',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [26111, 18724, -25161],
+    color: '#ffff00',
+    size: 128
+  },
+  {
+    name: 'IGM Cloud Nu 13738',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [9421, -35989, 26844],
+    color: '#ff00ff',
+    size: 391
+  },
+  {
+    name: 'IGM Cloud Xi 13739',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-7921, 19555, -5273],
+    color: '#00ffff',
+    size: 282
+  },
+  {
+    name: 'IGM Cloud Omicron 13740',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [16927, 34537, -17278],
+    color: '#ff00ff',
+    size: 386
+  },
+  {
+    name: 'IGM Cloud Pi 13741',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-12648, 1823, -7457],
+    color: '#ff00ff',
+    size: 218
+  },
+  {
+    name: 'IGM Cloud Rho 13742',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-5722, -29181, 17385],
+    color: '#ff4500',
+    size: 369
+  },
+  {
+    name: 'IGM Cloud Sigma 13743',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-27815, 5131, -28923],
+    color: '#ffff00',
+    size: 370
+  },
+  {
+    name: 'IGM Cloud Tau 13744',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [27431, 36972, 31937],
+    color: '#ff4500',
+    size: 243
+  },
+  {
+    name: 'IGM Cloud Upsilon 13745',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-17904, -325, 27371],
+    color: '#00ffff',
+    size: 320
+  },
+  {
+    name: 'IGM Cloud Phi 13746',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [29966, -20477, -37414],
+    color: '#ff4500',
+    size: 82
+  },
+  {
+    name: 'IGM Cloud Chi 13747',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [38501, -35002, 17840],
+    color: '#00ffff',
+    size: 222
+  },
+  {
+    name: 'IGM Cloud Psi 13748',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-35176, 21363, -20387],
+    color: '#ffff00',
+    size: 220
+  },
+  {
+    name: 'IGM Cloud Omega 13749',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [32885, -14516, -21695],
+    color: '#ffff00',
+    size: 206
+  },
+  {
+    name: 'IGM Cloud Prime 13750',
+    category: 'Intergalactic Medium Clouds',
+    description: 'A mesmerizing manifestation of intergalactic medium clouds observed in deep space.', 
+    position: [-19185, -13075, -2483],
+    color: '#ff4500',
+    size: 289
   }
 ];
 
