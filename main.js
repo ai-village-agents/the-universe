@@ -24580,7 +24580,32 @@ const cosmicSights = [
     position: [7596, 18309, -22767],
     color: '#8b4513',
     size: 490
-  }
+  },
+  { name: "GW150914 Precursor Orbit 13401", description: "Binary black hole inspiral detected by LIGO Hanford and Livingston", position: [2578.8, -2252.6, -770.1] },
+  { name: "GW151226 Inspiral Phase 13402", description: "Low-mass binary black hole merger from second observing run", position: [-2203.5, 1694.7, 790.4] },
+  { name: "GW170104 High Mass Ratio 13403", description: "High mass ratio event revealing asymmetric binary formation", position: [2577.3, 570.7, -1844.1] },
+  { name: "GW170608 Low Mass Binary 13404", description: "Lightest binary black hole system observed to date", position: [-631.1, -455.2, 1602.5] },
+  { name: "GW170729 Precession Wobble 13405", description: "Spin-precessing binary with measurable orbital precession", position: [1664.1, 704.1, 2691.1] },
+  { name: "GW170809 Eccentric Capture 13406", description: "Eccentric binary captured through dynamical interaction", position: [-2622.8, -1036.9, -861.1] },
+  { name: "GW170814 Sky Localization 13407", description: "First triple-detector event localizing source to 60 square degrees", position: [896.9, 906.0, 1274.2] },
+  { name: "GW170817 Tidal Deformability 13408", description: "Neutron star merger with electromagnetic counterpart", position: [-1877.1, -1090.4, -2287.5] },
+  { name: "GW170818 Spin Alignment 13409", description: "Misaligned spins suggesting isolated binary evolution", position: [-1007.1, -1367.4, 2274.7] },
+  { name: "GW170823 High Redshift 13410", description: "Most distant gravitational wave event in O2 run", position: [-2185.6, 2230.3, -122.4] },
+  { name: "GW190412 Mass Gap 13411", description: "Mass gap event challenging pair-instability supernova models", position: [1848.7, -2154.3, 1813.0] },
+  { name: "GW190425 Neutron Star Merger 13412", description: "Binary neutron star merger without gamma-ray burst detection", position: [563.1, -2682.1, -2759.2] },
+  { name: "GW190521 Intermediate Mass 13413", description: "Intermediate mass black hole formation via hierarchical merger", position: [2148.4, 1322.1, 924.8] },
+  { name: "GW190630 Light Speed Test 13414", description: "Strong field test of gravitational wave propagation speed", position: [-2382.2, -117.1, -718.2] },
+  { name: "GW190814 Mystery Mass 13415", description: "Compact object in lower mass gap between neutron stars and black holes", position: [-622.1, 335.1, 1775.5] },
+  { name: "GW190924 Low Frequency 13416", description: "Low-frequency inspiral at edge of detector sensitivity", position: [-2201.8, 396.3, 688.6] },
+  { name: "GW200105 Neutron Black Merger 13417", description: "Neutron star-black hole merger with tidal disruption", position: [-117.5, 2651.8, -898.0] },
+  { name: "GW200115 Asymmetric Masses 13418", description: "Asymmetric mass ratio neutron star binary system", position: [2221.1, 792.1, 2670.0] },
+  { name: "GW200129 Ringdown Echo 13419", description: "Post-merger ringdown with potential exotic physics signatures", position: [224.5, 2463.3, -738.9] },
+  { name: "GW200202 Subsolar Companion 13420", description: "Subsolar mass companion candidate around primary black hole", position: [1089.3, 757.7, 79.5] },
+  { name: "GW200208 Eccentric Merger 13421", description: "Highly eccentric binary formed in dense stellar environment", position: [1461.1, -897.1, -1308.0] },
+  { name: "GW200219 Higher Harmonics 13422", description: "Higher harmonics clearly visible in gravitational waveform", position: [-2518.4, -1709.1, -2299.6] },
+  { name: "GW200220 Precessing Spins 13423", description: "Precessing spin configuration breaking orbital plane symmetry", position: [2613.9, -2153.4, -1803.1] },
+  { name: "GW200224 Mass Ratio Limit 13424", description: "Extreme mass ratio setting constraints on binary evolution", position: [490.2, -93.6, -821.5] },
+  { name: "GW200302 Stochastic Background 13425", description: "Contribution to stochastic gravitational wave background spectrum", position: [796.2, 435.4, 565.0] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
