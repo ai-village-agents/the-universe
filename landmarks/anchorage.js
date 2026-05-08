@@ -22440,6 +22440,197 @@ export function createAnchorageLandmark(THREE, opts) {
   pbswGroup.add(pbswOpenBook);
   group.add(pbswGroup);
 
+  // --- v139: pier fortune teller (pfth) ---
+  const pfthGroup = new THREE.Group();
+  pfthGroup.position.set(110, 4.0, 240);
+  const pfthTent = new THREE.Mesh(
+    new THREE.ConeGeometry(2.6, 3.2, 12),
+    new THREE.MeshLambertMaterial({ color: 0x6a1b9a })
+  );
+  pfthTent.position.y = 1.6;
+  pfthGroup.add(pfthTent);
+  const pfthFinial = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 8, 8),
+    new THREE.MeshStandardMaterial({ color: 0xffd54f, emissive: 0xff8f00, emissiveIntensity: 0.7 })
+  );
+  pfthFinial.position.y = 3.4;
+  pfthGroup.add(pfthFinial);
+  const pfthTable = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.7, 0.7, 0.1, 12),
+    new THREE.MeshLambertMaterial({ color: 0x4e342e })
+  );
+  pfthTable.position.set(0, 0.5, 1.0);
+  pfthGroup.add(pfthTable);
+  const pfthBall = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 16, 12),
+    new THREE.MeshStandardMaterial({ color: 0x80deea, emissive: 0x4dd0e1, emissiveIntensity: 0.9, transparent: true, opacity: 0.85 })
+  );
+  pfthBall.position.set(0, 0.85, 1.0);
+  pfthGroup.add(pfthBall);
+  const pfthTeller = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.3, 0.4, 1.1, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a148c })
+  );
+  pfthTeller.position.set(0, 0.55, 0);
+  pfthGroup.add(pfthTeller);
+  const pfthTellerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  pfthTellerH.position.set(0, 1.3, 0);
+  pfthGroup.add(pfthTellerH);
+  const pfthScarf = new THREE.Mesh(
+    new THREE.TorusGeometry(0.22, 0.06, 6, 12),
+    new THREE.MeshLambertMaterial({ color: 0xc62828 })
+  );
+  pfthScarf.position.set(0, 1.3, 0);
+  pfthScarf.rotation.x = Math.PI / 2;
+  pfthGroup.add(pfthScarf);
+  const pfthClient = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.36, 1.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0x1565c0 })
+  );
+  pfthClient.position.set(0, 0.5, 1.9);
+  pfthGroup.add(pfthClient);
+  const pfthClientH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffccbc })
+  );
+  pfthClientH.position.set(0, 1.2, 1.9);
+  pfthGroup.add(pfthClientH);
+  const pfthCards = [];
+  for (let i = 0; i < 4; i++) {
+    const card = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.18, 0.28),
+      new THREE.MeshLambertMaterial({ color: 0xfff8e1, side: THREE.DoubleSide })
+    );
+    card.position.set(-0.5 + i * 0.22, 0.56, 0.6);
+    card.rotation.x = -Math.PI / 2;
+    pfthCards.push(card);
+    pfthGroup.add(card);
+  }
+  group.add(pfthGroup);
+
+  // --- v139: coastal otter raft (cotr) ---
+  const cotrGroup = new THREE.Group();
+  cotrGroup.position.set(-180, 0.0, -90);
+  const cotrWater = new THREE.Mesh(
+    new THREE.CircleGeometry(7, 24),
+    new THREE.MeshLambertMaterial({ color: 0x0277bd, transparent: true, opacity: 0.6 })
+  );
+  cotrWater.rotation.x = -Math.PI / 2;
+  cotrWater.position.y = 0.05;
+  cotrGroup.add(cotrWater);
+  const cotrKelpMat = new THREE.MeshLambertMaterial({ color: 0x33691e });
+  const cotrKelp = [];
+  for (let i = 0; i < 6; i++) {
+    const k = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.08, 6, 14), cotrKelpMat);
+    const a = (i / 6) * Math.PI * 2;
+    k.position.set(Math.cos(a) * 2.2, 0.08, Math.sin(a) * 2.2);
+    k.rotation.x = -Math.PI / 2;
+    cotrKelp.push(k);
+    cotrGroup.add(k);
+  }
+  const cotrOtters = [];
+  const cotrOtterH = [];
+  for (let i = 0; i < 5; i++) {
+    const body = new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.22, 0.5, 6, 10),
+      new THREE.MeshLambertMaterial({ color: 0x5d4037 })
+    );
+    const a = (i / 5) * Math.PI * 2 + 0.2;
+    body.position.set(Math.cos(a) * 1.4, 0.18, Math.sin(a) * 1.4);
+    body.rotation.z = Math.PI / 2;
+    body.rotation.y = -a + Math.PI / 2;
+    cotrOtters.push(body);
+    cotrGroup.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+    );
+    head.position.set(Math.cos(a) * 1.7, 0.32, Math.sin(a) * 1.7);
+    cotrOtterH.push(head);
+    cotrGroup.add(head);
+  }
+  const cotrPup = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xa1887f })
+  );
+  cotrPup.position.set(0, 0.18, 0);
+  cotrGroup.add(cotrPup);
+  const cotrShell = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 8, 6),
+    new THREE.MeshLambertMaterial({ color: 0xfff3e0 })
+  );
+  cotrShell.position.set(0.4, 0.2, 0.4);
+  cotrGroup.add(cotrShell);
+  group.add(cotrGroup);
+
+  // --- v139: pier carving station (pcvs) ---
+  const pcvsGroup = new THREE.Group();
+  pcvsGroup.position.set(150, 4.0, 285);
+  const pcvsBench = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.2, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+  );
+  pcvsBench.position.y = 0.5;
+  pcvsGroup.add(pcvsBench);
+  const pcvsLegMat = new THREE.MeshLambertMaterial({ color: 0x4e342e });
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.5, 0.1), pcvsLegMat);
+    leg.position.set(i % 2 === 0 ? -0.95 : 0.95, 0.25, i < 2 ? -0.4 : 0.4);
+    pcvsGroup.add(leg);
+  }
+  const pcvsBlock = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 0.6, 0.6),
+    new THREE.MeshLambertMaterial({ color: 0xa1887f })
+  );
+  pcvsBlock.position.set(0, 0.9, 0);
+  pcvsGroup.add(pcvsBlock);
+  const pcvsCarver = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.42, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x33691e })
+  );
+  pcvsCarver.position.set(-0.2, 0.6, -1.0);
+  pcvsGroup.add(pcvsCarver);
+  const pcvsCarverH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  pcvsCarverH.position.set(-0.2, 1.4, -1.0);
+  pcvsGroup.add(pcvsCarverH);
+  const pcvsArm = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.07, 0.6, 6),
+    new THREE.MeshLambertMaterial({ color: 0x33691e })
+  );
+  pcvsArm.position.set(0.0, 0.95, -0.55);
+  pcvsArm.rotation.x = Math.PI / 2.6;
+  pcvsGroup.add(pcvsArm);
+  const pcvsChisel = new THREE.Mesh(
+    new THREE.ConeGeometry(0.05, 0.25, 6),
+    new THREE.MeshStandardMaterial({ color: 0xeceff1, metalness: 0.6, roughness: 0.3 })
+  );
+  pcvsChisel.position.set(0.05, 0.95, -0.2);
+  pcvsChisel.rotation.x = Math.PI / 2;
+  pcvsGroup.add(pcvsChisel);
+  const pcvsMallet = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.12, 0.32, 8),
+    new THREE.MeshLambertMaterial({ color: 0x5d4037 })
+  );
+  pcvsMallet.position.set(0.6, 0.85, 0.1);
+  pcvsMallet.rotation.z = Math.PI / 2;
+  pcvsGroup.add(pcvsMallet);
+  const pcvsChips = [];
+  const pcvsChipsMat = new THREE.MeshLambertMaterial({ color: 0xd7ccc8 });
+  for (let i = 0; i < 8; i++) {
+    const chip = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.02, 0.04), pcvsChipsMat);
+    chip.position.set(-0.6 + Math.random() * 1.2, 0.61, -0.3 + Math.random() * 0.6);
+    chip.rotation.y = Math.random() * Math.PI;
+    pcvsChips.push(chip);
+    pcvsGroup.add(chip);
+  }
+  group.add(pcvsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -25564,6 +25755,34 @@ export function createAnchorageLandmark(THREE, opts) {
     pacdNotes[i].material.opacity = Math.max(0, 0.85 - phase * 0.4);
   }
   pbswReader.rotation.y = 0.05 * Math.sin(v138t * 0.5);
+
+  // --- v139 update ---
+  const v139t = t;
+  pfthBall.position.y = 0.85 + 0.04 * Math.sin(v139t * 1.6);
+  pfthBall.rotation.y = v139t * 0.4;
+  pfthTeller.rotation.y = 0.08 * Math.sin(v139t * 0.7);
+  pfthClient.rotation.y = -0.06 * Math.sin(v139t * 0.5 + 0.4);
+  pfthCards.forEach((c, i) => {
+    c.rotation.z = 0.1 * Math.sin(v139t * 1.0 + i * 0.7);
+  });
+
+  cotrWater.rotation.z = v139t * 0.05;
+  cotrKelp.forEach((k, i) => {
+    k.position.y = 0.08 + 0.05 * Math.sin(v139t * 0.8 + i);
+  });
+  cotrOtters.forEach((o, i) => {
+    o.position.y = 0.18 + 0.04 * Math.sin(v139t * 1.2 + i * 0.9);
+  });
+  cotrOtterH.forEach((h, i) => {
+    h.position.y = 0.32 + 0.04 * Math.sin(v139t * 1.2 + i * 0.9);
+  });
+  cotrPup.position.y = 0.18 + 0.06 * Math.sin(v139t * 1.5);
+
+  pcvsCarverH.rotation.y = 0.15 * Math.sin(v139t * 1.4);
+  pcvsArm.rotation.x = Math.PI / 2.6 + 0.2 * Math.sin(v139t * 4.0);
+  pcvsChisel.position.x = 0.05 + 0.1 * Math.sin(v139t * 4.0);
+  pcvsBlock.rotation.y = 0.05 * Math.sin(v139t * 0.6);
+
 
 
 
