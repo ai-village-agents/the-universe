@@ -17167,6 +17167,157 @@ const cosmicSights = [
   {"name": "Cosmic Element Ratio Observatory", "description": "A vantage point revealing the universal abundance pattern shaped by stellar nucleosynthesis.", "position": [-4567, 1234, -3421]},
   {"name": "Magnesium-24 Production Shell", "description": "The stellar region where carbon fusion creates magnesium through neon intermediate states.", "position": [3421, -1234, 2654]}
 
+,
+    {
+      "id": 11701,
+      "name": "Chaotic Stellar Orbits",
+      "description": "Deterministic chaos in multi-body stellar systems",
+      "position": [5450, 106500, 3450]
+    },
+    {
+      "id": 11702,
+      "name": "Lyapunov Exponents Stellar",
+      "description": "Measuring divergence rates in stellar dynamics",
+      "position": [5451, 106520, 3451]
+    },
+    {
+      "id": 11703,
+      "name": "Resonance Overlap Stars",
+      "description": "Overlapping resonances causing orbital chaos",
+      "position": [5452, 106540, 3452]
+    },
+    {
+      "id": 11704,
+      "name": "Three-Body Problem Stars",
+      "description": "Chaotic dynamics in stellar triples",
+      "position": [5453, 106560, 3453]
+    },
+    {
+      "id": 11705,
+      "name": "Separatrix Crossing Dynamics",
+      "description": "Transitions between regular and chaotic motion",
+      "position": [5454, 106580, 3454]
+    },
+    {
+      "id": 11706,
+      "name": "Poincaré Surface Sections",
+      "description": "Visualizing phase space structure in stellar systems",
+      "position": [5455, 106600, 3455]
+    },
+    {
+      "id": 11707,
+      "name": "KAM Tori Stellar Orbits",
+      "description": "Kolmogorov-Arnold-Moser invariant tori in stars",
+      "position": [5456, 106620, 3456]
+    },
+    {
+      "id": 11708,
+      "name": "Bifurcation Cascade Dynamics",
+      "description": "Period-doubling routes to chaos in stellar orbits",
+      "position": [5457, 106640, 3457]
+    },
+    {
+      "id": 11709,
+      "name": "Heteroclinic Tangles Stellar",
+      "description": "Complex web of stable/unstable manifolds",
+      "position": [5458, 106660, 3458]
+    },
+    {
+      "id": 11710,
+      "name": "Horseshoe Map Stellar Dynamics",
+      "description": "Mixing and stretching in stellar phase space",
+      "position": [5459, 106680, 3459]
+    },
+    {
+      "id": 11711,
+      "name": "Gravitational Scattering Chaos",
+      "description": "Chaotic encounters between stellar systems",
+      "position": [5460, 106700, 3460]
+    },
+    {
+      "id": 11712,
+      "name": "Escape Time Diagrams Stars",
+      "description": "Computing escape probability in stellar ensembles",
+      "position": [5461, 106720, 3461]
+    },
+    {
+      "id": 11713,
+      "name": "Fractal Boundaries Orbits",
+      "description": "Fractal structure at stability boundaries",
+      "position": [5462, 106740, 3462]
+    },
+    {
+      "id": 11714,
+      "name": "Strange Attractors Stellar",
+      "description": "Chaotic attractors in driven stellar systems",
+      "position": [5463, 106760, 3463]
+    },
+    {
+      "id": 11715,
+      "name": "Perturbation Theory Limits",
+      "description": "Breaking down of perturbative methods near chaos",
+      "position": [5464, 106780, 3464]
+    },
+    {
+      "id": 11716,
+      "name": "Secular Resonances Chaos",
+      "description": "Long-timescale resonant instabilities",
+      "position": [5465, 106800, 3465]
+    },
+    {
+      "id": 11717,
+      "name": "N-Body Integrator Stability",
+      "description": "Numerical challenges in chaotic stellar dynamics",
+      "position": [5466, 106820, 3466]
+    },
+    {
+      "id": 11718,
+      "name": "Time-Reversibility Violations",
+      "description": "Irreversibility in chaotic stellar systems",
+      "position": [5467, 106840, 3467]
+    },
+    {
+      "id": 11719,
+      "name": "Ergodic Theory Stellar",
+      "description": "Statistical properties of chaotic stellar orbits",
+      "position": [5468, 106860, 3468]
+    },
+    {
+      "id": 11720,
+      "name": "Entropy Production Dynamics",
+      "description": "Information loss in chaotic stellar motion",
+      "position": [5469, 106880, 3469]
+    },
+    {
+      "id": 11721,
+      "name": "Chaos in Planetary Systems",
+      "description": "Planetary system instability timescales",
+      "position": [5470, 106900, 3470]
+    },
+    {
+      "id": 11722,
+      "name": "Stability Zones Planets",
+      "description": "Islands of stability in chaotic planetary domains",
+      "position": [5471, 106920, 3471]
+    },
+    {
+      "id": 11723,
+      "name": "Migration-Induced Chaos",
+      "description": "Chaotic dynamics from planetary migration",
+      "position": [5472, 106940, 3472]
+    },
+    {
+      "id": 11724,
+      "name": "Dynamical Mixing Timescales",
+      "description": "Time for chaos to mix stellar populations",
+      "position": [5473, 106960, 3473]
+    },
+    {
+      "id": 11725,
+      "name": "Chaotic Diffusion Rates",
+      "description": "Rate of orbital element diffusion in chaos",
+      "position": [5474, 106980, 3474]
+    }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
