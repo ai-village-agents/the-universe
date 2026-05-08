@@ -19970,6 +19970,132 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pstmGroup);
 
+  // --- v123: beach paper boat regatta (bpbr) ----------------------------------
+  const bpbrGroup = new THREE.Group();
+  bpbrGroup.position.set(-18, 1.0, -46);
+  const bpbrPondMat = new THREE.MeshBasicMaterial({ color: 0x6fbcdb, transparent: true, opacity: 0.7 });
+  const bpbrPond = new THREE.Mesh(new THREE.CircleGeometry(2.0, 24), bpbrPondMat);
+  bpbrPond.rotation.x = -Math.PI / 2;
+  bpbrPond.position.y = 0.02;
+  bpbrGroup.add(bpbrPond);
+  const bpbrBoatColors = [0xfff0d8, 0xffc8c8, 0xc8e0ff, 0xfff8a0, 0xc8ffd0];
+  const bpbrBoats = [];
+  for (let i = 0; i < 5; i++) {
+    const b = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.18, 4), new THREE.MeshLambertMaterial({ color: bpbrBoatColors[i] }));
+    b.rotation.z = Math.PI;
+    const ang = (i / 5) * Math.PI * 2;
+    b.position.set(Math.cos(ang) * 1.2, 0.12, Math.sin(ang) * 1.2);
+    bpbrGroup.add(b);
+    bpbrBoats.push(b);
+  }
+  const bpbrChildColors = [0xc94f4f, 0x4f8fc9, 0x4fc97a];
+  const bpbrChildren = [];
+  for (let i = 0; i < 3; i++) {
+    const c = new THREE.Group();
+    const cb = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.55, 8), new THREE.MeshLambertMaterial({ color: bpbrChildColors[i] }));
+    cb.position.y = 0.27;
+    c.add(cb);
+    const ch = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+    ch.position.y = 0.7;
+    c.add(ch);
+    const ang = (i / 3) * Math.PI * 2 + 0.5;
+    c.position.set(Math.cos(ang) * 2.4, 0, Math.sin(ang) * 2.4);
+    bpbrGroup.add(c);
+    bpbrChildren.push(c);
+  }
+  group.add(bpbrGroup);
+
+  // --- v123: coastal driftwood loom (cdwl) ------------------------------------
+  const cdwlGroup = new THREE.Group();
+  cdwlGroup.position.set(-46, 1.5, 4);
+  const cdwlFrameMat = new THREE.MeshLambertMaterial({ color: 0x8a6a4a });
+  const cdwlBeamTop = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.4, 8), cdwlFrameMat);
+  cdwlBeamTop.rotation.z = Math.PI / 2;
+  cdwlBeamTop.position.y = 1.6;
+  cdwlGroup.add(cdwlBeamTop);
+  const cdwlBeamBot = cdwlBeamTop.clone();
+  cdwlBeamBot.position.y = 0.4;
+  cdwlGroup.add(cdwlBeamBot);
+  const cdwlPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.6, 8), cdwlFrameMat);
+  cdwlPostL.position.set(-0.7, 0.8, 0);
+  cdwlGroup.add(cdwlPostL);
+  const cdwlPostR = cdwlPostL.clone();
+  cdwlPostR.position.x = 0.7;
+  cdwlGroup.add(cdwlPostR);
+  const cdwlWarpMat = new THREE.MeshBasicMaterial({ color: 0xeeeeaa });
+  const cdwlWarps = [];
+  for (let i = 0; i < 12; i++) {
+    const w = new THREE.Mesh(new THREE.BoxGeometry(0.005, 1.0, 0.005), cdwlWarpMat);
+    w.position.set(-0.55 + (i / 11) * 1.1, 1.0, 0);
+    cdwlGroup.add(w);
+    cdwlWarps.push(w);
+  }
+  const cdwlWeftColors = [0x8a3a3a, 0x4a6a4a, 0x4a3a8a, 0xc9b34f];
+  const cdwlWefts = [];
+  for (let i = 0; i < 6; i++) {
+    const wf = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.04, 0.02), new THREE.MeshLambertMaterial({ color: cdwlWeftColors[i % 4] }));
+    wf.position.set(0, 0.55 + i * 0.06, 0);
+    cdwlGroup.add(wf);
+    cdwlWefts.push(wf);
+  }
+  const cdwlShuttle = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.06), new THREE.MeshLambertMaterial({ color: 0x6b3a1a }));
+  cdwlShuttle.position.set(0, 0.95, 0.05);
+  cdwlGroup.add(cdwlShuttle);
+  const cdwlWeaver = new THREE.Group();
+  const cdwlWBody = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.31, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x4a3a6a }));
+  cdwlWBody.position.y = 0.42;
+  cdwlWeaver.add(cdwlWBody);
+  const cdwlWHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  cdwlWHead.position.y = 0.95;
+  cdwlWeaver.add(cdwlWHead);
+  cdwlWeaver.position.set(0, 0, 0.7);
+  cdwlGroup.add(cdwlWeaver);
+  group.add(cdwlGroup);
+
+  // --- v123: pier glassblower studio (pgs) ------------------------------------
+  const pgsGroup = new THREE.Group();
+  pgsGroup.position.set(28, 1.5, 38);
+  const pgsKilnMat = new THREE.MeshLambertMaterial({ color: 0x6a2a1a });
+  const pgsKiln = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.45, 0.9, 12), pgsKilnMat);
+  pgsKiln.position.y = 0.45;
+  pgsGroup.add(pgsKiln);
+  const pgsOpening = new THREE.Mesh(new THREE.CircleGeometry(0.16, 16), new THREE.MeshBasicMaterial({ color: 0xff7a1a, transparent: true, opacity: 0.9 }));
+  pgsOpening.position.set(0, 0.55, 0.46);
+  pgsGroup.add(pgsOpening);
+  const pgsGlow = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.5 }));
+  pgsGlow.position.set(0, 0.55, 0.5);
+  pgsGroup.add(pgsGlow);
+  const pgsBlower = new THREE.Group();
+  const pgsBBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x6a3a3a }));
+  pgsBBody.position.y = 0.47;
+  pgsBlower.add(pgsBBody);
+  const pgsBHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  pgsBHead.position.y = 1.05;
+  pgsBlower.add(pgsBHead);
+  const pgsRod = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.3, 8), new THREE.MeshStandardMaterial({ color: 0xeeeeee, metalness: 0.6, roughness: 0.3 }));
+  pgsRod.rotation.z = Math.PI / 2;
+  pgsRod.position.set(-0.5, 0.95, 0);
+  pgsBlower.add(pgsRod);
+  const pgsBlob = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), new THREE.MeshBasicMaterial({ color: 0xff9a1a, transparent: true, opacity: 0.8 }));
+  pgsBlob.position.set(-1.15, 0.95, 0);
+  pgsBlower.add(pgsBlob);
+  pgsBlower.position.set(0.7, 0, 0.4);
+  pgsGroup.add(pgsBlower);
+  const pgsShelfMat = new THREE.MeshLambertMaterial({ color: 0x4a2a1a });
+  const pgsShelf = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.04, 0.3), pgsShelfMat);
+  pgsShelf.position.set(-0.8, 0.7, -0.3);
+  pgsGroup.add(pgsShelf);
+  const pgsVaseMat = new THREE.MeshStandardMaterial({ color: 0x4faabe, transparent: true, opacity: 0.7, roughness: 0.2 });
+  const pgsVases = [];
+  for (let i = 0; i < 4; i++) {
+    const v = new THREE.Mesh(new THREE.SphereGeometry(0.1, 10, 8), pgsVaseMat);
+    v.scale.y = 1.6;
+    v.position.set(-1.3 + i * 0.32, 0.86, -0.3);
+    pgsGroup.add(v);
+    pgsVases.push(v);
+  }
+  group.add(pgsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -22680,6 +22806,18 @@ export function createAnchorageLandmark(THREE, opts) {
   cltwBuoys.forEach((b, i) => { b.position.y = 0.2 + Math.sin(v122t * 1.5 + i * 0.7) * 0.04; });
   pstmTaffy.scale.x = 1 + Math.sin(v122t * 2.5) * 0.3;
   pstmTaffy.scale.z = 1 - Math.sin(v122t * 2.5) * 0.2;
+  const v123t = t;
+  bpbrBoats.forEach((b, i) => {
+    const ang = (i / 5) * Math.PI * 2 + v123t * 0.3;
+    b.position.x = Math.cos(ang) * 1.2;
+    b.position.z = Math.sin(ang) * 1.2;
+    b.position.y = 0.12 + Math.sin(v123t * 2 + i) * 0.02;
+    b.rotation.y = -ang + Math.PI / 2;
+  });
+  cdwlShuttle.position.x = Math.sin(v123t * 1.5) * 0.5;
+  pgsGlow.scale.setScalar(1 + Math.sin(v123t * 4) * 0.15);
+  pgsGlow.material.opacity = 0.4 + Math.sin(v123t * 4) * 0.15;
+  pgsBlob.scale.setScalar(1 + Math.sin(v123t * 0.8) * 0.1);
 
 
 
