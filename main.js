@@ -21476,6 +21476,32 @@ const cosmicSights = [
   { name: "Magnetic Storm Main Phase", type: "phenomenon", category: "planetary", position: [4610, 1550, 3510], description: "Period of ring current intensification causing global magnetic field depression measured on surface" },
   { name: "Substorm Onset Trigger Region", type: "phenomenon", category: "planetary", position: [4625, 1565, 3525], description: "Magnetotail location where magnetic reconnection initiates explosive auroral brightenings" },
   { name: "Planetary Magnetic Pole Wandering", type: "phenomenon", category: "planetary", position: [4640, 1580, 3540], description: "Secular variation in magnetic pole positions driven by changing deep interior convection patterns" }
+,
+  { name: "CMB Acoustic Peak Structure", type: "phenomenon", category: "cosmological", position: [4660, 1600, 3560], description: "Harmonic oscillation pattern in temperature power spectrum revealing baryon-photon fluid dynamics" },
+  { name: "CMB Polarization E-Mode Signal", type: "phenomenon", category: "cosmological", position: [4675, 1615, 3575], description: "Gradient-type polarization pattern tracing density perturbations at recombination epoch" },
+  { name: "CMB Polarization B-Mode Search", type: "phenomenon", category: "cosmological", position: [4690, 1630, 3590], description: "Curl-type polarization signature potentially revealing primordial gravitational wave background" },
+  { name: "CMB Spectral Distortion Limits", type: "phenomenon", category: "cosmological", position: [4705, 1645, 3605], description: "Departures from perfect blackbody constraining energy injection in early universe" },
+  { name: "CMB Sachs-Wolfe Plateau", type: "phenomenon", category: "cosmological", position: [4720, 1660, 3620], description: "Large angular scale temperature variations from gravitational redshift at last scattering" },
+  { name: "CMB Integrated Sachs-Wolfe Effect", type: "phenomenon", category: "cosmological", position: [4735, 1675, 3635], description: "Late-time contribution from evolving gravitational potentials during dark energy domination" },
+  { name: "CMB Silk Damping Tail", type: "phenomenon", category: "cosmological", position: [4750, 1690, 3650], description: "Exponential suppression at small scales from photon diffusion before recombination" },
+  { name: "CMB Reionization Optical Depth", type: "phenomenon", category: "cosmological", position: [4765, 1705, 3665], description: "Large-scale polarization amplitude measuring electron scattering from first luminous objects" },
+  { name: "CMB Lensing Deflection Field", type: "phenomenon", category: "cosmological", position: [4780, 1720, 3680], description: "Gravitational distortion pattern mapping integrated mass distribution along line of sight" },
+  { name: "CMB Cold Spot Anomaly", type: "phenomenon", category: "cosmological", position: [4795, 1735, 3695], description: "Unusually large cold region challenging standard cosmological perturbation statistics" },
+  { name: "CMB Hemispherical Power Asymmetry", type: "phenomenon", category: "cosmological", position: [4810, 1750, 3710], description: "Observed difference in fluctuation amplitude between opposite sky hemispheres" },
+  { name: "CMB Dipole Anisotropy Origin", type: "phenomenon", category: "cosmological", position: [4825, 1765, 3725], description: "Dominant temperature variation from Solar System motion through cosmic rest frame" },
+  { name: "CMB Quadrupole Alignment Mystery", type: "phenomenon", category: "cosmological", position: [4840, 1780, 3740], description: "Unexpected correlation between quadrupole and octupole orientations with ecliptic" },
+  { name: "CMB Foreground Separation Methods", type: "phenomenon", category: "cosmological", position: [4855, 1795, 3755], description: "Component separation techniques isolating primordial signal from galactic contamination" },
+  { name: "CMB Kinetic SZ Signal", type: "phenomenon", category: "cosmological", position: [4870, 1810, 3770], description: "Doppler shift from bulk motion of ionized gas in galaxy clusters" },
+  { name: "CMB Thermal SZ Decrement", type: "phenomenon", category: "cosmological", position: [4885, 1825, 3785], description: "Spectral distortion from inverse Compton scattering in hot intracluster medium" },
+  { name: "CMB Recombination Line Emission", type: "phenomenon", category: "cosmological", position: [4900, 1840, 3800], description: "Faint spectral lines from hydrogen recombination probing conditions at last scattering" },
+  { name: "CMB Primordial Non-Gaussianity", type: "phenomenon", category: "cosmological", position: [4915, 1855, 3815], description: "Higher-order correlation statistics constraining inflationary model predictions" },
+  { name: "CMB Tensor-to-Scalar Ratio Bounds", type: "phenomenon", category: "cosmological", position: [4930, 1870, 3830], description: "Limits on primordial gravitational wave amplitude relative to density perturbations" },
+  { name: "CMB Baryon Acoustic Oscillation Scale", type: "phenomenon", category: "cosmological", position: [4945, 1885, 3845], description: "Standard ruler distance from acoustic horizon at recombination" },
+  { name: "CMB Helium Abundance Constraint", type: "phenomenon", category: "cosmological", position: [4960, 1900, 3860], description: "Primordial helium mass fraction inferred from damping tail shape" },
+  { name: "CMB Neutrino Effective Number", type: "phenomenon", category: "cosmological", position: [4975, 1915, 3875], description: "Relativistic species count affecting expansion rate during radiation domination" },
+  { name: "CMB Dark Matter Annihilation Limits", type: "phenomenon", category: "cosmological", position: [4990, 1930, 3890], description: "Energy injection constraints from hypothetical dark matter particle interactions" },
+  { name: "CMB Isocurvature Mode Bounds", type: "phenomenon", category: "cosmological", position: [5005, 1945, 3905], description: "Limits on non-adiabatic initial conditions challenging simple inflation models" },
+  { name: "CMB Running Spectral Index Search", type: "phenomenon", category: "cosmological", position: [5020, 1960, 3920], description: "Scale-dependent tilt of primordial power spectrum probing inflationary dynamics" }
 
 ];
 
