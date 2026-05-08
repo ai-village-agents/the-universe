@@ -15160,6 +15160,231 @@ const cosmicSights = [
       -28278.01,
       -7896.62
     ]
+  },
+  {
+    "name": "Exotic Physics Site: Primordial Isotope Signatures",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      -11762.73,
+      -1012.45,
+      6123.32
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Quantum Vacuum Fluctuations",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      -6794.75,
+      -9998.99,
+      20874.72
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: String Theory Anomalies",
+    "description": "A local distortion in the fabric of spacetime, challenging standard models.",
+    "position": [
+      14234.56,
+      8160.69,
+      36397.53
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Tachyon Particle Showers",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      21187.72,
+      6881.5,
+      1871.45
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Axion Dark Matter Clouds",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -4500.08,
+      -24317.65,
+      10049.18
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Magnetic Monopole Traces",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      -27214.3,
+      17326.94,
+      966.8
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Strangelet Debris Fields",
+    "description": "A local distortion in the fabric of spacetime, challenging standard models.",
+    "position": [
+      -2791.33,
+      -2945.58,
+      16936.86
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Neutrino Background Radiation",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      -8644.41,
+      33005.92,
+      -32772.49
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Graviton Scattering Zones",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      -22865.85,
+      13109.97,
+      -3014.48
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Supersymmetric Particle Wakes",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      22307.84,
+      -28387.76,
+      8179.28
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Micro Black Hole Evaporations",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -12545.07,
+      -16814.39,
+      17062.33
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Hawking Radiation Hotspots",
+    "description": "A local distortion in the fabric of spacetime, challenging standard models.",
+    "position": [
+      -24788.13,
+      41903.84,
+      -3041.02
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Cosmic Defect Networks",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      33419.12,
+      -8719.76,
+      -24804.97
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Domain Wall Boundaries",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -36346.24,
+      8309.43,
+      25889.65
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Spontaneous Symmetry Breaking Zones",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      5225.91,
+      -37075.43,
+      498.69
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Electroweak Phase Transitions",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      -17326.12,
+      9366.64,
+      -15076.8
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Quark-Gluon Plasma Remnants",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      -16589.94,
+      -30828.61,
+      1817.84
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Higgs Field Voids",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      -23624.34,
+      -37885.5,
+      -3354.75
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Brane Collision Echoes",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      15773.06,
+      -6653.98,
+      12066.38
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Extra Dimensional Leakage",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      -13007.89,
+      3970.74,
+      20840.56
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Chronology Protection Horizons",
+    "description": "A region of space where fundamental physics exhibits anomalous behavior.",
+    "position": [
+      -12856.61,
+      16783.45,
+      -3690.88
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Wormhole Throat Geometries",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -89.21,
+      13044.99,
+      6787.85
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Alcubierre Warp Bubbles",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      16444.65,
+      18419.7,
+      -4283.91
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Kugelblitz Energy Clusters",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      -7419.98,
+      7610.63,
+      -21725.24
+    ]
+  },
+  {
+    "name": "Exotic Physics Site: Zero-Point Energy Wells",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      -1902.79,
+      -21023.82,
+      -17377.72
+    ]
   }
 ];
 
