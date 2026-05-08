@@ -26108,7 +26108,207 @@ const cosmicSights = [
     { name: 'Nuclear Transient Discovery', position: [-4111, -5622, -2133], color: '#DC143C', size: 5.1, description: 'New transient in galaxy nucleus distinguishing TDE from AGN activity.' },
     { name: 'Fermi LAT Flare Detection', position: [5833, 3455, -4766], color: '#32CD32', size: 5.0, description: 'Space-based gamma-ray monitoring catching blazar high state onset.' },
     { name: 'Radio Variability VLBI Imaging', position: [-6422, 1544, 5188], color: '#1E90FF', size: 4.9, description: 'Resolving structural changes accompanying radio flux variations.' },
-    { name: 'Accretion State Transition Event', position: [4088, -4899, -6011], color: '#9400D3', size: 5.3, description: 'Spectral hardness change indicating accretion rate shift in active nucleus.' }
+    { name: 'Accretion State Transition Event', position: [4088, -4899, -6011], color: '#9400D3', size: 5.3, description: 'Spectral hardness change indicating accretion rate shift in active nucleus.' },
+  {
+    name: 'Zero-Point Field Anomaly 13751',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [20107, -9523, 23171],
+    color: '#ff00ff',
+    size: 159
+  },
+  {
+    name: 'Casimir Effect Zone 13752',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [7402, -4424, -10137],
+    color: '#ffffff',
+    size: 139
+  },
+  {
+    name: 'Virtual Particle Sea 13753',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [23175, 8877, 8320],
+    color: '#aaffff',
+    size: 145
+  },
+  {
+    name: 'Quantum Foam Bubble 13754',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-5248, 558, -32537],
+    color: '#00ffff',
+    size: 358
+  },
+  {
+    name: 'Planck Scale Fluctuation 13755',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-12263, 9278, 19838],
+    color: '#ff00ff',
+    size: 220
+  },
+  {
+    name: 'Vacuum Energy Burst 13756',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [34085, 22078, 15310],
+    color: '#ffffff',
+    size: 375
+  },
+  {
+    name: 'Spontaneous Symmetry Break 13757',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-7559, 39266, 38252],
+    color: '#aaffff',
+    size: 68
+  },
+  {
+    name: 'False Vacuum Decay 13758',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [8504, -34904, 5683],
+    color: '#ffffff',
+    size: 193
+  },
+  {
+    name: 'Quantum Entanglement Node 13759',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [9931, 38135, -9449],
+    color: '#00ffff',
+    size: 398
+  },
+  {
+    name: 'Non-local Correlation Map 13760',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [16038, 4444, -2355],
+    color: '#ffffff',
+    size: 153
+  },
+  {
+    name: 'Heisenberg Uncertainty Region 13761',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-6552, -39434, -23170],
+    color: '#ffffff',
+    size: 215
+  },
+  {
+    name: 'Hawking Radiation Source 13762',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [503, 25021, 14589],
+    color: '#ffaaff',
+    size: 61
+  },
+  {
+    name: 'Unruh Effect Horizon 13763',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [39001, -35366, -3963],
+    color: '#00ffff',
+    size: 95
+  },
+  {
+    name: 'Dynamical Casimir Effect 13764',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [26505, -30668, -23254],
+    color: '#ffaaff',
+    size: 194
+  },
+  {
+    name: 'Quantum Tunneling Gate 13765',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-34257, -39538, 26169],
+    color: '#ff00ff',
+    size: 313
+  },
+  {
+    name: 'Dirac Sea Eddy 13766',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-37263, 19055, 10215],
+    color: '#ffaaff',
+    size: 126
+  },
+  {
+    name: 'Scharnhorst Effect Anomaly 13767',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-1857, 19513, 12141],
+    color: '#00ffff',
+    size: 202
+  },
+  {
+    name: 'Quantum Chromodynamic Vacuum 13768',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [17274, -38598, -26778],
+    color: '#00ffff',
+    size: 369
+  },
+  {
+    name: 'Electroweak Vacuum State 13769',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [14637, 30849, -31060],
+    color: '#ffffff',
+    size: 302
+  },
+  {
+    name: 'Higgs Field Condensate 13770',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [9330, 144, 7352],
+    color: '#00ffff',
+    size: 198
+  },
+  {
+    name: 'Topological Defect String 13771',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [26574, 28539, 3827],
+    color: '#ffffff',
+    size: 84
+  },
+  {
+    name: 'Magnetic Monopole Remnant 13772',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [23311, 21378, 2840],
+    color: '#ffaaff',
+    size: 298
+  },
+  {
+    name: 'Axion Dark Matter Cloud 13773',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-21953, 5150, -13890],
+    color: '#ffaaff',
+    size: 192
+  },
+  {
+    name: 'Primordial Black Hole Swarm 13774',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-7517, 10881, 4689],
+    color: '#aaffff',
+    size: 248
+  },
+  {
+    name: 'Cosmic Inflation Echo 13775',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [5884, 28665, 38191],
+    color: '#00ffff',
+    size: 346
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
