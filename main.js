@@ -17519,7 +17519,33 @@ const cosmicSights = [
   {"name": "Comet Nucleus Albedo", "description": "Comet surfaces are among the darkest objects in the solar system.", "position": [1180, 22, 220]},
   {"name": "Rubble Pile Asteroid Structure", "description": "Most asteroids are loosely bound aggregates rather than solid rock.", "position": [1180, 23, 230]},
   {"name": "Comet Water Deuterium Ratio", "description": "Isotopic signatures reveal comet origins and solar system history.", "position": [1180, 24, 240]},
-  {"name": "Asteroid Mining Potential", "description": "Near-Earth asteroids contain valuable platinum-group metals and water.", "position": [1180, 25, 250]}
+  {"name": "Asteroid Mining Potential", "description": "Near-Earth asteroids contain valuable platinum-group metals and water.", "position": [1180, 25, 250]},
+
+  {"name": "Saturn A Ring Encke Gap", "description": "Sharp gap in Saturn's A ring maintained by moon Pan.", "position": [1182, 1, 10]},
+  {"name": "Saturn B Ring Spokes", "description": "Mysterious radial features rotating with Saturn's magnetosphere.", "position": [1182, 2, 20]},
+  {"name": "Saturn F Ring Braiding", "description": "Twisted ring structure shaped by shepherd moons Prometheus and Pandora.", "position": [1182, 3, 30]},
+  {"name": "Saturn Cassini Division", "description": "Prominent 4,800 km gap between A and B rings.", "position": [1182, 4, 40]},
+  {"name": "Saturn E Ring Enceladus Source", "description": "Diffuse ring fed by Enceladus cryovolcanic plumes.", "position": [1182, 5, 50]},
+  {"name": "Saturn Phoebe Ring", "description": "Enormous tilted ring extending millions of kilometers.", "position": [1182, 6, 60]},
+  {"name": "Saturn Ring Propeller Moonlets", "description": "Embedded objects creating propeller-shaped disturbances.", "position": [1182, 7, 70]},
+  {"name": "Saturn Ring Age Controversy", "description": "Debate over whether rings are primordial or recently formed.", "position": [1182, 8, 80]},
+  {"name": "Uranus Epsilon Ring Eccentricity", "description": "Uranus's densest ring with sharp edges.", "position": [1182, 9, 90]},
+  {"name": "Uranus Ring Shepherd Dynamics", "description": "Cordelia and Ophelia confine the epsilon ring.", "position": [1182, 10, 100]},
+  {"name": "Neptune Adams Ring Arcs", "description": "Mysterious clumpy arcs that should dissipate but persist.", "position": [1182, 11, 110]},
+  {"name": "Neptune Galle Ring Structure", "description": "Narrow ring named after Neptune's co-discoverer.", "position": [1182, 12, 120]},
+  {"name": "Jupiter Thebe Gossamer Extension", "description": "Faint dusty rings from Amalthea and Thebe.", "position": [1182, 13, 130]},
+  {"name": "Jupiter Main Ring Meteoroid Impacts", "description": "Ring maintained by dust from micrometeorite bombardment.", "position": [1182, 14, 140]},
+  {"name": "Ring Particle Size Distribution", "description": "Power law distributions from millimeters to house-sized boulders.", "position": [1182, 15, 150]},
+  {"name": "Roche Limit Ring Formation", "description": "Tidal disruption of moons creates ring systems.", "position": [1182, 16, 160]},
+  {"name": "Ring Resonance Gaps", "description": "Orbital resonances with moons clear gaps in ring systems.", "position": [1182, 17, 170]},
+  {"name": "Ring Vertical Structure", "description": "Rings only meters thick despite spanning thousands of kilometers.", "position": [1182, 18, 180]},
+  {"name": "Ring Self-Gravity Wakes", "description": "Transient clumps form and dissolve in dense rings.", "position": [1182, 19, 190]},
+  {"name": "Ring Spectral Water Ice", "description": "Infrared signatures reveal ice composition in Saturn's rings.", "position": [1182, 20, 200]},
+  {"name": "Ring Mass Estimates", "description": "Cassini Grand Finale measured Saturn ring mass directly.", "position": [1182, 21, 210]},
+  {"name": "Exoplanet Ring Transits", "description": "Detecting rings around exoplanets via transit photometry.", "position": [1182, 22, 220]},
+  {"name": "Ring-Moon Interaction", "description": "Complex gravitational exchanges between rings and embedded moons.", "position": [1182, 23, 230]},
+  {"name": "Mars Phobos Future Ring", "description": "Phobos will disintegrate into a ring system in 50 million years.", "position": [1182, 24, 240]},
+  {"name": "Ring Optical Depth Variations", "description": "Transparency changes reveal ring structure and particle density.", "position": [1182, 25, 250]}
 
 ];
 
