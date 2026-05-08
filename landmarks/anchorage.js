@@ -24634,6 +24634,96 @@ export function createAnchorageLandmark(THREE, opts) {
   ctchGroup.add(ctchReaderHead);
   group.add(ctchGroup);
 
+  // v151 pier flag dance (pfld)
+  const pfldGroup = new THREE.Group();
+  pfldGroup.position.set(-30, 7.6, 64);
+  const pfldDeck = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.1, 1.4), new THREE.MeshLambertMaterial({color: 0x8a6e4a}));
+  pfldGroup.add(pfldDeck);
+  const pfldDancers = [];
+  const pfldFlags = [];
+  const pfldFlagColors = [0xff4a4a, 0x4a8aff, 0xffd24a, 0x4adb8a];
+  for (let i = 0; i < 4; i++) {
+    const dx = (i - 1.5) * 0.5;
+    const d = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.7, 8), new THREE.MeshLambertMaterial({color: 0xff8a4a}));
+    d.position.set(dx, 0.45, 0);
+    pfldGroup.add(d);
+    const h = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+    h.position.set(dx, 0.92, 0);
+    pfldGroup.add(h);
+    const flagGroup = new THREE.Group();
+    flagGroup.position.set(dx, 0.85, 0);
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.6, 6), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+    pole.position.set(0.25, 0, 0);
+    pole.rotation.z = -1.0;
+    flagGroup.add(pole);
+    const flag = new THREE.Mesh(new THREE.PlaneGeometry(0.35, 0.22), new THREE.MeshLambertMaterial({color: pfldFlagColors[i], side: THREE.DoubleSide}));
+    flag.position.set(0.5, 0.15, 0);
+    flagGroup.add(flag);
+    pfldGroup.add(flagGroup);
+    pfldDancers.push({body: d, head: h, flag: flagGroup, base: dx, phase: i * 0.5});
+    pfldFlags.push(flag);
+  }
+  group.add(pfldGroup);
+
+  // v151 coastal seal show (csls)
+  const cslsGroup = new THREE.Group();
+  cslsGroup.position.set(-86, 0.5, -22);
+  const cslsPool = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.0, 0.2, 24), new THREE.MeshLambertMaterial({color: 0x2a6eff}));
+  cslsPool.position.set(0, 0.05, 0);
+  cslsGroup.add(cslsPool);
+  const cslsRim = new THREE.Mesh(new THREE.TorusGeometry(2.0, 0.08, 8, 32), new THREE.MeshLambertMaterial({color: 0x8a8a8a}));
+  cslsRim.position.set(0, 0.15, 0);
+  cslsRim.rotation.x = Math.PI / 2;
+  cslsGroup.add(cslsRim);
+  const cslsSeal = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.55, 6, 12), new THREE.MeshLambertMaterial({color: 0x303030}));
+  cslsSeal.rotation.x = Math.PI / 4;
+  cslsSeal.position.set(0, 0.5, 0);
+  cslsGroup.add(cslsSeal);
+  const cslsSealHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), new THREE.MeshLambertMaterial({color: 0x484848}));
+  cslsSealHead.position.set(0, 1.0, 0.3);
+  cslsGroup.add(cslsSealHead);
+  const cslsBall = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), new THREE.MeshLambertMaterial({color: 0xff4a4a}));
+  cslsBall.position.set(0, 1.4, 0.5);
+  cslsGroup.add(cslsBall);
+  const cslsTrainer = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x2adb8a}));
+  cslsTrainer.position.set(2.4, 0.5, 0);
+  cslsGroup.add(cslsTrainer);
+  const cslsTrainerHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  cslsTrainerHead.position.set(2.4, 1.05, 0);
+  cslsGroup.add(cslsTrainerHead);
+  group.add(cslsGroup);
+
+  // v151 pier umbrella stand (pust)
+  const pustGroup = new THREE.Group();
+  pustGroup.position.set(56, 7.6, 24);
+  const pustCart = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.8, 0.8), new THREE.MeshLambertMaterial({color: 0xc04050}));
+  pustCart.position.set(0, 0.4, 0);
+  pustGroup.add(pustCart);
+  const pustWheelL = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.06, 12), new THREE.MeshLambertMaterial({color: 0x303030}));
+  pustWheelL.rotation.z = Math.PI / 2;
+  pustWheelL.position.set(0.6, 0.05, 0.4);
+  pustGroup.add(pustWheelL);
+  const pustWheelR = pustWheelL.clone(); pustWheelR.position.set(-0.6, 0.05, 0.4); pustGroup.add(pustWheelR);
+  const pustUmbrellas = [];
+  const pustColors = [0xff4a4a, 0x4adb8a, 0xffd24a, 0x4a8aff, 0xdb4adb];
+  for (let i = 0; i < 5; i++) {
+    const dx = (i - 2) * 0.28;
+    const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 6), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+    handle.position.set(dx, 1.05, 0);
+    pustGroup.add(handle);
+    const top = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.2, 8), new THREE.MeshLambertMaterial({color: pustColors[i]}));
+    top.position.set(dx, 1.5, 0);
+    pustGroup.add(top);
+    pustUmbrellas.push(top);
+  }
+  const pustVendor = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xff8a4a}));
+  pustVendor.position.set(1.0, 0.5, 0);
+  pustGroup.add(pustVendor);
+  const pustVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pustVendorHead.position.set(1.0, 1.05, 0);
+  pustGroup.add(pustVendorHead);
+  group.add(pustGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -28054,6 +28144,28 @@ export function createAnchorageLandmark(THREE, opts) {
     ctchWaveDots[i].position.y = 1.4 + Math.sin(v150t * 0.8 + i * 0.7) * 0.15;
   }
   ctchPointer.position.x = -0.5 + ((v150t * 0.15) % 1.0);
+
+  // v151 flag dance anim
+  const v151t = t;
+  for (let i = 0; i < pfldDancers.length; i++) {
+    const d = pfldDancers[i];
+    d.body.position.y = 0.45 + Math.abs(Math.sin(v151t * 3.0 + d.phase)) * 0.12;
+    d.head.position.y = 0.92 + Math.abs(Math.sin(v151t * 3.0 + d.phase)) * 0.12;
+    d.body.rotation.y = Math.sin(v151t * 1.5 + d.phase) * 0.5;
+    d.flag.rotation.z = Math.sin(v151t * 2.5 + d.phase) * 0.3;
+  }
+
+  // v151 seal show anim
+  cslsSeal.position.y = 0.5 + Math.abs(Math.sin(v151t * 1.4)) * 0.3;
+  cslsSealHead.position.y = 1.0 + Math.abs(Math.sin(v151t * 1.4)) * 0.3;
+  cslsBall.position.y = 1.4 + Math.sin(v151t * 2.5) * 0.25;
+  cslsBall.rotation.x = v151t * 1.2;
+
+  // v151 umbrella stand anim
+  for (let i = 0; i < pustUmbrellas.length; i++) {
+    pustUmbrellas[i].rotation.y = v151t * 0.5 + i * 0.7;
+    pustUmbrellas[i].position.y = 1.5 + Math.sin(v151t * 1.2 + i) * 0.04;
+  }
 
 
 
