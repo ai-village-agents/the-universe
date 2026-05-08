@@ -22769,6 +22769,32 @@ const cosmicSights = [
   { id: 13023, name: "Bilateral SNR Axis", position: [0.58, -0.76, -0.31] },
   { id: 13024, name: "SNR Age Dating Region", position: [-0.33, 0.55, 0.77] },
   { id: 13025, name: "Mature SNR Fade Zone", position: [0.86, 0.41, -0.53] }
+,
+{ name: "Proper Motion Vector Space", type: "phenomenon", category: "stellar", position: [6825, 134500, 4825], description: "Three-dimensional velocity distribution of nearby stars" },
+{ name: "Parallax Distance Ladder", type: "phenomenon", category: "stellar", position: [6826, 134520, 4826], description: "Sequential distance scale calibration to local universe" },
+{ name: "Astrometric Precision Improvement", type: "phenomenon", category: "stellar", position: [6827, 134540, 4827], description: "Sub-milliarcsecond accuracy in stellar position measurement" },
+{ name: "Radial Velocity Curve Fitting", type: "phenomenon", category: "stellar", position: [6828, 134560, 4828], description: "Doppler oscillation analysis for stellar orbital parameters" },
+{ name: "Kinematic Age Dating Method", type: "phenomenon", category: "stellar", position: [6829, 134580, 4829], description: "Stellar population age from velocity dispersion kinematics" },
+{ name: "Velocity Tensor Component Analysis", type: "phenomenon", category: "stellar", position: [6830, 134600, 4830], description: "Full momentum covariance matrix diagonalization" },
+{ name: "Milky Way Rotation Field", type: "phenomenon", category: "stellar", position: [6831, 134620, 4831], description: "Differential angular velocity profile across galactic disk" },
+{ name: "Mass Model Rotation Curve", type: "phenomenon", category: "stellar", position: [6832, 134640, 4832], description: "Theoretical velocity prediction from mass distribution" },
+{ name: "Virial Mass Determination", type: "phenomenon", category: "stellar", position: [6833, 134660, 4833], description: "Gravitational mass from velocity dispersion measurements" },
+{ name: "Orbital Escape Energy", type: "phenomenon", category: "stellar", position: [6834, 134680, 4834], description: "Kinetic energy threshold for gravitational unbinding" },
+{ name: "Dynamical Braking Force", type: "phenomenon", category: "stellar", position: [6835, 134700, 4835], description: "Orbital decay mechanism from stellar background interaction" },
+{ name: "Relaxation Time Calculation", type: "phenomenon", category: "stellar", position: [6836, 134720, 4836], description: "Timescale for thermalization of velocity distribution" },
+{ name: "Close Encounter Statistics", type: "phenomenon", category: "stellar", position: [6837, 134740, 4837], description: "Frequency and impact parameter distribution of stellar passages" },
+{ name: "Orbital Shape Parameter", type: "phenomenon", category: "stellar", position: [6838, 134760, 4838], description: "Eccentricity and semi-major axis characterization" },
+{ name: "Apsidal Precession Rate", type: "phenomenon", category: "stellar", position: [6839, 134780, 4839], description: "Orbit axis rotation due to perturbations and relativity" },
+{ name: "Lyapunov Chaos Indicator", type: "phenomenon", category: "stellar", position: [6840, 134800, 4840], description: "Exponential trajectory divergence in nonlinear dynamics" },
+{ name: "Orbital Chaos Threshold", type: "phenomenon", category: "stellar", position: [6841, 134820, 4841], description: "Energy or parameter value defining dynamical instability" },
+{ name: "Phase Space Density Quantization", type: "phenomenon", category: "stellar", position: [6842, 134840, 4842], description: "Liouville theorem and density evolution in phase space" },
+{ name: "Stability Analysis Eigenvalue", type: "phenomenon", category: "stellar", position: [6843, 134860, 4843], description: "Growth rate of perturbations to equilibrium configuration" },
+{ name: "Velocity Anisotropy Parameter", type: "phenomenon", category: "stellar", position: [6844, 134880, 4844], description: "Ratio of tangential to radial velocity dispersions" },
+{ name: "Kinematic Substructure Signal", type: "phenomenon", category: "stellar", position: [6845, 134900, 4845], description: "Statistical detection of coherent velocity groups" },
+{ name: "Tidal Stream Morphology", type: "phenomenon", category: "stellar", position: [6846, 134920, 4846], description: "Shape and kinematics of disrupted stellar system debris" },
+{ name: "Epicyclic Shear Rate", type: "phenomenon", category: "stellar", position: [6847, 134940, 4847], description: "Differential rotation and compression in galactic orbits" },
+{ name: "Spiral Arm Trapping Duration", type: "phenomenon", category: "stellar", position: [6848, 134960, 4848], description: "Time that orbits spend in rotating density wave" },
+{ name: "Orbital Resonance Condition", type: "phenomenon", category: "stellar", position: [6849, 134980, 4849], description: "Commensurability of orbital and galaxy frequencies" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
