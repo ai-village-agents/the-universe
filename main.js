@@ -17975,6 +17975,207 @@ const cosmicSights = [
     color: '#00FA9A',
     size: 339
   }
+,
+  {
+    name: 'Blazar Jet Core 11851',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [26100, 14455, 33642],
+    color: '#8A2BE2',
+    size: 231
+  },
+  {
+    name: 'Quasar Accretion Disk 11852',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [14934, 34603, -17055],
+    color: '#0000FF',
+    size: 378
+  },
+  {
+    name: 'Radio Galaxy Lobe 11853',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-15561, -6011, -875],
+    color: '#9932CC',
+    size: 280
+  },
+  {
+    name: 'Seyfert Nucleus Outflow 11854',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-35148, 31372, 10261],
+    color: '#4169E1',
+    size: 223
+  },
+  {
+    name: 'Microquasar Beam 11855',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-1546, 33164, 24183],
+    color: '#0000CD',
+    size: 284
+  },
+  {
+    name: 'Gamma-Ray Burst Jet 11856',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [39072, -19990, -39027],
+    color: '#8B008B',
+    size: 265
+  },
+  {
+    name: 'Supermassive Black Hole Corona 11857',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-10834, -39285, 25806],
+    color: '#8A2BE2',
+    size: 347
+  },
+  {
+    name: 'Relativistic Plasma Blob 11858',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-8406, 31599, 32448],
+    color: '#0000FF',
+    size: 144
+  },
+  {
+    name: 'Synchrotron Emission Node 11859',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-13972, -10366, 28591],
+    color: '#0000CD',
+    size: 378
+  },
+  {
+    name: 'Jet Bow Shock 11860',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-27111, -22982, 7291],
+    color: '#0000CD',
+    size: 85
+  },
+  {
+    name: 'AGN Torus Dust 11861',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [9822, -8705, -982],
+    color: '#8B008B',
+    size: 387
+  },
+  {
+    name: 'Pulsar Wind Nebula Jet 11862',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [15795, -1636, 16349],
+    color: '#8B008B',
+    size: 190
+  },
+  {
+    name: 'Magnetocentrifugal Outflow 11863',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [39963, 30433, 37689],
+    color: '#9400D3',
+    size: 135
+  },
+  {
+    name: 'Blandford-Znajek Ergosphere 11864',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [37440, -33390, -407],
+    color: '#0000FF',
+    size: 224
+  },
+  {
+    name: 'Extragalactic Jet Spine 11865',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-24742, -37040, 18255],
+    color: '#0000FF',
+    size: 235
+  },
+  {
+    name: 'X-ray Binary Jet 11866',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-39892, 10964, -11288],
+    color: '#0000CD',
+    size: 119
+  },
+  {
+    name: 'Relativistic Doppler Boost Zone 11867',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-14521, -27763, -3958],
+    color: '#8A2BE2',
+    size: 198
+  },
+  {
+    name: 'Jet Instability Kink 11868',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-2661, -17374, -29155],
+    color: '#4169E1',
+    size: 124
+  },
+  {
+    name: 'Cosmic Ray Acceleration Shock 11869',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-39850, -19665, -9358],
+    color: '#8A2BE2',
+    size: 125
+  },
+  {
+    name: 'Radio Relic Artifact 11870',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-1214, 33332, -31191],
+    color: '#9400D3',
+    size: 363
+  },
+  {
+    name: 'Tidal Disruption Event Flare 11871',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [28906, -35521, -1344],
+    color: '#8A2BE2',
+    size: 111
+  },
+  {
+    name: 'Bremsstrahlung Halo 11872',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [8728, 15678, 32375],
+    color: '#4169E1',
+    size: 135
+  },
+  {
+    name: 'Inverse Compton Scattering Field 11873',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-25935, 35442, 26222],
+    color: '#8B008B',
+    size: 164
+  },
+  {
+    name: 'Jet-Cloud Collision Site 11874',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [6141, -6806, -18544],
+    color: '#8B008B',
+    size: 353
+  },
+  {
+    name: 'Active Galaxy Particle Beam 11875',
+    category: 'Relativistic Jets & Active Galactic Nuclei',
+    description: 'An extreme manifestation of relativistic physics and high-energy jet outflow phenomena.', 
+    position: [-24828, 14303, -3784],
+    color: '#8A2BE2',
+    size: 122
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
