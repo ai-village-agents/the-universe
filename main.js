@@ -24581,6 +24581,207 @@ const cosmicSights = [
     color: '#8b4513',
     size: 490
   }
+,
+  {
+    name: 'HL Tauri Ring System 13451',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [25322, -23342, 31777],
+    color: '#d2691e',
+    size: 352
+  },
+  {
+    name: 'TW Hydrae Accretion Disk 13452',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [22378, -26612, -30287],
+    color: '#b8860b',
+    size: 262
+  },
+  {
+    name: 'PDS 70 Planet-Forming Gap 13453',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [23314, 19999, -26544],
+    color: '#ff6347',
+    size: 367
+  },
+  {
+    name: 'AB Aurigae Spiral Arms 13454',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [24009, 4389, 730],
+    color: '#cd853f',
+    size: 241
+  },
+  {
+    name: 'IM Lupi Protoplanetary Disk 13455',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [22653, -15466, -25623],
+    color: '#ff6347',
+    size: 107
+  },
+  {
+    name: 'HD 163296 Kinematic Kink 13456',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-12782, -18023, -29282],
+    color: '#cd853f',
+    size: 269
+  },
+  {
+    name: 'AS 209 Dust Rings 13457',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-36852, -25156, 8647],
+    color: '#8b4513',
+    size: 249
+  },
+  {
+    name: 'Elias 2-27 Spiral Structure 13458',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-18526, -37270, -19987],
+    color: '#b8860b',
+    size: 325
+  },
+  {
+    name: 'DoAr 44 Inner Cavity 13459',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [26261, 31048, 8918],
+    color: '#ff6347',
+    size: 364
+  },
+  {
+    name: 'V4046 Sagittarii Circumbinary Disk 13460',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-1337, 25520, -31097],
+    color: '#b8860b',
+    size: 194
+  },
+  {
+    name: 'CQ Tauri Transition Disk 13461',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [14076, 36475, 32497],
+    color: '#8b4513',
+    size: 65
+  },
+  {
+    name: 'MWC 758 Asymmetric Spirals 13462',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-1139, -7717, -24313],
+    color: '#b8860b',
+    size: 164
+  },
+  {
+    name: 'LkCa 15 Protoplanetary Rings 13463',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [36507, -31918, -10540],
+    color: '#ff7f50',
+    size: 224
+  },
+  {
+    name: 'UX Tauri A Gap 13464',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-8257, -24772, 18935],
+    color: '#8b4513',
+    size: 223
+  },
+  {
+    name: 'RY Lupi Dust Disk 13465',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-2445, -19394, 13943],
+    color: '#b8860b',
+    size: 252
+  },
+  {
+    name: 'Sz 91 Transition Ring 13466',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [3827, -436, -25758],
+    color: '#ff7f50',
+    size: 151
+  },
+  {
+    name: 'HD 142527 Horseshoe Dust Trap 13467',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [18930, -31954, 12632],
+    color: '#d2691e',
+    size: 397
+  },
+  {
+    name: 'Oph IRS 48 Asymmetric Trap 13468',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [36954, 8020, -20008],
+    color: '#ff7f50',
+    size: 350
+  },
+  {
+    name: 'IRS 43 Class 0 Disk 13469',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [23823, 25911, -163],
+    color: '#ffa500',
+    size: 228
+  },
+  {
+    name: 'L1527 IRS Edge-On Disk 13470',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [12774, -15246, 6237],
+    color: '#b8860b',
+    size: 294
+  },
+  {
+    name: 'HH 30 Jet and Disk 13471',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [18570, -34172, 933],
+    color: '#a0522d',
+    size: 153
+  },
+  {
+    name: 'T Tauri Binary Disk System 13472',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [29756, -27154, 27738],
+    color: '#cd853f',
+    size: 192
+  },
+  {
+    name: 'FU Orionis Outburst Disk 13473',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [2932, 32982, 25217],
+    color: '#ff7f50',
+    size: 104
+  },
+  {
+    name: 'EX Lupi Eruptive Disk 13474',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [-18055, 11938, -10388],
+    color: '#ff6347',
+    size: 337
+  },
+  {
+    name: 'V1247 Orionis Pre-Transitional Disk 13475',
+    category: 'Protostellar Disks',
+    description: 'A mesmerizing manifestation of protostellar disks observed in deep space.', 
+    position: [7300, -20327, -6863],
+    color: '#8b4513',
+    size: 117
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
