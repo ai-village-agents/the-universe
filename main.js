@@ -24354,7 +24354,7 @@ const cosmicSights = [
   { name: "DoAr 44 Asymmetric Shadow", description: "An asymmetric shadow cast across the DoAr 44 disk by a misaligned inner ring.", position: [426.62, 243.83, 253.17] },
   { name: "Oph IRS 48 Dust Trap", description: "A dust trap vortex in the Oph IRS 48 disk preserving millimeter grains.", position: [-347.03, 203.89, -107.57] },
   { name: "HD 97048 Ringed Disk", description: "A multi-ringed disk around HD 97048 showing complex gap architecture.", position: [284.08, 211.94, 28.18] },
-  { name: "Elias 2-27 Grand Spiral", description: "A grand spiral pattern in the Elias 2-27 disk spanning hundreds of AU.", position: [240.61, 179.23, -113.2] },,
+  { name: "Elias 2-27 Grand Spiral", description: "A grand spiral pattern in the Elias 2-27 disk spanning hundreds of AU.", position: [240.61, 179.23, -113.2] },
 { name: 'SGR 1806-20 Giant Flare', position: [8401, 154010, 6401], color: '#FF5733', size: 6.0, description: 'Most powerful magnetar flare ever recorded, briefly outshining entire galaxy in gamma-rays.' },
   { name: 'SGR 1900+14 Starquake Event', position: [8402, 154030, 6402], color: '#C70039', size: 5.7, description: 'Magnetar crustal fracture releasing tremendous energy in millisecond burst.' },
   { name: '1E 2259+586 Anti-Glitch Spindown', position: [8403, 154050, 6403], color: '#900C3F', size: 5.2, description: 'Unusual magnetar showing sudden spin-down rather than typical spin-up glitch.' },
