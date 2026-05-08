@@ -24807,6 +24807,207 @@ const cosmicSights = [
   { name: "GW200220 Precessing Spins 13423", description: "Precessing spin configuration breaking orbital plane symmetry", position: [2613.9, -2153.4, -1803.1] },
   { name: "GW200224 Mass Ratio Limit 13424", description: "Extreme mass ratio setting constraints on binary evolution", position: [490.2, -93.6, -821.5] },
   { name: "GW200302 Stochastic Background 13425", description: "Contribution to stochastic gravitational wave background spectrum", position: [796.2, 435.4, 565.0] }
+,
+  {
+    name: 'Axion Halo Density 13501',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-25528, 21816, 12825],
+    color: '#000033',
+    size: 256
+  },
+  {
+    name: 'WIMP Concentration 13502',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-31007, -961, -4017],
+    color: '#1a0033',
+    size: 396
+  },
+  {
+    name: 'Sterile Neutrino Cloud 13503',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-13578, 21116, 25338],
+    color: '#000033',
+    size: 370
+  },
+  {
+    name: 'Primordial Black Hole Swarm 13504',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [5117, -36015, -29540],
+    color: '#33001a',
+    size: 300
+  },
+  {
+    name: 'Fuzzy Dark Matter Core 13505',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [22790, -3425, -22075],
+    color: '#330033',
+    size: 273
+  },
+  {
+    name: 'Self Interacting Dark Matter Halo 13506',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [14468, -10637, 37388],
+    color: '#000033',
+    size: 259
+  },
+  {
+    name: 'Dark Matter Filament Node 13507',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [20918, 39394, -8314],
+    color: '#330033',
+    size: 386
+  },
+  {
+    name: 'Supersymmetric Particle Conglomeration 13508',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-34069, -39083, 16273],
+    color: '#000033',
+    size: 292
+  },
+  {
+    name: 'Macroscopic Dark Matter Blob 13509',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-27249, -27605, 19510],
+    color: '#1a0033',
+    size: 372
+  },
+  {
+    name: 'Scalar Field Dark Matter Droplet 13510',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-20242, -17462, 38167],
+    color: '#1a0033',
+    size: 135
+  },
+  {
+    name: 'Dark Photon Emitting Structure 13511',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [16935, 39254, -12842],
+    color: '#33001a',
+    size: 152
+  },
+  {
+    name: 'Gravitino Rich Zone 13512',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [38249, -34291, -4723],
+    color: '#1a0033',
+    size: 162
+  },
+  {
+    name: 'Ultra Light Boson Condensate 13513',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-13882, -26204, -31255],
+    color: '#000033',
+    size: 214
+  },
+  {
+    name: 'Dark Matter Mini Halo 13514',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [27791, -32121, -16051],
+    color: '#330033',
+    size: 128
+  },
+  {
+    name: 'Baryonic Dark Matter Proxy 13515',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [38711, -12990, 26850],
+    color: '#1a0033',
+    size: 238
+  },
+  {
+    name: 'Machos Cluster Proxy 13516',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [28433, -15427, -8590],
+    color: '#330033',
+    size: 298
+  },
+  {
+    name: 'Hidden Sector Matter Accumulation 13517',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-30749, -28548, 32135],
+    color: '#000033',
+    size: 330
+  },
+  {
+    name: 'Dark Energy Interacting Clump 13518',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-6904, -28414, -10402],
+    color: '#330033',
+    size: 57
+  },
+  {
+    name: 'Non Thermal Dark Matter Relic 13519',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-21647, 3480, 39480],
+    color: '#1a0033',
+    size: 281
+  },
+  {
+    name: 'Kaluza Klein Dark Matter Node 13520',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-30293, -32671, -25022],
+    color: '#330033',
+    size: 233
+  },
+  {
+    name: 'Composite Dark Matter Sphere 13521',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-27409, 25984, 12535],
+    color: '#000033',
+    size: 164
+  },
+  {
+    name: 'Dynamical Dark Matter Subhalo 13522',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [-13215, -8034, -33946],
+    color: '#330033',
+    size: 154
+  },
+  {
+    name: 'Warm Dark Matter Stream 13523',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [20349, -15463, -14851],
+    color: '#1a0033',
+    size: 313
+  },
+  {
+    name: 'Cold Dark Matter Cusp 13524',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [17308, -273, -39877],
+    color: '#1a0033',
+    size: 246
+  },
+  {
+    name: 'Asymmetric Dark Matter Nucleus 13525',
+    category: 'Exotic Dark Matter Clumps',
+    description: 'A mesmerizing manifestation of exotic dark matter clumps observed in deep space.', 
+    position: [21021, -12061, -22223],
+    color: '#330033',
+    size: 213
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
