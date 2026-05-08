@@ -17547,6 +17547,207 @@ const cosmicSights = [
   {"name": "Mars Phobos Future Ring", "description": "Phobos will disintegrate into a ring system in 50 million years.", "position": [1182, 24, 240]},
   {"name": "Ring Optical Depth Variations", "description": "Transparency changes reveal ring structure and particle density.", "position": [1182, 25, 250]}
 
+,
+  {
+    name: 'Cryovolcanic Caldera 11776',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [28078, -12634, -21581],
+    color: '#CD853F',
+    size: 197
+  },
+  {
+    name: 'Silicate Magma Ocean 11777',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-25376, -21300, 4743],
+    color: '#FF4500',
+    size: 218
+  },
+  {
+    name: 'Tidal Heating Fracture 11778',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-26705, -16007, 30202],
+    color: '#D2691E',
+    size: 184
+  },
+  {
+    name: 'Super-Earth Trench 11779',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [4425, -33671, -39150],
+    color: '#FFA500',
+    size: 337
+  },
+  {
+    name: 'Carbonate Exocarp 11780',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [31796, -13620, 25416],
+    color: '#CD853F',
+    size: 260
+  },
+  {
+    name: 'Metallic Core Exposure 11781',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [14098, -26585, 24726],
+    color: '#8B0000',
+    size: 256
+  },
+  {
+    name: 'Subduction Zone Delta 11782',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [37360, 39571, 35075],
+    color: '#FFA500',
+    size: 301
+  },
+  {
+    name: 'Mantle Plume Vent 11783',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-38956, -39846, -37982],
+    color: '#8B0000',
+    size: 140
+  },
+  {
+    name: 'Iron-rich Crustal Ridge 11784',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-8356, -32327, 11953],
+    color: '#FF4500',
+    size: 176
+  },
+  {
+    name: 'Basaltic Plains 11785',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-13589, -27813, 27909],
+    color: '#FF4500',
+    size: 282
+  },
+  {
+    name: 'Continental Drift Rift 11786',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [28399, -9809, 17419],
+    color: '#8B4513',
+    size: 303
+  },
+  {
+    name: 'Tectonic Fault Line 11787',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-34609, -32295, 17364],
+    color: '#FFA500',
+    size: 238
+  },
+  {
+    name: 'Geothermal Hotspring 11788',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [9919, 2163, -15417],
+    color: '#FF4500',
+    size: 272
+  },
+  {
+    name: 'Tidal Bulge Peak 11789',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [27989, 1424, 9972],
+    color: '#FFA500',
+    size: 171
+  },
+  {
+    name: 'Silicate Vapor Geyser 11790',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-11383, 18307, -29166],
+    color: '#CD853F',
+    size: 271
+  },
+  {
+    name: 'Magma Tube 11791',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [17176, -2377, -35743],
+    color: '#CD853F',
+    size: 98
+  },
+  {
+    name: 'Perovskite Mantle 11792',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-5673, 39432, -9624],
+    color: '#8B4513',
+    size: 258
+  },
+  {
+    name: 'Exotic Ice Tectonics 11793',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-24300, 36951, 33674],
+    color: '#8B4513',
+    size: 380
+  },
+  {
+    name: 'Seismic Shadow Zone 11794',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-36465, -38592, -20972],
+    color: '#D2691E',
+    size: 338
+  },
+  {
+    name: 'Volcanic Archipelago 11795',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-13993, 36257, 20423],
+    color: '#8B0000',
+    size: 251
+  },
+  {
+    name: 'Crustal Displacement 11796',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [4127, 14379, 9238],
+    color: '#CD853F',
+    size: 150
+  },
+  {
+    name: 'Lithospheric Plate 11797',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [30767, -18303, 25983],
+    color: '#CD853F',
+    size: 141
+  },
+  {
+    name: 'Asthenosphere Flow 11798',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [8628, -35331, 30707],
+    color: '#CD853F',
+    size: 226
+  },
+  {
+    name: 'Orogenic Belt 11799',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [-26756, -19491, 12301],
+    color: '#FFA500',
+    size: 280
+  },
+  {
+    name: 'Chondritic Surface 11800',
+    category: 'Exoplanetary Geology & Tectonics',
+    description: 'A geological feature demonstrating exotic tectonic and volcanic activity on a distant exoplanet.', 
+    position: [26616, 18832, 33290],
+    color: '#CD853F',
+    size: 160
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
