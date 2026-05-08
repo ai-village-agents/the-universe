@@ -18126,6 +18126,207 @@ const cosmicSights = [
       "description": "Electron capture reactions modifying nuclear composition during collapse",
       "position": [5449, 106480, 3449]
     }
+,
+{
+    name: 'Exoplanetary Atmospheric Escape 11901',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'The process where planetary atmospheres lose gas to space due to stellar radiation and gravitational effects.',
+    position: [5600, 109500, 3600],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Circulation Patterns 11902',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Large-scale wind patterns driven by stellar heating on distant exoplanet atmospheres.',
+    position: [5601, 109520, 3601],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Chemistry Evolution 11903',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Chemical reactions and transformations occurring in exoplanet atmospheres over time.',
+    position: [5602, 109540, 3602],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Cloud Formation Mechanisms 11904',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Processes by which clouds form and evolve in distant planetary atmospheres.',
+    position: [5603, 109560, 3603],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Pressure Gradients 11905',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Pressure variations across exoplanet atmospheres that drive dynamic processes.',
+    position: [5604, 109580, 3604],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Stratification Stability Analysis 11906',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Study of atmospheric stability and mixing in exoplanet air layers.',
+    position: [5605, 109600, 3605],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Thermal Structure Profile 11907',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Temperature variation with altitude in exoplanet atmospheres.',
+    position: [5606, 109620, 3606],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Dynamics Modeling 11908',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Computational simulations of atmospheric circulation on exoplanets.',
+    position: [5607, 109640, 3607],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Condensation Nuclei Formation 11909',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Particle formation that initiates cloud condensation in exoplanet skies.',
+    position: [5608, 109660, 3608],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Wind Speed Distribution 11910',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Variation of wind velocities across different atmospheric layers and latitudes.',
+    position: [5609, 109680, 3609],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Mixing Layer 11911',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'The turbulent boundary layer where mixing occurs in exoplanet atmospheres.',
+    position: [5610, 109700, 3610],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Chemical Abundance Distribution 11912',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Spatial distribution of different chemical species in exoplanet atmospheres.',
+    position: [5611, 109720, 3611],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Aerosol Particle Composition 11913',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'The makeup of suspended particles and aerosols in exoplanet air.',
+    position: [5612, 109740, 3612],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Radiative Transfer Processes 11914',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'How radiation interacts with and transfers through exoplanet atmospheres.',
+    position: [5613, 109760, 3613],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Temperature Inversions 11915',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Layers where temperature increases with altitude on exoplanets.',
+    position: [5614, 109780, 3614],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Convection Cell Organization 11916',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'The structure of convective cells that organize heat transport in exoplanet atmospheres.',
+    position: [5615, 109800, 3615],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Jet Stream Behavior 11917',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Fast-moving air currents in exoplanet atmospheres and their dynamics.',
+    position: [5616, 109820, 3616],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Tidal Heating Effects 11918',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Internal heating from tidal forces affecting atmospheric circulation.',
+    position: [5617, 109840, 3617],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Photochemistry Reaction Pathways 11919',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Chemical reactions induced by stellar radiation in exoplanet atmospheres.',
+    position: [5618, 109860, 3618],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Opacity Variations 11920',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Changes in how transparent an exoplanet atmosphere is to radiation.',
+    position: [5619, 109880, 3619],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Molecular Dissociation Altitude 11921',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Heights where molecules break apart in exoplanet atmospheres.',
+    position: [5620, 109900, 3620],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Superrotation 11922',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Super-fast atmospheric rotation faster than the planet itself.',
+    position: [5621, 109920, 3621],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Equatorial Divergence Zones 11923',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Regions where air masses separate and move poleward from the equator.',
+    position: [5622, 109940, 3622],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Atmospheric Dust Transport 11924',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Movement of dust particles through exoplanet atmospheres by wind.',
+    position: [5623, 109960, 3623],
+    color: '#FF6B9D',
+    size: 140
+  },
+  {
+    name: 'Exoplanetary Atmospheric Synthesis 11925',
+    category: 'Exoplanetary Atmospheric Dynamics',
+    description: 'Comprehensive understanding of dynamic atmospheric processes on distant worlds.',
+    position: [5624, 109980, 3624],
+    color: '#FF6B9D',
+    size: 140
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
