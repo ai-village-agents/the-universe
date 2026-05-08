@@ -23978,6 +23978,234 @@ export function createAnchorageLandmark(THREE, opts) {
   cfghGroup.add(cfghSign);
   group.add(cfghGroup);
 
+  // --- v147: pier weather vane + beach photographer + pier driftwood horse ---
+  const pwvnGroup = new THREE.Group();
+  pwvnGroup.position.set(36, 8.4, 6);
+  // base
+  const pwvnBase = new THREE.Mesh(
+    new THREE.BoxGeometry(0.8, 0.2, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0x6b5a3f })
+  );
+  pwvnBase.position.y = 0.1;
+  pwvnGroup.add(pwvnBase);
+  // pole
+  const pwvnPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 3.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0x2a2a2a })
+  );
+  pwvnPole.position.y = 1.7;
+  pwvnGroup.add(pwvnPole);
+  // compass arms (NSEW)
+  const pwvnCompMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  for (let i = 0; i < 4; i++) {
+    const a = (i / 4) * Math.PI * 2;
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.02, 0.04), pwvnCompMat);
+    arm.position.set(Math.cos(a) * 0.3, 2.6, Math.sin(a) * 0.3);
+    arm.rotation.y = -a;
+    pwvnGroup.add(arm);
+    const tip = new THREE.Mesh(
+      new THREE.ConeGeometry(0.05, 0.12, 6),
+      new THREE.MeshLambertMaterial({ color: i === 0 ? 0xc8302a : 0x222222 })
+    );
+    tip.position.set(Math.cos(a) * 0.6, 2.6, Math.sin(a) * 0.6);
+    tip.rotation.z = -Math.PI / 2;
+    tip.rotation.y = -a;
+    pwvnGroup.add(tip);
+  }
+  // rooster vane (rotates)
+  const pwvnVaneGroup = new THREE.Group();
+  pwvnVaneGroup.position.set(0, 3.1, 0);
+  const pwvnBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xb87a3e })
+  );
+  pwvnBody.scale.set(1.5, 1, 0.6);
+  pwvnVaneGroup.add(pwvnBody);
+  const pwvnTail = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0x8a4a22 })
+  );
+  pwvnTail.position.set(-0.3, 0.05, 0);
+  pwvnTail.rotation.z = -Math.PI / 2;
+  pwvnVaneGroup.add(pwvnTail);
+  const pwvnHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.09, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xb87a3e })
+  );
+  pwvnHead.position.set(0.28, 0.1, 0);
+  pwvnVaneGroup.add(pwvnHead);
+  const pwvnComb = new THREE.Mesh(
+    new THREE.BoxGeometry(0.04, 0.1, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xc8302a })
+  );
+  pwvnComb.position.set(0.28, 0.22, 0);
+  pwvnVaneGroup.add(pwvnComb);
+  const pwvnBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.03, 0.08, 6),
+    new THREE.MeshLambertMaterial({ color: 0xeac84a })
+  );
+  pwvnBeak.position.set(0.36, 0.08, 0);
+  pwvnBeak.rotation.z = -Math.PI / 2;
+  pwvnVaneGroup.add(pwvnBeak);
+  pwvnGroup.add(pwvnVaneGroup);
+  group.add(pwvnGroup);
+
+  // beach photographer
+  const bphgGroup = new THREE.Group();
+  bphgGroup.position.set(-22, 0.05, 56);
+  // sand
+  const bphgSand = new THREE.Mesh(
+    new THREE.CircleGeometry(2.6, 20),
+    new THREE.MeshLambertMaterial({ color: 0xead7a8 })
+  );
+  bphgSand.rotation.x = -Math.PI / 2;
+  bphgSand.position.y = 0.005;
+  bphgGroup.add(bphgSand);
+  // tripod
+  const bphgTripodMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  for (let i = 0; i < 3; i++) {
+    const a = (i / 3) * Math.PI * 2;
+    const leg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.02, 1.4, 6),
+      bphgTripodMat
+    );
+    leg.position.set(Math.cos(a) * 0.18, 0.7, Math.sin(a) * 0.18);
+    leg.rotation.x = -Math.cos(a + Math.PI / 2) * 0.2;
+    leg.rotation.z = Math.sin(a + Math.PI / 2) * 0.2;
+    bphgGroup.add(leg);
+  }
+  // camera
+  const bphgCamera = new THREE.Mesh(
+    new THREE.BoxGeometry(0.36, 0.24, 0.18),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  bphgCamera.position.set(0, 1.45, 0);
+  bphgGroup.add(bphgCamera);
+  const bphgLens = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.2, 12),
+    new THREE.MeshLambertMaterial({ color: 0x111111 })
+  );
+  bphgLens.rotation.x = Math.PI / 2;
+  bphgLens.position.set(0, 1.45, 0.18);
+  bphgGroup.add(bphgLens);
+  // photographer
+  const bphgPhotographer = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.15, 0.17, 0.85, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a3a8a })
+  );
+  bphgPhotographer.position.set(-0.5, 0.5, 0.4);
+  bphgGroup.add(bphgPhotographer);
+  const bphgPhotographerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  bphgPhotographerH.position.set(-0.5, 1.05, 0.4);
+  bphgGroup.add(bphgPhotographerH);
+  // model couple
+  const bphgModel1 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.16, 0.8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe8c878 })
+  );
+  bphgModel1.position.set(0.6, 0.45, -1.2);
+  bphgGroup.add(bphgModel1);
+  const bphgModel1H = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  bphgModel1H.position.set(0.6, 1.0, -1.2);
+  bphgGroup.add(bphgModel1H);
+  const bphgModel2 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.16, 0.8, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a7c59 })
+  );
+  bphgModel2.position.set(0.95, 0.45, -1.2);
+  bphgGroup.add(bphgModel2);
+  const bphgModel2H = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  bphgModel2H.position.set(0.95, 1.0, -1.2);
+  bphgGroup.add(bphgModel2H);
+  // flash burst
+  const bphgFlashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.0 });
+  const bphgFlash = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 12, 10),
+    bphgFlashMat
+  );
+  bphgFlash.position.set(0, 1.45, 0.32);
+  bphgGroup.add(bphgFlash);
+  group.add(bphgGroup);
+
+  // pier driftwood horse
+  const pdwhGroup = new THREE.Group();
+  pdwhGroup.position.set(34, 8.4, 30);
+  // pedestal
+  const pdwhPedestal = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.2, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0x8a6e44 })
+  );
+  pdwhPedestal.position.y = 0.1;
+  pdwhGroup.add(pdwhPedestal);
+  // driftwood horse — body and legs
+  const pdwhDriftMat = new THREE.MeshLambertMaterial({ color: 0xa28a6c });
+  const pdwhBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.22, 1.2, 8),
+    pdwhDriftMat
+  );
+  pdwhBody.rotation.z = Math.PI / 2;
+  pdwhBody.position.set(0, 1.1, 0);
+  pdwhGroup.add(pdwhBody);
+  const pdwhNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12, 0.16, 0.7, 8),
+    pdwhDriftMat
+  );
+  pdwhNeck.rotation.z = -0.4;
+  pdwhNeck.position.set(0.55, 1.4, 0);
+  pdwhGroup.add(pdwhNeck);
+  const pdwhHead = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.18, 0.16),
+    pdwhDriftMat
+  );
+  pdwhHead.position.set(0.85, 1.7, 0);
+  pdwhGroup.add(pdwhHead);
+  for (let i = 0; i < 4; i++) {
+    const lx = i < 2 ? 0.4 : -0.4;
+    const lz = i % 2 === 0 ? 0.18 : -0.18;
+    const leg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.07, 0.06, 0.9, 7),
+      pdwhDriftMat
+    );
+    leg.position.set(lx, 0.65, lz);
+    pdwhGroup.add(leg);
+  }
+  // tail (mane of driftwood twigs)
+  const pdwhTailGroup = new THREE.Group();
+  pdwhTailGroup.position.set(-0.6, 1.15, 0);
+  for (let i = 0; i < 6; i++) {
+    const twig = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.01, 0.45, 5),
+      pdwhDriftMat
+    );
+    twig.position.set(-0.1, -0.1 + i * 0.04, (i - 2.5) * 0.05);
+    twig.rotation.z = 0.3 + (i % 2) * 0.15;
+    pdwhTailGroup.add(twig);
+  }
+  pdwhGroup.add(pdwhTailGroup);
+  // child admiring
+  const pdwhChild = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xff9a3a })
+  );
+  pdwhChild.position.set(-1.3, 0.45, 0.6);
+  pdwhGroup.add(pdwhChild);
+  const pdwhChildH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  pdwhChildH.position.set(-1.3, 0.78, 0.6);
+  pdwhGroup.add(pdwhChildH);
+  group.add(pdwhGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -27305,6 +27533,23 @@ export function createAnchorageLandmark(THREE, opts) {
     cfghWaves[i].scale.setScalar(0.5 + phase * 4.0);
     cfghWaves[i].material.opacity = (1.0 - phase) * 0.55;
   }
+  // --- v147 updates ---
+  const v147t = t;
+  // pier weather vane - rotating rooster
+  pwvnVaneGroup.rotation.y = Math.sin(v147t * 0.4) * 0.8 + v147t * 0.05;
+  // beach photographer - flash
+  const flashPulse = Math.sin(v147t * 1.5);
+  bphgFlashMat.opacity = Math.max(0, flashPulse - 0.85) * 7.0;
+  bphgFlash.scale.setScalar(1.0 + Math.max(0, flashPulse - 0.85) * 4.0);
+  // photographer leans behind camera
+  bphgPhotographerH.position.y = 1.05 - Math.abs(Math.sin(v147t * 0.7)) * 0.06;
+  // models pose shift
+  bphgModel1H.rotation.y = Math.sin(v147t * 0.5) * 0.2;
+  bphgModel2H.rotation.y = Math.sin(v147t * 0.5 + 0.5) * 0.2;
+  // pier driftwood horse - tail sway
+  pdwhTailGroup.rotation.y = Math.sin(v147t * 0.8) * 0.3;
+  pdwhChildH.rotation.y = Math.sin(v147t * 0.9) * 0.4;
+
 
 
 
