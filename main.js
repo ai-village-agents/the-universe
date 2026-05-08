@@ -25234,6 +25234,206 @@ const cosmicSights = [
 { name: 'UV Pumped Fluorescence Region', position: [0.69, 0.52, 0.29], color: '#ADFF2F', size: 4.7, description: 'Molecular gas excited by UV photons producing infrared fluorescence.' },
 { name: 'Field Line Reconnection Event', position: [0.37, 0.67, 0.81], color: '#FF6347', size: 5.0, description: 'Location where magnetic field lines reconnect releasing energy.' },
 { name: 'Kolmogorov Turbulent Energy Cascade', position: [0.54, 0.39, 0.57], color: '#778899', size: 4.9, description: 'Energy cascade from large to small scales in turbulent ISM.' },
+  {
+    name: 'Solar Active Region Loop 13576',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [14851, -34009, -27225],
+    color: '#ff9900',
+    size: 202
+  },
+  {
+    name: 'M Dwarf Flaring Loop 13577',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [7210, 3811, -10235],
+    color: '#ff9900',
+    size: 351
+  },
+  {
+    name: 'T Tauri Star Magnetic Arc 13578',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-22847, 22086, -37263],
+    color: '#ff9900',
+    size: 292
+  },
+  {
+    name: 'RS Canum Venaticorum Binary Coronal Structure 13579',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-35113, 39640, -39902],
+    color: '#996600',
+    size: 386
+  },
+  {
+    name: 'BY Draconis Star Mega Flare Loop 13580',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [6422, 6061, 28470],
+    color: '#ffcc00',
+    size: 131
+  },
+  {
+    name: 'W UMa Contact Binary Shared Corona 13581',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [7300, 8530, 6071],
+    color: '#ffcc00',
+    size: 62
+  },
+  {
+    name: 'Algol System Magnetic Interaction Zone 13582',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-19161, 4631, 33158],
+    color: '#996600',
+    size: 157
+  },
+  {
+    name: 'Giant Star X Ray Emitting Loop 13583',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [38878, -2452, -9238],
+    color: '#ff9900',
+    size: 394
+  },
+  {
+    name: 'Pre Main Sequence Star Magnetic Channel 13584',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-36085, -6508, -28817],
+    color: '#cc9900',
+    size: 370
+  },
+  {
+    name: 'Brown Dwarf Coronal Heating Zone 13585',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [22735, -32860, 23233],
+    color: '#ff9900',
+    size: 221
+  },
+  {
+    name: 'FK Comae Berenices Rapid Rotator Loop 13586',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [6597, 3884, -20816],
+    color: '#ff9900',
+    size: 124
+  },
+  {
+    name: 'Pleiades Cluster Young Star Corona 13587',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-8046, -27829, -2071],
+    color: '#ff9900',
+    size: 117
+  },
+  {
+    name: 'Hyades Cluster Mid Age Star Loop 13588',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-31479, 8546, 10600],
+    color: '#ff9900',
+    size: 331
+  },
+  {
+    name: 'Old Disk Population Star Coronal Remnant 13589',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-5813, 14837, 26056],
+    color: '#cc9900',
+    size: 136
+  },
+  {
+    name: 'Halo Star Minimal Coronal Structure 13590',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [24685, -4952, 3645],
+    color: '#cc9900',
+    size: 80
+  },
+  {
+    name: 'Superflare Star Magnetic Arcade 13591',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-39405, -3323, -19462],
+    color: '#ffcc00',
+    size: 313
+  },
+  {
+    name: 'Coronal Mass Ejection Source Loop 13592',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-6008, 25184, 4551],
+    color: '#ff9900',
+    size: 183
+  },
+  {
+    name: 'Stellar Prominence Support Structure 13593',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-24122, -35775, -1511],
+    color: '#996600',
+    size: 85
+  },
+  {
+    name: 'Magnetic Reconnection Site Loop 13594',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [33164, -4490, -25162],
+    color: '#cc9900',
+    size: 115
+  },
+  {
+    name: 'Coronal Hole Boundary Loop 13595',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [39399, 20081, -39638],
+    color: '#ff9900',
+    size: 356
+  },
+  {
+    name: 'Quiet Sun Equivalent Coronal Arc 13596',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-18352, -117, -34432],
+    color: '#cc9900',
+    size: 328
+  },
+  {
+    name: 'Evolving Active Region Loop Complex 13597',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [544, 38364, -22472],
+    color: '#996600',
+    size: 269
+  },
+  {
+    name: 'Decaying Active Region Magnetic Remnant 13598',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-38299, 4071, 10031],
+    color: '#ff9900',
+    size: 151
+  },
+  {
+    name: 'Post Flare Loop System 13599',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [24944, -25744, -21156],
+    color: '#996600',
+    size: 338
+  },
+  {
+    name: 'Transequatorial Coronal Interconnecting Loop 13600',
+    category: 'Stellar Coronal Loops',
+    description: 'A mesmerizing manifestation of stellar coronal loops observed in deep space.', 
+    position: [-32943, -19362, 38],
+    color: '#ffcc00',
+    size: 56
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
