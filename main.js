@@ -21250,6 +21250,133 @@ const cosmicSights = [
     color: '#FF4500',
     size: 127
   }
+,
+{
+      name: "Galactic Archaeology Stellar Nucleosynthesis Age Dating",
+      position: [6375, 125500, 4375],
+      description: "Thorium-232 and uranium-238 chronometer ages in metal-poor stars"
+    },
+    {
+      name: "Galactic Archaeology Chemical Abundance Pattern Signature",
+      position: [6376, 125520, 4376],
+      description: "Elemental ratios tracing nucleosynthesis site history"
+    },
+    {
+      name: "Galactic Archaeology Dynamical Stream Membership Kinematics",
+      position: [6377, 125540, 4377],
+      description: "Tidal debris from disrupted dwarf galaxies and globular clusters"
+    },
+    {
+      name: "Galactic Archaeology Gaia Parallax Proper Motion Tangential Velocity",
+      position: [6378, 125560, 4378],
+      description: "Astrometric constraints on stellar orbit phase space distribution"
+    },
+    {
+      name: "Galactic Archaeology Halo Substructure Phase Space Clump",
+      position: [6379, 125580, 4379],
+      description: "Disrupted satellite galaxy remnant detection via density peaks"
+    },
+    {
+      name: "Galactic Archaeology Disk Heating Velocity Dispersion Evolution",
+      position: [6380, 125600, 4380],
+      description: "Radial migration and impact of globular cluster passages"
+    },
+    {
+      name: "Galactic Archaeology Globular Cluster Disruption Timescale Survival",
+      position: [6381, 125620, 4381],
+      description: "Tidal stripping and evaporation processes over Hubble time"
+    },
+    {
+      name: "Galactic Archaeology Bulge Pseudo-Bulge Structure Decomposition",
+      position: [6382, 125640, 4382],
+      description: "Classical versus secular evolution driven formation history"
+    },
+    {
+      name: "Galactic Archaeology Ultra-Faint Dwarf Satellite Population Census",
+      position: [6383, 125660, 4383],
+      description: "Missing satellites problem and dark matter halo properties"
+    },
+    {
+      name: "Galactic Archaeology Metal-Poor Halo Population Kinematic Structure",
+      position: [6384, 125680, 4384],
+      description: "In-situ formation versus accretion dichotomy identification"
+    },
+    {
+      name: "Galactic Archaeology High-Alpha Abundance Thick Disk Old",
+      position: [6385, 125700, 4385],
+      description: "Rapid formation from collapsing gas cloud identification"
+    },
+    {
+      name: "Galactic Archaeology Low-Alpha Thin Disk Secular Evolution",
+      position: [6386, 125720, 4386],
+      description: "Inside-out growth and radial migration history tracing"
+    },
+    {
+      name: "Galactic Archaeology Vertical Structure Scale Height Age Gradient",
+      position: [6387, 125740, 4387],
+      description: "Dynamical heating and correlation with stellar age determination"
+    },
+    {
+      name: "Galactic Archaeology Spiral Structure Density Wave Amplitude Corotation",
+      position: [6388, 125760, 4388],
+      description: "Pattern speed determination from stellar velocity asymmetries"
+    },
+    {
+      name: "Galactic Archaeology Bar Instability Buckling Frequency Strength",
+      position: [6389, 125780, 4389],
+      description: "Orbital resonance and disk resonance driving mechanisms"
+    },
+    {
+      name: "Galactic Archaeology Warp Distortion Lopsidedness Asymmetry Detection",
+      position: [6390, 125800, 4390],
+      description: "Satellite interaction and misalignment with dark matter halo"
+    },
+    {
+      name: "Galactic Archaeology Proper Motion Local Standard Rest Frame",
+      position: [6391, 125820, 4391],
+      description: "Solar peculiar motion and Sun's galactocentric orbit reference"
+    },
+    {
+      name: "Galactic Archaeology Radial Velocity Rotation Curve Measurement",
+      position: [6392, 125840, 4392],
+      description: "Mass distribution decomposition and dark matter halo extent"
+    },
+    {
+      name: "Galactic Archaeology Extinction Map Dust Distribution Three Dimensional",
+      position: [6393, 125860, 4393],
+      description: "Stellar distance estimation accuracy and interstellar extinction"
+    },
+    {
+      name: "Galactic Archaeology Photometric Survey Completeness Selection Bias",
+      position: [6394, 125880, 4394],
+      description: "Stellar populations characterization and mass function derivation"
+    },
+    {
+      name: "Galactic Archaeology Spectroscopic Metallicity Indicator Calibration",
+      position: [6395, 125900, 4395],
+      description: "Elemental abundance determination from spectral line strength"
+    },
+    {
+      name: "Galactic Archaeology White Dwarf Age Cooling Sequence Isochrone",
+      position: [6396, 125920, 4396],
+      description: "Stellar population age determination and halo age constraints"
+    },
+    {
+      name: "Galactic Archaeology RR Lyrae Variable Star Distance Calibration",
+      position: [6397, 125940, 4397],
+      description: "Period-luminosity relation and metal abundance dependency"
+    },
+    {
+      name: "Galactic Archaeology Horizontal Branch Morphology Age Metallicity",
+      position: [6398, 125960, 4398],
+      description: "Stellar evolutionary state and population parameter inference"
+    },
+    {
+      name: "Galactic Archaeology Helix Stream Tidal Disruption Orbit Integration",
+      position: [6399, 125980, 4399],
+      description: "Backward orbit integration and progenitor identification search"
+    }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
