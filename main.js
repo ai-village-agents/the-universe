@@ -22064,6 +22064,207 @@ const cosmicSights = [
 { name: "Future Observations Reionization Era", type: "phenomenon", category: "cosmological", position: [6623, 130460, 4623], description: "JWST and next-generation facilities promising detailed observations of reionization epoch galaxies and sources" },
 { name: "Reionization Imprint Large-Scale Structure", type: "phenomenon", category: "cosmological", position: [6624, 130480, 4624], description: "Modified density perturbations and baryon acoustic oscillations imprinted by reionization feedback effects" }
 
+,
+  {
+    name: 'Centaurus A Core Binary 12876',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [29900, 10814, 20272],
+    color: '#000000',
+    size: 387
+  },
+  {
+    name: 'OJ 287 System 12877',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [30929, -25799, -9669],
+    color: '#000000',
+    size: 459
+  },
+  {
+    name: 'NGC 6240 Nucleus Pair 12878',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [5589, -39547, 23772],
+    color: '#1a001a',
+    size: 326
+  },
+  {
+    name: 'M87 Precursor Binary 12879',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [38483, 20234, 11947],
+    color: '#00001a',
+    size: 377
+  },
+  {
+    name: 'Sagittarius A Companion Search 12880',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-13564, -21281, -16549],
+    color: '#1a001a',
+    size: 546
+  },
+  {
+    name: 'PKS 2131-021 Blazar Pair 12881',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [4122, -2286, -27409],
+    color: '#000000',
+    size: 519
+  },
+  {
+    name: 'PG 1302-102 Quasar Binary 12882',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [11138, 38024, 9446],
+    color: '#1a001a',
+    size: 360
+  },
+  {
+    name: 'SDSS J1048+0055 System 12883',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-2187, -18442, -36012],
+    color: '#000000',
+    size: 342
+  },
+  {
+    name: 'Mrk 231 Candidate Pair 12884',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-26650, -6945, -26238],
+    color: '#003333',
+    size: 584
+  },
+  {
+    name: '3C 66B Nucleus 12885',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [13358, -30788, -9027],
+    color: '#000000',
+    size: 346
+  },
+  {
+    name: 'Arp 220 Active Pair 12886',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [10641, -8122, 24782],
+    color: '#1a001a',
+    size: 545
+  },
+  {
+    name: 'NGC 3393 Binary 12887',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-16549, -39643, 6683],
+    color: '#1a1a1a',
+    size: 384
+  },
+  {
+    name: 'J1010+1413 Merger Candidate 12888',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [16768, -2935, 35975],
+    color: '#000000',
+    size: 244
+  },
+  {
+    name: 'KIC 9655129 Flare Source 12889',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-11667, -10799, 23958],
+    color: '#1a001a',
+    size: 320
+  },
+  {
+    name: 'Ton 618 Binary Hypothesis 12890',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [14170, -29393, -9926],
+    color: '#00001a',
+    size: 324
+  },
+  {
+    name: 'Holmberg 15A Core 12891',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [6942, 19950, 34414],
+    color: '#1a001a',
+    size: 316
+  },
+  {
+    name: 'NGC 1275 Double Nucleus 12892',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-26611, -16299, 18767],
+    color: '#330033',
+    size: 379
+  },
+  {
+    name: 'Cygnus A Pre-Merger 12893',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [5632, 32771, 13835],
+    color: '#00001a',
+    size: 436
+  },
+  {
+    name: 'Fornax A Core Pair 12894',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-15555, 31830, 12078],
+    color: '#1a1a1a',
+    size: 310
+  },
+  {
+    name: 'Virgo A Binary System 12895',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-33533, 17597, 27666],
+    color: '#003333',
+    size: 291
+  },
+  {
+    name: 'Sombrero Galaxy Core Search 12896',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-1767, -264, -29939],
+    color: '#00001a',
+    size: 531
+  },
+  {
+    name: 'Whirlpool Nucleus Companion 12897',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [18768, 31308, 32033],
+    color: '#330033',
+    size: 223
+  },
+  {
+    name: 'Pinwheel Core Binary 12898',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [5393, -33073, 31823],
+    color: '#330033',
+    size: 360
+  },
+  {
+    name: 'Andromeda Nucleus Pair 12899',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [37052, -552, 30300],
+    color: '#1a001a',
+    size: 502
+  },
+  {
+    name: 'Triangulum Core System 12900',
+    category: 'Supermassive Black Hole Binaries',
+    description: 'A mesmerizing manifestation of supermassive black hole binaries observed in deep space.', 
+    position: [-1212, 7796, -14037],
+    color: '#00001a',
+    size: 492
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
