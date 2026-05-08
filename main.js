@@ -19888,7 +19888,32 @@ const cosmicSights = [
   { name: 'CMB COrE+ Probe Spectral Resolution', position: [-155, 355, -78], color: '#009688', description: 'proposed CMB spectrometer for measuring spectral distortions at 10^-8 level' },
   { name: 'CMB Polarization Rotation Cosmic Birefringence', position: [155, -355, 78], color: '#4caf50', description: 'anomalous rotation of polarization angle from parity-violating physics' },
   { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
-  { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
+  { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' },
+  { name: 'GRB 080319B Naked-Eye Optical Flash', position: [-350, 200, 150], color: '#e74c3c', description: 'most intrinsically bright optical afterglow ever observed from redshift z=0.937' },
+  { name: 'GRB 130427A Fermi LAT Afterglow', position: [350, -200, -150], color: '#9b59b6', description: 'long-duration gamma-ray burst with GeV emission detected for 20 hours post-trigger' },
+  { name: 'GRB 090423 High-Redshift z8.2 Progenitor', position: [-340, 210, 145], color: '#3498db', description: 'earliest spectroscopically confirmed GRB from cosmic dawn epoch before reionization' },
+  { name: 'GRB 170817A Kilonova GW170817 Counterpart', position: [340, -210, -145], color: '#2ecc71', description: 'short GRB associated with first neutron star merger detected in gravitational waves' },
+  { name: 'GRB Jet Break Achromatic Light Curve', position: [-345, 205, 148], color: '#f39c12', description: 'steepening of afterglow decay from relativistic jet edge becoming visible' },
+  { name: 'GRB Reverse Shock Optical Flash', position: [345, -205, -148], color: '#1abc9c', description: 'early-time brightening from shock propagating back into ejecta shell' },
+  { name: 'GRB Afterglow Forward Shock Sedov Phase', position: [-355, 215, 155], color: '#e67e22', description: 'transition to self-similar blast wave expansion decelerating in circumburst medium' },
+  { name: 'GRB Circumburst Medium Density Profile', position: [355, -215, -155], color: '#c0392b', description: 'wind-stratified or constant-density ISM inferred from afterglow light curves' },
+  { name: 'GRB Collapsar Accretion Disk Torus', position: [-360, 220, 160], color: '#16a085', description: 'fallback accretion onto black hole from stripped-envelope massive star core' },
+  { name: 'GRB Magnetar Central Engine Spin-Down', position: [360, -220, -160], color: '#8e44ad', description: 'rapidly spinning highly magnetized neutron star powering extended X-ray emission' },
+  { name: 'GRB 060614 Long-Short Anomaly', position: [-365, 225, 165], color: '#d35400', description: 'long-duration burst lacking supernova despite star-formation host galaxy' },
+  { name: 'GRB 121024A Polarized Optical Afterglow', position: [365, -225, -165], color: '#27ae60', description: 'high linear polarization indicating ordered magnetic field in relativistic jet' },
+  { name: 'GRB X-Ray Flare Central Engine Reactivation', position: [-370, 230, 170], color: '#2980b9', description: 'late-time X-ray flare from intermittent central engine activity minutes to hours later' },
+  { name: 'GRB Supernova Ic-BL Bumpy Bump Light Curve', position: [370, -230, -170], color: '#e91e63', description: 'broad-lined Type Ic supernova emerging from GRB afterglow days after trigger' },
+  { name: 'GRB Progenitor Wolf-Rayet Wind Bubble', position: [-375, 235, 175], color: '#f1c40f', description: 'low-density wind-blown bubble around massive star shaping afterglow dynamics' },
+  { name: 'GRB Afterglow Synchrotron Self-Compton', position: [375, -235, -175], color: '#00bcd4', description: 'inverse Compton upscattering of synchrotron photons in shocked relativistic plasma' },
+  { name: 'GRB Host Galaxy Metallicity Gradient', position: [-380, 240, 180], color: '#ff5722', description: 'low-metallicity preference for long GRB progenitors in dwarf galaxies' },
+  { name: 'GRB 190114C TeV Afterglow Detection', position: [380, -240, -180], color: '#795548', description: 'first detection of teraelectronvolt emission from GRB afterglow by MAGIC telescopes' },
+  { name: 'GRB Jet Opening Angle Theta-Jet Constraint', position: [-385, 245, 185], color: '#607d8b', description: 'inferred collimation angle from jet break time used to standardize energy release' },
+  { name: 'GRB Prompt Emission Internal Shock Collision', position: [385, -245, -185], color: '#673ab7', description: 'collision of relativistic shells ejected by variable central engine activity' },
+  { name: 'GRB 101225A Christmas Burst Helium Merger', position: [-390, 250, 190], color: '#3f51b5', description: 'unusual long burst from helium star-white dwarf merger or tidal disruption event' },
+  { name: 'GRB Afterglow Radio Self-Absorption Turnover', position: [390, -250, -190], color: '#009688', description: 'peak in radio light curve from synchrotron self-absorption in expanding shock' },
+  { name: 'GRB Tidal Disruption Event Jetted Emission', position: [-395, 255, 195], color: '#4caf50', description: 'relativistic jet launched from supermassive black hole disrupting star' },
+  { name: 'GRB 050904 z6.3 Ly-alpha Absorption Trough', position: [395, -255, -195], color: '#ff9800', description: 'damped Ly-alpha absorption from neutral hydrogen in host galaxy interstellar medium' },
+  { name: 'GRB Ultra-Long Duration Magnetar Fallback', position: [-400, 260, 200], color: '#9c27b0', description: 'hours-to-days duration burst from blue supergiant collapse with extended fallback' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
