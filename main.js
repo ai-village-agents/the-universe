@@ -19637,7 +19637,32 @@ const cosmicSights = [
   { name: 'El Gordo Wake Turbulent Merger Tail', position: [-345, 75, 95], color: '#009688', description: 'elongated X-ray surface brightness tail from stripped gas in post-merger cluster' },
   { name: 'Cluster Magnetic Field Faraday Rotation Measure', position: [-185, 105, -325], color: '#4caf50', description: 'polarized radio source depolarization mapping cluster-scale magnetic field' },
   { name: 'Coma Cluster UDG Diffuse Galaxy Population', position: [-308, 88, -108], color: '#ff9800', description: 'population of ultra-diffuse galaxies surviving in high-density cluster environment' },
-  { name: 'Cluster Cosmic Ray Proton Calorimetry', position: [240, -70, 160], color: '#9c27b0', description: 'gamma-ray emission from hadronic cosmic ray interactions with intracluster gas' }
+  { name: 'Cluster Cosmic Ray Proton Calorimetry', position: [240, -70, 160], color: '#9c27b0', description: 'gamma-ray emission from hadronic cosmic ray interactions with intracluster gas' },
+  { name: 'Orion Nebula Photodissociation Front', position: [-150, 220, -180], color: '#e74c3c', description: 'ionization boundary where UV radiation dissociates molecules ahead of ionization front' },
+  { name: 'Taurus Molecular Cloud Ammonia Core', position: [180, -130, 250], color: '#9b59b6', description: 'dense cold core traced by NH3 inversion lines in nearby star-forming region' },
+  { name: 'Horsehead Nebula Photoionization Rim', position: [-160, 230, -190], color: '#3498db', description: 'illuminated ionization front on molecular cloud edge sculpted by radiation pressure' },
+  { name: 'Barnard 68 Bok Globule Extinction Profile', position: [190, -140, 260], color: '#2ecc71', description: 'near-infrared background star count revealing centrally concentrated dust column' },
+  { name: 'Pillars of Creation Evaporating Gaseous Globule', position: [-155, 225, -185], color: '#f39c12', description: 'dense finger protruding from molecular cloud shielded from photoevaporative flow' },
+  { name: 'Orion KL Hot Core Complex Molecule', position: [-148, 218, -178], color: '#1abc9c', description: 'rich organic chemistry site with dozens of detected complex molecules near protostars' },
+  { name: 'TMC-1 Cyanopolyyne Peak Abundance', position: [185, -135, 255], color: '#e67e22', description: 'long carbon chain molecules HC7N and HC9N at peak abundance in dark cloud' },
+  { name: 'Rosette Nebula Champagne Flow', position: [220, 160, -240], color: '#c0392b', description: 'supersonic ionized gas streaming away from blister HII region into low-density cavity' },
+  { name: 'Polaris Flare Translucent Cloud Layer', position: [-200, 120, 300], color: '#16a085', description: 'moderate extinction cloud showing transition from atomic to molecular hydrogen' },
+  { name: 'Lupus Molecular Cloud Filament Spine', position: [170, -125, 240], color: '#8e44ad', description: 'parsec-scale filamentary spine hosting multiple prestellar cores in nearby cloud' },
+  { name: 'Crab Nebula Sulfur Forbidden Line Knot', position: [-50, 120, -310], color: '#d35400', description: 'fast-moving nitrogen-sulfur rich ejecta filament in young supernova remnant' },
+  { name: 'Witch Head Nebula Reflection Dust Scattering', position: [-165, 235, -195], color: '#27ae60', description: 'blue reflection nebula from preferential scattering by submicron dust grains' },
+  { name: 'RCW 36 Massive Cluster HII Region', position: [230, 170, -250], color: '#2980b9', description: 'compact HII region around massive young cluster with champagne flow morphology' },
+  { name: 'Chamaeleon I Ice Mantle Infrared Band', position: [175, -120, 235], color: '#e91e63', description: 'solid-state absorption features from water and CO ice mantles on dust grains' },
+  { name: 'Pipe Nebula Dust Lane Column Density', position: [-210, 110, 310], color: '#f1c40f', description: 'dark molecular cloud showing sharp visual extinction boundary against star field' },
+  { name: 'NGC 7023 Reflection Nebula PAH Emission', position: [240, 180, -260], color: '#00bcd4', description: 'polycyclic aromatic hydrocarbon fluorescence at boundary between HII region and cloud' },
+  { name: 'Serpens South Cluster Protostellar Outflow', position: [165, -115, 230], color: '#ff5722', description: 'clustered protostellar outflows creating shocked H2 emission in dense natal cloud' },
+  { name: 'Coalsack Nebula Dark Cloud Edge Contrast', position: [-215, 105, 315], color: '#795548', description: 'prominent dark nebula silhouette against Milky Way background star density' },
+  { name: 'LBN 437 Herbig-Haro Object Jet Shock', position: [250, 190, -270], color: '#607d8b', description: 'bright knot from supersonic jet impacting ambient molecular cloud material' },
+  { name: 'Perseus Molecular Cloud Barnard Loop Arc', position: [-225, 155, -285], color: '#673ab7', description: 'giant HII region arc structure surrounding entire Perseus-Taurus complex' },
+  { name: 'M16 Pillars Magnetic Field Alignment', position: [-158, 228, -188], color: '#3f51b5', description: 'dust polarization vectors showing hourglass magnetic field in elephant trunk pillar' },
+  { name: 'Ophiuchus Streamer Infalling Material', position: [160, -110, 225], color: '#009688', description: 'streamer of gas and dust falling from envelope onto embedded protostellar system' },
+  { name: 'Cepheus Flare Cloud T Tauri Population', position: [-230, 100, 320], color: '#4caf50', description: 'association of young stellar objects in nearby low-mass star-forming region' },
+  { name: 'IC 5146 Cocoon Nebula Bright Rim', position: [255, 195, -275], color: '#ff9800', description: 'HII region blister on molecular cloud edge with compressed bright rim' },
+  { name: 'Rho Ophiuchi Cloud Complex Lynds Dark Nebula', position: [155, -105, 220], color: '#9c27b0', description: 'nearest massive star-forming complex containing multiple dark cloud cores' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
