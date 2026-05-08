@@ -16939,7 +16939,33 @@ const cosmicSights = [
     {name: "Continuous Gravitational Wave from Pulsar", description: "Potential detection of continuous gravitational waves from non-axisymmetric neutron stars.", position: [5371, 105420, 3371]},
     {name: "Neutron Star Merger Gravitational Waves", description: "The transient gravitational wave signal from two colliding neutron stars.", position: [5372, 105440, 3372]},
     {name: "Pulsar Jet Formation Mechanism", description: "The acceleration and collimation of particle beams along pulsar magnetic field lines.", position: [5373, 105460, 3373]},
-    {name: "Neutron Star Mass Radius Constraint", description: "Using pulsar mass measurements to constrain the neutron star equation of state.", position: [5374, 105480, 3374]}
+    {name: "Neutron Star Mass Radius Constraint", description: "Using pulsar mass measurements to constrain the neutron star equation of state.", position: [5374, 105480, 3374]},
+  {"name": "Proton-Proton Chain Core", "description": "The nuclear fusion site where hydrogen atoms combine into helium through intermediate deuterium and helium-3 steps.", "position": [4821, -3154, 2087]},
+  {"name": "CNO Cycle Hotspot", "description": "A stellar region where carbon, nitrogen, and oxygen catalyze hydrogen fusion in massive hot stars.", "position": [-3298, 4512, -1876]},
+  {"name": "Triple-Alpha Process Zone", "description": "The helium burning layer where three helium-4 nuclei fuse to create carbon-12 through the Hoyle state.", "position": [2156, -4087, 3421]},
+  {"name": "Carbon-12 Hoyle State Resonance", "description": "The precise nuclear energy level that allows carbon-12 formation, essential for all life in the universe.", "position": [-4532, 1987, -2654]},
+  {"name": "Helium Shell Flash Event", "description": "An explosive thermonuclear pulse in the helium shell of an asymptotic giant branch star.", "position": [3789, -2341, 4098]},
+  {"name": "Neon Burning Shell", "description": "The stellar layer where neon photodisintegrates and alpha particles build heavier elements.", "position": [-1876, 3654, -4123]},
+  {"name": "Oxygen Fusion Layer", "description": "A massive star region where oxygen nuclei fuse to create silicon, sulfur, and phosphorus.", "position": [4234, -1098, 2876]},
+  {"name": "Silicon Burning Core Collapse", "description": "The final nuclear burning stage where silicon rapidly converts to iron-group elements before core collapse.", "position": [-2987, 4321, -1543]},
+  {"name": "Alpha Capture Cascade", "description": "A sequence of helium-4 additions that builds nuclei from carbon through sulfur in stellar interiors.", "position": [1654, -3876, 4567]},
+  {"name": "S-Process Branching Point", "description": "A location where slow neutron capture pathways diverge based on nuclear decay timescales.", "position": [-4123, 2098, -3298]},
+  {"name": "Lanthanide Actinide Synthesis Zone", "description": "An extreme neutron-rich environment where rapid neutron capture creates heavy elements beyond iron.", "position": [3098, -4234, 1765]},
+  {"name": "Iron Peak Element Factory", "description": "The stellar core region producing iron, nickel, and cobalt at nuclear statistical equilibrium.", "position": [-1543, 3987, -4321]},
+  {"name": "Neutron Capture Abundance Pattern", "description": "The distinctive element ratio signature left by neutron capture nucleosynthesis processes.", "position": [4567, -1876, 2341]},
+  {"name": "Explosive Oxygen Shell Burning", "description": "Shock-heated oxygen that undergoes rapid fusion during a supernova explosion.", "position": [-3421, 4098, -2156]},
+  {"name": "Photodisintegration Collapse Front", "description": "The boundary where gamma rays break apart iron nuclei, triggering core collapse.", "position": [2876, -3654, 4234]},
+  {"name": "Nuclear Statistical Equilibrium Zone", "description": "The innermost supernova region where forward and reverse nuclear reactions balance.", "position": [-4321, 1543, -3789]},
+  {"name": "Stellar Core Convection Boundary", "description": "The interface where convective mixing dredges up freshly synthesized elements.", "position": [1098, -4321, 3098]},
+  {"name": "Thermonuclear Runaway Ignition", "description": "The explosive onset of degenerate nuclear burning in white dwarf or neutron star surfaces.", "position": [-2654, 3421, -4567]},
+  {"name": "Carbon Deflagration Wavefront", "description": "The subsonic nuclear burning front propagating through a carbon-oxygen white dwarf.", "position": [3654, -2098, 1234]},
+  {"name": "Asymptotic Giant Branch Dredge-Up", "description": "Convective transport bringing s-process elements from the stellar interior to the surface.", "position": [-1234, 4567, -2876]},
+  {"name": "Hot Bottom Burning Zone", "description": "The base of a massive AGB star convective envelope where proton captures alter surface abundances.", "position": [4098, -3298, 3654]},
+  {"name": "Weak S-Process Region", "description": "The helium and carbon burning shells of massive stars producing light s-process elements.", "position": [-3789, 2654, -1098]},
+  {"name": "Neutrino-Process Element Synthesis", "description": "Rare isotope production through neutrino interactions during supernova explosions.", "position": [2341, -4567, 4321]},
+  {"name": "Cosmic Element Ratio Observatory", "description": "A vantage point revealing the universal abundance pattern shaped by stellar nucleosynthesis.", "position": [-4567, 1234, -3421]},
+  {"name": "Magnesium-24 Production Shell", "description": "The stellar region where carbon fusion creates magnesium through neon intermediate states.", "position": [3421, -1234, 2654]}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
