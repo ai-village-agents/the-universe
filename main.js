@@ -25233,7 +25233,157 @@ const cosmicSights = [
 { name: 'Radiative Cooling Zone', position: [0.45, 0.31, 0.65], color: '#8FBC8F', size: 4.4, description: 'Post-shock region where gas cools radiatively and compresses.' },
 { name: 'UV Pumped Fluorescence Region', position: [0.69, 0.52, 0.29], color: '#ADFF2F', size: 4.7, description: 'Molecular gas excited by UV photons producing infrared fluorescence.' },
 { name: 'Field Line Reconnection Event', position: [0.37, 0.67, 0.81], color: '#FF6347', size: 5.0, description: 'Location where magnetic field lines reconnect releasing energy.' },
-{ name: 'Kolmogorov Turbulent Energy Cascade', position: [0.54, 0.39, 0.57], color: '#778899', size: 4.9, description: 'Energy cascade from large to small scales in turbulent ISM.' },
+{ name: 'Kolmogorov Turbulent Energy Cascade', position: [0.54, 0.39, 0.57], color: '#778899', size: 4.9, description: 'Energy cascade from large to small scales in turbulent ISM.' },,
+{
+    name: "Adaptive mesh refinement for multi-scale astrophysical simulations 13701",
+    position: [13400, 130000, 7400],
+    color: "#0000ff",
+    size: 200
+  },
+{
+    name: "Discontinuous Galerkin methods for hyperbolic conservation laws 13702",
+    position: [13520, 130085, 7340],
+    color: "#0a00f4",
+    size: 213
+  },
+{
+    name: "Finite volume schemes with high-order reconstruction 13703",
+    position: [13640, 130170, 7280],
+    color: "#1500e9",
+    size: 226
+  },
+{
+    name: "Monte Carlo radiative transfer with variance reduction 13704",
+    position: [13760, 130255, 7220],
+    color: "#1f00df",
+    size: 239
+  },
+{
+    name: "N-body tree codes with hierarchical time-stepping 13705",
+    position: [13880, 130340, 7160],
+    color: "#2a00d4",
+    size: 252
+  },
+{
+    name: "Particle-in-cell methods for plasma astrophysics 13706",
+    position: [14000, 130425, 7100],
+    color: "#3500c9",
+    size: 265
+  },
+{
+    name: "Spectral methods for global magnetohydrodynamics 13707",
+    position: [14120, 130510, 7040],
+    color: "#3f00bf",
+    size: 278
+  },
+{
+    name: "Implicit-explicit (IMEX) time integration for stiff systems 13708",
+    position: [14240, 130595, 6980],
+    color: "#4a00b4",
+    size: 200
+  },
+{
+    name: "Multigrid solvers for elliptic partial differential equations 13709",
+    position: [14360, 130680, 6920],
+    color: "#5500aa",
+    size: 213
+  },
+{
+    name: "Domain decomposition for massively parallel computation 13710",
+    position: [14480, 130765, 6860],
+    color: "#5f009f",
+    size: 226
+  },
+{
+    name: "Fast multipole method for gravitational interactions 13711",
+    position: [14600, 130850, 6800],
+    color: "#6a0094",
+    size: 239
+  },
+{
+    name: "Wavelet-based adaptive numerical schemes 13712",
+    position: [14720, 130935, 6740],
+    color: "#74008a",
+    size: 252
+  },
+{
+    name: "Artificial viscosity and shock-capturing techniques 13713",
+    position: [14840, 131020, 6680],
+    color: "#7f007f",
+    size: 265
+  },
+{
+    name: "Moving mesh methods for Lagrangian hydrodynamics 13714",
+    position: [14960, 131105, 6620],
+    color: "#8a0074",
+    size: 278
+  },
+{
+    name: "Smooth particle hydrodynamics with kernel improvements 13715",
+    position: [15080, 131190, 6560],
+    color: "#94006a",
+    size: 200
+  },
+{
+    name: "Mesh-free methods for complex geometry problems 13716",
+    position: [15200, 131275, 6500],
+    color: "#9f005f",
+    size: 213
+  },
+{
+    name: "High-order finite difference WENO schemes 13717",
+    position: [15320, 131360, 6440],
+    color: "#aa0055",
+    size: 226
+  },
+{
+    name: "Boundary element methods for potential fields 13718",
+    position: [15440, 131445, 6380],
+    color: "#b4004a",
+    size: 239
+  },
+{
+    name: "Lattice Boltzmann methods for fluid dynamics 13719",
+    position: [15560, 131530, 6320],
+    color: "#bf003f",
+    size: 252
+  },
+{
+    name: "Reduced-order modeling for parameter space exploration 13720",
+    position: [15680, 131615, 6260],
+    color: "#c90035",
+    size: 265
+  },
+{
+    name: "Uncertainty quantification via polynomial chaos expansion 13721",
+    position: [15800, 131700, 6200],
+    color: "#d4002a",
+    size: 278
+  },
+{
+    name: "Multi-fidelity surrogate modeling 13722",
+    position: [15920, 131785, 6140],
+    color: "#df001f",
+    size: 200
+  },
+{
+    name: "Ensemble Kalman filters for data assimilation 13723",
+    position: [16040, 131870, 6080],
+    color: "#e90015",
+    size: 213
+  },
+{
+    name: "Adjoint-based gradient optimization 13724",
+    position: [16160, 131955, 6020],
+    color: "#f4000a",
+    size: 226
+  },
+{
+    name: "Automatic differentiation for sensitivity analysis 13725",
+    position: [16280, 132040, 5960],
+    color: "#ff0000",
+    size: 239
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
