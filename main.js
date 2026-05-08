@@ -26083,7 +26083,32 @@ const cosmicSights = [
     position: [-21081, 35298, -4581],
     color: '#ff4500',
     size: 51
-  }
+  },
+  { name: "CAI Rich Zone 13726", description: "CAI Rich Zone observed in a star-forming region at position [54, 215, 648]", position: [54, 215, 648] },
+  { name: "Ice Line in Disk 13727", description: "Ice Line in Disk observed in a star-forming region at position [373, 199, 120]", position: [373, 199, 120] },
+  { name: "Protoplanetary Disk Gap 13728", description: "Protoplanetary Disk Gap observed in a star-forming region at position [169, 111, 644]", position: [169, 111, 644] },
+  { name: "Snow Line Boundary 13729", description: "Snow Line Boundary observed in a star-forming region at position [-337, 388, 497]", position: [-337, 388, 497] },
+  { name: "Streaming Instability Clump 13730", description: "Streaming Instability Clump observed in a star-forming region at position [557, 210, -386]", position: [557, 210, -386] },
+  { name: "Disk Warp Structure 13731", description: "Disk Warp Structure observed in a star-forming region at position [-464, 201, -536]", position: [-464, 201, -536] },
+  { name: "T Tauri Wind 13732", description: "T Tauri Wind observed in a star-forming region at position [477, 283, 610]", position: [477, 283, 610] },
+  { name: "Class III Young Stellar Object 13733", description: "Class III Young Stellar Object observed in a star-forming region at position [-330, 104, -622]", position: [-330, 104, -622] },
+  { name: "Class II Young Stellar Object 13734", description: "Class II Young Stellar Object observed in a star-forming region at position [-304, 284, 646]", position: [-304, 284, 646] },
+  { name: "Pre-Main-Sequence Star 13735", description: "Pre-Main-Sequence Star observed in a star-forming region at position [323, -138, 76]", position: [323, -138, 76] },
+  { name: "Photoevaporative Flow 13736", description: "Photoevaporative Flow observed in a star-forming region at position [98, 113, -298]", position: [98, 113, -298] },
+  { name: "Herbig-Haro Object 13737", description: "Herbig-Haro Object observed in a star-forming region at position [-273, -199, -573]", position: [-273, -199, -573] },
+  { name: "Magnetic Braking Region 13738", description: "Magnetic Braking Region observed in a star-forming region at position [-632, -141, 427]", position: [-632, -141, 427] },
+  { name: "Dust Trap in Disk 13739", description: "Dust Trap in Disk observed in a star-forming region at position [301, 197, -684]", position: [301, 197, -684] },
+  { name: "Class 0 Protostar 13740", description: "Class 0 Protostar observed in a star-forming region at position [-135, 9, -157]", position: [-135, 9, -157] },
+  { name: "Vertical Disk Flare 13741", description: "Vertical Disk Flare observed in a star-forming region at position [128, 376, -2]", position: [128, 376, -2] },
+  { name: "Pebble Accretion Front 13742", description: "Pebble Accretion Front observed in a star-forming region at position [-507, 78, 110]", position: [-507, 78, 110] },
+  { name: "Chondrule Formation Region 13743", description: "Chondrule Formation Region observed in a star-forming region at position [236, 61, 800]", position: [236, 61, 800] },
+  { name: "Disk Spiral Structure 13744", description: "Disk Spiral Structure observed in a star-forming region at position [-697, 149, -159]", position: [-697, 149, -159] },
+  { name: "Class I Protostar 13745", description: "Class I Protostar observed in a star-forming region at position [214, 384, 600]", position: [214, 384, 600] },
+  { name: "Planetesimal Formation Zone 13746", description: "Planetesimal Formation Zone observed in a star-forming region at position [578, -130, -581]", position: [578, -130, -581] },
+  { name: "Isotopic Anomaly Pocket 13747", description: "Isotopic Anomaly Pocket observed in a star-forming region at position [283, 103, 506]", position: [283, 103, 506] },
+  { name: "Protostellar Outflow Cavity 13748", description: "Protostellar Outflow Cavity observed in a star-forming region at position [-183, -134, 0]", position: [-183, -134, 0] },
+  { name: "Refractory Grain Cluster 13749", description: "Refractory Grain Cluster observed in a star-forming region at position [455, 140, 561]", position: [455, 140, 561] },
+  { name: "Molecular Cloud Core 13750", description: "Molecular Cloud Core observed in a star-forming region at position [306, -11, -653]", position: [306, -11, -653] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
