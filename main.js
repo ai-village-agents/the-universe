@@ -24355,6 +24355,32 @@ const cosmicSights = [
   { name: "Oph IRS 48 Dust Trap", description: "A dust trap vortex in the Oph IRS 48 disk preserving millimeter grains.", position: [-347.03, 203.89, -107.57] },
   { name: "HD 97048 Ringed Disk", description: "A multi-ringed disk around HD 97048 showing complex gap architecture.", position: [284.08, 211.94, 28.18] },
   { name: "Elias 2-27 Grand Spiral", description: "A grand spiral pattern in the Elias 2-27 disk spanning hundreds of AU.", position: [240.61, 179.23, -113.2] },
+{ name: "Reionization Era Temperature Map", type: "phenomenon", category: "reionization", position: [7125, 140500, 5125], description: "Thermal state of intergalactic medium during the epoch of reionization." },
+{ name: "Ionization Front Morphology", type: "phenomenon", category: "reionization", position: [7126, 140520, 5126], description: "Geometric structure of expanding ionized bubbles during cosmic reionization." },
+{ name: "Neutral Hydrogen Topology", type: "phenomenon", category: "reionization", position: [7127, 140540, 5127], description: "Spatial distribution of remaining neutral hydrogen at z~6-8." },
+{ name: "Lyman Alpha Absorption Forests", type: "phenomenon", category: "reionization", position: [7128, 140560, 5128], description: "Complex absorption patterns from neutral hydrogen along sightlines." },
+{ name: "Ionized Bubble Clustering", type: "phenomenon", category: "reionization", position: [7129, 140580, 5129], description: "Spatial correlation of ionized regions from clustered ionizing sources." },
+{ name: "Reionization Feedback Processes", type: "phenomenon", category: "reionization", position: [7130, 140600, 5130], description: "Heating and photoionization feedback regulating galaxy formation during reionization." },
+{ name: "Quasar Proximity Effect", type: "phenomenon", category: "reionization", position: [7131, 140620, 5131], description: "Local ionization halo surrounding high-redshift luminous quasars." },
+{ name: "Lyman Continuum Escape Fraction", type: "phenomenon", category: "reionization", position: [7132, 140640, 5132], description: "Fraction of ionizing photons escaping from galaxies into intergalactic space." },
+{ name: "Damping Wing Spectral Features", type: "phenomenon", category: "reionization", position: [7133, 140660, 5133], description: "Broad absorption feature indicating neutral gas ahead of ionization front." },
+{ name: "21 cm Line Fluctuations", type: "phenomenon", category: "reionization", position: [7134, 140680, 5134], description: "Fluctuating 21 cm brightness temperature tracing ionization state." },
+{ name: "Recombination Timescale Variations", type: "phenomenon", category: "reionization", position: [7135, 140700, 5135], description: "Spatial variation in recombination rates determined by density and temperature." },
+{ name: "Electron Scattering Optical Depth", type: "phenomenon", category: "reionization", position: [7136, 140720, 5136], description: "Cumulative Thomson scattering affecting CMB polarization from reionization epoch." },
+{ name: "Pop III Star Ionization Sources", type: "phenomenon", category: "reionization", position: [7137, 140740, 5137], description: "Contribution of massive Population III stars to reionization photon budget." },
+{ name: "Miniquasar X-ray Feedback", type: "phenomenon", category: "reionization", position: [7138, 140760, 5138], description: "X-ray heating from accreting black holes during early galaxy assembly." },
+{ name: "IGM Metal Enrichment", type: "phenomenon", category: "reionization", position: [7139, 140780, 5139], description: "Spreading of heavy elements into intergalactic medium by galactic winds." },
+{ name: "Photoheating Driven Outflows", type: "phenomenon", category: "reionization", position: [7140, 140800, 5140], description: "Expansion of low-density gas heated by ionizing radiation." },
+{ name: "Cosmic Variance in Reionization", type: "phenomenon", category: "reionization", position: [7141, 140820, 5141], description: "Spatial variation in local ionization fraction from stochastic source clustering." },
+{ name: "Halo Mass Ionizing Output", type: "phenomenon", category: "reionization", position: [7142, 140840, 5142], description: "Ionizing photon production as function of galaxy halo mass." },
+{ name: "Transmission Fraction Evolution", type: "phenomenon", category: "reionization", position: [7143, 140860, 5143], description: "Increasing Lyman alpha transmission as universe transitions from neutral to ionized." },
+{ name: "Pressure Supported Ionized Gas", type: "phenomenon", category: "reionization", position: [7144, 140880, 5144], description: "Hydrostatic equilibrium in ionized regions against self-gravity." },
+{ name: "Recombination Front Collapse", type: "phenomenon", category: "reionization", position: [7145, 140900, 5145], description: "Convergence and merging of recombination zones during late stages of reionization." },
+{ name: "Density Dependence of Ionization", type: "phenomenon", category: "reionization", position: [7146, 140920, 5146], description: "Preferential ionization in high-density regions due to increased source clustering." },
+{ name: "Redshift Space Distortions", type: "phenomenon", category: "reionization", position: [7147, 140940, 5147], description: "Systematic distortions in reionization statistics from peculiar velocity effects." },
+{ name: "Post-Reionization IGM Memory", type: "phenomenon", category: "reionization", position: [7148, 140960, 5148], description: "Fossil traces of reionization topology persisting in post-reionization universe." },
+{ name: "Lyman Alpha Radiative Transfer", type: "phenomenon", category: "reionization", position: [7149, 140980, 5149], description: "Complex scattering and absorption of Lyman alpha photons in neutral hydrogen." }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
