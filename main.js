@@ -22491,6 +22491,33 @@ const cosmicSights = [
     color: '#16a085',
     size: 272
   }
+,
+{ name: "Inner Accretion Disk Geometry", type: "phenomenon", category: "high_energy", position: [6775, 133500, 4775], description: "Structure of disk within innermost stable circular orbit with extreme gravity and relativistic effects" },
+{ name: "Compton Upscattering Mechanism", type: "phenomenon", category: "high_energy", position: [6776, 133520, 4776], description: "Inverse Compton scattering converting soft photons to hard X-rays in hot corona" },
+{ name: "Coronal Heating in Accretion", type: "phenomenon", category: "high_energy", position: [6777, 133540, 4777], description: "Energy dissipation heating electrons to millions of Kelvin above accretion disk" },
+{ name: "Radiatively Inefficient Flows", type: "phenomenon", category: "high_energy", position: [6778, 133560, 4778], description: "Low-luminosity accretion with inefficient radiation leaving disk optically thin" },
+{ name: "Iron K-alpha Reflection Line", type: "phenomenon", category: "high_energy", position: [6779, 133580, 4779], description: "6.4 keV spectral feature from disk reflection providing geometry diagnostics" },
+{ name: "Relativistic Jet Formation", type: "phenomenon", category: "high_energy", position: [6780, 133600, 4780], description: "Collimated outflows near black hole with speeds approaching light" },
+{ name: "Dust Echo in Accretion Systems", type: "phenomenon", category: "high_energy", position: [6781, 133620, 4781], description: "Delayed infrared response from circumnuclear dust to X-ray flares" },
+{ name: "Viscous Disk Instabilities", type: "phenomenon", category: "high_energy", position: [6782, 133640, 4782], description: "Oscillatory behavior in disk viscosity creating multiwavelength variability" },
+{ name: "Magnetically-Driven Turbulence", type: "phenomenon", category: "high_energy", position: [6783, 133660, 4783], description: "Turbulent transport via magnetic field growth in rotating accretion disk" },
+{ name: "Thermal Runaway Transitions", type: "phenomenon", category: "high_energy", position: [6784, 133680, 4784], description: "Bifurcations between thermally stable and unstable disk states" },
+{ name: "Geometrically Thick Disk Torus", type: "phenomenon", category: "high_energy", position: [6785, 133700, 4785], description: "Dense obscuring structure surrounding black hole in high accretion regime" },
+{ name: "Ultra-Fast Disk Winds", type: "phenomenon", category: "high_energy", position: [6786, 133720, 4786], description: "Outflows with speeds exceeding 0.1 light-speed driven by radiation pressure" },
+{ name: "Time Lag Reverberations", type: "phenomenon", category: "high_energy", position: [6787, 133740, 4787], description: "Measured delays between accretion disk and coronal variability" },
+{ name: "Kilohertz Quasi-Periodic Oscillations", type: "phenomenon", category: "high_energy", position: [6788, 133760, 4788], description: "kHz-scale timing modulations from inner disk of neutron stars" },
+{ name: "Hertz-Scale Timing Variations", type: "phenomenon", category: "high_energy", position: [6789, 133780, 4789], description: "Few-Hertz oscillations from disk precession and jet wobble" },
+{ name: "X-Ray Reflection Spectroscopy", type: "phenomenon", category: "high_energy", position: [6790, 133800, 4790], description: "Hard X-ray illumination revealing disk ionization and iron abundances" },
+{ name: "Recycled Millisecond Pulsars", type: "phenomenon", category: "high_energy", position: [6791, 133820, 4791], description: "Spun-up neutron stars with magnetic fields distorting accretion flows" },
+{ name: "Neutrino-Cooled Accretion", type: "phenomenon", category: "high_energy", position: [6792, 133840, 4792], description: "Energy loss via neutrino emission in ultra-dense accretion flows" },
+{ name: "Electron-Positron Pair Cascades", type: "phenomenon", category: "high_energy", position: [6793, 133860, 4793], description: "Pair creation from photons in extreme field strengths near black holes" },
+{ name: "Frame-Dragging Disk Precession", type: "phenomenon", category: "high_energy", position: [6794, 133880, 4794], description: "Disk nodal precession from spacetime curvature around spinning black hole" },
+{ name: "Eddington-Limited Luminosity", type: "phenomenon", category: "high_energy", position: [6795, 133900, 4795], description: "Radiation pressure limit where photon momentum balances gravity" },
+{ name: "Super-Eddington Thick Disks", type: "phenomenon", category: "high_energy", position: [6796, 133920, 4796], description: "Geometrically thick accretion with rates exceeding Eddington limit" },
+{ name: "Mass-to-Spin Power Ratio", type: "phenomenon", category: "high_energy", position: [6797, 133940, 4797], description: "Accretion efficiency dependence on black hole spin and accretion rate" },
+{ name: "Radial Temperature Gradient", type: "phenomenon", category: "high_energy", position: [6798, 133960, 4798], description: "Disk temperature decreasing with radius in thin accretion regime" },
+{ name: "Magnetic Reconnection Flares", type: "phenomenon", category: "high_energy", position: [6799, 133980, 4799], description: "Rapid energy release from coronal field lines producing X-ray brightening" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
