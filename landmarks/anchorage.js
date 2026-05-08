@@ -25222,6 +25222,272 @@ export function createAnchorageLandmark(THREE, opts) {
   bpknButter.add(bpknWingR);
 
 
+
+  // === v155 scene 1: pier crab race ===
+  const pcrbGroup = new THREE.Group();
+  pcrbGroup.position.set(-22.0, 1.85, 6.5);
+  group.add(pcrbGroup);
+  // race track surface
+  const pcrbTrack = new THREE.Mesh(
+    new THREE.BoxGeometry(3.4, 0.05, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0xc9a36a })
+  );
+  pcrbTrack.position.y = 0.025;
+  pcrbGroup.add(pcrbTrack);
+  // lane dividers
+  for (let i = -1; i <= 1; i++) {
+    const div = new THREE.Mesh(
+      new THREE.BoxGeometry(3.4, 0.04, 0.04),
+      new THREE.MeshLambertMaterial({ color: 0x6b3a1f })
+    );
+    div.position.set(0, 0.06, i * 0.45);
+    pcrbGroup.add(div);
+  }
+  // start gate
+  const pcrbStart = new THREE.Mesh(
+    new THREE.BoxGeometry(0.05, 0.3, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  pcrbStart.position.set(-1.7, 0.18, 0);
+  pcrbGroup.add(pcrbStart);
+  // finish line
+  const pcrbFinish = new THREE.Mesh(
+    new THREE.BoxGeometry(0.05, 0.3, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0xffd54a })
+  );
+  pcrbFinish.position.set(1.7, 0.18, 0);
+  pcrbGroup.add(pcrbFinish);
+  // checkered flag
+  const pcrbFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.4, 0.25),
+    new THREE.MeshBasicMaterial({ color: 0x222222, side: THREE.DoubleSide })
+  );
+  pcrbFlag.position.set(1.85, 0.65, 0);
+  pcrbGroup.add(pcrbFlag);
+  // 3 crab racers
+  const pcrbCrabs = [];
+  const pcrbColors = [0xc23a2a, 0x4ea33a, 0x3a6ec2];
+  for (let lane = 0; lane < 3; lane++) {
+    const crabGroup = new THREE.Group();
+    crabGroup.position.set(-1.5, 0.1, (lane - 1) * 0.45);
+    pcrbGroup.add(crabGroup);
+    // body
+    const body = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 12, 8),
+      new THREE.MeshLambertMaterial({ color: pcrbColors[lane] })
+    );
+    body.scale.set(1.2, 0.55, 1.0);
+    crabGroup.add(body);
+    // claws (left, right)
+    const clawL = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, 0.05, 0.05),
+      new THREE.MeshLambertMaterial({ color: pcrbColors[lane] })
+    );
+    clawL.position.set(0.13, 0.04, -0.1);
+    crabGroup.add(clawL);
+    const clawR = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, 0.05, 0.05),
+      new THREE.MeshLambertMaterial({ color: pcrbColors[lane] })
+    );
+    clawR.position.set(0.13, 0.04, 0.1);
+    crabGroup.add(clawR);
+    // eyes
+    const eyeL = new THREE.Mesh(
+      new THREE.SphereGeometry(0.018, 6, 6),
+      new THREE.MeshBasicMaterial({ color: 0x000000 })
+    );
+    eyeL.position.set(0.05, 0.07, -0.04);
+    crabGroup.add(eyeL);
+    const eyeR = new THREE.Mesh(
+      new THREE.SphereGeometry(0.018, 6, 6),
+      new THREE.MeshBasicMaterial({ color: 0x000000 })
+    );
+    eyeR.position.set(0.05, 0.07, 0.04);
+    crabGroup.add(eyeR);
+    pcrbCrabs.push({ group: crabGroup, clawL, clawR, speed: 0.35 + lane * 0.06, offset: lane * 0.4 });
+  }
+  // spectator
+  const pcrbSpec = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x2a4a8a })
+  );
+  pcrbSpec.position.set(0, 0.32, 1.0);
+  pcrbGroup.add(pcrbSpec);
+  const pcrbSpecHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  pcrbSpecHead.position.set(0, 0.7, 1.0);
+  pcrbGroup.add(pcrbSpecHead);
+
+  // === v155 scene 2: coastal lighthouse keeper ===
+  const clhkGroup = new THREE.Group();
+  clhkGroup.position.set(38.0, 0, 12.0);
+  group.add(clhkGroup);
+  // lighthouse base
+  const clhkBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.8, 1.1, 1.4, 18),
+    new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+  );
+  clhkBase.position.y = 0.7;
+  clhkGroup.add(clhkBase);
+  // red stripe
+  const clhkStripe = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.85, 0.95, 0.3, 18),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  clhkStripe.position.y = 1.1;
+  clhkGroup.add(clhkStripe);
+  // upper tower
+  const clhkTower = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.55, 0.7, 1.6, 16),
+    new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+  );
+  clhkTower.position.y = 2.2;
+  clhkGroup.add(clhkTower);
+  // gallery walkway
+  const clhkGallery = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.7, 0.7, 0.1, 18),
+    new THREE.MeshLambertMaterial({ color: 0x6b6b6b })
+  );
+  clhkGallery.position.y = 3.05;
+  clhkGroup.add(clhkGallery);
+  // lantern room glass
+  const clhkLantern = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.5, 0.5, 0.6, 14),
+    new THREE.MeshStandardMaterial({ color: 0xffe098, transparent: true, opacity: 0.6, roughness: 0.2 })
+  );
+  clhkLantern.position.y = 3.45;
+  clhkGroup.add(clhkLantern);
+  // lantern roof (red cone)
+  const clhkRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(0.55, 0.55, 14),
+    new THREE.MeshLambertMaterial({ color: 0x8e2820 })
+  );
+  clhkRoof.position.y = 4.05;
+  clhkGroup.add(clhkRoof);
+  // rotating lamp inside (animated)
+  const clhkLampGroup = new THREE.Group();
+  clhkLampGroup.position.y = 3.45;
+  clhkGroup.add(clhkLampGroup);
+  const clhkLamp = new THREE.Mesh(
+    new THREE.BoxGeometry(0.4, 0.2, 0.15),
+    new THREE.MeshStandardMaterial({ color: 0xfff0a0, emissive: 0xffe070, emissiveIntensity: 0.7 })
+  );
+  clhkLampGroup.add(clhkLamp);
+  // light beam (cone, rotating with lamp)
+  const clhkBeam = new THREE.Mesh(
+    new THREE.ConeGeometry(1.2, 5.5, 12, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xfff0a0, transparent: true, opacity: 0.18, side: THREE.DoubleSide })
+  );
+  clhkBeam.rotation.z = -Math.PI / 2;
+  clhkBeam.position.set(2.7, 0, 0);
+  clhkLampGroup.add(clhkBeam);
+  // keeper figure on gallery (animated walks around)
+  const clhkKeeper = new THREE.Group();
+  clhkKeeper.position.y = 3.05;
+  clhkGroup.add(clhkKeeper);
+  const clhkKeeperBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.32, 10),
+    new THREE.MeshLambertMaterial({ color: 0x2a4a8a })
+  );
+  clhkKeeperBody.position.set(0.78, 0.16, 0);
+  clhkKeeper.add(clhkKeeperBody);
+  const clhkKeeperHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.07, 10, 10),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  clhkKeeperHead.position.set(0.78, 0.39, 0);
+  clhkKeeper.add(clhkKeeperHead);
+  const clhkKeeperHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.075, 0.075, 0.05, 10),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  clhkKeeperHat.position.set(0.78, 0.45, 0);
+  clhkKeeper.add(clhkKeeperHat);
+
+  // === v155 scene 3: beach yoga class ===
+  const bygaGroup = new THREE.Group();
+  bygaGroup.position.set(-12.5, 0, 22.0);
+  group.add(bygaGroup);
+  // 4 yoga mats in a row
+  const bygaMatColors = [0xb86a5a, 0x6ab85a, 0x6a8ab8, 0xb8aa5a];
+  const bygaPracs = [];
+  for (let i = 0; i < 4; i++) {
+    const mat = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.7, 1.7),
+      new THREE.MeshLambertMaterial({ color: bygaMatColors[i] })
+    );
+    mat.rotation.x = -Math.PI / 2;
+    mat.position.set(i * 1.0 - 1.5, 0.02, 0);
+    bygaGroup.add(mat);
+    // practitioner: torso
+    const pGroup = new THREE.Group();
+    pGroup.position.set(i * 1.0 - 1.5, 0, 0);
+    bygaGroup.add(pGroup);
+    const torso = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.13, 0.5, 10),
+      new THREE.MeshLambertMaterial({ color: 0xc4c8d8 })
+    );
+    torso.position.y = 0.4;
+    pGroup.add(torso);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 12, 12),
+      new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+    );
+    head.position.y = 0.78;
+    pGroup.add(head);
+    // arms (will animate raise/lower)
+    const armL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8),
+      new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+    );
+    armL.position.set(-0.18, 0.5, 0);
+    pGroup.add(armL);
+    const armR = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8),
+      new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+    );
+    armR.position.set(0.18, 0.5, 0);
+    pGroup.add(armR);
+    bygaPracs.push({ group: pGroup, torso, head, armL, armR, phase: i * 0.4 });
+  }
+  // instructor (front)
+  const bygaInstr = new THREE.Group();
+  bygaInstr.position.set(0, 0, -2.2);
+  bygaGroup.add(bygaInstr);
+  const bygaInstrTorso = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.13, 0.5, 10),
+    new THREE.MeshLambertMaterial({ color: 0xb86ad8 })
+  );
+  bygaInstrTorso.position.y = 0.4;
+  bygaInstr.add(bygaInstrTorso);
+  const bygaInstrHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  bygaInstrHead.position.y = 0.78;
+  bygaInstr.add(bygaInstrHead);
+  const bygaInstrArmL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  bygaInstrArmL.position.set(-0.2, 0.55, 0);
+  bygaInstr.add(bygaInstrArmL);
+  const bygaInstrArmR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  bygaInstrArmR.position.set(0.2, 0.55, 0);
+  bygaInstr.add(bygaInstrArmR);
+  // sun salutation block (decorative)
+  const bygaBlock = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.1, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0x6b3a1f })
+  );
+  bygaBlock.position.set(-0.25, 0.05, -2.2);
+  bygaGroup.add(bygaBlock);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -28765,6 +29031,45 @@ export function createAnchorageLandmark(THREE, opts) {
   bpknButter.rotation.y = Math.sin(v154t * 0.8 + Math.PI / 2);
   bpknApple.position.y = 0.1 + Math.abs(Math.sin(v154t * 1.4)) * 0.012;
   bpknApple2.position.y = 0.1 + Math.abs(Math.sin(v154t * 1.4 + 1.2)) * 0.012;
+
+  // v155 scene 1 anim: crab race progress + claw clack
+  const v155t = t;
+  for (let i = 0; i < pcrbCrabs.length; i++) {
+    const c = pcrbCrabs[i];
+    const cycle = ((v155t + c.offset) * c.speed) % 1.0;
+    c.group.position.x = -1.5 + cycle * 3.2;
+    c.group.position.y = 0.1 + Math.abs(Math.sin(v155t * 8.0 + i)) * 0.04;
+    c.group.rotation.y = Math.sin(v155t * 5.0 + i) * 0.15;
+    c.clawL.rotation.y = Math.sin(v155t * 7.0 + i) * 0.5;
+    c.clawR.rotation.y = -Math.sin(v155t * 7.0 + i) * 0.5;
+  }
+  pcrbFlag.position.y = 0.65 + Math.sin(v155t * 3.0) * 0.04;
+  pcrbFlag.rotation.y = Math.sin(v155t * 1.3) * 0.3;
+
+  // v155 scene 2 anim: rotating lamp + beam, keeper walks gallery
+  clhkLampGroup.rotation.y = v155t * 1.0;
+  clhkBeam.material.opacity = 0.14 + Math.sin(v155t * 4.0) * 0.04;
+  const keeperAng = v155t * 0.3;
+  clhkKeeper.rotation.y = keeperAng;
+
+  // v155 scene 3 anim: yoga sun salutation - arms up/down in unison + slight torso sway
+  const bygaArmAng = (Math.sin(v155t * 0.6) * 0.5 + 0.5) * (Math.PI * 0.85);
+  for (let i = 0; i < bygaPracs.length; i++) {
+    const p = bygaPracs[i];
+    const localAng = bygaArmAng + Math.sin(v155t * 0.6 + p.phase) * 0.05;
+    p.armL.rotation.z = localAng;
+    p.armR.rotation.z = -localAng;
+    // arms pivot from base; keep their visual top above shoulder by raising position
+    p.armL.position.y = 0.5 + Math.sin(localAng) * 0.18;
+    p.armR.position.y = 0.5 + Math.sin(localAng) * 0.18;
+    p.torso.rotation.x = Math.sin(v155t * 0.6 + p.phase * 0.3) * 0.08;
+    p.head.position.y = 0.78 + Math.sin(v155t * 0.6 + p.phase) * 0.02;
+  }
+  bygaInstrArmL.rotation.z = bygaArmAng + 0.1;
+  bygaInstrArmR.rotation.z = -(bygaArmAng + 0.1);
+  bygaInstrArmL.position.y = 0.55 + Math.sin(bygaArmAng) * 0.18;
+  bygaInstrArmR.position.y = 0.55 + Math.sin(bygaArmAng) * 0.18;
+
 
 
 
