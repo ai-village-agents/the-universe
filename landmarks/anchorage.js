@@ -22065,6 +22065,141 @@ export function createAnchorageLandmark(THREE, opts) {
   cprGroup.add(cprBandage);
   group.add(cprGroup);
 
+  // --- v136: pier fisherman's tale (pftl) ---
+  const pftlGroup = new THREE.Group();
+  pftlGroup.position.set(98, 0, -8);
+  const pftlPlatform = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.18, 1.8), new THREE.MeshLambertMaterial({color: 0x6b4226}));
+  pftlPlatform.position.y = 5.36;
+  pftlGroup.add(pftlPlatform);
+  // storyteller (old fisher with arms wide)
+  const pftlTeller = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x4a5868}));
+  pftlTeller.position.set(0.6, 5.88, 0);
+  pftlGroup.add(pftlTeller);
+  const pftlTellerH = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 10), new THREE.MeshLambertMaterial({color: 0xe0b890}));
+  pftlTellerH.position.set(0.6, 6.42, 0);
+  pftlGroup.add(pftlTellerH);
+  const pftlBeard = new THREE.Mesh(new THREE.SphereGeometry(0.11, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8e8e8}));
+  pftlBeard.position.set(0.6, 6.32, 0.08);
+  pftlBeard.scale.y = 0.7;
+  pftlGroup.add(pftlBeard);
+  const pftlArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), new THREE.MeshLambertMaterial({color: 0xe0b890}));
+  pftlArmL.position.set(0.6, 6.1, 0.4);
+  pftlArmL.rotation.x = Math.PI/2;
+  pftlGroup.add(pftlArmL);
+  const pftlArmR = pftlArmL.clone();
+  pftlArmR.position.set(0.6, 6.1, -0.4);
+  pftlGroup.add(pftlArmR);
+  // audience (3 listeners on benches)
+  const pftlListeners = [];
+  for (let i = 0; i < 3; i++) {
+    const l = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.5, 8), new THREE.MeshLambertMaterial({color: 0x205070 + i*0x103030}));
+    l.position.set(-0.6, 5.71, -0.55 + i*0.55);
+    pftlGroup.add(l);
+    const lh = new THREE.Mesh(new THREE.SphereGeometry(0.1, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+    lh.position.set(-0.6, 6.05, -0.55 + i*0.55);
+    pftlGroup.add(lh);
+    pftlListeners.push(lh);
+  }
+  // bench
+  const pftlBench = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.06, 1.6), new THREE.MeshLambertMaterial({color: 0x4a3018}));
+  pftlBench.position.set(-0.6, 5.5, 0);
+  pftlGroup.add(pftlBench);
+  // imaginary big fish (above teller's gesture)
+  const pftlFish = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.22, 0.16), new THREE.MeshLambertMaterial({color: 0x88c8d8, transparent: true, opacity: 0.5}));
+  pftlFish.position.set(0.6, 6.7, 0);
+  pftlGroup.add(pftlFish);
+  group.add(pftlGroup);
+
+  // --- v136: beach vintage radio (bvr) ---
+  const bvrGroup = new THREE.Group();
+  bvrGroup.position.set(-58, 0, 36);
+  const bvrTowel = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.04, 1.2), new THREE.MeshLambertMaterial({color: 0xff8a4a}));
+  bvrTowel.position.y = 0.02;
+  bvrGroup.add(bvrTowel);
+  // stripes
+  for (let i = -2; i <= 2; i++) {
+    const s = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.045, 1.2), new THREE.MeshLambertMaterial({color: 0xffd040}));
+    s.position.set(i*0.4, 0.022, 0);
+    bvrGroup.add(s);
+  }
+  // radio
+  const bvrBody = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.3), new THREE.MeshLambertMaterial({color: 0xb0a080}));
+  bvrBody.position.set(0.4, 0.24, -0.3);
+  bvrGroup.add(bvrBody);
+  const bvrSpeaker = new THREE.Mesh(new THREE.CircleGeometry(0.13, 16), new THREE.MeshLambertMaterial({color: 0x303030}));
+  bvrSpeaker.position.set(0.25, 0.24, -0.149);
+  bvrSpeaker.rotation.y = Math.PI;
+  bvrGroup.add(bvrSpeaker);
+  const bvrDial = new THREE.Mesh(new THREE.RingGeometry(0.06, 0.09, 16), new THREE.MeshBasicMaterial({color: 0xffe060, side: THREE.DoubleSide}));
+  bvrDial.position.set(0.55, 0.24, -0.149);
+  bvrDial.rotation.y = Math.PI;
+  bvrGroup.add(bvrDial);
+  const bvrAntenna = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.7, 6), new THREE.MeshLambertMaterial({color: 0xc0c0c0}));
+  bvrAntenna.position.set(0.65, 0.78, -0.3);
+  bvrAntenna.rotation.z = -0.3;
+  bvrGroup.add(bvrAntenna);
+  // listener lying down
+  const bvrPerson = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.12, 0.3), new THREE.MeshLambertMaterial({color: 0xd0a060}));
+  bvrPerson.position.set(-0.2, 0.1, 0.2);
+  bvrGroup.add(bvrPerson);
+  const bvrPersonH = new THREE.Mesh(new THREE.SphereGeometry(0.1, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+  bvrPersonH.position.set(-0.85, 0.16, 0.2);
+  bvrGroup.add(bvrPersonH);
+  // sound waves
+  const bvrWaves = [];
+  for (let i = 0; i < 3; i++) {
+    const w = new THREE.Mesh(new THREE.RingGeometry(0.1 + i*0.08, 0.12 + i*0.08, 16, 1, 0, Math.PI), new THREE.MeshBasicMaterial({color: 0xfff080, transparent: true, opacity: 0.6, side: THREE.DoubleSide}));
+    w.position.set(0.4, 0.5 + i*0.05, -0.2);
+    w.rotation.y = -Math.PI/3;
+    bvrGroup.add(w);
+    bvrWaves.push(w);
+  }
+  group.add(bvrGroup);
+
+  // --- v136: coastal rope ferry (crfy) ---
+  const crfyGroup = new THREE.Group();
+  crfyGroup.position.set(78, 0, 14);
+  // water strip
+  const crfyWater = new THREE.Mesh(new THREE.BoxGeometry(8, 0.06, 1.2), new THREE.MeshLambertMaterial({color: 0x3878a8}));
+  crfyWater.position.y = 0.03;
+  crfyGroup.add(crfyWater);
+  // bank docks
+  const crfyDockL = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.18, 1.4), new THREE.MeshLambertMaterial({color: 0x6b4226}));
+  crfyDockL.position.set(-3.6, 0.09, 0);
+  crfyGroup.add(crfyDockL);
+  const crfyDockR = crfyDockL.clone();
+  crfyDockR.position.set(3.6, 0.09, 0);
+  crfyGroup.add(crfyDockR);
+  // rope
+  const crfyRopeMat = new THREE.LineBasicMaterial({color: 0x806a40});
+  const crfyRopeGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-3.6, 0.4, 0), new THREE.Vector3(3.6, 0.4, 0)]);
+  const crfyRope = new THREE.Line(crfyRopeGeo, crfyRopeMat);
+  crfyGroup.add(crfyRope);
+  // poles to hold rope
+  const crfyPoleL = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.6, 6), new THREE.MeshLambertMaterial({color: 0x4a3018}));
+  crfyPoleL.position.set(-3.6, 0.4, 0);
+  crfyGroup.add(crfyPoleL);
+  const crfyPoleR = crfyPoleL.clone();
+  crfyPoleR.position.set(3.6, 0.4, 0);
+  crfyGroup.add(crfyPoleR);
+  // ferry boat
+  const crfyBoat = new THREE.Group();
+  const crfyHull = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.18, 0.6), new THREE.MeshLambertMaterial({color: 0xc04030}));
+  crfyHull.position.y = 0.12;
+  crfyBoat.add(crfyHull);
+  const crfyDeck = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.04, 0.4), new THREE.MeshLambertMaterial({color: 0x7a5030}));
+  crfyDeck.position.y = 0.23;
+  crfyBoat.add(crfyDeck);
+  const crfyFerryman = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.11, 0.35, 8), new THREE.MeshLambertMaterial({color: 0x404060}));
+  crfyFerryman.position.y = 0.42;
+  crfyBoat.add(crfyFerryman);
+  const crfyFerrymanH = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+  crfyFerrymanH.position.y = 0.65;
+  crfyBoat.add(crfyFerrymanH);
+  crfyBoat.position.set(-2, 0.13, 0);
+  crfyGroup.add(crfyBoat);
+  group.add(crfyGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -25132,6 +25267,26 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   cprWingL.rotation.x = 0.2 * Math.sin(v135t * 2.0);
   cprWingR.rotation.x = -0.2 * Math.sin(v135t * 2.0);
+
+  // v136 anims
+  const v136t = t;
+  pftlTeller.rotation.y = 0.15 * Math.sin(v136t * 1.5);
+  pftlArmL.rotation.x = Math.PI/2 + 0.15 * Math.sin(v136t * 2.0);
+  pftlArmR.rotation.x = Math.PI/2 - 0.15 * Math.sin(v136t * 2.0);
+  pftlFish.position.x = 0.6 + 0.3 * Math.sin(v136t * 0.8);
+  pftlFish.material.opacity = 0.35 + 0.2 * (0.5 + 0.5 * Math.sin(v136t * 0.8));
+  for (let i = 0; i < pftlListeners.length; i++) {
+    pftlListeners[i].rotation.x = 0.06 * Math.sin(v136t * 1.2 + i * 0.7);
+  }
+  for (let i = 0; i < bvrWaves.length; i++) {
+    const phase = (v136t * 0.7 + i * 0.4) % 1.5;
+    bvrWaves[i].scale.setScalar(1 + phase);
+    bvrWaves[i].material.opacity = Math.max(0, 0.6 - phase * 0.4);
+  }
+  // ferry crosses back and forth
+  const ferryX = -2.5 + 5 * (0.5 + 0.5 * Math.sin(v136t * 0.3));
+  crfyBoat.position.x = ferryX;
+  crfyBoat.position.y = 0.13 + 0.02 * Math.sin(v136t * 2.0);
 
 
 
