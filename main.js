@@ -15385,6 +15385,231 @@ const cosmicSights = [
       -21023.82,
       -17377.72
     ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Tholin Haze Atmospheres",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      22039.98,
+      -22815.32,
+      -21806.19
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Hydrogen Cyanide Polymers",
+    "description": "A theoretical cradle for spontaneous chemical evolution.",
+    "position": [
+      -18879.6,
+      -14837.03,
+      31293.63
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Formamide-Rich Pools",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      5514.19,
+      16654.29,
+      5321.38
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Carbonaceous Chondrite Interiors",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      -374.64,
+      -8793.95,
+      22921.83
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: PAH Emission Nebulae",
+    "description": "A theoretical cradle for spontaneous chemical evolution.",
+    "position": [
+      12894.24,
+      -1027.32,
+      -3284.56
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Cyanodiacetylene Clouds",
+    "description": "A chaotic environment where the building blocks of life are actively synthesizing.",
+    "position": [
+      -7859.03,
+      -43066.84,
+      -1360.32
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Methanimine Spectral Traces",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      6120.68,
+      23417.6,
+      -20227.01
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Amino Acid Meteorite Impacts",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      -12025.32,
+      -22451.22,
+      7690.78
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Nucleobase Accretion Disks",
+    "description": "A chaotic environment where the building blocks of life are actively synthesizing.",
+    "position": [
+      -3859.59,
+      -1654.21,
+      -26572.9
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Lipid Vesicle Thermal Vents",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      -24446.96,
+      -30434.3,
+      -22503.88
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: RNA World Precursors",
+    "description": "A region rich in complex organic molecules, essential for prebiotic chemistry.",
+    "position": [
+      -17815.41,
+      -15154.41,
+      37920.36
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Phosphorus Enriched Oceans",
+    "description": "A chaotic environment where the building blocks of life are actively synthesizing.",
+    "position": [
+      1238.25,
+      623.44,
+      -11634.66
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Catalytic Iron-Sulfur Minerals",
+    "description": "A theoretical cradle for spontaneous chemical evolution.",
+    "position": [
+      26930.2,
+      -4500.14,
+      9026.18
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Titan-like Methane Lakes",
+    "description": "A theoretical cradle for spontaneous chemical evolution.",
+    "position": [
+      -6642.93,
+      3747.39,
+      7943.18
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Enceladus-style Cryoplumes",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      -2248.94,
+      16153.76,
+      -23772.24
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Urea Synthesis Lightning Storms",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      3179.57,
+      -5455.12,
+      12549.24
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Galactic Cosmic Ray Induced Chemistry",
+    "description": "A chaotic environment where the building blocks of life are actively synthesizing.",
+    "position": [
+      6189.03,
+      -14318.97,
+      8750.49
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Interstellar Dust Mantle Ices",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      -6722.61,
+      14343.64,
+      17842.48
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Protoplanetary Disk Snowlines",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      -11106.73,
+      1374.74,
+      -55.04
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Cometary Organic Residues",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      9816.42,
+      -1616.31,
+      -1182.16
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Subsurface Brine Radiolysis",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      -8139.92,
+      -3841.93,
+      14879.88
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Hydrothermal Vents Serpentinization",
+    "description": "A celestial location providing the energy gradients necessary for complex chemistry.",
+    "position": [
+      7552.65,
+      -22209.37,
+      -26976.42
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Ammonia-Water Eutectic Oceans",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      4293.92,
+      -42297.12,
+      -15820.62
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Supercritical Water Vents",
+    "description": "A chaotic environment where the building blocks of life are actively synthesizing.",
+    "position": [
+      7180.96,
+      -11291.41,
+      -1530.57
+    ]
+  },
+  {
+    "name": "Astrobiochemistry Site: Exo-Planetary Atmospheric Photochemistry",
+    "description": "An astronomical site exhibiting key precursor molecules in abundance.",
+    "position": [
+      -124.37,
+      -480.56,
+      -20323.39
+    ]
   }
 ];
 
