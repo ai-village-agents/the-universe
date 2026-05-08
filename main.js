@@ -18907,6 +18907,33 @@ const cosmicSights = [
   {"name":"Compton Scattering Cascade 12023","category":"Radiation Processes","description":"Inverse Compton upscattering region.","position":[5772,113440,3772],"color":"#9E8B56","size":140},
   {"name":"Pair Production Threshold 12024","category":"QED Processes","description":"Photon to electron-positron conversion zone.","position":[5773,113460,3773],"color":"#6B5344","size":140},
   {"name":"Ultra-Relativistic Shock 12025","category":"High Energy Phenomena","description":"Extreme Lorentz factor shock wave region.","position":[5774,113480,3774],"color":"#8B6F47","size":140}
+,
+{ name: 'White Dwarf Crystallization 12051', category: 'Stellar Remnants', description: 'Phase transition cooling in degenerate carbon-oxygen white dwarfs.', position: [5775, 113500, 3775], color: '#C0FFEE', size: 140 },
+{ name: 'White Dwarf Cooling Sequence 12052', category: 'Stellar Remnants', description: 'Luminosity-temperature evolution of cooling white dwarfs.', position: [5776, 113520, 3776], color: '#E8C4FF', size: 140 },
+{ name: 'Neutron Star Mass Limit 12053', category: 'Compact Objects', description: 'Tolman-Oppenheimer-Volkoff equation and maximum neutron star mass.', position: [5777, 113540, 3777], color: '#FFD700', size: 140 },
+{ name: 'Neutron Star Interior Equation of State 12054', category: 'Compact Objects', description: 'Hadronic matter, quark matter, and phase transitions in neutron stars.', position: [5778, 113560, 3778], color: '#FF6347', size: 140 },
+{ name: 'Neutron Star Magnetic Field Decay 12055', category: 'Compact Objects', description: 'Ohmic dissipation and ambipolar diffusion in neutron star crusts.', position: [5779, 113580, 3779], color: '#4169E1', size: 140 },
+{ name: 'Magnetar Burst Mechanisms 12056', category: 'Compact Objects', description: 'Magnetic reconnection and crust fractures in super-strong magnetic fields.', position: [5780, 113600, 3780], color: '#FF69B4', size: 140 },
+{ name: 'Pulsar Glitch Mechanisms 12057', category: 'Compact Objects', description: 'Starquake-induced or superfluidity-driven angular momentum transfer.', position: [5781, 113620, 3781], color: '#32CD32', size: 140 },
+{ name: 'Pulsar Spin-Down Rate Evolution 12058', category: 'Compact Objects', description: 'Magnetic dipole braking torque and long-term spin evolution.', position: [5782, 113640, 3782], color: '#1E90FF', size: 140 },
+{ name: 'Black Hole Hawking Radiation 12059', category: 'Compact Objects', description: 'Quantum pair production at the event horizon and black hole thermodynamics.', position: [5783, 113660, 3783], color: '#000000', size: 140 },
+{ name: 'Black Hole Ergosphere Dynamics 12060', category: 'Compact Objects', description: 'Frame-dragging effects and orbital dynamics near rotating black holes.', position: [5784, 113680, 3784], color: '#2F4F4F', size: 140 },
+{ name: 'Accretion Disk Instabilities 12061', category: 'Compact Objects', description: 'Magneto-rotational instability and turbulent angular momentum transport.', position: [5785, 113700, 3785], color: '#DC143C', size: 140 },
+{ name: 'Accretion Stream Morphology 12062', category: 'Compact Objects', description: 'Gas flow geometry from Roche-lobe-filling companion to compact object.', position: [5786, 113720, 3786], color: '#FF8C00', size: 140 },
+{ name: 'X-ray Bursts from Neutron Stars 12063', category: 'Compact Objects', description: 'Thermonuclear runaway on accreting neutron star surfaces.', position: [5787, 113740, 3787], color: '#FFFF00', size: 140 },
+{ name: 'Superburst Nucleosynthesis 12064', category: 'Compact Objects', description: 'Carbon-oxygen fusion-triggered unstable burning in thick accreted layers.', position: [5788, 113760, 3788], color: '#FF4500', size: 140 },
+{ name: 'Millisecond Pulsar Formation 12065', category: 'Compact Objects', description: 'Spin-up via accretion in low-mass X-ray binary systems.', position: [5789, 113780, 3789], color: '#00CED1', size: 140 },
+{ name: 'Recycled Pulsar Binary Evolution 12066', category: 'Compact Objects', description: 'Post-LMXB evolution and companion star ablation mechanisms.', position: [5790, 113800, 3790], color: '#9932CC', size: 140 },
+{ name: 'Black Widow Pulsar Ablation 12067', category: 'Compact Objects', description: 'Pulsar wind evaporating companion star material via radiation pressure.', position: [5791, 113820, 3791], color: '#FF1493', size: 140 },
+{ name: 'Redback Pulsar Mass Transfer 12068', category: 'Compact Objects', description: 'Episodic accretion and state changes in redback systems.', position: [5792, 113840, 3792], color: '#8B0000', size: 140 },
+{ name: 'Pulsar Timing Array Residuals 12069', category: 'Compact Objects', description: 'Timing noise from magnetospheric and rotational irregularities.', position: [5793, 113860, 3793], color: '#228B22', size: 140 },
+{ name: 'Neutron Star Cooling Theory 12070', category: 'Stellar Remnants', description: 'Neutrino cooling via direct and modified Urca processes.', position: [5794, 113880, 3794], color: '#48D1CC', size: 140 },
+{ name: 'White Dwarf Infrared Excess 12071', category: 'Stellar Remnants', description: 'Circumstellar dust and debris disk detection around white dwarfs.', position: [5795, 113900, 3795], color: '#FFDAB9', size: 140 },
+{ name: 'Double Degenerate Merger 12072', category: 'Stellar Remnants', description: 'Gravitational wave-driven coalescence of white dwarf binary systems.', position: [5796, 113920, 3796], color: '#DDA0DD', size: 140 },
+{ name: 'Type Ia Progenitor Identification 12073', category: 'Stellar Remnants', description: 'Single-degenerate vs double-degenerate explosion pathways and observables.', position: [5797, 113940, 3797], color: '#FFA500', size: 140 },
+{ name: 'Neutron Star Kinematics 12074', category: 'Compact Objects', description: 'Pulsar space velocities from supernova kicks and binary disruption.', position: [5798, 113960, 3798], color: '#00FF00', size: 140 },
+{ name: 'Stellar Remnant Evolution Endpoints 12075', category: 'Stellar Remnants', description: 'Final fate of compact object systems through gravitational waves and cooling.', position: [5799, 113980, 3799], color: '#87CEEB', size: 140 }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
