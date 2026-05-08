@@ -19278,6 +19278,156 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(clkpGroup);
 
+  // --- v118: pier flag-raising ceremony (pfrc) ------------------------------
+  const pfrcGroup = new THREE.Group();
+  pfrcGroup.position.set(46, 1.5, -118);
+  const pfrcPoleMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, metalness: 0.5, roughness: 0.4 });
+  const pfrcPole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 6.0, 10), pfrcPoleMat);
+  pfrcPole.position.y = 3.0;
+  pfrcGroup.add(pfrcPole);
+  const pfrcBaseMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
+  const pfrcBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.6, 0.15, 12), pfrcBaseMat);
+  pfrcBase.position.y = 0.075;
+  pfrcGroup.add(pfrcBase);
+  const pfrcFinial = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.7, roughness: 0.3 }));
+  pfrcFinial.position.y = 6.05;
+  pfrcGroup.add(pfrcFinial);
+  const pfrcFlag = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.9), new THREE.MeshLambertMaterial({ color: 0xc94f4f, side: THREE.DoubleSide }));
+  pfrcFlag.position.set(0.85, 4.0, 0);
+  pfrcGroup.add(pfrcFlag);
+  const pfrcSailorColors = [0x224488, 0x224488, 0x224488, 0x224488];
+  const pfrcSailors = [];
+  for (let i = 0; i < 4; i++) {
+    const s = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.95, 8), new THREE.MeshLambertMaterial({ color: pfrcSailorColors[i] }));
+    body.position.y = 0.47;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+    head.position.y = 1.15;
+    const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.08, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+    hat.position.y = 1.35;
+    s.add(body, head, hat);
+    const ang = (i / 4) * Math.PI * 2;
+    s.position.set(Math.cos(ang) * 1.6, 0, Math.sin(ang) * 1.6);
+    s.rotation.y = -ang + Math.PI;
+    pfrcGroup.add(s);
+    pfrcSailors.push(s);
+  }
+  group.add(pfrcGroup);
+
+  // --- v118: beach metal sculpture garden (bmsg) ----------------------------
+  const bmsgGroup = new THREE.Group();
+  bmsgGroup.position.set(-72, 0, 132);
+  const bmsgMetalMat = new THREE.MeshStandardMaterial({ color: 0xb7702a, metalness: 0.85, roughness: 0.35 });
+  const bmsgPlinthMat = new THREE.MeshLambertMaterial({ color: 0x6a6a6a });
+  const bmsgSculptures = [];
+  for (let i = 0; i < 5; i++) {
+    const ang = (i / 5) * Math.PI * 2;
+    const x = Math.cos(ang) * 4.0;
+    const z = Math.sin(ang) * 4.0;
+    const plinth = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.45, 0.8), bmsgPlinthMat);
+    plinth.position.set(x, 0.225, z);
+    bmsgGroup.add(plinth);
+    const sculpt = new THREE.Group();
+    if (i === 0) {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(0.6, 0.08, 8, 16), bmsgMetalMat);
+      ring.rotation.x = Math.PI / 3;
+      sculpt.add(ring);
+    } else if (i === 1) {
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.4, 1.2, 6), bmsgMetalMat);
+      cone.position.y = 0.6;
+      sculpt.add(cone);
+    } else if (i === 2) {
+      const spires = [];
+      for (let s = 0; s < 4; s++) {
+        const sp = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.06, 1.0 + s * 0.2, 6), bmsgMetalMat);
+        sp.position.set((s - 1.5) * 0.18, 0.5 + s * 0.1, 0);
+        spires.push(sp);
+        sculpt.add(sp);
+      }
+    } else if (i === 3) {
+      const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.4, 0.1, 32, 6, 2, 3), bmsgMetalMat);
+      knot.position.y = 0.6;
+      sculpt.add(knot);
+    } else {
+      const cube = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.7, 0.7), bmsgMetalMat);
+      cube.position.y = 0.6;
+      cube.rotation.set(0.4, 0.6, 0.2);
+      sculpt.add(cube);
+    }
+    sculpt.position.set(x, 0.45, z);
+    bmsgGroup.add(sculpt);
+    bmsgSculptures.push(sculpt);
+  }
+  const bmsgBenchMat = new THREE.MeshLambertMaterial({ color: 0x5a3a2a });
+  const bmsgBench = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.1, 0.4), bmsgBenchMat);
+  bmsgBench.position.set(0, 0.45, 0);
+  bmsgGroup.add(bmsgBench);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.45, 0.08), bmsgBenchMat);
+    leg.position.set(i < 2 ? -1.1 : 1.1, 0.225, i % 2 === 0 ? -0.16 : 0.16);
+    bmsgGroup.add(leg);
+  }
+  const bmsgVisitor = new THREE.Group();
+  const bmsgVBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x4f8fc9 }));
+  bmsgVBody.position.y = 0.42;
+  const bmsgVHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0xe8b990 }));
+  bmsgVHead.position.y = 1.0;
+  bmsgVisitor.add(bmsgVBody, bmsgVHead);
+  bmsgVisitor.position.set(0, 0.5, 0.3);
+  bmsgGroup.add(bmsgVisitor);
+  group.add(bmsgGroup);
+
+  // --- v118: pier night-market food stalls (pnmf) ---------------------------
+  const pnmfGroup = new THREE.Group();
+  pnmfGroup.position.set(82, 1.5, -22);
+  const pnmfStallColors = [0xc94f4f, 0x4f8fc9, 0xc9a44f];
+  const pnmfStalls = [];
+  const pnmfLanterns = [];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Group();
+    const counter = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.95, 1.2), new THREE.MeshLambertMaterial({ color: 0x8b6f47 }));
+    counter.position.y = 0.475;
+    s.add(counter);
+    const roof = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.1, 1.6), new THREE.MeshLambertMaterial({ color: pnmfStallColors[i] }));
+    roof.position.y = 1.6;
+    s.add(roof);
+    const postFL = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.6, 6), new THREE.MeshLambertMaterial({ color: 0x6b3a1a }));
+    postFL.position.set(-1.05, 1.25, -0.65);
+    const postFR = postFL.clone(); postFR.position.x = 1.05;
+    const postBL = postFL.clone(); postBL.position.z = 0.65;
+    const postBR = postFR.clone(); postBR.position.z = 0.65;
+    s.add(postFL, postFR, postBL, postBR);
+    const lantern = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshBasicMaterial({ color: 0xffd17a, transparent: true, opacity: 0.9 }));
+    lantern.position.set(0, 1.45, -0.7);
+    s.add(lantern);
+    pnmfLanterns.push(lantern);
+    const vendor = new THREE.Group();
+    const vBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x355c7d }));
+    vBody.position.y = 0.42;
+    const vHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+    vHead.position.y = 1.0;
+    vendor.add(vBody, vHead);
+    vendor.position.set(0, 0, 0.3);
+    s.add(vendor);
+    s.position.set((i - 1) * 2.7, 0, 0);
+    pnmfGroup.add(s);
+    pnmfStalls.push(s);
+  }
+  const pnmfShoppers = [];
+  const pnmfShopperColors = [0xc94f4f, 0x4f8fc9, 0xc9a44f, 0x6dc94f];
+  for (let i = 0; i < 4; i++) {
+    const sh = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 0.85, 8), new THREE.MeshLambertMaterial({ color: pnmfShopperColors[i] }));
+    body.position.y = 0.42;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0xe8b990 }));
+    head.position.y = 1.0;
+    sh.add(body, head);
+    sh.position.set(-3.5 + i * 2.1, 0, 1.4);
+    pnmfGroup.add(sh);
+    pnmfShoppers.push(sh);
+  }
+  group.add(pnmfGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21857,7 +22007,7 @@ export function createAnchorageLandmark(THREE, opts) {
     });
     spmHalo.scale.setScalar(1.0 + 0.05 * Math.sin(v111t * 0.6));
   // --- v112 updates ---
-  const v112t = elapsed;
+  const v112t = t;
   ppcSolvers.forEach((s, i) => { s.position.y = Math.abs(Math.sin(v112t * 1.5 + i)) * 0.04; });
   ppcPieces.forEach((p, i) => { p.rotation.y = Math.sin(v112t * 0.8 + i * 0.4) * 0.3; });
   ppcTimerMat.emissiveIntensity = 0.4 + 0.4 * Math.abs(Math.sin(v112t * 2.5));
@@ -21871,7 +22021,7 @@ export function createAnchorageLandmark(THREE, opts) {
   blsLemons.forEach((l, i) => { l.position.y = 0.95 + Math.sin(v112t * 1.2 + i) * 0.02; });
   blsKids.forEach((k, i) => { k.position.y = Math.abs(Math.sin(v112t * 1.8 + i * 1.5)) * 0.05; });
   // --- v113 updates ---
-  const v113t = elapsed;
+  const v113t = t;
   pobShucker.rotation.y = Math.sin(v113t * 1.5) * 0.15;
   pobKnife.position.y = 0.95 + Math.abs(Math.sin(v113t * 4)) * 0.05;
   pobPatrons.forEach((p, i) => { p.position.y = Math.abs(Math.sin(v113t * 1.3 + i * 1.5)) * 0.04; });
@@ -21891,7 +22041,7 @@ export function createAnchorageLandmark(THREE, opts) {
   });
   pjsAudience.forEach((a, i) => { a.rotation.y = Math.sin(v113t * 1.0 + i) * 0.2; });
   // --- v114 updates ---
-  const v114t = elapsed;
+  const v114t = t;
   cdwrVisitors.forEach((v, i) => { v.position.y = Math.abs(Math.sin(v114t * 1.2 + i * 1.3)) * 0.04; });
   cdwrJaw.rotation.x = Math.sin(v114t * 0.8) * 0.05;
   psaArtist.rotation.y = Math.sin(v114t * 1.0) * 0.1;
@@ -21900,7 +22050,7 @@ export function createAnchorageLandmark(THREE, opts) {
   bwcStudents.forEach((s, i) => { s.position.y = Math.abs(Math.sin(v114t * 1.4 + i * 1.0)) * 0.03; });
   bwcTeacher.rotation.y = Math.sin(v114t * 0.6) * 0.4;
   // --- v115 updates ---
-  const v115t = elapsed;
+  const v115t = t;
   pnfsAnglers.forEach((a, i) => { a.position.y = Math.abs(Math.sin(v115t * 0.8 + i * 1.2)) * 0.03; });
   pnfsLanterns.forEach((l, i) => { l.position.y = 1.4 + Math.sin(v115t * 1.2 + i) * 0.05; });
   pnfsStars.forEach((s, i) => { s.material.opacity = 0.5 + 0.5 * Math.sin(v115t * 2 + i * 0.6); });
@@ -21919,7 +22069,7 @@ export function createAnchorageLandmark(THREE, opts) {
   pkfpFood.forEach((p, i) => {
     p.position.y = 0.4 - ((v115t * 0.4 + i * 0.2) % 0.5);
   });
-  const v116t = clock.getElapsedTime();
+  const v116t = t;
   ctcwPen.position.x = 0.5 + Math.sin(v116t * 0.8) * 0.6;
   ctcwPen.position.z = 0.1 + Math.cos(v116t * 0.6) * 0.2;
   birBoats.forEach((b, i) => {
@@ -21931,7 +22081,7 @@ export function createAnchorageLandmark(THREE, opts) {
   psauBidders.forEach((b, i) => {
     b.children[2].rotation.z = Math.sin(v116t * 3 + i) * 0.5;
   });
-  const v117t = clock.getElapsedTime();
+  const v117t = t;
   padBellowsList.forEach((b, i) => {
     b.scale.x = 1 + Math.sin(v117t * 3 + i * 1.5) * 0.4;
   });
@@ -21948,6 +22098,16 @@ export function createAnchorageLandmark(THREE, opts) {
   });
   clkpBrushHandle.position.x = 0.7 + Math.sin(v117t * 2.5) * 0.1;
   clkpBrushHandle.position.y = 1.4 + Math.cos(v117t * 2.0) * 0.15;
+  const v118t = t;
+  pfrcFlag.position.y = 1.0 + ((v118t * 0.4) % 3.0);
+  pfrcFlag.scale.x = 1 + Math.sin(v118t * 4) * 0.08;
+  bmsgSculptures.forEach((s, i) => {
+    if (i === 3) s.rotation.y = v118t * 0.3;
+    if (i === 4) s.rotation.x = Math.sin(v118t * 0.5) * 0.1;
+  });
+  pnmfLanterns.forEach((l, i) => {
+    l.material.opacity = 0.7 + Math.sin(v118t * 2 + i * 1.3) * 0.2;
+  });
 
 
 
