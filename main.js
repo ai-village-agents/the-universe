@@ -21450,7 +21450,33 @@ const cosmicSights = [
     position: [34107, 25986, -13016],
     color: '#FF6347',
     size: 57
-  }
+  },
+  { name: "Earth Magnetosphere Dynamics", type: "phenomenon", category: "planetary", position: [4280, 1220, 3180], description: "Complex interaction zone where Earth's magnetic field deflects solar wind particles and shapes radiation belt distributions" },
+  { name: "Jupiter Magnetosphere Structure", type: "phenomenon", category: "planetary", position: [4295, 1235, 3195], description: "Largest planetary magnetosphere spanning millions of kilometers, driven by volcanic moon Io's plasma torus" },
+  { name: "Saturn Magnetospheric Asymmetry", type: "phenomenon", category: "planetary", position: [4310, 1250, 3210], description: "Unique magnetosphere with unexplained near-perfect axial symmetry challenging dynamo theory predictions" },
+  { name: "Mercury Offset Dipole Field", type: "phenomenon", category: "planetary", position: [4325, 1265, 3225], description: "Weak planetary magnetic field offset northward from Mercury's center revealing asymmetric core dynamics" },
+  { name: "Uranus Tilted Magnetosphere", type: "phenomenon", category: "planetary", position: [4340, 1280, 3240], description: "Extreme 59-degree tilt between rotation and magnetic axes creating chaotic magnetotail configurations" },
+  { name: "Neptune Magnetic Field Complexity", type: "phenomenon", category: "planetary", position: [4355, 1295, 3255], description: "Highly non-dipolar magnetic field suggesting multiple internal dynamo source regions" },
+  { name: "Ganymede Intrinsic Magnetosphere", type: "phenomenon", category: "planetary", position: [4370, 1310, 3270], description: "Only moon with its own internally generated magnetic field embedded within Jupiter's magnetosphere" },
+  { name: "Mars Crustal Magnetic Anomalies", type: "phenomenon", category: "planetary", position: [4385, 1325, 3285], description: "Remnant magnetization in ancient Martian crust recording past global dynamo field orientation" },
+  { name: "Io Flux Tube Current System", type: "phenomenon", category: "planetary", position: [4400, 1340, 3300], description: "Massive electrical current flowing between volcanic moon and Jupiter along magnetic field lines" },
+  { name: "Magnetopause Reconnection Site", type: "phenomenon", category: "planetary", position: [4415, 1355, 3315], description: "Dynamic boundary where planetary and solar magnetic fields merge releasing enormous energy bursts" },
+  { name: "Radiation Belt Slot Region", type: "phenomenon", category: "planetary", position: [4430, 1370, 3330], description: "Gap between inner and outer radiation belts maintained by wave-particle interactions" },
+  { name: "Ring Current Enhancement Zone", type: "phenomenon", category: "planetary", position: [4445, 1385, 3345], description: "Toroidal current of energetic particles circling Earth that intensifies during geomagnetic storms" },
+  { name: "Plasmasphere Boundary Layer", type: "phenomenon", category: "planetary", position: [4460, 1400, 3360], description: "Sharp density gradient where cold dense plasma meets hot tenuous magnetospheric populations" },
+  { name: "Polar Cusp Particle Entry", type: "phenomenon", category: "planetary", position: [4475, 1415, 3375], description: "Funnel-shaped regions allowing direct solar wind plasma access to upper atmosphere" },
+  { name: "Magnetotail Plasma Sheet", type: "phenomenon", category: "planetary", position: [4490, 1430, 3390], description: "Hot plasma trapped in elongated nightside magnetic field extension storing substorm energy" },
+  { name: "Field-Aligned Current System", type: "phenomenon", category: "planetary", position: [4505, 1445, 3405], description: "Birkeland currents connecting magnetosphere to ionosphere carrying millions of amperes" },
+  { name: "Bow Shock Wave Front", type: "phenomenon", category: "planetary", position: [4520, 1460, 3420], description: "Standing shock wave where supersonic solar wind decelerates approaching planetary magnetic obstacle" },
+  { name: "Magnetosheath Turbulent Flow", type: "phenomenon", category: "planetary", position: [4535, 1475, 3435], description: "Chaotic plasma region between bow shock and magnetopause with enhanced wave activity" },
+  { name: "Planetary Auroral Radio Emission", type: "phenomenon", category: "planetary", position: [4550, 1490, 3450], description: "Intense radio emissions from auroral zones serving as diagnostic of magnetospheric dynamics" },
+  { name: "Exoplanet Magnetic Field Detection", type: "phenomenon", category: "planetary", position: [4565, 1505, 3465], description: "Radio emission signatures potentially revealing magnetic field strength in distant planetary systems" },
+  { name: "Hot Jupiter Magnetosphere Inflation", type: "phenomenon", category: "planetary", position: [4580, 1520, 3480], description: "Extreme atmospheric expansion driven by intense stellar radiation and potential magnetic field interaction" },
+  { name: "Dynamo Convection Zone Imaging", type: "phenomenon", category: "planetary", position: [4595, 1535, 3495], description: "Internal structure mapping revealing conducting fluid motions generating planetary magnetic fields" },
+  { name: "Magnetic Storm Main Phase", type: "phenomenon", category: "planetary", position: [4610, 1550, 3510], description: "Period of ring current intensification causing global magnetic field depression measured on surface" },
+  { name: "Substorm Onset Trigger Region", type: "phenomenon", category: "planetary", position: [4625, 1565, 3525], description: "Magnetotail location where magnetic reconnection initiates explosive auroral brightenings" },
+  { name: "Planetary Magnetic Pole Wandering", type: "phenomenon", category: "planetary", position: [4640, 1580, 3540], description: "Secular variation in magnetic pole positions driven by changing deep interior convection patterns" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
