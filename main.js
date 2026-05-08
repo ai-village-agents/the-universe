@@ -16085,7 +16085,132 @@ const cosmicSights = [
   {"name": "Disk Velocity Kink Planet Detection", "description": "Kinematic deviations in molecular line emission pinpoint embedded planets through their local gravitational influence on gas motions.", "position": [1789, 3567, -4234]},
   {"name": "Disk Magnetic Braking Angular Momentum", "description": "Magnetic field coupling to ionized disk material extracts angular momentum, regulating accretion rates and disk evolution timescales.", "position": [-2345, -2934, 3678]},
   {"name": "MRI Turbulence Magneto Rotational", "description": "The magneto-rotational instability drives turbulent mixing in ionized disk regions, enabling angular momentum transport and sustained accretion.", "position": [3234, 1012, -1923]},
-  {"name": "Disk Lifetime Dispersal Timescale", "description": "Statistical studies reveal typical disk lifetimes of a few million years, setting the clock for giant planet core formation.", "position": [1456, -3345, 2789]}
+  {"name": "Disk Lifetime Dispersal Timescale", "description": "Statistical studies reveal typical disk lifetimes of a few million years, setting the clock for giant planet core formation.", "position": [1456, -3345, 2789]},
+  {
+    "name": "Jovian Magnetosphere Bow Shock",
+    "description": "The boundary where the solar wind is abruptly slowed by Jupiter's immense magnetic field.",
+    "position": [18472.33, -29341.56, 10834.21]
+  },
+  {
+    "name": "Saturnian Ring Shepherd Moon",
+    "description": "A small moon whose gravity sculpts and maintains the sharp edges of Saturn's rings.",
+    "position": [-25138.47, 14720.89, -33215.74]
+  },
+  {
+    "name": "Martian Dust Devil Swirl",
+    "description": "A towering column of swirling red dust dancing across the Martian surface.",
+    "position": [34209.15, 5834.62, -18760.43]
+  },
+  {
+    "name": "Titanian Methane Lake Shoreline",
+    "description": "The frigid edge where liquid methane meets organic-rich terrain on Saturn's largest moon.",
+    "position": [-10874.92, -42156.78, 26341.05]
+  },
+  {
+    "name": "Europan Chaos Terrain Fracture",
+    "description": "Jumbled ice blocks and ridges formed by subsurface ocean activity on Jupiter's ice moon.",
+    "position": [27341.66, -15678.34, 34109.87]
+  },
+  {
+    "name": "Venusian Corona Tectonic Feature",
+    "description": "A circular structure formed by mantle upwelling beneath the hellish surface of Venus.",
+    "position": [-36210.55, 23417.89, -10834.62]
+  },
+  {
+    "name": "Mercurian Hollow Formation",
+    "description": "A shallow irregular depression with bright halos on the scorched innermost planet.",
+    "position": [15678.42, 38720.15, -25138.76]
+  },
+  {
+    "name": "Neptunian Great Dark Spot Vortex",
+    "description": "A massive anticyclonic storm raging in the deep blue atmosphere of the ice giant.",
+    "position": [-42156.33, -10874.21, 18472.58]
+  },
+  {
+    "name": "Plutonian Nitrogen Ice Plain",
+    "description": "A vast flat expanse of frozen nitrogen and methane on the dwarf planet's heart-shaped region.",
+    "position": [10834.97, -25138.44, -42156.12]
+  },
+  {
+    "name": "Ionian Sulfur Volcano Plume",
+    "description": "A towering eruption of molten sulfur and sulfur dioxide from Jupiter's most volcanic moon.",
+    "position": [-29341.78, 18472.36, 34209.15]
+  },
+  {
+    "name": "Enceladidean Cryovolcanic Jet",
+    "description": "Plumes of water ice and vapor erupting from tiger stripe fissures on the bright Saturnian moon.",
+    "position": [42156.23, -18760.55, 14720.89]
+  },
+  {
+    "name": "Tritonian Cantaloupe Terrain Ridge",
+    "description": "Bubbly ridges and depressions formed by cryovolcanic processes on Neptune's largest moon.",
+    "position": [-18760.34, 34209.67, -29341.22]
+  },
+  {
+    "name": "Ceres Bright Spot Occator Crater",
+    "description": "Dazzling reflective deposits of sodium carbonate in the largest crater on the dwarf planet.",
+    "position": [23417.88, -10874.92, 38720.34]
+  },
+  {
+    "name": "Uranian Ring Epsilon Arc",
+    "description": "A narrow ring system held in place by shepherd moons around the tilted ice giant.",
+    "position": [-33215.47, 26341.08, -15678.33]
+  },
+  {
+    "name": "Phobos Stickney Impact Groove",
+    "description": "Massive parallel grooves radiating from the largest crater on Mars's doomed moon.",
+    "position": [14720.56, 42156.12, -18760.78]
+  },
+  {
+    "name": "Ganymedean Polar Cap Deposit",
+    "description": "Bright frosty deposits at the poles of the solar system's largest moon.",
+    "position": [-15678.45, -34209.88, 25138.66]
+  },
+  {
+    "name": "Callistoan Valhalla Multi-Ring Basin",
+    "description": "The largest known multi-ring impact structure in the solar system on Jupiter's outer moon.",
+    "position": [26341.09, 10834.47, -42156.33]
+  },
+  {
+    "name": "Mirandan Verona Rupes Cliff",
+    "description": "The tallest known cliff in the solar system plunging twelve kilometers on Uranus's moon.",
+    "position": [-10874.66, 25138.33, 34209.78]
+  },
+  {
+    "name": "Asteroidal Vesta Rheasilvia Basin",
+    "description": "A colossal impact basin with a towering central peak on the second-largest asteroid.",
+    "position": [38720.44, -42156.12, 15678.55]
+  },
+  {
+    "name": "Kuiper Belt Object Contact Binary",
+    "description": "Two lobe-shaped worlds joined in a gentle embrace far beyond Neptune's orbit.",
+    "position": [-25138.22, 18472.67, -29341.88]
+  },
+  {
+    "name": "Cometary Jet Active Region",
+    "description": "A vent spewing dust and gas from the warmed surface of an active comet nucleus.",
+    "position": [18472.88, -33215.44, 10834.22]
+  },
+  {
+    "name": "Lunar Mare Basalt Flow Front",
+    "description": "The frozen edge of ancient volcanic lava flows that filled the Moon's giant impact basins.",
+    "position": [-42156.55, 15678.33, 25138.44]
+  },
+  {
+    "name": "Jovian Co-Orbital Trojan Asteroid",
+    "description": "A captured asteroid sharing Jupiter's orbit around the Sun in a gravitationally stable pocket.",
+    "position": [34209.33, -15678.22, -10874.66]
+  },
+  {
+    "name": "Martian Recurring Slope Lineae",
+    "description": "Seasonal dark streaks flowing down steep slopes hinting at transient liquid brine on Mars.",
+    "position": [-18760.44, 38720.55, 14720.33]
+  },
+  {
+    "name": "Titanian Dune Field Corridor",
+    "description": "Vast parallel ridges of organic sand stretching across the equatorial deserts of Titan.",
+    "position": [25138.66, -29341.22, 42156.11]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
