@@ -22719,6 +22719,207 @@ const cosmicSights = [
     color: '#9b59b6',
     size: 332
   }
+,
+  {
+    name: 'Expanding Shockwave 13001',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [8796, -11744, -37422],
+    color: '#f1c40f',
+    size: 248
+  },
+  {
+    name: 'Stellar Debris Cloud 13002',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-24709, 6761, -33005],
+    color: '#f1c40f',
+    size: 126
+  },
+  {
+    name: 'Pulsar Wind Core 13003',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [35819, 15599, 21437],
+    color: '#e74c3c',
+    size: 52
+  },
+  {
+    name: 'Blast Wave Front 13004',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [35231, -9493, -19483],
+    color: '#c0392b',
+    size: 292
+  },
+  {
+    name: 'Neutron Star Ejecta 13005',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [7147, -30476, 14249],
+    color: '#f39c12',
+    size: 360
+  },
+  {
+    name: 'Crab Nebula Analog 13006',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-13578, 32619, -12960],
+    color: '#c0392b',
+    size: 367
+  },
+  {
+    name: 'Cassiopeia Remnant 13007',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-36778, 13004, 27004],
+    color: '#e67e22',
+    size: 57
+  },
+  {
+    name: 'Vela Pulsar Shell 13008',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [14830, 36269, -20291],
+    color: '#d35400',
+    size: 65
+  },
+  {
+    name: 'Thermal X-Ray Ring 13009',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-31054, -26887, -35580],
+    color: '#f1c40f',
+    size: 361
+  },
+  {
+    name: 'Supernova Bubble 13010',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [143, -25255, 28453],
+    color: '#e67e22',
+    size: 166
+  },
+  {
+    name: 'Ionized Gas Filament 13011',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-20885, 20294, -30765],
+    color: '#d35400',
+    size: 359
+  },
+  {
+    name: 'Reverse Shock Region 13012',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [6439, -26157, -14948],
+    color: '#d35400',
+    size: 141
+  },
+  {
+    name: 'Magnetic Field Bow Shock 13013',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-39318, 33838, 17219],
+    color: '#f1c40f',
+    size: 368
+  },
+  {
+    name: 'Radio Emitting Shell 13014',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-36716, 23438, -4773],
+    color: '#e74c3c',
+    size: 194
+  },
+  {
+    name: 'Synchrotron Radiation Cloud 13015',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-4322, 19168, -1688],
+    color: '#d35400',
+    size: 79
+  },
+  {
+    name: 'Heavy Element Ejecta 13016',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [13523, -27347, 21490],
+    color: '#f1c40f',
+    size: 135
+  },
+  {
+    name: 'Oxygen Neon Ring 13017',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [25514, -26550, -25587],
+    color: '#f1c40f',
+    size: 174
+  },
+  {
+    name: 'Titanium Decay Core 13018',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [39714, -12825, -23153],
+    color: '#f1c40f',
+    size: 117
+  },
+  {
+    name: 'Historical Supernova Echo 13019',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-4693, -20580, 21496],
+    color: '#c0392b',
+    size: 298
+  },
+  {
+    name: 'Dust Formation Zone 13020',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [25044, 4092, -16181],
+    color: '#f39c12',
+    size: 343
+  },
+  {
+    name: 'Shock Heated Plasma 13021',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-33362, 2705, -3248],
+    color: '#f1c40f',
+    size: 172
+  },
+  {
+    name: 'Asymmetric Ejecta 13022',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-2701, 32873, 21419],
+    color: '#e74c3c',
+    size: 83
+  },
+  {
+    name: 'Neutrino Driven Wind 13023',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [-14427, -7154, -8099],
+    color: '#c0392b',
+    size: 265
+  },
+  {
+    name: 'Core Collapse Shell 13024',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [21059, 4881, 13996],
+    color: '#e67e22',
+    size: 115
+  },
+  {
+    name: 'Type Ia Remnant 13025',
+    category: 'Supernova Remnant Structures',
+    description: 'A mesmerizing manifestation of supernova remnant structures observed in deep space.', 
+    position: [34136, 37217, 13385],
+    color: '#f39c12',
+    size: 115
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
