@@ -25733,6 +25733,275 @@ export function createAnchorageLandmark(THREE, opts) {
   bkplFlame.position.y = 0.3;
   bkplGroup.add(bkplFlame);
 
+
+  // === v157 scene 1: pier wave organ (pipes that play with waves) ===
+  const pwvoGroup = new THREE.Group();
+  pwvoGroup.position.set(-18.0, 1.85, -16.0);
+  group.add(pwvoGroup);
+  // 5 vertical organ pipes of different heights
+  const pwvoPipes = [];
+  const pwvoPipeHeights = [1.4, 1.8, 1.6, 2.0, 1.5];
+  for (let i = 0; i < 5; i++) {
+    const h = pwvoPipeHeights[i];
+    const pipe = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.13, h, 14, 1, true),
+      new THREE.MeshStandardMaterial({ color: 0x9a9078, roughness: 0.4, metalness: 0.6, side: THREE.DoubleSide })
+    );
+    pipe.position.set(i * 0.45 - 0.9, h / 2 + 0.15, 0);
+    pwvoGroup.add(pipe);
+    // rim
+    const rim = new THREE.Mesh(
+      new THREE.TorusGeometry(0.13, 0.025, 6, 14),
+      new THREE.MeshStandardMaterial({ color: 0x6a6058, metalness: 0.7, roughness: 0.3 })
+    );
+    rim.position.set(i * 0.45 - 0.9, h + 0.15, 0);
+    rim.rotation.x = Math.PI / 2;
+    pwvoGroup.add(rim);
+    pwvoPipes.push({ pipe, rim, height: h, basePhase: i * 0.5 });
+  }
+  // base platform
+  const pwvoPlatform = new THREE.Mesh(
+    new THREE.BoxGeometry(2.5, 0.15, 0.5),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  pwvoPlatform.position.set(0, 0.07, 0);
+  pwvoGroup.add(pwvoPlatform);
+  // explanatory plaque
+  const pwvoPlaque = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.55, 0.18),
+    new THREE.MeshBasicMaterial({ color: 0xfff2c8, side: THREE.DoubleSide })
+  );
+  pwvoPlaque.position.set(0, 0.5, 0.3);
+  pwvoPlaque.rotation.x = -0.2;
+  pwvoGroup.add(pwvoPlaque);
+  // sound waves emanating from pipes (animated rings)
+  const pwvoRingMatBase = new THREE.MeshBasicMaterial({ color: 0xa8c0e0, transparent: true, opacity: 0.5, side: THREE.DoubleSide });
+  const pwvoRings = [];
+  for (let i = 0; i < 5; i++) {
+    const m = pwvoRingMatBase.clone();
+    const r = new THREE.Mesh(new THREE.RingGeometry(0.12, 0.16, 18), m);
+    r.position.set(i * 0.45 - 0.9, pwvoPipeHeights[i] + 0.2, 0);
+    r.rotation.x = -Math.PI / 2;
+    r.userData = { phase: i * 0.6, pipeIdx: i };
+    pwvoGroup.add(r);
+    pwvoRings.push(r);
+  }
+  // listener
+  const pwvoListener = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.18, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x4a7aa0 })
+  );
+  pwvoListener.position.set(0, 0.42, 1.2);
+  pwvoGroup.add(pwvoListener);
+  const pwvoListenerHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  pwvoListenerHead.position.set(0, 0.82, 1.2);
+  pwvoGroup.add(pwvoListenerHead);
+
+  // === v157 scene 2: coastal anchor stack (museum-style cluster of old anchors) ===
+  const cansGroup = new THREE.Group();
+  cansGroup.position.set(28.0, 0, -28.0);
+  group.add(cansGroup);
+  // gravel base
+  const cansBase = new THREE.Mesh(
+    new THREE.CircleGeometry(2.0, 24),
+    new THREE.MeshLambertMaterial({ color: 0x8a7a6a })
+  );
+  cansBase.rotation.x = -Math.PI / 2;
+  cansBase.position.y = 0.01;
+  cansGroup.add(cansBase);
+  // create one stylized anchor as a function (we'll inline 3 of them)
+  // anchor 1 (large, lying)
+  function makeAnchor(scale, color) {
+    const g = new THREE.Group();
+    const shaft = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.07 * scale, 0.07 * scale, 1.2 * scale, 8),
+      new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.5 })
+    );
+    g.add(shaft);
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.18 * scale, 0.04 * scale, 6, 16),
+      new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.5 })
+    );
+    ring.position.y = 0.66 * scale;
+    g.add(ring);
+    const cross = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06 * scale, 0.06 * scale, 0.7 * scale, 8),
+      new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.5 })
+    );
+    cross.rotation.z = Math.PI / 2;
+    cross.position.y = 0.5 * scale;
+    g.add(cross);
+    // arms (curved bottom)
+    const armL = new THREE.Mesh(
+      new THREE.TorusGeometry(0.32 * scale, 0.06 * scale, 6, 12, Math.PI / 2),
+      new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.5 })
+    );
+    armL.position.y = -0.6 * scale;
+    armL.rotation.z = Math.PI / 2;
+    g.add(armL);
+    const armR = new THREE.Mesh(
+      new THREE.TorusGeometry(0.32 * scale, 0.06 * scale, 6, 12, Math.PI / 2),
+      new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.5 })
+    );
+    armR.position.y = -0.6 * scale;
+    armR.rotation.z = 0;
+    g.add(armR);
+    return g;
+  }
+  // anchor A: lying flat large
+  const cansA = makeAnchor(1.2, 0x444444);
+  cansA.rotation.z = Math.PI / 2;
+  cansA.position.set(-0.7, 0.1, 0.1);
+  cansGroup.add(cansA);
+  // anchor B: standing medium
+  const cansB = makeAnchor(0.85, 0x5a4a3a);
+  cansB.position.set(0.5, 0.7, -0.3);
+  cansGroup.add(cansB);
+  // anchor C: small leaning
+  const cansC = makeAnchor(0.6, 0x33333a);
+  cansC.position.set(0.9, 0.45, 0.6);
+  cansC.rotation.z = -0.4;
+  cansGroup.add(cansC);
+  // info plaque
+  const cansPlaqueBoard = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.35, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0xb8a378 })
+  );
+  cansPlaqueBoard.position.set(-1.4, 0.4, 0.5);
+  cansPlaqueBoard.rotation.y = 0.5;
+  cansGroup.add(cansPlaqueBoard);
+  const cansPlaqueLegs = new THREE.Mesh(
+    new THREE.BoxGeometry(0.05, 0.4, 0.05),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  cansPlaqueLegs.position.set(-1.4, 0.0, 0.5);
+  cansGroup.add(cansPlaqueLegs);
+  // visitor reading the plaque (animated head turn)
+  const cansVisitor = new THREE.Group();
+  cansVisitor.position.set(-2.0, 0, 1.0);
+  cansGroup.add(cansVisitor);
+  const cansVisitorBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x6a4a8a })
+  );
+  cansVisitorBody.position.y = 0.32;
+  cansVisitor.add(cansVisitorBody);
+  const cansVisitorHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  cansVisitorHead.position.y = 0.7;
+  cansVisitor.add(cansVisitorHead);
+  // small puff cloud of rust dust (animated)
+  const cansDustMatBase = new THREE.MeshBasicMaterial({ color: 0xb88060, transparent: true, opacity: 0.5 });
+  const cansDust = [];
+  for (let i = 0; i < 4; i++) {
+    const m = cansDustMatBase.clone();
+    const d = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 8), m);
+    d.position.set(-0.7 + (Math.random() - 0.5) * 0.3, 0.1, 0.1);
+    d.userData = { phase: i * 0.6 };
+    cansGroup.add(d);
+    cansDust.push(d);
+  }
+
+  // === v157 scene 3: beach tide pool tour ===
+  const btptGroup = new THREE.Group();
+  btptGroup.position.set(20.0, 0, 28.0);
+  group.add(btptGroup);
+  // tide pool 1 (ringed rocks + water)
+  const btptPool1 = new THREE.Mesh(
+    new THREE.CircleGeometry(0.7, 18),
+    new THREE.MeshStandardMaterial({ color: 0x4a8aa4, transparent: true, opacity: 0.7, roughness: 0.2 })
+  );
+  btptPool1.rotation.x = -Math.PI / 2;
+  btptPool1.position.set(0, 0.05, 0);
+  btptGroup.add(btptPool1);
+  for (let i = 0; i < 8; i++) {
+    const ang = (i / 8) * Math.PI * 2;
+    const r = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.13 + Math.random() * 0.05, 0),
+      new THREE.MeshLambertMaterial({ color: 0x6a655a })
+    );
+    r.position.set(Math.cos(ang) * 0.75, 0.06, Math.sin(ang) * 0.75);
+    btptGroup.add(r);
+  }
+  // tide pool 2
+  const btptPool2 = new THREE.Mesh(
+    new THREE.CircleGeometry(0.5, 16),
+    new THREE.MeshStandardMaterial({ color: 0x4a8aa4, transparent: true, opacity: 0.7, roughness: 0.2 })
+  );
+  btptPool2.rotation.x = -Math.PI / 2;
+  btptPool2.position.set(2.0, 0.05, -1.0);
+  btptGroup.add(btptPool2);
+  for (let i = 0; i < 6; i++) {
+    const ang = (i / 6) * Math.PI * 2;
+    const r = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.1 + Math.random() * 0.04, 0),
+      new THREE.MeshLambertMaterial({ color: 0x6a655a })
+    );
+    r.position.set(2.0 + Math.cos(ang) * 0.55, 0.06, -1.0 + Math.sin(ang) * 0.55);
+    btptGroup.add(r);
+  }
+  // sea star in pool 1 (animated arm pulse)
+  const btptStar = new THREE.Mesh(
+    new THREE.CircleGeometry(0.16, 5),
+    new THREE.MeshLambertMaterial({ color: 0xff9050, side: THREE.DoubleSide })
+  );
+  btptStar.rotation.x = -Math.PI / 2;
+  btptStar.position.set(0, 0.06, 0);
+  btptGroup.add(btptStar);
+  // anemone in pool 2 (tentacles wiggling)
+  const btptAnemone = new THREE.Group();
+  btptAnemone.position.set(2.0, 0.06, -1.0);
+  btptGroup.add(btptAnemone);
+  const btptAnemoneBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.08, 0.1, 0.06, 12),
+    new THREE.MeshLambertMaterial({ color: 0x6ab85a })
+  );
+  btptAnemoneBase.position.y = 0.03;
+  btptAnemone.add(btptAnemoneBase);
+  const btptAnemoneTentacles = [];
+  for (let i = 0; i < 8; i++) {
+    const ang = (i / 8) * Math.PI * 2;
+    const t = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.008, 0.008, 0.12, 5),
+      new THREE.MeshLambertMaterial({ color: 0xb86ab8 })
+    );
+    t.position.set(Math.cos(ang) * 0.07, 0.1, Math.sin(ang) * 0.07);
+    btptAnemone.add(t);
+    btptAnemoneTentacles.push({ mesh: t, ang, phase: i * 0.4 });
+  }
+  // tour guide
+  const btptGuide = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x2a8a4a })
+  );
+  btptGuide.position.set(-1.0, 0.32, 0.5);
+  btptGroup.add(btptGuide);
+  const btptGuideHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  btptGuideHead.position.set(-1.0, 0.7, 0.5);
+  btptGroup.add(btptGuideHead);
+  // 3 visitors leaning over pools
+  const btptVisitors = [];
+  const btptVisitorColors = [0xb84a8a, 0x4a8a4a, 0xb88a4a];
+  const btptVisitorPositions = [[0.6, 0.25, 0.7], [1.3, 0.25, -1.5], [-0.4, 0.25, 0.8]];
+  for (let i = 0; i < 3; i++) {
+    const v = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.5, 10),
+      new THREE.MeshLambertMaterial({ color: btptVisitorColors[i] })
+    );
+    v.position.set(btptVisitorPositions[i][0], btptVisitorPositions[i][1], btptVisitorPositions[i][2]);
+    v.rotation.x = 0.4; // leaning
+    btptGroup.add(v);
+    btptVisitors.push(v);
+  }
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -29354,6 +29623,49 @@ export function createAnchorageLandmark(THREE, opts) {
   bkplFlame.scale.y = 1 + Math.sin(v156t * 6.0) * 0.18;
   bkplFlame.scale.x = 1 + Math.sin(v156t * 7.0) * 0.06;
   bkplFlame.material.opacity = 0.78 + Math.sin(v156t * 7.0) * 0.07;
+
+  // v157 scene 1 anim: pipes resonating with wave-like sound rings
+  const v157t = t;
+  for (let i = 0; i < pwvoRings.length; i++) {
+    const r = pwvoRings[i];
+    const phase = (v157t * 0.7 + r.userData.phase) % 1.5;
+    const sc = 0.4 + phase * 1.4;
+    r.scale.setScalar(sc);
+    r.material.opacity = Math.max(0, 0.55 - phase * 0.35);
+  }
+  for (let i = 0; i < pwvoPipes.length; i++) {
+    const p = pwvoPipes[i];
+    const wob = Math.sin(v157t * 1.0 + p.basePhase) * 0.02;
+    p.pipe.scale.x = 1 + wob;
+    p.pipe.scale.z = 1 + wob;
+  }
+  pwvoListenerHead.rotation.y = Math.sin(v157t * 0.3) * 0.2;
+
+  // v157 scene 2 anim: visitor head turn + rust dust drifts
+  cansVisitorHead.rotation.y = Math.sin(v157t * 0.3) * 0.4;
+  cansVisitor.position.x = -2.0 + Math.sin(v157t * 0.15) * 0.3;
+  for (let i = 0; i < cansDust.length; i++) {
+    const d = cansDust[i];
+    const phase = (v157t * 0.4 + d.userData.phase) % 2.0;
+    d.position.y = 0.1 + phase * 0.4;
+    d.material.opacity = Math.max(0, 0.5 - phase * 0.25);
+    d.scale.setScalar(1 + phase * 0.5);
+  }
+
+  // v157 scene 3 anim: anemone tentacles wiggle, sea star pulse
+  for (let i = 0; i < btptAnemoneTentacles.length; i++) {
+    const tt = btptAnemoneTentacles[i];
+    const wig = Math.sin(v157t * 2.0 + tt.phase);
+    tt.mesh.rotation.z = Math.cos(tt.ang) * wig * 0.4;
+    tt.mesh.rotation.x = Math.sin(tt.ang) * wig * 0.4;
+  }
+  btptStar.scale.setScalar(1 + Math.sin(v157t * 1.5) * 0.06);
+  btptStar.rotation.z = v157t * 0.15;
+  // pool surfaces shimmer
+  btptPool1.material.opacity = 0.65 + Math.sin(v157t * 1.2) * 0.08;
+  btptPool2.material.opacity = 0.65 + Math.sin(v157t * 1.4 + 0.5) * 0.08;
+  btptGuideHead.rotation.y = Math.sin(v157t * 0.6) * 0.4;
+
 
 
 
