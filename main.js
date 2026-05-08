@@ -25458,6 +25458,206 @@ const cosmicSights = [
     position: [-29832, 26204, -36464],
     color: '#00ffff',
     size: 159
+  },
+  {
+    name: 'Pulsar Wind Alpha 13626',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-20558, -33589, 28689],
+    color: '#ffff00',
+    size: 276
+  },
+  {
+    name: 'Pulsar Wind Beta 13627',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-25021, 5929, -140],
+    color: '#ff4500',
+    size: 51
+  },
+  {
+    name: 'Pulsar Wind Gamma 13628',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-2374, 8190, 30067],
+    color: '#00ffff',
+    size: 306
+  },
+  {
+    name: 'Pulsar Wind Delta 13629',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-37999, -3370, 13203],
+    color: '#ff00ff',
+    size: 242
+  },
+  {
+    name: 'Pulsar Wind Epsilon 13630',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [9243, 29422, -24554],
+    color: '#ff4500',
+    size: 76
+  },
+  {
+    name: 'Pulsar Wind Zeta 13631',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-30684, 29733, -11076],
+    color: '#00ffff',
+    size: 63
+  },
+  {
+    name: 'Pulsar Wind Eta 13632',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-13706, -39688, 20750],
+    color: '#00ffff',
+    size: 335
+  },
+  {
+    name: 'Pulsar Wind Theta 13633',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [37284, -21341, 37013],
+    color: '#ff00ff',
+    size: 64
+  },
+  {
+    name: 'Pulsar Wind Iota 13634',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [16493, 35971, -37821],
+    color: '#ff4500',
+    size: 79
+  },
+  {
+    name: 'Pulsar Wind Kappa 13635',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [24133, 1197, 28090],
+    color: '#ffff00',
+    size: 339
+  },
+  {
+    name: 'Pulsar Wind Lambda 13636',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-10301, -32568, 33069],
+    color: '#ff00ff',
+    size: 222
+  },
+  {
+    name: 'Pulsar Wind Mu 13637',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-5993, -8506, 24077],
+    color: '#00ffff',
+    size: 242
+  },
+  {
+    name: 'Pulsar Wind Nu 13638',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-13095, -9303, 21407],
+    color: '#ffff00',
+    size: 211
+  },
+  {
+    name: 'Pulsar Wind Xi 13639',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [15167, -39052, 16648],
+    color: '#ff4500',
+    size: 103
+  },
+  {
+    name: 'Pulsar Wind Omicron 13640',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [14138, 6369, 1932],
+    color: '#00ffff',
+    size: 181
+  },
+  {
+    name: 'Pulsar Wind Pi 13641',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [10992, -39349, -5840],
+    color: '#ffff00',
+    size: 251
+  },
+  {
+    name: 'Pulsar Wind Rho 13642',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [35806, -4103, -33667],
+    color: '#00ffff',
+    size: 359
+  },
+  {
+    name: 'Pulsar Wind Sigma 13643',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-17613, 37433, -20656],
+    color: '#ffff00',
+    size: 146
+  },
+  {
+    name: 'Pulsar Wind Tau 13644',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [37190, 27227, 13875],
+    color: '#00ffff',
+    size: 329
+  },
+  {
+    name: 'Pulsar Wind Upsilon 13645',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [36245, -27186, 11540],
+    color: '#00ffff',
+    size: 342
+  },
+  {
+    name: 'Pulsar Wind Phi 13646',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [33934, -32530, 2809],
+    color: '#ff4500',
+    size: 205
+  },
+  {
+    name: 'Pulsar Wind Chi 13647',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [4038, -7103, 28419],
+    color: '#ff4500',
+    size: 328
+  },
+  {
+    name: 'Pulsar Wind Psi 13648',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-21920, -19591, 39278],
+    color: '#00ffff',
+    size: 347
+  },
+  {
+    name: 'Pulsar Wind Omega 13649',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-22268, 16530, -28541],
+    color: '#ffff00',
+    size: 76
+  },
+  {
+    name: 'Pulsar Wind Prime 13650',
+    category: 'Pulsar Wind Nebulae',
+    description: 'A mesmerizing manifestation of pulsar wind nebulae observed in deep space.', 
+    position: [-7505, 7811, 18069],
+    color: '#ff4500',
+    size: 202
   }
 ];
 
