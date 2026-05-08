@@ -21353,6 +21353,135 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(psgpGroup);
 
+
+  // v130: pier puppet repair stall (pprs)
+  const pprsGroup = new THREE.Group();
+  pprsGroup.position.set(244, 4.3, -120);
+  // stall canopy
+  const pprsCanopy = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.12, 2.0), new THREE.MeshLambertMaterial({ color: 0x8a4a4a }));
+  pprsCanopy.position.set(0, 2.4, 0);
+  pprsGroup.add(pprsCanopy);
+  // posts
+  const pprsPostMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  for (const [px, pz] of [[-1.4, -0.8], [1.4, -0.8], [-1.4, 0.8], [1.4, 0.8]]) {
+    const pst = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.4, 8), pprsPostMat);
+    pst.position.set(px, 1.2, pz);
+    pprsGroup.add(pst);
+  }
+  // workbench
+  const pprsBench = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.1, 1.0), new THREE.MeshLambertMaterial({ color: 0x9a6a3a }));
+  pprsBench.position.set(0, 0.85, 0.3);
+  pprsGroup.add(pprsBench);
+  // hanging puppets
+  const pprsPupColors = [0xe85070, 0xf0c860, 0x60b8e0, 0xa8e060, 0xe89870];
+  const pprsPups = [];
+  const pprsPupHeads = [];
+  const pprsStrings = [];
+  for (let i = 0; i < 5; i++) {
+    const c = pprsPupColors[i];
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 0.5, 7), new THREE.MeshLambertMaterial({ color: c }));
+    body.position.set(-1.2 + i * 0.6, 1.6, -0.6);
+    pprsGroup.add(body);
+    pprsPups.push(body);
+    const h = new THREE.Mesh(new THREE.SphereGeometry(0.13, 7, 6), new THREE.MeshLambertMaterial({ color: 0xf2c8a4 }));
+    h.position.set(-1.2 + i * 0.6, 1.95, -0.6);
+    pprsGroup.add(h);
+    pprsPupHeads.push(h);
+    const str = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.4, 4), new THREE.MeshBasicMaterial({ color: 0xe8e8c8 }));
+    str.position.set(-1.2 + i * 0.6, 2.2, -0.6);
+    pprsGroup.add(str);
+    pprsStrings.push(str);
+  }
+  // repairer
+  const pprsRep = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.3, 8), new THREE.MeshLambertMaterial({ color: 0x5a7a4a }));
+  pprsRep.position.set(-0.6, 0.65, -0.4);
+  pprsGroup.add(pprsRep);
+  const pprsRepH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xd8a880 }));
+  pprsRepH.position.set(-0.6, 1.45, -0.4);
+  pprsGroup.add(pprsRepH);
+  // tools on bench
+  const pprsTool1 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 6), new THREE.MeshLambertMaterial({ color: 0x303040 }));
+  pprsTool1.rotation.x = Math.PI / 2;
+  pprsTool1.position.set(0.4, 0.95, 0.4);
+  pprsGroup.add(pprsTool1);
+  const pprsTool2 = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.06, 0.1), new THREE.MeshLambertMaterial({ color: 0x808088 }));
+  pprsTool2.position.set(0.8, 0.94, 0.4);
+  pprsGroup.add(pprsTool2);
+  group.add(pprsGroup);
+
+  // v130: beach feather dancer (bfd)
+  const bfdGroup = new THREE.Group();
+  bfdGroup.position.set(-58, 0, 226);
+  const bfdDancer = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 1.4, 8), new THREE.MeshLambertMaterial({ color: 0xb8408a }));
+  bfdDancer.position.set(0, 0.7, 0);
+  bfdGroup.add(bfdDancer);
+  const bfdHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xf0c8a0 }));
+  bfdHead.position.set(0, 1.55, 0);
+  bfdGroup.add(bfdHead);
+  // feather headdress
+  const bfdFeatherColors = [0xff80b0, 0xffe080, 0x80c8ff, 0xa0ff80, 0xff9050];
+  const bfdFeathers = [];
+  for (let i = 0; i < 7; i++) {
+    const ang = (i - 3) * 0.25;
+    const f = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.7, 5), new THREE.MeshLambertMaterial({ color: bfdFeatherColors[i % bfdFeatherColors.length] }));
+    f.position.set(Math.sin(ang) * 0.18, 1.95, Math.cos(ang) * 0.18 - 0.05);
+    f.rotation.z = ang * 0.5;
+    f.rotation.x = -0.2;
+    bfdGroup.add(f);
+    bfdFeathers.push(f);
+  }
+  // long feather fans in hands
+  const bfdFanL = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 1.2), new THREE.MeshBasicMaterial({ color: 0xffe8c0, side: THREE.DoubleSide, transparent: true, opacity: 0.85 }));
+  bfdFanL.position.set(-0.7, 1.0, 0);
+  bfdFanL.rotation.z = 0.6;
+  bfdGroup.add(bfdFanL);
+  const bfdFanR = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 1.2), new THREE.MeshBasicMaterial({ color: 0xffe8c0, side: THREE.DoubleSide, transparent: true, opacity: 0.85 }));
+  bfdFanR.position.set(0.7, 1.0, 0);
+  bfdFanR.rotation.z = -0.6;
+  bfdGroup.add(bfdFanR);
+  group.add(bfdGroup);
+
+  // v130: coastal bird ringing station (cbrs)
+  const cbrsGroup = new THREE.Group();
+  cbrsGroup.position.set(-298, 0, 92);
+  // table
+  const cbrsTable = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.1, 1.4), new THREE.MeshLambertMaterial({ color: 0x9a7a5a }));
+  cbrsTable.position.set(0, 0.7, 0);
+  cbrsGroup.add(cbrsTable);
+  for (const [tx, tz] of [[-0.9, -0.5], [0.9, -0.5], [-0.9, 0.5], [0.9, 0.5]]) {
+    const tl = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.7, 6), new THREE.MeshLambertMaterial({ color: 0x6a4a2a }));
+    tl.position.set(tx, 0.35, tz);
+    cbrsGroup.add(tl);
+  }
+  // mist net poles
+  const cbrsNetPoleMat = new THREE.MeshLambertMaterial({ color: 0xe0d8c8 });
+  const cbrsPoleA = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.6, 8), cbrsNetPoleMat);
+  cbrsPoleA.position.set(-2.2, 1.3, -1.2);
+  cbrsGroup.add(cbrsPoleA);
+  const cbrsPoleB = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.6, 8), cbrsNetPoleMat);
+  cbrsPoleB.position.set(1.6, 1.3, -1.2);
+  cbrsGroup.add(cbrsPoleB);
+  // mist net
+  const cbrsNet = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 1.8), new THREE.MeshBasicMaterial({ color: 0x404048, transparent: true, opacity: 0.35, side: THREE.DoubleSide }));
+  cbrsNet.position.set(-0.3, 1.5, -1.2);
+  cbrsGroup.add(cbrsNet);
+  // ringer
+  const cbrsRinger = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.3, 8), new THREE.MeshLambertMaterial({ color: 0x6a4a2a }));
+  cbrsRinger.position.set(0, 0.65, 0.6);
+  cbrsGroup.add(cbrsRinger);
+  const cbrsRingerH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  cbrsRingerH.position.set(0, 1.45, 0.6);
+  cbrsGroup.add(cbrsRingerH);
+  // small bird in hand
+  const cbrsBird = new THREE.Mesh(new THREE.SphereGeometry(0.12, 7, 6), new THREE.MeshLambertMaterial({ color: 0xc8a0d8 }));
+  cbrsBird.position.set(0, 1.1, 0.95);
+  cbrsGroup.add(cbrsBird);
+  // notebook on table
+  const cbrsBook = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.04, 0.4), new THREE.MeshLambertMaterial({ color: 0xe8e0c8 }));
+  cbrsBook.position.set(0.6, 0.77, 0);
+  cbrsGroup.add(cbrsBook);
+  group.add(cbrsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24303,6 +24432,22 @@ export function createAnchorageLandmark(THREE, opts) {
   for (let i = 0; i < psgpStars.length; i++) {
     psgpStars[i].material.opacity = 0.55 + Math.sin(v129t * 2.5 + i * 0.7) * 0.35;
   }
+
+  // v130 updates
+  const v130t = t;
+  // pprs - puppets sway
+  for (let i = 0; i < pprsPups.length; i++) {
+    const sw = Math.sin(v130t * 1.3 + i * 0.6) * 0.04;
+    pprsPups[i].rotation.z = sw;
+    pprsPupHeads[i].position.x = (-1.2 + i * 0.6) + sw * 0.3;
+  }
+  // bfd - dancer twirls
+  bfdGroup.rotation.y = v130t * 0.6;
+  bfdFanL.rotation.z = 0.6 + Math.sin(v130t * 2.5) * 0.4;
+  bfdFanR.rotation.z = -0.6 - Math.sin(v130t * 2.5) * 0.4;
+  // cbrs - bird heart-beat
+  cbrsBird.scale.setScalar(1 + Math.sin(v130t * 6.0) * 0.06);
+  cbrsRingerH.position.y = 1.45 + Math.sin(v130t * 1.0) * 0.02;
 
 
 
