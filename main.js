@@ -20621,6 +20621,207 @@ const cosmicSights = [
     color: '#FF4500',
     size: 266
   }
+,
+  {
+    name: 'Cold Neutral Medium HI 12501',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [29841, -25349, -14408],
+    color: '#FF69B4',
+    size: 186
+  },
+  {
+    name: 'Warm Neutral Medium HI 12502',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [13715, -11359, 16305],
+    color: '#696969',
+    size: 246
+  },
+  {
+    name: 'Warm Ionized Medium HII 12503',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [27131, 18742, -930],
+    color: '#DC143C',
+    size: 56
+  },
+  {
+    name: 'Hot Ionized Medium Supernova 12504',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-10273, -10758, -11152],
+    color: '#FFA500',
+    size: 176
+  },
+  {
+    name: 'Giant Molecular Cloud CO 12505',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [16399, 20188, 26009],
+    color: '#A0522D',
+    size: 71
+  },
+  {
+    name: 'Dark Nebula Extinction 12506',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [4400, -8929, 31476],
+    color: '#00CED1',
+    size: 217
+  },
+  {
+    name: 'Reflection Nebula Dust 12507',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [19988, 2127, -22338],
+    color: '#556B2F',
+    size: 310
+  },
+  {
+    name: 'Emission Nebula Recombination 12508',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-32771, -27126, -16608],
+    color: '#E6E6FA',
+    size: 397
+  },
+  {
+    name: 'Interstellar Dust Silicates 12509',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-25577, -6188, 23167],
+    color: '#191970',
+    size: 101
+  },
+  {
+    name: 'Interstellar Dust Carbonaceous 12510',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [36860, -31103, 26701],
+    color: '#FF69B4',
+    size: 381
+  },
+  {
+    name: 'Polycyclic Aromatic Hydrocarbons 12511',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-26406, 30065, -16305],
+    color: '#DC143C',
+    size: 84
+  },
+  {
+    name: 'Interstellar Magnetic Field Lines 12512',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [33550, 18756, -37700],
+    color: '#000000',
+    size: 253
+  },
+  {
+    name: 'Galactic Cosmic Ray Wind 12513',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-27928, -20146, -21346],
+    color: '#DC143C',
+    size: 87
+  },
+  {
+    name: 'Stellar Wind Bubble 12514',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-1564, 22557, -12412],
+    color: '#4169E1',
+    size: 113
+  },
+  {
+    name: 'Superbubble Expansion 12515',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-10253, -4476, 10714],
+    color: '#8A2BE2',
+    size: 368
+  },
+  {
+    name: 'Interstellar Shock Wave 12516',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-25461, -4809, -21209],
+    color: '#DC143C',
+    size: 241
+  },
+  {
+    name: 'HII Region Strömgren Sphere 12517',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [31709, 504, -6126],
+    color: '#FF4500',
+    size: 398
+  },
+  {
+    name: 'Planetary Nebula Envelope 12518',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [37571, -37370, -30455],
+    color: '#F0E68C',
+    size: 93
+  },
+  {
+    name: 'Supernova Remnant Shell 12519',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-24326, -2235, 1815],
+    color: '#F0F8FF',
+    size: 161
+  },
+  {
+    name: 'Local Interstellar Cloud 12520',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [22322, 37056, -22833],
+    color: '#F0F8FF',
+    size: 176
+  },
+  {
+    name: 'Local Bubble Cavity 12521',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [14277, 34157, 12321],
+    color: '#87CEFA',
+    size: 160
+  },
+  {
+    name: 'Interstellar Molecules Water 12522',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-32232, -9541, 23738],
+    color: '#87CEFA',
+    size: 360
+  },
+  {
+    name: 'Interstellar Molecules Ammonia 12523',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [28402, -33927, 20148],
+    color: '#87CEFA',
+    size: 101
+  },
+  {
+    name: 'Interstellar Molecules Methanol 12524',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [20565, 13860, 21739],
+    color: '#DC143C',
+    size: 133
+  },
+  {
+    name: 'Diffuse Interstellar Bands 12525',
+    category: 'Interstellar Medium Properties',
+    description: 'A mesmerizing manifestation of interstellar medium properties observed in deep space.', 
+    position: [-19301, 37046, -31790],
+    color: '#00FFFF',
+    size: 199
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
