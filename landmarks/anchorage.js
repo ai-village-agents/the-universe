@@ -19573,6 +19573,150 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bddpGroup);
 
+  // --- v120: pier shadow puppet show (psps) -----------------------------------
+  const pspsGroup = new THREE.Group();
+  pspsGroup.position.set(38, 1.5, 30);
+  const pspsScreen = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 1.2), new THREE.MeshBasicMaterial({ color: 0xfff4c2, transparent: true, opacity: 0.85, side: THREE.DoubleSide }));
+  pspsScreen.position.y = 1.4;
+  pspsGroup.add(pspsScreen);
+  const pspsFrameMat = new THREE.MeshLambertMaterial({ color: 0x3a2410 });
+  const pspsFrameTop = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.08, 0.08), pspsFrameMat);
+  pspsFrameTop.position.y = 2.04;
+  pspsGroup.add(pspsFrameTop);
+  const pspsFrameBot = pspsFrameTop.clone();
+  pspsFrameBot.position.y = 0.76;
+  pspsGroup.add(pspsFrameBot);
+  const pspsFrameL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.36, 0.08), pspsFrameMat);
+  pspsFrameL.position.set(-1.06, 1.4, 0);
+  pspsGroup.add(pspsFrameL);
+  const pspsFrameR = pspsFrameL.clone();
+  pspsFrameR.position.x = 1.06;
+  pspsGroup.add(pspsFrameR);
+  const pspsPuppetMat = new THREE.MeshBasicMaterial({ color: 0x111111, side: THREE.DoubleSide });
+  const pspsPuppets = [];
+  for (let i = 0; i < 3; i++) {
+    const p = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.4), pspsPuppetMat);
+    p.position.set(-0.6 + i * 0.6, 1.4, 0.02);
+    pspsGroup.add(p);
+    pspsPuppets.push(p);
+  }
+  const pspsPuppeteer = new THREE.Group();
+  const pspsPBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x5a3a1a }));
+  pspsPBody.position.y = 0.47;
+  pspsPuppeteer.add(pspsPBody);
+  const pspsPHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  pspsPHead.position.y = 1.05;
+  pspsPuppeteer.add(pspsPHead);
+  pspsPuppeteer.position.set(0, 0, -0.5);
+  pspsGroup.add(pspsPuppeteer);
+  const pspsAudColors = [0xc94f4f, 0x4f8fc9, 0x4fc97a, 0xc9b34f, 0xa64fc9];
+  const pspsAudience = [];
+  for (let i = 0; i < 5; i++) {
+    const a = new THREE.Group();
+    const ab = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.7, 8), new THREE.MeshLambertMaterial({ color: pspsAudColors[i] }));
+    ab.position.y = 0.35;
+    a.add(ab);
+    const ah = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+    ah.position.y = 0.85;
+    a.add(ah);
+    a.position.set(-1.0 + i * 0.5, 0, 1.4);
+    pspsGroup.add(a);
+    pspsAudience.push(a);
+  }
+  group.add(pspsGroup);
+
+  // --- v120: coastal lichen photography (clph) --------------------------------
+  const clphGroup = new THREE.Group();
+  clphGroup.position.set(-44, 1.2, 24);
+  const clphRockMat = new THREE.MeshLambertMaterial({ color: 0x6b6b6b });
+  const clphRockA = new THREE.Mesh(new THREE.DodecahedronGeometry(0.7), clphRockMat);
+  clphRockA.position.set(0.5, 0.4, 0);
+  clphGroup.add(clphRockA);
+  const clphRockB = new THREE.Mesh(new THREE.DodecahedronGeometry(0.5), clphRockMat);
+  clphRockB.position.set(-0.6, 0.3, 0.4);
+  clphGroup.add(clphRockB);
+  const clphLichenColors = [0xb5d04a, 0xe2a83d, 0xa8c9b3, 0xd4caa0];
+  const clphLichens = [];
+  for (let i = 0; i < 12; i++) {
+    const l = new THREE.Mesh(new THREE.SphereGeometry(0.08 + Math.random() * 0.06, 6, 4), new THREE.MeshLambertMaterial({ color: clphLichenColors[i % 4] }));
+    const ang = (i / 12) * Math.PI * 2;
+    const r = 0.5 + Math.random() * 0.3;
+    l.position.set(0.5 + Math.cos(ang) * r, 0.5 + Math.random() * 0.3, Math.sin(ang) * r);
+    l.scale.y = 0.4;
+    clphGroup.add(l);
+    clphLichens.push(l);
+  }
+  const clphPhotographer = new THREE.Group();
+  const clphPBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x4a6a4a }));
+  clphPBody.position.y = 0.42;
+  clphPhotographer.add(clphPBody);
+  const clphPHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  clphPHead.position.y = 0.95;
+  clphPhotographer.add(clphPHead);
+  const clphCamera = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.16, 0.18), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+  clphCamera.position.set(0.18, 0.85, 0.18);
+  clphPhotographer.add(clphCamera);
+  const clphLens = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.18, 12), new THREE.MeshLambertMaterial({ color: 0x111111 }));
+  clphLens.rotation.x = Math.PI / 2;
+  clphLens.position.set(0.18, 0.85, 0.32);
+  clphPhotographer.add(clphLens);
+  clphPhotographer.rotation.y = -0.4;
+  clphPhotographer.position.set(-1.6, 0, -0.4);
+  clphGroup.add(clphPhotographer);
+  const clphTripod = new THREE.Group();
+  const clphLegMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  for (let i = 0; i < 3; i++) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.7, 6), clphLegMat);
+    const a = (i / 3) * Math.PI * 2;
+    leg.position.set(Math.cos(a) * 0.08, 0.35, Math.sin(a) * 0.08);
+    leg.rotation.z = Math.cos(a) * 0.18;
+    leg.rotation.x = Math.sin(a) * 0.18;
+    clphTripod.add(leg);
+  }
+  clphTripod.position.set(-1.0, 0, -0.2);
+  clphGroup.add(clphTripod);
+  const clphFlash = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.0 }));
+  clphFlash.position.set(0.36, 0.85, 0.32);
+  clphPhotographer.add(clphFlash);
+  group.add(clphGroup);
+
+  // --- v120: beach ice sculpture demo (bisd) ----------------------------------
+  const bisdGroup = new THREE.Group();
+  bisdGroup.position.set(20, 1.5, -42);
+  const bisdPlatformMat = new THREE.MeshLambertMaterial({ color: 0x3a2a1a });
+  const bisdPlatform = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.2, 1.0), bisdPlatformMat);
+  bisdPlatform.position.y = 0.1;
+  bisdGroup.add(bisdPlatform);
+  const bisdIceMat = new THREE.MeshStandardMaterial({ color: 0xc4e9ff, transparent: true, opacity: 0.7, roughness: 0.2 });
+  const bisdBlock = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.9, 0.6), bisdIceMat);
+  bisdBlock.position.y = 0.65;
+  bisdGroup.add(bisdBlock);
+  const bisdSpire = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.5, 8), bisdIceMat);
+  bisdSpire.position.y = 1.35;
+  bisdGroup.add(bisdSpire);
+  const bisdSculptor = new THREE.Group();
+  const bisdSBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x6a3a3a }));
+  bisdSBody.position.y = 0.47;
+  bisdSculptor.add(bisdSBody);
+  const bisdSHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  bisdSHead.position.y = 1.05;
+  bisdSculptor.add(bisdSHead);
+  const bisdChisel = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.3, 8), new THREE.MeshLambertMaterial({ color: 0x999999 }));
+  bisdChisel.rotation.z = Math.PI / 2.4;
+  bisdChisel.position.set(0.4, 0.85, 0.2);
+  bisdSculptor.add(bisdChisel);
+  bisdSculptor.position.set(0, 0, 0.9);
+  bisdGroup.add(bisdSculptor);
+  const bisdShavingMat = new THREE.MeshBasicMaterial({ color: 0xeaf6ff, transparent: true, opacity: 0.8 });
+  const bisdShavings = [];
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(new THREE.IcosahedronGeometry(0.04, 0), bisdShavingMat);
+    s.position.set((Math.random() - 0.5) * 1.0, 0.25 + Math.random() * 0.15, (Math.random() - 0.5) * 1.0);
+    bisdGroup.add(s);
+    bisdShavings.push(s);
+  }
+  group.add(bisdGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -22262,6 +22406,11 @@ export function createAnchorageLandmark(THREE, opts) {
     r.scale.setScalar(1 + ph * 0.8);
     r.material.opacity = 0.5 - ph * 0.4;
   });
+  const v120t = t;
+  pspsPuppets.forEach((p, i) => { p.position.x = (-0.6 + i * 0.6) + Math.sin(v120t * 1.5 + i * 1.0) * 0.15; });
+  pspsAudience.forEach((a, i) => { a.rotation.y = Math.sin(v120t * 0.8 + i * 0.5) * 0.15; });
+  clphFlash.material.opacity = Math.max(0, Math.sin(v120t * 0.5) - 0.85) * 6;
+  bisdShavings.forEach((s, i) => { s.position.y = 0.25 + Math.abs(Math.sin(v120t * 2 + i * 0.7)) * 0.15; s.rotation.y = v120t * 1.5 + i; });
 
 
 
