@@ -18711,6 +18711,147 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pjsGroup);
 
+  // --- v114: coastal driftwood whale ribcage (cdwr) + pier scrimshaw artist (psa) + beach watercolor class (bwc) ---
+  const cdwrGroup = new THREE.Group();
+  cdwrGroup.position.set(-50, 0.5, 30);
+  const cdwrBoneMat = new THREE.MeshLambertMaterial({color: 0xe8dcc4});
+  const cdwrSpine = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.18, 0.18), cdwrBoneMat);
+  cdwrSpine.position.set(0, 1.6, 0);
+  cdwrGroup.add(cdwrSpine);
+  const cdwrRibs = [];
+  for (let i = 0; i < 8; i++) {
+    const ribL = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.06, 6, 12, Math.PI), cdwrBoneMat);
+    ribL.rotation.y = Math.PI / 2;
+    ribL.position.set(-1.6 + i * 0.45, 1.55, 0);
+    cdwrRibs.push(ribL);
+    cdwrGroup.add(ribL);
+  }
+  const cdwrSkull = new THREE.Mesh(new THREE.SphereGeometry(0.45, 8, 8), cdwrBoneMat);
+  cdwrSkull.scale.set(1.4, 0.9, 1.0);
+  cdwrSkull.position.set(2.3, 1.6, 0);
+  cdwrGroup.add(cdwrSkull);
+  const cdwrJaw = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.1, 0.5), cdwrBoneMat);
+  cdwrJaw.position.set(2.5, 1.35, 0);
+  cdwrGroup.add(cdwrJaw);
+  const cdwrTail = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.6, 6), cdwrBoneMat);
+  cdwrTail.rotation.z = Math.PI / 2;
+  cdwrTail.position.set(-2.3, 1.6, 0);
+  cdwrGroup.add(cdwrTail);
+  const cdwrSign = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.3, 0.04), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cdwrSign.position.set(0, 0.5, 1.0);
+  cdwrGroup.add(cdwrSign);
+  const cdwrSignPost = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.04), new THREE.MeshLambertMaterial({color: 0x6b4226}));
+  cdwrSignPost.position.set(0, 0.25, 1.0);
+  cdwrGroup.add(cdwrSignPost);
+  const cdwrVisitors = [];
+  const cdwrVColors = [0x2980b9, 0xc0392b, 0x16a085];
+  for (let i = 0; i < 3; i++) {
+    const v = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: cdwrVColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    v.add(body); v.add(head);
+    v.position.set(-1.5 + i * 1.5, 0, 1.4);
+    cdwrVisitors.push(v);
+    cdwrGroup.add(v);
+  }
+  group.add(cdwrGroup);
+
+  const psaGroup = new THREE.Group();
+  psaGroup.position.set(8, 0.5, -45);
+  const psaTableMat = new THREE.MeshLambertMaterial({color: 0x6b4226});
+  const psaTable = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 1.0), psaTableMat);
+  psaTable.position.y = 0.85;
+  psaGroup.add(psaTable);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.85, 0.06), psaTableMat);
+    leg.position.set((i % 2 ? 1 : -1) * 0.7, 0.42, (i < 2 ? 1 : -1) * 0.4);
+    psaGroup.add(leg);
+  }
+  const psaToothMat = new THREE.MeshLambertMaterial({color: 0xfffaf0});
+  const psaTeeth = [];
+  for (let i = 0; i < 4; i++) {
+    const t = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.3, 6), psaToothMat);
+    t.rotation.z = Math.PI / 2;
+    t.position.set(-0.5 + i * 0.3, 0.93, 0);
+    psaTeeth.push(t);
+    psaGroup.add(t);
+  }
+  const psaArtist = new THREE.Group();
+  const psaABody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.8, 8), new THREE.MeshLambertMaterial({color: 0x4b3621}));
+  psaABody.position.y = 0.4;
+  const psaAHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  psaAHead.position.y = 0.95;
+  psaArtist.add(psaABody); psaArtist.add(psaAHead);
+  psaArtist.position.set(0, 0, -0.7);
+  psaGroup.add(psaArtist);
+  const psaTool = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.16), new THREE.MeshStandardMaterial({color: 0xc0c0c0, metalness: 0.8}));
+  psaTool.position.set(0.18, 0.95, -0.4);
+  psaGroup.add(psaTool);
+  const psaLamp = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.18, 8), new THREE.MeshLambertMaterial({color: 0xffd700}));
+  psaLamp.position.set(0.55, 1.3, 0);
+  psaLamp.rotation.x = Math.PI;
+  psaGroup.add(psaLamp);
+  const psaLampMat = new THREE.MeshStandardMaterial({color: 0xffaa00, emissive: 0xffaa00, emissiveIntensity: 0.6});
+  const psaLampBulb = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 6), psaLampMat);
+  psaLampBulb.position.set(0.55, 1.18, 0);
+  psaGroup.add(psaLampBulb);
+  group.add(psaGroup);
+
+  const bwcGroup = new THREE.Group();
+  bwcGroup.position.set(45, 0.5, 32);
+  const bwcEaselMat = new THREE.MeshLambertMaterial({color: 0x8b5a2b});
+  const bwcEasels = [];
+  const bwcCanvases = [];
+  const bwcCanvasMat = new THREE.MeshLambertMaterial({color: 0xfffaf0});
+  for (let i = 0; i < 3; i++) {
+    const e = new THREE.Group();
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.05, 1.2, 0.05), bwcEaselMat);
+    post.position.y = 0.6;
+    const cross = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.05), bwcEaselMat);
+    cross.position.y = 1.0;
+    const canvas = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 0.04), bwcCanvasMat);
+    canvas.position.y = 1.0;
+    canvas.position.z = 0.05;
+    e.add(post); e.add(cross); e.add(canvas);
+    bwcCanvases.push(canvas);
+    e.position.set(-1.4 + i * 1.4, 0, 0);
+    bwcEasels.push(e);
+    bwcGroup.add(e);
+  }
+  const bwcStudents = [];
+  const bwcSColors = [0xe67e22, 0x9b59b6, 0x1abc9c];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: bwcSColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    s.add(body); s.add(head);
+    s.position.set(-1.4 + i * 1.4, 0, -0.7);
+    bwcStudents.push(s);
+    bwcGroup.add(s);
+  }
+  const bwcTeacher = new THREE.Group();
+  const bwcTBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.8, 8), new THREE.MeshLambertMaterial({color: 0x2c3e50}));
+  bwcTBody.position.y = 0.4;
+  const bwcTHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  bwcTHead.position.y = 0.95;
+  bwcTeacher.add(bwcTBody); bwcTeacher.add(bwcTHead);
+  bwcTeacher.position.set(0, 0, 0.8);
+  bwcGroup.add(bwcTeacher);
+  const bwcPaintColors = [0x3498db, 0xe74c3c, 0xf1c40f, 0x2ecc71];
+  const bwcSplashes = [];
+  for (let i = 0; i < 12; i++) {
+    const sp = new THREE.Mesh(new THREE.SphereGeometry(0.04, 4, 4), new THREE.MeshLambertMaterial({color: bwcPaintColors[i % 4]}));
+    sp.scale.y = 0.3;
+    sp.position.set(-1.4 + (i % 3) * 1.4 + (Math.random() - 0.5) * 0.3, 1.0 + (Math.random() - 0.5) * 0.2, 0.07);
+    bwcSplashes.push(sp);
+    bwcGroup.add(sp);
+  }
+  group.add(bwcGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21323,6 +21464,16 @@ export function createAnchorageLandmark(THREE, opts) {
     b.position.y = 1.5 + Math.abs(Math.sin(phase)) * 0.6;
   });
   pjsAudience.forEach((a, i) => { a.rotation.y = Math.sin(v113t * 1.0 + i) * 0.2; });
+  // --- v114 updates ---
+  const v114t = elapsed;
+  cdwrVisitors.forEach((v, i) => { v.position.y = Math.abs(Math.sin(v114t * 1.2 + i * 1.3)) * 0.04; });
+  cdwrJaw.rotation.x = Math.sin(v114t * 0.8) * 0.05;
+  psaArtist.rotation.y = Math.sin(v114t * 1.0) * 0.1;
+  psaTool.position.x = 0.18 + Math.sin(v114t * 4) * 0.04;
+  psaLampMat.emissiveIntensity = 0.5 + 0.15 * Math.sin(v114t * 1.5);
+  bwcStudents.forEach((s, i) => { s.position.y = Math.abs(Math.sin(v114t * 1.4 + i * 1.0)) * 0.03; });
+  bwcTeacher.rotation.y = Math.sin(v114t * 0.6) * 0.4;
+
 
 
 
