@@ -16914,6 +16914,207 @@ const cosmicSights = [
   {"name": "Core Collapse Supernova GW Emission", "description": "Asymmetric core collapse and subsequent proto-neutron star convection generate burst-like gravitational wave signals.", "position": [-1012, 3567, -2345]},
   {"name": "Gravitational Wave Cosmography", "description": "Statistical analysis of gravitational wave source populations constrains cosmic expansion history and large-scale structure formation.", "position": [3456, -2234, 1678]}
 
+,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    position: [-2903.59, -1895.61, 4369.94],
+    color: "#5e3a23",
+    size: 2.92
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    position: [-1661.92, 3068.87, 1189.56],
+    color: "#7510b3",
+    size: 0.97
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    position: [-4374.64, -4878.45, -101.63],
+    color: "#b69a57",
+    size: 2.88
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    position: [-2049.81, 4806.15, -1156.45],
+    color: "#7b220f",
+    size: 1.98
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    position: [560.25, 3327.51, -2033.04],
+    color: "#09d85e",
+    size: 1.03
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    position: [-2786.27, 843.88, 769.34],
+    color: "#5c565b",
+    size: 0.87
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    position: [462.0, 4744.65, 3559.82],
+    color: "#23fac3",
+    size: 2.92
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    position: [4903.64, 2830.33, -4850.44],
+    color: "#ba0c41",
+    size: 0.93
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    position: [3862.28, -2701.08, 2911.14],
+    color: "#1e0069",
+    size: 0.51
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    position: [-498.95, 3336.7, 3704.48],
+    color: "#abf24a",
+    size: 2.71
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    position: [3489.65, -2509.71, -4489.62],
+    color: "#4f4441",
+    size: 0.59
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    position: [-1352.45, -1092.06, 4703.07],
+    color: "#1104f0",
+    size: 2.03
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    position: [-77.56, 113.98, -625.14],
+    color: "#52b265",
+    size: 1.71
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    position: [996.83, 2047.27, -3523.7],
+    color: "#ae19cf",
+    size: 1.62
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    position: [-1037.88, 1926.16, 351.25],
+    color: "#af2153",
+    size: 1.61
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    position: [-157.46, 1426.0, 1384.13],
+    color: "#2f776b",
+    size: 0.99
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    position: [3132.19, 2363.37, 2567.17],
+    color: "#9030cb",
+    size: 2.43
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    position: [-1183.72, -4952.26, -933.87],
+    color: "#41b459",
+    size: 0.91
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    position: [223.28, -2807.39, 1991.14],
+    color: "#08204e",
+    size: 2.86
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    position: [1899.0, -2221.04, 2590.73],
+    color: "#77df88",
+    size: 0.56
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    position: [-3011.33, -1765.31, -4851.82],
+    color: "#07ba51",
+    size: 2.29
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    position: [2138.87, -1194.31, 4699.35],
+    color: "#da9bd2",
+    size: 2.74
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    position: [-4996.15, -4358.02, 3253.89],
+    color: "#291d48",
+    size: 1.95
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    position: [2204.08, -2710.19, 2517.89],
+    color: "#16afa1",
+    size: 2.63
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    position: [-3459.81, -3595.85, 1243.67],
+    color: "#8eb848",
+    size: 2.53
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
