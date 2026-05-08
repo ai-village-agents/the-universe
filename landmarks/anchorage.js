@@ -26330,6 +26330,87 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(cjtkGroup);
 
+  // v161: Pier Ice Fishing Hut (pifg)
+  const pifgGroup = new THREE.Group();
+  pifgGroup.position.set(135, 0, 22);
+  const pifgHut = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 2.0, 1.6),
+    new THREE.MeshLambertMaterial({ color: 0xb02e2e })
+  );
+  pifgHut.position.y = 1.0;
+  pifgGroup.add(pifgHut);
+  const pifgRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(1.4, 0.7, 4),
+    new THREE.MeshLambertMaterial({ color: 0x3a2a1a })
+  );
+  pifgRoof.position.y = 2.35;
+  pifgRoof.rotation.y = Math.PI / 4;
+  pifgGroup.add(pifgRoof);
+  const pifgRod = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.4, 8),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  pifgRod.position.set(1.4, 0.7, 0);
+  pifgRod.rotation.z = -Math.PI / 3;
+  pifgGroup.add(pifgRod);
+  const pifgFlag = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.2, 0.02),
+    new THREE.MeshLambertMaterial({ color: 0xffd040 })
+  );
+  pifgFlag.position.set(2.0, 1.5, 0);
+  pifgGroup.add(pifgFlag);
+  group.add(pifgGroup);
+
+  // v161: Coastal Whale Tail Sculpture (cwtl)
+  const cwtlGroup = new THREE.Group();
+  cwtlGroup.position.set(-110, 0, -10);
+  const cwtlBase = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.5, 2.0),
+    new THREE.MeshLambertMaterial({ color: 0x55504a })
+  );
+  cwtlBase.position.y = 0.25;
+  cwtlGroup.add(cwtlBase);
+  const cwtlStalk = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.4, 1.6, 12),
+    new THREE.MeshLambertMaterial({ color: 0x2a3540 })
+  );
+  cwtlStalk.position.y = 1.3;
+  cwtlGroup.add(cwtlStalk);
+  const cwtlFlukeMat = new THREE.MeshLambertMaterial({ color: 0x344050 });
+  const cwtlFlukeL = new THREE.Mesh(
+    new THREE.BoxGeometry(0.15, 1.2, 0.9),
+    cwtlFlukeMat
+  );
+  cwtlFlukeL.position.set(-0.6, 2.4, 0);
+  cwtlFlukeL.rotation.z = Math.PI / 6;
+  cwtlGroup.add(cwtlFlukeL);
+  const cwtlFlukeR = new THREE.Mesh(
+    new THREE.BoxGeometry(0.15, 1.2, 0.9),
+    cwtlFlukeMat
+  );
+  cwtlFlukeR.position.set(0.6, 2.4, 0);
+  cwtlFlukeR.rotation.z = -Math.PI / 6;
+  cwtlGroup.add(cwtlFlukeR);
+  group.add(cwtlGroup);
+
+  // v161: Beach Kite Festival (bkft)
+  const bkftGroup = new THREE.Group();
+  bkftGroup.position.set(20, 0, 110);
+  const bkftKites = [];
+  const bkftColors = [0xff5566, 0x55aaff, 0xffcc44, 0x66dd88, 0xcc66ee];
+  for (let i = 0; i < 5; i++) {
+    const kite = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.8, 0.8),
+      new THREE.MeshLambertMaterial({ color: bkftColors[i], side: THREE.DoubleSide })
+    );
+    const ang = (i / 5) * Math.PI * 2;
+    kite.position.set(Math.cos(ang) * 3, 4 + i * 0.3, Math.sin(ang) * 3);
+    kite.rotation.z = Math.PI / 4;
+    bkftGroup.add(kite);
+    bkftKites.push(kite);
+  }
+  group.add(bkftGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -30061,6 +30142,24 @@ export function createAnchorageLandmark(THREE, opts) {
     const s = 1.0 + Math.sin(v160t * 1.4 + i) * 0.12;
     cjtkJellies[i].scale.set(s, 0.9 + Math.sin(v160t * 1.4 + i) * 0.1, s);
   }
+
+  // v161: pifg flag flutter
+  const v161t = t;
+  pifgFlag.rotation.y = Math.sin(v161t * 4.0) * 0.4;
+  pifgFlag.scale.x = 1.0 + Math.sin(v161t * 6.0) * 0.2;
+
+  // v161: cwtl whale tail flukes wave
+  cwtlFlukeL.rotation.z = Math.PI / 6 + Math.sin(v161t * 0.7) * 0.1;
+  cwtlFlukeR.rotation.z = -Math.PI / 6 - Math.sin(v161t * 0.7) * 0.1;
+
+  // v161: bkft kites circle and bob
+  for (let i = 0; i < bkftKites.length; i++) {
+    const ang = (i / bkftKites.length) * Math.PI * 2 + v161t * 0.25;
+    bkftKites[i].position.set(Math.cos(ang) * 3, 4 + i * 0.3 + Math.sin(v161t * 1.5 + i) * 0.4, Math.sin(ang) * 3);
+    bkftKites[i].rotation.y = ang + Math.PI / 2;
+    bkftKites[i].rotation.z = Math.PI / 4 + Math.sin(v161t * 2.0 + i) * 0.2;
+  }
+
 
 
 
