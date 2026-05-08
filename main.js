@@ -22264,7 +22264,32 @@ const cosmicSights = [
     position: [-1212, 7796, -14037],
     color: '#00001a',
     size: 492
-  }
+  },
+{ name: "GRB Forward Shock Front", type: "phenomenon", category: "transient", position: [6100, 2100, 4100], description: "Expanding blast wave from gamma-ray burst impacting circumstellar medium" },
+  { name: "GRB Reverse Shock Region", type: "phenomenon", category: "transient", position: [6110, 2110, 4110], description: "Shock propagating backward through relativistic jet material" },
+  { name: "Afterglow Light Curve Peak", type: "phenomenon", category: "transient", position: [6120, 2120, 4120], description: "Maximum brightness phase in fading GRB optical emission" },
+  { name: "X-ray Afterglow Plateau", type: "phenomenon", category: "transient", position: [6130, 2130, 4130], description: "Extended flat emission phase from continued central engine activity" },
+  { name: "Radio Afterglow Emergence", type: "phenomenon", category: "transient", position: [6140, 2140, 4140], description: "Delayed radio emission as blast wave decelerates to non-relativistic speeds" },
+  { name: "Jet Break Signature", type: "phenomenon", category: "transient", position: [6150, 2150, 4150], description: "Steepening light curve revealing collimated jet geometry" },
+  { name: "Orphan Afterglow Detection", type: "phenomenon", category: "transient", position: [6160, 2160, 4160], description: "Off-axis afterglow visible without accompanying prompt gamma-ray flash" },
+  { name: "GRB Host Galaxy Association", type: "phenomenon", category: "transient", position: [6170, 2170, 4170], description: "Star-forming galaxy identified as burst progenitor location" },
+  { name: "Kilonova Optical Counterpart", type: "phenomenon", category: "transient", position: [6180, 2180, 4180], description: "Red thermal emission from neutron-rich ejecta in short GRB merger" },
+  { name: "Supernova Bump Feature", type: "phenomenon", category: "transient", position: [6190, 2190, 4190], description: "Rebrightening from underlying core-collapse supernova in long GRB" },
+  { name: "Circumburst Density Profile", type: "phenomenon", category: "transient", position: [6200, 2200, 4200], description: "Environmental medium structure revealed by afterglow evolution" },
+  { name: "Synchrotron Cooling Break", type: "phenomenon", category: "transient", position: [6210, 2210, 4210], description: "Spectral feature where electron radiative losses become significant" },
+  { name: "Inverse Compton Scattering Peak", type: "phenomenon", category: "transient", position: [6220, 2220, 4220], description: "High-energy emission from photons upscattered by relativistic electrons" },
+  { name: "Refreshed Shock Episode", type: "phenomenon", category: "transient", position: [6230, 2230, 4230], description: "Late energy injection from slower shells catching decelerating front" },
+  { name: "GRB Polarization Signal", type: "phenomenon", category: "transient", position: [6240, 2240, 4240], description: "Ordered magnetic field structure revealed through polarimetry" },
+  { name: "Dust Echo Reverberation", type: "phenomenon", category: "transient", position: [6250, 2250, 4250], description: "Delayed infrared emission from prompt flash scattered by distant dust" },
+  { name: "Short GRB Extended Emission", type: "phenomenon", category: "transient", position: [6260, 2260, 4260], description: "Soft gamma-ray tail following initial spike in merger-driven burst" },
+  { name: "Ultra-Long GRB Central Engine", type: "phenomenon", category: "transient", position: [6270, 2270, 4270], description: "Extended activity from blue supergiant collapse or magnetar spindown" },
+  { name: "Prompt Optical Flash", type: "phenomenon", category: "transient", position: [6280, 2280, 4280], description: "Brief bright optical emission coincident with gamma-ray trigger" },
+  { name: "GRB Absorption Line System", type: "phenomenon", category: "transient", position: [6290, 2290, 4290], description: "Metal absorption features probing burst environment and host galaxy" },
+  { name: "Relativistic Fireball Expansion", type: "phenomenon", category: "transient", position: [6300, 2300, 4300], description: "Ultra-fast outflow decelerating through interaction with surroundings" },
+  { name: "GRB Cocoon Breakout Flash", type: "phenomenon", category: "transient", position: [6310, 2310, 4310], description: "Wide-angle emission from jet-inflated bubble bursting through star" },
+  { name: "GRB Spectral Lag Measurement", type: "phenomenon", category: "transient", position: [6320, 2320, 4320], description: "Time delay between high and low energy photon arrival" },
+  { name: "Afterglow Spectroscopic Redshift", type: "phenomenon", category: "transient", position: [6330, 2330, 4330], description: "Precise distance determination from absorption or emission lines" },
+  { name: "GRB Luminosity Correlation Zone", type: "phenomenon", category: "transient", position: [6340, 2340, 4340], description: "Region where burst properties follow standardizable energy relations" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
