@@ -19161,7 +19161,32 @@ const cosmicSights = [
     color: '#7FFFD4',
     size: 255
   }
-
+,
+  { name: 'Europa Diapiric Ice Upwelling Dome', position: [-132, -85, 175], color: '#7eb8da', description: 'buoyant warm ice dome rising through Europas frozen shell' },
+  { name: 'Enceladus South Polar Vent Halo', position: [58, -52, -78], color: '#a8e6cf', description: 'diffuse halo of ice grains above active cryovolcanic vents' },
+  { name: 'Titan Ontario Lacus Shoreline Delta', position: [285, 62, -82], color: '#c2a47c', description: 'river delta feeding into a methane-ethane lake basin' },
+  { name: 'Ganymede Auroral Ocean Signature', position: [-115, -75, 185], color: '#6b8cae', description: 'auroral footprint modulation revealing subsurface salt ocean' },
+  { name: 'Callisto Asymmetric Crustal Thickness', position: [-95, 45, -160], color: '#9aaab5', description: 'variable ice shell thickness indicating ancient ocean remnant' },
+  { name: 'Triton Cantaloupe Terrain Nitrogen Geyser', position: [145, -30, -120], color: '#d4a5a5', description: 'diapir-driven nitrogen cryogeyser erupting from chaotic terrain' },
+  { name: 'Pluto Convective Nitrogen Cell Polygon', position: [-210, 15, 90], color: '#e8d5b7', description: 'solid-state convection polygon in Sputnik Planitia nitrogen ice' },
+  { name: 'Exoplanet Steam World Runaway Ocean', position: [320, -40, 220], color: '#ff6b6b', description: 'planet with thick steam atmosphere above boiling global ocean' },
+  { name: 'Super-Earth Hycean Twilight Biosphere', position: [175, 80, -145], color: '#1abc9c', description: 'habitable twilight band on tidally locked hydrogen-ocean world' },
+  { name: 'Sub-Neptune Warm Water Ice Mantle', position: [-250, 35, 110], color: '#3498db', description: 'high-pressure ice mantle transitioning to liquid water layer' },
+  { name: 'M-Dwarf Ocean Planet Tidal Quadrupole', position: [90, -120, 240], color: '#e74c3c', description: 'tidal bulge deformation mapping of ocean world orbiting red dwarf' },
+  { name: 'Europa Cycloidal Fracture Ridge System', position: [-128, -88, 178], color: '#85c1e9', description: 'tidal-flexure crack pattern formed by diurnal stress cycling' },
+  { name: 'Enceladus Vapor-Dominated Plume Column', position: [55, -50, -75], color: '#b8e0d2', description: 'near-field vapor-rich column above warm-temperate tiger stripe' },
+  { name: 'Titan Ligeia Mare Wave Glint Pattern', position: [290, 65, -85], color: '#d4b896', description: 'specular glint from low-gravity methane waves on dark lake surface' },
+  { name: 'Exoplanet High-Pressure Ice VII Shelf', position: [-180, 50, -200], color: '#5dade2', description: 'exotic ice polymorph shelf at ocean-mantle boundary' },
+  { name: 'Subsurface Alkaline Hydrothermal Chimney', position: [210, -60, 130], color: '#16a085', description: 'serpentinization-driven chimney potentially hosting origin-of-life chemistry' },
+  { name: 'Io-Europa Laplace Resonance Tidal Pump', position: [-130, -82, 182], color: '#f39c12', description: 'orbital resonance pumping sustained heat into Europas ocean' },
+  { name: 'Ice Shell Flexure Gravity Dipole Anomaly', position: [-125, -78, 180], color: '#7fb3d5', description: 'gravity field dipole from elastic ice shell flexing over ocean' },
+  { name: 'Ocean World Phosphine-CH4 Disequilibrium', position: [165, 75, -140], color: '#8e44ad', description: 'atmospheric biosignature indicating metabolic ocean-atmosphere exchange' },
+  { name: 'Cryovolcanic Plume Silicate Nanoparticle', position: [60, -48, -72], color: '#bdc3c7', description: 'refractory silicate grains entrained in ice-vapor cryovolcanic jet' },
+  { name: 'Exomoon Circumplanetary Habitable Eclipse', position: [240, 30, -180], color: '#2ecc71', description: 'habitable exomoon experiencing regular stellar eclipses by gas giant' },
+  { name: 'Water World Stratospheric Moist Greenhouse', position: [310, -45, 215], color: '#e67e22', description: 'upper atmosphere water vapor feedback approaching moist greenhouse limit' },
+  { name: 'Subsurface Brine Lens Dielectric Brightspot', position: [-140, -90, 170], color: '#a2d9ce', description: 'radar-bright subsurface brine lens within Europas ice matrix' },
+  { name: 'Ocean Planet Obliquity-Driven Seasonal Thermocline', position: [-260, 40, 105], color: '#2980b9', description: 'seasonal thermal layer mixing driven by axial tilt variation' },
+  { name: 'Tidal Lock Ocean World Antistellar Convection Cell', position: [85, -115, 235], color: '#c0392b', description: 'deep ocean convection cell beneath permanent nightside ice shell' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
