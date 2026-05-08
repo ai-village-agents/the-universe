@@ -22744,6 +22744,32 @@ const cosmicSights = [
   { id: 13048, name: "Infall Region Galaxy Population", position: [0.58, -0.76, -0.31] },
   { id: 13049, name: "Cluster Baryon Fraction Measurement", position: [-0.33, 0.55, 0.77] },
   { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] }
+,
+{ name: "Convective Overshoot Zone", type: "phenomenon", category: "stellar", position: [6800, 134000, 4800], description: "Region where convective plumes penetrate beyond formal boundary" },
+{ name: "Boussinesq Flow Model", type: "phenomenon", category: "stellar", position: [6801, 134020, 4801], description: "Density approximation for stellar convection simulation" },
+{ name: "Rayleigh-Benard Instability", type: "phenomenon", category: "stellar", position: [6802, 134040, 4802], description: "Onset criterion for gravitational instability and convection" },
+{ name: "Nusselt-Rayleigh Relation", type: "phenomenon", category: "stellar", position: [6803, 134060, 4803], description: "Scaling law for heat transport efficiency in turbulence" },
+{ name: "Convective Flux Divergence", type: "phenomenon", category: "stellar", position: [6804, 134080, 4804], description: "Spatial variation of upward energy transport by convection" },
+{ name: "Plume Entrainment Zone", type: "phenomenon", category: "stellar", position: [6805, 134100, 4805], description: "Mixing region where convective updrafts incorporate surrounding fluid" },
+{ name: "Penetrative Boundary Layer", type: "phenomenon", category: "stellar", position: [6806, 134120, 4806], description: "Transition zone between convective and radiative zones" },
+{ name: "Dynamo Alpha-Omega Effect", type: "phenomenon", category: "stellar", position: [6807, 134140, 4807], description: "Generation of magnetic field via convective shear and helicity" },
+{ name: "Alfven Speed Gradient", type: "phenomenon", category: "stellar", position: [6808, 134160, 4808], description: "Variation of magnetic wave speed in stratified atmosphere" },
+{ name: "Kolmogorov Spectrum Cascade", type: "phenomenon", category: "stellar", position: [6809, 134180, 4809], description: "Power law distribution of turbulent kinetic energy" },
+{ name: "Convective Velocity Fluctuation", type: "phenomenon", category: "stellar", position: [6810, 134200, 4810], description: "Root-mean-square deviation of flows from mean" },
+{ name: "Acoustic Mode Coupling", type: "phenomenon", category: "stellar", position: [6811, 134220, 4811], description: "Energy exchange between oscillation modes via convection" },
+{ name: "Helioseismic Frequency Shift", type: "phenomenon", category: "stellar", position: [6812, 134240, 4812], description: "Acoustic frequency changes due to convective zone properties" },
+{ name: "Stochastic Turbulent Excitation", type: "phenomenon", category: "stellar", position: [6813, 134260, 4813], description: "Acoustic oscillation driving by pressure fluctuations" },
+{ name: "Spectral Line Asymmetry", type: "phenomenon", category: "stellar", position: [6814, 134280, 4814], description: "Convective induced distortion of absorption line profiles" },
+{ name: "Granular Doppler Shift", type: "phenomenon", category: "stellar", position: [6815, 134300, 4815], description: "Velocity-dependent color shift from convective granules" },
+{ name: "Magnetic Flux Tube Buoyancy", type: "phenomenon", category: "stellar", position: [6816, 134320, 4816], description: "Upward acceleration of toroidal magnetic structures" },
+{ name: "Parker Instability Growth", type: "phenomenon", category: "stellar", position: [6817, 134340, 4817], description: "Exponential rise of magnetic flux through density stratification" },
+{ name: "Coriolis-Induced Deflection", type: "phenomenon", category: "stellar", position: [6818, 134360, 4818], description: "Rotational modification of convective flow patterns" },
+{ name: "Ekman Spiral Structure", type: "phenomenon", category: "stellar", position: [6819, 134380, 4819], description: "Velocity profile in rotating boundary layer under Coriolis force" },
+{ name: "Angular Momentum Redistribution", type: "phenomenon", category: "stellar", position: [6820, 134400, 4820], description: "Convective transport of rotational momentum vertically" },
+{ name: "Shear-Driven Turbulence", type: "phenomenon", category: "stellar", position: [6821, 134420, 4821], description: "Instability growth at velocity discontinuities" },
+{ name: "Meridional Flow Circulation", type: "phenomenon", category: "stellar", position: [6822, 134440, 4822], description: "Large-scale equator-to-pole flows in rotating convection" },
+{ name: "Tachocline Shear Rate", type: "phenomenon", category: "stellar", position: [6823, 134460, 4823], description: "Steep velocity gradient at interface between zones" },
+{ name: "Stellar Rotation Braking Law", type: "phenomenon", category: "stellar", position: [6824, 134480, 4824], description: "Magnetic torque reduction of angular velocity with age" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
