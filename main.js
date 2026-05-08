@@ -18934,6 +18934,33 @@ const cosmicSights = [
 { name: 'Neutron Star Kinematics 12074', category: 'Compact Objects', description: 'Pulsar space velocities from supernova kicks and binary disruption.', position: [5798, 113960, 3798], color: '#00FF00', size: 140 },
 { name: 'Stellar Remnant Evolution Endpoints 12075', category: 'Stellar Remnants', description: 'Final fate of compact object systems through gravitational waves and cooling.', position: [5799, 113980, 3799], color: '#87CEEB', size: 140 }
 
+,
+{ name: 'Relativistic Beaming 12076', category: 'Relativistic Astrophysics', description: 'Doppler enhancement and suppression of emission from relativistic jets.', position: [5800, 114000, 3800], color: '#FF6B6B', size: 140 },
+{ name: 'Time Dilation in Accretion Disks 12077', category: 'Relativistic Astrophysics', description: 'General relativistic effects on disc structure near black holes.', position: [5801, 114020, 3801], color: '#4ECDC4', size: 140 },
+{ name: 'Penrose Process Energy Extraction 12078', category: 'Relativistic Astrophysics', description: 'Extracting rotational energy from Kerr black holes via ergoregion mechanics.', position: [5802, 114040, 3802], color: '#45B7D1', size: 140 },
+{ name: 'Blandford-Znajek Mechanism 12079', category: 'Relativistic Astrophysics', description: 'Magnetic field threading and angular momentum extraction from spinning black holes.', position: [5803, 114060, 3803], color: '#96CEB4', size: 140 },
+{ name: 'Relativistic Jet Collimation 12080', category: 'Relativistic Astrophysics', description: 'Magnetic pressure confinement of ultra-relativistic jets from AGN.', position: [5804, 114080, 3804], color: '#FFEAA7', size: 140 },
+{ name: 'Kerr Ringdown Quasinormal Modes 12081', category: 'Relativistic Astrophysics', description: 'Damped oscillation modes of perturbed rotating black holes.', position: [5805, 114100, 3805], color: '#DFE6E9', size: 140 },
+{ name: 'Schwarzschild Geodesics 12082', category: 'Relativistic Astrophysics', description: 'Trajectories of particles in spherically symmetric black hole spacetime.', position: [5806, 114120, 3806], color: '#A29BFE', size: 140 },
+{ name: 'Gravitational Lensing by Black Holes 12083', category: 'Relativistic Astrophysics', description: 'Multiple imaging and light deflection around black holes in strong-field gravity.', position: [5807, 114140, 3807], color: '#FD79A8', size: 140 },
+{ name: 'Frame Dragging Vorticity 12084', category: 'Relativistic Astrophysics', description: 'Spacetime rotation induced by angular momentum in Kerr metric.', position: [5808, 114160, 3808], color: '#74B9FF', size: 140 },
+{ name: 'Gravitational Wave Radiation Reaction 12085', category: 'Relativistic Astrophysics', description: 'Orbital decay and energy loss via gravitational wave emission.', position: [5809, 114180, 3809], color: '#A29BFE', size: 140 },
+{ name: 'Relativistic Eddington Limit 12086', category: 'Relativistic Astrophysics', description: 'Radiation pressure balance in super-Eddington accretion regimes.', position: [5810, 114200, 3810], color: '#FF7675', size: 140 },
+{ name: 'Relativistic Precession in Binaries 12087', category: 'Relativistic Astrophysics', description: 'Perihelion/periastron shift from general relativistic orbital mechanics.', position: [5811, 114220, 3811], color: '#00B894', size: 140 },
+{ name: 'Photon Sphere Orbits 12088', category: 'Relativistic Astrophysics', description: 'Unstable circular orbits at the photon sphere radius around black holes.', position: [5812, 114240, 3812], color: '#FDCB6E', size: 140 },
+{ name: 'Cosmic String Gravitational Effects 12089', category: 'Relativistic Astrophysics', description: 'Deficit angle and lensing signatures from topological defects.', position: [5813, 114260, 3813], color: '#6C5CE7', size: 140 },
+{ name: 'Wormhole Stability Analysis 12090', category: 'Relativistic Astrophysics', description: 'Exotic matter requirements and traversability conditions for Einstein-Rosen bridges.', position: [5814, 114280, 3814], color: '#FF6348', size: 140 },
+{ name: 'Quasar Superluminal Motion 12091', category: 'Relativistic Astrophysics', description: 'Apparent faster-than-light motion from relativistic jet projection effects.', position: [5815, 114300, 3815], color: '#00D2D3', size: 140 },
+{ name: 'Reissner-Nordstrom Black Holes 12092', category: 'Relativistic Astrophysics', description: 'Charged black hole spacetimes and Cauchy horizon instabilities.', position: [5816, 114320, 3816], color: '#48DBFB', size: 140 },
+{ name: 'Kerr-Newman Rotating Charged Black Holes 12093', category: 'Relativistic Astrophysics', description: 'Combined rotation and charge effects on black hole thermodynamics.', position: [5817, 114340, 3817], color: '#FF6348', size: 140 },
+{ name: 'Metric Tensor Perturbations 12094', category: 'Relativistic Astrophysics', description: 'Linear perturbations of spacetime geometry and stability analysis.', position: [5818, 114360, 3818], color: '#95E1D3', size: 140 },
+{ name: 'Relativistic Hydrodynamics 12095', category: 'Relativistic Astrophysics', description: 'Conservation laws and fluid dynamics in strong gravitational fields.', position: [5819, 114380, 3819], color: '#F38181', size: 140 },
+{ name: 'Light Deflection Angle Calculations 12096', category: 'Relativistic Astrophysics', description: 'Bending of photon trajectories in curved spacetime near massive objects.', position: [5820, 114400, 3820], color: '#AA96DA', size: 140 },
+{ name: 'Tolman-Oppenheimer-Volkoff Equation 12097', category: 'Relativistic Astrophysics', description: 'Hydrostatic equilibrium in general relativistic stellar structure.', position: [5821, 114420, 3821], color: '#FCBAD3', size: 140 },
+{ name: 'Relativistic Betatron Heating 12098', category: 'Relativistic Astrophysics', description: 'Electromagnetic acceleration of particles in relativistic plasma.', position: [5822, 114440, 3822], color: '#A8E6CF', size: 140 },
+{ name: 'Event Horizon Thermodynamics 12099', category: 'Relativistic Astrophysics', description: 'Temperature, entropy, and black hole thermodynamic laws.', position: [5823, 114460, 3823], color: '#FFD3B6', size: 140 },
+{ name: 'Relativistic Spacetime Singularities 12100', category: 'Relativistic Astrophysics', description: 'Curvature divergences, geodesic incompleteness, and singularity theorems.', position: [5824, 114480, 3824], color: '#FFAAA5', size: 140 }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
