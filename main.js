@@ -20393,8 +20393,207 @@ const cosmicSights = [
   {"name":"Modified Gravity Propagation Test Range","position":[575,65,-835],"color":"#c77dff","description":"A test range comparing gravitational-wave and light arrival times to bound modified gravity."},
   {"name":"Gravitational Wave Polarization Analyzer","position":[590,40,-850],"color":"#9d4edd","description":"An analyzer separating tensor polarization patterns across a network of detectors."},
   {"name":"Multi-Observatory Trigger Broker","position":[605,55,-865],"color":"#48cae4","description":"A broker routing alerts between gravitational-wave, neutrino, gamma-ray, optical, and radio observatories."},
-  {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."}
-];
+  {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."},
+  {
+    name: 'Computational Parallel Spectral Decomposition 12476',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for parallel spectral decomposition in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [10800, 120000, 6800],
+    color: '#000000',
+    size: 185
+  },
+  {
+    name: 'Computational GPU-Accelerated Fourier Transforms 12477',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for gpu-accelerated fourier transforms in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [10920, 120080, 6740],
+    color: '#0B1117',
+    size: 200
+  },
+  {
+    name: 'Computational Adaptive Mesh Refinement for Shock Waves 12478',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for adaptive mesh refinement for shock waves in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11040, 120160, 6680],
+    color: '#16222E',
+    size: 215
+  },
+  {
+    name: 'Computational Machine Learning Turbulence Closure 12479',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for machine learning turbulence closure in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11160, 120240, 6620],
+    color: '#213345',
+    size: 230
+  },
+  {
+    name: 'Computational Bayesian Model Comparison for Cosmology 12480',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for bayesian model comparison for cosmology in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11280, 120320, 6560],
+    color: '#2C445C',
+    size: 185
+  },
+  {
+    name: 'Computational Particle-in-Cell with Finite Elements 12481',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for particle-in-cell with finite elements in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11400, 120400, 6500],
+    color: '#375573',
+    size: 200
+  },
+  {
+    name: 'Computational Spectral Element Methods for MHD 12482',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for spectral element methods for mhd in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11520, 120480, 6440],
+    color: '#42668A',
+    size: 215
+  },
+  {
+    name: 'Computational Finite Difference Time Domain for Plasmas 12483',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for finite difference time domain for plasmas in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11640, 120560, 6380],
+    color: '#4D77A1',
+    size: 230
+  },
+  {
+    name: 'Computational Nested Sampling Evidence Estimation 12484',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for nested sampling evidence estimation in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11760, 120640, 6320],
+    color: '#5888B8',
+    size: 185
+  },
+  {
+    name: 'Computational Neural Network Emulator for Simulations 12485',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for neural network emulator for simulations in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [11880, 120720, 6260],
+    color: '#6399CF',
+    size: 200
+  },
+  {
+    name: 'Computational Discontinuous Galerkin for Radiation Transport 12486',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for discontinuous galerkin for radiation transport in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12000, 120800, 6200],
+    color: '#6EAAE6',
+    size: 215
+  },
+  {
+    name: 'Computational Fast Multipole Method with Treecode 12487',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for fast multipole method with treecode in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12120, 120880, 6140],
+    color: '#79BBFD',
+    size: 230
+  },
+  {
+    name: 'Computational Implicit-Explicit Time Integration 12488',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for implicit-explicit time integration in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12240, 120960, 6080],
+    color: '#84CC14',
+    size: 185
+  },
+  {
+    name: 'Computational Pseudo-Spectral DNS for Turbulence 12489',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for pseudo-spectral dns for turbulence in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12360, 121040, 6020],
+    color: '#8FDD2B',
+    size: 200
+  },
+  {
+    name: 'Computational Voronoi Hydrodynamics with Meshless 12490',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for voronoi hydrodynamics with meshless in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12480, 121120, 5960],
+    color: '#9AEE42',
+    size: 215
+  },
+  {
+    name: 'Computational Octree Barnes-Hut Approximation 12491',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for octree barnes-hut approximation in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12600, 121200, 5900],
+    color: '#A5FF59',
+    size: 230
+  },
+  {
+    name: 'Computational Domain Decomposition with MPI+OpenMP 12492',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for domain decomposition with mpi+openmp in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12720, 121280, 5840],
+    color: '#B01070',
+    size: 185
+  },
+  {
+    name: 'Computational Uncertainty Propagation via Polynomial Chaos 12493',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for uncertainty propagation via polynomial chaos in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12840, 121360, 5780],
+    color: '#BB2187',
+    size: 200
+  },
+  {
+    name: 'Computational Reduced Basis Method for Parameter Space 12494',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for reduced basis method for parameter space in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [12960, 121440, 5720],
+    color: '#C6329E',
+    size: 215
+  },
+  {
+    name: 'Computational Data Assimilation with Ensemble Kalman Filter 12495',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for data assimilation with ensemble kalman filter in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13080, 121520, 5660],
+    color: '#D143B5',
+    size: 230
+  },
+  {
+    name: 'Computational Inverse Problem Regularization Methods 12496',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for inverse problem regularization methods in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13200, 121600, 5600],
+    color: '#DC54CC',
+    size: 185
+  },
+  {
+    name: 'Computational Computational General Relativity 12497',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for computational general relativity in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13320, 121680, 5540],
+    color: '#E765E3',
+    size: 200
+  },
+  {
+    name: 'Computational Numerical Black Hole Evaporation 12498',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for numerical black hole evaporation in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13440, 121760, 5480],
+    color: '#F276FA',
+    size: 215
+  },
+  {
+    name: 'Computational Particle-in-Cell for Relativistic Jets 12499',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for particle-in-cell for relativistic jets in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13560, 121840, 5420],
+    color: '#FD8711',
+    size: 230
+  },
+  {
+    name: 'Computational High-Order WENO Schemes for Shocks 12500',
+    category: 'Computational Astrophysics',
+    description: 'Advanced numerical method for high-order weno schemes for shocks in astrophysical simulations, implementing state-of-the-art algorithms for precision cosmology and fluid dynamics.',
+    position: [13680, 121920, 5360],
+    color: '#089828',
+    size: 185
+  }];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
