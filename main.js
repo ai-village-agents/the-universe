@@ -20341,7 +20341,32 @@ const cosmicSights = [
   { name: "Supergranular Flow Pattern", type: "phenomenon", category: "stellar", position: [4282, 1223, 3172], description: "Large-scale convective circulation cells visible in stellar velocity fields" },
   { name: "Acoustic Wave Cutoff Layer", type: "phenomenon", category: "stellar", position: [4283, 1224, 3173], description: "Atmospheric height where acoustic oscillations become evanescent" },
   { name: "Stellar Acoustic Cavity Mode", type: "phenomenon", category: "stellar", position: [4284, 1225, 3174], description: "Standing wave pattern trapped between stellar surface and acoustic cutoff" }
-
+,
+  { name: "Neutrino Oscillation Vacuum Resonance 12501", description: "A region where neutrino flavor eigenstates undergo resonant conversion in the vacuum of interstellar space.", position: [210, -55, -310] },
+  { name: "Supernova Neutrino Burst Sphere 12502", description: "The expanding spherical wavefront of neutrinos emitted during a core-collapse supernova, carrying 99% of the explosion's energy.", position: [-180, 40, 290] },
+  { name: "Solar Neutrino Flux Anomaly 12503", description: "A localized deficit in solar electron neutrino flux caused by matter-enhanced oscillation in the solar interior.", position: [320, 75, -150] },
+  { name: "Cosmic Neutrino Background Hum 12504", description: "The faint relic neutrino sea left over from the Big Bang, permeating the universe at roughly 56 neutrinos per cubic centimeter.", position: [-250, -30, 220] },
+  { name: "Atmospheric Neutrino Cascade Vertex 12505", description: "The point deep underground where a cosmic-ray-produced neutrino interacts, creating a Cherenkov light cascade.", position: [150, -90, 350] },
+  { name: "Neutrino Factory Beam Channel 12506", description: "A hypothetical megastructure channeling intense beams of muon neutrinos across interplanetary distances.", position: [-300, 60, -80] },
+  { name: "Tau Neutrino Regeneration Peak 12507", description: "The energy peak where tau neutrinos regenerate through matter oscillation after being absorbed in dense stellar cores.", position: [80, -40, -380] },
+  { name: "Neutrino-Driven Supernova Shock Revival 12508", description: "The critical moment when neutrino heating behind the stalled shock wave reignites the supernova explosion.", position: [-120, 110, 170] },
+  { name: "IceCube Neutrino Event Cascade 12509", description: "A high-energy neutrino detection event in Antarctic ice, tracing an extragalactic cosmic accelerator.", position: [260, -70, 130] },
+  { name: "Neutrinoless Double Beta Decay Crystal 12510", description: "An ultra-pure crystal array searching for the rare decay that would prove neutrinos are Majorana particles.", position: [-210, 25, -260] },
+  { name: "Relic Supernova Neutrino Fog 12511", description: "The diffuse background of neutrinos from all past supernovae in the universe, forming an invisible cosmic fog.", position: [100, 55, 310] },
+  { name: "Neutrino Star Cooling Tail 12512", description: "The late-time neutrino luminosity decline from a proto-neutron star as it radiates away its thermal energy.", position: [-350, -45, 90] },
+  { name: "Sterile Neutrino Oscillation Portal 12513", description: "A hypothetical gateway where active neutrinos oscillate into sterile states, escaping standard detection entirely.", position: [40, 95, -220] },
+  { name: "Neutrino-Proton Scattering Halo 12514", description: "The diffuse scattering signature around compact objects where neutrino-proton elastic collisions dominate.", position: [290, -20, 240] },
+  { name: "Core-Collapse Neutrino Luminosity Spike 12515", description: "The brief but intense spike in neutrino luminosity during the final milliseconds of a massive star's life.", position: [-160, 80, -130] },
+  { name: "Neutrino Magnetorotational Jet 12516", description: "A relativistic jet launched by neutrino-antineutrino annihilation along the rotation axis of a forming black hole.", position: [190, -60, 80] },
+  { name: "Geo-Neutrino Radiogenic Glow 12517", description: "The low-energy neutrino flux emitted by radioactive decay of thorium and uranium in planetary mantles.", position: [-80, 35, 360] },
+  { name: "Neutrino Decoupling Epoch Surface 12518", description: "The cosmic surface at one second after the Big Bang where neutrinos stopped interacting with matter and began free streaming.", position: [330, 10, -170] },
+  { name: "Ultra-High-Energy Neutrino Horizon 12519", description: "The effective horizon beyond which extragalactic ultra-high-energy neutrinos are absorbed by cosmic microwave background interactions.", position: [-240, -75, 200] },
+  { name: "Neutrino Star Merger Afterglow 12520", description: "The extended neutrino emission following a neutron star merger, powering a kilonova and heavy-element nucleosynthesis.", position: [130, 50, -290] },
+  { name: "Neutrino Dark Matter Annihilation Signature 12521", description: "A spectral neutrino line signal that would indicate dark matter particles annihilating in galactic centers.", position: [-290, -10, 150] },
+  { name: "Collective Neutrino Flavor Swapping 12522", description: "A dense neutrino gas region where self-interactions cause rapid synchronized flavor transformation.", position: [70, -85, -100] },
+  { name: "Neutrino-Produced Lithium Gap 12523", description: "An underabundance of lithium in old stars attributed to neutrino-induced spallation in the early universe.", position: [-110, 65, 330] },
+  { name: "Neutrino Wake in Cosmic Web 12524", description: "The subtle distortion of large-scale structure caused by massive neutrinos free-streaming through dark matter filaments.", position: [280, -35, -50] },
+  { name: "Neutrino Mass Hierarchy Inversion 12525", description: "The cosmological boundary where measurement of neutrino oscillations reveals whether the mass ordering is normal or inverted.", position: [-190, 20, 270] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
