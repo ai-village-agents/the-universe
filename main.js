@@ -21730,6 +21730,207 @@ const cosmicSights = [
     color: '#4169E1',
     size: 277
   }
+,
+  {
+    name: 'Auroral Kilometric Radiation 12701',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [39555, -12007, -33668],
+    color: '#FF7F50',
+    size: 371
+  },
+  {
+    name: 'Whistler Mode Chorus 12702',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [974, -28046, 7684],
+    color: '#FF4500',
+    size: 97
+  },
+  {
+    name: 'Langmuir Wave Burst 12703',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [10337, 15656, 32090],
+    color: '#FFA500',
+    size: 287
+  },
+  {
+    name: 'Ion Acoustic Soliton 12704',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [18447, -29288, 24047],
+    color: '#FF7F50',
+    size: 284
+  },
+  {
+    name: 'Magnetosonic Shock 12705',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-36015, -39860, -35685],
+    color: '#FFA07A',
+    size: 89
+  },
+  {
+    name: 'Alfvén Wave Resonance 12706',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [13200, 1606, -31249],
+    color: '#FF7F50',
+    size: 198
+  },
+  {
+    name: 'Electron Cyclotron Maser 12707',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-3541, -29491, 24599],
+    color: '#FFA07A',
+    size: 134
+  },
+  {
+    name: 'Lower Hybrid Drift 12708',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [22477, -4169, 36957],
+    color: '#FF6347',
+    size: 84
+  },
+  {
+    name: 'Z-Mode Emission 12709',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-38601, 37791, -9449],
+    color: '#FFA07A',
+    size: 51
+  },
+  {
+    name: 'Bernstein Mode Fluctuation 12710',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-30026, -21763, -8818],
+    color: '#FF8C00',
+    size: 87
+  },
+  {
+    name: 'Faraday Rotation Plume 12711',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-15619, -9188, -34422],
+    color: '#FFA500',
+    size: 376
+  },
+  {
+    name: 'Plasma Wakefield Acceleration 12712',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [39729, 39077, -32386],
+    color: '#FF8C00',
+    size: 376
+  },
+  {
+    name: 'Weibel Instability Echo 12713',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [4569, 18866, -20396],
+    color: '#FFA500',
+    size: 176
+  },
+  {
+    name: 'Two-Stream Instability 12714',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [4775, 10238, 12213],
+    color: '#FF7F50',
+    size: 357
+  },
+  {
+    name: 'Bump-on-Tail Signature 12715',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-38601, -10119, -36143],
+    color: '#FFA500',
+    size: 149
+  },
+  {
+    name: 'Tearing Mode Reconnection 12716',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [22416, -18934, 10190],
+    color: '#FF7F50',
+    size: 194
+  },
+  {
+    name: 'Kelvin-Helmholtz Vortex 12717',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-11032, -39764, 14773],
+    color: '#FF8C00',
+    size: 311
+  },
+  {
+    name: 'Rayleigh-Taylor Plume 12718',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [6718, 28218, 29852],
+    color: '#FFA07A',
+    size: 245
+  },
+  {
+    name: 'Parametric Decay Instability 12719',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-38052, -2562, 9155],
+    color: '#FFA500',
+    size: 73
+  },
+  {
+    name: 'Upper Hybrid Resonance 12720',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [7699, 37100, -36227],
+    color: '#FF4500',
+    size: 94
+  },
+  {
+    name: 'Bohm Diffusion Signature 12721',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [15794, 55, -28824],
+    color: '#FF7F50',
+    size: 217
+  },
+  {
+    name: 'Neoclassical Tearing Mode 12722',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [25530, -12697, -22441],
+    color: '#FF4500',
+    size: 237
+  },
+  {
+    name: 'Drift Wave Turbulence 12723',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-6306, -9875, -39548],
+    color: '#FFA07A',
+    size: 357
+  },
+  {
+    name: 'Magnetohydrodynamic Wave 12724',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-34303, 18039, 23335],
+    color: '#FF7F50',
+    size: 111
+  },
+  {
+    name: 'Laser Plasma Interaction 12725',
+    category: 'Plasma Wave Emissions',
+    description: 'A mesmerizing manifestation of plasma wave emissions observed in deep space.', 
+    position: [-25358, -2044, 22675],
+    color: '#FFA07A',
+    size: 100
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
