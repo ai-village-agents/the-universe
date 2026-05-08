@@ -21049,6 +21049,207 @@ const cosmicSights = [
     color: '#C0C0C0',
     size: 366
   }
+,
+  {
+    name: 'Quark Star Strange Matter 12576',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [5259, 18315, -4380],
+    color: '#C0C0C0',
+    size: 63
+  },
+  {
+    name: 'Magnetar Crust Quake 12577',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [16004, -26344, -35028],
+    color: '#7FFF00',
+    size: 281
+  },
+  {
+    name: 'Black Dwarf Crystallized 12578',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [34923, -11340, -30692],
+    color: '#F5F5DC',
+    size: 112
+  },
+  {
+    name: 'Thorne Zytkow Object Core 12579',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [11325, 9025, -10876],
+    color: '#FF1493',
+    size: 218
+  },
+  {
+    name: 'Pulsar Wind Nebula 12580',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [27403, 20883, 20158],
+    color: '#FF69B4',
+    size: 321
+  },
+  {
+    name: 'Neutron Star Merger 12581',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-12961, -23503, 36386],
+    color: '#00BFFF',
+    size: 161
+  },
+  {
+    name: 'Kilonova Debris 12582',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [26038, -28243, -31973],
+    color: '#696969',
+    size: 260
+  },
+  {
+    name: 'White Dwarf Accretion 12583',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [37303, 22282, -27397],
+    color: '#2E8B57',
+    size: 200
+  },
+  {
+    name: 'Hypernova Gamma Ray Burst 12584',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-25875, -17861, 8824],
+    color: '#4B0082',
+    size: 307
+  },
+  {
+    name: 'Collapsar Accretion Disk 12585',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-35968, 11540, 10457],
+    color: '#800080',
+    size: 317
+  },
+  {
+    name: 'Microquasar Jets 12586',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [3800, -36542, 6151],
+    color: '#4B0082',
+    size: 387
+  },
+  {
+    name: 'X Ray Binary System 12587',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-18984, 9845, -7318],
+    color: '#00BFFF',
+    size: 180
+  },
+  {
+    name: 'Pulsar Glitch 12588',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-36095, 249, 19392],
+    color: '#7FFF00',
+    size: 286
+  },
+  {
+    name: 'Magnetar Flare 12589',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [30747, 6371, -2423],
+    color: '#C0C0C0',
+    size: 290
+  },
+  {
+    name: 'Strangelet Cloud 12590',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-6871, 18410, -16180],
+    color: '#FF00FF',
+    size: 338
+  },
+  {
+    name: 'Neutron Star Crust 12591',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-21137, 27781, -8039],
+    color: '#8A2BE2',
+    size: 367
+  },
+  {
+    name: 'White Dwarf Degenerate Matter 12592',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [39819, -25202, -15807],
+    color: '#FFD700',
+    size: 257
+  },
+  {
+    name: 'Black Hole Ergosphere 12593',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-30128, -28836, -38798],
+    color: '#000000',
+    size: 176
+  },
+  {
+    name: 'Supermassive Black Hole Jet 12594',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [28562, -30808, -7257],
+    color: '#DAA520',
+    size: 126
+  },
+  {
+    name: 'Intermediate Mass Black Hole 12595',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [38221, -39882, -5600],
+    color: '#191970',
+    size: 347
+  },
+  {
+    name: 'Primordial Black Hole 12596',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [10196, 16940, 35628],
+    color: '#2E8B57',
+    size: 151
+  },
+  {
+    name: 'Naked Singularity Candidate 12597',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-12467, -14762, 28447],
+    color: '#008080',
+    size: 335
+  },
+  {
+    name: 'Gravastar Core 12598',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-12146, 22126, 9953],
+    color: '#191970',
+    size: 306
+  },
+  {
+    name: 'Fuzzball String Theory 12599',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-30667, -6884, -33991],
+    color: '#00BFFF',
+    size: 106
+  },
+  {
+    name: 'Boson Star Condensate 12600',
+    category: 'Exotic Stellar Remnants',
+    description: 'A mesmerizing manifestation of exotic stellar remnants observed in deep space.', 
+    position: [-14319, -13579, 38189],
+    color: '#FF4500',
+    size: 127
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
