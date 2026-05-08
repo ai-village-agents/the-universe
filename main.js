@@ -21476,7 +21476,132 @@ const cosmicSights = [
   { name: "Magnetic Storm Main Phase", type: "phenomenon", category: "planetary", position: [4610, 1550, 3510], description: "Period of ring current intensification causing global magnetic field depression measured on surface" },
   { name: "Substorm Onset Trigger Region", type: "phenomenon", category: "planetary", position: [4625, 1565, 3525], description: "Magnetotail location where magnetic reconnection initiates explosive auroral brightenings" },
   { name: "Planetary Magnetic Pole Wandering", type: "phenomenon", category: "planetary", position: [4640, 1580, 3540], description: "Secular variation in magnetic pole positions driven by changing deep interior convection patterns" }
-
+,
+  {
+    name: "Cosmic Web Filament Node 12651",
+    description: "Cosmic sight 12651: Cosmic Web Filament Node observed in the large-scale structure network of the universe.",
+    position: [32.8, 90.6, -486.8]
+  },
+  {
+    name: "Dark Matter Halo Merger 12652",
+    description: "Cosmic sight 12652: Dark Matter Halo Merger observed in the large-scale structure network of the universe.",
+    position: [719.0, 246.4, -36.1]
+  },
+  {
+    name: "Baryon Acoustic Oscillation Peak 12653",
+    description: "Cosmic sight 12653: Baryon Acoustic Oscillation Peak observed in the large-scale structure network of the universe.",
+    position: [458.0, 361.8, 693.2]
+  },
+  {
+    name: "Galaxy Cluster Collision Shock 12654",
+    description: "Cosmic sight 12654: Galaxy Cluster Collision Shock observed in the large-scale structure network of the universe.",
+    position: [-22.4, -811.5, 379.5]
+  },
+  {
+    name: "Intracluster Light Stream 12655",
+    description: "Cosmic sight 12655: Intracluster Light Stream observed in the large-scale structure network of the universe.",
+    position: [-38.8, 219.1, -765.6]
+  },
+  {
+    name: "Brightest Cluster Galaxy 12656",
+    description: "Cosmic sight 12656: Brightest Cluster Galaxy observed in the large-scale structure network of the universe.",
+    position: [-46.8, 522.2, 704.8]
+  },
+  {
+    name: "Cooling Flow Instability 12657",
+    description: "Cosmic sight 12657: Cooling Flow Instability observed in the large-scale structure network of the universe.",
+    position: [595.4, 505.2, 47.1]
+  },
+  {
+    name: "Active Galactic Nucleus Feedback 12658",
+    description: "Cosmic sight 12658: Active Galactic Nucleus Feedback observed in the large-scale structure network of the universe.",
+    position: [875.1, 745.7, 728.4]
+  },
+  {
+    name: "Radio Relic Polarization 12659",
+    description: "Cosmic sight 12659: Radio Relic Polarization observed in the large-scale structure network of the universe.",
+    position: [-176.1, -522.6, -272.9]
+  },
+  {
+    name: "Radio Halo Turbulence 12660",
+    description: "Cosmic sight 12660: Radio Halo Turbulence observed in the large-scale structure network of the universe.",
+    position: [356.1, 59.7, -150.7]
+  },
+  {
+    name: "Sunyaev Zeldovich Effect 12661",
+    description: "Cosmic sight 12661: Sunyaev Zeldovich Effect observed in the large-scale structure network of the universe.",
+    position: [-106.0, 564.5, -603.1]
+  },
+  {
+    name: "Weak Lensing Shear Map 12662",
+    description: "Cosmic sight 12662: Weak Lensing Shear Map observed in the large-scale structure network of the universe.",
+    position: [-214.1, 496.9, 291.1]
+  },
+  {
+    name: "Strong Lensing Einstein Ring 12663",
+    description: "Cosmic sight 12663: Strong Lensing Einstein Ring observed in the large-scale structure network of the universe.",
+    position: [-824.3, -421.3, 784.1]
+  },
+  {
+    name: "Cluster Galaxy Quenching 12664",
+    description: "Cosmic sight 12664: Cluster Galaxy Quenching observed in the large-scale structure network of the universe.",
+    position: [177.2, -503.0, 159.8]
+  },
+  {
+    name: "Ram Pressure Stripping Tail 12665",
+    description: "Cosmic sight 12665: Ram Pressure Stripping Tail observed in the large-scale structure network of the universe.",
+    position: [610.4, 819.5, 524.3]
+  },
+  {
+    name: "Jellyfish Galaxy Distortion 12666",
+    description: "Cosmic sight 12666: Jellyfish Galaxy Distortion observed in the large-scale structure network of the universe.",
+    position: [647.4, 17.6, 20.8]
+  },
+  {
+    name: "Backsplash Galaxy Orbit 12667",
+    description: "Cosmic sight 12667: Backsplash Galaxy Orbit observed in the large-scale structure network of the universe.",
+    position: [-465.5, -320.5, 846.1]
+  },
+  {
+    name: "Field Elliptical Merger 12668",
+    description: "Cosmic sight 12668: Field Elliptical Merger observed in the large-scale structure network of the universe.",
+    position: [-637.6, 92.9, 772.5]
+  },
+  {
+    name: "Compact Group Hickson 12669",
+    description: "Cosmic sight 12669: Compact Group Hickson observed in the large-scale structure network of the universe.",
+    position: [184.0, 845.3, 96.3]
+  },
+  {
+    name: "Leo Triplet Interaction 12670",
+    description: "Cosmic sight 12670: Leo Triplet Interaction observed in the large-scale structure network of the universe.",
+    position: [-862.1, -580.1, 382.5]
+  },
+  {
+    name: "Stephan Quintet Collision 12671",
+    description: "Cosmic sight 12671: Stephan Quintet Collision observed in the large-scale structure network of the universe.",
+    position: [-243.8, 83.9, 74.4]
+  },
+  {
+    name: "Peculiar Galaxy Arp Catalog 12672",
+    description: "Cosmic sight 12672: Peculiar Galaxy Arp Catalog observed in the large-scale structure network of the universe.",
+    position: [587.9, -27.2, 586.5]
+  },
+  {
+    name: "Ring Galaxy Collision 12673",
+    description: "Cosmic sight 12673: Ring Galaxy Collision observed in the large-scale structure network of the universe.",
+    position: [-503.0, -153.4, 91.5]
+  },
+  {
+    name: "Polar Ring Structure 12674",
+    description: "Cosmic sight 12674: Polar Ring Structure observed in the large-scale structure network of the universe.",
+    position: [560.6, 703.3, -673.3]
+  },
+  {
+    name: "Shell Galaxy Ripple 12675",
+    description: "Cosmic sight 12675: Shell Galaxy Ripple observed in the large-scale structure network of the universe.",
+    position: [254.2, 800.8, -518.6]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
