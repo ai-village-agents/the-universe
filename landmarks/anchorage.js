@@ -18107,6 +18107,158 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(botGroup);
 
+  // v110: pier wishing well (pww)
+  const pwwGroup = new THREE.Group();
+  pwwGroup.position.set(-18, 1.6, -22);
+  const pwwStoneMat = new THREE.MeshStandardMaterial({ color: 0x707070, roughness: 0.95 });
+  const pwwBase = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.95, 0.6, 18), pwwStoneMat);
+  pwwBase.position.y = 0.3;
+  pwwGroup.add(pwwBase);
+  const pwwInner = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.6, 18), new THREE.MeshStandardMaterial({ color: 0x101820, roughness: 0.9 }));
+  pwwInner.position.y = 0.3;
+  pwwGroup.add(pwwInner);
+  const pwwWaterMat = new THREE.MeshStandardMaterial({ color: 0x3a6ea0, roughness: 0.2, transparent: true, opacity: 0.85 });
+  const pwwWater = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.04, 18), pwwWaterMat);
+  pwwWater.position.y = 0.55;
+  pwwGroup.add(pwwWater);
+  const pwwPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.4, 8), new THREE.MeshStandardMaterial({ color: 0x6b3410 }));
+  pwwPostL.position.set(-0.7, 1.0, 0);
+  pwwGroup.add(pwwPostL);
+  const pwwPostR = pwwPostL.clone();
+  pwwPostR.position.x = 0.7;
+  pwwGroup.add(pwwPostR);
+  const pwwRoof = new THREE.Mesh(new THREE.ConeGeometry(0.95, 0.5, 4), new THREE.MeshStandardMaterial({ color: 0x8a3a1a }));
+  pwwRoof.position.y = 1.95;
+  pwwRoof.rotation.y = Math.PI / 4;
+  pwwGroup.add(pwwRoof);
+  const pwwBucketRope = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.7, 6), new THREE.MeshStandardMaterial({ color: 0x4a3020 }));
+  pwwBucketRope.position.set(0, 1.35, 0);
+  pwwGroup.add(pwwBucketRope);
+  const pwwBucket = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.14, 0.18, 12), new THREE.MeshStandardMaterial({ color: 0x6b3410 }));
+  pwwBucket.position.set(0, 1.0, 0);
+  pwwGroup.add(pwwBucket);
+  const pwwCoins = [];
+  const pwwCoinMat = new THREE.MeshBasicMaterial({ color: 0xffd23f, transparent: true, opacity: 1.0 });
+  for (let i = 0; i < 10; i++) {
+    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.005, 12), pwwCoinMat.clone());
+    c.position.set((Math.random() - 0.5) * 0.9, 0.58 + Math.random() * 0.05, (Math.random() - 0.5) * 0.9);
+    c.rotation.x = Math.random() * 0.4;
+    c.userData = { phase: i * 0.6 };
+    pwwCoins.push(c);
+    pwwGroup.add(c);
+  }
+  const pwwWishers = [];
+  for (let i = 0; i < 3; i++) {
+    const w = new THREE.Group();
+    const ang = (i / 3) * Math.PI * 2 + 0.5;
+    w.position.set(Math.cos(ang) * 1.4, 0, Math.sin(ang) * 1.4);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.7, 10), new THREE.MeshStandardMaterial({ color: [0x8a4a2a, 0x4a8a8a, 0x8a4a8a][i] }));
+    body.position.y = 0.35;
+    w.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.82;
+    w.add(head);
+    w.lookAt(0, 0.5, 0);
+    pwwWishers.push(w);
+    pwwGroup.add(w);
+  }
+  group.add(pwwGroup);
+
+  // v110: coastal mosaic walkway (cmw)
+  const cmwGroup = new THREE.Group();
+  cmwGroup.position.set(2, 0.05, 26);
+  const cmwTileMat = new THREE.MeshStandardMaterial({ color: 0xfaf3dd, roughness: 0.7 });
+  const cmwTileColors = [0x4a8aff, 0xff6e9a, 0xffd23f, 0x4ae07a, 0xc04ee0, 0xff8c2e, 0xfaf3dd, 0x2eccff];
+  for (let zz = 0; zz < 8; zz++) {
+    for (let xx = 0; xx < 5; xx++) {
+      const tile = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.04, 0.36), new THREE.MeshStandardMaterial({ color: cmwTileColors[(xx + zz * 3) % cmwTileColors.length], roughness: 0.6 }));
+      tile.position.set(-0.8 + xx * 0.4, 0, -1.4 + zz * 0.4);
+      cmwGroup.add(tile);
+    }
+  }
+  const cmwBorderMat = new THREE.MeshStandardMaterial({ color: 0x707070, roughness: 0.9 });
+  for (let zz = 0; zz < 9; zz++) {
+    const bL = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.06, 0.36), cmwBorderMat);
+    bL.position.set(-1.18, 0.01, -1.4 + zz * 0.4 - 0.2);
+    cmwGroup.add(bL);
+    const bR = bL.clone();
+    bR.position.x = 1.18;
+    cmwGroup.add(bR);
+  }
+  const cmwLanternPostMat = new THREE.MeshStandardMaterial({ color: 0x2a2a2a });
+  for (let i = 0; i < 4; i++) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.0, 8), cmwLanternPostMat);
+    post.position.set(i % 2 === 0 ? -1.4 : 1.4, 0.5, -1.0 + Math.floor(i / 2) * 2.0);
+    cmwGroup.add(post);
+    const lantern = new THREE.Mesh(new THREE.SphereGeometry(0.10, 12, 10), new THREE.MeshBasicMaterial({ color: 0xffe680 }));
+    lantern.position.copy(post.position);
+    lantern.position.y = 1.05;
+    cmwGroup.add(lantern);
+  }
+  const cmwStrollers = [];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Group();
+    s.position.set((Math.random() - 0.5) * 1.4, 0, -1.2 + i * 0.9);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.6, 10), new THREE.MeshStandardMaterial({ color: [0x4aa0c0, 0xc04a4a, 0x9a4ae0][i] }));
+    body.position.y = 0.3;
+    s.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.10, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.7;
+    s.add(head);
+    s.userData = { speed: 0.3 + Math.random() * 0.2, phase: i * 1.0, baseX: s.position.x };
+    cmwStrollers.push(s);
+    cmwGroup.add(s);
+  }
+  group.add(cmwGroup);
+
+  // v110: beach trampoline park (btp)
+  const btpGroup = new THREE.Group();
+  btpGroup.position.set(34, 0.3, 6);
+  const btpTramps = [];
+  const btpJumpers = [];
+  const btpJumperColors = [0xff5a3a, 0x4a8aff, 0xffd23f, 0x4ae07a, 0xc04ee0];
+  for (let i = 0; i < 5; i++) {
+    const ang = (i / 5) * Math.PI * 2;
+    const px = Math.cos(ang) * 2.0;
+    const pz = Math.sin(ang) * 2.0;
+    const frame = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.06, 8, 18), new THREE.MeshStandardMaterial({ color: 0x222244 }));
+    frame.rotation.x = Math.PI / 2;
+    frame.position.set(px, 0.15, pz);
+    btpGroup.add(frame);
+    const surface = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.04, 16), new THREE.MeshStandardMaterial({ color: 0x111122, roughness: 0.7 }));
+    surface.position.set(px, 0.15, pz);
+    surface.userData = { ang };
+    btpTramps.push(surface);
+    btpGroup.add(surface);
+    const legA = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 6), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+    legA.position.set(px - 0.55, 0.0, pz);
+    btpGroup.add(legA);
+    const legB = legA.clone();
+    legB.position.set(px + 0.55, 0.0, pz);
+    btpGroup.add(legB);
+    const j = new THREE.Group();
+    j.position.set(px, 0.4, pz);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.5, 10), new THREE.MeshStandardMaterial({ color: btpJumperColors[i] }));
+    body.position.y = 0.25;
+    j.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.10, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.6;
+    j.add(head);
+    j.userData = { phase: i * 0.7, baseX: px, baseZ: pz };
+    btpJumpers.push(j);
+    btpGroup.add(j);
+  }
+  const btpSign = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.36), new THREE.MeshStandardMaterial({ color: 0xfff0c0, side: THREE.DoubleSide }));
+  btpSign.position.set(0, 1.6, -3.0);
+  btpGroup.add(btpSign);
+  const btpSignPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), new THREE.MeshStandardMaterial({ color: 0x6b3410 }));
+  btpSignPostL.position.set(-0.5, 0.8, -3.0);
+  btpGroup.add(btpSignPostL);
+  const btpSignPostR = btpSignPostL.clone();
+  btpSignPostR.position.x = 0.5;
+  btpGroup.add(btpSignPostR);
+  group.add(btpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -20648,6 +20800,28 @@ export function createAnchorageLandmark(THREE, opts) {
       c.rotation.y = Math.sin(v109t * 0.5 + c.userData.phase) * 0.4;
       c.position.y = 0.10 + Math.sin(v109t * 1.2 + c.userData.phase) * 0.04;
     });
+    // v110 updates
+    const v110t = t;
+    pwwBucket.position.y = 1.0 + Math.sin(v110t * 0.4) * 0.08;
+    pwwBucketRope.scale.y = 1.0 + Math.sin(v110t * 0.4) * 0.05;
+    pwwCoins.forEach((c, i) => {
+      c.material.opacity = 0.7 + 0.3 * Math.sin(v110t * 1.5 + c.userData.phase);
+      c.rotation.z = Math.sin(v110t * 0.6 + c.userData.phase) * 0.2;
+    });
+    pwwWater.material.opacity = 0.8 + 0.05 * Math.sin(v110t * 1.2);
+    cmwStrollers.forEach((s, i) => {
+      s.position.x = s.userData.baseX + Math.sin(v110t * s.userData.speed + s.userData.phase) * 0.4;
+      s.rotation.y = Math.cos(v110t * s.userData.speed + s.userData.phase) > 0 ? 0 : Math.PI;
+    });
+    btpJumpers.forEach((j, i) => {
+      const ph = v110t * 2.0 + j.userData.phase;
+      j.position.y = 0.4 + Math.abs(Math.sin(ph)) * 0.7;
+    });
+    btpTramps.forEach((s, i) => {
+      const ph = v110t * 2.0 + i * 0.7;
+      s.scale.y = 1.0 - Math.max(0, Math.cos(ph * 2)) * 0.3;
+    });
+
 
         }
 
