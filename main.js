@@ -18960,6 +18960,207 @@ const cosmicSights = [
 { name: 'Relativistic Betatron Heating 12098', category: 'Relativistic Astrophysics', description: 'Electromagnetic acceleration of particles in relativistic plasma.', position: [5822, 114440, 3822], color: '#A8E6CF', size: 140 },
 { name: 'Event Horizon Thermodynamics 12099', category: 'Relativistic Astrophysics', description: 'Temperature, entropy, and black hole thermodynamic laws.', position: [5823, 114460, 3823], color: '#FFD3B6', size: 140 },
 { name: 'Relativistic Spacetime Singularities 12100', category: 'Relativistic Astrophysics', description: 'Curvature divergences, geodesic incompleteness, and singularity theorems.', position: [5824, 114480, 3824], color: '#FFAAA5', size: 140 }
+,
+  {
+    name: 'Algol-Type Binary System',
+    category: 'Stellar Binaries',
+    description: 'A semi-detached binary where mass transfer from a more evolved star to its companion creates paradoxical evolutionary states.',
+    position: [4200, -1800, 3100],
+    color: '#FF6B35',
+    size: 260
+  },
+  {
+    name: 'EW-Type Overcontact System',
+    category: 'Stellar Binaries',
+    description: 'Two stars sharing a common envelope, orbiting so closely they exchange mass and energy through their merged atmospheres.',
+    position: [-3800, 2200, -2900],
+    color: '#FFA500',
+    size: 255
+  },
+  {
+    name: 'Roche Lobe Overflow Stream',
+    category: 'Mass Transfer',
+    description: 'Material flowing through the inner Lagrangian point as one star overflows its gravitational boundary, feeding its companion.',
+    position: [2900, -3100, 4200],
+    color: '#FF4500',
+    size: 250
+  },
+  {
+    name: 'Accretion Stream Impact Point',
+    category: 'Mass Transfer',
+    description: 'The bright impact region where transferred material strikes the outer edge of an accretion disk at supersonic velocities.',
+    position: [-4100, 1500, -3600],
+    color: '#FFD700',
+    size: 245
+  },
+  {
+    name: 'Spiral-In Envelope Phase',
+    category: 'Stellar Binaries',
+    description: 'A brief phase where two stellar cores spiral through shared stellar material, dramatically shrinking their orbital separation.',
+    position: [3500, -2400, 2800],
+    color: '#DC143C',
+    size: 270
+  },
+  {
+    name: 'Symbiotic Star System',
+    category: 'Stellar Binaries',
+    description: 'A red giant and white dwarf in a long-period orbit, with the compact star accreting from the giants wind.',
+    position: [-2700, 3300, -4100],
+    color: '#8B0000',
+    size: 260
+  },
+  {
+    name: 'Mass Transfer Rejuvenation Zone',
+    category: 'Mass Transfer',
+    description: 'Stars rejuvenated by mass transfer or merger, appearing younger and bluer than their cluster siblings.',
+    position: [4400, -1200, 3800],
+    color: '#1E90FF',
+    size: 265
+  },
+  {
+    name: 'Dwarf Nova Eruption Event',
+    category: 'Stellar Binaries',
+    description: 'A white dwarf undergoing dramatic brightness increases as accreted material releases energy in nova-like eruptions.',
+    position: [-3200, 2800, -2400],
+    color: '#FFFFFF',
+    size: 255
+  },
+  {
+    name: 'AM CVn Ultra-Compact Binary',
+    category: 'Stellar Binaries',
+    description: 'Two white dwarfs in an extremely tight orbit, transferring helium-rich material with periods of only minutes.',
+    position: [2600, -3500, 4500],
+    color: '#E6E6FA',
+    size: 240
+  },
+  {
+    name: 'X-Ray Binary Accretion Column',
+    category: 'Mass Transfer',
+    description: 'Matter funneled along magnetic field lines onto neutron star poles, releasing energy as powerful X-ray beams.',
+    position: [-4300, 1800, -3200],
+    color: '#00CED1',
+    size: 250
+  },
+  {
+    name: 'Be X-Ray Binary Disk',
+    category: 'Stellar Binaries',
+    description: 'A rapidly rotating B-type star ejecting material into an equatorial disk that feeds a neutron star companion.',
+    position: [3800, -2100, 3400],
+    color: '#87CEEB',
+    size: 260
+  },
+  {
+    name: 'Circumbinary Disk Structure',
+    category: 'Mass Transfer',
+    description: 'A disk of gas and dust orbiting both stars of a binary system, potentially forming circumbinary planets.',
+    position: [-2400, 3600, -4400],
+    color: '#DEB887',
+    size: 270
+  },
+  {
+    name: 'Wind-Fed Accretion Wake',
+    category: 'Mass Transfer',
+    description: 'The trailing stream of captured stellar wind behind a compact object moving through its companions outflow.',
+    position: [4100, -1500, 2600],
+    color: '#F4A460',
+    size: 245
+  },
+  {
+    name: 'Period-Luminosity Relation Binary',
+    category: 'Stellar Binaries',
+    description: 'An eclipsing binary whose orbital period precisely correlates with system luminosity, useful for cosmic distance measurement.',
+    position: [-3600, 2500, -3800],
+    color: '#FFE4B5',
+    size: 255
+  },
+  {
+    name: 'Tidally Distorted Giant Atmosphere',
+    category: 'Mass Transfer',
+    description: 'A red giant stretched into an elongated shape by tidal forces from a close companion, with material streaming toward it.',
+    position: [3200, -2800, 4000],
+    color: '#FF6347',
+    size: 275
+  },
+  {
+    name: 'Spin-Orbit Coupling Resonance',
+    category: 'Stellar Binaries',
+    description: 'Tidal interactions that synchronize stellar rotation with orbital period, locking stars face-to-face in their dance.',
+    position: [-4500, 1200, -2800],
+    color: '#9370DB',
+    size: 250
+  },
+  {
+    name: 'Magnetic Braking Angular Momentum Loss',
+    category: 'Mass Transfer',
+    description: 'Stellar winds carrying away angular momentum along magnetic field lines, driving binary orbital evolution.',
+    position: [2800, -3800, 3600],
+    color: '#6A5ACD',
+    size: 245
+  },
+  {
+    name: 'Gravitational Wave Inspiral Track',
+    category: 'Stellar Binaries',
+    description: 'The spiraling path of compact binary stars losing energy to gravitational radiation, destined for eventual merger.',
+    position: [-3000, 3100, -4200],
+    color: '#4B0082',
+    size: 260
+  },
+  {
+    name: 'Thermal Timescale Mass Transfer',
+    category: 'Mass Transfer',
+    description: 'Rapid mass exchange occurring over thermal adjustment timescales as stars respond to dramatic radius changes.',
+    position: [4600, -900, 3200],
+    color: '#FF8C00',
+    size: 255
+  },
+  {
+    name: 'Nuclear Timescale Evolution Point',
+    category: 'Stellar Binaries',
+    description: 'The gradual evolutionary changes driven by nuclear burning that trigger mass transfer phases in binary systems.',
+    position: [-3900, 2000, -3400],
+    color: '#DAA520',
+    size: 265
+  },
+  {
+    name: 'Mass Ratio Inversion Event',
+    category: 'Mass Transfer',
+    description: 'The dramatic reversal when enough mass transfers to make the originally lighter star become the more massive one.',
+    position: [3400, -2600, 4300],
+    color: '#B8860B',
+    size: 250
+  },
+  {
+    name: 'Helium Star Stripped Core',
+    category: 'Stellar Binaries',
+    description: 'The exposed helium-burning core remaining after a star loses its hydrogen envelope to a hungry companion.',
+    position: [-2600, 3400, -3000],
+    color: '#ADD8E6',
+    size: 245
+  },
+  {
+    name: 'Supernova Kick Disruption Site',
+    category: 'Stellar Binaries',
+    description: 'The point where asymmetric supernova explosion imparted enough velocity to unbind or dramatically alter a binary orbit.',
+    position: [4000, -1700, 2900],
+    color: '#FF1493',
+    size: 270
+  },
+  {
+    name: 'Polar Cataclysmic Variable',
+    category: 'Mass Transfer',
+    description: 'A strongly magnetized white dwarf channeling accreted material directly onto its magnetic poles without forming a disk.',
+    position: [-4200, 1600, -3900],
+    color: '#00FA9A',
+    size: 260
+  },
+  {
+    name: 'Intermediate Polar Accretion Curtain',
+    category: 'Stellar Binaries',
+    description: 'The arc-shaped flow of material from a truncated accretion disk onto moderately magnetized white dwarf poles.',
+    position: [3100, -3200, 3700],
+    color: '#7FFFD4',
+    size: 255
+  }
 
 ];
 
