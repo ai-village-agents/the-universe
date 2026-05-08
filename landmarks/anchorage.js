@@ -19134,6 +19134,150 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(psauGroup);
 
+  // --- v117: pier accordion duet (pad) --------------------------------------
+  const padGroup = new THREE.Group();
+  padGroup.position.set(74, 1.5, -54);
+  const padBenchMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2a });
+  const padBench = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 0.6), padBenchMat);
+  padBench.position.y = 0.55;
+  padGroup.add(padBench);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.55, 0.1), padBenchMat);
+    leg.position.set(i < 2 ? -1.1 : 1.1, 0.27, i % 2 === 0 ? -0.25 : 0.25);
+    padGroup.add(leg);
+  }
+  const padPlayers = [];
+  const padAccordions = [];
+  const padBellowsList = [];
+  for (let i = 0; i < 2; i++) {
+    const player = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: i === 0 ? 0x9c4f4f : 0x4f6dc9 }));
+    body.position.y = 0.42;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+    head.position.y = 1.0;
+    player.add(body, head);
+    player.position.set(i === 0 ? -0.7 : 0.7, 0.62, 0);
+    padGroup.add(player);
+    padPlayers.push(player);
+    const acc = new THREE.Group();
+    const leftBox = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.32, 0.32), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    leftBox.position.x = -0.18;
+    const rightBox = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.32, 0.32), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    rightBox.position.x = 0.18;
+    const bellows = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.28, 0.28), new THREE.MeshLambertMaterial({ color: 0xc94f4f }));
+    acc.add(leftBox, rightBox, bellows);
+    acc.position.set(i === 0 ? -0.4 : 0.4, 1.18, 0.22);
+    padGroup.add(acc);
+    padAccordions.push(acc);
+    padBellowsList.push(bellows);
+  }
+  const padNoteMat = new THREE.MeshBasicMaterial({ color: 0xfff8d8, transparent: true, opacity: 0.9 });
+  const padNotes = [];
+  for (let i = 0; i < 8; i++) {
+    const n = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), padNoteMat);
+    n.position.set((Math.random() - 0.5) * 2.4, 1.6 + Math.random() * 0.8, (Math.random() - 0.5) * 0.8);
+    padGroup.add(n);
+    padNotes.push(n);
+  }
+  group.add(padGroup);
+
+  // --- v117: beach ukulele circle (buc) -------------------------------------
+  const bucGroup = new THREE.Group();
+  bucGroup.position.set(-104, 0.05, -38);
+  const bucPlayers = [];
+  const bucUkes = [];
+  const bucColors = [0xc94f4f, 0x4f8fc9, 0xc9a44f, 0x6dc94f, 0x9c4fc9, 0x4fc9b8];
+  for (let i = 0; i < 6; i++) {
+    const ang = (i / 6) * Math.PI * 2;
+    const p = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: bucColors[i] }));
+    body.position.y = 0.42;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), new THREE.MeshLambertMaterial({ color: 0xe8b990 }));
+    head.position.y = 1.0;
+    p.add(body, head);
+    p.position.set(Math.cos(ang) * 2.6, 0, Math.sin(ang) * 2.6);
+    p.rotation.y = -ang + Math.PI;
+    bucGroup.add(p);
+    bucPlayers.push(p);
+    const uke = new THREE.Group();
+    const ukeBody = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0xddc28c }));
+    ukeBody.scale.set(1, 0.9, 0.5);
+    const ukeNeck = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.06), new THREE.MeshLambertMaterial({ color: 0x6b3a1a }));
+    ukeNeck.position.x = 0.3;
+    uke.add(ukeBody, ukeNeck);
+    uke.position.set(Math.cos(ang) * 2.4, 0.95, Math.sin(ang) * 2.4);
+    uke.rotation.y = -ang + Math.PI / 2;
+    bucGroup.add(uke);
+    bucUkes.push(uke);
+  }
+  const bucMatLog = new THREE.MeshLambertMaterial({ color: 0x5a3a2a });
+  const bucCenterLog = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.35, 12), bucMatLog);
+  bucCenterLog.position.y = 0.2;
+  bucGroup.add(bucCenterLog);
+  const bucNoteMat = new THREE.MeshBasicMaterial({ color: 0xfff0c0, transparent: true, opacity: 0.85 });
+  const bucNotes = [];
+  for (let i = 0; i < 12; i++) {
+    const n = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5), bucNoteMat);
+    n.position.set((Math.random() - 0.5) * 5, 1.5 + Math.random() * 1.2, (Math.random() - 0.5) * 5);
+    bucGroup.add(n);
+    bucNotes.push(n);
+  }
+  group.add(bucGroup);
+
+  // --- v117: coastal lighthouse keeper portrait (clkp) ----------------------
+  const clkpGroup = new THREE.Group();
+  clkpGroup.position.set(118, 0, -148);
+  const clkpEaselMat = new THREE.MeshLambertMaterial({ color: 0x8b6f47 });
+  const clkpEaselA = new THREE.Mesh(new THREE.BoxGeometry(0.08, 2.4, 0.08), clkpEaselMat);
+  clkpEaselA.position.set(-0.6, 1.2, 0);
+  clkpEaselA.rotation.z = -0.08;
+  const clkpEaselB = new THREE.Mesh(new THREE.BoxGeometry(0.08, 2.4, 0.08), clkpEaselMat);
+  clkpEaselB.position.set(0.6, 1.2, 0);
+  clkpEaselB.rotation.z = 0.08;
+  const clkpEaselC = new THREE.Mesh(new THREE.BoxGeometry(0.08, 2.4, 0.08), clkpEaselMat);
+  clkpEaselC.position.set(0, 1.2, -0.4);
+  clkpEaselC.rotation.x = 0.08;
+  clkpGroup.add(clkpEaselA, clkpEaselB, clkpEaselC);
+  const clkpCanvasMat = new THREE.MeshLambertMaterial({ color: 0xfaf3e0 });
+  const clkpCanvas = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.7), clkpCanvasMat);
+  clkpCanvas.position.set(0, 1.5, 0.05);
+  clkpGroup.add(clkpCanvas);
+  const clkpKeeperBody = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.9), new THREE.MeshLambertMaterial({ color: 0x355c7d }));
+  clkpKeeperBody.position.set(0, 1.3, 0.06);
+  const clkpKeeperHead = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.55), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+  clkpKeeperHead.position.set(0, 1.95, 0.06);
+  const clkpKeeperHat = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.22), new THREE.MeshLambertMaterial({ color: 0x222244 }));
+  clkpKeeperHat.position.set(0, 2.25, 0.06);
+  const clkpLighthouse = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.85), new THREE.MeshLambertMaterial({ color: 0xeeeedd }));
+  clkpLighthouse.position.set(-0.5, 1.4, 0.06);
+  const clkpLightTop = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.18), new THREE.MeshLambertMaterial({ color: 0xc94f4f }));
+  clkpLightTop.position.set(-0.5, 1.95, 0.06);
+  clkpGroup.add(clkpKeeperBody, clkpKeeperHead, clkpKeeperHat, clkpLighthouse, clkpLightTop);
+  const clkpArtist = new THREE.Group();
+  const clkpABody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x4f8fc9 }));
+  clkpABody.position.y = 0.47;
+  const clkpAHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xe8b990 }));
+  clkpAHead.position.y = 1.15;
+  clkpArtist.add(clkpABody, clkpAHead);
+  clkpArtist.position.set(1.4, 0, 0.4);
+  clkpGroup.add(clkpArtist);
+  const clkpBrushHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.4, 6), new THREE.MeshLambertMaterial({ color: 0x6b3a1a }));
+  clkpBrushHandle.rotation.z = Math.PI / 2;
+  clkpBrushHandle.position.set(0.7, 1.4, 0.15);
+  clkpGroup.add(clkpBrushHandle);
+  const clkpPaletteMat = new THREE.MeshLambertMaterial({ color: 0xddc28c });
+  const clkpPalette = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.05, 0.32), clkpPaletteMat);
+  clkpPalette.position.set(1.7, 1.0, 0.55);
+  clkpGroup.add(clkpPalette);
+  const clkpPaintColors = [0xc94f4f, 0x4f8fc9, 0xc9a44f, 0x6dc94f, 0x9c4fc9];
+  for (let i = 0; i < 5; i++) {
+    const dab = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5), new THREE.MeshLambertMaterial({ color: clkpPaintColors[i] }));
+    dab.scale.y = 0.3;
+    dab.position.set(1.55 + i * 0.07, 1.06, 0.55);
+    clkpGroup.add(dab);
+  }
+  group.add(clkpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21787,6 +21931,23 @@ export function createAnchorageLandmark(THREE, opts) {
   psauBidders.forEach((b, i) => {
     b.children[2].rotation.z = Math.sin(v116t * 3 + i) * 0.5;
   });
+  const v117t = clock.getElapsedTime();
+  padBellowsList.forEach((b, i) => {
+    b.scale.x = 1 + Math.sin(v117t * 3 + i * 1.5) * 0.4;
+  });
+  padNotes.forEach((n, i) => {
+    n.position.y = 1.6 + ((v117t * 0.4 + i * 0.3) % 1.5);
+    n.material.opacity = 0.9 - ((v117t * 0.4 + i * 0.3) % 1.5) / 1.6;
+  });
+  bucUkes.forEach((u, i) => {
+    u.rotation.z = Math.sin(v117t * 2 + i * 0.7) * 0.08;
+  });
+  bucNotes.forEach((n, i) => {
+    n.position.y = 1.5 + ((v117t * 0.3 + i * 0.25) % 1.4);
+    n.material.opacity = 0.85 - ((v117t * 0.3 + i * 0.25) % 1.4) / 1.5;
+  });
+  clkpBrushHandle.position.x = 0.7 + Math.sin(v117t * 2.5) * 0.1;
+  clkpBrushHandle.position.y = 1.4 + Math.cos(v117t * 2.0) * 0.15;
 
 
 
