@@ -19412,6 +19412,207 @@ const cosmicSights = [
   { name: 'Pulsar Magnetospheric Polar Gap Spark', position: [20, 210, -155], color: '#3f51b5', description: 'electron discharge cascade from polar vacuum gap acceleration potential drop' },
   { name: 'Pulsar Wind Nebula Helical Jet Wiggle', position: [115, 95, -225], color: '#009688', description: 'helical kink instability in magnetically dominated relativistic jet flow' },
   { name: 'Rotating Radio Transient Null State', position: [-100, 70, 300], color: '#4caf50', description: 'episodically emitting neutron star spending most time in radio-quiescent state' }
+,
+  {
+    name: 'Filament Node Alpha 12176',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-7939, 23776, -24128],
+    color: '#8A2BE2',
+    size: 494
+  },
+  {
+    name: 'Boötes Supervoid Core 12177',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [3799, -25400, -16565],
+    color: '#4B0082',
+    size: 380
+  },
+  {
+    name: 'Laniakea Great Attractor 12178',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-16045, 13590, -24361],
+    color: '#4B0082',
+    size: 196
+  },
+  {
+    name: 'Sloan Great Wall Bridge 12179',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [5258, 7182, 6669],
+    color: '#6A5ACD',
+    size: 124
+  },
+  {
+    name: 'Eridanus Supervoid Anomaly 12180',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-18744, -32796, 7001],
+    color: '#8A2BE2',
+    size: 331
+  },
+  {
+    name: 'Hercules-Corona Borealis Wall 12181',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-1182, -6522, -27165],
+    color: '#6A5ACD',
+    size: 328
+  },
+  {
+    name: 'Shapley Supercluster Core 12182',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [12367, -848, -20358],
+    color: '#9932CC',
+    size: 345
+  },
+  {
+    name: 'Cosmic Web Intersection V 12183',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [6611, -18858, 18394],
+    color: '#9400D3',
+    size: 200
+  },
+  {
+    name: 'Intergalactic Filament 7A 12184',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [32949, -6501, 34906],
+    color: '#483D8B',
+    size: 116
+  },
+  {
+    name: 'Giant Void Plasma Eddy 12185',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [8863, 22556, 30322],
+    color: '#9932CC',
+    size: 494
+  },
+  {
+    name: 'Hydra-Centaurus Supercluster 12186',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-32263, 37589, -34413],
+    color: '#9400D3',
+    size: 188
+  },
+  {
+    name: 'Perseus-Pisces Strand 12187',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [20684, -33622, 4962],
+    color: '#800080',
+    size: 384
+  },
+  {
+    name: 'Norma Cluster Attractor 12188',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [22335, -6979, 33729],
+    color: '#8B008B',
+    size: 402
+  },
+  {
+    name: 'Cosmic Microwave Cold Spot 12189',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [36781, -4406, -38612],
+    color: '#9932CC',
+    size: 320
+  },
+  {
+    name: 'Coma Supercluster Axis 12190',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-29281, 3537, 34258],
+    color: '#8B008B',
+    size: 405
+  },
+  {
+    name: 'Virgo Supercluster Outskirts 12191',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [4774, 9096, -27101],
+    color: '#6A5ACD',
+    size: 381
+  },
+  {
+    name: 'Sculptor Void Center 12192',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-11488, 456, -31375],
+    color: '#6A5ACD',
+    size: 211
+  },
+  {
+    name: 'Local Void Expansion Front 12193',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-6666, 15698, 12336],
+    color: '#9932CC',
+    size: 119
+  },
+  {
+    name: 'Ophiuchus Supercluster 12194',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-36406, 27425, 4181],
+    color: '#191970',
+    size: 224
+  },
+  {
+    name: 'Vela Supercluster Flow 12195',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [30761, 23848, 6201],
+    color: '#9400D3',
+    size: 385
+  },
+  {
+    name: 'South Pole Wall Region 12196',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [16636, -26820, 32981],
+    color: '#6A5ACD',
+    size: 492
+  },
+  {
+    name: 'Horologium Supercluster 12197',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-38367, -32790, -6870],
+    color: '#9400D3',
+    size: 220
+  },
+  {
+    name: 'Corona Borealis Supercluster 12198',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-22140, -17008, 3043],
+    color: '#8B008B',
+    size: 431
+  },
+  {
+    name: 'Ursa Major Supercluster 12199',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [-23552, -4072, -20756],
+    color: '#6A5ACD',
+    size: 435
+  },
+  {
+    name: 'Aquarius Supercluster 12200',
+    category: 'Cosmic Web',
+    description: 'A vast structure of dark matter and gas connecting galaxies, spanning millions of light years across the universe.',
+    position: [18476, -20364, -4409],
+    color: '#8B008B',
+    size: 350
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
