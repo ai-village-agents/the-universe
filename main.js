@@ -17495,6 +17495,207 @@ const cosmicSights = [
       "description": "Entanglement in multiple degrees of freedom",
       "position": [5499, 107480, 3499]
     }
+,
+  {
+    name: 'Silicate Super-Earth Mantle Plume 11726',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [31803, -16093, -16390],
+    color: '#BC8F8F',
+    size: 174
+  },
+  {
+    name: 'Carbon Planet Diamond Anvil 11727',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [36425, 6646, 926],
+    color: '#8B0000',
+    size: 207
+  },
+  {
+    name: 'Iron Core Cooling Contraction 11728',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [33136, 1738, 15281],
+    color: '#DAA520',
+    size: 156
+  },
+  {
+    name: 'Tidal Heating Magma Ocean 11729',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-7343, 22781, -10824],
+    color: '#A0522D',
+    size: 304
+  },
+  {
+    name: 'Cryovolcanic Methane Eruption 11730',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-3903, 15681, 7098],
+    color: '#B22222',
+    size: 298
+  },
+  {
+    name: 'Subduction Zone Trench Formation 11731',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-24613, 8800, -22246],
+    color: '#F4A460',
+    size: 81
+  },
+  {
+    name: 'Continental Drift Archipelago 11732',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-26423, -32483, 28955],
+    color: '#556B2F',
+    size: 127
+  },
+  {
+    name: 'Shield Volcano Caldera Collapse 11733',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [30883, 4621, 23286],
+    color: '#DC143C',
+    size: 177
+  },
+  {
+    name: 'Impact Basin Magma Flooding 11734',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-16033, 2382, -33007],
+    color: '#DAA520',
+    size: 300
+  },
+  {
+    name: 'Global Plate Tectonic Network 11735',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [38722, 12613, -39703],
+    color: '#556B2F',
+    size: 166
+  },
+  {
+    name: 'Stagnant Lid Convection Regime 11736',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [147, -12449, 1781],
+    color: '#8B0000',
+    size: 350
+  },
+  {
+    name: 'Episodic Overturn Resurfacing 11737',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [237, -29386, -6065],
+    color: '#8B0000',
+    size: 165
+  },
+  {
+    name: 'Volatile Degassing Plume 11738',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-13189, -26981, -21950],
+    color: '#BC8F8F',
+    size: 393
+  },
+  {
+    name: 'Crustal Delamination Sinking 11739',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [19092, 37814, 18540],
+    color: '#F4A460',
+    size: 389
+  },
+  {
+    name: 'Orogenic Belt Mountain Building 11740',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [34945, -11592, -13586],
+    color: '#5F9EA0',
+    size: 88
+  },
+  {
+    name: 'Rift Valley Graben Formation 11741',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [30470, -12269, -28922],
+    color: '#2E8B57',
+    size: 149
+  },
+  {
+    name: 'Transform Fault Earthquake Swarm 11742',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-29290, -39749, 27887],
+    color: '#20B2AA',
+    size: 256
+  },
+  {
+    name: 'Hotspot Island Chain Emergence 11743',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [29784, 7641, -16378],
+    color: '#F4A460',
+    size: 169
+  },
+  {
+    name: 'Basaltic Flood Province Eruption 11744',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-14430, -29004, 37847],
+    color: '#556B2F',
+    size: 346
+  },
+  {
+    name: 'Granitic Crust Differentiator 11745',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [37360, 725, -23147],
+    color: '#B22222',
+    size: 115
+  },
+  {
+    name: 'Serpentinization Hydrothermal Vent 11746',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [26092, -34197, -7306],
+    color: '#DAA520',
+    size: 284
+  },
+  {
+    name: 'Carbonate-Silicate Cycle Regulator 11747',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [5658, 2792, -34235],
+    color: '#8FBC8F',
+    size: 72
+  },
+  {
+    name: 'Lithospheric Flexure Bulge 11748',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-33208, -36612, 38052],
+    color: '#DAA520',
+    size: 161
+  },
+  {
+    name: 'Asthenospheric Melt Channeling 11749',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-23853, -34273, 3083],
+    color: '#FF4500',
+    size: 77
+  },
+  {
+    name: 'Core-Mantle Boundary D" Layer 11750',
+    category: 'Planetary Geology',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-28775, 16382, 16804],
+    color: '#B8860B',
+    size: 341
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
