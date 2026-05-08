@@ -21482,6 +21482,109 @@ export function createAnchorageLandmark(THREE, opts) {
   cbrsGroup.add(cbrsBook);
   group.add(cbrsGroup);
 
+
+  // v131: coastal tugboat dock (ctd)
+  const ctdGroup = new THREE.Group();
+  ctdGroup.position.set(-330, 0.4, 144);
+  // water area
+  const ctdWater = new THREE.Mesh(new THREE.PlaneGeometry(8, 5), new THREE.MeshBasicMaterial({ color: 0x2a4060, transparent: true, opacity: 0.5 }));
+  ctdWater.rotation.x = -Math.PI / 2;
+  ctdWater.position.y = 0.05;
+  ctdGroup.add(ctdWater);
+  // tugboat hull
+  const ctdHull = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.7, 1.2), new THREE.MeshLambertMaterial({ color: 0xc04030 }));
+  ctdHull.position.set(0, 0.5, 0);
+  ctdGroup.add(ctdHull);
+  // bow taper
+  const ctdBow = new THREE.Mesh(new THREE.ConeGeometry(0.6, 0.7, 4), new THREE.MeshLambertMaterial({ color: 0xc04030 }));
+  ctdBow.rotation.z = -Math.PI / 2;
+  ctdBow.rotation.y = Math.PI / 4;
+  ctdBow.position.set(1.6, 0.5, 0);
+  ctdGroup.add(ctdBow);
+  // cabin
+  const ctdCabin = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.7, 1.0), new THREE.MeshLambertMaterial({ color: 0xf0e8d0 }));
+  ctdCabin.position.set(-0.4, 1.15, 0);
+  ctdGroup.add(ctdCabin);
+  // smokestack
+  const ctdStack = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.7, 10), new THREE.MeshLambertMaterial({ color: 0x303040 }));
+  ctdStack.position.set(-0.9, 1.85, 0);
+  ctdGroup.add(ctdStack);
+  // smoke puffs
+  const ctdSmokeMat = new THREE.MeshBasicMaterial({ color: 0xc8c8c8, transparent: true, opacity: 0.5 });
+  const ctdSmoke = [];
+  for (let i = 0; i < 5; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.18 + i * 0.04, 7, 6), ctdSmokeMat.clone());
+    s.position.set(-0.9, 2.4 + i * 0.4, 0);
+    ctdGroup.add(s);
+    ctdSmoke.push(s);
+  }
+  // dock
+  const ctdDock = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.2, 0.8), new THREE.MeshLambertMaterial({ color: 0x8a6a4a }));
+  ctdDock.position.set(0, 0.4, 1.6);
+  ctdGroup.add(ctdDock);
+  // dockhand
+  const ctdHand = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.2, 8), new THREE.MeshLambertMaterial({ color: 0x4060a8 }));
+  ctdHand.position.set(0, 1.1, 1.6);
+  ctdGroup.add(ctdHand);
+  const ctdHandH = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  ctdHandH.position.set(0, 1.85, 1.6);
+  ctdGroup.add(ctdHandH);
+  group.add(ctdGroup);
+
+  // v131: beach driftboard skim (bds)
+  const bdsGroup = new THREE.Group();
+  bdsGroup.position.set(96, 0.05, 230);
+  // shallow wash
+  const bdsWash = new THREE.Mesh(new THREE.PlaneGeometry(6, 4), new THREE.MeshBasicMaterial({ color: 0x80a8c8, transparent: true, opacity: 0.5 }));
+  bdsWash.rotation.x = -Math.PI / 2;
+  bdsWash.position.y = 0.02;
+  bdsGroup.add(bdsWash);
+  // skimboard
+  const bdsBoard = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.04, 0.5), new THREE.MeshLambertMaterial({ color: 0xe04068 }));
+  bdsBoard.position.set(0, 0.08, 0);
+  bdsGroup.add(bdsBoard);
+  // skimmer crouched
+  const bdsSkimmer = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.9, 8), new THREE.MeshLambertMaterial({ color: 0xf0a0a0 }));
+  bdsSkimmer.position.set(0, 0.55, 0);
+  bdsGroup.add(bdsSkimmer);
+  const bdsSkimmerH = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xd8a880 }));
+  bdsSkimmerH.position.set(0, 1.15, 0);
+  bdsGroup.add(bdsSkimmerH);
+  // spray
+  const bdsSprayMat = new THREE.MeshBasicMaterial({ color: 0xeaffff, transparent: true, opacity: 0.7 });
+  const bdsSpray = [];
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.06, 5, 4), bdsSprayMat.clone());
+    s.position.set(-0.7 + Math.random() * -0.6, 0.1 + Math.random() * 0.4, -0.3 + Math.random() * 0.6);
+    bdsGroup.add(s);
+    bdsSpray.push(s);
+  }
+  group.add(bdsGroup);
+
+  // v131: pier flag bearer (pfb)
+  const pfbGroup = new THREE.Group();
+  pfbGroup.position.set(212, 4.3, -52);
+  // pole
+  const pfbPole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.5, 8), new THREE.MeshLambertMaterial({ color: 0xc8b0a0 }));
+  pfbPole.position.set(0, 1.75, 0);
+  pfbGroup.add(pfbPole);
+  // bearer
+  const pfbBearer = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.4, 8), new THREE.MeshLambertMaterial({ color: 0x8a3030 }));
+  pfbBearer.position.set(-0.3, 0.7, 0);
+  pfbGroup.add(pfbBearer);
+  const pfbBearerH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  pfbBearerH.position.set(-0.3, 1.55, 0);
+  pfbGroup.add(pfbBearerH);
+  // flag
+  const pfbFlag = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 1.0), new THREE.MeshLambertMaterial({ color: 0x4080d0, side: THREE.DoubleSide }));
+  pfbFlag.position.set(0.85, 2.8, 0);
+  pfbGroup.add(pfbFlag);
+  // a small finial
+  const pfbFinial = new THREE.Mesh(new THREE.SphereGeometry(0.08, 7, 6), new THREE.MeshLambertMaterial({ color: 0xffd860 }));
+  pfbFinial.position.set(0, 3.55, 0);
+  pfbGroup.add(pfbFinial);
+  group.add(pfbGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24448,6 +24551,31 @@ export function createAnchorageLandmark(THREE, opts) {
   // cbrs - bird heart-beat
   cbrsBird.scale.setScalar(1 + Math.sin(v130t * 6.0) * 0.06);
   cbrsRingerH.position.y = 1.45 + Math.sin(v130t * 1.0) * 0.02;
+
+  // v131 updates
+  const v131t = t;
+  // ctd - tugboat gentle bob, smoke rise
+  ctdHull.position.y = 0.5 + Math.sin(v131t * 1.0) * 0.04;
+  ctdCabin.position.y = 1.15 + Math.sin(v131t * 1.0) * 0.04;
+  ctdStack.position.y = 1.85 + Math.sin(v131t * 1.0) * 0.04;
+  for (let i = 0; i < ctdSmoke.length; i++) {
+    const ph = (v131t * 0.4 + i * 0.5) % 2.0;
+    ctdSmoke[i].position.y = 2.4 + ph * 0.8;
+    ctdSmoke[i].material.opacity = 0.5 * (1 - ph / 2);
+    ctdSmoke[i].scale.setScalar(1 + ph * 0.3);
+  }
+  ctdWater.material.opacity = 0.45 + Math.sin(v131t * 0.8) * 0.08;
+  // bds - skimmer slides forward
+  const bdsX = ((v131t * 1.2) % 4) - 2;
+  bdsBoard.position.x = bdsX;
+  bdsSkimmer.position.x = bdsX;
+  bdsSkimmerH.position.x = bdsX;
+  for (let i = 0; i < bdsSpray.length; i++) {
+    bdsSpray[i].material.opacity = 0.5 + Math.sin(v131t * 4 + i * 0.5) * 0.3;
+  }
+  // pfb - flag waves
+  pfbFlag.rotation.y = Math.sin(v131t * 1.5) * 0.3;
+  pfbFlag.position.x = 0.85 + Math.sin(v131t * 2.0) * 0.08;
 
 
 
