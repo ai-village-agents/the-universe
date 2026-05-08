@@ -22743,7 +22743,208 @@ const cosmicSights = [
   { id: 13047, name: "Cluster Galaxy Velocity Dispersion Field", position: [-0.66, -0.24, 0.71] },
   { id: 13048, name: "Infall Region Galaxy Population", position: [0.58, -0.76, -0.31] },
   { id: 13049, name: "Cluster Baryon Fraction Measurement", position: [-0.33, 0.55, 0.77] },
-  { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] }
+  { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] },
+
+  {
+    name: "Graph Neural Networks for Cosmic Structure",
+    position: [12000, 128000, 6500],
+    color: "#000000",
+    size: 195,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Transformer Attention for Multi-Wavelength Fusion",
+    position: [12150, 128100, 6420],
+    color: "#11171f",
+    size: 205,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Neural Radiance Fields for 3D Sky Reconstruction",
+    position: [12300, 128200, 6340],
+    color: "#222e3e",
+    size: 215,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Physics-Informed Autoencoders for Data Compression",
+    position: [12450, 128300, 6260],
+    color: "#33455d",
+    size: 225,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Differentiable Rendering for Telescope Simulation",
+    position: [12600, 128400, 6180],
+    color: "#445c7c",
+    size: 235,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Bayesian Neural Networks for Uncertainty",
+    position: [12750, 128500, 6100],
+    color: "#55739b",
+    size: 245,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Federated Learning for Observatory Networks",
+    position: [12900, 128600, 6020],
+    color: "#668aba",
+    size: 195,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Meta-Learning for Rare Transient Detection",
+    position: [13050, 128700, 5940],
+    color: "#77a1d9",
+    size: 205,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Self-Supervised Representation Learning",
+    position: [13200, 128800, 5860],
+    color: "#88b8f8",
+    size: 215,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Causal Discovery for Astrophysical Processes",
+    position: [13350, 128900, 5780],
+    color: "#99cf17",
+    size: 225,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Symbolic Regression for Equation Discovery",
+    position: [13500, 129000, 5700],
+    color: "#aae636",
+    size: 235,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Neural Ordinary Differential Equations",
+    position: [13650, 129100, 5620],
+    color: "#bbfd55",
+    size: 245,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Adversarial Robustness for Classifiers",
+    position: [13800, 129200, 5540],
+    color: "#cc1474",
+    size: 195,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Explainable AI for Black Hole Dynamics",
+    position: [13950, 129300, 5460],
+    color: "#dd2b93",
+    size: 205,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Continual Learning for Sky Surveys",
+    position: [14100, 129400, 5380],
+    color: "#ee42b2",
+    size: 215,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Multi-Modal Fusion Networks",
+    position: [14250, 129500, 5300],
+    color: "#ff59d1",
+    size: 225,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Attention Mechanisms for Time Series",
+    position: [14400, 129600, 5220],
+    color: "#1070f0",
+    size: 235,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Generative Models for Missing Data",
+    position: [14550, 129700, 5140],
+    color: "#21870f",
+    size: 245,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Reinforcement Learning for Scheduling",
+    position: [14700, 129800, 5060],
+    color: "#329e2e",
+    size: 195,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Transfer Learning Across Wavelengths",
+    position: [14850, 129900, 4980],
+    color: "#43b54d",
+    size: 205,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Neural Architecture Search for Astronomy",
+    position: [15000, 130000, 4900],
+    color: "#54cc6c",
+    size: 215,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Quantization for Edge Deployment",
+    position: [15150, 130100, 4820],
+    color: "#65e38b",
+    size: 225,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Distributed Training for Large Datasets",
+    position: [15300, 130200, 4740],
+    color: "#76faaa",
+    size: 235,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Uncertainty Quantification via Ensembles",
+    position: [15450, 130300, 4660],
+    color: "#8711c9",
+    size: 245,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  },
+  {
+    name: "Interpretable Machine Learning for Discovery",
+    position: [15600, 130400, 4580],
+    color: "#9828e8",
+    size: 195,
+    category: "computational_astrophysics",
+    description: "Advanced machine learning method applied to multi-messenger astrophysics, enabling new discovery pathways in computational astronomy."
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
