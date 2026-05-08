@@ -21476,7 +21476,260 @@ const cosmicSights = [
   { name: "Magnetic Storm Main Phase", type: "phenomenon", category: "planetary", position: [4610, 1550, 3510], description: "Period of ring current intensification causing global magnetic field depression measured on surface" },
   { name: "Substorm Onset Trigger Region", type: "phenomenon", category: "planetary", position: [4625, 1565, 3525], description: "Magnetotail location where magnetic reconnection initiates explosive auroral brightenings" },
   { name: "Planetary Magnetic Pole Wandering", type: "phenomenon", category: "planetary", position: [4640, 1580, 3540], description: "Secular variation in magnetic pole positions driven by changing deep interior convection patterns" }
+,
+  { name: "CMB Acoustic Peak Structure", type: "phenomenon", category: "cosmological", position: [4660, 1600, 3560], description: "Harmonic oscillation pattern in temperature power spectrum revealing baryon-photon fluid dynamics" },
+  { name: "CMB Polarization E-Mode Signal", type: "phenomenon", category: "cosmological", position: [4675, 1615, 3575], description: "Gradient-type polarization pattern tracing density perturbations at recombination epoch" },
+  { name: "CMB Polarization B-Mode Search", type: "phenomenon", category: "cosmological", position: [4690, 1630, 3590], description: "Curl-type polarization signature potentially revealing primordial gravitational wave background" },
+  { name: "CMB Spectral Distortion Limits", type: "phenomenon", category: "cosmological", position: [4705, 1645, 3605], description: "Departures from perfect blackbody constraining energy injection in early universe" },
+  { name: "CMB Sachs-Wolfe Plateau", type: "phenomenon", category: "cosmological", position: [4720, 1660, 3620], description: "Large angular scale temperature variations from gravitational redshift at last scattering" },
+  { name: "CMB Integrated Sachs-Wolfe Effect", type: "phenomenon", category: "cosmological", position: [4735, 1675, 3635], description: "Late-time contribution from evolving gravitational potentials during dark energy domination" },
+  { name: "CMB Silk Damping Tail", type: "phenomenon", category: "cosmological", position: [4750, 1690, 3650], description: "Exponential suppression at small scales from photon diffusion before recombination" },
+  { name: "CMB Reionization Optical Depth", type: "phenomenon", category: "cosmological", position: [4765, 1705, 3665], description: "Large-scale polarization amplitude measuring electron scattering from first luminous objects" },
+  { name: "CMB Lensing Deflection Field", type: "phenomenon", category: "cosmological", position: [4780, 1720, 3680], description: "Gravitational distortion pattern mapping integrated mass distribution along line of sight" },
+  { name: "CMB Cold Spot Anomaly", type: "phenomenon", category: "cosmological", position: [4795, 1735, 3695], description: "Unusually large cold region challenging standard cosmological perturbation statistics" },
+  { name: "CMB Hemispherical Power Asymmetry", type: "phenomenon", category: "cosmological", position: [4810, 1750, 3710], description: "Observed difference in fluctuation amplitude between opposite sky hemispheres" },
+  { name: "CMB Dipole Anisotropy Origin", type: "phenomenon", category: "cosmological", position: [4825, 1765, 3725], description: "Dominant temperature variation from Solar System motion through cosmic rest frame" },
+  { name: "CMB Quadrupole Alignment Mystery", type: "phenomenon", category: "cosmological", position: [4840, 1780, 3740], description: "Unexpected correlation between quadrupole and octupole orientations with ecliptic" },
+  { name: "CMB Foreground Separation Methods", type: "phenomenon", category: "cosmological", position: [4855, 1795, 3755], description: "Component separation techniques isolating primordial signal from galactic contamination" },
+  { name: "CMB Kinetic SZ Signal", type: "phenomenon", category: "cosmological", position: [4870, 1810, 3770], description: "Doppler shift from bulk motion of ionized gas in galaxy clusters" },
+  { name: "CMB Thermal SZ Decrement", type: "phenomenon", category: "cosmological", position: [4885, 1825, 3785], description: "Spectral distortion from inverse Compton scattering in hot intracluster medium" },
+  { name: "CMB Recombination Line Emission", type: "phenomenon", category: "cosmological", position: [4900, 1840, 3800], description: "Faint spectral lines from hydrogen recombination probing conditions at last scattering" },
+  { name: "CMB Primordial Non-Gaussianity", type: "phenomenon", category: "cosmological", position: [4915, 1855, 3815], description: "Higher-order correlation statistics constraining inflationary model predictions" },
+  { name: "CMB Tensor-to-Scalar Ratio Bounds", type: "phenomenon", category: "cosmological", position: [4930, 1870, 3830], description: "Limits on primordial gravitational wave amplitude relative to density perturbations" },
+  { name: "CMB Baryon Acoustic Oscillation Scale", type: "phenomenon", category: "cosmological", position: [4945, 1885, 3845], description: "Standard ruler distance from acoustic horizon at recombination" },
+  { name: "CMB Helium Abundance Constraint", type: "phenomenon", category: "cosmological", position: [4960, 1900, 3860], description: "Primordial helium mass fraction inferred from damping tail shape" },
+  { name: "CMB Neutrino Effective Number", type: "phenomenon", category: "cosmological", position: [4975, 1915, 3875], description: "Relativistic species count affecting expansion rate during radiation domination" },
+  { name: "CMB Dark Matter Annihilation Limits", type: "phenomenon", category: "cosmological", position: [4990, 1930, 3890], description: "Energy injection constraints from hypothetical dark matter particle interactions" },
+  { name: "CMB Isocurvature Mode Bounds", type: "phenomenon", category: "cosmological", position: [5005, 1945, 3905], description: "Limits on non-adiabatic initial conditions challenging simple inflation models" },
+  { name: "CMB Running Spectral Index Search", type: "phenomenon", category: "cosmological", position: [5020, 1960, 3920], description: "Scale-dependent tilt of primordial power spectrum probing inflationary dynamics" }
+,
+  { name: "O-Star Fast Wind Terminal Velocity", type: "phenomenon", category: "stellar", position: [5040, 1980, 3940], description: "Radiatively driven outflows reaching 3000 km/s from massive hot stars" },
+  { name: "Wolf-Rayet Wind Momentum", type: "phenomenon", category: "stellar", position: [5055, 1995, 3955], description: "Optically thick line-driven winds exceeding single scattering photon momentum limit" },
+  { name: "Red Supergiant Mass Loss Plumes", type: "phenomenon", category: "stellar", position: [5070, 2010, 3970], description: "Episodic convective-driven ejection events creating asymmetric circumstellar structures" },
+  { name: "AGB Thermal Pulse Wind Enhancement", type: "phenomenon", category: "stellar", position: [5085, 2025, 3985], description: "Periodic mass loss rate increases during helium shell flash cycles" },
+  { name: "Mira Variable Shock-Driven Wind", type: "phenomenon", category: "stellar", position: [5100, 2040, 4000], description: "Pulsation-induced atmospheric levitation enabling dust condensation and radiative acceleration" },
+  { name: "Carbon Star Dust-Driven Outflow", type: "phenomenon", category: "stellar", position: [5115, 2055, 4015], description: "Amorphous carbon grain formation zone powering cool giant mass loss" },
+  { name: "Oxygen-Rich AGB Silicate Wind", type: "phenomenon", category: "stellar", position: [5130, 2070, 4030], description: "Magnesium-iron silicate dust condensation driving oxygen-dominated giant outflows" },
+  { name: "Coronal Mass Ejection Propagation", type: "phenomenon", category: "stellar", position: [5145, 2085, 4045], description: "Explosive plasma cloud eruption traveling through interplanetary magnetic field" },
+  { name: "Solar Wind Acceleration Region", type: "phenomenon", category: "stellar", position: [5160, 2100, 4060], description: "Transition zone where coronal heating drives supersonic particle outflow" },
+  { name: "Fast Solar Wind Coronal Source", type: "phenomenon", category: "stellar", position: [5175, 2115, 4075], description: "Open magnetic field regions in coronal holes producing 800 km/s streams" },
+  { name: "Slow Solar Wind Streamer Origin", type: "phenomenon", category: "stellar", position: [5190, 2130, 4090], description: "Helmet streamer boundaries releasing denser variable-speed plasma" },
+  { name: "T Tauri Magnetospheric Accretion Wind", type: "phenomenon", category: "stellar", position: [5205, 2145, 4105], description: "Complex interplay between infall streams and magnetically launched outflows" },
+  { name: "FUor Accretion Burst Outflow", type: "phenomenon", category: "stellar", position: [5220, 2160, 4120], description: "Dramatically enhanced mass loss during young star accretion disk instability events" },
+  { name: "Herbig Ae/Be Disk Wind Signatures", type: "phenomenon", category: "stellar", position: [5235, 2175, 4135], description: "Intermediate-mass pre-main-sequence star outflows traced in emission line profiles" },
+  { name: "B-Star Weak Wind Problem", type: "phenomenon", category: "stellar", position: [5250, 2190, 4150], description: "Unexpectedly low mass loss rates in late B-type main sequence stars" },
+  { name: "Line-Driven Instability Clumping", type: "phenomenon", category: "stellar", position: [5265, 2205, 4165], description: "Small-scale density structures in hot star winds from radiative-acoustic instabilities" },
+  { name: "Spiral Stream Interaction Zone", type: "phenomenon", category: "stellar", position: [5280, 2220, 4180], description: "Spiral density compression zone where fast wind overtakes slow wind" },
+  { name: "Stellar Wind Bow Shock", type: "phenomenon", category: "stellar", position: [5295, 2235, 4195], description: "Arc-shaped structure where star's wind encounters interstellar medium" },
+  { name: "Astrosphere Heliosheath Analog", type: "phenomenon", category: "stellar", position: [5310, 2250, 4210], description: "Subsonic wind region beyond termination shock in stellar wind bubble" },
+  { name: "Wind Collision Zone Binary", type: "phenomenon", category: "stellar", position: [5325, 2265, 4225], description: "Hot plasma generated where winds from binary star components interact" },
+  { name: "Luminous Blue Variable Giant Eruption", type: "phenomenon", category: "stellar", position: [5340, 2280, 4240], description: "Extreme episodic mass ejection events approaching stellar wind limit" },
+  { name: "Eta Carinae Homunculus Nebula", type: "phenomenon", category: "stellar", position: [5355, 2295, 4255], description: "Bipolar ejecta from 19th century great eruption mass loss event" },
+  { name: "P Cygni Wind Profile Signature", type: "phenomenon", category: "stellar", position: [5370, 2310, 4270], description: "Characteristic absorption-emission line shape revealing expanding stellar atmosphere" },
+  { name: "Wind Momentum-Luminosity Relation", type: "phenomenon", category: "stellar", position: [5385, 2325, 4285], description: "Empirical correlation enabling extragalactic distance determination from stellar winds" },
+  { name: "Alfven Wave Driven Stellar Wind", type: "phenomenon", category: "stellar", position: [5400, 2340, 4300], description: "Magnetohydrodynamic wave dissipation mechanism accelerating cool star outflows" }
 
+,
+  {
+    name: 'Vacuum Polarization Anomaly 12651',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-13091, 21929, 24821],
+    color: '#00BFFF',
+    size: 104
+  },
+  {
+    name: 'Casimir Effect Void 12652',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-31754, 4495, 8189],
+    color: '#00BFFF',
+    size: 102
+  },
+  {
+    name: 'Hawking Radiation Plume 12653',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-2470, -28438, 26334],
+    color: '#00BFFF',
+    size: 281
+  },
+  {
+    name: 'Unruh Effect Horizon 12654',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [220, -8337, -34710],
+    color: '#0000CD',
+    size: 190
+  },
+  {
+    name: 'Schwinger Pair Production 12655',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [30632, 21739, -25431],
+    color: '#4169E1',
+    size: 259
+  },
+  {
+    name: 'Higgs Field Fluctuation 12656',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-22907, 22280, -39475],
+    color: '#4169E1',
+    size: 269
+  },
+  {
+    name: 'Axion Cloud 12657',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [14675, -30867, 22825],
+    color: '#00BFFF',
+    size: 254
+  },
+  {
+    name: 'WIMP Dark Matter Halo 12658',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [39448, -9063, 15372],
+    color: '#000080',
+    size: 78
+  },
+  {
+    name: 'Magnetic Monopole Remnant 12659',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-9119, 21499, 2746],
+    color: '#4169E1',
+    size: 145
+  },
+  {
+    name: 'Cosmic String Segment 12660',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [27486, -39892, -15986],
+    color: '#000080',
+    size: 292
+  },
+  {
+    name: 'Domain Wall Boundary 12661',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [10129, 12927, 7610],
+    color: '#4169E1',
+    size: 223
+  },
+  {
+    name: 'False Vacuum Bubble 12662',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [3075, -13554, 32082],
+    color: '#00BFFF',
+    size: 344
+  },
+  {
+    name: 'Electroweak Symmetry Breaking 12663',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-440, 2029, -39992],
+    color: '#4169E1',
+    size: 173
+  },
+  {
+    name: 'QCD Phase Transition 12664',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-11508, -12135, -5904],
+    color: '#4169E1',
+    size: 52
+  },
+  {
+    name: 'Chiral Symmetry Condensate 12665',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [8097, -10099, -22512],
+    color: '#00FFFF',
+    size: 89
+  },
+  {
+    name: 'Instantons and Sphalerons 12666',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [4377, -37075, 10123],
+    color: '#000080',
+    size: 83
+  },
+  {
+    name: 'Baryogenesis Asymmetry 12667',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-25693, 7401, -5393],
+    color: '#1E90FF',
+    size: 372
+  },
+  {
+    name: 'Leptogenesis Signature 12668',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [21722, 9295, -17740],
+    color: '#00BFFF',
+    size: 251
+  },
+  {
+    name: 'Grand Unified Monopole 12669',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [32125, -28100, -36520],
+    color: '#000080',
+    size: 261
+  },
+  {
+    name: 'Supersymmetric Neutralino 12670',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-448, -29636, 30237],
+    color: '#00FFFF',
+    size: 166
+  },
+  {
+    name: 'Gravitino Decay 12671',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-31046, 11491, 36684],
+    color: '#00FFFF',
+    size: 95
+  },
+  {
+    name: 'Kaluza Klein Mode 12672',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-15766, 17204, -768],
+    color: '#4169E1',
+    size: 96
+  },
+  {
+    name: 'Brane Collision Echo 12673',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [24650, -36270, 24270],
+    color: '#000080',
+    size: 54
+  },
+  {
+    name: 'Tachyon Condensation Field 12674',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-30227, 34558, -515],
+    color: '#1E90FF',
+    size: 191
+  },
+  {
+    name: 'Dilaton Fluctuation 12675',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-233, -11804, -27501],
+    color: '#4169E1',
+    size: 277
+  }
 ];
 { id: 12701, name: 'Stellar Genesis Cradle', position: [142.37, 58.92, -311.48] },
 { id: 12702, name: 'Protostar Lattice', position: [-205.61, 14.08, 267.53] },
