@@ -18327,6 +18327,207 @@ const cosmicSights = [
     color: '#FF6B9D',
     size: 140
   }
+,
+{
+    name: 'Gamma-Ray Burst Prompt Emission 11926',
+    category: 'High-Energy Transient Phenomena',
+    description: 'The initial intense burst of gamma rays from a compact stellar merger or massive star collapse.',
+    position: [5625, 110000, 3625],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Kilonova Radioactive Decay 11927',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Electromagnetic emission from radioactive elements synthesized in neutron star mergers.',
+    position: [5626, 110020, 3626],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Relativistic Jet Formation 11928',
+    category: 'High-Energy Transient Phenomena',
+    description: 'The physics of accelerated particle jets reaching near-light speeds from compact objects.',
+    position: [5627, 110040, 3627],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'X-Ray Flare Mechanisms 11929',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Processes generating sudden bursts of X-rays from active stellar objects.',
+    position: [5628, 110060, 3628],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Supernova Light Curve Evolution 11930',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Time-dependent brightness changes of supernovae from explosion to fading.',
+    position: [5629, 110080, 3629],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Fast Radio Burst Pulse Shape 11931',
+    category: 'High-Energy Transient Phenomena',
+    description: 'The detailed temporal structure of millisecond radio bursts from distant sources.',
+    position: [5630, 110100, 3630],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Tidal Disruption Event Signature 11932',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Electromagnetic markers of stars torn apart by supermassive black hole gravity.',
+    position: [5631, 110120, 3631],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Accretion Disk Outburst 11933',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Sudden increases in brightness from accretion disks around compact objects.',
+    position: [5632, 110140, 3632],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Soft Gamma Repeater Activity 11934',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Repeated bursts of gamma rays from magnetar starquakes.',
+    position: [5633, 110160, 3633],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Pulsar Glitch Dynamics 11935',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Sudden spin-ups in neutron star rotation rates.',
+    position: [5634, 110180, 3634],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Cosmic Ray Shower Cascade 11936',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Atmospheric particle showers initiated by high-energy cosmic ray impacts.',
+    position: [5635, 110200, 3635],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Inverse Compton Flare 11937',
+    category: 'High-Energy Transient Phenomena',
+    description: 'High-energy emission from photon-electron scattering in relativistic jets.',
+    position: [5636, 110220, 3636],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Magnetic Reconnection Burst 11938',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Energy release from sudden changes in magnetic field topology.',
+    position: [5637, 110240, 3637],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Novae Thermonuclear Flash 11939',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Rapid hydrogen fusion on white dwarf surfaces in binary systems.',
+    position: [5638, 110260, 3638],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Accretion Disk Instability 11940',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Thermal or viscous instabilities causing dramatic luminosity changes.',
+    position: [5639, 110280, 3639],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Dust Obscuration Variations 11941',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Rapid changes in apparent brightness from variable dust extinction.',
+    position: [5640, 110300, 3640],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Gravitational Wave Ringdown 11942',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Damped oscillations of newly-formed black holes or neutron stars.',
+    position: [5641, 110320, 3641],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Binary Merger Electromagnetic Counterpart 11943',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Light emission accompanying gravitational wave signals from compact object mergers.',
+    position: [5642, 110340, 3642],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Particle Acceleration Mechanism 11944',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Physical processes accelerating particles to ultra-relativistic energies.',
+    position: [5643, 110360, 3643],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Betatron Effect 11945',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Particle acceleration by changing magnetic fields in astrophysical contexts.',
+    position: [5644, 110380, 3644],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Synchrotron Flare Emissions 11946',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Sudden increases in synchrotron radiation from accelerated electrons.',
+    position: [5645, 110400, 3645],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Spectral Hardening Transients 11947',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Temporary shifts toward higher-energy photons in transient sources.',
+    position: [5646, 110420, 3646],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Accretion Flow Turbulence 11948',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Chaotic fluctuations in accreting material causing variable emission.',
+    position: [5647, 110440, 3647],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Precursor Afterglow Emission 11949',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Pre-explosion electromagnetic signatures preceding main transient events.',
+    position: [5648, 110460, 3648],
+    color: '#FFD700',
+    size: 140
+  },
+  {
+    name: 'Transient Phenomena Synthesis 11950',
+    category: 'High-Energy Transient Phenomena',
+    description: 'Unified framework for understanding high-energy explosive and variable cosmic events.',
+    position: [5649, 110480, 3649],
+    color: '#FFD700',
+    size: 140
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
