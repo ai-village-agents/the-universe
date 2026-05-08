@@ -17774,6 +17774,207 @@ const cosmicSights = [
     color: '#CD853F',
     size: 160
   }
+,
+  {
+    name: 'Subglacial Ammonia Ocean 11826',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-4393, 22420, 13512],
+    color: '#7FFF00',
+    size: 211
+  },
+  {
+    name: 'Extraterrestrial Protein Scaffolds 11827',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-5538, -14877, 38117],
+    color: '#00FF7F',
+    size: 375
+  },
+  {
+    name: 'Chiral Amino Acid Cloud 11828',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [9983, 14740, 13449],
+    color: '#00FA9A',
+    size: 371
+  },
+  {
+    name: 'Tholin-Rich Dunes 11829',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-37467, 3871, 35797],
+    color: '#ADFF2F',
+    size: 206
+  },
+  {
+    name: 'Deep-Space Panspermia Vector 11830',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-7068, -26477, -32682],
+    color: '#7FFF00',
+    size: 298
+  },
+  {
+    name: 'Silicate-Based Protocells 11831',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [17359, 18426, -3289],
+    color: '#7FFF00',
+    size: 272
+  },
+  {
+    name: 'Hydrothermal Vent Ecosystem 11832',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-7133, -9371, 5776],
+    color: '#2E8B57',
+    size: 274
+  },
+  {
+    name: 'Phosphine Gas Plume 11833',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-31170, 37408, 21770],
+    color: '#00FF7F',
+    size: 86
+  },
+  {
+    name: 'Radiation-Shielded Cave System 11834',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-8478, -27609, 35676],
+    color: '#32CD32',
+    size: 307
+  },
+  {
+    name: 'Exotic Solvents Lake 11835',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [35999, 12701, 1087],
+    color: '#00FA9A',
+    size: 374
+  },
+  {
+    name: 'Methane-Ammonia Ice Crust 11836',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [37104, 23689, 12862],
+    color: '#00FA9A',
+    size: 170
+  },
+  {
+    name: 'Carbon-Rich Asteroid Interior 11837',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-15847, 38992, -16209],
+    color: '#7FFF00',
+    size: 155
+  },
+  {
+    name: 'Tidally Locked Habitable Zone 11838',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [37585, -35214, 35188],
+    color: '#3CB371',
+    size: 102
+  },
+  {
+    name: 'Subsurface Methane Reservoir 11839',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [14488, 22115, 3075],
+    color: '#2E8B57',
+    size: 347
+  },
+  {
+    name: 'Extremophile Biofilms 11840',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-39403, 99, 32879],
+    color: '#7FFF00',
+    size: 285
+  },
+  {
+    name: 'Complex Organic Nebula 11841',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-38235, 560, 38806],
+    color: '#2E8B57',
+    size: 387
+  },
+  {
+    name: 'Nucleotide Assembly Matrix 11842',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [22391, -17078, -4032],
+    color: '#00FA9A',
+    size: 399
+  },
+  {
+    name: 'Liquid Nitrogen Geysers 11843',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-38314, 34163, -3005],
+    color: '#7FFF00',
+    size: 216
+  },
+  {
+    name: 'Volcanic Geothermal Vents 11844',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-36989, -36707, 29766],
+    color: '#2E8B57',
+    size: 136
+  },
+  {
+    name: 'Sub-Ice Brine Pockets 11845',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [5724, 13358, -16209],
+    color: '#00FF7F',
+    size: 234
+  },
+  {
+    name: 'Primordial Soup Remnant 11846',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [36497, -25572, 20982],
+    color: '#2E8B57',
+    size: 323
+  },
+  {
+    name: 'Silicon-Carbide Prebiotic Matrix 11847',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [3429, -19899, 14168],
+    color: '#ADFF2F',
+    size: 178
+  },
+  {
+    name: 'Magnetosphere-Protected Valley 11848',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-8312, 25893, 521],
+    color: '#ADFF2F',
+    size: 354
+  },
+  {
+    name: 'Exoplanetary Cyanobacteria Mats 11849',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [-8745, -39454, -36568],
+    color: '#32CD32',
+    size: 207
+  },
+  {
+    name: 'Bio-Signature Anomaly 11850',
+    category: 'Astrobiological Precursors & Habitats',
+    description: 'A fascinating site holding the raw chemical precursors or potential habitats for extraterrestrial life.', 
+    position: [32734, 21832, -6218],
+    color: '#00FA9A',
+    size: 339
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
