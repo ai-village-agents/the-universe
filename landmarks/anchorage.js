@@ -17922,6 +17922,191 @@ export function createAnchorageLandmark(THREE, opts) {
   crgGroup.add(crgSignPost);
   group.add(crgGroup);
 
+  // v109: pier hot chocolate stand (phcs)
+  const phcsGroup = new THREE.Group();
+  phcsGroup.position.set(-22, 1.6, -8);
+  const phcsBoothMat = new THREE.MeshStandardMaterial({ color: 0x6b3410, roughness: 0.85 });
+  const phcsBooth = new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.6, 1.4), phcsBoothMat);
+  phcsBooth.position.y = 0.8;
+  phcsGroup.add(phcsBooth);
+  const phcsRoofMat = new THREE.MeshStandardMaterial({ color: 0x8a3a1a, roughness: 0.9 });
+  const phcsRoof = new THREE.Mesh(new THREE.ConeGeometry(1.6, 0.7, 4), phcsRoofMat);
+  phcsRoof.position.y = 1.95;
+  phcsRoof.rotation.y = Math.PI / 4;
+  phcsGroup.add(phcsRoof);
+  const phcsCounter = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.08, 0.4), new THREE.MeshStandardMaterial({ color: 0xa86a3a }));
+  phcsCounter.position.set(0, 1.0, 0.85);
+  phcsGroup.add(phcsCounter);
+  const phcsKettle = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.32, 16), new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.4 }));
+  phcsKettle.position.set(-0.7, 1.20, 0.85);
+  phcsGroup.add(phcsKettle);
+  const phcsKettleSpout = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 0.18, 8), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+  phcsKettleSpout.rotation.z = -1.0;
+  phcsKettleSpout.position.set(-0.5, 1.30, 0.85);
+  phcsGroup.add(phcsKettleSpout);
+  const phcsCups = [];
+  for (let i = 0; i < 5; i++) {
+    const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.06, 0.14, 12), new THREE.MeshStandardMaterial({ color: 0xfaf3dd }));
+    cup.position.set(-0.2 + i * 0.18, 1.11, 0.85);
+    phcsCups.push(cup);
+    phcsGroup.add(cup);
+  }
+  const phcsSteam = [];
+  const phcsSteamMat = new THREE.MeshBasicMaterial({ color: 0xeeeeee, transparent: true, opacity: 0.7 });
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.10, 8, 6), phcsSteamMat.clone());
+    s.position.set(-0.7 + (Math.random() - 0.5) * 0.2, 1.5 + i * 0.1, 0.85);
+    s.userData = { phase: i * 0.6, baseY: 1.5 + i * 0.1 };
+    phcsSteam.push(s);
+    phcsGroup.add(s);
+  }
+  const phcsSign = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.4), new THREE.MeshStandardMaterial({ color: 0xfff0c0, roughness: 0.9, side: THREE.DoubleSide }));
+  phcsSign.position.set(0, 1.7, 0.71);
+  phcsGroup.add(phcsSign);
+  const phcsBarista = new THREE.Group();
+  phcsBarista.position.set(0.6, 0, 0.3);
+  const phcsBBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.8, 12), new THREE.MeshStandardMaterial({ color: 0x8a2a1a }));
+  phcsBBody.position.y = 0.4;
+  phcsBarista.add(phcsBBody);
+  const phcsBHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  phcsBHead.position.y = 0.93;
+  phcsBarista.add(phcsBHead);
+  const phcsBHat = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.06, 12), new THREE.MeshStandardMaterial({ color: 0xffffff }));
+  phcsBHat.position.y = 1.06;
+  phcsBarista.add(phcsBHat);
+  phcsGroup.add(phcsBarista);
+  const phcsCustomers = [];
+  for (let i = 0; i < 3; i++) {
+    const c = new THREE.Group();
+    c.position.set(-1.0 + i * 0.45, 0, 1.4);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.7, 10), new THREE.MeshStandardMaterial({ color: [0x2a4a8a, 0x8a4a2a, 0x4a8a2a][i] }));
+    body.position.y = 0.35;
+    c.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.82;
+    c.add(head);
+    const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.04, 0.1, 10), new THREE.MeshStandardMaterial({ color: 0xfaf3dd }));
+    cup.position.set(0.12, 0.6, 0);
+    c.add(cup);
+    phcsCustomers.push(c);
+    phcsGroup.add(c);
+  }
+  group.add(phcsGroup);
+
+  // v109: coastal aquarium feeding show (cafs)
+  const cafsGroup = new THREE.Group();
+  cafsGroup.position.set(28, 0.3, -16);
+  const cafsTankMat = new THREE.MeshStandardMaterial({ color: 0x6ab8d8, roughness: 0.2, transparent: true, opacity: 0.55 });
+  const cafsTank = new THREE.Mesh(new THREE.BoxGeometry(3.0, 1.6, 1.6), cafsTankMat);
+  cafsTank.position.y = 0.85;
+  cafsGroup.add(cafsTank);
+  const cafsTankFrame = new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.06, 1.7), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+  cafsTankFrame.position.y = 0.05;
+  cafsGroup.add(cafsTankFrame);
+  const cafsTopFrame = cafsTankFrame.clone();
+  cafsTopFrame.position.y = 1.66;
+  cafsGroup.add(cafsTopFrame);
+  const cafsFishColors = [0xff8c2e, 0xffcc2e, 0xff4a4a, 0x7eafff, 0xc04ee0, 0x2eccff];
+  const cafsFish = [];
+  for (let i = 0; i < 14; i++) {
+    const f = new THREE.Mesh(new THREE.ConeGeometry(0.10, 0.32, 8), new THREE.MeshStandardMaterial({ color: cafsFishColors[i % cafsFishColors.length] }));
+    f.rotation.z = Math.PI / 2;
+    f.position.set(-1.3 + Math.random() * 2.6, 0.4 + Math.random() * 1.0, -0.7 + Math.random() * 1.4);
+    f.userData = { phase: i * 0.7, base: f.position.clone(), speed: 0.4 + Math.random() * 0.4 };
+    cafsFish.push(f);
+    cafsGroup.add(f);
+  }
+  const cafsTrainer = new THREE.Group();
+  cafsTrainer.position.set(0, 0, 1.4);
+  const cafsTBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.85, 12), new THREE.MeshStandardMaterial({ color: 0x2a8aff }));
+  cafsTBody.position.y = 0.42;
+  cafsTrainer.add(cafsTBody);
+  const cafsTHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  cafsTHead.position.y = 0.98;
+  cafsTrainer.add(cafsTHead);
+  const cafsTBucket = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.10, 0.22, 12), new THREE.MeshStandardMaterial({ color: 0xc0c0c0 }));
+  cafsTBucket.position.set(0.25, 0.55, 0);
+  cafsTrainer.add(cafsTBucket);
+  cafsGroup.add(cafsTrainer);
+  const cafsFlakes = [];
+  const cafsFlakeMat = new THREE.MeshBasicMaterial({ color: 0x8a5a2a, transparent: true, opacity: 1.0 });
+  for (let i = 0; i < 12; i++) {
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(0.05, 0.05), cafsFlakeMat.clone());
+    fl.position.set(0.3 + (Math.random() - 0.5) * 0.6, 1.5 + Math.random() * 0.2, 0.6 + (Math.random() - 0.5) * 0.4);
+    fl.userData = { phase: i * 0.5, baseY: 1.5 + Math.random() * 0.2 };
+    cafsFlakes.push(fl);
+    cafsGroup.add(fl);
+  }
+  const cafsAudience = [];
+  for (let i = 0; i < 6; i++) {
+    const a = new THREE.Group();
+    a.position.set(-1.5 + i * 0.6, 0, -1.5);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.6, 10), new THREE.MeshStandardMaterial({ color: 0x4a2a8a + i * 0x100200 }));
+    body.position.y = 0.3;
+    a.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.10, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.7;
+    a.add(head);
+    cafsAudience.push(a);
+    cafsGroup.add(a);
+  }
+  group.add(cafsGroup);
+
+  // v109: beach origami teacher (bot)
+  const botGroup = new THREE.Group();
+  botGroup.position.set(8, 0.3, 28);
+  const botMat = new THREE.MeshStandardMaterial({ color: 0xa86a3a, roughness: 0.85 });
+  const botMat1 = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 1.6), botMat);
+  botMat1.position.y = 0.05;
+  botGroup.add(botMat1);
+  const botTeacher = new THREE.Group();
+  botTeacher.position.set(-1.0, 0, 0);
+  const botTBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.7, 12), new THREE.MeshStandardMaterial({ color: 0x6a8a2a }));
+  botTBody.position.y = 0.36;
+  botTeacher.add(botTBody);
+  const botTHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  botTHead.position.y = 0.83;
+  botTeacher.add(botTHead);
+  botGroup.add(botTeacher);
+  const botCranes = [];
+  const botCraneColors = [0xff5a3a, 0xfaf3dd, 0x4a8aff, 0xffd23f, 0xff4a8a, 0x9a4ae0];
+  for (let i = 0; i < 8; i++) {
+    const c = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.16, 6), new THREE.MeshStandardMaterial({ color: botCraneColors[i % botCraneColors.length] }));
+    body.rotation.z = Math.PI / 2;
+    c.add(body);
+    const wingL = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.08), new THREE.MeshStandardMaterial({ color: botCraneColors[i % botCraneColors.length], side: THREE.DoubleSide }));
+    wingL.rotation.y = Math.PI / 2;
+    wingL.rotation.z = 0.4;
+    wingL.position.set(0, 0.04, 0);
+    c.add(wingL);
+    const wingR = wingL.clone();
+    wingR.rotation.z = -0.4;
+    c.add(wingR);
+    c.position.set(-0.4 + (i % 4) * 0.27, 0.10, -0.5 + Math.floor(i / 4) * 0.5);
+    c.userData = { phase: i * 0.5 };
+    botCranes.push(c);
+    botGroup.add(c);
+  }
+  const botStudents = [];
+  for (let i = 0; i < 4; i++) {
+    const s = new THREE.Group();
+    s.position.set(0.4 + (i % 2) * 0.7, 0, -0.6 + Math.floor(i / 2) * 1.2);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.6, 10), new THREE.MeshStandardMaterial({ color: [0xff6a6a, 0x6a6aff, 0xffaa3a, 0x9a4ae0][i] }));
+    body.position.y = 0.3;
+    s.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.11, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.72;
+    s.add(head);
+    const paper = new THREE.Mesh(new THREE.PlaneGeometry(0.14, 0.14), new THREE.MeshStandardMaterial({ color: 0xfaf3dd, side: THREE.DoubleSide }));
+    paper.rotation.x = -Math.PI / 2;
+    paper.position.set(0, 0.6, 0.05);
+    s.add(paper);
+    botStudents.push(s);
+    botGroup.add(s);
+  }
+  group.add(botGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -20431,6 +20616,39 @@ export function createAnchorageLandmark(THREE, opts) {
       r.scale.setScalar(0.5 + ph * 4.0);
       r.material.opacity = Math.max(0.0, 0.7 - ph * 0.35);
     });
+    // v109 updates
+    const v109t = t;
+    phcsSteam.forEach((s, i) => {
+      const ph = (v109t * 0.6 + s.userData.phase) % 2.0;
+      s.position.y = s.userData.baseY + ph * 0.4;
+      s.material.opacity = Math.max(0.0, 0.7 - ph * 0.35);
+      s.scale.setScalar(1.0 + ph * 0.5);
+    });
+    phcsCustomers.forEach((c, i) => {
+      c.position.y = Math.sin(v109t * 0.9 + i * 0.6) * 0.03;
+    });
+    cafsFish.forEach((f, i) => {
+      const base = f.userData.base;
+      const ph = v109t * f.userData.speed + f.userData.phase;
+      f.position.x = base.x + Math.sin(ph) * 0.6;
+      f.position.y = base.y + Math.cos(ph * 0.7) * 0.15;
+      f.position.z = base.z + Math.sin(ph * 1.1) * 0.3;
+      f.rotation.y = Math.cos(ph) > 0 ? 0 : Math.PI;
+    });
+    cafsFlakes.forEach((fl, i) => {
+      const ph = (v109t * 0.7 + fl.userData.phase) % 2.0;
+      fl.position.y = fl.userData.baseY - ph * 0.6;
+      fl.rotation.z += 0.05;
+      fl.material.opacity = Math.max(0.0, 1.0 - ph * 0.5);
+    });
+    cafsAudience.forEach((a, i) => {
+      a.rotation.y = Math.sin(v109t * 0.8 + i * 0.5) * 0.18;
+    });
+    botCranes.forEach((c, i) => {
+      c.rotation.y = Math.sin(v109t * 0.5 + c.userData.phase) * 0.4;
+      c.position.y = 0.10 + Math.sin(v109t * 1.2 + c.userData.phase) * 0.04;
+    });
+
         }
 
 
