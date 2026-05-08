@@ -22970,6 +22970,207 @@ const cosmicSights = [
     color: '#080808',
     size: 334
   }
+,
+  {
+    name: 'SGR 1806-20 Core 13076',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [34202, -31535, -37833],
+    color: '#e9967a',
+    size: 99
+  },
+  {
+    name: 'SGR 1900+14 Echo 13077',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-2679, -11789, -16282],
+    color: '#dc143c',
+    size: 231
+  },
+  {
+    name: 'SGR 0526-66 Burst 13078',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-20113, -2556, -4538],
+    color: '#fa8072',
+    size: 365
+  },
+  {
+    name: 'SGR 1627-41 Remnant 13079',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-10295, 14105, 29786],
+    color: '#ffa500',
+    size: 213
+  },
+  {
+    name: 'SGR J1550-5418 Node 13080',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [30374, -23370, -5691],
+    color: '#e9967a',
+    size: 62
+  },
+  {
+    name: 'AXP 1E 2259+586 Pulse 13081',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [31190, 28681, -7855],
+    color: '#ff8c00',
+    size: 332
+  },
+  {
+    name: 'AXP 1E 1048.1-5937 Wave 13082',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [96, 3179, -20750],
+    color: '#ffa500',
+    size: 233
+  },
+  {
+    name: 'AXP 4U 0142+61 Anomaly 13083',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-33317, -14908, 9935],
+    color: '#ff7f50',
+    size: 209
+  },
+  {
+    name: 'AXP RXs J170849-400910 Flux 13084',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-39215, 3797, -32956],
+    color: '#ff8c00',
+    size: 293
+  },
+  {
+    name: 'AXP 1E 1841-045 Tremor 13085',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [20543, 34399, -5122],
+    color: '#fa8072',
+    size: 318
+  },
+  {
+    name: 'SGR 0418+5729 Spark 13086',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-3643, -25947, 5071],
+    color: '#ffa500',
+    size: 117
+  },
+  {
+    name: 'Swift J1822.3-1606 Flash 13087',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-8830, -26750, -13301],
+    color: '#ff8c00',
+    size: 233
+  },
+  {
+    name: 'Swift J1834.9-0846 Flare 13088',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [21248, -17759, 14250],
+    color: '#f08080',
+    size: 63
+  },
+  {
+    name: 'SGR 1833-0832 Shock 13089',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-19199, -25106, 289],
+    color: '#e9967a',
+    size: 56
+  },
+  {
+    name: 'SGR J1745-2900 Glitch 13090',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [27927, 29031, -13834],
+    color: '#ff7f50',
+    size: 385
+  },
+  {
+    name: 'XTE J1810-197 Emission 13091',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [13396, -9369, 12663],
+    color: '#fa8072',
+    size: 67
+  },
+  {
+    name: 'CXOU J010043.1-721134 Beam 13092',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-3317, -35715, 3578],
+    color: '#ff7f50',
+    size: 68
+  },
+  {
+    name: 'CXOU J164710.2-455216 Peak 13093',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [9937, 38560, -16683],
+    color: '#ffa500',
+    size: 282
+  },
+  {
+    name: 'SGR 1935+2154 Surge 13094',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-29181, 35637, 17734],
+    color: '#e9967a',
+    size: 165
+  },
+  {
+    name: 'PSR J1622-4950 Outburst 13095',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-20679, -2606, 6146],
+    color: '#e9967a',
+    size: 313
+  },
+  {
+    name: 'SGR J1935+2154 Transient 13096',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-38373, 4504, -26229],
+    color: '#fa8072',
+    size: 291
+  },
+  {
+    name: 'Swift J1818.0-1607 Spasm 13097',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [8526, -19609, 35215],
+    color: '#ff6347',
+    size: 105
+  },
+  {
+    name: 'SGR J0501+4516 Quake 13098',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-4058, 32943, 4253],
+    color: '#e9967a',
+    size: 113
+  },
+  {
+    name: 'SGR 0501+4516 Fracture 13099',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-6225, 32629, -14043],
+    color: '#ff0000',
+    size: 113
+  },
+  {
+    name: 'SGR 2013+34 Eruption 13100',
+    category: 'Magnetar Flare Zones',
+    description: 'A mesmerizing manifestation of magnetar flare zones observed in deep space.',
+    position: [-10480, 22494, -18354],
+    color: '#fa8072',
+    size: 66
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
