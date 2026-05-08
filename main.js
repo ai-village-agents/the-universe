@@ -19162,6 +19162,33 @@ const cosmicSights = [
     size: 255
   }
 
+,
+{ name: 'Multi-Messenger Gravitational Wave Detection 12101', category: 'Multi-Messenger Astronomy', description: 'Concurrent observation of gravitational waves, EM, and neutrinos from cataclysmic events.', position: [5825, 114500, 3825], color: '#FF6B9D', size: 140 },
+{ name: 'Neutron Star Merger Nucleosynthesis 12102', category: 'Multi-Messenger Astronomy', description: 'r-process element synthesis in neutron star collisions observed via GW170817 counterpart.', position: [5826, 114520, 3826], color: '#C44569', size: 140 },
+{ name: 'Kilonova Light Curve Modeling 12103', category: 'Multi-Messenger Astronomy', description: 'Radioactive decay-powered emission from merger ejecta across wavelengths.', position: [5827, 114540, 3827], color: '#FFA07A', size: 140 },
+{ name: 'Neutrino-Flavor Oscillation Astronomy 12104', category: 'Multi-Messenger Astronomy', description: 'Flavor mixing in neutrino bursts from supernovae and mergers.', position: [5828, 114560, 3828], color: '#20B2AA', size: 140 },
+{ name: 'Blazar Jet Multi-Wavelength Monitoring 12105', category: 'Multi-Messenger Astronomy', description: 'Simultaneous radio, optical, X-ray, gamma-ray, and neutrino observations of active jets.', position: [5829, 114580, 3829], color: '#FF8C69', size: 140 },
+{ name: 'Tidal Disruption Event Emission 12106', category: 'Multi-Messenger Astronomy', description: 'Multi-wavelength flares from stars torn apart by supermassive black holes.', position: [5830, 114600, 3830], color: '#FFB6C1', size: 140 },
+{ name: 'Core-Collapse Supernova Neutrino Burst 12107', category: 'Multi-Messenger Astronomy', description: 'Neutrino detection and energy budget from iron-core collapse.', position: [5831, 114620, 3831], color: '#87CEEB', size: 140 },
+{ name: 'Gravitational Wave Chirp Analysis 12108', category: 'Multi-Messenger Astronomy', description: 'Binary inspiral frequency evolution and mass extraction from GW signals.', position: [5832, 114640, 3832], color: '#DDA0DD', size: 140 },
+{ name: 'High-Energy Neutrino Point Sources 12109', category: 'Multi-Messenger Astronomy', description: 'IceCube detection of astrophysical neutrino sources and counterpart identification.', position: [5833, 114660, 3833], color: '#F0E68C', size: 140 },
+{ name: 'Fast Radio Burst Magnetar Origin 12110', category: 'Multi-Messenger Astronomy', description: 'Repeating FRB association with magnetar-like objects via multi-messenger correlations.', position: [5834, 114680, 3834], color: '#FFD700', size: 140 },
+{ name: 'Gamma-Ray Burst Afterglow Spectroscopy 12111', category: 'Multi-Messenger Astronomy', description: 'Spectral evolution and redshift measurement of GRB prompt and afterglow emission.', position: [5835, 114700, 3835], color: '#FF4500', size: 140 },
+{ name: 'Coincident X-ray/Optical Transient Search 12112', category: 'Multi-Messenger Astronomy', description: 'Rapid-response detection of simultaneous high-energy and optical eruptions.', position: [5836, 114720, 3836], color: '#1E90FF', size: 140 },
+{ name: 'Accretion-Powered Jet High-Energy Emission 12113', category: 'Multi-Messenger Astronomy', description: 'Inverse Compton and synchrotron mechanisms in relativistic jets from compact objects.', position: [5837, 114740, 3837], color: '#32CD32', size: 140 },
+{ name: 'Solar Flare Neutrino Emission 12114', category: 'Multi-Messenger Astronomy', description: 'Rare neutrino production during extreme solar magnetic energy release.', position: [5838, 114760, 3838], color: '#FFB347', size: 140 },
+{ name: 'Supernova Shock Breakout Detection 12115', category: 'Multi-Messenger Astronomy', description: 'First-light UV/X-ray flash signaling emerging shock wave from stellar surface.', position: [5839, 114780, 3839], color: '#FF69B4', size: 140 },
+{ name: 'Pulsar Wind Nebula TeV Emission 12116', category: 'Multi-Messenger Astronomy', description: 'High-energy synchrotron and inverse Compton from relativistic particle acceleration.', position: [5840, 114800, 3840], color: '#00CED1', size: 140 },
+{ name: 'Relativistic Supernova Optical Flash 12117', category: 'Multi-Messenger Astronomy', description: 'Shock-heated atmosphere re-radiation in jetted core-collapse supernovae.', position: [5841, 114820, 3841], color: '#9932CC', size: 140 },
+{ name: 'Active Galactic Nuclei Flare Cascade 12118', category: 'Multi-Messenger Astronomy', description: 'Coordinated multi-wavelength and neutrino eruptions from AGN jets and cores.', position: [5842, 114840, 3842], color: '#20B2AA', size: 140 },
+{ name: 'X-ray Binary State Transition 12119', category: 'Multi-Messenger Astronomy', description: 'Disc/jet coupling during low-hard to high-soft spectral state changes.', position: [5843, 114860, 3843], color: '#FF6347', size: 140 },
+{ name: 'Gravitational Wave Echo Detection 12120', category: 'Multi-Messenger Astronomy', description: 'Ringdown overtones and parametric resonance signatures in merger GW signals.', position: [5844, 114880, 3844], color: '#48D1CC', size: 140 },
+{ name: 'Cosmic Ray Acceleration in Shocks 12121', category: 'Multi-Messenger Astronomy', description: 'Fermi acceleration at supernova shocks and jet boundaries producing UHECRs.', position: [5845, 114900, 3845], color: '#FFDAB9', size: 140 },
+{ name: 'Soft Gamma Repeater Burst Decay 12122', category: 'Multi-Messenger Astronomy', description: 'Complex temporal structure in magnetar SGR bursts via precursor emissions.', position: [5846, 114920, 3846], color: '#DDA0DD', size: 140 },
+{ name: 'Luminous Red Nova Light Curve 12123', category: 'Multi-Messenger Astronomy', description: 'Transient from stellar merger or common-envelope ejection with dust formation.', position: [5847, 114940, 3847], color: '#FFA07A', size: 140 },
+{ name: 'Binary White Dwarf Merger Transient 12124', category: 'Multi-Messenger Astronomy', description: 'Electromagnetic counterpart to merging double degenerate systems.', position: [5848, 114960, 3848], color: '#FF8C00', size: 140 },
+{ name: 'Multi-Messenger Cosmology Constraints 12125', category: 'Multi-Messenger Astronomy', description: 'Hubble constant and dark energy limits from gravitational wave and EM standard candles.', position: [5849, 114980, 3849], color: '#87CEEB', size: 140 }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
