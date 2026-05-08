@@ -24304,7 +24304,32 @@ const cosmicSights = [
     position: [-25019, 2379, 24050],
     color: '#8a2be2',
     size: 270
-  }
+  },
+{ name: "Blazar OJ 287 Optical Flare", x: 0.5251, y: 0.4351, z: 0.3451, category: "quasars" },
+  { name: "3C 279 Gamma-Ray Outburst", x: 0.5352, y: 0.4452, z: 0.3552, category: "quasars" },
+  { name: "PKS 2155-304 TeV Variability", x: 0.5453, y: 0.4553, z: 0.3653, category: "quasars" },
+  { name: "Mrk 421 X-Ray Flaring State", x: 0.5554, y: 0.4654, z: 0.3754, category: "quasars" },
+  { name: "BL Lac Rapid Optical Polarization", x: 0.5655, y: 0.4755, z: 0.3855, category: "quasars" },
+  { name: "S5 0716+714 Intraday Variability", x: 0.5756, y: 0.4856, z: 0.3956, category: "quasars" },
+  { name: "AO 0235+164 Multi-Wavelength Flare", x: 0.5857, y: 0.4957, z: 0.4057, category: "quasars" },
+  { name: "Quasar Microlensing Caustic Crossing", x: 0.5958, y: 0.5058, z: 0.4158, category: "quasars" },
+  { name: "NGC 4151 Seyfert Optical Reverberation", x: 0.6059, y: 0.5159, z: 0.4259, category: "quasars" },
+  { name: "3C 454.3 Record Gamma Flare", x: 0.6160, y: 0.5260, z: 0.4360, category: "quasars" },
+  { name: "CTA 102 Superluminal Jet Knot", x: 0.6261, y: 0.5361, z: 0.4461, category: "quasars" },
+  { name: "PKS 1510-089 Polarization Swing", x: 0.6362, y: 0.5462, z: 0.4562, category: "quasars" },
+  { name: "Mrk 501 VHE Orphan Flare", x: 0.6463, y: 0.5563, z: 0.4663, category: "quasars" },
+  { name: "1ES 1959+650 TeV Rapid Variability", x: 0.6564, y: 0.5664, z: 0.4764, category: "quasars" },
+  { name: "W Comae Intermediate BL Lac", x: 0.6665, y: 0.5765, z: 0.4865, category: "quasars" },
+  { name: "RGB J0710+591 High-Frequency Peaked", x: 0.6766, y: 0.5866, z: 0.4966, category: "quasars" },
+  { name: "H 1426+428 Extreme TeV Blazar", x: 0.6867, y: 0.5967, z: 0.5067, category: "quasars" },
+  { name: "1ES 2344+514 X-Ray Selected BL Lac", x: 0.6968, y: 0.6068, z: 0.5168, category: "quasars" },
+  { name: "PKS 0548-322 Southern Blazar Monitoring", x: 0.7069, y: 0.6169, z: 0.5269, category: "quasars" },
+  { name: "Quasar Accretion Disk Reverberation Lag", x: 0.7170, y: 0.6270, z: 0.5370, category: "quasars" },
+  { name: "Changing-Look Quasar Transition Event", x: 0.7271, y: 0.6371, z: 0.5471, category: "quasars" },
+  { name: "Quasi-Periodic Oscillation in AGN", x: 0.7372, y: 0.6472, z: 0.5572, category: "quasars" },
+  { name: "Broad Absorption Line Variability", x: 0.7473, y: 0.6573, z: 0.5673, category: "quasars" },
+  { name: "Quasar Continuum Time Delay", x: 0.7574, y: 0.6674, z: 0.5774, category: "quasars" },
+  { name: "Fermi LAT Blazar Flare Alert", x: 0.7675, y: 0.6775, z: 0.5875, category: "quasars" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
