@@ -23877,7 +23877,32 @@ const cosmicSights = [
 {name: "Holographic Axion Models", type: "phenomenon", category: "Holographic Duality", position: [6997, 137940, 4997], description: "Gauge-gravity duality interpretation of axion physics"},
 {name: "Neutrino-Axion Mixing", type: "phenomenon", category: "Neutrino Physics", position: [6998, 137960, 4998], description: "Flavor oscillations from axion-neutrino coupling in dense environments"},
 {name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"}
-
+,
+{ name: "FR-I Radio Lobe Structure", position: [2801.0, 1700.5, 2150.7] },
+  { name: "FR-II Hot Spot Region", position: [2802.1, 1701.2, 2151.4] },
+  { name: "Wide Angle Tail Source", position: [2803.2, 1702.3, 2152.1] },
+  { name: "Narrow Angle Tail Plume", position: [2804.3, 1703.4, 2153.2] },
+  { name: "Head Tail Radio Galaxy", position: [2805.4, 1704.5, 2154.3] },
+  { name: "Double Double Radio Source", position: [2806.5, 1705.6, 2155.4] },
+  { name: "X-shaped Radio Galaxy Wing", position: [2807.6, 1706.7, 2156.5] },
+  { name: "Giant Radio Galaxy Extent", position: [2808.7, 1707.8, 2157.6] },
+  { name: "Compact Steep Spectrum Core", position: [2809.8, 1708.9, 2158.7] },
+  { name: "Gigahertz Peaked Spectrum Source", position: [2810.9, 1709.0, 2159.8] },
+  { name: "Radio Relic Shock Front", position: [2811.0, 1710.1, 2160.9] },
+  { name: "Radio Halo Diffuse Emission", position: [2812.1, 1711.2, 2161.0] },
+  { name: "Radio Phoenix Revival Zone", position: [2813.2, 1712.3, 2162.1] },
+  { name: "Jet Bending Interaction", position: [2814.3, 1713.4, 2163.2] },
+  { name: "Backflow Lobe Material", position: [2815.4, 1714.5, 2164.3] },
+  { name: "Cocoon Shock Boundary", position: [2816.5, 1715.6, 2165.4] },
+  { name: "Radio Bridge Connection", position: [2817.6, 1716.7, 2166.5] },
+  { name: "Spectral Aging Gradient", position: [2818.7, 1717.8, 2167.6] },
+  { name: "Jet Disruption Point", position: [2819.8, 1718.9, 2168.7] },
+  { name: "Lobe Pressure Balance Zone", position: [2820.9, 1719.0, 2169.8] },
+  { name: "Restarted Activity Signature", position: [2821.0, 1720.1, 2170.9] },
+  { name: "Radio Jet Knot Emission", position: [2822.1, 1721.2, 2171.0] },
+  { name: "Fanaroff Riley Transition", position: [2823.2, 1722.3, 2172.1] },
+  { name: "HYMORS Classification Example", position: [2824.3, 1723.4, 2173.2] },
+  { name: "Radio Core Dominance Region", position: [2825.4, 1724.5, 2174.3] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
