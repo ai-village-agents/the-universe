@@ -23878,6 +23878,34 @@ const cosmicSights = [
 {name: "Neutrino-Axion Mixing", type: "phenomenon", category: "Neutrino Physics", position: [6998, 137960, 4998], description: "Flavor oscillations from axion-neutrino coupling in dense environments"},
 {name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"}
 
+,
+{name: "Fast Radio Burst Dispersion Measure", type: "phenomenon", category: "Radio Astronomy", position: [7000, 138000, 5000], description: "Frequency-dependent pulse delay revealing intervening ionized medium"},
+{name: "FRB Repetition Pattern Discovery", type: "phenomenon", category: "Transient Astronomy", position: [7001, 138020, 5001], description: "Temporal clustering and periodicity detection in repeating FRB sources"},
+{name: "Magnetized Plasma Scattering", type: "phenomenon", category: "Plasma Physics", position: [7002, 138040, 5002], description: "Multipath propagation broadening FRB pulses in turbulent media"},
+{name: "Host Galaxy Identification", type: "phenomenon", category: "Extragalactic Astronomy", position: [7003, 138060, 5003], description: "Optical counterpart localization and spectral properties of FRB sources"},
+{name: "Rotation Measure Magnetism", type: "phenomenon", category: "Magnetic Field Astronomy", position: [7004, 138080, 5004], description: "Faraday rotation of FRB polarization revealing magnetic field topology"},
+{name: "Coherence Time Measurement", type: "phenomenon", category: "Signal Processing", position: [7005, 138100, 5005], description: "Temporal decorrelation bandwidth of narrow-band FRB components"},
+{name: "Burst Energy Scaling", type: "phenomenon", category: "High-Energy Astrophysics", position: [7006, 138120, 5006], description: "Luminosity distribution and isotropic equivalent energy estimation"},
+{name: "Lensing Magnification Effects", type: "phenomenon", category: "Gravitational Lensing", position: [7007, 138140, 5007], description: "Strong lensing caustics producing time-delayed FRB image pairs"},
+{name: "Commensal Detection Networks", type: "phenomenon", category: "Observational Strategy", position: [7008, 138160, 5008], description: "Multi-telescope simultaneous recording of FRB transients"},
+{name: "Metallicity Abundance Inference", type: "phenomenon", category: "Spectroscopy", position: [7009, 138180, 5009], description: "Elemental abundance patterns from FRB host galaxy emission lines"},
+{name: "Pulse Width Evolution", type: "phenomenon", category: "Radio Physics", position: [7010, 138200, 5010], description: "Frequency-dependent broadening and narrowing of FRB pulse profiles"},
+{name: "Progenitor System Models", type: "phenomenon", category: "Astrophysical Theory", position: [7011, 138220, 5011], description: "Merger-driven compact object collisions producing FRB-like events"},
+{name: "Redshift Estimation Methods", type: "phenomenon", category: "Observational Cosmology", position: [7012, 138240, 5012], description: "Cosmological distance inference from dispersion measure and host properties"},
+{name: "Intergalactic Medium Ionization", type: "phenomenon", category: "Cosmology", position: [7013, 138260, 5013], description: "IGM baryon density constraints from FRB dispersion statistics"},
+{name: "Frequency Channel Depolarization", type: "phenomenon", category: "Polarimetry", position: [7014, 138280, 5014], description: "Bandwidth smearing destroying linear polarization across spectrum"},
+{name: "Neutron Star Magnetosphere Emission", type: "phenomenon", category: "Neutron Star Physics", position: [7015, 138300, 5015], description: "Particle acceleration in strong magnetic field producing radio jets"},
+{name: "Binary Orbital Modulation", type: "phenomenon", category: "Binary Systems", position: [7016, 138320, 5016], description: "Periodic dispersion variations from binary companion orbital motion"},
+{name: "Relativistic Beaming Geometry", type: "phenomenon", category: "Special Relativity", position: [7017, 138340, 5017], description: "Doppler compression of emission cone toward observer line-of-sight"},
+{name: "Curvature Radiation Mechanism", type: "phenomenon", category: "Electromagnetism", position: [7018, 138360, 5018], description: "Synchrotron emission from charged particles in curved magnetic fields"},
+{name: "Timing Residual Analysis", type: "phenomenon", category: "Pulsar Timing", position: [7019, 138380, 5019], description: "Detecting gravitational wave influence on FRB arrival times"},
+{name: "Scattering Tail Morphology", type: "phenomenon", category: "Wave Propagation", position: [7020, 138400, 5020], description: "Exponential decay of scattered flux revealing scattering law exponent"},
+{name: "Polarization Angle Rotation", type: "phenomenon", category: "Radio Polarimetry", position: [7021, 138420, 5021], description: "Stokes parameter evolution revealing differential propagation effects"},
+{name: "Echo Detection Limits", type: "phenomenon", category: "Signal Detection", position: [7022, 138440, 5022], description: "Secondary pulse reflection in magnetized environment timescales"},
+{name: "Burst Clustering Statistics", type: "phenomenon", category: "Astrostatistics", position: [7023, 138460, 5023], description: "Poisson vs clustered rate distribution testing source activity models"},
+{name: "Chromatic Aberration Slope", type: "phenomenon", category: "Optics & Waves", position: [7024, 138480, 5024], description: "Frequency-dependent delay slope indicating dominant scattering layer"},
+{name: "Cosmic Rate of FRBs", type: "phenomenon", category: "Survey Astronomy", position: [7025, 138500, 5025], description: "Volumetric FRB event rate across universe from detection surveys"}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
