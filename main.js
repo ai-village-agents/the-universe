@@ -18527,7 +18527,32 @@ const cosmicSights = [
     color: '#40E0D0',
     size: 265
   }
-
+,
+  { name: "Exoplanet Atmospheric Retrieval", description: "A Bayesian inversion extracting temperature and composition profiles from transit and eclipse spectroscopy.", position: [40, 15, -20] },
+  { name: "Hot Jupiter Stratosphere", description: "The superheated upper atmospheric layer of a close-in gas giant exhibiting thermal inversion.", position: [-35, 22, 45] },
+  { name: "Super-Earth Steam World", description: "A rocky planet enveloped by a thick water-vapor atmosphere under extreme greenhouse conditions.", position: [80, -10, -60] },
+  { name: "Oxygen A-Band Biosignature", description: "The 0.76-micron absorption triplet of molecular oxygen hinting at photosynthetic activity.", position: [-50, 30, 70] },
+  { name: "Exoplanet Methane Spike", description: "A transient elevation in atmospheric methane concentration detected through high-resolution spectroscopy.", position: [15, -25, 90] },
+  { name: "M-Dwarf Temperate Zone", description: "The narrow circumstellar region around a red dwarf where liquid water might exist on a rocky planet.", position: [-70, 5, -40] },
+  { name: "Organic Haze Blanket", description: "A photochemical aerosol layer formed by ultraviolet-driven chemistry in a planetary upper atmosphere.", position: [55, 18, -15] },
+  { name: "Hydrogen Escape Tail", description: "A comet-like stream of ionized hydrogen trailing an evaporating exoplanet atmosphere.", position: [-20, -5, 100] },
+  { name: "Sub-Neptune Puffy Atmosphere", description: "An extended low-density gaseous envelope surrounding a planet smaller than Neptune.", position: [30, 40, -80] },
+  { name: "Spin-Orbit Rossiter-McLaughlin", description: "The spectral anomaly during transit revealing a planet's sky-projected orbital inclination relative to its star.", position: [-60, -20, 35] },
+  { name: "Synchronously Rotating Twilight Band", description: "The perpetual terminator dividing dayside scorch from nightside freeze on a tidally locked world.", position: [10, 50, -55] },
+  { name: "Protoplanetary Disk Chemistry", description: "The radial variation in molecular abundances across a planet-forming disk of gas and dust.", position: [45, -35, 20] },
+  { name: "Phosphine Spectral Line", description: "An anomalous PH3 absorption feature in a planetary spectrum suggesting exotic chemistry.", position: [-40, 12, 65] },
+  { name: "Upper Atmosphere Water Vapor", description: "Moisture lofted into the stratosphere of a temperate exoplanet by convective overturning.", position: [65, -15, -30] },
+  { name: "Cross-Correlated Doppler Spectrum", description: "A high-dispersion stellar spectrum revealing individual molecular lines in an exoplanet atmosphere.", position: [-15, 25, 85] },
+  { name: "Sub-Neptune Core Envelope Boundary", description: "The poorly defined transition between rocky interior and volatile atmosphere in a mid-size exoplanet.", position: [25, -40, 50] },
+  { name: "Equatorial Jet Stream", description: "A fast east-west wind channel redistributing stellar heat across a tidally locked planet.", position: [-75, 8, -10] },
+  { name: "Silicate Cloud Condensation", description: "Microscopic seed particles enabling exotic cloud formation from molten silicate droplets.", position: [50, 35, -45] },
+  { name: "Ocean Evaporation Limit", description: "The stellar flux threshold beyond which a planet's surface water boils into a steam-dominated state.", position: [-30, -30, 75] },
+  { name: "Bayesian Atmospheric Inversion", description: "A statistical retrieval separating overlapping molecular signatures from noisy exoplanet transit data.", position: [70, 20, -5] },
+  { name: "Orbital Phase Curve Brightness", description: "The brightness modulation of an exoplanet across its orbit mapping clouds and surface reflectivity.", position: [-10, -50, 40] },
+  { name: "Sodium D-Line Transit", description: "The narrow absorption doublet of neutral sodium imprinted on a star's spectrum during planetary crossing.", position: [35, 45, -70] },
+  { name: "Induced Magnetic Ocean Signal", description: "A magnetic induction signature from a conducting subsurface ocean beneath an icy exoplanet crust.", position: [-55, -10, 95] },
+  { name: "Stellar Coronagraphic Mask", description: "The optically suppressed stellar halo allowing direct imaging of a faint exoplanet companion.", position: [20, -20, 60] },
+  { name: "Exoplanet Thermal Phase Map", description: "A longitudinal temperature map reconstructed from infrared brightness variations across a planetary orbit.", position: [-45, 30, -25] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
