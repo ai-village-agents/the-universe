@@ -19863,7 +19863,32 @@ const cosmicSights = [
     color: '#4A90D9',
     size: 250
   }
-
+,
+  { name: 'CMB E-Mode Polarization Acoustic Peak', position: [-100, 300, -50], color: '#e74c3c', description: 'gradient-type polarization pattern from Thomson scattering during recombination epoch' },
+  { name: 'CMB B-Mode Primordial Gravitational Wave', position: [100, -300, 50], color: '#9b59b6', description: 'curl-type polarization signature from inflationary gravitational wave background' },
+  { name: 'CMB Temperature Sachs-Wolfe Plateau', position: [-110, 310, -55], color: '#3498db', description: 'large-angle temperature anisotropy from gravitational redshift in primordial potential' },
+  { name: 'CMB Silk Damping Tail Power Drop', position: [110, -310, 55], color: '#2ecc71', description: 'exponential power suppression from photon diffusion smoothing at small scales' },
+  { name: 'CMB Reionization Thomson Scattering Bump', position: [-105, 305, -52], color: '#f39c12', description: 'large-scale polarization enhancement from late-time electron reionization scattering' },
+  { name: 'CMB Cold Spot Supervoid Alignment', position: [-120, 320, -60], color: '#1abc9c', description: 'anomalously large cold region potentially aligned with supervoid in line of sight' },
+  { name: 'CMB Lensing Potential Power Spectrum', position: [120, -320, 60], color: '#e67e22', description: 'deflection of CMB photons by intervening large-scale structure mass distribution' },
+  { name: 'CMB Bianchi VIIh Template Spiral Pattern', position: [-115, 315, -58], color: '#c0392b', description: 'global spiral polarization pattern from anisotropic cosmological model fitting' },
+  { name: 'CMB Dipole Doppler Boost Anisotropy', position: [115, -315, 58], color: '#16a085', description: 'kinematic dipole from Solar System motion relative to CMB rest frame' },
+  { name: 'CMB Planck 2018 TT Power Spectrum Node', position: [-125, 325, -62], color: '#8e44ad', description: 'precise temperature angular power spectrum node at multipole l=220 acoustic peak' },
+  { name: 'CMB ACT DR4 Small-Scale Damping Wing', position: [125, -325, 62], color: '#d35400', description: 'Atacama Cosmology Telescope high-resolution measurement of damping tail' },
+  { name: 'CMB South Pole Telescope SZ Cluster Bias', position: [-130, 330, -65], color: '#27ae60', description: 'Sunyaev-Zeldovich selected cluster sample bias correction in CMB survey' },
+  { name: 'CMB Primordial Non-Gaussianity fNL Bispectrum', position: [130, -330, 65], color: '#2980b9', description: 'three-point correlation function constraint on inflationary non-Gaussian amplitude' },
+  { name: 'CMB Isocurvature Mode Constraint Limit', position: [-135, 335, -68], color: '#e91e63', description: 'upper limit on primordial isocurvature perturbation fraction from polarization data' },
+  { name: 'CMB Neutrino Mass Sum Sigma-mnu Bound', position: [135, -335, 68], color: '#f1c40f', description: 'cosmological upper limit on sum of neutrino masses from CMB and BAO data' },
+  { name: 'CMB Spectral Distortion y-Type Compton', position: [-140, 340, -70], color: '#00bcd4', description: 'Sunyaev-Zeldovich spectral distortion from hot intracluster electron scattering' },
+  { name: 'CMB Spectral Distortion mu-Type Chemical', position: [140, -340, 70], color: '#ff5722', description: 'Bose-Einstein spectral distortion from early energy injection before thermalization' },
+  { name: 'CMB Foreground Galactic Synchrotron Ridge', position: [-145, 345, -72], color: '#795548', description: 'polarized Galactic emission contaminating primordial B-mode search at low frequencies' },
+  { name: 'CMB Foreground Thermal Dust Polarization', position: [145, -345, 72], color: '#607d8b', description: 'aligned dust grain emission as dominant contaminant for CMB B-mode detection' },
+  { name: 'CMB BICEP2 Keck Array 95 GHz Band', position: [-150, 350, -75], color: '#673ab7', description: 'degree-scale B-mode measurement targeting primordial gravitational wave imprint' },
+  { name: 'CMB LiteBIRD Satellite Polarization Target', position: [150, -350, 75], color: '#3f51b5', description: 'future all-sky satellite mission targeting r=0.001 inflation tensor-to-scalar ratio' },
+  { name: 'CMB COrE+ Probe Spectral Resolution', position: [-155, 355, -78], color: '#009688', description: 'proposed CMB spectrometer for measuring spectral distortions at 10^-8 level' },
+  { name: 'CMB Polarization Rotation Cosmic Birefringence', position: [155, -355, 78], color: '#4caf50', description: 'anomalous rotation of polarization angle from parity-violating physics' },
+  { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
+  { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
