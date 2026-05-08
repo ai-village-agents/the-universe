@@ -212,7 +212,208 @@ const starMesh = new THREE.Points(starsGeometry, starsMaterial);
 scene.add(starMesh);
 
 // ============ SHOOTING STARS ============
-const shootingStars = [];
+const shootingStars = [,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
 function spawnShootingStar() {
     const geo = new THREE.BufferGeometry();
     const positions = new Float32Array(6); // 2 points for a line
@@ -247,7 +448,208 @@ function spawnShootingStar() {
 
 function updateShootingStars(delta) {
     for (let i = shootingStars.length - 1; i >= 0; i--) {
-        const star = shootingStars[i];
+        const star = shootingStars[i,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
         const d = star.userData;
         d.life += delta;
 
@@ -497,8 +899,410 @@ import { createSeyfertGalaxy } from "./landmarks/seyfert-galaxy.js";
 import { createRadioLobe } from "./landmarks/radio-lobe.js";
 import { createNeutronStarCrustQuake } from "./landmarks/neutron-star-crust-quake.js";
 // Load Worlds
-const interactables = [];
-const customLandmarkAnimators = [];
+const interactables = [,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
+const customLandmarkAnimators = [,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
 
 function findInteractableTarget(group) {
     if (!group || typeof group.traverse !== 'function') return null;
@@ -977,7 +1781,208 @@ class UniverseHealthMonitor {
         this.indicatorGroup.name = 'UniverseHealthIndicators';
         this.indicators = new Map();
         this.anchorMap = new Map();
-        this.alerts = [];
+        this.alerts = [,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
         this.healthOverlay = this.createOverlay();
         this.globalBeacon = this.createGlobalBeacon();
         this.indicatorGroup.add(this.globalBeacon);
@@ -1229,7 +2234,208 @@ class UniverseHealthMonitor {
             'Re-route telemetry to resilient relays and snapshot affected worlds.',
             'Coordinate evac beacons with Canonical Observatory + Edge Garden.',
             'Throttle non-essential effects until stability recovers.'
-        ];
+        ,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
         console.warn('[Universe Fragmentation] Detected unstable nodes:', fragments.map((f) => f.name).join(', '));
         console.groupCollapsed('[Fragmentation Diagnostics] Detailed Metrics');
         fragments.forEach((fragment) => {
@@ -1408,8 +2614,410 @@ function drawMinimap() {
         for (let j = i + 1; j < worlds.length; j++) {
             const posA = worlds[i].position;
             const posB = worlds[j].position;
-            const dx = posA[0] - posB[0];
-            const dz = posA[2] - posB[2];
+            const dx = posA[0] - posB[0,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
+            const dz = posA[2] - posB[2,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
             const dist = Math.sqrt(dx*dx + dz*dz);
             if (dist < 180) {
                 const ax = cx + (posA[0] - camPos.x) * minimapScale;
@@ -16888,6 +18496,207 @@ const cosmicSights = [
   { name: 'Adiabatic Quantum Computation State', position: [5348, 104960, 3348], color: '#F0F4C3', size: 5.2, description: 'Sight 11549.' },
   { name: 'Quantum Annealing Optimization Landscape', position: [5349, 104980, 3349], color: '#FFECB3', size: 5.2, description: 'Sight 11550.' }
 
+,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
@@ -17087,7 +18896,208 @@ if (typeof window !== 'undefined') {
 
 function teleportToBookmark(slot) {
     const bm = loadBookmarks();
-    const b = bm[slot];
+    const b = bm[slot,
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
     if (!b) {
         showBookmarkToast('No bookmark in slot ' + slot + ' (Shift+' + slot + ' to save)', '#ffaa55');
         return;
@@ -17131,7 +19141,208 @@ function createDirectoryHeading(text) {
 }
 
 function getDirectoryEntries() {
-    return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];
+    return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry'),
+  {
+    name: "Strange Quark Star Candidate XJ-9 #11701",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of strange quark star candidate xj-9 properties and related spacetime phenomena.",
+    coordinates: [2614.57, 4720.67, 680.34],
+    color: "#49a415",
+    radius: 2.01
+  },
+  {
+    name: "Magnetar Glitch Core #11702",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of magnetar glitch core properties and related spacetime phenomena.",
+    coordinates: [2837.47, -3679.2, 165.26],
+    color: "#e8f7d0",
+    radius: 2.01
+  },
+  {
+    name: "Crystallized White Dwarf Diamond #11703",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of crystallized white dwarf diamond properties and related spacetime phenomena.",
+    coordinates: [-2204.83, 4337.86, -1018.58],
+    color: "#d80e16",
+    radius: 2.34
+  },
+  {
+    name: "Iron Dwarf Remnant #11704",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of iron dwarf remnant properties and related spacetime phenomena.",
+    coordinates: [3565.59, 2358.58, -479.96],
+    color: "#636389",
+    radius: 2.38
+  },
+  {
+    name: "Helium White Dwarf Binary #11705",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of helium white dwarf binary properties and related spacetime phenomena.",
+    coordinates: [-3010.84, 2057.75, 2369.67],
+    color: "#2dd311",
+    radius: 2.5
+  },
+  {
+    name: "Black Dwarf Cooling Shell #11706",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of black dwarf cooling shell properties and related spacetime phenomena.",
+    coordinates: [-4195.78, 1604.26, 1427.36],
+    color: "#0a161f",
+    radius: 2.68
+  },
+  {
+    name: "Boson Star Singularity #11707",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of boson star singularity properties and related spacetime phenomena.",
+    coordinates: [4545.3, -2927.57, 1261.42],
+    color: "#95f393",
+    radius: 1.2
+  },
+  {
+    name: "Preon Star Sub-structure #11708",
+    category: "Cosmology",
+    description: "Observation and theoretical modeling of preon star sub-structure properties and related spacetime phenomena.",
+    coordinates: [1667.69, -520.77, -1476.95],
+    color: "#8528c6",
+    radius: 2.94
+  },
+  {
+    name: "Electroweak Star Core #11709",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of electroweak star core properties and related spacetime phenomena.",
+    coordinates: [-3038.44, 3185.04, 4836.59],
+    color: "#78a690",
+    radius: 2.33
+  },
+  {
+    name: "Planck Star Horizon #11710",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of planck star horizon properties and related spacetime phenomena.",
+    coordinates: [2461.79, 143.51, 241.44],
+    color: "#cfadc8",
+    radius: 2.58
+  },
+  {
+    name: "Q-Star Micro-cluster #11711",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of q-star micro-cluster properties and related spacetime phenomena.",
+    coordinates: [3804.71, -2038.44, -4395.6],
+    color: "#c0c83f",
+    radius: 1.97
+  },
+  {
+    name: "Fuzzball Black Hole Alternative #11712",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of fuzzball black hole alternative properties and related spacetime phenomena.",
+    coordinates: [1392.76, 13.17, -515.05],
+    color: "#f75d0d",
+    radius: 0.9
+  },
+  {
+    name: "Gravastar Shell #11713",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of gravastar shell properties and related spacetime phenomena.",
+    coordinates: [2779.51, -4771.52, 2799.76],
+    color: "#58da44",
+    radius: 1.04
+  },
+  {
+    name: "Dark Energy Star Core #11714",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of dark energy star core properties and related spacetime phenomena.",
+    coordinates: [2890.78, 2924.02, -3631.67],
+    color: "#962d5b",
+    radius: 2.47
+  },
+  {
+    name: "Kugelblitz Energy Horizon #11715",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of kugelblitz energy horizon properties and related spacetime phenomena.",
+    coordinates: [4802.3, 3197.38, 4912.89],
+    color: "#0e1559",
+    radius: 1.54
+  },
+  {
+    name: "Naked Singularity Ring #11716",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of naked singularity ring properties and related spacetime phenomena.",
+    coordinates: [-2452.51, 3745.57, -1796.45],
+    color: "#ca1b74",
+    radius: 1.54
+  },
+  {
+    name: "Ergosphere Energy Tap #11717",
+    category: "Degenerate Matter",
+    description: "Observation and theoretical modeling of ergosphere energy tap properties and related spacetime phenomena.",
+    coordinates: [-128.61, 4183.32, 4588.95],
+    color: "#f4896e",
+    radius: 1.85
+  },
+  {
+    name: "Kerr-Newman Charged Black Hole #11718",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of kerr-newman charged black hole properties and related spacetime phenomena.",
+    coordinates: [1379.48, -72.51, 1910.04],
+    color: "#3a639e",
+    radius: 1.81
+  },
+  {
+    name: "Reissner-Nordstrom Singularity #11719",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of reissner-nordstrom singularity properties and related spacetime phenomena.",
+    coordinates: [-325.05, -2143.64, 3822.8],
+    color: "#26b610",
+    radius: 2.05
+  },
+  {
+    name: "Primordial Black Hole Swarm #11720",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of primordial black hole swarm properties and related spacetime phenomena.",
+    coordinates: [-308.99, 776.32, 19.64],
+    color: "#2da5e6",
+    radius: 1.97
+  },
+  {
+    name: "Micro Black Hole Evaporation #11721",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of micro black hole evaporation properties and related spacetime phenomena.",
+    coordinates: [3402.76, 493.69, 2071.73],
+    color: "#e55fec",
+    radius: 2.98
+  },
+  {
+    name: "Wormhole Throat Geodesic #11722",
+    category: "Black Hole Alternatives",
+    description: "Observation and theoretical modeling of wormhole throat geodesic properties and related spacetime phenomena.",
+    coordinates: [-3468.92, 3584.08, -1375.82],
+    color: "#282594",
+    radius: 1.83
+  },
+  {
+    name: "White Hole Eruption Event #11723",
+    category: "Exotic Stellar Remnants",
+    description: "Observation and theoretical modeling of white hole eruption event properties and related spacetime phenomena.",
+    coordinates: [263.19, -4685.17, 2555.84],
+    color: "#281c1c",
+    radius: 0.96
+  },
+  {
+    name: "Ring Collapsar #11724",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of ring collapsar properties and related spacetime phenomena.",
+    coordinates: [2394.16, -2846.86, 4490.68],
+    color: "#4aeb3e",
+    radius: 2.5
+  },
+  {
+    name: "Hyper-compact Stellar Remnant #11725",
+    category: "Theoretical Physics",
+    description: "Observation and theoretical modeling of hyper-compact stellar remnant properties and related spacetime phenomena.",
+    coordinates: [2686.57, 1652.17, -2514.32],
+    color: "#05f80c",
+    radius: 1.91
+  }
+];
 }
 function handleDirectoryEntryKeydown(event, entry, activate) {
     if (event.target.closest('a')) return;
