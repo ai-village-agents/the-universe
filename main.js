@@ -18880,7 +18880,208 @@ const cosmicSights = [
   {"name":"Topological Code Lattice 12047","category":"Quantum Error Correction","description":"2D lattice topology-based error suppression.","position":[5746,112920,3746],"color":"#696969","size":140},
   {"name":"Lattice Gauge Theory Node 12048","category":"Quantum Simulation","description":"Discretized gauge field simulator node.","position":[5747,112940,3747],"color":"#2f4f4f","size":140},
   {"name":"Quantum Walk Dynamics 12049","category":"Quantum Algorithms","description":"Continuous/discrete quantum walk search.","position":[5748,112960,3748],"color":"#00ced1","size":140},
-  {"name":"Variational Optimizer Circuit 12050","category":"Quantum Computing","description":"QAOA parameterized circuit optimizer.","position":[5749,112980,3749],"color":"#20b2aa","size":140}
+  {"name":"Variational Optimizer Circuit 12050","category":"Quantum Computing","description":"QAOA parameterized circuit optimizer.","position":[5749,112980,3749],"color":"#20b2aa","size":140},
+  {
+    name: 'NANOGrav Gravitational Wave Background',
+    category: 'Pulsar Timing Arrays',
+    description: 'North American Nanohertz Observatory detecting stochastic gravitational wave background from supermassive black hole binaries.',
+    position: [3450, 1440, -3700],
+    color: '#FF6347',
+    size: 260
+  },
+  {
+    name: 'EPTA Timing Residuals',
+    category: 'Pulsar Timing Arrays',
+    description: 'European Pulsar Timing Array measuring correlated timing deviations across millisecond pulsars.',
+    position: [3460, 1445, -3710],
+    color: '#FF4500',
+    size: 255
+  },
+  {
+    name: 'PPTA Southern Hemisphere Array',
+    category: 'Pulsar Timing Arrays',
+    description: 'Parkes Pulsar Timing Array providing southern sky coverage for nanohertz gravitational waves.',
+    position: [3470, 1450, -3720],
+    color: '#DC143C',
+    size: 250
+  },
+  {
+    name: 'IPTA Combined Dataset',
+    category: 'Pulsar Timing Arrays',
+    description: 'International Pulsar Timing Array combining global data for enhanced gravitational wave sensitivity.',
+    position: [3480, 1455, -3730],
+    color: '#FF6347',
+    size: 265
+  },
+  {
+    name: 'Hellings-Downs Correlation Signature',
+    category: 'Pulsar Timing Arrays',
+    description: 'Characteristic angular correlation pattern between pulsar pairs confirming gravitational wave origin.',
+    position: [3490, 1460, -3740],
+    color: '#FF4500',
+    size: 270
+  },
+  {
+    name: 'SMBH Binary Inspiral Signal',
+    category: 'Pulsar Timing Arrays',
+    description: 'Individual supermassive black hole binary systems detectable as continuous gravitational wave sources.',
+    position: [3500, 1465, -3750],
+    color: '#DC143C',
+    size: 255
+  },
+  {
+    name: 'Cosmic String GW Background',
+    category: 'Pulsar Timing Arrays',
+    description: 'Potential gravitational wave contribution from cosmic string network oscillations and cusps.',
+    position: [3510, 1470, -3760],
+    color: '#FF6347',
+    size: 245
+  },
+  {
+    name: 'Primordial GW Spectrum Constraint',
+    category: 'Pulsar Timing Arrays',
+    description: 'Upper limits on gravitational waves from inflation and early universe phase transitions.',
+    position: [3520, 1475, -3770],
+    color: '#FF4500',
+    size: 250
+  },
+  {
+    name: 'Millisecond Pulsar Stability',
+    category: 'Pulsar Timing Arrays',
+    description: 'Extremely stable rotation of recycled pulsars enabling precision gravitational wave detection.',
+    position: [3530, 1480, -3780],
+    color: '#DC143C',
+    size: 240
+  },
+  {
+    name: 'Pulsar Timing Noise Analysis',
+    category: 'Pulsar Timing Arrays',
+    description: 'Characterizing intrinsic pulsar spin noise to improve gravitational wave sensitivity.',
+    position: [3540, 1485, -3790],
+    color: '#FF6347',
+    size: 235
+  },
+  {
+    name: 'Interstellar Medium Dispersion Correction',
+    category: 'Pulsar Timing Arrays',
+    description: 'Removing time-variable dispersion delays from electron density fluctuations along sightlines.',
+    position: [3550, 1490, -3800],
+    color: '#FF4500',
+    size: 245
+  },
+  {
+    name: 'Solar Wind Timing Correction',
+    category: 'Pulsar Timing Arrays',
+    description: 'Accounting for solar wind plasma delays affecting pulsar signal arrival times.',
+    position: [3560, 1495, -3810],
+    color: '#DC143C',
+    size: 240
+  },
+  {
+    name: 'Clock Error Monopole Signal',
+    category: 'Pulsar Timing Arrays',
+    description: 'Common mode timing signal from terrestrial clock errors distinguishable from gravitational waves.',
+    position: [3570, 1500, -3820],
+    color: '#FF6347',
+    size: 235
+  },
+  {
+    name: 'Ephemeris Error Dipole Correction',
+    category: 'Pulsar Timing Arrays',
+    description: 'Removing timing signals from solar system ephemeris uncertainties affecting barycentric corrections.',
+    position: [3580, 1505, -3830],
+    color: '#FF4500',
+    size: 250
+  },
+  {
+    name: 'MeerKAT Pulsar Timing Expansion',
+    category: 'Pulsar Timing Arrays',
+    description: 'South African radio array adding sensitive millisecond pulsar observations to timing arrays.',
+    position: [3590, 1510, -3840],
+    color: '#DC143C',
+    size: 260
+  },
+  {
+    name: 'FAST Pulsar Discovery Program',
+    category: 'Pulsar Timing Arrays',
+    description: 'Five-hundred-meter Aperture Spherical Telescope discovering new millisecond pulsars for timing.',
+    position: [3600, 1515, -3850],
+    color: '#FF6347',
+    size: 265
+  },
+  {
+    name: 'SKA Pulsar Timing Forecast',
+    category: 'Pulsar Timing Arrays',
+    description: 'Square Kilometre Array projected to revolutionize pulsar timing array sensitivity.',
+    position: [3610, 1520, -3860],
+    color: '#FF4500',
+    size: 270
+  },
+  {
+    name: 'Binary Pulsar Orbital Decay Test',
+    category: 'Pulsar Timing Arrays',
+    description: 'Precision tests of gravitational wave emission through orbital period derivative measurements.',
+    position: [3620, 1525, -3870],
+    color: '#DC143C',
+    size: 255
+  },
+  {
+    name: 'Shapiro Delay Measurement',
+    category: 'Pulsar Timing Arrays',
+    description: 'General relativistic time delay as pulsar signals pass near companion stars.',
+    position: [3630, 1530, -3880],
+    color: '#FF6347',
+    size: 245
+  },
+  {
+    name: 'Pulsar Glitch Timing Impact',
+    category: 'Pulsar Timing Arrays',
+    description: 'Sudden spin-up events in pulsars requiring careful modeling for timing array analysis.',
+    position: [3640, 1535, -3890],
+    color: '#FF4500',
+    size: 240
+  },
+  {
+    name: 'White Dwarf Companion Timing',
+    category: 'Pulsar Timing Arrays',
+    description: 'Millisecond pulsars with white dwarf companions providing clean timing laboratories.',
+    position: [3650, 1540, -3900],
+    color: '#DC143C',
+    size: 250
+  },
+  {
+    name: 'Triple System Pulsar Dynamics',
+    category: 'Pulsar Timing Arrays',
+    description: 'Hierarchical triple systems with pulsars testing strong equivalence principle.',
+    position: [3660, 1545, -3910],
+    color: '#FF6347',
+    size: 255
+  },
+  {
+    name: 'Pulsar Distance Parallax Array',
+    category: 'Pulsar Timing Arrays',
+    description: 'VLBI parallax measurements establishing precise distances to timing array pulsars.',
+    position: [3670, 1550, -3920],
+    color: '#FF4500',
+    size: 245
+  },
+  {
+    name: 'Nanohertz Frequency Band Window',
+    category: 'Pulsar Timing Arrays',
+    description: 'Unique gravitational wave frequency range accessible only through pulsar timing observations.',
+    position: [3680, 1555, -3930],
+    color: '#DC143C',
+    size: 260
+  },
+  {
+    name: 'PTA Data Release Archive',
+    category: 'Pulsar Timing Arrays',
+    description: 'Public timing data releases enabling independent gravitational wave analyses.',
+    position: [3690, 1560, -3940],
+    color: '#FF6347',
+    size: 250
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
