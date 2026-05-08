@@ -26411,6 +26411,108 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bkftGroup);
 
+  // v162: Pier Marathon Finish (pmrf)
+  const pmrfGroup = new THREE.Group();
+  pmrfGroup.position.set(110, 0, 8);
+  const pmrfPostL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.1, 3.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0xddddee })
+  );
+  pmrfPostL.position.set(-2, 1.5, 0);
+  pmrfGroup.add(pmrfPostL);
+  const pmrfPostR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.1, 3.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0xddddee })
+  );
+  pmrfPostR.position.set(2, 1.5, 0);
+  pmrfGroup.add(pmrfPostR);
+  const pmrfBanner = new THREE.Mesh(
+    new THREE.PlaneGeometry(4.5, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xffcc00, side: THREE.DoubleSide })
+  );
+  pmrfBanner.position.set(0, 2.7, 0);
+  pmrfGroup.add(pmrfBanner);
+  const pmrfRunner = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.9, 0.2),
+    new THREE.MeshLambertMaterial({ color: 0x3388dd })
+  );
+  pmrfRunner.position.set(-3, 0.45, 0);
+  pmrfGroup.add(pmrfRunner);
+  group.add(pmrfGroup);
+
+  // v162: Coastal Sea Otter Raft (csor)
+  const csorGroup = new THREE.Group();
+  csorGroup.position.set(-100, 0, 30);
+  const csorKelpMat = new THREE.MeshLambertMaterial({ color: 0x3a5a3a });
+  for (let i = 0; i < 6; i++) {
+    const kelp = new THREE.Mesh(
+      new THREE.TorusGeometry(0.5, 0.05, 6, 16),
+      csorKelpMat
+    );
+    kelp.position.set(Math.cos(i) * 0.8, 0.4, Math.sin(i) * 0.8);
+    kelp.rotation.x = Math.PI / 2;
+    csorGroup.add(kelp);
+  }
+  const csorOtters = [];
+  const csorOtterMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2a });
+  for (let i = 0; i < 4; i++) {
+    const otter = new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.18, 0.5, 4, 8),
+      csorOtterMat
+    );
+    const ang = (i / 4) * Math.PI * 2;
+    otter.position.set(Math.cos(ang) * 0.5, 0.5, Math.sin(ang) * 0.5);
+    otter.rotation.z = Math.PI / 2;
+    csorGroup.add(otter);
+    csorOtters.push(otter);
+  }
+  group.add(csorGroup);
+
+  // v162: Beach Big Sandcastle (bsbg)
+  const bsbgGroup = new THREE.Group();
+  bsbgGroup.position.set(40, 0, 95);
+  const bsbgSandMat = new THREE.MeshLambertMaterial({ color: 0xeed7a8 });
+  const bsbgBase = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.5, 2.4),
+    bsbgSandMat
+  );
+  bsbgBase.position.y = 0.25;
+  bsbgGroup.add(bsbgBase);
+  const bsbgKeep = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 1.4, 1.4),
+    bsbgSandMat
+  );
+  bsbgKeep.position.y = 1.2;
+  bsbgGroup.add(bsbgKeep);
+  const bsbgFlag = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.4, 0.25),
+    new THREE.MeshLambertMaterial({ color: 0xdd3333, side: THREE.DoubleSide })
+  );
+  bsbgFlag.position.set(0.2, 2.3, 0);
+  bsbgGroup.add(bsbgFlag);
+  const bsbgPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 0.7, 6),
+    new THREE.MeshLambertMaterial({ color: 0x442211 })
+  );
+  bsbgPole.position.set(0, 2.25, 0);
+  bsbgGroup.add(bsbgPole);
+  for (let i = 0; i < 4; i++) {
+    const tower = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.18, 0.22, 1.0, 8),
+      bsbgSandMat
+    );
+    const ang = i * Math.PI / 2 + Math.PI / 4;
+    tower.position.set(Math.cos(ang) * 1.0, 1.0, Math.sin(ang) * 1.0);
+    bsbgGroup.add(tower);
+    const cone = new THREE.Mesh(
+      new THREE.ConeGeometry(0.25, 0.3, 8),
+      bsbgSandMat
+    );
+    cone.position.set(Math.cos(ang) * 1.0, 1.65, Math.sin(ang) * 1.0);
+    bsbgGroup.add(cone);
+  }
+  group.add(bsbgGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -30159,6 +30261,25 @@ export function createAnchorageLandmark(THREE, opts) {
     bkftKites[i].rotation.y = ang + Math.PI / 2;
     bkftKites[i].rotation.z = Math.PI / 4 + Math.sin(v161t * 2.0 + i) * 0.2;
   }
+
+  // v162: pmrf runner approaches finish
+  const v162t = t;
+  const runT = (v162t * 0.5) % 4.0;
+  pmrfRunner.position.x = -3 + runT * 1.5;
+  pmrfRunner.position.y = 0.45 + Math.abs(Math.sin(v162t * 6.0)) * 0.1;
+  pmrfBanner.scale.y = 1.0 + Math.sin(v162t * 1.5) * 0.06;
+
+  // v162: csor otters bob, kelp drift
+  for (let i = 0; i < csorOtters.length; i++) {
+    csorOtters[i].position.y = 0.5 + Math.sin(v162t * 0.9 + i * 1.5) * 0.05;
+    csorOtters[i].rotation.y = Math.sin(v162t * 0.4 + i) * 0.3;
+  }
+  csorGroup.rotation.y = Math.sin(v162t * 0.2) * 0.15;
+
+  // v162: bsbg flag flutter
+  bsbgFlag.rotation.y = Math.sin(v162t * 3.0) * 0.5;
+  bsbgFlag.scale.x = 1.0 + Math.sin(v162t * 4.5) * 0.15;
+
 
 
 
