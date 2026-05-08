@@ -19428,6 +19428,151 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pnmfGroup);
 
+  // --- v119: pier balloon vendor (pbv) --------------------------------------
+  const pbvGroup = new THREE.Group();
+  pbvGroup.position.set(36, 1.5, -34);
+  const pbvCart = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.6), new THREE.MeshLambertMaterial({ color: 0xc94f4f }));
+  pbvCart.position.y = 0.4;
+  pbvGroup.add(pbvCart);
+  const pbvHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.6, 6), new THREE.MeshLambertMaterial({ color: 0x6b3a1a }));
+  pbvHandle.rotation.z = Math.PI / 2;
+  pbvHandle.position.set(-0.6, 0.55, 0);
+  pbvGroup.add(pbvHandle);
+  const pbvWheelMat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+  const pbvWheelL = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.04, 6, 12), pbvWheelMat);
+  pbvWheelL.rotation.y = Math.PI / 2;
+  pbvWheelL.position.set(0, 0.16, -0.32);
+  const pbvWheelR = pbvWheelL.clone();
+  pbvWheelR.position.z = 0.32;
+  pbvGroup.add(pbvWheelL, pbvWheelR);
+  const pbvVendor = new THREE.Group();
+  const pbvVBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x4f8fc9 }));
+  pbvVBody.position.y = 0.47;
+  const pbvVHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+  pbvVHead.position.y = 1.15;
+  const pbvVHat = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.27, 0.18, 12), new THREE.MeshLambertMaterial({ color: 0xc9a44f }));
+  pbvVHat.position.y = 1.45;
+  pbvVendor.add(pbvVBody, pbvVHead, pbvVHat);
+  pbvVendor.position.set(0.7, 0, 0);
+  pbvGroup.add(pbvVendor);
+  const pbvBalloons = [];
+  const pbvStrings = [];
+  const pbvBalloonColors = [0xff5b5b, 0x5bafff, 0xffd45b, 0x5bff8a, 0xc55bff, 0xff8a5b, 0x5bffd4];
+  for (let i = 0; i < 7; i++) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: pbvBalloonColors[i] }));
+    b.scale.y = 1.18;
+    const offX = (i - 3) * 0.18;
+    const offZ = (i % 2 === 0 ? -0.12 : 0.12);
+    b.position.set(0.7 + offX, 2.5 + Math.random() * 0.4, offZ);
+    pbvGroup.add(b);
+    pbvBalloons.push(b);
+    const stringPts = [
+      new THREE.Vector3(0.7, 1.5, 0),
+      new THREE.Vector3(0.7 + offX, 2.4, offZ),
+    ];
+    const str = new THREE.Line(new THREE.BufferGeometry().setFromPoints(stringPts), new THREE.LineBasicMaterial({ color: 0x444444 }));
+    pbvGroup.add(str);
+    pbvStrings.push(str);
+  }
+  group.add(pbvGroup);
+
+  // --- v119: coastal ranger station (crs) -----------------------------------
+  const crsGroup = new THREE.Group();
+  crsGroup.position.set(-152, 0, -110);
+  const crsLogMat = new THREE.MeshLambertMaterial({ color: 0x6b4a2a });
+  const crsCabin = new THREE.Mesh(new THREE.BoxGeometry(3.4, 2.0, 2.4), crsLogMat);
+  crsCabin.position.y = 1.0;
+  crsGroup.add(crsCabin);
+  const crsRoofMat = new THREE.MeshLambertMaterial({ color: 0x4a2a1a });
+  const crsRoof = new THREE.Mesh(new THREE.ConeGeometry(2.6, 1.2, 4), crsRoofMat);
+  crsRoof.rotation.y = Math.PI / 4;
+  crsRoof.position.y = 2.6;
+  crsGroup.add(crsRoof);
+  const crsDoor = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 1.4), new THREE.MeshLambertMaterial({ color: 0x3a2a1a }));
+  crsDoor.position.set(0, 0.7, 1.21);
+  crsGroup.add(crsDoor);
+  const crsWindow = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.6), new THREE.MeshBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0.7 }));
+  crsWindow.position.set(-1.0, 1.3, 1.21);
+  crsGroup.add(crsWindow);
+  const crsSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.6, 6), crsLogMat);
+  crsSignPost.position.set(2.0, 0.8, 0.5);
+  crsGroup.add(crsSignPost);
+  const crsSign = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 0.4), new THREE.MeshLambertMaterial({ color: 0xc94f1f, side: THREE.DoubleSide }));
+  crsSign.position.set(2.0, 1.5, 0.5);
+  crsGroup.add(crsSign);
+  const crsRanger = new THREE.Group();
+  const crsRBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 1.0, 8), new THREE.MeshLambertMaterial({ color: 0x4a6f3a }));
+  crsRBody.position.y = 0.5;
+  const crsRHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+  crsRHead.position.y = 1.2;
+  const crsRHat = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.06, 12), new THREE.MeshLambertMaterial({ color: 0x6b4a2a }));
+  crsRHat.position.y = 1.4;
+  const crsRHatTop = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.18, 8), new THREE.MeshLambertMaterial({ color: 0x6b4a2a }));
+  crsRHatTop.position.y = 1.5;
+  crsRanger.add(crsRBody, crsRHead, crsRHat, crsRHatTop);
+  crsRanger.position.set(2.4, 0, 1.2);
+  crsGroup.add(crsRanger);
+  const crsFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 3.5, 6), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  crsFlagPole.position.set(-2.4, 1.75, 0);
+  crsGroup.add(crsFlagPole);
+  const crsFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.5), new THREE.MeshLambertMaterial({ color: 0x4a8b4a, side: THREE.DoubleSide }));
+  crsFlag.position.set(-1.95, 3.2, 0);
+  crsGroup.add(crsFlag);
+  group.add(crsGroup);
+
+  // --- v119: beach didgeridoo player (bddp) ---------------------------------
+  const bddpGroup = new THREE.Group();
+  bddpGroup.position.set(38, 0.05, 148);
+  const bddpLogMat = new THREE.MeshLambertMaterial({ color: 0x5a3a2a });
+  const bddpLog = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.4, 0.6, 12), bddpLogMat);
+  bddpLog.rotation.z = Math.PI / 2;
+  bddpLog.position.set(-0.4, 0.4, 0);
+  bddpGroup.add(bddpLog);
+  const bddpPlayer = new THREE.Group();
+  const bddpPBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 1.0, 8), new THREE.MeshLambertMaterial({ color: 0x355c7d }));
+  bddpPBody.position.y = 0.5;
+  const bddpPHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xf2c9a1 }));
+  bddpPHead.position.y = 1.2;
+  bddpPlayer.add(bddpPBody, bddpPHead);
+  bddpPlayer.position.set(-0.4, 0.4, 0);
+  bddpGroup.add(bddpPlayer);
+  const bddpDidg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.12, 2.4, 10), new THREE.MeshLambertMaterial({ color: 0x6b4a2a }));
+  bddpDidg.rotation.z = -Math.PI / 2.4;
+  bddpDidg.position.set(0.7, 1.0, 0);
+  bddpGroup.add(bddpDidg);
+  const bddpRingMat = new THREE.MeshLambertMaterial({ color: 0xddc28c });
+  for (let i = 0; i < 4; i++) {
+    const r = new THREE.Mesh(new THREE.TorusGeometry(0.1 + i * 0.005, 0.02, 6, 12), bddpRingMat);
+    r.rotation.y = Math.PI / 2;
+    r.position.set(0.0 + i * 0.45, 1.3 - i * 0.25, 0);
+    bddpGroup.add(r);
+  }
+  const bddpListenerColors = [0xc94f4f, 0x4f8fc9, 0xc9a44f, 0x6dc94f];
+  const bddpListeners = [];
+  for (let i = 0; i < 4; i++) {
+    const l = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 0.85, 8), new THREE.MeshLambertMaterial({ color: bddpListenerColors[i] }));
+    body.position.y = 0.42;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), new THREE.MeshLambertMaterial({ color: 0xe8b990 }));
+    head.position.y = 1.0;
+    l.add(body, head);
+    const ang = -Math.PI / 4 + (i / 3) * (Math.PI / 2);
+    l.position.set(2.6 + Math.cos(ang) * 1.2, 0, Math.sin(ang) * 1.6);
+    l.rotation.y = -ang + Math.PI;
+    bddpGroup.add(l);
+    bddpListeners.push(l);
+  }
+  const bddpRippleMat = new THREE.MeshBasicMaterial({ color: 0xfff0c0, transparent: true, opacity: 0.5 });
+  const bddpRipples = [];
+  for (let i = 0; i < 4; i++) {
+    const r = new THREE.Mesh(new THREE.TorusGeometry(0.3 + i * 0.2, 0.04, 6, 16), bddpRippleMat);
+    r.rotation.y = Math.PI / 2;
+    r.position.set(2.0 + i * 0.3, 1.0, 0);
+    bddpGroup.add(r);
+    bddpRipples.push(r);
+  }
+  group.add(bddpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -22107,6 +22252,15 @@ export function createAnchorageLandmark(THREE, opts) {
   });
   pnmfLanterns.forEach((l, i) => {
     l.material.opacity = 0.7 + Math.sin(v118t * 2 + i * 1.3) * 0.2;
+  });
+  const v119t = t;
+  pbvBalloons.forEach((b, i) => { b.position.y = 2.5 + Math.sin(v119t * 1.5 + i * 0.8) * 0.15; });
+  crsFlag.scale.x = 1 + Math.sin(v119t * 4) * 0.1;
+  bddpListeners.forEach((l, i) => { l.position.y = Math.abs(Math.sin(v119t * 0.8 + i * 1.2)) * 0.04; });
+  bddpRipples.forEach((r, i) => {
+    const ph = ((v119t * 1.0 + i * 0.5) % 2.0) / 2.0;
+    r.scale.setScalar(1 + ph * 0.8);
+    r.material.opacity = 0.5 - ph * 0.4;
   });
 
 
