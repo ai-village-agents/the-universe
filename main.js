@@ -18326,7 +18326,208 @@ const cosmicSights = [
     position: [5624, 109980, 3624],
     color: '#FF6B9D',
     size: 140
+  },
+  {
+    name: 'IceCube-Gen2 Neutrino Array',
+    category: 'Neutrino Astronomy',
+    description: 'A cubic kilometer detector buried in Antarctic ice capturing Cherenkov radiation from high-energy neutrino interactions.',
+    position: [2950, 1180, -3200],
+    color: '#00CED1',
+    size: 250
+  },
+  {
+    name: 'Super-Kamiokande Detection',
+    category: 'Neutrino Astronomy',
+    description: 'Japanese water Cherenkov detector that observed solar and atmospheric neutrinos, confirming oscillations.',
+    position: [2960, 1185, -3210],
+    color: '#20B2AA',
+    size: 245
+  },
+  {
+    name: 'SNO Heavy Water Detector',
+    category: 'Neutrino Astronomy',
+    description: 'Sudbury Neutrino Observatory using heavy water to detect all three neutrino flavors from the Sun.',
+    position: [2970, 1190, -3220],
+    color: '#48D1CC',
+    size: 240
+  },
+  {
+    name: 'Supernova 1987A Neutrino Burst',
+    category: 'Neutrino Astronomy',
+    description: 'First detection of neutrinos from outside the Solar System, from a supernova in the Large Magellanic Cloud.',
+    position: [2980, 1195, -3230],
+    color: '#40E0D0',
+    size: 260
+  },
+  {
+    name: 'Solar pp Chain Neutrinos',
+    category: 'Neutrino Astronomy',
+    description: 'Low-energy neutrinos produced in the proton-proton fusion chain at the Suns core.',
+    position: [2990, 1200, -3240],
+    color: '#00CED1',
+    size: 235
+  },
+  {
+    name: 'Solar CNO Cycle Neutrino Detection',
+    category: 'Neutrino Astronomy',
+    description: 'Neutrinos from the carbon-nitrogen-oxygen catalytic cycle revealing the Suns core metallicity.',
+    position: [3000, 1205, -3250],
+    color: '#5F9EA0',
+    size: 230
+  },
+  {
+    name: 'Atmospheric Neutrino Flux Measurement',
+    category: 'Neutrino Astronomy',
+    description: 'Neutrinos produced when cosmic rays strike Earths atmosphere creating pion and muon cascades.',
+    position: [3010, 1210, -3260],
+    color: '#00CED1',
+    size: 225
+  },
+  {
+    name: 'Geoneutrino Detection Array',
+    category: 'Neutrino Astronomy',
+    description: 'Antineutrinos from radioactive decay of uranium and thorium in Earths interior.',
+    position: [3020, 1215, -3270],
+    color: '#20B2AA',
+    size: 220
+  },
+  {
+    name: 'Reactor Antineutrino Monitor',
+    category: 'Neutrino Astronomy',
+    description: 'Detection of electron antineutrinos from nuclear reactors enabling oscillation parameter studies.',
+    position: [3030, 1220, -3280],
+    color: '#48D1CC',
+    size: 215
+  },
+  {
+    name: 'Relic Supernova Neutrino Sea',
+    category: 'Neutrino Astronomy',
+    description: 'Cumulative neutrino flux from all past core-collapse supernovae throughout cosmic history.',
+    position: [3040, 1225, -3290],
+    color: '#40E0D0',
+    size: 255
+  },
+  {
+    name: 'TXS 0506+056 Neutrino Blazar',
+    category: 'Neutrino Astronomy',
+    description: 'First identified extragalactic neutrino source, a blazar with relativistic jet pointed at Earth.',
+    position: [3050, 1230, -3300],
+    color: '#00CED1',
+    size: 265
+  },
+  {
+    name: 'NGC 1068 Neutrino AGN',
+    category: 'Neutrino Astronomy',
+    description: 'Active galactic nucleus detected as a persistent high-energy neutrino source by IceCube.',
+    position: [3060, 1235, -3310],
+    color: '#5F9EA0',
+    size: 260
+  },
+  {
+    name: 'Galactic Plane Neutrino Diffuse Emission',
+    category: 'Neutrino Astronomy',
+    description: 'Diffuse neutrino emission from the Milky Ways disk tracing cosmic ray interactions with gas.',
+    position: [3070, 1240, -3320],
+    color: '#20B2AA',
+    size: 250
+  },
+  {
+    name: 'Neutrino Oscillation Parameter Space',
+    category: 'Neutrino Astronomy',
+    description: 'Precise measurements of mixing angles and mass-squared differences governing flavor transformations.',
+    position: [3080, 1245, -3330],
+    color: '#48D1CC',
+    size: 240
+  },
+  {
+    name: 'MSW Resonance in Stellar Cores',
+    category: 'Neutrino Astronomy',
+    description: 'Mikheyev-Smirnov-Wolfenstein resonant flavor conversion of neutrinos propagating through matter.',
+    position: [3090, 1250, -3340],
+    color: '#40E0D0',
+    size: 235
+  },
+  {
+    name: 'Tau Neutrino Direct Detection',
+    category: 'Neutrino Astronomy',
+    description: 'Direct observation of the third neutrino flavor through characteristic tau lepton signatures.',
+    position: [3100, 1255, -3350],
+    color: '#00CED1',
+    size: 230
+  },
+  {
+    name: 'Double Cascade Tau Neutrino Event',
+    category: 'Neutrino Astronomy',
+    description: 'Distinctive topology in detectors from tau neutrino interactions creating two shower signatures.',
+    position: [3110, 1260, -3360],
+    color: '#5F9EA0',
+    size: 245
+  },
+  {
+    name: 'Neutrino Earth Tomography',
+    category: 'Neutrino Astronomy',
+    description: 'Using atmospheric neutrino absorption to probe Earths internal density structure.',
+    position: [3120, 1265, -3370],
+    color: '#20B2AA',
+    size: 240
+  },
+  {
+    name: 'Cosmogenic UHE Neutrino Flux',
+    category: 'Neutrino Astronomy',
+    description: 'Ultra-high-energy neutrinos produced by cosmic ray interactions with CMB photons.',
+    position: [3130, 1270, -3380],
+    color: '#48D1CC',
+    size: 270
+  },
+  {
+    name: 'Prompt Atmospheric Charm Neutrinos',
+    category: 'Neutrino Astronomy',
+    description: 'High-energy neutrinos from charm meson decay in cosmic ray air showers.',
+    position: [3140, 1275, -3390],
+    color: '#40E0D0',
+    size: 235
+  },
+  {
+    name: 'KM3NeT Mediterranean Array',
+    category: 'Neutrino Astronomy',
+    description: 'Next-generation underwater neutrino telescope deployed in the Mediterranean Sea.',
+    position: [3150, 1280, -3400],
+    color: '#00CED1',
+    size: 255
+  },
+  {
+    name: 'Baikal-GVD Deep Water Detector',
+    category: 'Neutrino Astronomy',
+    description: 'Gigaton Volume Detector in Lake Baikal for high-energy astrophysical neutrino detection.',
+    position: [3160, 1285, -3410],
+    color: '#5F9EA0',
+    size: 250
+  },
+  {
+    name: 'DUNE Long-Baseline Oscillation',
+    category: 'Neutrino Astronomy',
+    description: 'Deep Underground Neutrino Experiment studying oscillations with intense accelerator beam.',
+    position: [3170, 1290, -3420],
+    color: '#20B2AA',
+    size: 260
+  },
+  {
+    name: 'Sterile Neutrino Anomaly Search',
+    category: 'Neutrino Astronomy',
+    description: 'Experiments probing possible fourth neutrino state that doesnt interact via weak force.',
+    position: [3180, 1295, -3430],
+    color: '#48D1CC',
+    size: 245
+  },
+  {
+    name: 'Supernova Early Warning Network',
+    category: 'Neutrino Astronomy',
+    description: 'Global detector network providing advance alert of galactic supernova neutrino burst.',
+    position: [3190, 1300, -3440],
+    color: '#40E0D0',
+    size: 265
   }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
