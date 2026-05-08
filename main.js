@@ -19889,6 +19889,33 @@ const cosmicSights = [
   { name: 'CMB Polarization Rotation Cosmic Birefringence', position: [155, -355, 78], color: '#4caf50', description: 'anomalous rotation of polarization angle from parity-violating physics' },
   { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
   { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
+,
+  {"name":"Exoplanet Atmospheric Escape Hydrodynamic 12301","category":"Exoplanet Atmospheres","color":"#1976D2","description":"Exoplanet Atmospheric Escape Hydrodynamic.","position":[5975,117500,3975],"size":140},
+  {"name":"Hot Jupiter Sodium D Line 12302","category":"Exoplanet Atmospheres","color":"#1565C0","description":"Hot Jupiter Sodium D Line.","position":[5976,117520,3976],"size":140},
+  {"name":"Super-Earth Atmospheric Composition 12303","category":"Exoplanet Atmospheres","color":"#0D47A1","description":"Super-Earth Atmospheric Composition.","position":[5977,117540,3977],"size":140},
+  {"name":"Mini-Neptune Hydrogen Envelope Retention 12304","category":"Exoplanet Atmospheres","color":"#0277BD","description":"Mini-Neptune Hydrogen Envelope Retention.","position":[5978,117560,3978],"size":140},
+  {"name":"Terrestrial Exoplanet Biosignatures 12305","category":"Exoplanet Atmospheres","color":"#0288D1","description":"Terrestrial Exoplanet Biosignatures.","position":[5979,117580,3979],"size":140},
+  {"name":"Transmission Spectrum Water Absorption 12306","category":"Exoplanet Atmospheres","color":"#03A9F4","description":"Transmission Spectrum Water Absorption.","position":[5980,117600,3980],"size":140},
+  {"name":"Emission Spectrum Thermal Radiation 12307","category":"Exoplanet Atmospheres","color":"#039BE5","description":"Emission Spectrum Thermal Radiation.","position":[5981,117620,3981],"size":140},
+  {"name":"Reflection Spectrum Aerosol Scattering 12308","category":"Exoplanet Atmospheres","color":"#0091DA","description":"Reflection Spectrum Aerosol Scattering.","position":[5982,117640,3982],"size":140},
+  {"name":"Atmospheric Dynamics Wind Circulation 12309","category":"Exoplanet Atmospheres","color":"#42A5F5","description":"Atmospheric Dynamics Wind Circulation.","position":[5983,117660,3983],"size":140},
+  {"name":"Stratospheric Temperature Inversion 12310","category":"Exoplanet Atmospheres","color":"#64B5F6","description":"Stratospheric Temperature Inversion.","position":[5984,117680,3984],"size":140},
+  {"name":"Cloud Formation Condensation Nuclei 12311","category":"Exoplanet Atmospheres","color":"#1E88E5","description":"Cloud Formation Condensation Nuclei.","position":[5985,117700,3985],"size":140},
+  {"name":"Photochemistry Ozone Production 12312","category":"Exoplanet Atmospheres","color":"#1976D2","description":"Photochemistry Ozone Production.","position":[5986,117720,3986],"size":140},
+  {"name":"Haze Formation Tholins UV 12313","category":"Exoplanet Atmospheres","color":"#1565C0","description":"Haze Formation Tholins UV.","position":[5987,117740,3987],"size":140},
+  {"name":"Chemical Disequilibrium Quenching 12314","category":"Exoplanet Atmospheres","color":"#2196F3","description":"Chemical Disequilibrium Quenching.","position":[5988,117760,3988],"size":140},
+  {"name":"Extreme Climate Tidally Locked 12315","category":"Exoplanet Atmospheres","color":"#42A5F5","description":"Extreme Climate Tidally Locked.","position":[5989,117780,3989],"size":140},
+  {"name":"Habitable Zone Circulation Modeling 12316","category":"Exoplanet Atmospheres","color":"#64B5F6","description":"Habitable Zone Circulation Modeling.","position":[5990,117800,3990],"size":140},
+  {"name":"Outgassing Volcanism Atmospheric Source 12317","category":"Exoplanet Atmospheres","color":"#1E88E5","description":"Outgassing Volcanism Atmospheric Source.","position":[5991,117820,3991],"size":140},
+  {"name":"Biosignature False Positive Abiotic 12318","category":"Exoplanet Atmospheres","color":"#1976D2","description":"Biosignature False Positive Abiotic.","position":[5992,117840,3992],"size":140},
+  {"name":"Oxygen Photochemistry Abiotic Source 12319","category":"Exoplanet Atmospheres","color":"#1565C0","description":"Oxygen Photochemistry Abiotic Source.","position":[5993,117860,3993],"size":140},
+  {"name":"Methane Biogenic Marker 12320","category":"Exoplanet Atmospheres","color":"#0D47A1","description":"Methane Biogenic Marker.","position":[5994,117880,3994],"size":140},
+  {"name":"Phosphine Astrobiology Controversy 12321","category":"Exoplanet Atmospheres","color":"#0277BD","description":"Phosphine Astrobiology Controversy.","position":[5995,117900,3995],"size":140},
+  {"name":"Biosignature Spectral Combination 12322","category":"Exoplanet Atmospheres","color":"#0288D1","description":"Biosignature Spectral Combination.","position":[5996,117920,3996],"size":140},
+  {"name":"Atmospheric Metallicity Stellar Connection 12323","category":"Exoplanet Atmospheres","color":"#03A9F4","description":"Atmospheric Metallicity Stellar Connection.","position":[5997,117940,3997],"size":140},
+  {"name":"Planet Formation Gas Accretion History 12324","category":"Exoplanet Atmospheres","color":"#039BE5","description":"Planet Formation Gas Accretion History.","position":[5998,117960,3998],"size":140},
+  {"name":"Atmospheric Modeling General Circulation 12325","category":"Exoplanet Atmospheres","color":"#0091DA","description":"Atmospheric Modeling General Circulation.","position":[5999,117980,3999],"size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
