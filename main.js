@@ -24104,6 +24104,207 @@ const cosmicSights = [
     color: '#fa8072',
     size: 148
   }
+,
+  {
+    name: 'M87 Core Jet 13326',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [24562, -31779, -8621],
+    color: '#00008b',
+    size: 481
+  },
+  {
+    name: 'Centaurus A Plume 13327',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-27130, -23340, 20817],
+    color: '#4169e1',
+    size: 156
+  },
+  {
+    name: 'Cygnus A Lobe 13328',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [27517, 1339, 4530],
+    color: '#ba55d3',
+    size: 499
+  },
+  {
+    name: '3C 273 Relativistic Beam 13329',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-26268, -27638, -33794],
+    color: '#483d8b',
+    size: 396
+  },
+  {
+    name: 'Blazar Markarian 421 13330',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-24259, 28584, -32422],
+    color: '#0000cd',
+    size: 407
+  },
+  {
+    name: 'Quasar 3C 279 Spike 13331',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-12663, -19263, 34464],
+    color: '#0000cd',
+    size: 246
+  },
+  {
+    name: 'Seyfert NGC 1068 Outflow 13332',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [4730, -11830, 28305],
+    color: '#8a2be2',
+    size: 330
+  },
+  {
+    name: 'OJ 287 Flare Jet 13333',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-26311, 2681, 13532],
+    color: '#9370db',
+    size: 123
+  },
+  {
+    name: 'PKS 2155-304 Burst 13334',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-28821, 33300, -4016],
+    color: '#8b008b',
+    size: 242
+  },
+  {
+    name: 'Fornax A Radio Lobe 13335',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-139, -1974, -21527],
+    color: '#8a2be2',
+    size: 407
+  },
+  {
+    name: 'Pictor A X-ray Jet 13336',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-16196, 2927, 27226],
+    color: '#8b008b',
+    size: 279
+  },
+  {
+    name: 'Virgo A Inner Jet 13337',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [11320, 21224, -23580],
+    color: '#8b008b',
+    size: 419
+  },
+  {
+    name: 'Perseus A Sound Wave 13338',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-17861, 26158, -29238],
+    color: '#0000cd',
+    size: 418
+  },
+  {
+    name: 'Hercules A Double Jet 13339',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [15785, -24447, -18723],
+    color: '#8b008b',
+    size: 375
+  },
+  {
+    name: 'NGC 1275 Filament 13340',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-28473, -30832, 36712],
+    color: '#0000cd',
+    size: 175
+  },
+  {
+    name: '3C 405 Bipolar Outflow 13341',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-13242, 23659, 30623],
+    color: '#ba55d3',
+    size: 227
+  },
+  {
+    name: 'APM 08279+5255 Wind 13342',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [4493, 34959, 33260],
+    color: '#800080',
+    size: 155
+  },
+  {
+    name: 'TON 618 Plasma Jet 13343',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-21366, -11719, -6610],
+    color: '#8b008b',
+    size: 158
+  },
+  {
+    name: 'PG 1553+113 Beam 13344',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [38152, 28049, -266],
+    color: '#00008b',
+    size: 264
+  },
+  {
+    name: 'H1426+428 Outburst 13345',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-32214, 14367, 8546],
+    color: '#8b008b',
+    size: 387
+  },
+  {
+    name: 'Mrk 501 High Energy Jet 13346',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-14819, -30554, 32747],
+    color: '#8a2be2',
+    size: 442
+  },
+  {
+    name: '1ES 1959+650 Gamma Ray Jet 13347',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [21785, -38270, 19605],
+    color: '#4169e1',
+    size: 206
+  },
+  {
+    name: 'TXS 0506+056 Neutrino Jet 13348',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-660, 851, 11601],
+    color: '#800080',
+    size: 177
+  },
+  {
+    name: 'PKS 0447-439 TeV Jet 13349',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-12755, 21049, 24524],
+    color: '#ba55d3',
+    size: 323
+  },
+  {
+    name: 'S5 0716+714 Variable Jet 13350',
+    category: 'Active Galactic Nuclei Jets',
+    description: 'A mesmerizing manifestation of active galactic nuclei jets observed in deep space.', 
+    position: [-25019, 2379, 24050],
+    color: '#8a2be2',
+    size: 270
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
