@@ -23851,6 +23851,33 @@ const cosmicSights = [
     color: '#fa8072',
     size: 383
   }
+,
+{name: "Axion Dark Matter Density", type: "phenomenon", category: "Particle Physics", position: [6975, 137500, 4975], description: "Axion abundance constraints from cosmological observations and galaxy clusters"},
+{name: "ADMX Detector Sensitivity", type: "phenomenon", category: "Experimental Physics", position: [6976, 137520, 4976], description: "Axion Dark Matter eXperiment coverage of axion mass-coupling parameter space"},
+{name: "Axion-Photon Coupling Strength", type: "phenomenon", category: "Fundamental Physics", position: [6977, 137540, 4977], description: "Electromagnetic interaction strength affecting axion detectability"},
+{name: "Topological QCD Theta Problem", type: "phenomenon", category: "Quantum Chromodynamics", position: [6978, 137560, 4978], description: "Strong CP violation solution via axion mechanism and its implications"},
+{name: "Axion Mass Generation", type: "phenomenon", category: "Particle Theory", position: [6979, 137580, 4979], description: "Peccei-Quinn symmetry breaking scale determining axion mass"},
+{name: "Cosmic Axion Spin Glass", type: "phenomenon", category: "Condensed Matter Astrophysics", position: [6980, 137600, 4980], description: "Collective axion behavior in large-scale galactic magnetic fields"},
+{name: "Fuzzy Dark Matter Alternative", type: "phenomenon", category: "Dark Matter Physics", position: [6981, 137620, 4981], description: "Ultra-light axion as fuzzy dark matter forming solitonic structures"},
+{name: "Axion Wind Detection", type: "phenomenon", category: "Observational Astronomy", position: [6982, 137640, 4982], description: "Directional sensitivity to galactic axion wind from dark matter halo"},
+{name: "Magnetar-Axion Coupling", type: "phenomenon", category: "High-Energy Astrophysics", position: [6983, 137660, 4983], description: "Enhanced axion conversion in extreme magnetic field environments"},
+{name: "Helioscope Constraints", type: "phenomenon", category: "Solar Physics", position: [6984, 137680, 4984], description: "IAXO telescope bounds on solar axion emission and coupling"},
+{name: "Superfluid Helium Detection", type: "phenomenon", category: "Condensed Matter Physics", position: [6985, 137700, 4985], description: "Quantum detector response to axion-induced nuclear spins"},
+{name: "String Theory Axion Landscape", type: "phenomenon", category: "String Theory", position: [6986, 137720, 4986], description: "Multiple axion solutions from extra-dimensional compactifications"},
+{name: "Anharmonic Oscillation Damping", type: "phenomenon", category: "Classical Mechanics", position: [6987, 137740, 4987], description: "Axion field evolution in expanding universe and oscillation decay"},
+{name: "Resonant Microwave Cavity", type: "phenomenon", category: "Microwave Engineering", position: [6988, 137760, 4988], description: "ADMX cavity tuning sensitivity to axion mass resonance"},
+{name: "Isospin Violation Effects", type: "phenomenon", category: "Nuclear Physics", position: [6989, 137780, 4989], description: "Axion coupling to neutrons vs protons and nuclear binding consequences"},
+{name: "White Dwarf Cooling Acceleration", type: "phenomenon", category: "Stellar Evolution", position: [6990, 137800, 4990], description: "Axion emission from white dwarf cores affecting luminosity evolution"},
+{name: "Neutron Star Crust Cooling", type: "phenomenon", category: "Neutron Star Physics", position: [6991, 137820, 4991], description: "Axion opacity in neutron star crust layers and energy transport"},
+{name: "Globular Cluster Age Estimates", type: "phenomenon", category: "Stellar Populations", position: [6992, 137840, 4992], description: "Axion-induced stellar cooling affecting cluster age dating"},
+{name: "Supernova SN1987A Signal", type: "phenomenon", category: "Transient Astrophysics", position: [6993, 137860, 4993], description: "Axion emission constraints from supernova neutrino observation"},
+{name: "Coherent Axion Wave Packets", type: "phenomenon", category: "Quantum Mechanics", position: [6994, 137880, 4994], description: "Wave packet formation in galaxy halos and directional inference"},
+{name: "Dwarf Spheroidal Targets", type: "phenomenon", category: "Galactic Dynamics", position: [6995, 137900, 4995], description: "High dark matter density in dwarfs enhancing axion detection potential"},
+{name: "Inflation Axion Dilution", type: "phenomenon", category: "Inflationary Cosmology", position: [6996, 137920, 4996], description: "Post-inflationary axion abundance reduction from reheating"},
+{name: "Holographic Axion Models", type: "phenomenon", category: "Holographic Duality", position: [6997, 137940, 4997], description: "Gauge-gravity duality interpretation of axion physics"},
+{name: "Neutrino-Axion Mixing", type: "phenomenon", category: "Neutrino Physics", position: [6998, 137960, 4998], description: "Flavor oscillations from axion-neutrino coupling in dense environments"},
+{name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
