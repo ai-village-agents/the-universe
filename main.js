@@ -22290,6 +22290,33 @@ const cosmicSights = [
   { name: "GRB Spectral Lag Measurement", type: "phenomenon", category: "transient", position: [6320, 2320, 4320], description: "Time delay between high and low energy photon arrival" },
   { name: "Afterglow Spectroscopic Redshift", type: "phenomenon", category: "transient", position: [6330, 2330, 4330], description: "Precise distance determination from absorption or emission lines" },
   { name: "GRB Luminosity Correlation Zone", type: "phenomenon", category: "transient", position: [6340, 2340, 4340], description: "Region where burst properties follow standardizable energy relations" }
+,
+{ name: "Quasar Host Galaxy Stellar Populations", type: "phenomenon", category: "extragalactic", position: [6750, 133000, 4750], description: "Ancient stellar populations in quasar host galaxies with ages 12+ Gyr indicating early-universe assembly" },
+{ name: "Black Hole Host Galaxy Coevolution", type: "phenomenon", category: "extragalactic", position: [6751, 133020, 4751], description: "Tight correlation between supermassive black hole mass and host galaxy bulge properties indicating coupled growth" },
+{ name: "Quasar Feedback Remnants", type: "phenomenon", category: "extragalactic", position: [6752, 133040, 4752], description: "Extended cool gas outflows from quasar feedback events extending to host galaxy outer regions" },
+{ name: "High-Redshift Quasar Environment", type: "phenomenon", category: "extragalactic", position: [6753, 133060, 4753], description: "Quasar host galaxies at z>6 embedded in overdense regions with companion galaxies and protoclusters" },
+{ name: "Quasar Accretion Disk Variability", type: "phenomenon", category: "high_energy", position: [6754, 133080, 4754], description: "Rapid X-ray and optical variability from accretion disk instabilities and magnetic reconnection events" },
+{ name: "Host Galaxy Dust Obscuration", type: "phenomenon", category: "extragalactic", position: [6755, 133100, 4755], description: "Partial dust obscuration of quasar light by host galaxy dust providing clues to AGN-galaxy interaction" },
+{ name: "Quasar Broad Emission Line Region", type: "phenomenon", category: "extragalactic", position: [6756, 133120, 4756], description: "Dense ionized gas moving at thousands of km/s near black hole producing broad lines diagnostic of accretion" },
+{ name: "Radio-Loud Quasar Jets", type: "phenomenon", category: "extragalactic", position: [6757, 133140, 4757], description: "Relativistic jets extending megaparsec scales from quasar cores with complex morphologies and hot spots" },
+{ name: "Quasar Narrow Emission Lines", type: "phenomenon", category: "extragalactic", position: [6758, 133160, 4758], description: "Narrow forbidden lines from quasar narrow-line region tracing host galaxy gas kinematics and metallicity" },
+{ name: "Gravitationally Lensed Quasar", type: "phenomenon", category: "extragalactic", position: [6759, 133180, 4759], description: "Multiple images of single quasar from gravitational lensing measuring host galaxy mass distribution" },
+{ name: "Quasar Host Galaxy Mergers", type: "phenomenon", category: "extragalactic", position: [6760, 133200, 4760], description: "Morphological disturbances and merger signatures in quasar host galaxies triggering black hole accretion" },
+{ name: "Quasar Spectral Energy Distribution", type: "phenomenon", category: "extragalactic", position: [6761, 133220, 4761], description: "Multi-wavelength emission from radio to gamma-ray revealing accretion disk, jet, and host components" },
+{ name: "Quasar Absorption Line Systems", type: "phenomenon", category: "extragalactic", position: [6762, 133240, 4762], description: "Intervening absorption systems along quasar sightlines probing intergalactic medium structure" },
+{ name: "Quasar Companion Galaxies", type: "phenomenon", category: "extragalactic", position: [6763, 133260, 4763], description: "Nearby satellite galaxies around quasar hosts affecting gravitational dynamics and gas interactions" },
+{ name: "Quasar Infrared Excess", type: "phenomenon", category: "extragalactic", position: [6764, 133280, 4764], description: "Excess infrared emission from warm dust heated by quasar radiation in surrounding host galaxy" },
+{ name: "Ultra-Luminous Infrared Quasar", type: "phenomenon", category: "extragalactic", position: [6765, 133300, 4765], description: "Obscured quasars with bolometric luminosity exceeding 10^47 erg/s powered by Eddington-limited accretion" },
+{ name: "Quasar Reverberation Mapping", type: "phenomenon", category: "high_energy", position: [6766, 133320, 4766], description: "Time-lag measurements between continuum and emission line variations measuring broad-line-region size" },
+{ name: "Quasar Variability Timescale", type: "phenomenon", category: "high_energy", position: [6767, 133340, 4767], description: "Rapid hour-scale variability indicating accretion disk regions smaller than light-travel distance" },
+{ name: "Quasar Polarization", type: "phenomenon", category: "high_energy", position: [6768, 133360, 4768], description: "Polarized light from quasar revealing magnetic field structure in accretion disk and jet regions" },
+{ name: "Quasar Gamma-Ray Emission", type: "phenomenon", category: "high_energy", position: [6769, 133380, 4769], description: "GeV-TeV gamma-ray emission from relativistic jets indicating particle acceleration to highest energies" },
+{ name: "Supermassive Black Hole Mass", type: "phenomenon", category: "extragalactic", position: [6770, 133400, 4770], description: "Quasar black hole masses ranging 10^6 to 10^10 solar masses determined from emission-line widths" },
+{ name: "Quasar Eddington Ratio", type: "phenomenon", category: "extragalactic", position: [6771, 133420, 4771], description: "Accretion rate relative to Eddington limit indicating super-Eddington accretion in some quasar systems" },
+{ name: "Quasar Host Metallicity", type: "phenomenon", category: "extragalactic", position: [6772, 133440, 4772], description: "High metal abundances in quasar host galaxies indicating advanced chemical evolution from prior star formation" },
+{ name: "Quasar Redshift Distribution", type: "phenomenon", category: "extragalactic", position: [6773, 133460, 4773], description: "Peaked distribution of quasar redshifts at z~2 revealing peak epoch of supermassive black hole growth" },
+{ name: "Quasar Luminosity Function Evolution", type: "phenomenon", category: "extragalactic", position: [6774, 133480, 4774], description: "Rapid evolution of quasar number density and luminosity indicating changing accretion rates over cosmic time" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
