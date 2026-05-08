@@ -24838,6 +24838,110 @@ export function createAnchorageLandmark(THREE, opts) {
   cwggGroup.add(cwggBird);
   group.add(cwggGroup);
 
+  // v153 pier zip line (pzpl)
+  const pzplGroup = new THREE.Group();
+  pzplGroup.position.set(28, 7.6, 32);
+  const pzplTowerA = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.5, 0.2), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  pzplTowerA.position.set(-2.5, 1.75, 0);
+  pzplGroup.add(pzplTowerA);
+  const pzplTowerB = pzplTowerA.clone();
+  pzplTowerB.position.set(2.5, 1.75, 0);
+  pzplGroup.add(pzplTowerB);
+  const pzplCable = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 5.0, 6), new THREE.MeshLambertMaterial({color: 0x303030}));
+  pzplCable.rotation.z = Math.PI / 2;
+  pzplCable.position.set(0, 3.3, 0);
+  pzplGroup.add(pzplCable);
+  const pzplPlatformA = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.1, 0.8), new THREE.MeshLambertMaterial({color: 0x8a6e4a}));
+  pzplPlatformA.position.set(-2.5, 3.55, 0);
+  pzplGroup.add(pzplPlatformA);
+  const pzplPlatformB = pzplPlatformA.clone();
+  pzplPlatformB.position.set(2.5, 3.55, 0);
+  pzplGroup.add(pzplPlatformB);
+  const pzplRider = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.7, 8), new THREE.MeshLambertMaterial({color: 0xff4a8a}));
+  pzplRider.position.set(0, 2.85, 0);
+  pzplGroup.add(pzplRider);
+  const pzplRiderHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pzplRiderHead.position.set(0, 3.3, 0);
+  pzplGroup.add(pzplRiderHead);
+  const pzplHelmet = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({color: 0xff4a4a}));
+  pzplHelmet.position.set(0, 3.32, 0);
+  pzplGroup.add(pzplHelmet);
+  const pzplPulley = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.06, 8), new THREE.MeshStandardMaterial({color: 0xa0a0a0, metalness: 0.6, roughness: 0.3}));
+  pzplPulley.rotation.z = Math.PI / 2;
+  pzplPulley.position.set(0, 3.32, 0);
+  pzplGroup.add(pzplPulley);
+  group.add(pzplGroup);
+
+  // v153 beach baseball (bbsb)
+  const bbsbGroup = new THREE.Group();
+  bbsbGroup.position.set(-46, 0.6, -36);
+  const bbsbBatter = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xffd24a}));
+  bbsbBatter.position.set(0, 0.5, 0);
+  bbsbGroup.add(bbsbBatter);
+  const bbsbBatterHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bbsbBatterHead.position.set(0, 1.05, 0);
+  bbsbGroup.add(bbsbBatterHead);
+  const bbsbBatGroup = new THREE.Group();
+  bbsbBatGroup.position.set(0, 0.85, 0);
+  const bbsbBat = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.06, 0.7, 8), new THREE.MeshLambertMaterial({color: 0xa07040}));
+  bbsbBat.position.set(0.35, 0, 0);
+  bbsbBat.rotation.z = -1.0;
+  bbsbBatGroup.add(bbsbBat);
+  bbsbGroup.add(bbsbBatGroup);
+  const bbsbPitcher = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x4a8aff}));
+  bbsbPitcher.position.set(3.0, 0.5, 0);
+  bbsbGroup.add(bbsbPitcher);
+  const bbsbPitcherHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bbsbPitcherHead.position.set(3.0, 1.05, 0);
+  bbsbGroup.add(bbsbPitcherHead);
+  const bbsbBall = new THREE.Mesh(new THREE.SphereGeometry(0.07, 10, 10), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  bbsbBall.position.set(1.5, 0.85, 0);
+  bbsbGroup.add(bbsbBall);
+  const bbsbCatcher = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.65, 8), new THREE.MeshLambertMaterial({color: 0xff4a4a}));
+  bbsbCatcher.position.set(-0.8, 0.4, 0);
+  bbsbCatcher.rotation.x = 0.4;
+  bbsbGroup.add(bbsbCatcher);
+  const bbsbCatcherHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bbsbCatcherHead.position.set(-0.8, 0.9, 0);
+  bbsbGroup.add(bbsbCatcherHead);
+  const bbsbBase = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.04, 0.3), new THREE.MeshLambertMaterial({color: 0xfff0e0}));
+  bbsbBase.position.set(0, 0.02, 0.4);
+  bbsbGroup.add(bbsbBase);
+  group.add(bbsbGroup);
+
+  // v153 coastal seagull rescue (csgr)
+  const csgrGroup = new THREE.Group();
+  csgrGroup.position.set(-72, 0.8, 58);
+  const csgrTable = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.7), new THREE.MeshLambertMaterial({color: 0xfff0e0}));
+  csgrTable.position.set(0, 0.7, 0);
+  csgrGroup.add(csgrTable);
+  const csgrLeg1 = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.7, 0.06), new THREE.MeshLambertMaterial({color: 0x8a8a8a}));
+  csgrLeg1.position.set(0.5, 0.35, 0.3); csgrGroup.add(csgrLeg1);
+  const csgrLeg2 = csgrLeg1.clone(); csgrLeg2.position.set(-0.5, 0.35, 0.3); csgrGroup.add(csgrLeg2);
+  const csgrLeg3 = csgrLeg1.clone(); csgrLeg3.position.set(0.5, 0.35, -0.3); csgrGroup.add(csgrLeg3);
+  const csgrLeg4 = csgrLeg1.clone(); csgrLeg4.position.set(-0.5, 0.35, -0.3); csgrGroup.add(csgrLeg4);
+  const csgrGull = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 12), new THREE.MeshLambertMaterial({color: 0xfafafa}));
+  csgrGull.position.set(0, 0.85, 0);
+  csgrGroup.add(csgrGull);
+  const csgrWingL = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.16), new THREE.MeshLambertMaterial({color: 0xeeeeee, side: THREE.DoubleSide}));
+  csgrWingL.position.set(-0.18, 0.85, 0);
+  csgrWingL.rotation.y = -0.3;
+  csgrGroup.add(csgrWingL);
+  const csgrWingR = csgrWingL.clone();
+  csgrWingR.position.set(0.18, 0.85, 0);
+  csgrWingR.rotation.y = 0.3;
+  csgrGroup.add(csgrWingR);
+  const csgrBandage = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.08), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  csgrBandage.position.set(-0.16, 0.85, 0.18);
+  csgrGroup.add(csgrBandage);
+  const csgrVet = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xfafafa}));
+  csgrVet.position.set(0, 0.5, 0.85);
+  csgrGroup.add(csgrVet);
+  const csgrVetHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  csgrVetHead.position.set(0, 1.05, 0.85);
+  csgrGroup.add(csgrVetHead);
+  group.add(csgrGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -28300,6 +28404,28 @@ export function createAnchorageLandmark(THREE, opts) {
   cwggSpinner.rotation.z = v152t * 2.5;
   cwggMidSpinner.rotation.y = v152t * 1.8;
   cwggBird.rotation.z = Math.sin(v152t * 0.6) * 0.15;
+
+  // v153 zip line anim
+  const v153t = t;
+  const pzplPhase = (v153t * 0.4) % 1.0;
+  const pzplX = -2.2 + pzplPhase * 4.4;
+  pzplRider.position.x = pzplX;
+  pzplRiderHead.position.x = pzplX;
+  pzplHelmet.position.x = pzplX;
+  pzplPulley.position.x = pzplX;
+  pzplPulley.rotation.x = v153t * 6.0;
+  pzplRider.rotation.z = Math.sin(v153t * 5.0) * 0.05;
+
+  // v153 baseball anim
+  bbsbBatGroup.rotation.z = Math.sin(v153t * 2.0) * 0.6;
+  const bbsbT = (v153t * 0.6) % 1.0;
+  bbsbBall.position.x = 3.0 - bbsbT * 4.0;
+  bbsbBall.position.y = 0.85 + Math.sin(bbsbT * Math.PI) * 0.2;
+
+  // v153 seagull rescue anim
+  csgrWingL.rotation.z = Math.sin(v153t * 1.5) * 0.15;
+  csgrWingR.rotation.z = -Math.sin(v153t * 1.5) * 0.15;
+  csgrGull.position.y = 0.85 + Math.sin(v153t * 1.0) * 0.02;
 
 
 
