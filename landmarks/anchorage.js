@@ -19832,6 +19832,144 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bbccGroup);
 
+  // --- v122: pier tarot reader (ptr) ------------------------------------------
+  const ptrGroup = new THREE.Group();
+  ptrGroup.position.set(34, 1.5, -22);
+  const ptrTableMat = new THREE.MeshLambertMaterial({ color: 0x4a1a3a });
+  const ptrTable = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.45, 0.05, 16), ptrTableMat);
+  ptrTable.position.y = 0.78;
+  ptrGroup.add(ptrTable);
+  const ptrLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.78, 8), new THREE.MeshLambertMaterial({ color: 0x3a1a1a }));
+  ptrLeg.position.y = 0.39;
+  ptrGroup.add(ptrLeg);
+  const ptrCardMat = new THREE.MeshLambertMaterial({ color: 0xfff0d8 });
+  const ptrCardBackMat = new THREE.MeshLambertMaterial({ color: 0x6a2a8a });
+  const ptrCards = [];
+  for (let i = 0; i < 6; i++) {
+    const c = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.005, 0.18), ptrCardMat);
+    const a = (i / 6) * Math.PI * 2;
+    c.position.set(Math.cos(a) * 0.25, 0.81, Math.sin(a) * 0.25);
+    c.rotation.y = a;
+    ptrGroup.add(c);
+    ptrCards.push(c);
+  }
+  const ptrDeck = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.08, 0.18), ptrCardBackMat);
+  ptrDeck.position.set(-0.35, 0.85, 0);
+  ptrGroup.add(ptrDeck);
+  const ptrCandle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.18, 8), new THREE.MeshLambertMaterial({ color: 0xf0e0a0 }));
+  ptrCandle.position.set(0.35, 0.9, 0);
+  ptrGroup.add(ptrCandle);
+  const ptrFlame = new THREE.Mesh(new THREE.ConeGeometry(0.025, 0.08, 8), new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.85 }));
+  ptrFlame.position.set(0.35, 1.03, 0);
+  ptrGroup.add(ptrFlame);
+  const ptrReader = new THREE.Group();
+  const ptrRBody = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.34, 1.0, 8), new THREE.MeshLambertMaterial({ color: 0x8a3a8a }));
+  ptrRBody.position.y = 0.5;
+  ptrReader.add(ptrRBody);
+  const ptrRHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  ptrRHead.position.y = 1.12;
+  ptrReader.add(ptrRHead);
+  const ptrShawl = new THREE.Mesh(new THREE.ConeGeometry(0.36, 0.4, 12, 1, true), new THREE.MeshLambertMaterial({ color: 0xc94f9f, side: THREE.DoubleSide }));
+  ptrShawl.position.y = 1.0;
+  ptrReader.add(ptrShawl);
+  ptrReader.position.set(0, 0, -0.7);
+  ptrGroup.add(ptrReader);
+  const ptrSeeker = new THREE.Group();
+  const ptrSBody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0x4f8fc9 }));
+  ptrSBody.position.y = 0.42;
+  ptrSeeker.add(ptrSBody);
+  const ptrSHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  ptrSHead.position.y = 0.95;
+  ptrSeeker.add(ptrSHead);
+  ptrSeeker.position.set(0, 0, 0.7);
+  ptrGroup.add(ptrSeeker);
+  group.add(ptrGroup);
+
+  // --- v122: coastal lobster trap workshop (cltw) -----------------------------
+  const cltwGroup = new THREE.Group();
+  cltwGroup.position.set(-30, 1.5, -38);
+  const cltwBenchMat = new THREE.MeshLambertMaterial({ color: 0x6b3a1a });
+  const cltwBench = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.08, 0.6), cltwBenchMat);
+  cltwBench.position.y = 0.5;
+  cltwGroup.add(cltwBench);
+  const cltwLegMat = new THREE.MeshLambertMaterial({ color: 0x4a2a1a });
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.5, 0.08), cltwLegMat);
+    leg.position.set((i % 2) * 1.8 - 0.9, 0.25, Math.floor(i / 2) * 0.5 - 0.25);
+    cltwGroup.add(leg);
+  }
+  const cltwTrapMat = new THREE.MeshLambertMaterial({ color: 0xa08060, wireframe: true });
+  const cltwTraps = [];
+  for (let i = 0; i < 4; i++) {
+    const t = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.25, 0.5), cltwTrapMat);
+    t.position.set(-0.7 + i * 0.5, 0.66, 0);
+    cltwGroup.add(t);
+    cltwTraps.push(t);
+  }
+  const cltwBuoyColors = [0xc94f4f, 0xffe066, 0x4fc97a];
+  const cltwBuoys = [];
+  for (let i = 0; i < 3; i++) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), new THREE.MeshLambertMaterial({ color: cltwBuoyColors[i] }));
+    b.position.set(1.3, 0.2, -0.3 + i * 0.3);
+    cltwGroup.add(b);
+    cltwBuoys.push(b);
+  }
+  const cltwBuilder = new THREE.Group();
+  const cltwBBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.95, 8), new THREE.MeshLambertMaterial({ color: 0x3a4a6a }));
+  cltwBBody.position.y = 0.47;
+  cltwBuilder.add(cltwBBody);
+  const cltwBHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  cltwBHead.position.y = 1.05;
+  cltwBuilder.add(cltwBHead);
+  const cltwBHat = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.12, 8), new THREE.MeshLambertMaterial({ color: 0xc9b34f }));
+  cltwBHat.position.y = 1.28;
+  cltwBuilder.add(cltwBHat);
+  cltwBuilder.position.set(0, 0, 0.65);
+  cltwGroup.add(cltwBuilder);
+  group.add(cltwGroup);
+
+  // --- v122: pier salt-water taffy machine (pstm) -----------------------------
+  const pstmGroup = new THREE.Group();
+  pstmGroup.position.set(40, 1.5, 8);
+  const pstmFrameMat = new THREE.MeshLambertMaterial({ color: 0xc9c9c9 });
+  const pstmFrame = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.6, 0.5), pstmFrameMat);
+  pstmFrame.position.y = 0.6;
+  pstmGroup.add(pstmFrame);
+  const pstmHook1 = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.6, 12), new THREE.MeshStandardMaterial({ color: 0xeeeeee, metalness: 0.6, roughness: 0.3 }));
+  pstmHook1.rotation.z = Math.PI / 2;
+  pstmHook1.position.set(-0.3, 0.6, 0);
+  pstmGroup.add(pstmHook1);
+  const pstmHook2 = pstmHook1.clone();
+  pstmHook2.position.x = 0.3;
+  pstmGroup.add(pstmHook2);
+  const pstmTaffyMat = new THREE.MeshLambertMaterial({ color: 0xff9ec2 });
+  const pstmTaffy = new THREE.Mesh(new THREE.TorusGeometry(0.2, 0.05, 6, 16), pstmTaffyMat);
+  pstmTaffy.rotation.x = Math.PI / 2;
+  pstmTaffy.position.y = 0.6;
+  pstmGroup.add(pstmTaffy);
+  const pstmStandMat = new THREE.MeshLambertMaterial({ color: 0x6b3a1a });
+  const pstmStand = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.3, 0.7), pstmStandMat);
+  pstmStand.position.y = 0.15;
+  pstmGroup.add(pstmStand);
+  const pstmAttendant = new THREE.Group();
+  const pstmABody = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.3, 0.85, 8), new THREE.MeshLambertMaterial({ color: 0xc94f9f }));
+  pstmABody.position.y = 0.42;
+  pstmAttendant.add(pstmABody);
+  const pstmAHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 8), new THREE.MeshLambertMaterial({ color: 0xffd9b3 }));
+  pstmAHead.position.y = 0.95;
+  pstmAttendant.add(pstmAHead);
+  pstmAttendant.position.set(0, 0, 0.7);
+  pstmGroup.add(pstmAttendant);
+  const pstmWrapColors = [0xff9ec2, 0xa0d8ff, 0xfff4a0, 0xb0ffa0];
+  const pstmWraps = [];
+  for (let i = 0; i < 4; i++) {
+    const w = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.08, 0.04), new THREE.MeshLambertMaterial({ color: pstmWrapColors[i] }));
+    w.position.set(-0.45 + i * 0.3, 0.32, 0.3);
+    pstmGroup.add(w);
+    pstmWraps.push(w);
+  }
+  group.add(pstmGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -22535,6 +22673,13 @@ export function createAnchorageLandmark(THREE, opts) {
   cshSeaweeds.forEach((s, i) => { s.rotation.z = Math.sin(v121t * 1.2 + i * 0.5) * 0.18; });
   cshTide.material.opacity = 0.35 + Math.sin(v121t * 0.8) * 0.1;
   bbccChildren.forEach((c, i) => { c.position.y = Math.abs(Math.sin(v121t * 1.0 + i * 1.0)) * 0.06; });
+  const v122t = t;
+  ptrFlame.scale.y = 1 + Math.sin(v122t * 7) * 0.25;
+  ptrFlame.material.opacity = 0.7 + Math.sin(v122t * 5) * 0.2;
+  ptrCards.forEach((c, i) => { c.position.y = 0.81 + Math.sin(v122t * 1.2 + i * 0.6) * 0.02; });
+  cltwBuoys.forEach((b, i) => { b.position.y = 0.2 + Math.sin(v122t * 1.5 + i * 0.7) * 0.04; });
+  pstmTaffy.scale.x = 1 + Math.sin(v122t * 2.5) * 0.3;
+  pstmTaffy.scale.z = 1 - Math.sin(v122t * 2.5) * 0.2;
 
 
 
