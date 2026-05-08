@@ -16940,6 +16940,32 @@ const cosmicSights = [
     {name: "Neutron Star Merger Gravitational Waves", description: "The transient gravitational wave signal from two colliding neutron stars.", position: [5372, 105440, 3372]},
     {name: "Pulsar Jet Formation Mechanism", description: "The acceleration and collimation of particle beams along pulsar magnetic field lines.", position: [5373, 105460, 3373]},
     {name: "Neutron Star Mass Radius Constraint", description: "Using pulsar mass measurements to constrain the neutron star equation of state.", position: [5374, 105480, 3374]}
+,
+    {name: "Dark Energy Acceleration", description: "The mysterious repulsive force causing the universe to expand at an accelerating rate.", position: [5375, 105500, 3375]},
+    {name: "Type Ia Supernova Distance Ladder", description: "Using standardizable supernovae as cosmic distance indicators to measure the Hubble constant.", position: [5376, 105520, 3376]},
+    {name: "Cosmic Microwave Background Anisotropy", description: "Temperature fluctuations in the CMB revealing the primordial density perturbations.", position: [5377, 105540, 3377]},
+    {name: "Acoustic Peak Locations", description: "The specific scales of CMB temperature power spectrum peaks constraining geometry.", position: [5378, 105560, 3378]},
+    {name: "Weak Gravitational Lensing", description: "The subtle bending of light by large-scale matter distributions mapping dark matter directly.", position: [5379, 105580, 3379]},
+    {name: "Redshift Space Distortions", description: "Peculiar velocities causing apparent distortions in redshift surveys of galaxy distributions.", position: [5380, 105600, 3380]},
+    {name: "Large-Scale Structure Formation", description: "The growth of matter density perturbations into the cosmic web of filaments and voids.", position: [5381, 105620, 3381]},
+    {name: "Matter Power Spectrum", description: "The distribution of power across different scales in the matter density field.", position: [5382, 105640, 3382]},
+    {name: "Phantom Dark Energy", description: "A form of dark energy with equation of state parameter w < -1 potentially causing Big Rip.", position: [5383, 105660, 3383]},
+    {name: "Modified Gravity Theories", description: "Alternatives to general relativity that modify gravity on cosmological scales.", position: [5384, 105680, 3384]},
+    {name: "Cluster Mass Function Evolution", description: "How the abundance of galaxy clusters evolves with redshift constraining cosmology.", position: [5385, 105700, 3385]},
+    {name: "Void Clustering Analysis", description: "The distribution and properties of cosmic voids as tracers of large-scale structure.", position: [5386, 105720, 3386]},
+    {name: "Lensing Deflection Angle Distribution", description: "The statistical distribution of light bending angles from gravitational lensing.", position: [5387, 105740, 3387]},
+    {name: "Kinetic Sunyaev-Zeldovich Effect", description: "Electron scattering from the peculiar velocities of galaxy clusters in the CMB.", position: [5388, 105760, 3388]},
+    {name: "Tensor-to-Scalar Ratio Constraints", description: "Observational limits on the ratio of gravitational wave to density perturbation amplitudes.", position: [5389, 105780, 3389]},
+    {name: "Reionization Epoch Signature", description: "The imprint of the epoch when the universe was reionized by the first stars.", position: [5390, 105800, 3390]},
+    {name: "Tensor Mode Polarization", description: "The B-mode polarization patterns in the CMB from primordial gravitational waves.", position: [5391, 105820, 3391]},
+    {name: "Isocurvature Perturbations", description: "Initial conditions where different particle species have uncorrelated density fluctuations.", position: [5392, 105840, 3392]},
+    {name: "21-Centimeter Tomography", description: "Using hydrogen line emission to map the universe in three dimensions at high redshift.", position: [5393, 105860, 3393]},
+    {name: "Peculiar Velocity Field Mapping", description: "Measuring the actual velocities of galaxies revealing the underlying matter distribution.", position: [5394, 105880, 3394]},
+    {name: "Lyman-Break Galaxy Distribution", description: "The spatial distribution of star-forming galaxies at early cosmic times.", position: [5395, 105900, 3395]},
+    {name: "Void Underdensity Measurements", description: "Quantifying the density deficit in cosmic voids as probes of structure formation.", position: [5396, 105920, 3396]},
+    {name: "Cluster-Cluster Correlation", description: "The two-point correlation function of galaxy clusters measuring large-scale bias.", position: [5397, 105940, 3397]},
+    {name: "Photometric Redshift Calibration", description: "Using photometric data to estimate galaxy redshifts improving large-scale surveys.", position: [5398, 105960, 3398]},
+    {name: "Cosmic Growth Rate Measurements", description: "Determining how fast structure grows from initial perturbations to test gravity.", position: [5399, 105980, 3399]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
