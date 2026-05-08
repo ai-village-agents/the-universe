@@ -22036,6 +22036,131 @@ const cosmicSights = [
     position: [-3758, -36637, 32369],
     color: '#9932CC',
     size: 84
+  },
+  {
+    name: "Globular Cluster Core Collapse 12851",
+    description: "Cosmic sight 12851: Globular Cluster Core Collapse observed in the star cluster dynamics laboratory of the universe.",
+    position: [-869.7, 831.3, 704.8]
+  },
+  {
+    name: "Open Cluster Dissolution Time 12852",
+    description: "Cosmic sight 12852: Open Cluster Dissolution Time observed in the star cluster dynamics laboratory of the universe.",
+    position: [-766.4, -478.8, -583.5]
+  },
+  {
+    name: "Star Cluster Mass Segregation 12853",
+    description: "Cosmic sight 12853: Star Cluster Mass Segregation observed in the star cluster dynamics laboratory of the universe.",
+    position: [707.8, 311.5, -332.2]
+  },
+  {
+    name: "Blue Straggler Merger Origin 12854",
+    description: "Cosmic sight 12854: Blue Straggler Merger Origin observed in the star cluster dynamics laboratory of the universe.",
+    position: [-28.8, 516.7, -542.8]
+  },
+  {
+    name: "Binary Star Exchange Interaction 12855",
+    description: "Cosmic sight 12855: Binary Star Exchange Interaction observed in the star cluster dynamics laboratory of the universe.",
+    position: [314.0, 536.4, -671.6]
+  },
+  {
+    name: "Star Cluster Tidal Radius 12856",
+    description: "Cosmic sight 12856: Star Cluster Tidal Radius observed in the star cluster dynamics laboratory of the universe.",
+    position: [576.5, 837.3, -807.2]
+  },
+  {
+    name: "Escaping Star Hypervelocity 12857",
+    description: "Cosmic sight 12857: Escaping Star Hypervelocity observed in the star cluster dynamics laboratory of the universe.",
+    position: [-126.3, 46.3, 237.6]
+  },
+  {
+    name: "Cluster Color Magnitude Diagram 12858",
+    description: "Cosmic sight 12858: Cluster Color Magnitude Diagram observed in the star cluster dynamics laboratory of the universe.",
+    position: [-714.9, 290.8, 691.8]
+  },
+  {
+    name: "Main Sequence Turnoff Age 12859",
+    description: "Cosmic sight 12859: Main Sequence Turnoff Age observed in the star cluster dynamics laboratory of the universe.",
+    position: [190.8, -422.4, -630.8]
+  },
+  {
+    name: "Red Giant Branch Bump 12860",
+    description: "Cosmic sight 12860: Red Giant Branch Bump observed in the star cluster dynamics laboratory of the universe.",
+    position: [-398.0, 604.3, 776.6]
+  },
+  {
+    name: "Horizontal Branch Morphology 12861",
+    description: "Cosmic sight 12861: Horizontal Branch Morphology observed in the star cluster dynamics laboratory of the universe.",
+    position: [-566.5, 729.4, 195.8]
+  },
+  {
+    name: "Asymptotic Giant Branch C Star 12862",
+    description: "Cosmic sight 12862: Asymptotic Giant Branch C Star observed in the star cluster dynamics laboratory of the universe.",
+    position: [-522.6, -224.2, -631.5]
+  },
+  {
+    name: "Planetary Nebulae Cluster Member 12863",
+    description: "Cosmic sight 12863: Planetary Nebulae Cluster Member observed in the star cluster dynamics laboratory of the universe.",
+    position: [-190.5, -688.1, 93.3]
+  },
+  {
+    name: "White Dwarf Luminosity Function 12864",
+    description: "Cosmic sight 12864: White Dwarf Luminosity Function observed in the star cluster dynamics laboratory of the universe.",
+    position: [732.6, -826.8, -581.5]
+  },
+  {
+    name: "Cluster Initial Mass Function 12865",
+    description: "Cosmic sight 12865: Cluster Initial Mass Function observed in the star cluster dynamics laboratory of the universe.",
+    position: [-506.6, -559.8, -363.1]
+  },
+  {
+    name: "Star Cluster Rotation Measurement 12866",
+    description: "Cosmic sight 12866: Star Cluster Rotation Measurement observed in the star cluster dynamics laboratory of the universe.",
+    position: [-72.2, 76.8, 117.3]
+  },
+  {
+    name: "Binary Fraction Cluster Core 12867",
+    description: "Cosmic sight 12867: Binary Fraction Cluster Core observed in the star cluster dynamics laboratory of the universe.",
+    position: [249.7, -785.8, 174.5]
+  },
+  {
+    name: "Eclipsing Binary Cluster Member 12868",
+    description: "Cosmic sight 12868: Eclipsing Binary Cluster Member observed in the star cluster dynamics laboratory of the universe.",
+    position: [-398.9, 606.2, 852.8]
+  },
+  {
+    name: "Pulsar Cluster Acceleration 12869",
+    description: "Cosmic sight 12869: Pulsar Cluster Acceleration observed in the star cluster dynamics laboratory of the universe.",
+    position: [-601.2, 585.8, 782.9]
+  },
+  {
+    name: "Millisecond Pulsar Recycling 12870",
+    description: "Cosmic sight 12870: Millisecond Pulsar Recycling observed in the star cluster dynamics laboratory of the universe.",
+    position: [357.1, -609.2, 504.7]
+  },
+  {
+    name: "Star Cluster Dynamical Friction 12871",
+    description: "Cosmic sight 12871: Star Cluster Dynamical Friction observed in the star cluster dynamics laboratory of the universe.",
+    position: [-175.8, 608.9, -812.3]
+  },
+  {
+    name: "Cluster Mergers Hierarchy 12872",
+    description: "Cosmic sight 12872: Cluster Mergers Hierarchy observed in the star cluster dynamics laboratory of the universe.",
+    position: [450.9, -760.5, -197.5]
+  },
+  {
+    name: "Tidal Tail Stream Star 12873",
+    description: "Cosmic sight 12873: Tidal Tail Stream Star observed in the star cluster dynamics laboratory of the universe.",
+    position: [835.9, 193.3, 709.5]
+  },
+  {
+    name: "Stellar Stream Progenitor Cluster 12874",
+    description: "Cosmic sight 12874: Stellar Stream Progenitor Cluster observed in the star cluster dynamics laboratory of the universe.",
+    position: [-875.5, -354.4, -765.8]
+  },
+  {
+    name: "Star Cluster Metallicity Spread 12875",
+    description: "Cosmic sight 12875: Star Cluster Metallicity Spread observed in the star cluster dynamics laboratory of the universe.",
+    position: [-858.9, 59.3, 421.8]
   }
 ];
 { id: 12701, name: 'Stellar Genesis Cradle', position: [142.37, 58.92, -311.48] },
