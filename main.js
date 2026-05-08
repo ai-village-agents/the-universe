@@ -21502,7 +21502,132 @@ const cosmicSights = [
   { name: "CMB Dark Matter Annihilation Limits", type: "phenomenon", category: "cosmological", position: [4990, 1930, 3890], description: "Energy injection constraints from hypothetical dark matter particle interactions" },
   { name: "CMB Isocurvature Mode Bounds", type: "phenomenon", category: "cosmological", position: [5005, 1945, 3905], description: "Limits on non-adiabatic initial conditions challenging simple inflation models" },
   { name: "CMB Running Spectral Index Search", type: "phenomenon", category: "cosmological", position: [5020, 1960, 3920], description: "Scale-dependent tilt of primordial power spectrum probing inflationary dynamics" }
-
+,
+  {
+    name: "Stellar Wind Bubble Expansion 12676",
+    description: "Cosmic sight 12676: Stellar Wind Bubble Expansion observed in the stellar wind laboratory of the universe.",
+    position: [-803.3, 725.3, -531.7]
+  },
+  {
+    name: "O Star Mass Loss Rate 12677",
+    description: "Cosmic sight 12677: O Star Mass Loss Rate observed in the stellar wind laboratory of the universe.",
+    position: [-535.5, -0.9, 199.8]
+  },
+  {
+    name: "B Supergiant Eruptive Mass Loss 12678",
+    description: "Cosmic sight 12678: B Supergiant Eruptive Mass Loss observed in the stellar wind laboratory of the universe.",
+    position: [884.8, -369.2, -72.6]
+  },
+  {
+    name: "Luminous Blue Variable Eruption 12679",
+    description: "Cosmic sight 12679: Luminous Blue Variable Eruption observed in the stellar wind laboratory of the universe.",
+    position: [-570.0, -141.0, -327.5]
+  },
+  {
+    name: "Wolf Rayet Wind Collision 12680",
+    description: "Cosmic sight 12680: Wolf Rayet Wind Collision observed in the stellar wind laboratory of the universe.",
+    position: [736.4, -786.7, 137.3]
+  },
+  {
+    name: "Asymptotic Giant Branch Dust 12681",
+    description: "Cosmic sight 12681: Asymptotic Giant Branch Dust observed in the stellar wind laboratory of the universe.",
+    position: [270.0, 485.5, -404.9]
+  },
+  {
+    name: "Planetary Nebula Formation 12682",
+    description: "Cosmic sight 12682: Planetary Nebula Formation observed in the stellar wind laboratory of the universe.",
+    position: [-636.1, -70.8, 887.4]
+  },
+  {
+    name: "Red Supergiant Chromosphere 12683",
+    description: "Cosmic sight 12683: Red Supergiant Chromosphere observed in the stellar wind laboratory of the universe.",
+    position: [668.7, 746.3, 819.4]
+  },
+  {
+    name: "Solar Coronal Mass Ejection 12684",
+    description: "Cosmic sight 12684: Solar Coronal Mass Ejection observed in the stellar wind laboratory of the universe.",
+    position: [422.7, 5.7, 816.2]
+  },
+  {
+    name: "Stellar Wind Shocked Shell 12685",
+    description: "Cosmic sight 12685: Stellar Wind Shocked Shell observed in the stellar wind laboratory of the universe.",
+    position: [221.5, -93.1, -443.3]
+  },
+  {
+    name: "Bubble Nebula Interaction 12686",
+    description: "Cosmic sight 12686: Bubble Nebula Interaction observed in the stellar wind laboratory of the universe.",
+    position: [109.5, 788.2, -176.1]
+  },
+  {
+    name: "Runaway Star Bow Shock 12687",
+    description: "Cosmic sight 12687: Runaway Star Bow Shock observed in the stellar wind laboratory of the universe.",
+    position: [438.2, -456.0, -423.1]
+  },
+  {
+    name: "Massive Star Wind Feedback 12688",
+    description: "Cosmic sight 12688: Massive Star Wind Feedback observed in the stellar wind laboratory of the universe.",
+    position: [-560.8, 570.3, 344.3]
+  },
+  {
+    name: "Supernova Progenitor Wind 12689",
+    description: "Cosmic sight 12689: Supernova Progenitor Wind observed in the stellar wind laboratory of the universe.",
+    position: [-267.4, 640.7, 319.1]
+  },
+  {
+    name: "Circumstellar Shell Ejection 12690",
+    description: "Cosmic sight 12690: Circumstellar Shell Ejection observed in the stellar wind laboratory of the universe.",
+    position: [218.6, -851.5, 523.2]
+  },
+  {
+    name: "Mira Variable Pulsation Shock 12691",
+    description: "Cosmic sight 12691: Mira Variable Pulsation Shock observed in the stellar wind laboratory of the universe.",
+    position: [825.2, -843.8, -496.9]
+  },
+  {
+    name: "RV Tauri Dust Production 12692",
+    description: "Cosmic sight 12692: RV Tauri Dust Production observed in the stellar wind laboratory of the universe.",
+    position: [251.4, 349.5, 696.5]
+  },
+  {
+    name: "Yellow Hypergiant Outburst 12693",
+    description: "Cosmic sight 12693: Yellow Hypergiant Outburst observed in the stellar wind laboratory of the universe.",
+    position: [184.7, -27.3, 705.4]
+  },
+  {
+    name: "B[e] Star Disk Wind 12694",
+    description: "Cosmic sight 12694: B[e] Star Disk Wind observed in the stellar wind laboratory of the universe.",
+    position: [-4.7, 384.4, -451.0]
+  },
+  {
+    name: "Oe Star Decretion Disk 12695",
+    description: "Cosmic sight 12695: Oe Star Decretion Disk observed in the stellar wind laboratory of the universe.",
+    position: [442.3, 180.7, -219.2]
+  },
+  {
+    name: "Be Star Density Enhancement 12696",
+    description: "Cosmic sight 12696: Be Star Density Enhancement observed in the stellar wind laboratory of the universe.",
+    position: [-161.3, 529.6, 629.4]
+  },
+  {
+    name: "Supernova Impostor Eruption 12697",
+    description: "Cosmic sight 12697: Supernova Impostor Eruption observed in the stellar wind laboratory of the universe.",
+    position: [158.2, -81.0, -578.8]
+  },
+  {
+    name: "Eta Carinae Great Eruption 12698",
+    description: "Cosmic sight 12698: Eta Carinae Great Eruption observed in the stellar wind laboratory of the universe.",
+    position: [551.4, -185.0, 892.1]
+  },
+  {
+    name: "P Cygni Profile Formation 12699",
+    description: "Cosmic sight 12699: P Cygni Profile Formation observed in the stellar wind laboratory of the universe.",
+    position: [849.2, -588.8, 169.2]
+  },
+  {
+    name: "Stellar Wind Cosmic Ray Seed 12700",
+    description: "Cosmic sight 12700: Stellar Wind Cosmic Ray Seed observed in the stellar wind laboratory of the universe.",
+    position: [98.1, 771.7, 671.2]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
