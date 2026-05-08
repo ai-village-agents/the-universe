@@ -213,6 +213,133 @@ scene.add(starMesh);
 
 // ============ SHOOTING STARS ============
 const shootingStars = [];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
 function spawnShootingStar() {
     const geo = new THREE.BufferGeometry();
     const positions = new Float32Array(6); // 2 points for a line
@@ -248,6 +375,133 @@ function spawnShootingStar() {
 function updateShootingStars(delta) {
     for (let i = shootingStars.length - 1; i >= 0; i--) {
         const star = shootingStars[i];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
         const d = star.userData;
         d.life += delta;
 
@@ -498,7 +752,261 @@ import { createRadioLobe } from "./landmarks/radio-lobe.js";
 import { createNeutronStarCrustQuake } from "./landmarks/neutron-star-crust-quake.js";
 // Load Worlds
 const interactables = [];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
 const customLandmarkAnimators = [];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
 
 function findInteractableTarget(group) {
     if (!group || typeof group.traverse !== 'function') return null;
@@ -978,6 +1486,133 @@ class UniverseHealthMonitor {
         this.indicators = new Map();
         this.anchorMap = new Map();
         this.alerts = [];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
         this.healthOverlay = this.createOverlay();
         this.globalBeacon = this.createGlobalBeacon();
         this.indicatorGroup.add(this.globalBeacon);
@@ -1230,6 +1865,133 @@ class UniverseHealthMonitor {
             'Coordinate evac beacons with Canonical Observatory + Edge Garden.',
             'Throttle non-essential effects until stability recovers.'
         ];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
         console.warn('[Universe Fragmentation] Detected unstable nodes:', fragments.map((f) => f.name).join(', '));
         console.groupCollapsed('[Fragmentation Diagnostics] Detailed Metrics');
         fragments.forEach((fragment) => {
@@ -1409,7 +2171,261 @@ function drawMinimap() {
             const posA = worlds[i].position;
             const posB = worlds[j].position;
             const dx = posA[0] - posB[0];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
             const dz = posA[2] - posB[2];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
             const dist = Math.sqrt(dx*dx + dz*dz);
             if (dist < 180) {
                 const ax = cx + (posA[0] - camPos.x) * minimapScale;
@@ -19890,6 +20906,133 @@ const cosmicSights = [
   { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
   { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
 ];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
@@ -20089,6 +21232,133 @@ if (typeof window !== 'undefined') {
 function teleportToBookmark(slot) {
     const bm = loadBookmarks();
     const b = bm[slot];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
     if (!b) {
         showBookmarkToast('No bookmark in slot ' + slot + ' (Shift+' + slot + ' to save)', '#ffaa55');
         return;
@@ -20133,6 +21403,133 @@ function createDirectoryHeading(text) {
 
 function getDirectoryEntries() {
     return [...teleportList.querySelectorAll('.world-entry, .cosmic-entry')];
+[
+    {
+        "name": "Eagle Nebula's Pillars of Creation",
+        "position": [7500, -2500, 15000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Orion Nebula's Trapezium Cluster",
+        "position": [-5000, 12000, 8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Carina Nebula's Mystic Mountain",
+        "position": [10000, 5000, -7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Tarantula Nebula's Starburst Core",
+        "position": [-15000, -8000, 4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Rosette Nebula's Open Cluster",
+        "position": [6000, 9000, 11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Lagoon Nebula's Hourglass",
+        "position": [-9000, -11000, -3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Trifid Nebula's Dark Lanes",
+        "position": [12000, -6000, 13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Omega Nebula's Swan-like Glow",
+        "position": [-3000, 7000, -14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Horsehead Nebula's Dusty Visage",
+        "position": [14000, -13000, 2000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Cone Nebula's Monolithic Pillar",
+        "position": [-7000, 3000, 9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Flame Nebula's Fiery Gas",
+        "position": [4000, -15000, -6000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Bubble Nebula's Stellar Wind",
+        "position": [-11000, 10000, 1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "North America Nebula's Cygnus Wall",
+        "position": [8000, 14000, -10000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Pelican Nebula's Ionization Front",
+        "position": [-13000, -4000, 12000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Witch Head Nebula's Blue Reflection",
+        "position": [2000, -9000, -11000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "California Nebula's Red Emission",
+        "position": [-10000, 13000, 5000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Soul Nebula's Star-forming Pockets",
+        "position": [11000, 8000, -4000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Heart Nebula's Gaseous Heart",
+        "position": [-6000, -12000, 14000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3603's Wolf-Rayet Stars",
+        "position": [13000, 2000, -8000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Westerlund 2's Double Cluster",
+        "position": [-8000, -14000, -1000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Sharpless 2-106's Bipolar Lobes",
+        "position": [9000, -1000, 7000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "RCW 49's Dusty Envelope",
+        "position": [-4000, 6000, -13000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "NGC 3576's Gaseous Filaments",
+        "position": [15000, -7000, 3000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Gum Nebula's Supernova Remnant",
+        "position": [-2000, -10000, -9000],
+        "category": "cosmic sight"
+    },
+    {
+        "name": "Vela Molecular Ridge's Young Stars",
+        "position": [1000, 11000, 15000],
+        "category": "cosmic sight"
+    }
+]
 }
 function handleDirectoryEntryKeydown(event, entry, activate) {
     if (event.target.closest('a')) return;
