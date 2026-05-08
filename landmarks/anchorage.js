@@ -18576,6 +18576,141 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(blsGroup);
 
+  // --- v113: pier oysters bar (pob) + coastal beekeeper visit (cbv) + pier juggling show (pjs) ---
+  const pobGroup = new THREE.Group();
+  pobGroup.position.set(15, 0.5, -42);
+  const pobBarMat = new THREE.MeshLambertMaterial({color: 0x5d4037});
+  const pobBar = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.9, 0.6), pobBarMat);
+  pobBar.position.y = 0.45;
+  pobGroup.add(pobBar);
+  const pobIceMat = new THREE.MeshStandardMaterial({color: 0xddeeff, transparent: true, opacity: 0.7, metalness: 0.1, roughness: 0.3});
+  const pobIce = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.05, 0.4), pobIceMat);
+  pobIce.position.set(0, 0.93, 0.05);
+  pobGroup.add(pobIce);
+  const pobOysterMat = new THREE.MeshLambertMaterial({color: 0x9a8b6e});
+  const pobOysters = [];
+  for (let i = 0; i < 14; i++) {
+    const o = new THREE.Mesh(new THREE.SphereGeometry(0.08, 6, 4), pobOysterMat);
+    o.scale.y = 0.5;
+    o.position.set(-1.05 + (i % 7) * 0.3, 0.97, -0.05 + Math.floor(i / 7) * 0.18);
+    pobOysters.push(o);
+    pobGroup.add(o);
+  }
+  const pobShucker = new THREE.Group();
+  const pobSBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.8, 8), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  pobSBody.position.y = 0.4;
+  const pobSHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  pobSHead.position.y = 0.95;
+  const pobSHat = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.18, 12), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  pobSHat.position.y = 1.18;
+  pobShucker.add(pobSBody); pobShucker.add(pobSHead); pobShucker.add(pobSHat);
+  pobShucker.position.set(0, 0, -0.6);
+  pobGroup.add(pobShucker);
+  const pobKnife = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.18), new THREE.MeshStandardMaterial({color: 0xc0c0c0, metalness: 0.8, roughness: 0.3}));
+  pobKnife.position.set(0.18, 0.95, -0.4);
+  pobGroup.add(pobKnife);
+  const pobLemonMat = new THREE.MeshLambertMaterial({color: 0xfff44f});
+  const pobLemons = [];
+  for (let i = 0; i < 4; i++) {
+    const l = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), pobLemonMat);
+    l.position.set(0.9 + (i % 2) * 0.12, 0.97, -0.18 + Math.floor(i / 2) * 0.16);
+    pobLemons.push(l);
+    pobGroup.add(l);
+  }
+  const pobPatrons = [];
+  const pobPColors = [0x2c3e50, 0x8e44ad];
+  for (let i = 0; i < 2; i++) {
+    const p = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: pobPColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    p.add(body); p.add(head);
+    p.position.set(-0.6 + i * 1.2, 0, 0.55);
+    pobPatrons.push(p);
+    pobGroup.add(p);
+  }
+  group.add(pobGroup);
+
+  const cbvGroup = new THREE.Group();
+  cbvGroup.position.set(-46, 0.5, 22);
+  const cbvHiveMat = new THREE.MeshLambertMaterial({color: 0xd4a373});
+  const cbvHives = [];
+  for (let i = 0; i < 3; i++) {
+    const h = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.8, 0.5), cbvHiveMat);
+    h.position.set(-1.0 + i * 1.0, 0.4, 0);
+    cbvHives.push(h);
+    cbvGroup.add(h);
+    const lid = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.06, 0.55), new THREE.MeshLambertMaterial({color: 0xb87333}));
+    lid.position.set(-1.0 + i * 1.0, 0.83, 0);
+    cbvGroup.add(lid);
+  }
+  const cbvKeeper = new THREE.Group();
+  const cbvKBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.9, 8), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cbvKBody.position.y = 0.45;
+  const cbvKHead = new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 8), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cbvKHead.position.y = 1.05;
+  const cbvKHat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.2, 12), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cbvKHat.position.y = 1.3;
+  cbvKeeper.add(cbvKBody); cbvKeeper.add(cbvKHead); cbvKeeper.add(cbvKHat);
+  cbvKeeper.position.set(0.6, 0, 1.2);
+  cbvGroup.add(cbvKeeper);
+  const cbvSmoker = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.25, 8), new THREE.MeshStandardMaterial({color: 0x707070, metalness: 0.6}));
+  cbvSmoker.position.set(0.85, 0.75, 1.2);
+  cbvGroup.add(cbvSmoker);
+  const cbvSmokeMat = new THREE.MeshBasicMaterial({color: 0xeeeeee, transparent: true, opacity: 0.5});
+  const cbvSmoke = [];
+  for (let i = 0; i < 5; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.08, 6, 6), cbvSmokeMat.clone());
+    s.position.set(0.85, 1.0 + i * 0.15, 1.2);
+    cbvSmoke.push(s);
+    cbvGroup.add(s);
+  }
+  const cbvBeeMat = new THREE.MeshLambertMaterial({color: 0xffd700});
+  const cbvBees = [];
+  for (let i = 0; i < 12; i++) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), cbvBeeMat);
+    b.position.set(-1.2 + Math.random() * 2.4, 0.6 + Math.random() * 0.6, -0.5 + Math.random() * 1.0);
+    cbvBees.push(b);
+    cbvGroup.add(b);
+  }
+  group.add(cbvGroup);
+
+  const pjsGroup = new THREE.Group();
+  pjsGroup.position.set(20, 0.5, -36);
+  const pjsJuggler = new THREE.Group();
+  const pjsJBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xff6347}));
+  pjsJBody.position.y = 0.42;
+  const pjsJHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  pjsJHead.position.y = 1.0;
+  const pjsJHat = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.3, 12), new THREE.MeshLambertMaterial({color: 0x9b59b6}));
+  pjsJHat.position.y = 1.3;
+  pjsJuggler.add(pjsJBody); pjsJuggler.add(pjsJHead); pjsJuggler.add(pjsJHat);
+  pjsGroup.add(pjsJuggler);
+  const pjsBallColors = [0xe74c3c, 0xf39c12, 0x3498db, 0x2ecc71, 0x9b59b6];
+  const pjsBalls = [];
+  for (let i = 0; i < 5; i++) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), new THREE.MeshLambertMaterial({color: pjsBallColors[i]}));
+    b.position.set(0, 1.5 + i * 0.1, 0);
+    pjsBalls.push(b);
+    pjsGroup.add(b);
+  }
+  const pjsAudience = [];
+  const pjsAColors = [0x34495e, 0x16a085, 0xc0392b, 0xd35400];
+  for (let i = 0; i < 4; i++) {
+    const a = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: pjsAColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    a.add(body); a.add(head);
+    const ang = (i / 4) * Math.PI * 2;
+    a.position.set(Math.cos(ang) * 1.6, 0, 0.6 + Math.sin(ang) * 0.6);
+    pjsAudience.push(a);
+    pjsGroup.add(a);
+  }
+  group.add(pjsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21168,6 +21303,27 @@ export function createAnchorageLandmark(THREE, opts) {
   });
   blsLemons.forEach((l, i) => { l.position.y = 0.95 + Math.sin(v112t * 1.2 + i) * 0.02; });
   blsKids.forEach((k, i) => { k.position.y = Math.abs(Math.sin(v112t * 1.8 + i * 1.5)) * 0.05; });
+  // --- v113 updates ---
+  const v113t = elapsed;
+  pobShucker.rotation.y = Math.sin(v113t * 1.5) * 0.15;
+  pobKnife.position.y = 0.95 + Math.abs(Math.sin(v113t * 4)) * 0.05;
+  pobPatrons.forEach((p, i) => { p.position.y = Math.abs(Math.sin(v113t * 1.3 + i * 1.5)) * 0.04; });
+  cbvSmoke.forEach((s, i) => {
+    s.position.y = 1.0 + ((v113t * 0.5 + i * 0.3) % 1.5);
+    s.material.opacity = Math.max(0, 0.5 - ((v113t * 0.5 + i * 0.3) % 1.5) * 0.35);
+  });
+  cbvBees.forEach((b, i) => {
+    b.position.x += Math.sin(v113t * 3 + i) * 0.005;
+    b.position.y = 0.6 + Math.abs(Math.sin(v113t * 4 + i * 0.7)) * 0.5;
+    b.position.z += Math.cos(v113t * 3 + i * 1.3) * 0.005;
+  });
+  pjsBalls.forEach((b, i) => {
+    const phase = v113t * 2 + i * (Math.PI * 2 / 5);
+    b.position.x = Math.cos(phase) * 0.4;
+    b.position.y = 1.5 + Math.abs(Math.sin(phase)) * 0.6;
+  });
+  pjsAudience.forEach((a, i) => { a.rotation.y = Math.sin(v113t * 1.0 + i) * 0.2; });
+
 
 
 
