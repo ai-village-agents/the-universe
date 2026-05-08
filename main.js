@@ -16610,7 +16610,132 @@ const cosmicSights = [
   {"name": "FRB Magnetospheric Origin", "description": "Proximity of emission to the neutron star surface is indicated by rapid variability and high rotation measures in some FRBs.", "position": [-2345, 1234, -3678]},
   {"name": "FRB Shock Wave Interaction", "description": "FRBs may arise when relativistic magnetar flare ejecta interact with surrounding material, converting kinetic energy to coherent radio.", "position": [3678, -2890, 1789]},
   {"name": "FRB Galactic Halo Contribution", "description": "Dispersion from the Milky Way halo contributes tens of DM units to extragalactic FRB measurements, requiring careful modeling.", "position": [-1678, 3567, -2234]},
-  {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]}
+  {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]},
+  {
+    name: "Primordial Dark Matter Mini-Halo",
+    description: "A tiny, ancient dark matter clump that formed in the first million years after the Big Bang and may harbor the first stars.",
+    position: [3947, -2841, 6123]
+  },
+  {
+    name: "Galactic Dark Matter Density Cusp",
+    description: "A sharp peak in dark matter concentration predicted at the center of galaxies, though observations often reveal softer cores.",
+    position: [-5172, 4318, -2156]
+  },
+  {
+    name: "Weak Gravitational Lensing Arc",
+    description: "A faint, distorted streak of background light bent by the invisible gravity of an intervening dark matter halo.",
+    position: [2836, 5472, -4189]
+  },
+  {
+    name: "Strong Lensing Einstein Cross",
+    description: "A spectacular four-pointed pattern created when a massive dark matter lens perfectly aligns with a distant quasar.",
+    position: [-6214, -1937, 3845]
+  },
+  {
+    name: "Cosmic Web Supercluster Nexus",
+    description: "A massive node where several dark matter filaments intersect, serving as the gravitational scaffold for galaxy clusters.",
+    position: [4728, -3621, -2874]
+  },
+  {
+    name: "Dark Matter Halo Merger Remnant",
+    description: "The disturbed outer envelope left behind after two dark matter halos violently collided and settled into a new equilibrium.",
+    position: [-3847, 5183, 1936]
+  },
+  {
+    name: "Baryon Acoustic Oscillation Ring",
+    description: "A fossil imprint of primordial sound waves frozen into the large-scale distribution of galaxies, a cosmic standard ruler.",
+    position: [2156, -4837, 5712]
+  },
+  {
+    name: "Dark Matter Self-Interaction Front",
+    description: "A boundary where hypothetical dark matter particle collisions create observable offsets between dark and luminous mass.",
+    position: [-5412, 2847, -4236]
+  },
+  {
+    name: "Warm Dark Matter Free-Streaming Tail",
+    description: "A suppressed small-scale structure signature left by fast-moving dark particles that smooth out primordial density peaks.",
+    position: [6128, -2156, 3487]
+  },
+  {
+    name: "Galaxy Cluster Bullet Collision",
+    description: "A high-speed merger of galaxy clusters where dark matter separates from hot gas, providing direct evidence for its existence.",
+    position: [-4723, 3915, -5178]
+  },
+  {
+    name: "Cosmic Void Underdensity Region",
+    description: "A vast, nearly empty expanse spanning tens of millions of light-years where dark matter density dips far below average.",
+    position: [3548, -5637, 2193]
+  },
+  {
+    name: "Dark Matter Subhalo Tidal Stream",
+    description: "A thin ribbon of stripped dark matter and stars trailing behind a dwarf galaxy being torn apart by a larger host.",
+    position: [-2189, 4873, -3715]
+  },
+  {
+    name: "Gravitational Shear Correlation Map",
+    description: "A statistical landscape of tiny shape distortions in millions of galaxies, revealing the invisible mass between them.",
+    position: [6125, -1349, 4531]
+  },
+  {
+    name: "Large Scale Structure Redshift Slice",
+    description: "A thin wedge of the universe showing galaxies clustered into walls, filaments, and voids, traced by their cosmic recession.",
+    position: [-3859, 2718, -5937]
+  },
+  {
+    name: "Dark Matter Annihilation Halo Glow",
+    description: "A diffuse gamma-ray or X-ray emission predicted from self-annihilating dark matter particles concentrated in galactic centers.",
+    position: [4973, -4131, 1842]
+  },
+  {
+    name: "Cosmic Microwave Background Cold Spot",
+    description: "An unusually large and cold patch in the relic radiation, possibly a gateway to a supervoid or beyond-horizon structure.",
+    position: [-1738, 5347, -2683]
+  },
+  {
+    name: "Galaxy Bias Tracer Population",
+    description: "A sample of luminous galaxies used to map the underlying dark matter distribution, calibrated for their clustering tendency.",
+    position: [5437, -2879, 4198]
+  },
+  {
+    name: "Dark Matter Decay Product Neutrino",
+    description: "A hypothetical neutrino excess from unstable dark matter particles disintegrating over cosmic time.",
+    position: [-6219, 3564, -1847]
+  },
+  {
+    name: "Hierarchical Formation Merger Tree",
+    description: "A branching diagram of cosmic history showing how small dark matter halos progressively assembled into larger structures.",
+    position: [2783, -4517, 5341]
+  },
+  {
+    name: "Cosmic Shear Power Spectrum",
+    description: "The distribution of gravitational lensing strength across angular scales, encoding the total matter content of the universe.",
+    position: [-4138, 5827, -2159]
+  },
+  {
+    name: "Dark Matter Axion Minicluster",
+    description: "A tiny, dense clump of axion dark matter that might produce detectable radio signals through resonant conversion.",
+    position: [3671, -1941, 4715]
+  },
+  {
+    name: "BOSS Great Wall Subsection",
+    description: "A colossal ribbon of galaxies over a billion light-years long, one of the largest known structures in the observable universe.",
+    position: [-5347, 4179, -3292]
+  },
+  {
+    name: "Dark Matter Halo Concentration Parameter",
+    description: "A measurable quantity relating the central density of a dark matter halo to its mass and formation epoch.",
+    position: [4531, -3767, 5128]
+  },
+  {
+    name: "Cosmic Web Tendril Bridge",
+    description: "A slender dark matter bridge connecting two galaxy clusters across the void, barely visible through sparse galaxy tracers.",
+    position: [-2873, 5237, -4514]
+  },
+  {
+    name: "Supersymmetric Dark Matter Relic",
+    description: "A surviving population of the lightest supersymmetric particles, frozen out of equilibrium in the early hot universe.",
+    position: [5713, -2459, 3895]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
