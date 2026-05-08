@@ -19161,6 +19161,207 @@ const cosmicSights = [
     color: '#7FFFD4',
     size: 255
   }
+,
+  {
+    name: 'Classical Cepheid Instability Strip',
+    category: 'Variable Stars',
+    description: 'The narrow region of the HR diagram where stars pulsate radially with clockwork precision, serving as cosmic distance markers.',
+    position: [4500, -1600, 3300],
+    color: '#FFD700',
+    size: 265
+  },
+  {
+    name: 'Type II Cepheid Population',
+    category: 'Variable Stars',
+    description: 'Older, metal-poor pulsating stars tracing the ancient history of their host galaxies with fainter but reliable periods.',
+    position: [-3700, 2400, -3100],
+    color: '#FFA07A',
+    size: 255
+  },
+  {
+    name: 'RRab Fundamental Mode Pulsator',
+    category: 'Variable Stars',
+    description: 'Short-period pulsators in globular clusters, their precise variations revealing distances to the oldest stellar populations.',
+    position: [3100, -2900, 4100],
+    color: '#87CEEB',
+    size: 260
+  },
+  {
+    name: 'Delta Scuti Rapid Pulsator',
+    category: 'Variable Stars',
+    description: 'A young star oscillating with multiple frequencies simultaneously, its surface dancing with complex wave patterns.',
+    position: [-4200, 1300, -3800],
+    color: '#E6E6FA',
+    size: 250
+  },
+  {
+    name: 'Mira Long Period Variable',
+    category: 'Variable Stars',
+    description: 'A pulsating red giant whose brightness varies by thousands of times over months-long cycles as its atmosphere expands and contracts.',
+    position: [3800, -2100, 2900],
+    color: '#FF4500',
+    size: 275
+  },
+  {
+    name: 'Semi-Regular Variable Atmosphere',
+    category: 'Variable Stars',
+    description: 'An evolved giant with quasi-periodic pulsations, its brightness changes driven by chaotic convective motions.',
+    position: [-2900, 3200, -4300],
+    color: '#FF6347',
+    size: 260
+  },
+  {
+    name: 'Gamma Doradus Gravity Wave Zone',
+    category: 'Variable Stars',
+    description: 'Non-radial oscillations driven by gravity waves deep within the star, probing conditions near the stellar core.',
+    position: [4300, -1400, 3600],
+    color: '#9370DB',
+    size: 255
+  },
+  {
+    name: 'Solar-Like Oscillation Field',
+    category: 'Variable Stars',
+    description: 'Stochastically excited acoustic waves in Sun-like stars, revealing their internal structure through asteroseismology.',
+    position: [-3500, 2700, -2600],
+    color: '#FFFF00',
+    size: 250
+  },
+  {
+    name: 'Beta Cephei Pulsation Mode',
+    category: 'Variable Stars',
+    description: 'Massive blue stars pulsating with periods of hours, their variations driven by iron opacity in their envelopes.',
+    position: [2800, -3400, 4400],
+    color: '#4169E1',
+    size: 265
+  },
+  {
+    name: 'SPB Gravity Mode Oscillator',
+    category: 'Variable Stars',
+    description: 'A hot star with gravity-mode oscillations taking days to complete, revealing deep interior rotation rates.',
+    position: [-4400, 1600, -3400],
+    color: '#6495ED',
+    size: 255
+  },
+  {
+    name: 'ZZ Ceti White Dwarf Oscillator',
+    category: 'Variable Stars',
+    description: 'A hydrogen-atmosphere white dwarf pulsating with multiple periods, probing crystallization in its ultra-dense core.',
+    position: [3500, -2600, 3200],
+    color: '#FFFFFF',
+    size: 240
+  },
+  {
+    name: 'R Coronae Borealis Carbon Ejection',
+    category: 'Variable Stars',
+    description: 'A hydrogen-deficient supergiant sporadically ejecting carbon soot, dimming dramatically as dust clouds form.',
+    position: [-3100, 2900, -4100],
+    color: '#2F4F4F',
+    size: 260
+  },
+  {
+    name: 'FU Orionis Accretion Outburst',
+    category: 'Variable Stars',
+    description: 'A young star experiencing sudden massive accretion from its disk, brightening by magnitudes over months.',
+    position: [4100, -1800, 3800],
+    color: '#FF8C00',
+    size: 270
+  },
+  {
+    name: 'T Tauri Irregular Variability',
+    category: 'Variable Stars',
+    description: 'A pre-main-sequence star with chaotic brightness changes from spots, accretion, and obscuring disk material.',
+    position: [-2700, 3500, -3000],
+    color: '#DAA520',
+    size: 255
+  },
+  {
+    name: 'Herbig Ae/Be Photometric Dips',
+    category: 'Variable Stars',
+    description: 'Intermediate-mass young stars with eclipses from orbiting dust structures in their protoplanetary disks.',
+    position: [3300, -3100, 4000],
+    color: '#F4A460',
+    size: 260
+  },
+  {
+    name: 'RS Canum Venaticorum Spot Modulation',
+    category: 'Variable Stars',
+    description: 'A chromospherically active binary with giant starspots causing periodic brightness variations as it rotates.',
+    position: [-4000, 1900, -3600],
+    color: '#B22222',
+    size: 265
+  },
+  {
+    name: 'BY Draconis Flare Star',
+    category: 'Variable Stars',
+    description: 'A cool dwarf with intense magnetic activity, producing dramatic flares that briefly multiply its brightness.',
+    position: [2600, -3700, 3400],
+    color: '#FF1493',
+    size: 250
+  },
+  {
+    name: 'UV Ceti Magnetic Reconnection',
+    category: 'Variable Stars',
+    description: 'A red dwarf experiencing violent magnetic field rearrangements, releasing enormous energy in sudden flares.',
+    position: [-3800, 2200, -4400],
+    color: '#DC143C',
+    size: 255
+  },
+  {
+    name: 'Alpha-2 CVn Chemical Abundance Patches',
+    category: 'Variable Stars',
+    description: 'A chemically peculiar star with surface abundance variations creating brightness changes as it rotates.',
+    position: [4600, -1100, 2800],
+    color: '#7B68EE',
+    size: 260
+  },
+  {
+    name: 'SX Phoenicis Metal-Poor Pulsator',
+    category: 'Variable Stars',
+    description: 'Blue straggler variables in old stellar populations, pulsating with periods of hours in the Cepheid instability strip.',
+    position: [-3300, 2500, -3200],
+    color: '#00CED1',
+    size: 250
+  },
+  {
+    name: 'PV Telescopii Helium Star',
+    category: 'Variable Stars',
+    description: 'A rare extreme helium star exhibiting pulsations and sudden fades from dust formation in its carbon-rich wind.',
+    position: [3000, -3300, 4200],
+    color: '#00FA9A',
+    size: 255
+  },
+  {
+    name: 'Ellipsoidal Variable Tidal Bulge',
+    category: 'Variable Stars',
+    description: 'A close binary where tidal distortion creates egg-shaped stars, their brightness varying with orbital orientation.',
+    position: [-4300, 1400, -2900],
+    color: '#DDA0DD',
+    size: 260
+  },
+  {
+    name: 'Rotating Spotted Star Surface',
+    category: 'Variable Stars',
+    description: 'A magnetically active star covered in large dark spots, its rotation carrying different faces into view.',
+    position: [3700, -2300, 3100],
+    color: '#CD853F',
+    size: 255
+  },
+  {
+    name: 'High Amplitude Delta Scuti',
+    category: 'Variable Stars',
+    description: 'A dwarf Cepheid-like star pulsating with unusually large amplitude in a single dominant radial mode.',
+    position: [-2500, 3800, -3700],
+    color: '#FFE4C4',
+    size: 265
+  },
+  {
+    name: 'S Doradus Instability Episode',
+    category: 'Variable Stars',
+    description: 'A massive unstable star undergoing dramatic S Doradus-type outbursts, shedding mass in giant eruptions.',
+    position: [4000, -1900, 3500],
+    color: '#1E90FF',
+    size: 280
+  }
 
 ];
 
