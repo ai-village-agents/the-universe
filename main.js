@@ -20368,6 +20368,33 @@ const cosmicSights = [
   {"name":"Gravitational Wave Polarization Analyzer","position":[590,40,-850],"color":"#9d4edd","description":"An analyzer separating tensor polarization patterns across a network of detectors."},
   {"name":"Multi-Observatory Trigger Broker","position":[605,55,-865],"color":"#48cae4","description":"A broker routing alerts between gravitational-wave, neutrino, gamma-ray, optical, and radio observatories."},
   {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."}
+,
+  {"name":"Starburst Galaxy Feedback Mechanisms","category":"Galaxy Evolution","description":"Starburst Galaxy Feedback.","position":[6150,121000,4150],"color":"#FFD700","size":140},
+  {"name":"Galactic Superwind Propagation","category":"Galaxy Evolution","description":"Galactic Superwind.","position":[6151,121020,4151],"color":"#FFD700","size":140},
+  {"name":"Nuclear Starburst Rings","category":"Galaxy Evolution","description":"Nuclear Starburst.","position":[6152,121040,4152],"color":"#FFD700","size":140},
+  {"name":"Tidal Interaction Triggered Star Formation","category":"Galaxy Evolution","description":"Tidal Interaction Triggered Star.","position":[6153,121060,4153],"color":"#FFD700","size":140},
+  {"name":"Molecular Gas Depletion Timescales","category":"Galaxy Evolution","description":"Molecular Gas Depletion.","position":[6154,121080,4154],"color":"#FFD700","size":140},
+  {"name":"Compact Starburst Nuclei","category":"Galaxy Evolution","description":"Compact Starburst.","position":[6155,121100,4155],"color":"#FFD700","size":140},
+  {"name":"Dust Attenuation in Starbursts","category":"Galaxy Evolution","description":"Dust Attenuation in.","position":[6156,121120,4156],"color":"#FFD700","size":140},
+  {"name":"AGN Host Galaxy Bulge Correlation","category":"Galaxy Evolution","description":"AGN Host Galaxy Bulge.","position":[6157,121140,4157],"color":"#FFD700","size":140},
+  {"name":"AGN Feedback on Halo Gas","category":"Galaxy Evolution","description":"AGN Feedback on Halo.","position":[6158,121160,4158],"color":"#FFD700","size":140},
+  {"name":"Quasar-Starburst Co-Evolution","category":"Galaxy Evolution","description":"Quasar-Starburst.","position":[6159,121180,4159],"color":"#FFD700","size":140},
+  {"name":"AGN Wind Driven Outflows","category":"Galaxy Evolution","description":"AGN Wind Driven.","position":[6160,121200,4160],"color":"#FFD700","size":140},
+  {"name":"Ionization Cone Mapping","category":"Galaxy Evolution","description":"Ionization Cone.","position":[6161,121220,4161],"color":"#FFD700","size":140},
+  {"name":"Narrow Emission Line Regions","category":"Galaxy Evolution","description":"Narrow Emission Line.","position":[6162,121240,4162],"color":"#FFD700","size":140},
+  {"name":"Broad Line Region Kinematics","category":"Galaxy Evolution","description":"Broad Line Region.","position":[6163,121260,4163],"color":"#FFD700","size":140},
+  {"name":"AGN Torus Infrared Emission","category":"Galaxy Evolution","description":"AGN Torus Infrared.","position":[6164,121280,4164],"color":"#FFD700","size":140},
+  {"name":"X-ray Binary Fraction Evolution","category":"Galaxy Evolution","description":"X-ray Binary Fraction.","position":[6165,121300,4165],"color":"#FFD700","size":140},
+  {"name":"Ultraluminous Infrared Galaxies","category":"Galaxy Evolution","description":"Ultraluminous Infrared.","position":[6166,121320,4166],"color":"#FFD700","size":140},
+  {"name":"Submillimeter Galaxy Populations","category":"Galaxy Evolution","description":"Submillimeter Galaxy.","position":[6167,121340,4167],"color":"#FFD700","size":140},
+  {"name":"High-Redshift Starburst Selection","category":"Galaxy Evolution","description":"High-Redshift Starburst.","position":[6168,121360,4168],"color":"#FFD700","size":140},
+  {"name":"Galaxy Color-Magnitude Bimodality","category":"Galaxy Evolution","description":"Galaxy Color-Magnitude.","position":[6169,121380,4169],"color":"#FFD700","size":140},
+  {"name":"Quiescent Galaxy Formation Pathways","category":"Galaxy Evolution","description":"Quiescent Galaxy Formation.","position":[6170,121400,4170],"color":"#FFD700","size":140},
+  {"name":"Passive Galaxy Aging Timescale","category":"Galaxy Evolution","description":"Passive Galaxy Aging.","position":[6171,121420,4171],"color":"#FFD700","size":140},
+  {"name":"Red Sequence Star Formation Cessation","category":"Galaxy Evolution","description":"Red Sequence Star Formation.","position":[6172,121440,4172],"color":"#FFD700","size":140},
+  {"name":"Green Valley Galaxy Transition","category":"Galaxy Evolution","description":"Green Valley Galaxy.","position":[6173,121460,4173],"color":"#FFD700","size":140},
+  {"name":"Galaxy Assembly Epoch Characterization","category":"Galaxy Evolution","description":"Galaxy Assembly Epoch.","position":[6174,121480,4174],"color":"#FFD700","size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
