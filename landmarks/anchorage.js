@@ -24724,6 +24724,120 @@ export function createAnchorageLandmark(THREE, opts) {
   pustGroup.add(pustVendorHead);
   group.add(pustGroup);
 
+  // v152 beach ice cream stand (bicc)
+  const biccGroup = new THREE.Group();
+  biccGroup.position.set(48, 0.6, -38);
+  const biccCart = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.7, 0.8), new THREE.MeshLambertMaterial({color: 0xfff0f0}));
+  biccCart.position.set(0, 0.4, 0);
+  biccGroup.add(biccCart);
+  const biccStripe = new THREE.Mesh(new THREE.BoxGeometry(1.42, 0.1, 0.82), new THREE.MeshLambertMaterial({color: 0xff4a8a}));
+  biccStripe.position.set(0, 0.5, 0);
+  biccGroup.add(biccStripe);
+  const biccUmbrella = new THREE.Mesh(new THREE.ConeGeometry(0.9, 0.4, 12), new THREE.MeshLambertMaterial({color: 0xff6f8a}));
+  biccUmbrella.position.set(0, 1.5, 0);
+  biccGroup.add(biccUmbrella);
+  const biccPole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.65, 6), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  biccPole.position.set(0, 1.07, 0);
+  biccGroup.add(biccPole);
+  const biccVendor = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xff8acf}));
+  biccVendor.position.set(0, 0.5, -0.6);
+  biccGroup.add(biccVendor);
+  const biccVendorHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  biccVendorHead.position.set(0, 1.05, -0.6);
+  biccGroup.add(biccVendorHead);
+  const biccCones = [];
+  for (let i = 0; i < 4; i++) {
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.18, 8), new THREE.MeshLambertMaterial({color: 0xc89058}));
+    cone.position.set(-0.45 + i * 0.3, 0.85, 0.4);
+    cone.rotation.x = Math.PI;
+    biccGroup.add(cone);
+    const colors = [0xfff0e0, 0xffb0a0, 0x70d0a0, 0xc090ff];
+    const scoop = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 10), new THREE.MeshLambertMaterial({color: colors[i]}));
+    scoop.position.set(-0.45 + i * 0.3, 0.92, 0.4);
+    biccGroup.add(scoop);
+    biccCones.push(scoop);
+  }
+  group.add(biccGroup);
+
+  // v152 pier guitar player (pgtr)
+  const pgtrGroup = new THREE.Group();
+  pgtrGroup.position.set(-26, 7.6, 18);
+  const pgtrPlayer = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x4a4adb}));
+  pgtrPlayer.position.set(0, 0.5, 0);
+  pgtrGroup.add(pgtrPlayer);
+  const pgtrHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pgtrHead.position.set(0, 1.05, 0);
+  pgtrGroup.add(pgtrHead);
+  const pgtrHat = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.05, 12), new THREE.MeshLambertMaterial({color: 0x303030}));
+  pgtrHat.position.set(0, 1.22, 0);
+  pgtrGroup.add(pgtrHat);
+  const pgtrBody = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.08, 16), new THREE.MeshLambertMaterial({color: 0xa06030}));
+  pgtrBody.rotation.x = Math.PI / 2;
+  pgtrBody.position.set(0.3, 0.7, 0.25);
+  pgtrGroup.add(pgtrBody);
+  const pgtrNeck = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.6, 0.04), new THREE.MeshLambertMaterial({color: 0x4a2a1a}));
+  pgtrNeck.position.set(0.6, 0.95, 0.25);
+  pgtrNeck.rotation.z = -0.5;
+  pgtrGroup.add(pgtrNeck);
+  const pgtrStrumGroup = new THREE.Group();
+  pgtrStrumGroup.position.set(0.3, 0.7, 0.3);
+  const pgtrHand = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pgtrStrumGroup.add(pgtrHand);
+  pgtrGroup.add(pgtrStrumGroup);
+  const pgtrNotes = [];
+  for (let i = 0; i < 6; i++) {
+    const n = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 6), new THREE.MeshBasicMaterial({color: 0xffd24a, transparent: true, opacity: 0.8}));
+    n.material = n.material.clone();
+    n.position.set(0.5 + Math.random() * 0.5, 1.2 + Math.random() * 0.5, 0.3 + Math.random() * 0.4);
+    pgtrGroup.add(n);
+    pgtrNotes.push({mesh: n, basey: n.position.y, phase: i * 0.6});
+  }
+  const pgtrCase = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.18), new THREE.MeshLambertMaterial({color: 0x4a2a1a}));
+  pgtrCase.position.set(-0.3, 0.07, 0);
+  pgtrGroup.add(pgtrCase);
+  const pgtrCoins = [];
+  for (let i = 0; i < 5; i++) {
+    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.01, 8), new THREE.MeshStandardMaterial({color: 0xffd24a, metalness: 0.7, roughness: 0.3}));
+    c.position.set(-0.4 + i * 0.05, 0.11, Math.random() * 0.1 - 0.05);
+    pgtrGroup.add(c);
+    pgtrCoins.push(c);
+  }
+  group.add(pgtrGroup);
+
+  // v152 coastal whirligig (cwgg)
+  const cwggGroup = new THREE.Group();
+  cwggGroup.position.set(74, 0.8, 32);
+  const cwggBase = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.5, 0.2, 12), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  cwggBase.position.set(0, 0.1, 0);
+  cwggGroup.add(cwggBase);
+  const cwggPost = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.6, 8), new THREE.MeshLambertMaterial({color: 0x8a6e4a}));
+  cwggPost.position.set(0, 1.0, 0);
+  cwggGroup.add(cwggPost);
+  const cwggSpinner = new THREE.Group();
+  cwggSpinner.position.set(0, 1.7, 0);
+  const cwggBladeColors = [0xff4a4a, 0xffd24a, 0x4adb8a, 0x4a8aff, 0xdb4adb, 0xff8a4a];
+  for (let i = 0; i < 6; i++) {
+    const b = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.14), new THREE.MeshLambertMaterial({color: cwggBladeColors[i], side: THREE.DoubleSide}));
+    b.rotation.z = (i / 6) * Math.PI * 2;
+    b.position.set(Math.cos(b.rotation.z) * 0.18, Math.sin(b.rotation.z) * 0.18, 0);
+    cwggSpinner.add(b);
+  }
+  cwggGroup.add(cwggSpinner);
+  const cwggMidSpinner = new THREE.Group();
+  cwggMidSpinner.position.set(0, 1.2, 0);
+  for (let i = 0; i < 4; i++) {
+    const b = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.18), new THREE.MeshLambertMaterial({color: i % 2 === 0 ? 0xffaa00 : 0x00aaff, side: THREE.DoubleSide}));
+    b.rotation.y = (i / 4) * Math.PI * 2;
+    b.position.set(Math.cos(b.rotation.y) * 0.22, 0, Math.sin(b.rotation.y) * 0.22);
+    cwggMidSpinner.add(b);
+  }
+  cwggGroup.add(cwggMidSpinner);
+  const cwggBird = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.25, 6), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cwggBird.rotation.x = Math.PI / 2;
+  cwggBird.position.set(0, 2.1, 0);
+  cwggGroup.add(cwggBird);
+  group.add(cwggGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -28166,6 +28280,26 @@ export function createAnchorageLandmark(THREE, opts) {
     pustUmbrellas[i].rotation.y = v151t * 0.5 + i * 0.7;
     pustUmbrellas[i].position.y = 1.5 + Math.sin(v151t * 1.2 + i) * 0.04;
   }
+
+  // v152 ice cream stand anim
+  const v152t = t;
+  for (let i = 0; i < biccCones.length; i++) {
+    biccCones[i].position.y = 0.92 + Math.sin(v152t * 2.0 + i * 1.0) * 0.015;
+  }
+
+  // v152 guitar player anim
+  pgtrStrumGroup.position.y = 0.7 + Math.sin(v152t * 6.0) * 0.06;
+  for (let i = 0; i < pgtrNotes.length; i++) {
+    const n = pgtrNotes[i];
+    const phase = ((v152t * 0.8) + n.phase) % 1.0;
+    n.mesh.position.y = n.basey + phase * 0.6;
+    n.mesh.material.opacity = 0.8 * (1.0 - phase);
+  }
+
+  // v152 whirligig anim
+  cwggSpinner.rotation.z = v152t * 2.5;
+  cwggMidSpinner.rotation.y = v152t * 1.8;
+  cwggBird.rotation.z = Math.sin(v152t * 0.6) * 0.15;
 
 
 
