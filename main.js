@@ -16235,7 +16235,232 @@ const cosmicSights = [
   {"name": "Brown Dwarf Gravity Surface Indicator", "description": "Spectral line shapes and molecular band strengths diagnose surface gravity, distinguishing young low-mass objects from older brown dwarfs.", "position": [2678, -2456, 3789]},
   {"name": "Brown Dwarf Metallicity Atmospheric Effect", "description": "Metal-poor brown dwarfs show bluer colors and altered cloud properties, linking substellar atmospheres to Galactic chemical enrichment.", "position": [-1789, 3012, -3678]},
   {"name": "Brown Dwarf Cooling Sequence Evolution", "description": "Without sustained fusion, brown dwarfs fade predictably along cooling tracks, with luminosity and temperature declining over cosmic timescales.", "position": [3123, -1234, 2012]},
-  {"name": "Hydrogen Burning Minimum Mass Boundary", "description": "At roughly 75 Jupiter masses, the core temperature finally sustains proton-proton fusion, marking the transition from brown dwarf to red dwarf star.", "position": [-2456, -3234, -2123]}
+  {"name": "Hydrogen Burning Minimum Mass Boundary", "description": "At roughly 75 Jupiter masses, the core temperature finally sustains proton-proton fusion, marking the transition from brown dwarf to red dwarf star.", "position": [-2456, -3234, -2123]},
+  {
+    "name": "Astrobiology: Silicon-Based Lifeforms",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -7959.56,
+      -42403.57,
+      -8632.66
+    ]
+  },
+  {
+    "name": "Astrobiology: Methane-Breathing Microbes",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      -785.54,
+      8924.68,
+      30381.02
+    ]
+  },
+  {
+    "name": "Astrobiology: Ammonia-Solvent Biospheres",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      -12586.35,
+      371.91,
+      -39589.18
+    ]
+  },
+  {
+    "name": "Astrobiology: Extreme Extremophiles",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      6353.49,
+      9642.42,
+      -42921.0
+    ]
+  },
+  {
+    "name": "Astrobiology: Subsurface Ocean Ecosystems",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      10270.92,
+      12605.41,
+      4725.62
+    ]
+  },
+  {
+    "name": "Astrobiology: Chemosynthetic Thermal Vents",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      10729.52,
+      -29973.03,
+      6847.67
+    ]
+  },
+  {
+    "name": "Astrobiology: Phototropic Airborne Organisms",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      2408.47,
+      -2572.15,
+      43306.44
+    ]
+  },
+  {
+    "name": "Astrobiology: Radiotrophic Fungi",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      27363.14,
+      -12102.71,
+      10414.51
+    ]
+  },
+  {
+    "name": "Astrobiology: Lithoautotrophic Bacteria",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -9487.58,
+      2934.89,
+      -15091.45
+    ]
+  },
+  {
+    "name": "Astrobiology: Panspermia Cometary Delivery",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      20622.59,
+      15534.28,
+      22311.59
+    ]
+  },
+  {
+    "name": "Astrobiology: Prebiotic Chemistry Pools",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      7458.99,
+      -18140.83,
+      -16258.95
+    ]
+  },
+  {
+    "name": "Astrobiology: Chirality Selection Sites",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -9246.56,
+      20122.56,
+      -687.95
+    ]
+  },
+  {
+    "name": "Astrobiology: Exotic Genetic Alphabets",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      15987.96,
+      -7527.31,
+      30490.75
+    ]
+  },
+  {
+    "name": "Astrobiology: Crystalline Life Structures",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      589.72,
+      -33859.79,
+      28105.38
+    ]
+  },
+  {
+    "name": "Astrobiology: Plasma-Based Organisms",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      -757.03,
+      -27384.3,
+      30329.32
+    ]
+  },
+  {
+    "name": "Astrobiology: Silicon-Dioxide Shell Formers",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      26037.29,
+      1648.47,
+      15565.27
+    ]
+  },
+  {
+    "name": "Astrobiology: Sulfur-Metabolizing Ecosystems",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      29168.71,
+      9755.47,
+      5483.6
+    ]
+  },
+  {
+    "name": "Astrobiology: Iron-Oxidizing Biofilms",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -31692.21,
+      -29679.84,
+      9651.14
+    ]
+  },
+  {
+    "name": "Astrobiology: Arsenic-Tolerant Microbes",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      15356.47,
+      18913.53,
+      13944.71
+    ]
+  },
+  {
+    "name": "Astrobiology: Halophilic Algal Blooms",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -46477.06,
+      -3046.31,
+      14282.95
+    ]
+  },
+  {
+    "name": "Astrobiology: Cryophilic Permafrost Bacteria",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      -11916.27,
+      -39736.86,
+      -4205.9
+    ]
+  },
+  {
+    "name": "Astrobiology: Thermophilic Geyser Life",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      3336.94,
+      -29518.08,
+      10876.29
+    ]
+  },
+  {
+    "name": "Astrobiology: Acidophilic Cave Dwellers",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      10869.41,
+      -15525.91,
+      -7822.61
+    ]
+  },
+  {
+    "name": "Astrobiology: Alkaliphilic Lake Ecosystems",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      -14198.03,
+      5576.79,
+      -5102.49
+    ]
+  },
+  {
+    "name": "Astrobiology: Magnetotactic Bacteria Swarms",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      11876.97,
+      24154.86,
+      28263.5
+    ]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
