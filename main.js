@@ -17975,6 +17975,157 @@ const cosmicSights = [
     color: '#00FA9A',
     size: 339
   }
+,
+    {
+      "id": 11626,
+      "name": "Explosive Helium Burning",
+      "description": "Thermonuclear runaway in helium layer during supernova explosion",
+      "position": [5425, 106000, 3425]
+    },
+    {
+      "id": 11627,
+      "name": "Supernova Shock Wave Nucleosynthesis",
+      "description": "Nuclear reactions initiated by passage of explosion shock front",
+      "position": [5426, 106020, 3426]
+    },
+    {
+      "id": 11628,
+      "name": "Type Ia Intermediate Elements",
+      "description": "Production of iron-peak elements in thermonuclear explosions",
+      "position": [5427, 106040, 3427]
+    },
+    {
+      "id": 11629,
+      "name": "Supernova Nucleon Capture",
+      "description": "Rapid capture of free nucleons during explosion",
+      "position": [5428, 106060, 3428]
+    },
+    {
+      "id": 11630,
+      "name": "Explosive Oxygen Burning",
+      "description": "Oxygen fusion during supernova detonation",
+      "position": [5429, 106080, 3429]
+    },
+    {
+      "id": 11631,
+      "name": "Supernova Silicon Photodisintegration",
+      "description": "Photodisintegration of silicon and heavier elements",
+      "position": [5430, 106100, 3430]
+    },
+    {
+      "id": 11632,
+      "name": "Type II Shock Breakout Nucleosynthesis",
+      "description": "Nuclear reactions at shock breakout in core-collapse supernovae",
+      "position": [5431, 106120, 3431]
+    },
+    {
+      "id": 11633,
+      "name": "Supernova Nickel Production",
+      "description": "Radioactive nickel-56 synthesis in supernova cores",
+      "position": [5432, 106140, 3432]
+    },
+    {
+      "id": 11634,
+      "name": "Explosive Neon Burning",
+      "description": "Neon photodisintegration during explosion",
+      "position": [5433, 106160, 3433]
+    },
+    {
+      "id": 11635,
+      "name": "Supernova Cobalt Decay Chain",
+      "description": "Decay of cobalt-56 and cobalt-57 produced in explosions",
+      "position": [5434, 106180, 3434]
+    },
+    {
+      "id": 11636,
+      "name": "Alpha-Particle Capture Freeze",
+      "description": "Alpha-particle capture and release equilibrium at high temperatures",
+      "position": [5435, 106200, 3435]
+    },
+    {
+      "id": 11637,
+      "name": "Supernova Iron-Peak Synthesis",
+      "description": "Complete synthesis of iron-peak nuclei from silicon",
+      "position": [5436, 106220, 3436]
+    },
+    {
+      "id": 11638,
+      "name": "Type Ia Carbon Ignition",
+      "description": "Carbon ignition and flame propagation in white dwarf",
+      "position": [5437, 106240, 3437]
+    },
+    {
+      "id": 11639,
+      "name": "Supernova Outflow Nucleosynthesis",
+      "description": "Nuclear reactions in expanding ejected material",
+      "position": [5438, 106260, 3438]
+    },
+    {
+      "id": 11640,
+      "name": "Explosive Siliconified Layer",
+      "description": "Silicon-rich layer transformation during shock passage",
+      "position": [5439, 106280, 3439]
+    },
+    {
+      "id": 11641,
+      "name": "Supernova Neutron Excess Production",
+      "description": "Production of neutron-rich nuclides beyond stability",
+      "position": [5440, 106300, 3440]
+    },
+    {
+      "id": 11642,
+      "name": "Type II Nucleon Dissociation",
+      "description": "Photodisintegration of nucleons at extreme supernova conditions",
+      "position": [5441, 106320, 3441]
+    },
+    {
+      "id": 11643,
+      "name": "Supernova Manganese-54 Production",
+      "description": "Production of radioactive manganese isotopes",
+      "position": [5442, 106340, 3442]
+    },
+    {
+      "id": 11644,
+      "name": "Explosive Chromium Synthesis",
+      "description": "Chromium production in iron-peak nucleosynthesis",
+      "position": [5443, 106360, 3443]
+    },
+    {
+      "id": 11645,
+      "name": "Supernova Titanium Abundance",
+      "description": "Titanium-rich ejecta from supernova explosions",
+      "position": [5444, 106380, 3444]
+    },
+    {
+      "id": 11646,
+      "name": "Type Ia Detonation Wave Propagation",
+      "description": "Detonation wave dynamics in thermonuclear supernovae",
+      "position": [5445, 106400, 3445]
+    },
+    {
+      "id": 11647,
+      "name": "Supernova Vanadium Isotope Ratios",
+      "description": "Diagnostic isotope ratios of vanadium from explosions",
+      "position": [5446, 106420, 3446]
+    },
+    {
+      "id": 11648,
+      "name": "Explosive Scandium Nucleosynthesis",
+      "description": "Scandium production in supernova environments",
+      "position": [5447, 106440, 3447]
+    },
+    {
+      "id": 11649,
+      "name": "Supernova Inverse Beta Decay",
+      "description": "Inverse beta decay reactions in core-collapse supernovae",
+      "position": [5448, 106460, 3448]
+    },
+    {
+      "id": 11650,
+      "name": "Type II Electron Capture Nucleosynthesis",
+      "description": "Electron capture reactions modifying nuclear composition during collapse",
+      "position": [5449, 106480, 3449]
+    }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
