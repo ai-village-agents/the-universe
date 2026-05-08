@@ -23396,7 +23396,32 @@ const cosmicSights = [
     position: [-474, -8988, 28824],
     color: '#fffacd',
     size: 238
-  }
+  },
+{ name: "PWN Termination Shock", position: [2631.0, 1540.5, 1980.7] },
+  { name: "Pulsar Wind Bubble Interior", position: [2632.1, 1541.2, 1981.4] },
+  { name: "Synchrotron Emission Filament", position: [2633.2, 1542.3, 1982.1] },
+  { name: "PWN Torus Structure", position: [2634.3, 1543.4, 1983.2] },
+  { name: "Pulsar Jet Outflow", position: [2635.4, 1544.5, 1984.3] },
+  { name: "Bow Shock Nebula Head", position: [2636.5, 1545.6, 1985.4] },
+  { name: "Cometary PWN Tail", position: [2637.6, 1546.7, 1986.5] },
+  { name: "Relic PWN Remnant", position: [2638.7, 1547.8, 1987.6] },
+  { name: "PWN X-ray Core", position: [2639.8, 1548.9, 1988.7] },
+  { name: "Wisps and Knots Region", position: [2640.9, 1549.0, 1989.8] },
+  { name: "PWN Spectral Break Zone", position: [2641.0, 1550.1, 1990.9] },
+  { name: "Particle Acceleration Front", position: [2642.1, 1551.2, 1991.0] },
+  { name: "Magnetic Field Amplification Region", position: [2643.2, 1552.3, 1992.1] },
+  { name: "PWN Infrared Halo", position: [2644.3, 1553.4, 1993.2] },
+  { name: "Pulsar Wind Confinement Boundary", position: [2645.4, 1554.5, 1994.3] },
+  { name: "PWN Polarization Pattern", position: [2646.5, 1555.6, 1995.4] },
+  { name: "TeV Emission Source", position: [2647.6, 1556.7, 1996.5] },
+  { name: "PWN Expansion Shell", position: [2648.7, 1557.8, 1997.6] },
+  { name: "Crushed PWN Interface", position: [2649.8, 1558.9, 1998.7] },
+  { name: "Electron Cooling Region", position: [2650.9, 1559.0, 1999.8] },
+  { name: "PWN Radio Halo Extension", position: [2651.0, 1560.1, 2000.9] },
+  { name: "Pulsar Wind Injection Point", position: [2652.1, 1561.2, 2001.0] },
+  { name: "PWN Age Gradient Structure", position: [2653.2, 1562.3, 2002.1] },
+  { name: "Gamma-ray PWN Counterpart", position: [2654.3, 1563.4, 2003.2] },
+  { name: "PWN Dynamical Evolution Phase", position: [2655.4, 1564.5, 2004.3] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
