@@ -16586,6 +16586,33 @@ const cosmicSights = [
     description: "The deep minimum in Earth's surface magnetic field when a coronal mass ejection ring current envelops the planet.",
     position: [5710, -2456, 3892]
   }
+,
+  { name: 'Quantum Entanglement Bell State Preparation', position: [5350, 105000, 3350], color: '#FF6B6B', size: 5.2, description: 'Sight 11551.' },
+  { name: 'Spooky Action Superluminal Correlation', position: [5351, 105020, 3351], color: '#4ECDC4', size: 5.2, description: 'Sight 11552.' },
+  { name: 'EPR Paradox Measurement Dependence', position: [5352, 105040, 3352], color: '#45B7D1', size: 5.2, description: 'Sight 11553.' },
+  { name: 'Nonlocal Hidden Variable Theory Test', position: [5353, 105060, 3353], color: '#FFA07A', size: 5.2, description: 'Sight 11554.' },
+  { name: 'Quantum Teleportation Entangled Channel', position: [5354, 105080, 3354], color: '#98D8C8', size: 5.2, description: 'Sight 11555.' },
+  { name: 'Swapping Entanglement Distribution Network', position: [5355, 105100, 3355], color: '#F7DC6F', size: 5.2, description: 'Sight 11556.' },
+  { name: 'GHZ State Multipartite Entanglement', position: [5356, 105120, 3356], color: '#BB8FCE', size: 5.2, description: 'Sight 11557.' },
+  { name: 'W State Asymmetric Superposition', position: [5357, 105140, 3357], color: '#85C1E2', size: 5.2, description: 'Sight 11558.' },
+  { name: 'Cluster State One-Way Computing', position: [5358, 105160, 3358], color: '#F8B88B', size: 5.2, description: 'Sight 11559.' },
+  { name: 'Tomonaga-Luttinger Liquid Entanglement Entropy', position: [5359, 105180, 3359], color: '#ABEBC6', size: 5.2, description: 'Sight 11560.' },
+  { name: 'Entanglement Wedge Holographic Duality', position: [5360, 105200, 3360], color: '#F1948A', size: 5.2, description: 'Sight 11561.' },
+  { name: 'AdS/CFT Nonlocality Gauge Gravity', position: [5361, 105220, 3361], color: '#85C1E2', size: 5.2, description: 'Sight 11562.' },
+  { name: 'Quantum Error Correction Stabilizer Code', position: [5362, 105240, 3362], color: '#F1948A', size: 5.2, description: 'Sight 11563.' },
+  { name: 'Topological Order Anyonic Braiding', position: [5363, 105260, 3363], color: '#ABEBC6', size: 5.2, description: 'Sight 11564.' },
+  { name: 'Chern-Simons Gauge Theory Knot Invariant', position: [5364, 105280, 3364], color: '#FAD7A0', size: 5.2, description: 'Sight 11565.' },
+  { name: 'Quantum Criticality Scaling Dimension', position: [5365, 105300, 3365], color: '#D7BDE2', size: 5.2, description: 'Sight 11566.' },
+  { name: 'Conformal Field Theory Correlation Function', position: [5366, 105320, 3366], color: '#B2DFDB', size: 5.2, description: 'Sight 11567.' },
+  { name: 'Virasoro Algebra Central Charge', position: [5367, 105340, 3367], color: '#FFECB3', size: 5.2, description: 'Sight 11568.' },
+  { name: 'Modular Invariance Partition Function', position: [5368, 105360, 3368], color: '#C5E1A5', size: 5.2, description: 'Sight 11569.' },
+  { name: 'Entanglement Entropy Black Hole', position: [5369, 105380, 3369], color: '#FFCCBC', size: 5.2, description: 'Sight 11570.' },
+  { name: 'Hawking Radiation Information Paradox', position: [5370, 105400, 3370], color: '#E1BEE7', size: 5.2, description: 'Sight 11571.' },
+  { name: 'Fidelity Decay Chaos Indicator', position: [5371, 105420, 3371], color: '#CFD8DC', size: 5.2, description: 'Sight 11572.' },
+  { name: 'Purity Loss Decoherence Rate', position: [5372, 105440, 3372], color: '#C8E6C9', size: 5.2, description: 'Sight 11573.' },
+  { name: 'Concurrence Entanglement Measure Bipartite', position: [5373, 105460, 3373], color: '#F0F4C3', size: 5.2, description: 'Sight 11574.' },
+  { name: 'Tsallis Entropy Non-Extensivity', position: [5374, 105480, 3374], color: '#FFECB3', size: 5.2, description: 'Sight 11575.' }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
