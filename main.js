@@ -25234,6 +25234,181 @@ const cosmicSights = [
 { name: 'UV Pumped Fluorescence Region', position: [0.69, 0.52, 0.29], color: '#ADFF2F', size: 4.7, description: 'Molecular gas excited by UV photons producing infrared fluorescence.' },
 { name: 'Field Line Reconnection Event', position: [0.37, 0.67, 0.81], color: '#FF6347', size: 5.0, description: 'Location where magnetic field lines reconnect releasing energy.' },
 { name: 'Kolmogorov Turbulent Energy Cascade', position: [0.54, 0.39, 0.57], color: '#778899', size: 4.9, description: 'Energy cascade from large to small scales in turbulent ISM.' },
+{
+    name: 'Quark-Gluon Plasma Droplet',
+    position: [13576, 0, 0],
+    color: '#FF00FF',
+    size: 1.0,
+    description: 'A primordial state of matter, where quarks and gluons are deconfined.'
+},
+{
+    name: 'Axion Star Cluster',
+    position: [13577, 0, 0],
+    color: '#00FFFF',
+    size: 1.0,
+    description: 'A hypothetical cluster of axions, a candidate for dark matter.'
+},
+{
+    name: 'Magnetic Monopole Nebula',
+    position: [13578, 0, 0],
+    color: '#FFFF00',
+    size: 1.0,
+    description: 'A cloud of gas and dust seeded with hypothetical magnetic monopoles.'
+},
+{
+    name: 'Preon Star Remnant',
+    position: [13579, 0, 0],
+    color: '#FF0000',
+    size: 1.0,
+    description: 'The collapsed core of a star made of preons, hypothetical sub-quark particles.'
+},
+{
+    name: 'Strangelet Cloud',
+    position: [13580, 0, 0],
+    color: '#00FF00',
+    size: 1.0,
+    description: 'A cloud of strange matter, a hypothetical form of quark matter.'
+},
+{
+    name: 'Time Crystal Formation',
+    position: [13581, 0, 0],
+    color: '#0000FF',
+    size: 1.0,
+    description: 'A quantum system that breaks time-translation symmetry.'
+},
+{
+    name: 'WIMP Annihilation Flare',
+    position: [13582, 0, 0],
+    color: '#FFA500',
+    size: 1.0,
+    description: 'A burst of energy from the annihilation of Weakly Interacting Massive Particles (WIMPs).'
+},
+{
+    name: 'Dark Energy Void',
+    position: [13583, 0, 0],
+    color: '#800080',
+    size: 1.0,
+    description: 'A region of space dominated by dark energy, causing accelerated expansion.'
+},
+{
+    name: 'Negative Mass Nebula',
+    position: [13584, 0, 0],
+    color: '#FFC0CB',
+    size: 1.0,
+    description: 'A hypothetical nebula composed of matter with negative mass, exhibiting antigravity.'
+},
+{
+    name: 'Tachyon Echo',
+    position: [13585, 0, 0],
+    color: '#ADD8E6',
+    size: 1.0,
+    description: 'A remnant of a faster-than-light particle, a hypothetical tachyon.'
+},
+{
+    name: 'Spacetime Foam Anomaly',
+    position: [13586, 0, 0],
+    color: '#90EE90',
+    size: 1.0,
+    description: 'A region where the quantum fluctuations of spacetime are unusually large.'
+},
+{
+    name: 'Exotic Fermion Condensate',
+    position: [13587, 0, 0],
+    color: '#DDA0DD',
+    size: 1.0,
+    description: 'A state of matter formed by the condensation of exotic fermions.'
+},
+{
+    name: 'Topological Defect String',
+    position: [13588, 0, 0],
+    color: '#F0E68C',
+    size: 1.0,
+    description: 'A one-dimensional topological defect in the fabric of spacetime.'
+},
+{
+    name: 'Mirror Matter Galaxy',
+    position: [13589, 0, 0],
+    color: '#B0C4DE',
+    size: 1.0,
+    description: 'A galaxy made of mirror matter, a hypothetical counterpart to ordinary matter.'
+},
+{
+    name: 'Braneworld Collision Remnant',
+    position: [13590, 0, 0],
+    color: '#FFDAB9',
+    size: 1.0,
+    description: 'The aftermath of a collision between two braneworlds in a higher-dimensional spacetime.'
+},
+{
+    name: 'Quantum Entanglement Cloud',
+    position: [13591, 0, 0],
+    color: '#E6E6FA',
+    size: 1.0,
+    description: 'A cloud of particles that are all quantum entangled with each other.'
+},
+{
+    name: 'Holographic Principle Projection',
+    position: [13592, 0, 0],
+    color: '#AFEEEE',
+    size: 1.0,
+    description: 'A projection of a higher-dimensional reality, as described by the holographic principle.'
+},
+{
+    name: 'Fifth Force Anomaly',
+    position: [13593, 0, 0],
+    color: '#F5DEB3',
+    size: 1.0,
+    description: 'A region of space where a hypothetical fifth fundamental force is dominant.'
+},
+{
+    name: 'Non-commutative Spacetime Bubble',
+    position: [13594, 0, 0],
+    color: '#FFE4E1',
+    size: 1.0,
+    description: 'A bubble of spacetime where the coordinates do not commute.'
+},
+{
+    name: 'Ambitwistor String Nebula',
+    position: [13595, 0, 0],
+    color: '#FFF0F5',
+    size: 1.0,
+    description: 'A nebula formed by the decay of ambitwistor strings.'
+},
+{
+    name: 'Causal Set Anomaly',
+    position: [13596, 0, 0],
+    color: '#F0FFF0',
+    size: 1.0,
+    description: 'A region of spacetime where the causal structure is non-standard.'
+},
+{
+    name: 'Twistor Space Projection',
+    position: [13597, 0, 0],
+    color: '#F8F8FF',
+    size: 1.0,
+    description: 'A projection from twistor space, a mathematical space used in theoretical physics.'
+},
+{
+    name: 'Spin Foam Transition',
+    position: [13598, 0, 0],
+    color: '#F0F8FF',
+    size: 1.0,
+    description: 'A transition between different spin foam states in loop quantum gravity.'
+},
+{
+    name: 'M-Theory Brane Remnant',
+    position: [13599, 0, 0],
+    color: '#E0FFFF',
+    size: 1.0,
+    description: 'A remnant of a brane from M-theory, a candidate for a theory of everything.'
+},
+{
+    name: 'Supergravity Crystal',
+    position: [13600, 0, 0],
+    color: '#F0FFFF',
+    size: 1.0,
+    description: 'A crystal formed by the condensation of supergravity particles.'
+},
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
