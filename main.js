@@ -16861,6 +16861,33 @@ const cosmicSights = [
     description: "The diffuse isotropic glow of gamma-rays from unresolved distant sources, providing a census of the universe's most energetic objects.",
     position: [5713, -2459, 3895]
   }
+,
+  { name: 'Qubit Superposition Coherence', position: [5325, 104500, 3325], color: '#FF6B6B', size: 5.2, description: 'Sight 11526.' },
+  { name: 'Quantum Gate Universal Computation', position: [5326, 104520, 3326], color: '#4ECDC4', size: 5.2, description: 'Sight 11527.' },
+  { name: 'Hadamard Transform Superposition Creation', position: [5327, 104540, 3327], color: '#45B7D1', size: 5.2, description: 'Sight 11528.' },
+  { name: 'CNOT Gate Entanglement Generation', position: [5328, 104560, 3328], color: '#FFA07A', size: 5.2, description: 'Sight 11529.' },
+  { name: 'Pauli X Bit Flip Error Correction', position: [5329, 104580, 3329], color: '#98D8C8', size: 5.2, description: 'Sight 11530.' },
+  { name: 'Toffoli Triple Controlled Gate', position: [5330, 104600, 3330], color: '#F7DC6F', size: 5.2, description: 'Sight 11531.' },
+  { name: 'Quantum Phase Estimation Algorithm', position: [5331, 104620, 3331], color: '#BB8FCE', size: 5.2, description: 'Sight 11532.' },
+  { name: 'Shor Factorization Prime Discovery', position: [5332, 104640, 3332], color: '#85C1E2', size: 5.2, description: 'Sight 11533.' },
+  { name: 'Grover Search Amplitude Amplification', position: [5333, 104660, 3333], color: '#F8B88B', size: 5.2, description: 'Sight 11534.' },
+  { name: 'Variational Quantum Eigensolver VQE', position: [5334, 104680, 3334], color: '#ABEBC6', size: 5.2, description: 'Sight 11535.' },
+  { name: 'Quantum Approximate Optimization QAOA', position: [5335, 104700, 3335], color: '#F1948A', size: 5.2, description: 'Sight 11536.' },
+  { name: 'Quantum Error Correction Topological Code', position: [5336, 104720, 3336], color: '#85C1E2', size: 5.2, description: 'Sight 11537.' },
+  { name: 'Surface Code Logical Qubit', position: [5337, 104740, 3337], color: '#F1948A', size: 5.2, description: 'Sight 11538.' },
+  { name: 'Stabilizer Measurement Parity Check', position: [5338, 104760, 3338], color: '#ABEBC6', size: 5.2, description: 'Sight 11539.' },
+  { name: 'Quantum Teleportation Protocol Bell', position: [5339, 104780, 3339], color: '#FAD7A0', size: 5.2, description: 'Sight 11540.' },
+  { name: 'Superdense Coding Classical Bit', position: [5340, 104800, 3340], color: '#D7BDE2', size: 5.2, description: 'Sight 11541.' },
+  { name: 'Swap Test Fidelity Measurement', position: [5341, 104820, 3341], color: '#B2DFDB', size: 5.2, description: 'Sight 11542.' },
+  { name: 'Quantum Key Distribution BB84', position: [5342, 104840, 3342], color: '#FFECB3', size: 5.2, description: 'Sight 11543.' },
+  { name: 'Quantum Fourier Transform DFT', position: [5343, 104860, 3343], color: '#C5E1A5', size: 5.2, description: 'Sight 11544.' },
+  { name: 'Deutsch-Jozsa Promise Problem', position: [5344, 104880, 3344], color: '#FFCCBC', size: 5.2, description: 'Sight 11545.' },
+  { name: 'Simon Periodicity Hidden Period', position: [5345, 104900, 3345], color: '#E1BEE7', size: 5.2, description: 'Sight 11546.' },
+  { name: 'Bernstein-Vazirani Linear Function', position: [5346, 104920, 3346], color: '#CFD8DC', size: 5.2, description: 'Sight 11547.' },
+  { name: 'Quantum Walk Search Graph', position: [5347, 104940, 3347], color: '#C8E6C9', size: 5.2, description: 'Sight 11548.' },
+  { name: 'Adiabatic Quantum Computation State', position: [5348, 104960, 3348], color: '#F0F4C3', size: 5.2, description: 'Sight 11549.' },
+  { name: 'Quantum Annealing Optimization Landscape', position: [5349, 104980, 3349], color: '#FFECB3', size: 5.2, description: 'Sight 11550.' }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
