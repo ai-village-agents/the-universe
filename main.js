@@ -15835,7 +15835,132 @@ const cosmicSights = [
       -44434.55,
       5141.94
     ]
-  }
+  },
+  {
+    "name": "Multi-Messenger Hubble Tension Beacon",
+    "description": "A calibration nexus where siren distances, supernova ladders, and CMB inferences are compared side by side.",
+    "position": [5650, 113010, 3650]
+  },
+  {
+    "name": "Standard Siren Distance Ladder Node",
+    "description": "A gravitational-wave distance marker paired with electromagnetic redshifts to anchor cosmic expansion measurements.",
+    "position": [5662, 113060, 3664]
+  },
+  {
+    "name": "Kilonova Cosmology Calibration Field",
+    "description": "An afterglow-rich merger remnant whose colors constrain ejecta physics and host-galaxy distance estimates.",
+    "position": [5674, 113110, 3678]
+  },
+  {
+    "name": "Binary Neutron Star Redshift Anchor",
+    "description": "A host-identified compact merger used as a clean redshift tie for multi-messenger cosmography.",
+    "position": [5686, 113160, 3692]
+  },
+  {
+    "name": "Black Hole Neutron Star Siren Arc",
+    "description": "A mixed compact-object merger corridor linking tidal signatures with luminosity-distance inference.",
+    "position": [5698, 113210, 3706]
+  },
+  {
+    "name": "Gravitational Wave Luminosity Distance Spur",
+    "description": "A faint metric ripple trail whose amplitude encodes an independent rung on the distance scale.",
+    "position": [5710, 113260, 3720]
+  },
+  {
+    "name": "Electromagnetic Counterpart Localization Web",
+    "description": "A triangulated sky patch where telescopes converge on the light from a gravitational-wave trigger.",
+    "position": [5722, 113310, 3734]
+  },
+  {
+    "name": "Gamma Ray Burst Coincidence Gate",
+    "description": "A prompt high-energy flash aligned with a merger siren to narrow timing, direction, and source physics.",
+    "position": [5734, 113360, 3748]
+  },
+  {
+    "name": "Neutrino Alert Crossmatch Station",
+    "description": "A real-time messenger junction that checks cosmic neutrino alerts against transients and lensing maps.",
+    "position": [5746, 113410, 3762]
+  },
+  {
+    "name": "Cosmic Ray Anisotropy Correlator",
+    "description": "A directional statistics array comparing ultra-high-energy cosmic rays with nearby structure catalogs.",
+    "position": [5758, 113460, 3776]
+  },
+  {
+    "name": "Fast Radio Burst Dispersion Ruler",
+    "description": "A burst corridor where plasma dispersion measures trace baryons across the cosmic web.",
+    "position": [5770, 113510, 3790]
+  },
+  {
+    "name": "FRB Host Galaxy Redshift Tie",
+    "description": "A localized repeating-burst harbor that pins dispersion and distance to a measured host redshift.",
+    "position": [5782, 113560, 3804]
+  },
+  {
+    "name": "Baryon Census Filament Probe",
+    "description": "A warm-hot intergalactic filament revealed by combined FRB dispersion, absorption, and galaxy maps.",
+    "position": [5794, 113610, 3818]
+  },
+  {
+    "name": "CMB Lensing Siren Cross-Correlation",
+    "description": "A map overlap zone where microwave lensing convergence is tested against merger-distance catalogs.",
+    "position": [5806, 113660, 3832]
+  },
+  {
+    "name": "Weak Lensing Time Domain Mesh",
+    "description": "A shear-field lattice updated with transient hosts to compare structure growth and expansion history.",
+    "position": [5818, 113710, 3846]
+  },
+  {
+    "name": "Supernova Siren Consistency Checkpoint",
+    "description": "A survey checkpoint where Type Ia standard candles and compact-merger sirens share calibration fields.",
+    "position": [5830, 113760, 3860]
+  },
+  {
+    "name": "Large Scale Structure Velocity Flow Map",
+    "description": "A peculiar-velocity stream map used to separate local flows from global Hubble expansion.",
+    "position": [5842, 113810, 3874]
+  },
+  {
+    "name": "Redshift Drift Chronometer Watchtower",
+    "description": "A long-baseline spectroscopy post waiting for tiny secular shifts in cosmic expansion.",
+    "position": [5854, 113860, 3888]
+  },
+  {
+    "name": "Cosmic Chronometer Galaxy Pair",
+    "description": "A passively evolving galaxy pair whose stellar ages estimate expansion without a distance ladder.",
+    "position": [5866, 113910, 3902]
+  },
+  {
+    "name": "BAO Siren Joint Constraint Vault",
+    "description": "A parameter vault combining baryon acoustic ruler scales with gravitational-wave standard sirens.",
+    "position": [5878, 113960, 3916]
+  },
+  {
+    "name": "Dark Energy Equation State Observatory",
+    "description": "A synthesis platform comparing supernovae, BAO, lensing, CMB, and sirens for evolving dark energy.",
+    "position": [5890, 114010, 3930]
+  },
+  {
+    "name": "Modified Gravity Propagation Test Range",
+    "description": "A messenger timing range testing whether light and gravitational waves share the same cosmic speed.",
+    "position": [5902, 114060, 3944]
+  },
+  {
+    "name": "Gravitational Wave Polarization Analyzer",
+    "description": "A detector geometry field searching for extra polarization modes beyond general relativity.",
+    "position": [5914, 114110, 3958]
+  },
+  {
+    "name": "Multi-Observatory Trigger Broker",
+    "description": "A coordination hub that routes candidate events to optical, radio, neutrino, and gamma-ray follow-up.",
+    "position": [5926, 114160, 3972]
+  },
+  {
+    "name": "Messenger Concordance Cosmology Forum",
+    "description": "A luminous meeting ground where every cosmic messenger votes on the universe's expansion story.",
+    "position": [5938, 114210, 3986]
+  },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
