@@ -21048,7 +21048,33 @@ const cosmicSights = [
     position: [-12643, -33387, 37717],
     color: '#C0C0C0',
     size: 366
-  }
+  },
+  { name: "AGN Broad Line Region Cloud", type: "structure", category: "galactic", position: [4810, 1760, 3700], description: "Fast-moving gas clouds near supermassive black hole producing broad emission lines" },
+  { name: "AGN Narrow Line Region Filament", type: "structure", category: "galactic", position: [4820, 1770, 3710], description: "Extended ionized gas structure illuminated by central AGN radiation cone" },
+  { name: "AGN Dusty Torus Inner Edge", type: "structure", category: "galactic", position: [4830, 1780, 3720], description: "Sublimation boundary where dust survives in obscuring torus structure" },
+  { name: "AGN Hot Corona Region", type: "structure", category: "galactic", position: [4840, 1790, 3730], description: "Compact X-ray emitting plasma above accretion disk producing hard spectrum" },
+  { name: "AGN Relativistic Jet Base", type: "structure", category: "galactic", position: [4850, 1800, 3740], description: "Launching region where magnetic fields accelerate plasma to relativistic speeds" },
+  { name: "AGN Accretion Disk Inner Region", type: "structure", category: "galactic", position: [4860, 1810, 3750], description: "Hottest part of disk near innermost stable circular orbit emitting UV and X-rays" },
+  { name: "AGN Wind Outflow Zone", type: "structure", category: "galactic", position: [4870, 1820, 3760], description: "Fast radiation-driven or magnetically-driven wind from accretion disk surface" },
+  { name: "AGN Ionization Cone Boundary", type: "structure", category: "galactic", position: [4880, 1830, 3770], description: "Edge of biconical region illuminated by anisotropic AGN emission" },
+  { name: "AGN Radio Lobe Hotspot", type: "structure", category: "galactic", position: [4890, 1840, 3780], description: "Shock front where relativistic jet impacts intergalactic medium" },
+  { name: "AGN Cocoon Shock Front", type: "structure", category: "galactic", position: [4900, 1850, 3790], description: "Expanding bubble of shocked gas surrounding radio lobe structure" },
+  { name: "AGN Jet Inflated X-ray Cavity", type: "structure", category: "galactic", position: [4910, 1860, 3800], description: "Depression in cluster X-ray emission created by expanding radio plasma" },
+  { name: "AGN Reflection Grating Spectrum Site", type: "structure", category: "galactic", position: [4920, 1870, 3810], description: "Region producing X-ray reflection features from cold disk material" },
+  { name: "AGN Ionized Absorber Wind", type: "structure", category: "galactic", position: [4930, 1880, 3820], description: "Partially ionized gas producing absorption features in AGN X-ray spectrum" },
+  { name: "AGN Ultra-Fast Outflow Region", type: "structure", category: "galactic", position: [4940, 1890, 3830], description: "Highly ionized wind moving at significant fraction of light speed" },
+  { name: "AGN Broad Absorption Line Wind", type: "structure", category: "galactic", position: [4950, 1900, 3840], description: "High-velocity outflow producing blueshifted absorption troughs in quasar spectrum" },
+  { name: "AGN Circumnuclear Starburst Ring", type: "structure", category: "galactic", position: [4960, 1910, 3850], description: "Star formation triggered in gas accumulated near AGN host galaxy nucleus" },
+  { name: "AGN Megamaser Disk", type: "structure", category: "galactic", position: [4970, 1920, 3860], description: "Water maser emission from edge-on disk providing black hole mass measurement" },
+  { name: "AGN Reverberation Mapping Zone", type: "structure", category: "galactic", position: [4980, 1930, 3870], description: "Broad line region size measured through light echo time delays" },
+  { name: "AGN Unified Model Viewing Angle", type: "phenomenon", category: "galactic", position: [4990, 1940, 3880], description: "Orientation determining whether AGN appears as Type 1 or Type 2" },
+  { name: "AGN State Transition Event", type: "phenomenon", category: "galactic", position: [5000, 1950, 3890], description: "Dramatic change in AGN type from accretion rate or obscuration variation" },
+  { name: "AGN Host Galaxy Merger Remnant", type: "structure", category: "galactic", position: [5010, 1960, 3900], description: "Disturbed morphology indicating recent interaction fueling nuclear activity" },
+  { name: "AGN Radio Quiet Core", type: "structure", category: "galactic", position: [5020, 1970, 3910], description: "Nucleus lacking powerful radio jets despite strong optical and X-ray emission" },
+  { name: "AGN Jet Precession Pattern", type: "phenomenon", category: "galactic", position: [5030, 1980, 3920], description: "S-shaped or helical jet morphology from changing jet direction over time" },
+  { name: "AGN Binary Supermassive Black Hole", type: "structure", category: "galactic", position: [5040, 1990, 3930], description: "Two active nuclei in merged galaxy system approaching final coalescence" },
+  { name: "AGN Tidal Disruption Feeding Event", type: "phenomenon", category: "transient", position: [5050, 2000, 3940], description: "Temporary brightening from star being torn apart by central black hole" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
