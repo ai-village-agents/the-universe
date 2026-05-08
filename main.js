@@ -18881,6 +18881,32 @@ const cosmicSights = [
   {"name":"Lattice Gauge Theory Node 12048","category":"Quantum Simulation","description":"Discretized gauge field simulator node.","position":[5747,112940,3747],"color":"#2f4f4f","size":140},
   {"name":"Quantum Walk Dynamics 12049","category":"Quantum Algorithms","description":"Continuous/discrete quantum walk search.","position":[5748,112960,3748],"color":"#00ced1","size":140},
   {"name":"Variational Optimizer Circuit 12050","category":"Quantum Computing","description":"QAOA parameterized circuit optimizer.","position":[5749,112980,3749],"color":"#20b2aa","size":140}
+,
+  {"name":"Cosmic Ray Acceleration Site 12001","category":"Astroparticle Physics","description":"Supernova remnant shock waveparticle acceleration zone.","position":[5750,113000,3750],"color":"#FF6B6B","size":140},
+  {"name":"High Energy Neutrino Flux 12002","category":"Astroparticle Physics","description":"Astrophysical neutrino emission mechanism.","position":[5751,113020,3751],"color":"#4ECDC4","size":140},
+  {"name":"Gamma Ray Burst Fireball 12003","category":"High Energy Transients","description":"Relativistic jet from compact merger.","position":[5752,113040,3752],"color":"#FFD93D","size":140},
+  {"name":"TeV Gamma Ray Source 12004","category":"Astroparticle Physics","description":"Very high energy photon emission region.","position":[5753,113060,3753],"color":"#A8E6CF","size":140},
+  {"name":"Cosmic Ray Composition Pivot 12005","category":"Cosmic Rays","description":"Transition from galactic to extragalactic rays.","position":[5754,113080,3754],"color":"#C7CEEA","size":140},
+  {"name":"Dark Matter Annihilation Site 12006","category":"Dark Matter Physics","description":"WIMP pair annihilation gamma ray signature.","position":[5755,113100,3755],"color":"#FF8B94","size":140},
+  {"name":"Axion Conversion Region 12007","category":"Exotic Particles","description":"Axion to photon coupling environment.","position":[5756,113120,3756],"color":"#B4A7D6","size":140},
+  {"name":"Sterile Neutrino Decay Field 12008","category":"Beyond Standard Model","description":"Heavy neutrino decay signature detector.","position":[5757,113140,3757],"color":"#FFE66D","size":140},
+  {"name":"Kaluza-Klein Particle Emission 12009","category":"Extra Dimensions","description":"Higher dimensional particle production zone.","position":[5758,113160,3758],"color":"#95E1D3","size":140},
+  {"name":"Primordial Black Hole Hawking Zone 12010","category":"Exotic Objects","description":"Hawking radiation from light black holes.","position":[5759,113180,3759],"color":"#F38181","size":140},
+  {"name":"Monopole Magnetic Excitation 12011","category":"Exotic Particles","description":"Magnetic monopole interaction region.","position":[5760,113200,3760],"color":"#AA96DA","size":140},
+  {"name":"Strangelets Conversion Layer 12012","category":"Exotic Matter","description":"Strange quark matter nucleation boundary.","position":[5761,113220,3761],"color":"#FCBAD3","size":140},
+  {"name":"Quark-Gluon Plasma Vortex 12013","category":"Exotic Matter States","description":"Deconfined quark matter phase region.","position":[5762,113240,3762],"color":"#A8D8EA","size":140},
+  {"name":"Color Glass Condensate Nucleus 12014","category":"Extreme QCD","description":"Saturated gluon density state formation.","position":[5763,113260,3763],"color":"#FFC8DD","size":140},
+  {"name":"Sphaleron Transition Gateway 12015","category":"Particle Physics","description":"Baryon number violation process zone.","position":[5764,113280,3764],"color":"#B5EAD7","size":140},
+  {"name":"Electroweak Phase Boundary 12016","category":"Early Universe Physics","description":"Electroweak symmetry breaking region.","position":[5765,113300,3765],"color":"#E0BBE4","size":140},
+  {"name":"Lepton Flavor Violation Site 12017","category":"Beyond Standard Model","description":"LFV decay process coupling zone.","position":[5766,113320,3766],"color":"#FFDAB9","size":140},
+  {"name":"Proton Decay Detector Array 12018","category":"Exotic Processes","description":"Grand unified theory proton decay signal.","position":[5767,113340,3767],"color":"#B4F8C8","size":140},
+  {"name":"Magnetic Reconnection Accelerator 12019","category":"Plasma Physics","description":"Particle acceleration via field line breaking.","position":[5768,113360,3768],"color":"#FBE7C6","size":140},
+  {"name":"Plasma Wakefield Zone 12020","category":"Plasma Acceleration","description":"Plasma wave particle acceleration mechanism.","position":[5769,113380,3769],"color":"#DDA15E","size":140},
+  {"name":"Bremsstrahlung Radiation Core 12021","category":"Radiation Processes","description":"Charged particle radiation interaction zone.","position":[5770,113400,3770],"color":"#BC6C25","size":140},
+  {"name":"Synchrotron Emission Ring 12022","category":"Radiation Processes","description":"Relativistic particle magnetic radiation.","position":[5771,113420,3771],"color":"#D4A574","size":140},
+  {"name":"Compton Scattering Cascade 12023","category":"Radiation Processes","description":"Inverse Compton upscattering region.","position":[5772,113440,3772],"color":"#9E8B56","size":140},
+  {"name":"Pair Production Threshold 12024","category":"QED Processes","description":"Photon to electron-positron conversion zone.","position":[5773,113460,3773],"color":"#6B5344","size":140},
+  {"name":"Ultra-Relativistic Shock 12025","category":"High Energy Phenomena","description":"Extreme Lorentz factor shock wave region.","position":[5774,113480,3774],"color":"#8B6F47","size":140}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
