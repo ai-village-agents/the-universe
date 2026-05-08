@@ -20733,6 +20733,276 @@ export function createAnchorageLandmark(THREE, opts) {
   bhrGroup.add(bhrGlass);
   group.add(bhrGroup);
 
+
+  // --- v127: Coastal Tide Pool Peering (ctpp) ---
+  const ctppGroup = new THREE.Group();
+  ctppGroup.position.set(-78, 0.1, -68);
+  // Rocky pool
+  const ctppRockMat = new THREE.MeshLambertMaterial({ color: 0x6a5544 });
+  for (let i = 0; i < 8; i++) {
+    const angle = (i / 8) * Math.PI * 2;
+    const rock = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.45 + Math.random() * 0.25, 0),
+      ctppRockMat
+    );
+    rock.position.set(Math.cos(angle) * 1.6, 0.25, Math.sin(angle) * 1.6);
+    rock.rotation.set(Math.random(), Math.random(), Math.random());
+    ctppGroup.add(rock);
+  }
+  const ctppWater = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.4, 1.4, 0.15, 24),
+    new THREE.MeshStandardMaterial({
+      color: 0x4488aa,
+      transparent: true,
+      opacity: 0.7,
+      metalness: 0.3,
+      roughness: 0.2
+    })
+  );
+  ctppWater.position.set(0, 0.18, 0);
+  ctppGroup.add(ctppWater);
+  // Sea creatures in pool
+  const ctppCreatures = [];
+  // Anemones
+  for (let i = 0; i < 3; i++) {
+    const angle = (i / 3) * Math.PI * 2 + 0.5;
+    const anem = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xff6688 })
+    );
+    anem.position.set(Math.cos(angle) * 0.8, 0.22, Math.sin(angle) * 0.8);
+    ctppGroup.add(anem);
+    ctppCreatures.push(anem);
+  }
+  // Starfish
+  const ctppStarMat = new THREE.MeshLambertMaterial({ color: 0xee9944 });
+  const ctppStar = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.04, 5),
+    ctppStarMat
+  );
+  ctppStar.position.set(0.4, 0.21, -0.5);
+  ctppStar.rotation.x = Math.PI / 2;
+  ctppGroup.add(ctppStar);
+  // Crab
+  const ctppCrab = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 6),
+    new THREE.MeshLambertMaterial({ color: 0xaa3322 })
+  );
+  ctppCrab.scale.set(1, 0.5, 1.2);
+  ctppCrab.position.set(-0.5, 0.2, 0.4);
+  ctppGroup.add(ctppCrab);
+  ctppCreatures.push(ctppCrab);
+  // Two children peering in
+  const ctppKids = [];
+  const ctppKidHeads = [];
+  for (let i = 0; i < 2; i++) {
+    const k = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.16, 0.45, 8),
+      new THREE.MeshLambertMaterial({ color: i === 0 ? 0xee5566 : 0x66aaee })
+    );
+    k.position.set(-1.5 + i * 3.0, 0.62, 0);
+    k.rotation.x = 0.3;
+    ctppGroup.add(k);
+    ctppKids.push(k);
+    const h = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    h.position.set(-1.4 + i * 2.8, 0.95, 0);
+    h.rotation.x = 0.5;
+    ctppGroup.add(h);
+    ctppKidHeads.push(h);
+  }
+  // Bubbles rising
+  const ctppBubbles = [];
+  const ctppBubbleMat = new THREE.MeshBasicMaterial({
+    color: 0xddeeff,
+    transparent: true,
+    opacity: 0.5
+  });
+  for (let i = 0; i < 6; i++) {
+    const b = new THREE.Mesh(
+      new THREE.SphereGeometry(0.04, 6, 4),
+      ctppBubbleMat.clone()
+    );
+    b.position.set((Math.random() - 0.5) * 1.6, 0.18, (Math.random() - 0.5) * 1.6);
+    ctppGroup.add(b);
+    ctppBubbles.push(b);
+  }
+  group.add(ctppGroup);
+
+  // --- v127: Beach Dragon Kite (bdk) ---
+  const bdkGroup = new THREE.Group();
+  bdkGroup.position.set(72, 0.5, 78);
+  // Flyer
+  const bdkFlyer = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x66cc77 })
+  );
+  bdkFlyer.position.set(0, 0.35, 0);
+  bdkGroup.add(bdkFlyer);
+  const bdkFHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  bdkFHead.position.set(0, 0.85, 0);
+  bdkGroup.add(bdkFHead);
+  // Dragon kite body (segments)
+  const bdkSegs = [];
+  const bdkSegColors = [0xff4422, 0xee6633, 0xff5544, 0xee7755, 0xff6644, 0xee8866, 0xff7755, 0xeeaa77];
+  for (let s = 0; s < 8; s++) {
+    const seg = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18 + (8 - s) * 0.02, 12, 8),
+      new THREE.MeshLambertMaterial({ color: bdkSegColors[s] })
+    );
+    seg.position.set(0, 5.0 - s * 0.4, 0);
+    bdkGroup.add(seg);
+    bdkSegs.push(seg);
+  }
+  // Dragon head (front, segment 0)
+  const bdkHead = new THREE.Mesh(
+    new THREE.ConeGeometry(0.32, 0.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0xee2200 })
+  );
+  bdkHead.position.set(0, 5.4, 0);
+  bdkHead.rotation.x = Math.PI;
+  bdkGroup.add(bdkHead);
+  // Eyes
+  const bdkEyeMat = new THREE.MeshStandardMaterial({
+    color: 0xffff44,
+    emissive: 0xffaa22,
+    emissiveIntensity: 0.5
+  });
+  const bdkEyeL = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), bdkEyeMat);
+  bdkEyeL.position.set(-0.1, 5.45, 0.18);
+  bdkGroup.add(bdkEyeL);
+  const bdkEyeR = bdkEyeL.clone();
+  bdkEyeR.position.set(0.1, 5.45, 0.18);
+  bdkGroup.add(bdkEyeR);
+  // Tail streamers
+  const bdkTails = [];
+  for (let i = 0; i < 4; i++) {
+    const tail = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, 0.5, 0.02),
+      new THREE.MeshLambertMaterial({
+        color: 0xff8844,
+        transparent: true,
+        opacity: 0.85
+      })
+    );
+    tail.position.set(-0.06 + i * 0.04, 1.6, 0);
+    bdkGroup.add(tail);
+    bdkTails.push(tail);
+  }
+  // String
+  const bdkString = new THREE.Mesh(
+    new THREE.BoxGeometry(0.015, 4.0, 0.015),
+    new THREE.MeshLambertMaterial({ color: 0xffffff })
+  );
+  bdkString.position.set(0, 2.5, 0);
+  bdkGroup.add(bdkString);
+  group.add(bdkGroup);
+
+  // --- v127: Pier Memorial Bell (pmb) ---
+  const pmbGroup = new THREE.Group();
+  pmbGroup.position.set(-148, 1.0, 12);
+  // Bell stand (two posts + crossbeam)
+  const pmbStandMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const pmbPostL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 1.8, 10),
+    pmbStandMat
+  );
+  pmbPostL.position.set(-0.7, 0.9, 0);
+  pmbGroup.add(pmbPostL);
+  const pmbPostR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 1.8, 10),
+    pmbStandMat
+  );
+  pmbPostR.position.set(0.7, 0.9, 0);
+  pmbGroup.add(pmbPostR);
+  const pmbBeam = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.15, 0.15),
+    pmbStandMat
+  );
+  pmbBeam.position.set(0, 1.85, 0);
+  pmbGroup.add(pmbBeam);
+  // Bell
+  const pmbBell = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.32, 0.5, 14, 1, true),
+    new THREE.MeshStandardMaterial({
+      color: 0xa56a2a,
+      metalness: 0.85,
+      roughness: 0.25,
+      side: THREE.DoubleSide
+    })
+  );
+  pmbBell.position.set(0, 1.45, 0);
+  pmbGroup.add(pmbBell);
+  const pmbBellTop = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 8),
+    new THREE.MeshStandardMaterial({
+      color: 0xa56a2a,
+      metalness: 0.85,
+      roughness: 0.25
+    })
+  );
+  pmbBellTop.position.set(0, 1.7, 0);
+  pmbGroup.add(pmbBellTop);
+  const pmbClapper = new THREE.Mesh(
+    new THREE.SphereGeometry(0.06, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  pmbClapper.position.set(0, 1.18, 0);
+  pmbGroup.add(pmbClapper);
+  const pmbRope = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 0.6, 6),
+    new THREE.MeshLambertMaterial({ color: 0xddccaa })
+  );
+  pmbRope.position.set(0, 0.85, 0);
+  pmbGroup.add(pmbRope);
+  // Plaque
+  const pmbPlaque = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.3, 0.04),
+    new THREE.MeshStandardMaterial({
+      color: 0xaa9966,
+      metalness: 0.6,
+      roughness: 0.4
+    })
+  );
+  pmbPlaque.position.set(0, 0.6, 0.5);
+  pmbGroup.add(pmbPlaque);
+  // Mourner
+  const pmbMourner = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x333344 })
+  );
+  pmbMourner.position.set(1.6, 0.35, 0);
+  pmbGroup.add(pmbMourner);
+  const pmbMHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  pmbMHead.position.set(1.6, 0.85, 0);
+  pmbGroup.add(pmbMHead);
+  // Sound waves
+  const pmbWaves = [];
+  for (let i = 0; i < 3; i++) {
+    const w = new THREE.Mesh(
+      new THREE.RingGeometry(0.3, 0.36, 24),
+      new THREE.MeshBasicMaterial({
+        color: 0xddccaa,
+        transparent: true,
+        opacity: 0.4,
+        side: THREE.DoubleSide
+      })
+    );
+    w.position.set(0, 1.45, 0);
+    w.rotation.x = Math.PI / 2;
+    pmbGroup.add(w);
+    pmbWaves.push(w);
+  }
+  group.add(pmbGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -23568,6 +23838,53 @@ export function createAnchorageLandmark(THREE, opts) {
   bhrRHead.position.x = 0.7 + bhrSway * 0.4;
   bhrBook.position.x = 0.4 + bhrSway * 0.4;
   bhrBook.rotation.z = -0.3 + bhrSway;
+  // v127 animation
+  const v127t = t;
+  // ctpp: water shimmer, anemones wave, crab scuttle, bubbles rise
+  ctppWater.material.opacity = 0.6 + Math.sin(v127t * 1.5) * 0.1;
+  for (let i = 0; i < ctppCreatures.length; i++) {
+    ctppCreatures[i].scale.y = 1 + Math.sin(v127t * 1.5 + i * 0.7) * 0.08;
+  }
+  ctppCrab.position.x = -0.5 + Math.sin(v127t * 0.5) * 0.4;
+  ctppCrab.position.z = 0.4 + Math.cos(v127t * 0.5) * 0.4;
+  ctppStar.rotation.z = v127t * 0.2;
+  for (let i = 0; i < ctppKidHeads.length; i++) {
+    ctppKidHeads[i].rotation.z = Math.sin(v127t * 1.0 + i) * 0.04;
+  }
+  for (let i = 0; i < ctppBubbles.length; i++) {
+    const phase = (v127t * 0.6 + i * 0.4) % 1;
+    ctppBubbles[i].position.y = 0.18 + phase * 0.4;
+    ctppBubbles[i].material.opacity = Math.max(0, 0.5 - phase * 0.5);
+  }
+  // bdk: kite sways in wind, segments wiggle
+  for (let s = 0; s < bdkSegs.length; s++) {
+    bdkSegs[s].position.x = Math.sin(v127t * 1.5 + s * 0.4) * 0.25;
+    bdkSegs[s].position.z = Math.cos(v127t * 1.2 + s * 0.4) * 0.15;
+    bdkSegs[s].position.y = 5.0 - s * 0.4 + Math.sin(v127t * 2 + s * 0.3) * 0.1;
+  }
+  bdkHead.position.x = Math.sin(v127t * 1.5) * 0.3;
+  bdkHead.position.z = Math.cos(v127t * 1.2) * 0.18;
+  bdkHead.position.y = 5.4 + Math.sin(v127t * 2) * 0.12;
+  bdkEyeL.position.x = -0.1 + Math.sin(v127t * 1.5) * 0.3;
+  bdkEyeL.position.z = 0.18 + Math.cos(v127t * 1.2) * 0.18;
+  bdkEyeL.position.y = 5.45 + Math.sin(v127t * 2) * 0.12;
+  bdkEyeR.position.x = 0.1 + Math.sin(v127t * 1.5) * 0.3;
+  bdkEyeR.position.z = 0.18 + Math.cos(v127t * 1.2) * 0.18;
+  bdkEyeR.position.y = 5.45 + Math.sin(v127t * 2) * 0.12;
+  for (let i = 0; i < bdkTails.length; i++) {
+    bdkTails[i].rotation.z = Math.sin(v127t * 3 + i * 0.4) * 0.3;
+  }
+  // pmb: bell sways slowly, sound waves on each chime
+  const pmbSwing = Math.sin(v127t * 0.8) * 0.15;
+  pmbBell.rotation.z = pmbSwing;
+  pmbBellTop.rotation.z = pmbSwing;
+  pmbClapper.position.x = pmbSwing * 0.3;
+  for (let i = 0; i < pmbWaves.length; i++) {
+    const phase = ((v127t * 0.5 + i * 0.33) % 1);
+    pmbWaves[i].scale.setScalar(1 + phase * 5);
+    pmbWaves[i].material.opacity = Math.max(0, 0.5 - phase * 0.5);
+  }
+
 
 
 
