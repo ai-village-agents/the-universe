@@ -19637,7 +19637,208 @@ const cosmicSights = [
   { name: 'El Gordo Wake Turbulent Merger Tail', position: [-345, 75, 95], color: '#009688', description: 'elongated X-ray surface brightness tail from stripped gas in post-merger cluster' },
   { name: 'Cluster Magnetic Field Faraday Rotation Measure', position: [-185, 105, -325], color: '#4caf50', description: 'polarized radio source depolarization mapping cluster-scale magnetic field' },
   { name: 'Coma Cluster UDG Diffuse Galaxy Population', position: [-308, 88, -108], color: '#ff9800', description: 'population of ultra-diffuse galaxies surviving in high-density cluster environment' },
-  { name: 'Cluster Cosmic Ray Proton Calorimetry', position: [240, -70, 160], color: '#9c27b0', description: 'gamma-ray emission from hadronic cosmic ray interactions with intracluster gas' }
+  { name: 'Cluster Cosmic Ray Proton Calorimetry', position: [240, -70, 160], color: '#9c27b0', description: 'gamma-ray emission from hadronic cosmic ray interactions with intracluster gas' },
+  {
+    name: 'Lyman Alpha Forest Spectrum',
+    category: 'Quasar Absorption Systems',
+    description: 'Dense series of absorption lines tracing neutral hydrogen clouds along sight lines to distant quasars.',
+    position: [4850, 1920, -3100],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'Damped Lyman Alpha Absorption Feature',
+    category: 'Quasar Absorption Systems',
+    description: 'High column density absorber with damping wings revealing proto-galactic gas reservoirs.',
+    position: [-3920, 2840, 4150],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'Lyman Limit Continuum Break',
+    category: 'Quasar Absorption Systems',
+    description: 'Absorber showing continuum break at 912 Angstroms from optically thick neutral hydrogen.',
+    position: [2710, -4100, 3280],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'Metal Line Absorption Complex',
+    category: 'Quasar Absorption Systems',
+    description: 'Multi-component absorber showing enriched gas with carbon, silicon, and magnesium ions.',
+    position: [-4580, 3150, -2470],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Broad Absorption Line Quasar Trough',
+    category: 'Quasar Absorption Systems',
+    description: 'Wide blueshifted absorption from high-velocity outflows in quasar winds reaching 0.1c.',
+    position: [3640, -2890, 4010],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'CIV Doublet Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'Triply ionized carbon doublet at 1548/1550 Angstroms tracing warm photoionized gas.',
+    position: [-2830, 4220, 3560],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'MgII Absorber System',
+    category: 'Quasar Absorption Systems',
+    description: 'Singly ionized magnesium absorption probing cool circumgalactic medium around galaxies.',
+    position: [4190, 3070, -3640],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'OVI High Ionization Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'Five-times ionized oxygen tracing hot gas in galaxy halos and warm-hot intergalactic medium.',
+    position: [-3750, -2960, 4280],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Proximate Absorber System',
+    category: 'Quasar Absorption Systems',
+    description: 'Absorption system within 3000 km/s of quasar redshift showing associated gas environment.',
+    position: [2980, 4150, 3190],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'Intervening Absorber Galaxy',
+    category: 'Quasar Absorption Systems',
+    description: 'Foreground galaxy identified as host of absorption system through emission line detection.',
+    position: [-4310, 2580, -3420],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'Sub-DLA Partial Ionization Zone',
+    category: 'Quasar Absorption Systems',
+    description: 'Intermediate column density system with partially neutral hydrogen and complex ionization.',
+    position: [3470, -3890, 2750],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'Voigt Profile Fitting Region',
+    category: 'Quasar Absorption Systems',
+    description: 'Absorption feature analyzed with convolved Gaussian and Lorentzian profiles for column density.',
+    position: [-2690, 3760, 4130],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Curve of Growth Analysis Site',
+    category: 'Quasar Absorption Systems',
+    description: 'Absorption strength versus column density relation revealing turbulent Doppler parameters.',
+    position: [4060, 2430, -3950],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'Gunn-Peterson Reionization Signal',
+    category: 'Quasar Absorption Systems',
+    description: 'Complete absorption blueward of Lyman alpha in highest redshift quasars from reionization epoch.',
+    position: [-3580, -3270, 3890],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'Quasar Ionization Bubble Edge',
+    category: 'Quasar Absorption Systems',
+    description: 'Reduced Lyman alpha forest density near quasar from enhanced local ionizing radiation.',
+    position: [2850, 4280, -3010],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'Transverse Proximity Effect',
+    category: 'Quasar Absorption Systems',
+    description: 'Ionization signature in absorbers illuminated by nearby but non-aligned background quasar.',
+    position: [-4170, 2910, 3640],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Associated Absorption System',
+    category: 'Quasar Absorption Systems',
+    description: 'Intrinsic absorber arising from quasar host galaxy or immediate circumnuclear environment.',
+    position: [3890, -2650, 4100],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'Ghost of Lyman Alpha',
+    category: 'Quasar Absorption Systems',
+    description: 'Residual absorption feature from incompletely removed atmospheric or instrumental artifacts.',
+    position: [-2940, 4060, -3480],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'Cosmic Web Filament Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'Low column density absorption tracing diffuse baryons in large-scale structure filaments.',
+    position: [4320, 3430, 2680],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'Multiphase Absorber Complex',
+    category: 'Quasar Absorption Systems',
+    description: 'System showing both low and high ionization species indicating temperature gradient structure.',
+    position: [-3670, -3580, 3250],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Partial Lyman Limit System',
+    category: 'Quasar Absorption Systems',
+    description: 'Absorber with optical depth less than unity at Lyman limit showing partial continuum break.',
+    position: [3150, 3970, -3720],
+    color: '#4A90D9',
+    size: 250
+  },
+  {
+    name: 'Ultra-Strong MgII Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'Exceptionally strong magnesium absorption associated with starburst or outflow activity.',
+    position: [-4460, 2370, 3830],
+    color: '#5B9FE8',
+    size: 250
+  },
+  {
+    name: 'NeVIII Coronal Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'Seven-times ionized neon tracing million-degree collisionally ionized gas in galaxy halos.',
+    position: [2670, -4230, 3390],
+    color: '#6CAEF7',
+    size: 250
+  },
+  {
+    name: 'Deuterium Absorption System',
+    category: 'Quasar Absorption Systems',
+    description: 'Rare isotope-shifted Lyman series measuring primordial deuterium abundance from Big Bang.',
+    position: [-3290, 4140, 2940],
+    color: '#7DBDFF',
+    size: 250
+  },
+  {
+    name: 'Helium Reionization Absorber',
+    category: 'Quasar Absorption Systems',
+    description: 'HeII Lyman alpha forest at z~3 probing second reionization epoch from quasar radiation.',
+    position: [4130, -2780, -3560],
+    color: '#4A90D9',
+    size: 250
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
