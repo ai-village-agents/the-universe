@@ -18852,6 +18852,134 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bwcGroup);
 
+  // --- v115: pier night fishing under stars (pnfs) + coastal pottery wheel demo (cpw) + pier koi feeding pond (pkfp) ---
+  const pnfsGroup = new THREE.Group();
+  pnfsGroup.position.set(25, 0.5, -40);
+  const pnfsAnglers = [];
+  const pnfsLanterns = [];
+  const pnfsLanternMat = new THREE.MeshStandardMaterial({color: 0xffeb99, emissive: 0xffaa00, emissiveIntensity: 0.7});
+  const pnfsAColors = [0x2c3e50, 0x6b4226, 0x34495e];
+  for (let i = 0; i < 3; i++) {
+    const a = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: pnfsAColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    const rod = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.03, 1.6), new THREE.MeshLambertMaterial({color: 0x6b4226}));
+    rod.position.set(0.2, 0.6, 0.7);
+    rod.rotation.x = -0.4;
+    a.add(body); a.add(head); a.add(rod);
+    a.position.set(-1.4 + i * 1.4, 0, 0);
+    pnfsAnglers.push(a);
+    pnfsGroup.add(a);
+    const lan = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), pnfsLanternMat);
+    lan.position.set(-1.4 + i * 1.4, 1.4, 0.3);
+    pnfsLanterns.push(lan);
+    pnfsGroup.add(lan);
+  }
+  const pnfsStarMat = new THREE.MeshBasicMaterial({color: 0xffffff, transparent: true, opacity: 0.9});
+  const pnfsStars = [];
+  for (let i = 0; i < 24; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.04, 4, 4), pnfsStarMat.clone());
+    s.position.set(-3 + Math.random() * 6, 4 + Math.random() * 3, -1 + Math.random() * 3);
+    pnfsStars.push(s);
+    pnfsGroup.add(s);
+  }
+  const pnfsMoon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 12, 12), new THREE.MeshStandardMaterial({color: 0xfffaa0, emissive: 0xffeebb, emissiveIntensity: 0.4}));
+  pnfsMoon.position.set(2.5, 5.5, 1);
+  pnfsGroup.add(pnfsMoon);
+  group.add(pnfsGroup);
+
+  const cpwGroup = new THREE.Group();
+  cpwGroup.position.set(-48, 0.5, -10);
+  const cpwWheelBaseMat = new THREE.MeshLambertMaterial({color: 0x6b4226});
+  const cpwBase = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.5, 0.8), cpwWheelBaseMat);
+  cpwBase.position.y = 0.25;
+  cpwGroup.add(cpwBase);
+  const cpwWheel = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 0.05, 16), new THREE.MeshLambertMaterial({color: 0x444444}));
+  cpwWheel.position.y = 0.55;
+  cpwGroup.add(cpwWheel);
+  const cpwClayMat = new THREE.MeshLambertMaterial({color: 0x9b6a4a});
+  const cpwClay = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 0.3, 12), cpwClayMat);
+  cpwClay.position.y = 0.72;
+  cpwGroup.add(cpwClay);
+  const cpwPotter = new THREE.Group();
+  const cpwPBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.8, 8), new THREE.MeshLambertMaterial({color: 0x556b2f}));
+  cpwPBody.position.y = 0.4;
+  const cpwPHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  cpwPHead.position.y = 0.95;
+  cpwPotter.add(cpwPBody); cpwPotter.add(cpwPHead);
+  cpwPotter.position.set(0, 0, -0.7);
+  cpwGroup.add(cpwPotter);
+  const cpwPots = [];
+  const cpwPotColors = [0x8b4513, 0xa0522d, 0xcd853f, 0xd2691e];
+  for (let i = 0; i < 4; i++) {
+    const p = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.13, 0.2, 10), new THREE.MeshLambertMaterial({color: cpwPotColors[i]}));
+    p.position.set(-0.6 + i * 0.4, 0.65, 0.9);
+    cpwPots.push(p);
+    cpwGroup.add(p);
+  }
+  const cpwShelf = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.05, 0.3), cpwWheelBaseMat);
+  cpwShelf.position.set(0, 0.5, 0.9);
+  cpwGroup.add(cpwShelf);
+  const cpwAudience = [];
+  for (let i = 0; i < 3; i++) {
+    const a = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: 0x4a90e2}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    a.add(body); a.add(head);
+    a.position.set(-1.0 + i * 1.0, 0, -1.5);
+    cpwAudience.push(a);
+    cpwGroup.add(a);
+  }
+  group.add(cpwGroup);
+
+  const pkfpGroup = new THREE.Group();
+  pkfpGroup.position.set(28, 0.5, -32);
+  const pkfpPondMat = new THREE.MeshStandardMaterial({color: 0x2e7d57, transparent: true, opacity: 0.85, metalness: 0.2, roughness: 0.4});
+  const pkfpPond = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.4, 0.2, 24), pkfpPondMat);
+  pkfpPond.position.y = 0.1;
+  pkfpGroup.add(pkfpPond);
+  const pkfpRimMat = new THREE.MeshLambertMaterial({color: 0x808080});
+  const pkfpRim = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.1, 6, 24), pkfpRimMat);
+  pkfpRim.rotation.x = Math.PI / 2;
+  pkfpRim.position.y = 0.2;
+  pkfpGroup.add(pkfpRim);
+  const pkfpKoiColors = [0xff6347, 0xffd700, 0xffffff, 0xff8c00, 0xdc143c];
+  const pkfpKois = [];
+  for (let i = 0; i < 8; i++) {
+    const k = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.3, 6), new THREE.MeshLambertMaterial({color: pkfpKoiColors[i % 5]}));
+    k.rotation.z = Math.PI / 2;
+    const ang = (i / 8) * Math.PI * 2;
+    k.position.set(Math.cos(ang) * 1.0, 0.18, Math.sin(ang) * 1.0);
+    k.userData = {ang};
+    pkfpKois.push(k);
+    pkfpGroup.add(k);
+  }
+  const pkfpFeeders = [];
+  for (let i = 0; i < 2; i++) {
+    const f = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.55, 8), new THREE.MeshLambertMaterial({color: i === 0 ? 0xfb8c00 : 0x8e44ad}));
+    body.position.y = 0.28;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.7;
+    f.add(body); f.add(head);
+    f.position.set(i === 0 ? -2.0 : 2.0, 0, 0);
+    pkfpFeeders.push(f);
+    pkfpGroup.add(f);
+  }
+  const pkfpFoodMat = new THREE.MeshLambertMaterial({color: 0xcc8833});
+  const pkfpFood = [];
+  for (let i = 0; i < 6; i++) {
+    const p = new THREE.Mesh(new THREE.SphereGeometry(0.03, 4, 4), pkfpFoodMat);
+    p.position.set(-1.6 + Math.random() * 0.4, 0.4 + Math.random() * 0.3, -0.2 + Math.random() * 0.4);
+    pkfpFood.push(p);
+    pkfpGroup.add(p);
+  }
+  group.add(pkfpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21473,6 +21601,27 @@ export function createAnchorageLandmark(THREE, opts) {
   psaLampMat.emissiveIntensity = 0.5 + 0.15 * Math.sin(v114t * 1.5);
   bwcStudents.forEach((s, i) => { s.position.y = Math.abs(Math.sin(v114t * 1.4 + i * 1.0)) * 0.03; });
   bwcTeacher.rotation.y = Math.sin(v114t * 0.6) * 0.4;
+  // --- v115 updates ---
+  const v115t = elapsed;
+  pnfsAnglers.forEach((a, i) => { a.position.y = Math.abs(Math.sin(v115t * 0.8 + i * 1.2)) * 0.03; });
+  pnfsLanterns.forEach((l, i) => { l.position.y = 1.4 + Math.sin(v115t * 1.2 + i) * 0.05; });
+  pnfsStars.forEach((s, i) => { s.material.opacity = 0.5 + 0.5 * Math.sin(v115t * 2 + i * 0.6); });
+  pnfsMoon.rotation.y = v115t * 0.05;
+  cpwWheel.rotation.y = v115t * 3;
+  cpwClay.rotation.y = v115t * 3;
+  cpwClay.scale.x = 1.0 + Math.sin(v115t * 1.5) * 0.1;
+  cpwClay.scale.z = 1.0 + Math.sin(v115t * 1.5) * 0.1;
+  cpwPotter.rotation.y = Math.sin(v115t * 1.0) * 0.15;
+  pkfpKois.forEach((k, i) => {
+    const a = k.userData.ang + v115t * 0.4;
+    k.position.x = Math.cos(a) * (0.9 + Math.sin(v115t + i) * 0.1);
+    k.position.z = Math.sin(a) * (0.9 + Math.sin(v115t + i) * 0.1);
+    k.rotation.y = -a + Math.PI / 2;
+  });
+  pkfpFood.forEach((p, i) => {
+    p.position.y = 0.4 - ((v115t * 0.4 + i * 0.2) % 0.5);
+  });
+
 
 
 
