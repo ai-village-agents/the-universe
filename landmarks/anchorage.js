@@ -22819,6 +22819,166 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bkfeGroup);
 
+  // --- v141: coastal hermit crab (chcr) ---
+  const chcrGroup = new THREE.Group();
+  chcrGroup.position.set(-200, 0.05, -50);
+  const chcrSand = new THREE.Mesh(
+    new THREE.CircleGeometry(3.0, 24),
+    new THREE.MeshLambertMaterial({ color: 0xd7ccc8 })
+  );
+  chcrSand.rotation.x = -Math.PI / 2;
+  chcrGroup.add(chcrSand);
+  const chcrCrabs = [];
+  const chcrShells = [];
+  const chcrShellColors = [0xff8a65, 0x8d6e63, 0xffb74d, 0xa1887f, 0xbcaaa4];
+  for (let i = 0; i < 5; i++) {
+    const a = (i / 5) * Math.PI * 2;
+    const r = 1.6;
+    const shell = new THREE.Mesh(
+      new THREE.ConeGeometry(0.18, 0.4, 10),
+      new THREE.MeshLambertMaterial({ color: chcrShellColors[i] })
+    );
+    shell.position.set(Math.cos(a) * r, 0.18, Math.sin(a) * r);
+    shell.rotation.z = Math.PI / 2;
+    shell.rotation.y = -a;
+    chcrShells.push(shell);
+    chcrGroup.add(shell);
+    const crab = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xc62828 })
+    );
+    crab.position.set(Math.cos(a) * (r + 0.18), 0.12, Math.sin(a) * (r + 0.18));
+    chcrCrabs.push(crab);
+    chcrGroup.add(crab);
+    // legs
+    for (let j = 0; j < 4; j++) {
+      const leg = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.015, 0.015, 0.1, 4),
+        new THREE.MeshLambertMaterial({ color: 0xb71c1c })
+      );
+      const la = a + (j - 1.5) * 0.15;
+      leg.position.set(Math.cos(la) * (r + 0.28), 0.05, Math.sin(la) * (r + 0.28));
+      leg.rotation.x = Math.PI / 2;
+      chcrGroup.add(leg);
+    }
+  }
+  group.add(chcrGroup);
+
+  // --- v141: pier rope splice (prsp) ---
+  const prspGroup = new THREE.Group();
+  prspGroup.position.set(120, 4.0, -290);
+  const prspBollard = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.32, 0.6, 10),
+    new THREE.MeshLambertMaterial({ color: 0x424242 })
+  );
+  prspBollard.position.set(-1.0, 0.3, 0);
+  prspGroup.add(prspBollard);
+  const prspBollard2 = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.32, 0.6, 10),
+    new THREE.MeshLambertMaterial({ color: 0x424242 })
+  );
+  prspBollard2.position.set(1.0, 0.3, 0);
+  prspGroup.add(prspBollard2);
+  const prspRopeMat = new THREE.MeshLambertMaterial({ color: 0xffe082 });
+  const prspRopeGeo = new THREE.TubeGeometry(
+    new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-1.0, 0.6, 0),
+      new THREE.Vector3(-0.5, 0.7, 0.1),
+      new THREE.Vector3(0, 0.8, 0),
+      new THREE.Vector3(0.5, 0.7, -0.1),
+      new THREE.Vector3(1.0, 0.6, 0)
+    ]),
+    32, 0.06, 8, false
+  );
+  const prspRope = new THREE.Mesh(prspRopeGeo, prspRopeMat);
+  prspGroup.add(prspRope);
+  const prspSplicer = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.42, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x37474f })
+  );
+  prspSplicer.position.set(0, 0.6, 0.9);
+  prspGroup.add(prspSplicer);
+  const prspSplicerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  prspSplicerH.position.set(0, 1.4, 0.9);
+  prspGroup.add(prspSplicerH);
+  const prspFid = new THREE.Mesh(
+    new THREE.ConeGeometry(0.05, 0.3, 6),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.4, roughness: 0.4 })
+  );
+  prspFid.position.set(0, 0.85, 0.4);
+  prspFid.rotation.x = -Math.PI / 3;
+  prspGroup.add(prspFid);
+  const prspBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.2, 0.4, 10),
+    new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+  );
+  prspBucket.position.set(0.6, 0.2, 0.5);
+  prspGroup.add(prspBucket);
+  group.add(prspGroup);
+
+  // --- v141: coastal sand bottle (csbo) ---
+  const csboGroup = new THREE.Group();
+  csboGroup.position.set(-180, 0.05, 200);
+  const csboTable = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.1, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0x8d6e63 })
+  );
+  csboTable.position.y = 0.6;
+  csboGroup.add(csboTable);
+  const csboTableLegMat = new THREE.MeshLambertMaterial({ color: 0x6d4c41 });
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.6, 0.1), csboTableLegMat);
+    leg.position.set(i % 2 === 0 ? -0.85 : 0.85, 0.3, i < 2 ? -0.4 : 0.4);
+    csboGroup.add(leg);
+  }
+  const csboBottles = [];
+  const csboBottleColors = [0xff7043, 0x42a5f5, 0xab47bc, 0xffeb3b, 0x66bb6a];
+  for (let i = 0; i < 5; i++) {
+    const b = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.16, 0.4, 12),
+      new THREE.MeshLambertMaterial({ color: csboBottleColors[i], transparent: true, opacity: 0.8 })
+    );
+    b.position.set(-0.7 + i * 0.35, 0.85, 0);
+    csboBottles.push(b);
+    csboGroup.add(b);
+    const cap = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.06, 8),
+      new THREE.MeshLambertMaterial({ color: 0x5d4037 })
+    );
+    cap.position.set(-0.7 + i * 0.35, 1.08, 0);
+    csboGroup.add(cap);
+  }
+  const csboArtist = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.42, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4527a0 })
+  );
+  csboArtist.position.set(0, 0.6, 1.0);
+  csboGroup.add(csboArtist);
+  const csboArtistH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffccbc })
+  );
+  csboArtistH.position.set(0, 1.4, 1.0);
+  csboGroup.add(csboArtistH);
+  const csboFunnel = new THREE.Mesh(
+    new THREE.ConeGeometry(0.1, 0.2, 8, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0xeceff1, metalness: 0.3, roughness: 0.5, side: THREE.DoubleSide })
+  );
+  csboFunnel.position.set(0, 1.1, 0.3);
+  csboGroup.add(csboFunnel);
+  const csboSand = [];
+  const csboSandMat = new THREE.MeshLambertMaterial({ color: 0xfff59d });
+  for (let i = 0; i < 4; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), csboSandMat);
+    s.position.set(-0.4 + i * 0.25, 0.7, -0.3);
+    csboSand.push(s);
+    csboGroup.add(s);
+  }
+  group.add(csboGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -26000,6 +26160,31 @@ export function createAnchorageLandmark(THREE, opts) {
   bkfeFlyerH.forEach((h, i) => {
     h.rotation.y = v140t * 0.3 + i;
   });
+
+  // --- v141 update ---
+  const v141t = t;
+  chcrShells.forEach((s, i) => {
+    const a = (i / 5) * Math.PI * 2 + v141t * 0.15;
+    const r = 1.6;
+    s.position.x = Math.cos(a) * r;
+    s.position.z = Math.sin(a) * r;
+    s.rotation.y = -a;
+    chcrCrabs[i].position.x = Math.cos(a) * (r + 0.18);
+    chcrCrabs[i].position.z = Math.sin(a) * (r + 0.18);
+  });
+
+  prspSplicer.rotation.y = 0.08 * Math.sin(v141t * 0.7);
+  prspFid.rotation.z = 0.3 * Math.sin(v141t * 3.0);
+  prspRope.position.y = 0.02 * Math.sin(v141t * 0.9);
+
+  csboArtist.rotation.y = 0.06 * Math.sin(v141t * 0.8);
+  csboBottles.forEach((b, i) => {
+    b.position.y = 0.85 + 0.02 * Math.sin(v141t * 1.2 + i * 0.6);
+  });
+  csboSand.forEach((s, i) => {
+    s.position.y = 0.7 + 0.05 * Math.sin(v141t * 2.0 + i);
+  });
+
 
 
 
