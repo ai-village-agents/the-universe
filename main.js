@@ -15610,6 +15610,231 @@ const cosmicSights = [
       -480.56,
       -20323.39
     ]
+  },
+  {
+    "name": "Megastructure: Dyson Sphere Superstructures",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      -37487.72,
+      -8775.69,
+      -6765.34
+    ]
+  },
+  {
+    "name": "Megastructure: Matrioshka Brain Cores",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      11908.36,
+      -20544.78,
+      4494.2
+    ]
+  },
+  {
+    "name": "Megastructure: Shkadov Thruster Assemblies",
+    "description": "A monument to extreme astro-engineering.",
+    "position": [
+      -7948.27,
+      9900.96,
+      -15084.02
+    ]
+  },
+  {
+    "name": "Megastructure: Stellar Lifter Rings",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -7466.08,
+      28818.86,
+      -7230.35
+    ]
+  },
+  {
+    "name": "Megastructure: Ringworld Habitats",
+    "description": "A monument to extreme astro-engineering.",
+    "position": [
+      14637.59,
+      -20924.83,
+      -33060.52
+    ]
+  },
+  {
+    "name": "Megastructure: Alderson Disk Formations",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      -22937.34,
+      38609.77,
+      -16637.87
+    ]
+  },
+  {
+    "name": "Megastructure: Nicoll-Dyson Laser Emitters",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      19580.46,
+      6980.5,
+      10678.73
+    ]
+  },
+  {
+    "name": "Megastructure: Kardashev Type II Shipyards",
+    "description": "A macro-engineering project on a stellar scale.",
+    "position": [
+      19080.62,
+      24285.77,
+      -31469.29
+    ]
+  },
+  {
+    "name": "Megastructure: O'Neill Cylinder Swarms",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      20379.37,
+      4594.71,
+      -9649.09
+    ]
+  },
+  {
+    "name": "Megastructure: Starkiller Base Prototypes",
+    "description": "A macro-engineering project on a stellar scale.",
+    "position": [
+      5867.57,
+      5433.93,
+      7430.75
+    ]
+  },
+  {
+    "name": "Megastructure: Planetary Strip-Mining Scars",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -15017.37,
+      15837.56,
+      -5062.77
+    ]
+  },
+  {
+    "name": "Megastructure: Terraforming Macro-Engines",
+    "description": "A colossal megastructure engineered by an advanced civilization.",
+    "position": [
+      -11236.91,
+      9722.96,
+      -3474.03
+    ]
+  },
+  {
+    "name": "Megastructure: Artificial Gravity Wells",
+    "description": "A colossal megastructure engineered by an advanced civilization.",
+    "position": [
+      -20390.26,
+      -34363.38,
+      6030.01
+    ]
+  },
+  {
+    "name": "Megastructure: Stargate Nexus Hubs",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -24806.66,
+      1141.19,
+      -9791.92
+    ]
+  },
+  {
+    "name": "Megastructure: Orbital Elevator Anchors",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      321.26,
+      -808.49,
+      40607.22
+    ]
+  },
+  {
+    "name": "Megastructure: Bussard Ramjet Exhaust Trails",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -7149.01,
+      -11945.32,
+      6230.65
+    ]
+  },
+  {
+    "name": "Megastructure: Antimatter Refinery Stations",
+    "description": "A macro-engineering project on a stellar scale.",
+    "position": [
+      16609.26,
+      81.81,
+      -7179.73
+    ]
+  },
+  {
+    "name": "Megastructure: Dark Matter Containment Fields",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      -13437.43,
+      8890.88,
+      -39122.02
+    ]
+  },
+  {
+    "name": "Megastructure: Wormhole Stabilizer Rings",
+    "description": "A colossal megastructure engineered by an advanced civilization.",
+    "position": [
+      4328.88,
+      16301.01,
+      7147.17
+    ]
+  },
+  {
+    "name": "Megastructure: Subspace Communication Relays",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -31704.06,
+      30077.02,
+      -12475.27
+    ]
+  },
+  {
+    "name": "Megastructure: Interstellar Arcologies",
+    "description": "A macro-engineering project on a stellar scale.",
+    "position": [
+      -32223.29,
+      -5687.67,
+      -5460.81
+    ]
+  },
+  {
+    "name": "Megastructure: Biosphere Replicator Vaults",
+    "description": "A monument to extreme astro-engineering.",
+    "position": [
+      26647.6,
+      -34574.62,
+      -4463.71
+    ]
+  },
+  {
+    "name": "Megastructure: Quantum Computronium Nodes",
+    "description": "A colossal megastructure engineered by an advanced civilization.",
+    "position": [
+      7008.68,
+      17645.97,
+      -22150.51
+    ]
+  },
+  {
+    "name": "Megastructure: Superluminal Navigation Beacons",
+    "description": "Traces of Kardashev-scale technological civilization.",
+    "position": [
+      -15106.25,
+      720.49,
+      6944.1
+    ]
+  },
+  {
+    "name": "Megastructure: Galactic Core Tapping Tethers",
+    "description": "An artificial construct dwarfing natural planets.",
+    "position": [
+      -20636.14,
+      -44434.55,
+      5141.94
+    ]
   }
 ];
 
