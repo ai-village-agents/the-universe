@@ -20115,6 +20115,33 @@ const cosmicSights = [
   { name: 'GRB Tidal Disruption Event Jetted Emission', position: [-395, 255, 195], color: '#4caf50', description: 'relativistic jet launched from supermassive black hole disrupting star' },
   { name: 'GRB 050904 z6.3 Ly-alpha Absorption Trough', position: [395, -255, -195], color: '#ff9800', description: 'damped Ly-alpha absorption from neutral hydrogen in host galaxy interstellar medium' },
   { name: 'GRB Ultra-Long Duration Magnetar Fallback', position: [-400, 260, 200], color: '#9c27b0', description: 'hours-to-days duration burst from blue supergiant collapse with extended fallback' }
+,
+  {"name":"Supermassive Black Hole Formation Seeding 12351","category":"Black Hole Physics","color":"#000000","description":"Supermassive Black Hole Formation Seeding.","position":[6025,118500,4025],"size":140},
+  {"name":"Black Hole Accretion Disk Radiation 12352","category":"Black Hole Physics","color":"#1a1a1a","description":"Black Hole Accretion Disk Radiation.","position":[6026,118520,4026],"size":140},
+  {"name":"Eddington Luminosity Limit Mass 12353","category":"Black Hole Physics","color":"#333333","description":"Eddington Luminosity Limit Mass.","position":[6027,118540,4027],"size":140},
+  {"name":"Black Hole Spin Kerr Metric 12354","category":"Black Hole Physics","color":"#4d4d4d","description":"Black Hole Spin Kerr Metric.","position":[6028,118560,4028],"size":140},
+  {"name":"Event Horizon Shadow Imaging 12355","category":"Black Hole Physics","color":"#666666","description":"Event Horizon Shadow Imaging.","position":[6029,118580,4029],"size":140},
+  {"name":"Hawking Radiation Evaporation 12356","category":"Black Hole Physics","color":"#7f7f7f","description":"Hawking Radiation Evaporation.","position":[6030,118600,4030],"size":140},
+  {"name":"Black Hole Thermodynamics Entropy 12357","category":"Black Hole Physics","color":"#999999","description":"Black Hole Thermodynamics Entropy.","position":[6031,118620,4031],"size":140},
+  {"name":"Penrose Process Energy Extraction 12358","category":"Black Hole Physics","color":"#b2b2b2","description":"Penrose Process Energy Extraction.","position":[6032,118640,4032],"size":140},
+  {"name":"Quasi Periodic Oscillation QPO 12359","category":"Black Hole Physics","color":"#cccccc","description":"Quasi Periodic Oscillation QPO.","position":[6033,118660,4033],"size":140},
+  {"name":"Black Hole Merger Gravitational Wave 12360","category":"Black Hole Physics","color":"#e6e6e6","description":"Black Hole Merger Gravitational Wave.","position":[6034,118680,4034],"size":140},
+  {"name":"Active Galactic Nuclei AGN Jet 12361","category":"Black Hole Physics","color":"#000000","description":"Active Galactic Nuclei AGN Jet.","position":[6035,118700,4035],"size":140},
+  {"name":"Quasar Luminosity Black Hole 12362","category":"Black Hole Physics","color":"#1a1a1a","description":"Quasar Luminosity Black Hole.","position":[6036,118720,4036],"size":140},
+  {"name":"Relativistic Jet Beaming Doppler 12363","category":"Black Hole Physics","color":"#333333","description":"Relativistic Jet Beaming Doppler.","position":[6037,118740,4037],"size":140},
+  {"name":"Black Hole Jet Magnetic Field 12364","category":"Black Hole Physics","color":"#4d4d4d","description":"Black Hole Jet Magnetic Field.","position":[6038,118760,4038],"size":140},
+  {"name":"Inverse Compton Scattering Blazar 12365","category":"Black Hole Physics","color":"#666666","description":"Inverse Compton Scattering Blazar.","position":[6039,118780,4039],"size":140},
+  {"name":"Black Hole Torus Dust Infrared 12366","category":"Black Hole Physics","color":"#7f7f7f","description":"Black Hole Torus Dust Infrared.","position":[6040,118800,4040],"size":140},
+  {"name":"AGN Narrow Line Region Emission 12367","category":"Black Hole Physics","color":"#999999","description":"AGN Narrow Line Region Emission.","position":[6041,118820,4041],"size":140},
+  {"name":"AGN Broad Line Region Gas Dynamics 12368","category":"Black Hole Physics","color":"#b2b2b2","description":"AGN Broad Line Region Gas Dynamics.","position":[6042,118840,4042],"size":140},
+  {"name":"Black Hole Mass Estimation Reverberation 12369","category":"Black Hole Physics","color":"#cccccc","description":"Black Hole Mass Estimation Reverberation.","position":[6043,118860,4043],"size":140},
+  {"name":"Virial Theorem Black Hole Mass 12370","category":"Black Hole Physics","color":"#e6e6e6","description":"Virial Theorem Black Hole Mass.","position":[6044,118880,4044],"size":140},
+  {"name":"Black Hole M Sigma Relation Galaxy 12371","category":"Black Hole Physics","color":"#000000","description":"Black Hole M Sigma Relation Galaxy.","position":[6045,118900,4045],"size":140},
+  {"name":"Intermediate Mass Black Hole IMBH 12372","category":"Black Hole Physics","color":"#1a1a1a","description":"Intermediate Mass Black Hole IMBH.","position":[6046,118920,4046],"size":140},
+  {"name":"Primordial Black Hole Dark Matter 12373","category":"Black Hole Physics","color":"#333333","description":"Primordial Black Hole Dark Matter.","position":[6047,118940,4047],"size":140},
+  {"name":"Black Hole Information Paradox 12374","category":"Black Hole Physics","color":"#4d4d4d","description":"Black Hole Information Paradox.","position":[6048,118960,4048],"size":140},
+  {"name":"Black Hole Firewall Complementarity 12375","category":"Black Hole Physics","color":"#666666","description":"Black Hole Firewall Complementarity.","position":[6049,118980,4049],"size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
