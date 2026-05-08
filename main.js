@@ -25858,7 +25858,32 @@ const cosmicSights = [
     position: [-13864, 26151, 14955],
     color: '#ffff00',
     size: 106
-  }
+  },
+  { name: 'Galactic Cosmic Ray Modulation Zone', position: [2901, -1453, 2205], color: '#9932CC', size: 5.2, description: 'Heliospheric region where solar wind modulates incoming galactic cosmic ray flux over solar cycles.' },
+  { name: 'Anomalous Cosmic Ray Acceleration Site', position: [-2902, 1454, -2206], color: '#8B008B', size: 4.8, description: 'Termination shock region accelerating interstellar pickup ions to anomalous cosmic ray energies.' },
+  { name: 'Diffusive Shock Acceleration Front', position: [2903, -1455, 2207], color: '#BA55D3', size: 5.0, description: 'Collisionless shock where particles gain energy through repeated crossings via first-order Fermi mechanism.' },
+  { name: 'Supernova Remnant CR Accelerator', position: [-2904, 1456, -2208], color: '#DA70D6', size: 5.3, description: 'Expanding blast wave converting kinetic energy to cosmic ray acceleration up to PeV energies.' },
+  { name: 'CR Large-Scale Anisotropy Map', position: [2905, -1457, 2209], color: '#EE82EE', size: 4.5, description: 'Large-scale arrival direction asymmetry revealing bulk motion of local cosmic ray population.' },
+  { name: 'Galactic Magnetic Confinement Halo', position: [-2906, 1458, -2210], color: '#DDA0DD', size: 5.5, description: 'Extended magnetized region trapping cosmic rays in random walk diffusion for millions of years.' },
+  { name: 'CR Spallation Interaction Site', position: [2907, -1459, 2211], color: '#D8BFD8', size: 4.3, description: 'Interstellar medium region where cosmic ray nuclei fragment producing secondary lithium and boron.' },
+  { name: 'Forbush Decrease Magnetic Barrier', position: [-2908, 1460, -2212], color: '#E6E6FA', size: 4.0, description: 'Coronal mass ejection magnetic structure temporarily suppressing galactic cosmic ray intensity.' },
+  { name: 'Solar Energetic Particle Stream', position: [2909, -1461, 2213], color: '#FFD700', size: 4.6, description: 'Flare-accelerated particles traveling along interplanetary magnetic field lines to Earth.' },
+  { name: 'Ground Level Enhancement Event', position: [-2910, 1462, -2214], color: '#FFA500', size: 4.4, description: 'Rare solar proton event energetic enough to produce secondary particles detectable at Earth surface.' },
+  { name: 'EAS Hadronic Cascade Center', position: [2911, -1463, 2215], color: '#FF6347', size: 4.8, description: 'Atmospheric cascade center where ultra-high energy primary initiates billions of secondary particles.' },
+  { name: 'Extensive Air Shower Footprint', position: [-2912, 1464, -2216], color: '#FF4500', size: 5.0, description: 'Ground-level particle distribution pattern revealing primary cosmic ray energy and composition.' },
+  { name: 'Muon Bundle Deep Detector', position: [2913, -1465, 2217], color: '#4169E1', size: 4.2, description: 'Underground signature of high-energy cosmic ray shower penetrating hundreds of meters of rock.' },
+  { name: 'Atmospheric Cherenkov Light Cone', position: [-2914, 1466, -2218], color: '#00BFFF', size: 4.5, description: 'Atmospheric glow cone produced by relativistic shower particles exceeding local light speed.' },
+  { name: 'Geosynchrotron Radio Pulse', position: [2915, -1467, 2219], color: '#1E90FF', size: 4.3, description: 'MHz radiation from shower electrons deflected by geomagnetic field during atmospheric cascade.' },
+  { name: 'CR Electron Synchrotron Source', position: [-2916, 1468, -2220], color: '#6495ED', size: 4.7, description: 'Galactic magnetic field region where high-energy electrons radiate observable radio synchrotron.' },
+  { name: 'Positron Excess Annihilation Zone', position: [2917, -1469, 2221], color: '#7B68EE', size: 4.4, description: 'Region probing unexplained cosmic positron fraction rise potentially from dark matter or pulsars.' },
+  { name: 'Antiproton Production Threshold', position: [-2918, 1470, -2222], color: '#9370DB', size: 4.1, description: 'Interstellar site where CR protons collide with ISM creating secondary antiproton population.' },
+  { name: 'Knee Energy Transition Region', position: [2919, -1471, 2223], color: '#8A2BE2', size: 5.1, description: 'Spectral steepening near 3 PeV marking transition from galactic to extragalactic cosmic rays.' },
+  { name: 'Ankle Energy Crossover Point', position: [-2920, 1472, -2224], color: '#9400D3', size: 5.0, description: 'Ultra-high energy flattening around 5 EeV where extragalactic flux begins dominating spectrum.' },
+  { name: 'GZK Cutoff Suppression Horizon', position: [2921, -1473, 2225], color: '#FF1493', size: 5.4, description: 'Cosmological distance limit where protons lose energy to CMB photon pion production.' },
+  { name: 'UHECR Hotspot Correlation', position: [-2922, 1474, -2226], color: '#FF69B4', size: 4.9, description: 'Arrival direction clustering suggesting nearby extragalactic accelerators as ultra-high energy sources.' },
+  { name: 'Starburst Galaxy CR Factory', position: [2923, -1475, 2227], color: '#DB7093', size: 5.2, description: 'Intense star formation region with enhanced supernova rate driving cosmic ray production.' },
+  { name: 'AGN Jet CR Acceleration Zone', position: [-2924, 1476, -2228], color: '#C71585', size: 5.3, description: 'Relativistic jet termination shock accelerating particles to highest observed cosmic ray energies.' },
+  { name: 'Fermi Bubble CR Population', position: [2925, -1477, 2229], color: '#FF00FF', size: 5.1, description: 'Giant gamma-ray lobes above galactic center harboring energetic cosmic ray electron population.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
