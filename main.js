@@ -25208,7 +25208,32 @@ const cosmicSights = [
     position: [-14524, -22605, -4176],
     color: '#cc00cc',
     size: 222
-  }
+  },
+{ name: 'Warm Neutral Medium Cloud', position: [0.42, 0.58, 0.33], color: '#8B7355', size: 4.8, description: 'Diffuse neutral hydrogen at ~8000K filling much of the galactic disk volume.' },
+{ name: 'CNM Thermal Phase Structure', position: [0.55, 0.41, 0.67], color: '#4A4A6A', size: 4.5, description: 'Dense cold HI gas at ~100K organized into filamentary structures.' },
+{ name: 'Warm Ionized Medium Halo', position: [0.31, 0.72, 0.45], color: '#FF6B8A', size: 5.2, description: 'Extended ionized hydrogen extending thousands of parsecs above the disk.' },
+{ name: 'Hot Ionized Medium Bubble', position: [0.68, 0.29, 0.52], color: '#FFB347', size: 5.5, description: 'Million-degree plasma filling supernova-carved cavities in the ISM.' },
+{ name: 'Prestellar Core Collapse Region', position: [0.47, 0.63, 0.28], color: '#2F2F4F', size: 4.2, description: 'Dense cold molecular gas at ~10K where star formation begins.' },
+{ name: 'Coronal Gas Fountain', position: [0.73, 0.35, 0.61], color: '#FF4500', size: 5.0, description: 'Hot gas driven by supernovae creating galactic fountain flows.' },
+{ name: 'HII Region Stromgren Sphere', position: [0.38, 0.54, 0.76], color: '#FF69B4', size: 5.3, description: 'Ionized region surrounding hot O and B stars bounded by recombination.' },
+{ name: 'Diffuse Ionized Gas Layer', position: [0.62, 0.47, 0.34], color: '#DDA0DD', size: 4.6, description: 'Faint ionized gas extending far from HII regions throughout the disk.' },
+{ name: 'Intercloud Medium Void', position: [0.29, 0.68, 0.53], color: '#708090', size: 4.0, description: 'Low density regions between discrete ISM clouds and filaments.' },
+{ name: 'Turbulent Mixing Layer', position: [0.56, 0.32, 0.71], color: '#9370DB', size: 4.4, description: 'Interface between hot and cold ISM phases with active mixing.' },
+{ name: 'Cosmic Ray Heated Zone', position: [0.44, 0.75, 0.39], color: '#6A5ACD', size: 4.7, description: 'ISM regions where cosmic ray ionization dominates thermal balance.' },
+{ name: 'Ordered Magnetic Flux Channel', position: [0.71, 0.43, 0.58], color: '#4169E1', size: 4.3, description: 'Organized magnetic field structures threading through the ISM.' },
+{ name: 'Thermal Instability Front', position: [0.35, 0.59, 0.82], color: '#BA55D3', size: 4.9, description: 'Boundary where thermal instability drives phase transitions in gas.' },
+{ name: 'Superbubble Shell', position: [0.67, 0.26, 0.44], color: '#20B2AA', size: 5.4, description: 'Giant shell blown by multiple supernovae from OB associations.' },
+{ name: 'Disk-Halo Interface Chimney', position: [0.52, 0.71, 0.31], color: '#F4A460', size: 5.1, description: 'Vertical channel allowing hot gas to escape into the galactic halo.' },
+{ name: 'Reflection Nebula Dust Shell', position: [0.28, 0.48, 0.69], color: '#87CEEB', size: 4.5, description: 'Dust cloud illuminated by scattered light from nearby stars.' },
+{ name: 'Dark Nebula Extinction Core', position: [0.64, 0.55, 0.37], color: '#1C1C1C', size: 4.1, description: 'Dense dust cloud blocking background starlight completely.' },
+{ name: 'Polycyclic Aromatic Emission Band', position: [0.41, 0.36, 0.74], color: '#FFD700', size: 4.8, description: 'PAH molecules fluorescing in photodissociation region boundaries.' },
+{ name: 'ISM Density Wave Compression', position: [0.76, 0.62, 0.48], color: '#CD853F', size: 5.0, description: 'Gas compressed by passage of galactic spiral density waves.' },
+{ name: 'Stellar Wind Blown Cavity', position: [0.33, 0.44, 0.56], color: '#B8860B', size: 4.6, description: 'Evacuated region carved by powerful stellar winds from massive stars.' },
+{ name: 'Interstellar Shock Front', position: [0.58, 0.78, 0.42], color: '#DC143C', size: 5.2, description: 'Fast-moving shock wave propagating through the interstellar medium.' },
+{ name: 'Radiative Cooling Zone', position: [0.45, 0.31, 0.65], color: '#8FBC8F', size: 4.4, description: 'Post-shock region where gas cools radiatively and compresses.' },
+{ name: 'UV Pumped Fluorescence Region', position: [0.69, 0.52, 0.29], color: '#ADFF2F', size: 4.7, description: 'Molecular gas excited by UV photons producing infrared fluorescence.' },
+{ name: 'Field Line Reconnection Event', position: [0.37, 0.67, 0.81], color: '#FF6347', size: 5.0, description: 'Location where magnetic field lines reconnect releasing energy.' },
+{ name: 'Kolmogorov Turbulent Energy Cascade', position: [0.54, 0.39, 0.57], color: '#778899', size: 4.9, description: 'Energy cascade from large to small scales in turbulent ISM.' },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
