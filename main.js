@@ -16585,6 +16585,206 @@ const cosmicSights = [
     name: "Geomagnetic Storm Main Phase Dip",
     description: "The deep minimum in Earth's surface magnetic field when a coronal mass ejection ring current envelops the planet.",
     position: [5710, -2456, 3892]
+  },
+  {
+    name: "M-Brane Collision Nexus",
+    position: [-69740, 30000, 95000],
+    description: "The searing point of contact between two parallel universe membranes.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Calabi-Yau Manifold Projection",
+    position: [-69540, 29850, 95300],
+    description: "A 6-dimensional topological space temporarily intersecting our 3D plane.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Bulk-Space Graviton Leak",
+    position: [-69340, 29700, 95600],
+    description: "A region where gravitons bleed out of our universe into the higher-dimensional bulk.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Ekpyrotic Firestorm",
+    position: [-69140, 29550, 95900],
+    description: "The chaotic aftermath of a cyclic universe collision, restarting local time.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "11D Supergravity Well",
+    position: [-68940, 29400, 96200],
+    description: "A distortion where 11-dimensional supergravity manifests as a local physical anomaly.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Membrane Fluctuation Zone",
+    position: [-68740, 29250, 96500],
+    description: "An area where the fabric of our universe ripples due to external brane interactions.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Klein Bottle Singularity",
+    position: [-68540, 29100, 96800],
+    description: "A non-orientable topological phenomenon that swallows light but never traps it.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Brane-World D-Particle Swarm",
+    position: [-68340, 28950, 97100],
+    description: "A cluster of fundamental 0-branes drifting through the cosmological void.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Tesseract Shadow Projection",
+    position: [-68140, 28800, 97400],
+    description: "The rotating 3D shadow cast by a 4D hypercube moving through higher space.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Holographic Boundary Edge",
+    position: [-67940, 28650, 97700],
+    description: "A region where the 2D informational boundary of our universe becomes visible.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Orbifold Disclination",
+    position: [-67740, 28500, 98000],
+    description: "A sharp topological defect where the universe folds in upon itself.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "String Landscape Panorama",
+    position: [-67540, 28350, 98300],
+    description: "A vast vista showcasing multiple false vacua within the string theory landscape.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "P-Brane Intersection Point",
+    position: [-67340, 28200, 98600],
+    description: "A hyper-dense singularity formed where multiple p-branes intersect.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Tachyon Condensation Field",
+    position: [-67140, 28050, 98900],
+    description: "A realm where tachyons condense, signaling a phase transition to a lower energy vacuum.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Non-Euclidean Hypersphere",
+    position: [-66940, 27900, 99200],
+    description: "A spherical region where the sum of angles in a triangle far exceeds 180 degrees.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Anthropic Principle Resonance",
+    position: [-66740, 27750, 99500],
+    description: "A tuning point where the fine-structure constant visibly fluctuates.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "K3 Surface Manifold",
+    position: [-66540, 27600, 99800],
+    description: "A complex 4-dimensional geometric space mapped into our observable universe.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Bubble Universe Nucleation",
+    position: [-66340, 27450, 100100],
+    description: "The spontaneous formation of a new universe within our own vacuum.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Dirichlet Boundary Anomaly",
+    position: [-66140, 27300, 100400],
+    description: "A boundary where strings are forced to end, violating local conservation laws.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "False Vacuum Decay Front",
+    position: [-65940, 27150, 100700],
+    description: "An expanding wall of true vacuum threatening to rewrite local physics.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Möbius Strip Nebula",
+    position: [-65740, 27000, 101000],
+    description: "A massive cloud of gas and dust twisted into a single-sided surface.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Cyclic Conformal Node",
+    position: [-65540, 26850, 101300],
+    description: "The meeting point of the end of one universe and the beginning of the next.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Hyper-Torus Energy Flow",
+    position: [-65340, 26700, 101600],
+    description: "A stream of exotic matter flowing along the surface of a multi-dimensional torus.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "Eternal Inflation Fracture",
+    position: [-65140, 26550, 101900],
+    description: "A crack in the fabric of space-time caused by unending cosmic expansion.",
+    type: "Multi-verse Phenomenon",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
+  },
+  {
+    name: "G2 Holonomy Space",
+    position: [-64940, 26400, 102200],
+    description: "A 7-dimensional manifold briefly uncurled and observable in our 3D space.",
+    type: "High-Dimensional Topology",
+    discoveredBy: "Gemini 3.1 Pro",
+    discoveryDate: "2026-05-08"
   }
 ];
 
