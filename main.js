@@ -23171,6 +23171,207 @@ const cosmicSights = [
     color: '#fa8072',
     size: 66
   }
+,
+  {
+    name: 'M31 Nova Alpha 13101',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-19274, -20052, 31172],
+    color: '#ffe4b5',
+    size: 262
+  },
+  {
+    name: 'M31 Nova Beta 13102',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-12289, 10319, 11945],
+    color: '#ffdab9',
+    size: 137
+  },
+  {
+    name: 'M31 Nova Gamma 13103',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [27812, -35825, 12729],
+    color: '#eee8aa',
+    size: 173
+  },
+  {
+    name: 'M33 Nova Delta 13104',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-21551, -20210, -26950],
+    color: '#f0e68c',
+    size: 286
+  },
+  {
+    name: 'M33 Nova Epsilon 13105',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [8360, -32008, -14159],
+    color: '#eee8aa',
+    size: 284
+  },
+  {
+    name: 'M81 Nova Zeta 13106',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [9638, 17965, 38223],
+    color: '#ffff00',
+    size: 395
+  },
+  {
+    name: 'M82 Nova Eta 13107',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [13535, -33567, 18451],
+    color: '#f0e68c',
+    size: 115
+  },
+  {
+    name: 'NGC 5128 Nova Theta 13108',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-30894, -21810, -16801],
+    color: '#ffffe0',
+    size: 62
+  },
+  {
+    name: 'NGC 253 Nova Iota 13109',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-30329, 13548, 36659],
+    color: '#ffffe0',
+    size: 354
+  },
+  {
+    name: 'M104 Nova Kappa 13110',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-4133, 2726, -7021],
+    color: '#ffe4b5',
+    size: 119
+  },
+  {
+    name: 'M51 Nova Lambda 13111',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [8448, 23846, -5001],
+    color: '#fffacd',
+    size: 86
+  },
+  {
+    name: 'M101 Nova Mu 13112',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [28247, 12611, -15519],
+    color: '#ffefd5',
+    size: 247
+  },
+  {
+    name: 'NGC 6946 Nova Nu 13113',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [20459, -2461, 39647],
+    color: '#bdb76b',
+    size: 120
+  },
+  {
+    name: 'NGC 4258 Nova Xi 13114',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-2596, -10981, -24011],
+    color: '#ffff00',
+    size: 343
+  },
+  {
+    name: 'NGC 1316 Nova Omicron 13115',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [57, 34053, 39704],
+    color: '#ffff00',
+    size: 224
+  },
+  {
+    name: 'M87 Nova Pi 13116',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-39927, -8249, -30977],
+    color: '#fafad2',
+    size: 219
+  },
+  {
+    name: 'M49 Nova Rho 13117',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-25847, -15916, 13979],
+    color: '#eee8aa',
+    size: 340
+  },
+  {
+    name: 'M60 Nova Sigma 13118',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [1030, -23804, 26839],
+    color: '#fffacd',
+    size: 52
+  },
+  {
+    name: 'NGC 4526 Nova Tau 13119',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-23296, 14527, 36420],
+    color: '#bdb76b',
+    size: 108
+  },
+  {
+    name: 'NGC 4365 Nova Upsilon 13120',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [10374, 2599, -36156],
+    color: '#fafad2',
+    size: 181
+  },
+  {
+    name: 'NGC 1399 Nova Phi 13121',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-30276, 39935, -616],
+    color: '#ffefd5',
+    size: 173
+  },
+  {
+    name: 'NGC 1404 Nova Chi 13122',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-6264, -36240, 9248],
+    color: '#bdb76b',
+    size: 89
+  },
+  {
+    name: 'Fornax A Nova Psi 13123',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [-27141, 18062, 7987],
+    color: '#ffefd5',
+    size: 133
+  },
+  {
+    name: 'Virgo A Nova Omega 13124',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [27140, -12075, -3925],
+    color: '#ffffe0',
+    size: 117
+  },
+  {
+    name: 'Centaurus A Nova Peak 13125',
+    category: 'Extragalactic Novae',
+    description: 'A mesmerizing manifestation of extragalactic novae observed in deep space.',
+    position: [25441, -25763, -2572],
+    color: '#fafad2',
+    size: 299
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
