@@ -16611,7 +16611,134 @@ const cosmicSights = [
   {"name": "FRB Shock Wave Interaction", "description": "FRBs may arise when relativistic magnetar flare ejecta interact with surrounding material, converting kinetic energy to coherent radio.", "position": [3678, -2890, 1789]},
   {"name": "FRB Galactic Halo Contribution", "description": "Dispersion from the Milky Way halo contributes tens of DM units to extragalactic FRB measurements, requiring careful modeling.", "position": [-1678, 3567, -2234]},
   {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]}
+,
+    {
+        name: "Lensing Application: Galaxy Cluster Mass Tomography",
+        position: [5626, 116260, 3626],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Dark Matter Halo Mapping",
+        position: [5627, 116280, 3627],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Strong Lens Time-Delay Cosmography",
+        position: [5628, 116300, 3628],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Einstein Ring Source Reconstruction",
+        position: [5629, 116320, 3629],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Microlensing Exoplanet Census",
+        position: [5630, 116340, 3630],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Quasar Accretion Disk Micromagnification",
+        position: [5631, 116360, 3631],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Weak Shear Cosmic Web Survey",
+        position: [5632, 116380, 3632],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Arclet Redshift Stack Calibration",
+        position: [5633, 116400, 3633],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Subhalo Perturbation Detection",
+        position: [5634, 116420, 3634],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Caustic Crossing Stellar Radius Probe",
+        position: [5635, 116440, 3635],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Lensed Supernova Reappearance Forecast",
+        position: [5636, 116460, 3636],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: CMB Lensing Convergence Map",
+        position: [5637, 116480, 3637],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Magnification Bias Galaxy Count Test",
+        position: [5638, 116500, 3638],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Shear Peak Cluster Finder",
+        position: [5639, 116520, 3639],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Flexion Field Tidal Gradient Recovery",
+        position: [5640, 116540, 3640],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Line-of-Sight Structure Deprojection",
+        position: [5641, 116560, 3641],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Baryonic Feedback Lensing Residual",
+        position: [5642, 116580, 3642],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Shear-Ratio Geometry Test",
+        position: [5643, 116600, 3643],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Wave-Optics Microlens Interference",
+        position: [5644, 116620, 3644],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Cluster Merger Lensing Shock Front",
+        position: [5645, 116640, 3645],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Delensed Standard Siren Localization",
+        position: [5646, 116660, 3646],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: High-Redshift Galaxy Natural Telescope",
+        position: [5647, 116680, 3647],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Quad-Image Fermat Surface Model",
+        position: [5648, 116700, 3648],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Satellite Galaxy Tidal Lens",
+        position: [5649, 116720, 3649],
+        category: "cosmic sight"
+    },
+    {
+        name: "Lensing Application: Kappa Map Void Imprint",
+        position: [5650, 116740, 3650],
+        category: "cosmic sight"
+    }
 ];
+
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
