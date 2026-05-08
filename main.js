@@ -24781,6 +24781,156 @@ const cosmicSights = [
     position: [7300, -20327, -6863],
     color: '#8b4513',
     size: 117
+  },
+  {
+    name: "Volume rendering of cosmological N-body simulations 13526",
+    position: [13400, 130000, 7400],
+    color: "#00ffff",
+    size: 200
+  },
+  {
+    name: "Interactive 3D visualization of galaxy merger trees 13527",
+    position: [13520, 130085, 7340],
+    color: "#0af4ff",
+    size: 213
+  },
+  {
+    name: "Real-time particle system visualization for star formation 13528",
+    position: [13640, 130170, 7280],
+    color: "#15e9ff",
+    size: 226
+  },
+  {
+    name: "GPU-accelerated ray tracing of accretion disk physics 13529",
+    position: [13760, 130255, 7220],
+    color: "#1fdfff",
+    size: 239
+  },
+  {
+    name: "Virtual reality exploration of large-scale structure 13530",
+    position: [13880, 130340, 7160],
+    color: "#2ad4ff",
+    size: 252
+  },
+  {
+    name: "Parallel coordinate plots for multi-dimensional parameter spaces 13531",
+    position: [14000, 130425, 7100],
+    color: "#35c9ff",
+    size: 265
+  },
+  {
+    name: "Topological data analysis of cosmic filament networks 13532",
+    position: [14120, 130510, 7040],
+    color: "#3fbfff",
+    size: 278
+  },
+  {
+    name: "Streaming data visualization for time-domain astronomy 13533",
+    position: [14240, 130595, 6980],
+    color: "#4ab4ff",
+    size: 200
+  },
+  {
+    name: "WebGL-based browser visualization of exoplanet systems 13534",
+    position: [14360, 130680, 6920],
+    color: "#55aaff",
+    size: 213
+  },
+  {
+    name: "HPC visualization pipelines for petabyte-scale sky surveys 13535",
+    position: [14480, 130765, 6860],
+    color: "#5f9fff",
+    size: 226
+  },
+  {
+    name: "In-situ visualization of cosmological hydro simulations 13536",
+    position: [14600, 130850, 6800],
+    color: "#6a94ff",
+    size: 239
+  },
+  {
+    name: "Comparative visualization of dark matter halo profiles 13537",
+    position: [14720, 130935, 6740],
+    color: "#748aff",
+    size: 252
+  },
+  {
+    name: "Multi-scale visualization from galaxy clusters to planetary systems 13538",
+    position: [14840, 131020, 6680],
+    color: "#7f7fff",
+    size: 265
+  },
+  {
+    name: "Visual analytics for gravitational wave parameter estimation 13539",
+    position: [14960, 131105, 6620],
+    color: "#8a74ff",
+    size: 278
+  },
+  {
+    name: "Ensemble visualization of cosmological model variations 13540",
+    position: [15080, 131190, 6560],
+    color: "#946aff",
+    size: 200
+  },
+  {
+    name: "Feature extraction and visualization of magnetic field structures 13541",
+    position: [15200, 131275, 6500],
+    color: "#9f5fff",
+    size: 213
+  },
+  {
+    name: "Flow visualization of interstellar medium dynamics 13542",
+    position: [15320, 131360, 6440],
+    color: "#aa55ff",
+    size: 226
+  },
+  {
+    name: "Uncertainty visualization for astronomical measurements 13543",
+    position: [15440, 131445, 6380],
+    color: "#b44aff",
+    size: 239
+  },
+  {
+    name: "Comparative planetology visualization tools 13544",
+    position: [15560, 131530, 6320],
+    color: "#bf3fff",
+    size: 252
+  },
+  {
+    name: "Astroinformatics dashboard for multi-wavelength data fusion 13545",
+    position: [15680, 131615, 6260],
+    color: "#c935ff",
+    size: 265
+  },
+  {
+    name: "Spatio-temporal visualization of solar activity cycles 13546",
+    position: [15800, 131700, 6200],
+    color: "#d42aff",
+    size: 278
+  },
+  {
+    name: "Visual data mining of galaxy morphology catalogs 13547",
+    position: [15920, 131785, 6140],
+    color: "#df1fff",
+    size: 200
+  },
+  {
+    name: "Interactive spectral line analysis visualization 13548",
+    position: [16040, 131870, 6080],
+    color: "#e915ff",
+    size: 213
+  },
+  {
+    name: "Comparative visualization of stellar evolutionary tracks 13549",
+    position: [16160, 131955, 6020],
+    color: "#f40aff",
+    size: 226
+  },
+  {
+    name: "Virtual observatory interface for distributed data access 13550",
+    position: [16280, 132040, 5960],
+    color: "#ff00ff",
+    size: 239
   }
 ];
 
