@@ -21477,6 +21477,133 @@ const cosmicSights = [
   { name: "Substorm Onset Trigger Region", type: "phenomenon", category: "planetary", position: [4625, 1565, 3525], description: "Magnetotail location where magnetic reconnection initiates explosive auroral brightenings" },
   { name: "Planetary Magnetic Pole Wandering", type: "phenomenon", category: "planetary", position: [4640, 1580, 3540], description: "Secular variation in magnetic pole positions driven by changing deep interior convection patterns" }
 
+,
+{
+      name: "Large-Scale Structure Filament Network Topology",
+      position: [6425, 126500, 4425],
+      description: "Cosmic web connectivity and three-dimensional skeleton mapping"
+    },
+    {
+      name: "Large-Scale Structure Galaxy Cluster Merging Dynamics",
+      position: [6426, 126520, 4426],
+      description: "Hierarchical assembly and collision-induced X-ray heating"
+    },
+    {
+      name: "Large-Scale Structure Void Properties Underdensity Distribution",
+      position: [6427, 126540, 4427],
+      description: "Void radius and galaxy probability distribution voids"
+    },
+    {
+      name: "Large-Scale Structure Wall Morphology Planar Enhancement",
+      position: [6428, 126560, 4428],
+      description: "Flat structures and directional anisotropy detection"
+    },
+    {
+      name: "Large-Scale Structure Baryon Acoustic Oscillations Power",
+      position: [6429, 126580, 4429],
+      description: "Standard ruler and dark energy equation of state constraints"
+    },
+    {
+      name: "Large-Scale Structure Redshift Space Distortion Effect",
+      position: [6430, 126600, 4430],
+      description: "Kaiser effect and peculiar velocity clustering signature"
+    },
+    {
+      name: "Large-Scale Structure Power Spectrum Normalization Amplitude",
+      position: [6431, 126620, 4431],
+      description: "Sigma-eight constraint and matter density parameter"
+    },
+    {
+      name: "Large-Scale Structure Bispectrum Non-Gaussian Signature",
+      position: [6432, 126640, 4432],
+      description: "Primordial non-Gaussianity and local shape measurement"
+    },
+    {
+      name: "Large-Scale Structure Halo Occupation Distribution Function",
+      position: [6433, 126660, 4433],
+      description: "Central and satellite galaxy number density correlation"
+    },
+    {
+      name: "Large-Scale Structure Two-Halo Term Bias Model",
+      position: [6434, 126680, 4434],
+      description: "Linear bias and correlation between halo populations"
+    },
+    {
+      name: "Large-Scale Structure Streaming Velocity Infall Pattern",
+      position: [6435, 126700, 4435],
+      description: "Radial velocity field and potential flow convergence"
+    },
+    {
+      name: "Large-Scale Structure Tidal Shear Tensor Deformation Field",
+      position: [6436, 126720, 4436],
+      description: "Local shape and anisotropic collapse direction identification"
+    },
+    {
+      name: "Large-Scale Structure Vorticity Rotation Field Potential",
+      position: [6437, 126740, 4437],
+      description: "Curl-free velocity field and vortex generation mechanism"
+    },
+    {
+      name: "Large-Scale Structure Galaxy Cluster Mass Proxy Scaling",
+      position: [6438, 126760, 4438],
+      description: "Richness and X-ray luminosity mass calibration relation"
+    },
+    {
+      name: "Large-Scale Structure Cluster Abundance Redshift Evolution",
+      position: [6439, 126780, 4439],
+      description: "Dark energy and matter density cosmological constraints"
+    },
+    {
+      name: "Large-Scale Structure Integrated Sachs-Wolfe Effect Growth",
+      position: [6440, 126800, 4440],
+      description: "Late-time matter potential decay and photon blueshift"
+    },
+    {
+      name: "Large-Scale Structure Weak Lensing Shear Convergence Field",
+      position: [6441, 126820, 4441],
+      description: "Mass reconstruction and density power spectrum measurement"
+    },
+    {
+      name: "Large-Scale Structure Lensing Galaxy-Galaxy Lensing Shear",
+      position: [6442, 126840, 4442],
+      description: "Host halo mass and satellite mass estimates"
+    },
+    {
+      name: "Large-Scale Structure Cluster Intrinsic Alignment Contamination",
+      position: [6443, 126860, 4443],
+      description: "Galaxy shape and angular momentum correlation bias"
+    },
+    {
+      name: "Large-Scale Structure Halo Model Prediction Accuracy Test",
+      position: [6444, 126880, 4444],
+      description: "One-halo and two-halo term convergence and nonlinearity"
+    },
+    {
+      name: "Large-Scale Structure Perturbation Theory Resummed Expansion",
+      position: [6445, 126900, 4445],
+      description: "Effective field theory and loop integral regularization"
+    },
+    {
+      name: "Large-Scale Structure N-Body Simulation Validation Test",
+      position: [6446, 126920, 4446],
+      description: "Hydrodynamical and dark matter-only comparison fidelity"
+    },
+    {
+      name: "Large-Scale Structure BAO Scale Calibration Systematics",
+      position: [6447, 126940, 4447],
+      description: "Sample redshift errors and Alcock-Paczynski effect"
+    },
+    {
+      name: "Large-Scale Structure Neutrino Mass Suppression Clustering",
+      position: [6448, 126960, 4448],
+      description: "Massive neutrino free-streaming and scale-dependent growth"
+    },
+    {
+      name: "Large-Scale Structure Modified Gravity Screening Mechanism",
+      position: [6449, 126980, 4449],
+      description: "Chameleon effect and symmetron fifth force suppression"
+    }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
