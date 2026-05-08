@@ -21049,6 +21049,133 @@ const cosmicSights = [
     color: '#C0C0C0',
     size: 366
   }
+,
+{
+      name: "Cosmic Ray Diffusion Coefficient Energy Dependent",
+      position: [6325, 124500, 4325],
+      description: "Energy-dependent mean free path in galactic magnetic fields"
+    },
+    {
+      name: "Cosmic Ray Acceleration Fermi First Order Shock",
+      position: [6326, 124520, 4326],
+      description: "Stochastic acceleration at supernova remnant shocks"
+    },
+    {
+      name: "Cosmic Ray Confinement Timescale Halo Extent",
+      position: [6327, 124540, 4327],
+      description: "Residence time in galactic halo before escape to intergalactic space"
+    },
+    {
+      name: "Cosmic Ray Anisotropy Pitch Angle Scattering Rate",
+      position: [6328, 124560, 4328],
+      description: "Angular distribution and turbulent magnetic field coupling"
+    },
+    {
+      name: "Cosmic Ray Spectrum Knee Ankle Energy Scale Features",
+      position: [6329, 124580, 4329],
+      description: "Spectral breaks and composition transitions at 10^15 eV"
+    },
+    {
+      name: "Cosmic Ray Composition Iron Knee Rigidity Dependent",
+      position: [6330, 124600, 4330],
+      description: "Mass-dependent acceleration and escape mechanisms"
+    },
+    {
+      name: "Cosmic Ray Solar Modulation Heliospheric Wind Effect",
+      position: [6331, 124620, 4331],
+      description: "11-year cycle and anomalous cosmic ray suppression"
+    },
+    {
+      name: "Cosmic Ray Galactic Wind Advection Transport",
+      position: [6332, 124640, 4332],
+      description: "Bulk motion effects in superwind-driven escape"
+    },
+    {
+      name: "Cosmic Ray Synchrotron Radiation Magnetic Field Coupling",
+      position: [6333, 124660, 4333],
+      description: "Nonthermal radio emission from electron energy loss"
+    },
+    {
+      name: "Cosmic Ray Inverse Compton Scattering Starlight",
+      position: [6334, 124680, 4334],
+      description: "TeV gamma-ray production from interstellar photon field"
+    },
+    {
+      name: "Cosmic Ray Pion Production Hadron Interaction Cross Section",
+      position: [6335, 124700, 4335],
+      description: "Gamma-ray emission from proton-nucleon collisions"
+    },
+    {
+      name: "Cosmic Ray Positron Excess Secondary Production Mechanism",
+      position: [6336, 124720, 4336],
+      description: "Dark matter annihilation versus pulsar nearby sources"
+    },
+    {
+      name: "Cosmic Ray Antiproton Antimatter Constraints",
+      position: [6337, 124740, 4337],
+      description: "Limits on dark matter annihilation cross-sections"
+    },
+    {
+      name: "Cosmic Ray Electron-Positron Pair Production Threshold",
+      position: [6338, 124760, 4338],
+      description: "Extragalactic gamma-ray opacity and absorption"
+    },
+    {
+      name: "Cosmic Ray Extragalactic Supermassive Black Hole Jets",
+      position: [6339, 124780, 4339],
+      description: "Ultra-high-energy cosmic ray acceleration in AGN jets"
+    },
+    {
+      name: "Cosmic Ray Gamma-Ray Burst Relativistic Blast Wave",
+      position: [6340, 124800, 4340],
+      description: "GeV-TeV emission and acceleration mechanisms"
+    },
+    {
+      name: "Cosmic Ray Observational Neutrino Flavor Oscillation",
+      position: [6341, 124820, 4341],
+      description: "Neutrino-cosmic ray induced cascade emission"
+    },
+    {
+      name: "Cosmic Ray Neutron Star Magnetar Burst Acceleration",
+      position: [6342, 124840, 4342],
+      description: "Soft gamma-ray repeater and magnetar flare particle jets"
+    },
+    {
+      name: "Cosmic Ray Binary Compact Object Jet Relativistic",
+      position: [6343, 124860, 4343],
+      description: "Microquasar accretion-ejection coupled acceleration"
+    },
+    {
+      name: "Cosmic Ray Pulsar Wind Nebula Acceleration Zone",
+      position: [6344, 124880, 4344],
+      description: "Crab nebula and millisecond pulsar particle energetics"
+    },
+    {
+      name: "Cosmic Ray Turbulent Cascade Kolmogorov Spectrum",
+      position: [6345, 124900, 4345],
+      description: "Magnetohydrodynamic turbulence and scattering centers"
+    },
+    {
+      name: "Cosmic Ray Plasma Instability Resonant Interaction",
+      position: [6346, 124920, 4346],
+      description: "Alfven wave generation and cyclotron damping"
+    },
+    {
+      name: "Cosmic Ray Intergalactic Gamma-Ray Absorption Effect",
+      position: [6347, 124940, 4347],
+      description: "Cascade dominated cascade component TeV attenuation"
+    },
+    {
+      name: "Cosmic Ray Extragalactic Background Light EBL Opacity",
+      position: [6348, 124960, 4348],
+      description: "Redshift-dependent absorption and pair production"
+    },
+    {
+      name: "Cosmic Ray Cherenkov Radiation Optical Counterpart Signal",
+      position: [6349, 124980, 4349],
+      description: "Shower cascade ground array detection arrays"
+    }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
