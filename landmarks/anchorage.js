@@ -20476,6 +20476,263 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bpyGroup);
 
+
+  // --- v126: Coastal Yacht Restoration (cyr) ---
+  const cyrGroup = new THREE.Group();
+  cyrGroup.position.set(-115, 0.8, -42);
+  // Boat hull on stands
+  const cyrHull = new THREE.Mesh(
+    new THREE.BoxGeometry(3.6, 0.7, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0xddccaa })
+  );
+  cyrHull.position.set(0, 1.2, 0);
+  cyrGroup.add(cyrHull);
+  const cyrKeel = new THREE.Mesh(
+    new THREE.BoxGeometry(3.4, 0.2, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0xaa8855 })
+  );
+  cyrKeel.position.set(0, 0.85, 0);
+  cyrGroup.add(cyrKeel);
+  const cyrStandMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  for (let i = 0; i < 4; i++) {
+    const stand = new THREE.Mesh(
+      new THREE.BoxGeometry(0.12, 0.85, 0.12),
+      cyrStandMat
+    );
+    stand.position.set(-1.3 + (i % 2) * 2.6, 0.42, -0.5 + Math.floor(i / 2) * 1.0);
+    cyrGroup.add(stand);
+  }
+  const cyrMast = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.08, 2.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0x886633 })
+  );
+  cyrMast.position.set(0.2, 2.55, 0);
+  cyrGroup.add(cyrMast);
+  // Worker with sander
+  const cyrWorker = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x447755 })
+  );
+  cyrWorker.position.set(2.0, 0.35, 0.7);
+  cyrGroup.add(cyrWorker);
+  const cyrWHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  cyrWHead.position.set(2.0, 0.85, 0.7);
+  cyrGroup.add(cyrWHead);
+  const cyrSander = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.1, 0.14),
+    new THREE.MeshLambertMaterial({ color: 0xdd6633 })
+  );
+  cyrSander.position.set(1.7, 1.0, 0.7);
+  cyrGroup.add(cyrSander);
+  // Sparks
+  const cyrSparks = [];
+  const cyrSparkMat = new THREE.MeshBasicMaterial({
+    color: 0xffaa44,
+    transparent: true,
+    opacity: 0.85
+  });
+  for (let i = 0; i < 6; i++) {
+    const spark = new THREE.Mesh(
+      new THREE.SphereGeometry(0.025, 5, 3),
+      cyrSparkMat.clone()
+    );
+    spark.position.set(1.65, 1.0, 0.7);
+    cyrGroup.add(spark);
+    cyrSparks.push(spark);
+  }
+  // Paint cans
+  const cyrCanMat = new THREE.MeshLambertMaterial({ color: 0x884466 });
+  for (let i = 0; i < 3; i++) {
+    const can = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.15, 0.15, 0.22, 10),
+      cyrCanMat
+    );
+    can.position.set(-2.2 + i * 0.4, 0.11, 1.0);
+    cyrGroup.add(can);
+  }
+  group.add(cyrGroup);
+
+  // --- v126: Pier Handpan Player (php) ---
+  const phpGroup = new THREE.Group();
+  phpGroup.position.set(135, 1.0, -8);
+  const phpStool = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.25, 0.45, 10),
+    new THREE.MeshLambertMaterial({ color: 0x553322 })
+  );
+  phpStool.position.set(0, 0.22, 0);
+  phpGroup.add(phpStool);
+  const phpPlayer = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.55, 8),
+    new THREE.MeshLambertMaterial({ color: 0x6a4a8a })
+  );
+  phpPlayer.position.set(0, 0.72, 0);
+  phpGroup.add(phpPlayer);
+  const phpHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  phpHead.position.set(0, 1.13, 0);
+  phpGroup.add(phpHead);
+  // Handpan (UFO shape)
+  const phpPan = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshStandardMaterial({
+      color: 0x7a5533,
+      metalness: 0.7,
+      roughness: 0.3
+    })
+  );
+  phpPan.position.set(0, 0.92, 0.3);
+  phpPan.rotation.x = -Math.PI / 8;
+  phpGroup.add(phpPan);
+  const phpPanBot = new THREE.Mesh(
+    new THREE.SphereGeometry(0.32, 16, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2),
+    new THREE.MeshStandardMaterial({
+      color: 0x553322,
+      metalness: 0.7,
+      roughness: 0.3
+    })
+  );
+  phpPanBot.position.set(0, 0.92, 0.3);
+  phpPanBot.rotation.x = -Math.PI / 8;
+  phpGroup.add(phpPanBot);
+  // Sound rings
+  const phpRings = [];
+  for (let i = 0; i < 3; i++) {
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(0.4, 0.45, 24),
+      new THREE.MeshBasicMaterial({
+        color: 0xaaccee,
+        transparent: true,
+        opacity: 0.5,
+        side: THREE.DoubleSide
+      })
+    );
+    ring.position.set(0, 0.92, 0.3);
+    ring.rotation.x = Math.PI / 2;
+    phpGroup.add(ring);
+    phpRings.push(ring);
+  }
+  // Listeners (sitting cross-legged)
+  const phpListeners = [];
+  for (let i = 0; i < 4; i++) {
+    const angle = (i / 4) * Math.PI - Math.PI / 2;
+    const lx = Math.cos(angle) * 1.3;
+    const lz = 0.5 + Math.sin(angle) * 1.3;
+    const listener = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0x447799 + i * 0x113322 })
+    );
+    listener.position.set(lx, 0.18, lz);
+    phpGroup.add(listener);
+    phpListeners.push(listener);
+    const lhead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.11, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    lhead.position.set(lx, 0.45, lz);
+    phpGroup.add(lhead);
+  }
+  group.add(phpGroup);
+
+  // --- v126: Beach Hammock Reader (bhr) ---
+  const bhrGroup = new THREE.Group();
+  bhrGroup.position.set(15, 0.5, 95);
+  const bhrPalmTrunk = new THREE.MeshLambertMaterial({ color: 0x6b4226 });
+  const bhrTrunkA = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.15, 0.18, 2.6, 8),
+    bhrPalmTrunk
+  );
+  bhrTrunkA.position.set(-1.3, 1.3, 0);
+  bhrGroup.add(bhrTrunkA);
+  const bhrTrunkB = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.15, 0.18, 2.6, 8),
+    bhrPalmTrunk
+  );
+  bhrTrunkB.position.set(1.3, 1.3, 0);
+  bhrGroup.add(bhrTrunkB);
+  // Palm fronds
+  for (let i = 0; i < 6; i++) {
+    const angle = (i / 6) * Math.PI * 2;
+    const frondA = new THREE.Mesh(
+      new THREE.BoxGeometry(0.6, 0.06, 0.12),
+      new THREE.MeshLambertMaterial({ color: 0x4a7a3a })
+    );
+    frondA.position.set(-1.3 + Math.cos(angle) * 0.3, 2.7, Math.sin(angle) * 0.3);
+    frondA.rotation.y = angle;
+    frondA.rotation.z = -0.2;
+    bhrGroup.add(frondA);
+    const frondB = frondA.clone();
+    frondB.position.set(1.3 + Math.cos(angle) * 0.3, 2.7, Math.sin(angle) * 0.3);
+    bhrGroup.add(frondB);
+  }
+  // Hammock
+  const bhrHammock = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.08, 0.6),
+    new THREE.MeshLambertMaterial({ color: 0xcc7766 })
+  );
+  bhrHammock.position.set(0, 1.3, 0);
+  bhrGroup.add(bhrHammock);
+  const bhrRopeMat = new THREE.MeshLambertMaterial({ color: 0xddccaa });
+  const bhrRopeL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.0, 6),
+    bhrRopeMat
+  );
+  bhrRopeL.position.set(-1.0, 1.7, 0);
+  bhrRopeL.rotation.z = -0.4;
+  bhrGroup.add(bhrRopeL);
+  const bhrRopeR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.0, 6),
+    bhrRopeMat
+  );
+  bhrRopeR.position.set(1.0, 1.7, 0);
+  bhrRopeR.rotation.z = 0.4;
+  bhrGroup.add(bhrRopeR);
+  // Reader lying in hammock
+  const bhrReader = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 1.4, 8),
+    new THREE.MeshLambertMaterial({ color: 0xeebb55 })
+  );
+  bhrReader.position.set(0, 1.45, 0);
+  bhrReader.rotation.z = Math.PI / 2;
+  bhrGroup.add(bhrReader);
+  const bhrRHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  bhrRHead.position.set(0.7, 1.55, 0);
+  bhrGroup.add(bhrRHead);
+  const bhrBook = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3, 0.04, 0.22),
+    new THREE.MeshLambertMaterial({ color: 0x884466 })
+  );
+  bhrBook.position.set(0.4, 1.65, 0);
+  bhrBook.rotation.z = -0.3;
+  bhrGroup.add(bhrBook);
+  // Drink on table
+  const bhrTable = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.5, 10),
+    new THREE.MeshLambertMaterial({ color: 0xddbb77 })
+  );
+  bhrTable.position.set(-1.8, 0.25, 0.6);
+  bhrGroup.add(bhrTable);
+  const bhrGlass = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.16, 8),
+    new THREE.MeshStandardMaterial({
+      color: 0xaaccff,
+      transparent: true,
+      opacity: 0.65,
+      metalness: 0.1,
+      roughness: 0.1
+    })
+  );
+  bhrGlass.position.set(-1.8, 0.58, 0.6);
+  bhrGroup.add(bhrGlass);
+  group.add(bhrGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -23281,6 +23538,37 @@ export function createAnchorageLandmark(THREE, opts) {
     bpyBoards[i].rotation.x = Math.sin(v125t * 1.0 + i) * 0.04;
     bpyYogis[i].rotation.z = Math.sin(v125t * 0.8 + i * 0.6) * 0.06;
   }
+  // v126 animation
+  const v126t = t;
+  // cyr: sander vibrates, sparks fly
+  cyrSander.position.x = 1.7 + Math.sin(v126t * 18) * 0.04;
+  cyrSander.position.y = 1.0 + Math.cos(v126t * 18) * 0.02;
+  cyrWHead.position.y = 0.85 + Math.sin(v126t * 18) * 0.02;
+  for (let i = 0; i < cyrSparks.length; i++) {
+    const phase = (v126t * 4 + i * 0.5) % 1;
+    cyrSparks[i].position.x = 1.65 + Math.cos(i * 1.3) * phase * 0.4;
+    cyrSparks[i].position.y = 1.0 - phase * 0.4;
+    cyrSparks[i].position.z = 0.7 + Math.sin(i * 1.3) * phase * 0.4;
+    cyrSparks[i].material.opacity = Math.max(0, 0.85 - phase);
+  }
+  // php: sound rings expand outward
+  for (let i = 0; i < phpRings.length; i++) {
+    const rphase = (v126t * 0.8 + i * 0.5) % 1;
+    phpRings[i].scale.setScalar(1 + rphase * 4);
+    phpRings[i].material.opacity = Math.max(0, 0.5 - rphase * 0.5);
+  }
+  phpHead.rotation.z = Math.sin(v126t * 1.5) * 0.08;
+  for (let i = 0; i < phpListeners.length; i++) {
+    phpListeners[i].position.y = 0.18 + Math.sin(v126t * 1.0 + i * 0.7) * 0.02;
+  }
+  // bhr: hammock sway
+  const bhrSway = Math.sin(v126t * 0.4) * 0.08;
+  bhrHammock.rotation.z = bhrSway;
+  bhrReader.rotation.z = Math.PI / 2 + bhrSway;
+  bhrRHead.position.x = 0.7 + bhrSway * 0.4;
+  bhrBook.position.x = 0.4 + bhrSway * 0.4;
+  bhrBook.rotation.z = -0.3 + bhrSway;
+
 
 
 
