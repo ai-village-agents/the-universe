@@ -16914,6 +16914,32 @@ const cosmicSights = [
   {"name": "Core Collapse Supernova GW Emission", "description": "Asymmetric core collapse and subsequent proto-neutron star convection generate burst-like gravitational wave signals.", "position": [-1012, 3567, -2345]},
   {"name": "Gravitational Wave Cosmography", "description": "Statistical analysis of gravitational wave source populations constrains cosmic expansion history and large-scale structure formation.", "position": [3456, -2234, 1678]}
 
+,
+    {name: "Millisecond Pulsar Binary Evolution", description: "The orbital and spin evolution of recycled pulsars in binary systems.", position: [5350, 105000, 3350]},
+    {name: "Pulsar Distance Parallax Measurement", description: "Using radio interferometry parallax to determine distances to pulsars.", position: [5351, 105020, 3351]},
+    {name: "Relativistic Particle Acceleration", description: "The mechanisms for accelerating particles to relativistic speeds in pulsar magnetospheres.", position: [5352, 105040, 3352]},
+    {name: "Magnetar Soft Gamma Burst", description: "Sudden gamma-ray emissions from magnetars powered by magnetic reconnection.", position: [5353, 105060, 3353]},
+    {name: "Pulsar Scintillation Effects", description: "Amplitude fluctuations in pulsar signals due to interstellar electron scattering.", position: [5354, 105080, 3354]},
+    {name: "Accretion Disk Around Neutron Star", description: "The hot ionized disk of matter spiraling into a neutron star from a companion.", position: [5355, 105100, 3355]},
+    {name: "Millisecond Pulsar Formation Channel", description: "The sequence of binary evolution leading to the creation of recycled millisecond pulsars.", position: [5356, 105120, 3356]},
+    {name: "Neutron Star Crust-Core Coupling", description: "The interaction between the superfluid core and rigid crust determining pulsar dynamics.", position: [5357, 105140, 3357]},
+    {name: "Pulsar Relativistic Beaming", description: "The relativistic Doppler effect creating the lighthouse beam observed from pulsars.", position: [5358, 105160, 3358]},
+    {name: "Neutron Star Superfluid Transition", description: "The phase transition to superfluidity in neutron star cores at extreme densities.", position: [5359, 105180, 3359]},
+    {name: "Black Widow Pulsar System", description: "A millisecond pulsar evaporating its low-mass companion star through radiation.", position: [5360, 105200, 3360]},
+    {name: "Pulsar Dispersion Measure Distance", description: "Using the dispersion measure to estimate pulsar distance in the galaxy.", position: [5361, 105220, 3361]},
+    {name: "Pulsar High-Mass X-ray Binary", description: "An accreting neutron star with a high-mass companion star showing intense X-ray emission.", position: [5362, 105240, 3362]},
+    {name: "Neutron Star Interior Structure", description: "The layered composition of a neutron star from outer crust to hyperonic core.", position: [5363, 105260, 3363]},
+    {name: "Pulsar Radio Spectrum Analysis", description: "The frequency-dependent intensity and polarization of pulsar radio emission.", position: [5364, 105280, 3364]},
+    {name: "Accreting Millisecond X-ray Pulsar", description: "A transitioning neutron star in an accretion-powered rapid rotation phase.", position: [5365, 105300, 3365]},
+    {name: "Pulsar Spin Alignment Signature", description: "The alignment of neutron star rotation axis with binary orbital angular momentum.", position: [5366, 105320, 3366]},
+    {name: "Fast Radio Burst Neutron Star", description: "The possible connection between neutron stars and the sources of fast radio bursts.", position: [5367, 105340, 3367]},
+    {name: "Pulsar Proper Motion Calculation", description: "Measuring the actual space velocity of pulsars through long-term astrometry.", position: [5368, 105360, 3368]},
+    {name: "Neutron Star Cooling Tail Age Dating", description: "Using neutron star cooling models to determine the age of supernova remnants.", position: [5369, 105380, 3369]},
+    {name: "Pulsar Giant Radio Pulse Emission", description: "Occasional bright radio pulses from pulsars far exceeding the average intensity.", position: [5370, 105400, 3370]},
+    {name: "Continuous Gravitational Wave from Pulsar", description: "Potential detection of continuous gravitational waves from non-axisymmetric neutron stars.", position: [5371, 105420, 3371]},
+    {name: "Neutron Star Merger Gravitational Waves", description: "The transient gravitational wave signal from two colliding neutron stars.", position: [5372, 105440, 3372]},
+    {name: "Pulsar Jet Formation Mechanism", description: "The acceleration and collimation of particle beams along pulsar magnetic field lines.", position: [5373, 105460, 3373]},
+    {name: "Neutron Star Mass Radius Constraint", description: "Using pulsar mass measurements to constrain the neutron star equation of state.", position: [5374, 105480, 3374]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
