@@ -19663,6 +19663,33 @@ const cosmicSights = [
   { name: 'Cepheus Flare Cloud T Tauri Population', position: [-230, 100, 320], color: '#4caf50', description: 'association of young stellar objects in nearby low-mass star-forming region' },
   { name: 'IC 5146 Cocoon Nebula Bright Rim', position: [255, 195, -275], color: '#ff9800', description: 'HII region blister on molecular cloud edge with compressed bright rim' },
   { name: 'Rho Ophiuchi Cloud Complex Lynds Dark Nebula', position: [155, -105, 220], color: '#9c27b0', description: 'nearest massive star-forming complex containing multiple dark cloud cores' }
+,
+  {"name":"Roche Lobe Overflow Mass Transfer 12251","category":"Stellar Evolution","color":"#FF6B9D","description":"Roche Lobe Overflow Mass Transfer.","position":[5950,117000,3950],"size":140},
+  {"name":"Common Envelope Evolution Ejection 12252","category":"Stellar Evolution","color":"#C44569","description":"Common Envelope Evolution Ejection.","position":[5951,117020,3951],"size":140},
+  {"name":"Accretion Disk Instability Outburst 12253","category":"Stellar Evolution","color":"#FF1744","description":"Accretion Disk Instability Outburst.","position":[5952,117040,3952],"size":140},
+  {"name":"Herbig Ae Be Pre-Main-Sequence 12254","category":"Stellar Evolution","color":"#FF6E40","description":"Herbig Ae Be Pre-Main-Sequence.","position":[5953,117060,3953],"size":140},
+  {"name":"T Tauri Magnetospheric Accretion 12255","category":"Stellar Evolution","color":"#FF9100","description":"T Tauri Magnetospheric Accretion.","position":[5954,117080,3954],"size":140},
+  {"name":"Asymptotic Giant Branch AGB Pulsation 12256","category":"Stellar Evolution","color":"#FFB300","description":"Asymptotic Giant Branch AGB Pulsation.","position":[5955,117100,3955],"size":140},
+  {"name":"Planetary Nebula Ejection Process 12257","category":"Stellar Evolution","color":"#FFC400","description":"Planetary Nebula Ejection Process.","position":[5956,117120,3956],"size":140},
+  {"name":"Wolf Rayet Wind Mass Loss 12258","category":"Stellar Evolution","color":"#FFEA00","description":"Wolf Rayet Wind Mass Loss.","position":[5957,117140,3957],"size":140},
+  {"name":"Blue Supergiant Instability Strip 12259","category":"Stellar Evolution","color":"#F0F000","description":"Blue Supergiant Instability Strip.","position":[5958,117160,3958],"size":140},
+  {"name":"Red Giant Branch Bump Feature 12260","category":"Stellar Evolution","color":"#C0DE00","description":"Red Giant Branch Bump Feature.","position":[5959,117180,3959],"size":140},
+  {"name":"Horizontal Branch Helium Burning 12261","category":"Stellar Evolution","color":"#76FF03","description":"Horizontal Branch Helium Burning.","position":[5960,117200,3960],"size":140},
+  {"name":"Main Sequence Turnoff Age Indicator 12262","category":"Stellar Evolution","color":"#00E676","description":"Main Sequence Turnoff Age Indicator.","position":[5961,117220,3961],"size":140},
+  {"name":"Zero Age Main Sequence ZAMS 12263","category":"Stellar Evolution","color":"#00C853","description":"Zero Age Main Sequence ZAMS.","position":[5962,117240,3962],"size":140},
+  {"name":"Fully Convective Star Rotation 12264","category":"Stellar Evolution","color":"#1DE9B6","description":"Fully Convective Star Rotation.","position":[5963,117260,3963],"size":140},
+  {"name":"Radiative Zone Stratification 12265","category":"Stellar Evolution","color":"#00BCD4","description":"Radiative Zone Stratification.","position":[5964,117280,3964],"size":140},
+  {"name":"Nuclear Burning Shell Convection 12266","category":"Stellar Evolution","color":"#00ACC1","description":"Nuclear Burning Shell Convection.","position":[5965,117300,3965],"size":140},
+  {"name":"Thermally Pulsing AGB Star 12267","category":"Stellar Evolution","color":"#0097A7","description":"Thermally Pulsing AGB Star.","position":[5966,117320,3966],"size":140},
+  {"name":"Dredge Up Envelope Mixing 12268","category":"Stellar Evolution","color":"#006064","description":"Dredge Up Envelope Mixing.","position":[5967,117340,3967],"size":140},
+  {"name":"S-Process Nucleosynthesis AGB 12269","category":"Stellar Evolution","color":"#1A237E","description":"S-Process Nucleosynthesis AGB.","position":[5968,117360,3968],"size":140},
+  {"name":"Post-AGB Evolution Transition 12270","category":"Stellar Evolution","color":"#283593","description":"Post-AGB Evolution Transition.","position":[5969,117380,3969],"size":140},
+  {"name":"Stripped Helium Star Companion 12271","category":"Stellar Evolution","color":"#3F51B5","description":"Stripped Helium Star Companion.","position":[5970,117400,3970],"size":140},
+  {"name":"Mass Transfer Timescale Orbital 12272","category":"Stellar Evolution","color":"#5C6BC0","description":"Mass Transfer Timescale Orbital.","position":[5971,117420,3971],"size":140},
+  {"name":"Binary Evolution Synchronization 12273","category":"Stellar Evolution","color":"#7986CB","description":"Binary Evolution Synchronization.","position":[5972,117440,3972],"size":140},
+  {"name":"Contact Binary Angular Momentum 12274","category":"Stellar Evolution","color":"#9FA8DA","description":"Contact Binary Angular Momentum.","position":[5973,117460,3973],"size":140},
+  {"name":"Detached Binary Circumbinary Disk 12275","category":"Stellar Evolution","color":"#C5CAE9","description":"Detached Binary Circumbinary Disk.","position":[5974,117480,3974],"size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
