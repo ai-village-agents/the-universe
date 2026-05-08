@@ -20393,7 +20393,33 @@ const cosmicSights = [
   {"name":"Modified Gravity Propagation Test Range","position":[575,65,-835],"color":"#c77dff","description":"A test range comparing gravitational-wave and light arrival times to bound modified gravity."},
   {"name":"Gravitational Wave Polarization Analyzer","position":[590,40,-850],"color":"#9d4edd","description":"An analyzer separating tensor polarization patterns across a network of detectors."},
   {"name":"Multi-Observatory Trigger Broker","position":[605,55,-865],"color":"#48cae4","description":"A broker routing alerts between gravitational-wave, neutrino, gamma-ray, optical, and radio observatories."},
-  {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."}
+  {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."},
+  { name: "Stellar Tidal Disruption Flare", type: "phenomenon", category: "transient", position: [4310, 1250, 3200], description: "Luminous flare from star being torn apart by supermassive black hole tidal forces" },
+  { name: "TDE Accretion Disk Formation", type: "phenomenon", category: "transient", position: [4320, 1260, 3210], description: "Rapid disk assembly from stellar debris following tidal disruption event" },
+  { name: "Partial Tidal Disruption", type: "phenomenon", category: "transient", position: [4330, 1270, 3220], description: "Star losing outer layers to black hole while core survives multiple encounters" },
+  { name: "TDE Relativistic Jet", type: "phenomenon", category: "transient", position: [4340, 1280, 3230], description: "Powerful collimated outflow launched during exceptional tidal disruption events" },
+  { name: "Hills Mechanism Capture", type: "phenomenon", category: "stellar", position: [4350, 1290, 3240], description: "Binary star system disrupted with one star ejected and other captured by black hole" },
+  { name: "TDE X-ray Emission Peak", type: "phenomenon", category: "transient", position: [4360, 1300, 3250], description: "Intense X-ray radiation from innermost regions of tidal disruption accretion flow" },
+  { name: "TDE UV Optical Rise", type: "phenomenon", category: "transient", position: [4370, 1310, 3260], description: "Characteristic ultraviolet and optical brightening curve of tidal disruption events" },
+  { name: "TDE Radio Afterglow", type: "phenomenon", category: "transient", position: [4380, 1320, 3270], description: "Delayed radio emission from outflows interacting with circumnuclear medium" },
+  { name: "Fallback Rate Evolution", type: "phenomenon", category: "transient", position: [4390, 1330, 3280], description: "Time-dependent mass return rate following characteristic power-law decay" },
+  { name: "TDE Host Galaxy Nucleus", type: "structure", category: "galactic", position: [4400, 1340, 3290], description: "Galactic center environment where tidal disruption events occur" },
+  { name: "Eddington Limited TDE", type: "phenomenon", category: "transient", position: [4410, 1350, 3300], description: "Super-Eddington accretion phase during peak of tidal disruption event" },
+  { name: "TDE Spectral Evolution", type: "phenomenon", category: "transient", position: [4420, 1360, 3310], description: "Changing emission line profiles tracing debris dynamics over months" },
+  { name: "Intermediate Mass BH TDE", type: "phenomenon", category: "transient", position: [4430, 1370, 3320], description: "Tidal disruption by intermediate mass black hole in dwarf galaxy or globular cluster" },
+  { name: "White Dwarf TDE", type: "phenomenon", category: "transient", position: [4440, 1380, 3330], description: "Disruption of white dwarf by intermediate mass black hole with thermonuclear burning" },
+  { name: "TDE Debris Stream Self-Intersection", type: "phenomenon", category: "transient", position: [4450, 1390, 3340], description: "Shock heating where returning stellar debris stream collides with itself" },
+  { name: "Repeating Partial TDE", type: "phenomenon", category: "transient", position: [4460, 1400, 3350], description: "Star on bound orbit experiencing multiple partial disruptions" },
+  { name: "TDE Circularization Timescale", type: "phenomenon", category: "transient", position: [4470, 1410, 3360], description: "Process converting highly eccentric debris orbits into circular accretion disk" },
+  { name: "TDE Optical Depth Effects", type: "phenomenon", category: "transient", position: [4480, 1420, 3370], description: "Photosphere formation in optically thick debris envelope" },
+  { name: "Gravitational Wave TDE Signature", type: "phenomenon", category: "transient", position: [4490, 1430, 3380], description: "Low-frequency gravitational radiation from tidal disruption orbital dynamics" },
+  { name: "TDE Rate Measurement", type: "phenomenon", category: "galactic", position: [4500, 1440, 3390], description: "Statistical determination of tidal disruption frequency per galaxy" },
+  { name: "TDE Demographics Survey", type: "phenomenon", category: "transient", position: [4510, 1450, 3400], description: "Population study of tidal disruption events across galaxy types" },
+  { name: "Nuclear Transient Classification", type: "phenomenon", category: "transient", position: [4520, 1460, 3410], description: "Distinguishing TDEs from AGN flares and supernovae in galactic nuclei" },
+  { name: "TDE Reverberation Mapping", type: "phenomenon", category: "transient", position: [4530, 1470, 3420], description: "Using light echoes to map geometry of tidal disruption debris" },
+  { name: "TDE Binary Black Hole Signatures", type: "phenomenon", category: "transient", position: [4540, 1480, 3430], description: "Modified disruption dynamics revealing presence of binary supermassive black holes" },
+  { name: "TDE Neutrino Emission Site", type: "phenomenon", category: "transient", position: [4550, 1490, 3440], description: "High-energy neutrino production in relativistic TDE jets" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
