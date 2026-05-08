@@ -22743,7 +22743,32 @@ const cosmicSights = [
   { id: 13047, name: "Cluster Galaxy Velocity Dispersion Field", position: [-0.66, -0.24, 0.71] },
   { id: 13048, name: "Infall Region Galaxy Population", position: [0.58, -0.76, -0.31] },
   { id: 13049, name: "Cluster Baryon Fraction Measurement", position: [-0.33, 0.55, 0.77] },
-  { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] }
+  { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] },
+{ id: 13001, name: "Shell-Type Supernova Remnant", position: [0.71, 0.33, 0.88] },
+  { id: 13002, name: "Plerion Central Engine", position: [-0.42, 0.67, 0.15] },
+  { id: 13003, name: "Composite SNR Structure", position: [0.29, -0.81, 0.54] },
+  { id: 13004, name: "Radiative SNR Phase", position: [-0.63, 0.11, -0.77] },
+  { id: 13005, name: "Sedov-Taylor Blast Wave", position: [0.88, -0.25, 0.41] },
+  { id: 13006, name: "Snowplow Deceleration Front", position: [-0.17, 0.93, -0.32] },
+  { id: 13007, name: "SNR Thermal X-ray Emission", position: [0.55, 0.47, -0.69] },
+  { id: 13008, name: "Ejecta-Dominated Remnant Core", position: [-0.79, -0.38, 0.48] },
+  { id: 13009, name: "Reverse Shock Heating Zone", position: [0.13, 0.72, 0.67] },
+  { id: 13010, name: "Forward Shock Compression Layer", position: [-0.91, 0.04, -0.41] },
+  { id: 13011, name: "SNR Contact Discontinuity", position: [0.46, -0.59, -0.66] },
+  { id: 13012, name: "Rayleigh-Taylor Finger Structure", position: [-0.22, -0.87, 0.44] },
+  { id: 13013, name: "SNR Magnetic Field Amplification", position: [0.68, 0.19, 0.71] },
+  { id: 13014, name: "Balmer-Dominated SNR Filament", position: [-0.54, 0.78, -0.33] },
+  { id: 13015, name: "SNR Radio Continuum Shell", position: [0.37, -0.41, 0.83] },
+  { id: 13016, name: "Oxygen-Rich SNR Knot", position: [-0.83, -0.52, -0.19] },
+  { id: 13017, name: "Iron-Rich Ejecta Clump", position: [0.92, 0.28, -0.27] },
+  { id: 13018, name: "SNR Dust Formation Region", position: [-0.08, 0.65, 0.76] },
+  { id: 13019, name: "Blast Wave ISM Interaction", position: [0.74, -0.68, 0.07] },
+  { id: 13020, name: "SNR Cosmic Ray Acceleration Site", position: [-0.49, 0.36, -0.79] },
+  { id: 13021, name: "Mixed Morphology Remnant Center", position: [0.21, 0.89, 0.39] },
+  { id: 13022, name: "SNR Shocked Cloud Evaporation", position: [-0.66, -0.24, 0.71] },
+  { id: 13023, name: "Bilateral SNR Axis", position: [0.58, -0.76, -0.31] },
+  { id: 13024, name: "SNR Age Dating Region", position: [-0.33, 0.55, 0.77] },
+  { id: 13025, name: "Mature SNR Fade Zone", position: [0.86, 0.41, -0.53] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
