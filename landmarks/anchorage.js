@@ -26513,6 +26513,72 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(bsbgGroup);
 
+  // v163: Coastal Salt-Air Gallery (csag)
+  const csagGroup = new THREE.Group();
+  csagGroup.position.set(-130, 0, 40);
+  const csagWall = new THREE.Mesh(
+    new THREE.BoxGeometry(3.5, 1.8, 0.15),
+    new THREE.MeshLambertMaterial({ color: 0xddd5c4 })
+  );
+  csagWall.position.y = 0.9;
+  csagGroup.add(csagWall);
+  const csagFrames = [];
+  const csagFrameMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const csagArtMats = [
+    new THREE.MeshLambertMaterial({ color: 0x4488cc }),
+    new THREE.MeshLambertMaterial({ color: 0xee8855 }),
+    new THREE.MeshLambertMaterial({ color: 0x66bb88 })
+  ];
+  for (let i = 0; i < 3; i++) {
+    const frame = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.05), csagFrameMat);
+    frame.position.set(-1.0 + i * 1.0, 1.0, 0.1);
+    csagGroup.add(frame);
+    const art = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.36, 0.02), csagArtMats[i]);
+    art.position.set(-1.0 + i * 1.0, 1.0, 0.13);
+    csagGroup.add(art);
+    csagFrames.push(art);
+  }
+  group.add(csagGroup);
+
+  // v163: Beach Driftwood Maze (bdmz)
+  const bdmzGroup = new THREE.Group();
+  bdmzGroup.position.set(60, 0, -85);
+  const bdmzMat = new THREE.MeshLambertMaterial({ color: 0x8a6e4a });
+  for (let i = 0; i < 16; i++) {
+    const log = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.12, 1.6, 6),
+      bdmzMat
+    );
+    const ang = (i / 16) * Math.PI * 2;
+    const r = 1.5 + (i % 3) * 0.8;
+    log.position.set(Math.cos(ang) * r, 0.8, Math.sin(ang) * r);
+    log.rotation.z = (i % 2) * 0.4;
+    bdmzGroup.add(log);
+  }
+  group.add(bdmzGroup);
+
+  // v163: Pier Weather Vane Multi (pwvm)
+  const pwvmGroup = new THREE.Group();
+  pwvmGroup.position.set(125, 0, -8);
+  const pwvmVanes = [];
+  const pwvmVaneMat = new THREE.MeshLambertMaterial({ color: 0xc0a060 });
+  for (let i = 0; i < 4; i++) {
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, 2.5, 6),
+      new THREE.MeshLambertMaterial({ color: 0x444444 })
+    );
+    post.position.set(i * 0.8 - 1.2, 1.25, 0);
+    pwvmGroup.add(post);
+    const vane = new THREE.Mesh(
+      new THREE.BoxGeometry(0.5, 0.06, 0.18),
+      pwvmVaneMat
+    );
+    vane.position.set(i * 0.8 - 1.2, 2.55, 0);
+    pwvmGroup.add(vane);
+    pwvmVanes.push(vane);
+  }
+  group.add(pwvmGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -30279,6 +30345,21 @@ export function createAnchorageLandmark(THREE, opts) {
   // v162: bsbg flag flutter
   bsbgFlag.rotation.y = Math.sin(v162t * 3.0) * 0.5;
   bsbgFlag.scale.x = 1.0 + Math.sin(v162t * 4.5) * 0.15;
+
+  // v163: csag art frames sway slightly
+  const v163t = t;
+  for (let i = 0; i < csagFrames.length; i++) {
+    csagFrames[i].rotation.z = Math.sin(v163t * 0.6 + i) * 0.02;
+  }
+
+  // v163: bdmz subtle group rotation
+  bdmzGroup.rotation.y = Math.sin(v163t * 0.05) * 0.05;
+
+  // v163: pwvm vanes spin at varied rates
+  for (let i = 0; i < pwvmVanes.length; i++) {
+    pwvmVanes[i].rotation.y = v163t * (0.3 + i * 0.15);
+  }
+
 
 
 
