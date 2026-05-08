@@ -16060,6 +16060,231 @@ const cosmicSights = [
       -4682.35,
       8907.88
     ]
+  },
+  {
+    "name": "Exoplanet Weather: Hot Jupiter Supersonic Winds",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      7090.69,
+      -20399.45,
+      -19662.53
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Tidal Heating Magma Oceans",
+    "description": "A world defined by extreme and exotic meteorological phenomena.",
+    "position": [
+      18451.76,
+      -9876.27,
+      -211.5
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Silicate Rain Storms",
+    "description": "A celestial body shrouded in bizarre chemical weather patterns.",
+    "position": [
+      -15515.86,
+      30025.32,
+      8990.62
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Iron Condensation Clouds",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      12675.9,
+      -20742.82,
+      -18722.7
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Global Dust Storm Dynamics",
+    "description": "A harsh environment shaped by intense stellar radiation and tidal forces.",
+    "position": [
+      8496.98,
+      17147.66,
+      7567.84
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Titan-like Methane Monsoons",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      12066.24,
+      -11373.88,
+      -13246.77
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Ammonia Hail Precipitation",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      -6939.2,
+      -10427.21,
+      -1996.15
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Photochemical Smog Layers",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      4678.39,
+      -15487.91,
+      -3229.42
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Atmospheric Escape Plumes",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      18037.75,
+      -10843.13,
+      -1527.3
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Roche Lobe Overflow Streams",
+    "description": "A world defined by extreme and exotic meteorological phenomena.",
+    "position": [
+      -27341.47,
+      -8675.05,
+      20994.99
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Carbon Planet Soot Clouds",
+    "description": "A celestial body shrouded in bizarre chemical weather patterns.",
+    "position": [
+      8453.84,
+      11848.03,
+      18480.4
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Diamond Rain Atmospheric Depths",
+    "description": "A celestial body shrouded in bizarre chemical weather patterns.",
+    "position": [
+      12320.09,
+      -31212.71,
+      1973.79
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Sulfur Dioxide Volcanic Plumes",
+    "description": "A world defined by extreme and exotic meteorological phenomena.",
+    "position": [
+      9518.33,
+      10480.22,
+      32502.35
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Sub-Neptune Water Worlds",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      -13891.81,
+      8109.41,
+      23008.02
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Hydrogen-Helium Envelopes",
+    "description": "A world defined by extreme and exotic meteorological phenomena.",
+    "position": [
+      -15572.04,
+      -4198.26,
+      23418.54
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Exo-Auroral Oval Rings",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      -10328.96,
+      -4398.78,
+      35420.58
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Tidally Locked Eyeball Planets",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      -1498.85,
+      -2244.98,
+      28731.51
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Permanent Nightside Ice Caps",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      6250.95,
+      14163.92,
+      -46801.98
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Substellar Point Cyclones",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      23991.55,
+      2942.77,
+      6857.85
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Coronal Mass Ejection Impacts",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      -2630.31,
+      7168.46,
+      9114.07
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Magnetic Field Reconnection Zones",
+    "description": "A harsh environment shaped by intense stellar radiation and tidal forces.",
+    "position": [
+      -18443.21,
+      -7916.42,
+      -4868.59
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Ionospheric Scintillation Layers",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      1960.76,
+      35331.4,
+      -16272.82
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Thermal Inversion Stratospheres",
+    "description": "A planet exhibiting violent atmospheric dynamics.",
+    "position": [
+      -4094.23,
+      -1889.41,
+      -10893.02
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: High Altitude Aerosol Hazes",
+    "description": "A celestial body shrouded in bizarre chemical weather patterns.",
+    "position": [
+      25990.64,
+      -16340.1,
+      -22354.55
+    ]
+  },
+  {
+    "name": "Exoplanet Weather: Global Ocean Circulation Patterns",
+    "description": "A planet featuring dramatic global climate extremes.",
+    "position": [
+      -5722.78,
+      -6257.34,
+      -8161.99
+    ]
   }
 ];
 
