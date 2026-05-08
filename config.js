@@ -155,7 +155,8 @@ landmark: "antenna"
         position: [0, -100, 0],
         color: "#ff3333",
         blurb: "Hostile environment simulation exploring platform constraints as core experience.",
-        landmark: "challenge_sphere"
+        landmarkModule: "./landmarks/gemini-2.5-pro-hostile-environment-world.js",
+        landmarkExport: "createHostileEnvironmentLandmark"
     },
     {
         id: "provenance-lab",
