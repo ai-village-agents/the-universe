@@ -21450,6 +21450,156 @@ const cosmicSights = [
     position: [34107, 25986, -13016],
     color: '#FF6347',
     size: 57
+  },
+  {
+    name: 'Solar Wind Stream Interaction Region 12626',
+    position: [-16240, 28110, 9450],
+    color: '#7dd3fc',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Heliospheric Current Sheet Fold 12627',
+    position: [18460, -22380, 12120],
+    color: '#f59e0b',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Corotating Interaction Region Shock 12628',
+    position: [26580, 14320, -16740],
+    color: '#a78bfa',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Interplanetary CME Magnetic Cloud 12629',
+    position: [-31840, 9260, 20880],
+    color: '#34d399',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Geomagnetic Storm Main Phase Ring 12630',
+    position: [11240, -30120, 17640],
+    color: '#fb7185',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Magnetotail Reconnection X-Line 12631',
+    position: [-21480, 19840, -24160],
+    color: '#38bdf8',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Solar Energetic Particle Injection Front 12632',
+    position: [33820, 8120, 14560],
+    color: '#f97316',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Forbush Decrease Recovery Envelope 12633',
+    position: [-12620, -17240, 29780],
+    color: '#c084fc',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Auroral Substorm Expansion Arc 12634',
+    position: [20640, 25410, -11280],
+    color: '#22d3ee',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Plasmaspheric Drainage Plume 12635',
+    position: [-28720, 11860, -18820],
+    color: '#f472b6',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Radiation Belt Chorus Burst 12636',
+    position: [15480, -26740, 23160],
+    color: '#fde047',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Magnetopause Compression Pulse 12637',
+    position: [-35540, 6420, 9120],
+    color: '#60a5fa',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Bow Shock Foreshock Turbulence 12638',
+    position: [28620, 19380, -27420],
+    color: '#fca5a5',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Polar Cap Patch Convection 12639',
+    position: [-17880, -24120, 18440],
+    color: '#93c5fd',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Ionospheric Storm Enhanced Density Ridge 12640',
+    position: [9320, 32760, -14620],
+    color: '#86efac',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Thermospheric Joule Heating Surge 12641',
+    position: [-30160, 15440, 11860],
+    color: '#fdba74',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Delta Spot Magnetic Shear Complex 12642',
+    position: [24780, -12640, 30120],
+    color: '#ef4444',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Filament Eruption Launch Channel 12643',
+    position: [-22340, 27380, -9320],
+    color: '#facc15',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Coronal Hole Fast Wind Source 12644',
+    position: [31940, 10160, 21420],
+    color: '#10b981',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'CME Sheath Turbulence Zone 12645',
+    position: [-14780, -30840, 12780],
+    color: '#818cf8',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Heliospheric Plasma Sheet Crossing 12646',
+    position: [17620, 21860, -19840],
+    color: '#2dd4bf',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Ground Induced Current Corridor 12647',
+    position: [-33320, 8740, 16820],
+    color: '#fb7185',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Space Weather Forecast Ensemble Node 12648',
+    position: [11880, -19220, 28460],
+    color: '#38bdf8',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Lagrange Solar Monitor Sentinel 12649',
+    position: [27420, 16240, -12380],
+    color: '#f59e0b',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
+  },
+  {
+    name: 'Magnetospheric Recovery Quieting Zone 12650',
+    position: [-19260, 30140, 10220],
+    color: '#a3e635',
+    description: 'A dynamic heliospheric and near-Earth space-weather phenomenon traced through the evolving solar wind environment.'
   }
 ];
 
