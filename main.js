@@ -25008,6 +25008,207 @@ const cosmicSights = [
     color: '#330033',
     size: 213
   }
+,
+  {
+    name: 'Ultra High Energy Cosmic Ray Source 13526',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-12328, -26600, -39073],
+    color: '#ff80df',
+    size: 189
+  },
+  {
+    name: 'Galactic Cosmic Ray Acceleration Zone 13527',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [38969, 25357, 7410],
+    color: '#ff00ff',
+    size: 317
+  },
+  {
+    name: 'Solar Energetic Particle Burst 13528',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-13591, 35999, -33316],
+    color: '#ff80df',
+    size: 301
+  },
+  {
+    name: 'Anomalous Cosmic Ray Population 13529',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [2933, 25223, 19586],
+    color: '#990099',
+    size: 112
+  },
+  {
+    name: 'Extragalactic Cosmic Ray Flux 13530',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-10011, -33099, -13415],
+    color: '#ff00ff',
+    size: 334
+  },
+  {
+    name: 'Cosmic Ray Spallation Site 13531',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-24211, 18073, -4918],
+    color: '#cc00cc',
+    size: 203
+  },
+  {
+    name: 'Oh My God Particle Origin Proxy 13532',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [20174, 24060, -2407],
+    color: '#ff00ff',
+    size: 368
+  },
+  {
+    name: 'ZeVatron Accelerator Region 13533',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-37386, 38525, -981],
+    color: '#990099',
+    size: 224
+  },
+  {
+    name: 'Pevatron Accelerator Region 13534',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [10605, 17930, -13474],
+    color: '#990099',
+    size: 342
+  },
+  {
+    name: 'Cosmic Ray Anisotropy Feature 13535',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [15580, -4613, -29564],
+    color: '#990099',
+    size: 151
+  },
+  {
+    name: 'Heliospheric Modulation Zone 13536',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [33159, -35617, -35984],
+    color: '#ff80df',
+    size: 232
+  },
+  {
+    name: 'Cosmic Ray Knee Transition 13537',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [12593, -36444, -16813],
+    color: '#cc00cc',
+    size: 229
+  },
+  {
+    name: 'Cosmic Ray Ankle Transition 13538',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-11009, 20252, 36552],
+    color: '#cc00cc',
+    size: 376
+  },
+  {
+    name: 'Greisen Zatsepin Kuzmin Suppression Zone 13539',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [29814, -23860, -15698],
+    color: '#990099',
+    size: 242
+  },
+  {
+    name: 'Cosmic Ray Positron Excess Region 13540',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-19460, 14764, -28146],
+    color: '#990099',
+    size: 185
+  },
+  {
+    name: 'Cosmic Ray Antiproton Flux Node 13541',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-20493, 8826, 21952],
+    color: '#cc00cc',
+    size: 389
+  },
+  {
+    name: 'Cosmic Ray Muon Shower Point 13542',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-18794, 30238, -28152],
+    color: '#990099',
+    size: 191
+  },
+  {
+    name: 'Secondary Cosmic Ray Generation Area 13543',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [21533, 7112, 29154],
+    color: '#ff00ff',
+    size: 229
+  },
+  {
+    name: 'Primary Cosmic Ray Injection Shock 13544',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [26721, 26881, -12727],
+    color: '#ff00ff',
+    size: 272
+  },
+  {
+    name: 'Cosmic Ray Isotope Ratio Anomaly 13545',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [9742, 11271, 36060],
+    color: '#ff80df',
+    size: 173
+  },
+  {
+    name: 'Cosmic Ray Propagation Halo 13546',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-12030, 19465, 36170],
+    color: '#cc00cc',
+    size: 174
+  },
+  {
+    name: 'Cosmic Ray Induced Ionization Zone 13547',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-2086, -18386, -25555],
+    color: '#ff80df',
+    size: 277
+  },
+  {
+    name: 'Cosmic Ray Albedo Neutron Proxy 13548',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-15406, -32472, -31053],
+    color: '#cc00cc',
+    size: 172
+  },
+  {
+    name: 'Cosmic Ray Beryllium Boron Ratio Node 13549',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [28972, 7781, 8346],
+    color: '#990099',
+    size: 235
+  },
+  {
+    name: 'Cosmic Ray Magnetic Deflection Region 13550',
+    category: 'Cosmic Rays',
+    description: 'A mesmerizing manifestation of cosmic rays observed in deep space.', 
+    position: [-14524, -22605, -4176],
+    color: '#cc00cc',
+    size: 222
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
