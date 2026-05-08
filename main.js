@@ -14935,7 +14935,232 @@ const cosmicSights = [
   {"name": "AGN Polarization Scattered Light", "description": "Polarimetry reveals hidden broad lines scattered into our line of sight.", "position": [11197, 3010, -4710]},
   {"name": "Megamaser Water Vapor Disk Tracer", "description": "Powerful water masers mapping the geometry of the accretion disk.", "position": [11198, 3020, -4720]},
   {"name": "AGN Jet Precession Wobble Pattern", "description": "A jet that traces a corkscrew path due to disk or binary precession.", "position": [11199, 3030, -4730]},
-  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]}
+  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]},
+  {
+    "name": "Astrobiology Site: Subglacial Ocean Vents",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      10012.15,
+      -35308.63,
+      4310.84
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Silicate Based Lifeform Analogs",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      13591.26,
+      6274.52,
+      14671.51
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Ammonia Ocean Habitats",
+    "description": "An alien habitat theorized to support exotic biological processes.",
+    "position": [
+      -16297.3,
+      -5873.09,
+      -15877.18
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Methanogen Floating Biospheres",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      -48337.94,
+      5327.1,
+      -4118.36
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Radiation Resistant Extremophiles",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      -9151.16,
+      4984.47,
+      -3368.51
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Tidally Locked Twilight Zones",
+    "description": "A zone of extreme conditions where robust extremophile organisms could survive.",
+    "position": [
+      38333.26,
+      963.37,
+      -25020.47
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Carbonate Rock Ecosystems",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      7490.87,
+      -21442.29,
+      33225.58
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Halophile Hypersaline Lakes",
+    "description": "A zone of extreme conditions where robust extremophile organisms could survive.",
+    "position": [
+      15570.06,
+      -17134.65,
+      -3617.35
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Cryophile Ice Shelves",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      20388.18,
+      -11471.23,
+      -10290.84
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Thermophile Hydrothermal Systems",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      -3437.18,
+      1491.35,
+      9740.74
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Acidophile Sulfuric Clouds",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      -25813.49,
+      3325.83,
+      -10942.51
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Lithoautotrophic Crustal Colonies",
+    "description": "An alien habitat theorized to support exotic biological processes.",
+    "position": [
+      4603.73,
+      -6272.83,
+      -14192.88
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Chemosynthetic Seafloor Mats",
+    "description": "An alien habitat theorized to support exotic biological processes.",
+    "position": [
+      -10534.52,
+      -2159.9,
+      26484.98
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Panspermia Cometary Impact Sites",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      -28026.79,
+      20806.56,
+      25807.69
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Silicon-Carbon Hybrid Biomarkers",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      7008.51,
+      -126.14,
+      -7832.69
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Phosphine Signature Atmospheres",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      8017.5,
+      8922.05,
+      -14020.05
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Oxygen Oasis Environments",
+    "description": "An alien habitat theorized to support exotic biological processes.",
+    "position": [
+      -12011.62,
+      9583.97,
+      -31944.07
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Subsurface Methane Clathrates",
+    "description": "An alien habitat theorized to support exotic biological processes.",
+    "position": [
+      -38095.53,
+      7900.44,
+      -5826.9
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Hydrogen-Rich Exoplanet Biospheres",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      11103.77,
+      -28774.15,
+      28420.37
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Exo-Photosynthetic Red Edge",
+    "description": "A zone of extreme conditions where robust extremophile organisms could survive.",
+    "position": [
+      12762.52,
+      12859.86,
+      4282.49
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Bioluminescent Atmospheric Plankton",
+    "description": "A planetary region displaying anomalous chemical disequilibrium indicative of life.",
+    "position": [
+      -22654.38,
+      7528.24,
+      -25412.7
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Radiotrophic Fungal Analogs",
+    "description": "A hostile environment exhibiting potential biosignatures in spectral data.",
+    "position": [
+      9354.03,
+      -5395.89,
+      -14374.75
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Extreme Pressure Mariana-like Trenches",
+    "description": "A unique ecological niche powered by alternative energy sources.",
+    "position": [
+      7511.12,
+      5858.69,
+      4438.24
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Tidal Heating Driven Oases",
+    "description": "A unique ecological niche powered by alternative energy sources.",
+    "position": [
+      7946.81,
+      -5579.9,
+      -47109.31
+    ]
+  },
+  {
+    "name": "Astrobiology Site: Sub-Ice Geothermal Pockets",
+    "description": "A unique ecological niche powered by alternative energy sources.",
+    "position": [
+      4951.01,
+      -28278.01,
+      -7896.62
+    ]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
