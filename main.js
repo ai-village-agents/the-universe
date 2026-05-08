@@ -25658,6 +25658,206 @@ const cosmicSights = [
     position: [-7505, 7811, 18069],
     color: '#ff4500',
     size: 202
+  },
+  {
+    name: 'Starquake Alpha 13651',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [1840, -26928, -20237],
+    color: '#ffff00',
+    size: 328
+  },
+  {
+    name: 'Starquake Beta 13652',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-10576, -23872, 28767],
+    color: '#ff4500',
+    size: 342
+  },
+  {
+    name: 'Starquake Gamma 13653',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-17514, 17266, -26601],
+    color: '#ff00ff',
+    size: 79
+  },
+  {
+    name: 'Starquake Delta 13654',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [14130, 8521, -8955],
+    color: '#ff00ff',
+    size: 60
+  },
+  {
+    name: 'Starquake Epsilon 13655',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [39705, -16863, -4000],
+    color: '#00ffff',
+    size: 384
+  },
+  {
+    name: 'Starquake Zeta 13656',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [11122, 29526, -2784],
+    color: '#ff4500',
+    size: 246
+  },
+  {
+    name: 'Starquake Eta 13657',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [27004, -30966, -33829],
+    color: '#ff4500',
+    size: 147
+  },
+  {
+    name: 'Starquake Theta 13658',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-21068, 36658, 20431],
+    color: '#ff00ff',
+    size: 393
+  },
+  {
+    name: 'Starquake Iota 13659',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [25742, -35787, -27964],
+    color: '#ff4500',
+    size: 69
+  },
+  {
+    name: 'Starquake Kappa 13660',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [25497, -16736, 31231],
+    color: '#ff4500',
+    size: 336
+  },
+  {
+    name: 'Starquake Lambda 13661',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [5435, 7073, -16457],
+    color: '#00ffff',
+    size: 283
+  },
+  {
+    name: 'Starquake Mu 13662',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-16353, -14215, -5400],
+    color: '#ff4500',
+    size: 190
+  },
+  {
+    name: 'Starquake Nu 13663',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [11661, 30971, -28034],
+    color: '#ff4500',
+    size: 192
+  },
+  {
+    name: 'Starquake Xi 13664',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [3570, 16450, 18060],
+    color: '#ffff00',
+    size: 312
+  },
+  {
+    name: 'Starquake Omicron 13665',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [24991, 22996, -29092],
+    color: '#ff00ff',
+    size: 142
+  },
+  {
+    name: 'Starquake Pi 13666',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [6474, -1407, -34203],
+    color: '#ff4500',
+    size: 180
+  },
+  {
+    name: 'Starquake Rho 13667',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [29851, 8916, 1252],
+    color: '#00ffff',
+    size: 56
+  },
+  {
+    name: 'Starquake Sigma 13668',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-30248, -33330, 13403],
+    color: '#ff00ff',
+    size: 90
+  },
+  {
+    name: 'Starquake Tau 13669',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [24886, -4498, 13651],
+    color: '#ffff00',
+    size: 394
+  },
+  {
+    name: 'Starquake Upsilon 13670',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-9006, 2309, 24921],
+    color: '#00ffff',
+    size: 350
+  },
+  {
+    name: 'Starquake Phi 13671',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-33523, 13937, 18595],
+    color: '#ff4500',
+    size: 289
+  },
+  {
+    name: 'Starquake Chi 13672',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-2374, -18305, 1992],
+    color: '#ffff00',
+    size: 125
+  },
+  {
+    name: 'Starquake Psi 13673',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [3130, -29580, 20195],
+    color: '#ffff00',
+    size: 369
+  },
+  {
+    name: 'Starquake Omega 13674',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-15687, 28718, 6674],
+    color: '#ffff00',
+    size: 284
+  },
+  {
+    name: 'Starquake Prime 13675',
+    category: 'Magnetar Starquakes',
+    description: 'A mesmerizing manifestation of magnetar starquakes observed in deep space.', 
+    position: [-13864, 26151, 14955],
+    color: '#ffff00',
+    size: 106
   }
 ];
 
