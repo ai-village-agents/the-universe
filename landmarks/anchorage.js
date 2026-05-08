@@ -17451,6 +17451,175 @@ export function createAnchorageLandmark(THREE, opts) {
   dwmGroup.add(dwmChild);
   group.add(dwmGroup);
 
+  // v106: coastal pizza oven (cpo)
+  const cpoGroup = new THREE.Group();
+  cpoGroup.position.set(-32, 0.05, -22);
+  // Stone dome oven
+  const cpoDome = new THREE.Mesh(new THREE.SphereGeometry(1.0, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x9c8866 }));
+  cpoDome.position.y = 1.0;
+  cpoGroup.add(cpoDome);
+  // Base
+  const cpoBase = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.2, 1.0, 16), new THREE.MeshLambertMaterial({ color: 0x6f5238 }));
+  cpoBase.position.y = 0.5;
+  cpoGroup.add(cpoBase);
+  // Mouth
+  const cpoMouth = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.45, 0.4), new THREE.MeshBasicMaterial({ color: 0x110803 }));
+  cpoMouth.position.set(0, 1.1, 0.95);
+  cpoGroup.add(cpoMouth);
+  // Glow
+  const cpoGlowMat = new THREE.MeshBasicMaterial({ color: 0xff7733, transparent: true, opacity: 0.7 });
+  const cpoGlow = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 10), cpoGlowMat);
+  cpoGlow.position.set(0, 1.05, 0.7);
+  cpoGroup.add(cpoGlow);
+  // Chimney
+  const cpoChim = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 10), new THREE.MeshLambertMaterial({ color: 0x55483a }));
+  cpoChim.position.set(0.0, 2.25, -0.2);
+  cpoGroup.add(cpoChim);
+  // Smoke puffs
+  const cpoSmoke = [];
+  const cpoSmokeMat = new THREE.MeshBasicMaterial({ color: 0xcccccc, transparent: true, opacity: 0.4 });
+  for (let i = 0; i < 4; i++) {
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(0.18 + i * 0.04, 8, 6), cpoSmokeMat.clone());
+    puff.position.set(0, 2.7 + i * 0.4, -0.2);
+    cpoGroup.add(puff);
+    cpoSmoke.push(puff);
+  }
+  // Pizzaiolo with peel
+  const cpoChef = new THREE.Group();
+  cpoChef.position.set(-1.6, 0, 0.7);
+  const cpoChefBody = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.95, 10), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  cpoChefBody.position.y = 1.0;
+  cpoChef.add(cpoChefBody);
+  const cpoChefHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+  cpoChefHead.position.y = 1.65;
+  cpoChef.add(cpoChefHead);
+  const cpoChefHat = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.22, 0.3, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  cpoChefHat.position.y = 1.95;
+  cpoChef.add(cpoChefHat);
+  // Peel (long pole + paddle)
+  const cpoPeel = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), new THREE.MeshLambertMaterial({ color: 0x8b6f47 }));
+  cpoPeel.rotation.z = Math.PI / 2;
+  cpoPeel.position.set(0.9, 1.15, 0);
+  cpoChef.add(cpoPeel);
+  const cpoPaddle = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 0.4), new THREE.MeshLambertMaterial({ color: 0xc0a070 }));
+  cpoPaddle.position.set(1.65, 1.15, 0);
+  cpoChef.add(cpoPaddle);
+  // Pizza on paddle
+  const cpoPizza = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.025, 16), new THREE.MeshLambertMaterial({ color: 0xe6b074 }));
+  cpoPizza.position.set(1.65, 1.18, 0);
+  cpoChef.add(cpoPizza);
+  cpoGroup.add(cpoChef);
+  group.add(cpoGroup);
+
+  // v106: beach kite-flying championship (bkfc) [bkf prefix exists in v86 - use bkc for our kite-CHAMPIONSHIP variant]
+  const bkcGroup = new THREE.Group();
+  bkcGroup.position.set(45, 0.05, 8);
+  // Three contestant kite flyers
+  const bkcKites = [];
+  const bkcFlyers = [];
+  const bkcColors = [0xff4477, 0x44dd66, 0x4488ff];
+  for (let i = 0; i < 3; i++) {
+    const offsetX = (i - 1) * 4.5;
+    // Flyer
+    const flyer = new THREE.Group();
+    flyer.position.set(offsetX, 0, 0);
+    const fbody = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.32, 0.95, 10), new THREE.MeshLambertMaterial({ color: i === 0 ? 0xff7733 : i === 1 ? 0x33aa66 : 0x6644cc }));
+    fbody.position.y = 1.0;
+    flyer.add(fbody);
+    const fhead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+    fhead.position.y = 1.65;
+    flyer.add(fhead);
+    bkcGroup.add(flyer);
+    bkcFlyers.push(flyer);
+    // Diamond kite high above
+    const kiteGeo = new THREE.BufferGeometry();
+    const kverts = new Float32Array([
+      0, 0.7, 0,
+      0.5, 0, 0,
+      0, -0.7, 0,
+      -0.5, 0, 0,
+    ]);
+    kiteGeo.setAttribute('position', new THREE.BufferAttribute(kverts, 3));
+    kiteGeo.setIndex([0, 1, 2, 0, 2, 3]);
+    kiteGeo.computeVertexNormals();
+    const kite = new THREE.Mesh(kiteGeo, new THREE.MeshLambertMaterial({ color: bkcColors[i], side: THREE.DoubleSide }));
+    kite.position.set(offsetX + 0.2, 8.5 + i * 0.4, -1.2);
+    bkcGroup.add(kite);
+    bkcKites.push({ kite, base: kite.position.clone(), phase: i * Math.PI * 0.66 });
+    // String
+    const stringGeo = new THREE.BufferGeometry();
+    const sverts = new Float32Array([
+      offsetX, 1.4, 0,
+      offsetX + 0.2, 8.5 + i * 0.4, -1.2,
+    ]);
+    stringGeo.setAttribute('position', new THREE.BufferAttribute(sverts, 3));
+    const stringLine = new THREE.Line(stringGeo, new THREE.LineBasicMaterial({ color: 0xeeeeee, transparent: true, opacity: 0.5 }));
+    bkcGroup.add(stringLine);
+    bkcKites[bkcKites.length - 1].stringGeo = stringGeo;
+    bkcKites[bkcKites.length - 1].sverts = sverts;
+  }
+  // Judge stand with banner
+  const judgeStand = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.4, 1.2), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  judgeStand.position.set(0, 0.7, 5);
+  bkcGroup.add(judgeStand);
+  const banner = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.5), new THREE.MeshLambertMaterial({ color: 0xff5566, side: THREE.DoubleSide }));
+  banner.position.set(0, 1.7, 5);
+  bkcGroup.add(banner);
+  group.add(bkcGroup);
+
+  // v106: driftwood bonfire storyteller circle (dbsc)
+  const dbscGroup = new THREE.Group();
+  dbscGroup.position.set(0, 0.05, 48);
+  // Driftwood pile
+  const dbscWood = [];
+  for (let i = 0; i < 6; i++) {
+    const log = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 1.4, 6), new THREE.MeshLambertMaterial({ color: 0x6f5236 }));
+    const ang = i * Math.PI / 3;
+    log.position.set(Math.cos(ang) * 0.4, 0.2, Math.sin(ang) * 0.4);
+    log.rotation.z = Math.PI / 2;
+    log.rotation.y = ang;
+    dbscGroup.add(log);
+    dbscWood.push(log);
+  }
+  // Flame core
+  const dbscFlameMat = new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.85 });
+  const dbscFlames = [];
+  for (let i = 0; i < 4; i++) {
+    const f = new THREE.Mesh(new THREE.ConeGeometry(0.3 - i * 0.05, 0.7 + i * 0.1, 8), dbscFlameMat.clone());
+    f.position.y = 0.5 + i * 0.1;
+    dbscGroup.add(f);
+    dbscFlames.push(f);
+  }
+  // Storyteller (animated)
+  const dbscTeller = new THREE.Group();
+  dbscTeller.position.set(2.6, 0, 0);
+  const dtBody = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.32, 0.85, 10), new THREE.MeshLambertMaterial({ color: 0x6a4a2a }));
+  dtBody.position.y = 0.95;
+  dbscTeller.add(dtBody);
+  const dtHead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+  dtHead.position.y = 1.55;
+  dbscTeller.add(dtHead);
+  const dtBeard = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.3, 8), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+  dtBeard.position.set(0, 1.4, 0.2);
+  dtBeard.rotation.x = Math.PI;
+  dbscTeller.add(dtBeard);
+  dbscGroup.add(dbscTeller);
+  // Audience: 5 sitting kids around
+  const dbscAudience = [];
+  for (let i = 0; i < 5; i++) {
+    const ang = (i / 5) * Math.PI * 2 - Math.PI;
+    const ax = Math.cos(ang) * 2.5;
+    const az = Math.sin(ang) * 2.5;
+    const k = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 10), new THREE.MeshLambertMaterial({ color: 0x336699 + i * 0x113322 }));
+    k.position.set(ax, 0.3, az);
+    dbscGroup.add(k);
+    const kh = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+    kh.position.set(ax, 0.7, az);
+    dbscGroup.add(kh);
+    dbscAudience.push(kh);
+  }
+  group.add(dbscGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -19892,6 +20061,37 @@ export function createAnchorageLandmark(THREE, opts) {
         bppFlash.material.opacity = (Math.sin(v105t * 0.7) > 0.97) ? 0.9 : 0.0;
         dwmFlag.rotation.x = Math.sin(v105t * 2.0) * 0.18;
         dwmChild.rotation.y = Math.sin(v105t * 0.5) * 0.1;
+        // v106: pizza oven smoke + chef bob, kite championship, bonfire flames + audience
+        const v106t = t * 1.0;
+        for (let i = 0; i < cpoSmoke.length; i++) {
+          const s = cpoSmoke[i];
+          s.position.y = 2.7 + i * 0.4 + Math.sin(v106t * 0.8 + i) * 0.15;
+          s.material.opacity = 0.45 - i * 0.07;
+        }
+        cpoGlow.material.opacity = 0.55 + Math.sin(v106t * 1.7) * 0.2;
+        cpoChef.rotation.y = Math.sin(v106t * 0.6) * 0.12;
+        for (let i = 0; i < bkcKites.length; i++) {
+          const k = bkcKites[i];
+          const sway = Math.sin(v106t * 0.7 + k.phase) * 0.5;
+          const lift = Math.cos(v106t * 0.55 + k.phase) * 0.3;
+          k.kite.position.x = k.base.x + sway;
+          k.kite.position.y = k.base.y + lift;
+          k.kite.rotation.z = Math.sin(v106t * 1.0 + k.phase) * 0.25;
+          // update string vertices
+          k.sverts[3] = k.kite.position.x;
+          k.sverts[4] = k.kite.position.y;
+          k.sverts[5] = k.kite.position.z;
+          k.stringGeo.attributes.position.needsUpdate = true;
+        }
+        for (let i = 0; i < dbscFlames.length; i++) {
+          dbscFlames[i].scale.y = 0.85 + Math.sin(v106t * 3.0 + i) * 0.18;
+          dbscFlames[i].material.opacity = 0.7 + Math.sin(v106t * 4.0 + i) * 0.15;
+        }
+        dbscTeller.rotation.y = Math.sin(v106t * 1.2) * 0.3;
+        for (let i = 0; i < dbscAudience.length; i++) {
+          dbscAudience[i].position.y = 0.7 + Math.sin(v106t * 1.5 + i * 0.7) * 0.04;
+        }
+
 
         // v98 anim
         const v98t = t;
