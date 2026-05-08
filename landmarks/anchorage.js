@@ -26002,6 +26002,246 @@ export function createAnchorageLandmark(THREE, opts) {
     btptVisitors.push(v);
   }
 
+
+  // === v159 scene 1: pier mailbox ===
+  const pmbxGroup = new THREE.Group();
+  pmbxGroup.position.set(-15.0, 1.85, -25.0);
+  group.add(pmbxGroup);
+  // post
+  const pmbxPost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  pmbxPost.position.y = 0.6;
+  pmbxGroup.add(pmbxPost);
+  // box (curved-top, USPS-style)
+  const pmbxBox = new THREE.Mesh(
+    new THREE.BoxGeometry(0.45, 0.3, 0.65),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  pmbxBox.position.y = 1.35;
+  pmbxGroup.add(pmbxBox);
+  // curved top (half-cylinder)
+  const pmbxTop = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.225, 0.225, 0.65, 12, 1, false, 0, Math.PI),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  pmbxTop.rotation.z = -Math.PI / 2;
+  pmbxTop.position.y = 1.5;
+  pmbxGroup.add(pmbxTop);
+  // door
+  const pmbxDoor = new THREE.Mesh(
+    new THREE.BoxGeometry(0.06, 0.18, 0.18),
+    new THREE.MeshLambertMaterial({ color: 0x6a1f1a })
+  );
+  pmbxDoor.position.set(0.25, 1.35, 0);
+  pmbxGroup.add(pmbxDoor);
+  // mail slot
+  const pmbxSlot = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.16, 0.04),
+    new THREE.MeshBasicMaterial({ color: 0x222222 })
+  );
+  pmbxSlot.position.set(0.226, 1.42, 0);
+  pmbxSlot.rotation.y = Math.PI / 2;
+  pmbxGroup.add(pmbxSlot);
+  // flag (animated raises when there's mail)
+  const pmbxFlagGroup = new THREE.Group();
+  pmbxFlagGroup.position.set(-0.25, 1.4, -0.15);
+  pmbxGroup.add(pmbxFlagGroup);
+  const pmbxFlagPole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.012, 0.012, 0.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  pmbxFlagPole.position.y = 0.2;
+  pmbxFlagGroup.add(pmbxFlagPole);
+  const pmbxFlagCloth = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.16, 0.1),
+    new THREE.MeshBasicMaterial({ color: 0xffd54a, side: THREE.DoubleSide })
+  );
+  pmbxFlagCloth.position.set(0.08, 0.32, 0);
+  pmbxFlagGroup.add(pmbxFlagCloth);
+  // seagull perched on top
+  const pmbxGull = new THREE.Group();
+  pmbxGull.position.set(0, 1.7, 0);
+  pmbxGroup.add(pmbxGull);
+  const pmbxGullBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xefe6d0 })
+  );
+  pmbxGullBody.scale.set(1.3, 0.7, 0.85);
+  pmbxGull.add(pmbxGullBody);
+  const pmbxGullHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.07, 10, 10),
+    new THREE.MeshLambertMaterial({ color: 0xefe6d0 })
+  );
+  pmbxGullHead.position.set(0.13, 0.07, 0);
+  pmbxGull.add(pmbxGullHead);
+  const pmbxGullBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.025, 0.12, 6),
+    new THREE.MeshLambertMaterial({ color: 0xd6a850 })
+  );
+  pmbxGullBeak.position.set(0.21, 0.05, 0);
+  pmbxGullBeak.rotation.z = -Math.PI / 2;
+  pmbxGull.add(pmbxGullBeak);
+  // letter peeking out of slot (animated drop)
+  const pmbxLetter = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.13, 0.08),
+    new THREE.MeshBasicMaterial({ color: 0xfff8ee, side: THREE.DoubleSide })
+  );
+  pmbxLetter.position.set(0.27, 1.42, 0);
+  pmbxLetter.rotation.y = Math.PI / 2;
+  pmbxGroup.add(pmbxLetter);
+
+  // === v159 scene 2: coastal driftwood sculpture ===
+  const cdwsGroup = new THREE.Group();
+  cdwsGroup.position.set(33.0, 0, 5.0);
+  group.add(cdwsGroup);
+  // sculpture pieces (radial driftwood spires)
+  const cdwsSpires = [];
+  const cdwsColors = [0x8a7a5a, 0x6b5a4a, 0x9c8a6a, 0x5a4a3a, 0xb8a07a];
+  for (let i = 0; i < 7; i++) {
+    const ang = (i / 7) * Math.PI * 2;
+    const len = 1.4 + Math.random() * 0.8;
+    const spire = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05 + Math.random() * 0.03, 0.09 + Math.random() * 0.03, len, 7),
+      new THREE.MeshLambertMaterial({ color: cdwsColors[i % cdwsColors.length] })
+    );
+    spire.position.set(Math.cos(ang) * 0.3, len / 2 + 0.05, Math.sin(ang) * 0.3);
+    spire.rotation.z = -Math.cos(ang) * 0.4;
+    spire.rotation.x = Math.sin(ang) * 0.4;
+    cdwsGroup.add(spire);
+    cdwsSpires.push(spire);
+  }
+  // central orb (driftwood ball)
+  const cdwsCore = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 16, 14),
+    new THREE.MeshLambertMaterial({ color: 0x6b5a4a })
+  );
+  cdwsCore.position.y = 0.6;
+  cdwsGroup.add(cdwsCore);
+  // pebble base
+  const cdwsBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.2, 1.4, 0.2, 24),
+    new THREE.MeshLambertMaterial({ color: 0x8a7a6a })
+  );
+  cdwsBase.position.y = 0.0;
+  cdwsGroup.add(cdwsBase);
+  // wind chime hanging from one spire (animated)
+  const cdwsChimeGroup = new THREE.Group();
+  cdwsChimeGroup.position.set(0.5, 1.6, 0.3);
+  cdwsGroup.add(cdwsChimeGroup);
+  const cdwsChimes = [];
+  for (let i = 0; i < 4; i++) {
+    const c = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.018, 0.018, 0.35, 6),
+      new THREE.MeshStandardMaterial({ color: 0xc0a060, metalness: 0.7, roughness: 0.3 })
+    );
+    c.position.set((i - 1.5) * 0.07, -0.18, 0);
+    cdwsChimeGroup.add(c);
+    cdwsChimes.push(c);
+  }
+  // artist with wood plank
+  const cdwsArtist = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x4a3a8a })
+  );
+  cdwsArtist.position.set(-1.6, 0.32, 0.4);
+  cdwsGroup.add(cdwsArtist);
+  const cdwsArtistHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  cdwsArtistHead.position.set(-1.6, 0.7, 0.4);
+  cdwsGroup.add(cdwsArtistHead);
+  const cdwsPlank = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 0.04, 0.1),
+    new THREE.MeshLambertMaterial({ color: 0x9c8a6a })
+  );
+  cdwsPlank.position.set(-1.3, 0.4, 0.4);
+  cdwsGroup.add(cdwsPlank);
+
+  // === v159 scene 3: beach drone race ===
+  const bdrnGroup = new THREE.Group();
+  bdrnGroup.position.set(-25.0, 0, 18.0);
+  group.add(bdrnGroup);
+  // 3 race gates (vertical hoops)
+  const bdrnGates = [];
+  for (let i = 0; i < 3; i++) {
+    const gate = new THREE.Mesh(
+      new THREE.TorusGeometry(0.7, 0.08, 8, 16),
+      new THREE.MeshLambertMaterial({ color: i === 0 ? 0xff5050 : (i === 1 ? 0x50ff50 : 0x5050ff) })
+    );
+    gate.position.set(i * 2.5 - 2.5, 1.4, 0);
+    gate.rotation.y = Math.PI / 2;
+    bdrnGroup.add(gate);
+    bdrnGates.push(gate);
+    // post under gate
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.7, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+    );
+    post.position.set(i * 2.5 - 2.5, 0.35, 0);
+    bdrnGroup.add(post);
+  }
+  // 3 racing drones (animated through gates)
+  const bdrnDrones = [];
+  const bdrnDroneColors = [0xff8030, 0x30b0ff, 0xc030ff];
+  for (let i = 0; i < 3; i++) {
+    const dGroup = new THREE.Group();
+    dGroup.position.set(-3.5, 1.4, 0);
+    bdrnGroup.add(dGroup);
+    // body
+    const body = new THREE.Mesh(
+      new THREE.BoxGeometry(0.18, 0.06, 0.18),
+      new THREE.MeshStandardMaterial({ color: bdrnDroneColors[i], metalness: 0.6, roughness: 0.3 })
+    );
+    dGroup.add(body);
+    // 4 propellers
+    const propMat = new THREE.MeshBasicMaterial({ color: 0xcccccc, transparent: true, opacity: 0.45, side: THREE.DoubleSide });
+    const props = [];
+    for (let p = 0; p < 4; p++) {
+      const prop = new THREE.Mesh(new THREE.PlaneGeometry(0.16, 0.02), propMat);
+      const px = (p % 2 === 0) ? -0.13 : 0.13;
+      const pz = (p < 2) ? -0.13 : 0.13;
+      prop.position.set(px, 0.04, pz);
+      prop.rotation.x = -Math.PI / 2;
+      dGroup.add(prop);
+      props.push(prop);
+    }
+    bdrnDrones.push({ group: dGroup, props, offset: i * 0.7, speed: 0.4 + i * 0.04 });
+  }
+  // pilots on lawn chairs
+  const bdrnPilots = [];
+  for (let i = 0; i < 3; i++) {
+    const pilot = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.45, 10),
+      new THREE.MeshLambertMaterial({ color: bdrnDroneColors[i] })
+    );
+    pilot.position.set(i * 0.6 - 0.6, 0.27, 2.5);
+    bdrnGroup.add(pilot);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 12, 12),
+      new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+    );
+    head.position.set(i * 0.6 - 0.6, 0.62, 2.5);
+    bdrnGroup.add(head);
+    // FPV goggles
+    const goggles = new THREE.Mesh(
+      new THREE.BoxGeometry(0.14, 0.04, 0.04),
+      new THREE.MeshLambertMaterial({ color: 0x222222 })
+    );
+    goggles.position.set(i * 0.6 - 0.6, 0.62, 2.42);
+    bdrnGroup.add(goggles);
+    bdrnPilots.push({ pilot, head });
+  }
+  // checkered finish flag
+  const bdrnFinish = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 0.3),
+    new THREE.MeshBasicMaterial({ color: 0x222222, side: THREE.DoubleSide })
+  );
+  bdrnFinish.position.set(3.5, 1.5, 0);
+  bdrnGroup.add(bdrnFinish);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -29665,6 +29905,58 @@ export function createAnchorageLandmark(THREE, opts) {
   btptPool1.material.opacity = 0.65 + Math.sin(v157t * 1.2) * 0.08;
   btptPool2.material.opacity = 0.65 + Math.sin(v157t * 1.4 + 0.5) * 0.08;
   btptGuideHead.rotation.y = Math.sin(v157t * 0.6) * 0.4;
+
+  // v159 scene 1 anim: pmbx flag raises/lowers, gull head turn, letter drops in
+  const v159t = t;
+  pmbxFlagGroup.rotation.x = Math.sin(v159t * 0.6) * 0.6 - 0.4;
+  pmbxGullHead.rotation.y = Math.sin(v159t * 1.2) * 0.5;
+  pmbxGull.position.y = 1.7 + Math.sin(v159t * 1.8) * 0.015;
+  // letter rises/drops cyclically
+  const letterCycle = (v159t * 0.4) % 3.0;
+  if (letterCycle < 1.0) {
+    pmbxLetter.position.x = 0.27;
+    pmbxLetter.position.y = 1.42 + (1.0 - letterCycle) * 0.2;
+    pmbxLetter.material.opacity = 1;
+  } else {
+    pmbxLetter.position.x = 0.27;
+    pmbxLetter.position.y = 1.42;
+    pmbxLetter.material.opacity = 1;
+  }
+
+  // v159 scene 2 anim: spires sway, chimes swing
+  for (let i = 0; i < cdwsSpires.length; i++) {
+    const s = cdwsSpires[i];
+    const ang = (i / cdwsSpires.length) * Math.PI * 2;
+    s.rotation.z = -Math.cos(ang) * 0.4 + Math.sin(v159t * 0.4 + i) * 0.04;
+    s.rotation.x = Math.sin(ang) * 0.4 + Math.cos(v159t * 0.4 + i) * 0.04;
+  }
+  cdwsCore.rotation.y = v159t * 0.3;
+  cdwsChimeGroup.rotation.z = Math.sin(v159t * 1.2) * 0.18;
+  for (let i = 0; i < cdwsChimes.length; i++) {
+    cdwsChimes[i].rotation.x = Math.sin(v159t * 1.5 + i * 0.5) * 0.1;
+  }
+  cdwsArtistHead.rotation.y = Math.sin(v159t * 0.4) * 0.3;
+
+  // v159 scene 3 anim: drones race through gates with bobbing motion
+  for (let i = 0; i < bdrnDrones.length; i++) {
+    const d = bdrnDrones[i];
+    const cycle = ((v159t + d.offset) * d.speed) % 1.0;
+    d.group.position.x = -3.5 + cycle * 7.5;
+    d.group.position.y = 1.4 + Math.sin(cycle * Math.PI * 4 + i) * 0.4;
+    d.group.position.z = Math.sin(cycle * Math.PI * 2 + i) * 0.2;
+    d.group.rotation.y = Math.sin(cycle * Math.PI * 2 + i) * 0.3;
+    // spin propellers
+    for (let p = 0; p < d.props.length; p++) {
+      d.props[p].rotation.z = v159t * 30 + p * 0.3;
+    }
+  }
+  // pilot heads track drones
+  for (let i = 0; i < bdrnPilots.length; i++) {
+    const drone = bdrnDrones[i];
+    bdrnPilots[i].head.rotation.y = (drone.group.position.x - bdrnPilots[i].head.position.x) * 0.1;
+  }
+  bdrnFinish.position.y = 1.5 + Math.sin(v159t * 2.0) * 0.04;
+
 
 
 
