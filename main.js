@@ -14935,7 +14935,32 @@ const cosmicSights = [
   {"name": "AGN Polarization Scattered Light", "description": "Polarimetry reveals hidden broad lines scattered into our line of sight.", "position": [11197, 3010, -4710]},
   {"name": "Megamaser Water Vapor Disk Tracer", "description": "Powerful water masers mapping the geometry of the accretion disk.", "position": [11198, 3020, -4720]},
   {"name": "AGN Jet Precession Wobble Pattern", "description": "A jet that traces a corkscrew path due to disk or binary precession.", "position": [11199, 3030, -4730]},
-  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]}
+  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]},
+{"name": "Protoplanetary Disk Midplane Settling", "description": "Dust grains settle to the disk midplane, concentrating material for planetesimal formation.", "position": [11226, 3300, -4800]},
+  {"name": "T Tauri Disk Accretion Streamer", "description": "Gas funneled from disk to star along magnetic field lines in young stellar systems.", "position": [11227, 3310, -4810]},
+  {"name": "Herbig Ae Be Disk Flaring", "description": "Puffed-up outer disk regions intercept starlight and reprocess it into infrared emission.", "position": [11228, 3320, -4820]},
+  {"name": "Transition Disk Inner Cavity", "description": "A cleared inner hole suggesting planet formation or photoevaporation in action.", "position": [11229, 3330, -4830]},
+  {"name": "Disk Gap Planetary Carving", "description": "Dark lanes in disk structure revealing where nascent planets sweep up material.", "position": [11230, 3340, -4840]},
+  {"name": "Spiral Arm Density Wave Disk", "description": "Grand design spirals in protoplanetary disks driven by embedded companions or instabilities.", "position": [11231, 3350, -4850]},
+  {"name": "Disk Vortex Dust Trap", "description": "Anticyclonic vortices concentrating dust particles to trigger rapid planetesimal growth.", "position": [11232, 3360, -4860]},
+  {"name": "Snow Line Water Ice Condensation", "description": "The radial boundary where water freezes, boosting solid surface density for planet cores.", "position": [11233, 3370, -4870]},
+  {"name": "CO Ice Line Carbon Monoxide Freeze", "description": "Outer disk threshold where CO condenses, altering gas-phase chemistry and comet composition.", "position": [11234, 3380, -4880]},
+  {"name": "Disk Photoevaporation Wind", "description": "Ultraviolet and X-ray driven mass loss dispersing the disk from the inside out.", "position": [11235, 3390, -4890]},
+  {"name": "Debris Disk Collision Cascade", "description": "Asteroid belt analogs grinding planetesimals into dust through mutual collisions.", "position": [11236, 3400, -4900]},
+  {"name": "Beta Pictoris Debris Belt", "description": "An edge-on debris disk with asymmetries hinting at planetary perturbations.", "position": [11237, 3410, -4910]},
+  {"name": "Fomalhaut Dust Ring Offset", "description": "An eccentric debris ring sculpted by gravitational influence of unseen planets.", "position": [11238, 3420, -4920]},
+  {"name": "Vega Excess Infrared Emission", "description": "Thermal glow from warm circumstellar dust revealing ongoing collisional activity.", "position": [11239, 3430, -4930]},
+  {"name": "Epsilon Eridani Dust Clumps", "description": "Azimuthal structures in the debris ring suggesting resonant trapping by planets.", "position": [11240, 3440, -4940]},
+  {"name": "Zodiacal Dust Band Asteroid Origin", "description": "Interplanetary dust concentrated in bands from asteroid family breakup events.", "position": [11241, 3450, -4950]},
+  {"name": "Exozodiacal Light Hot Dust", "description": "Near-infrared excess from dust grains orbiting within the habitable zone.", "position": [11242, 3460, -4960]},
+  {"name": "Disk Shadowing Self Illumination", "description": "Inner disk warps casting shadows on outer regions, creating observable asymmetries.", "position": [11243, 3470, -4970]},
+  {"name": "Grain Growth Spectral Slope Change", "description": "Millimeter spectral indices revealing dust coagulation from micron to centimeter sizes.", "position": [11244, 3480, -4980]},
+  {"name": "Polarimetric Disk Scattering", "description": "Polarized starlight scattered by disk surface grains mapping small-scale structures.", "position": [11245, 3490, -4990]},
+  {"name": "ALMA Disk Continuum Ring", "description": "Radio interferometry revealing concentric ring structures in thermal dust emission.", "position": [11246, 3500, -5000]},
+  {"name": "Disk Velocity Kink Planet Detection", "description": "Deviations in gas rotation curves betraying the gravitational pull of embedded planets.", "position": [11247, 3510, -5010]},
+  {"name": "Disk Magnetic Braking Angular Momentum", "description": "Magnetic fields threading the disk removing angular momentum to enable accretion.", "position": [11248, 3520, -5020]},
+  {"name": "MRI Turbulence Magneto Rotational", "description": "Magnetorotational instability driving turbulent viscosity that transports mass inward.", "position": [11249, 3530, -5030]},
+  {"name": "Disk Lifetime Dispersal Timescale", "description": "Statistical studies showing protoplanetary disks dissipate within a few million years.", "position": [11250, 3540, -5040]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
