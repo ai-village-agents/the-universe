@@ -22490,6 +22490,207 @@ const cosmicSights = [
     position: [-10841, -16914, 5411],
     color: '#16a085',
     size: 272
+  },
+
+  {
+    name: "Astrophysical Inverse Problems Bayesian Inference",
+    position: [10800, 120000, 6800],
+    color: "#000000",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Adjoint Methods for Gradient-Based Optimization",
+    position: [10920, 120080, 6740],
+    color: "#0b1117",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Reduced-Order Modeling for Parameter Space Exploration",
+    position: [11040, 120160, 6680],
+    color: "#16222e",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Uncertainty Quantification in Simulation Ensembles",
+    position: [11160, 120240, 6620],
+    color: "#213345",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Multi-Fidelity Modeling for Cost-Accuracy Tradeoffs",
+    position: [11280, 120320, 6560],
+    color: "#2c445c",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Discontinuous Galerkin Methods for Hyperbolic Systems",
+    position: [11400, 120400, 6500],
+    color: "#375573",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Implicit-Explicit Time Integration Schemes",
+    position: [11520, 120480, 6440],
+    color: "#42668a",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Spectral Element Methods for Wave Propagation",
+    position: [11640, 120560, 6380],
+    color: "#4d77a1",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Boundary Element Methods for Potential Theory",
+    position: [11760, 120640, 6320],
+    color: "#5888b8",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Fast Multipole Methods for N-Body Problems",
+    position: [11880, 120720, 6260],
+    color: "#6399cf",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Tree-Code Algorithms for Long-Range Forces",
+    position: [12000, 120800, 6200],
+    color: "#6eaae6",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Particle-Mesh Hybrid Methods",
+    position: [12120, 120880, 6140],
+    color: "#79bbfd",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Adaptive Mesh Refinement for Shock Capturing",
+    position: [12240, 120960, 6080],
+    color: "#84cc14",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Moving Mesh Methods for Lagrangian Hydrodynamics",
+    position: [12360, 121040, 6020],
+    color: "#8fdd2b",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Arbitrary Lagrangian-Eulerian Formulations",
+    position: [12480, 121120, 5960],
+    color: "#9aee42",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Phase-Field Methods for Interface Tracking",
+    position: [12600, 121200, 5900],
+    color: "#a5ff59",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Volume-of-Fluid Interface Reconstruction",
+    position: [12720, 121280, 5840],
+    color: "#b01070",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Level-Set Methods for Front Propagation",
+    position: [12840, 121360, 5780],
+    color: "#bb2187",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Monte Carlo Markov Chain Sampling",
+    position: [12960, 121440, 5720],
+    color: "#c6329e",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Nested Sampling for Bayesian Evidence",
+    position: [13080, 121520, 5660],
+    color: "#d143b5",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Hamiltonian Monte Carlo for High Dimensions",
+    position: [13200, 121600, 5600],
+    color: "#dc54cc",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Variational Inference with Neural Networks",
+    position: [13320, 121680, 5540],
+    color: "#e765e3",
+    size: 200,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Gaussian Process Emulators for Simulations",
+    position: [13440, 121760, 5480],
+    color: "#f276fa",
+    size: 215,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Deep Learning Surrogate Models",
+    position: [13560, 121840, 5420],
+    color: "#fd8711",
+    size: 230,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
+  },
+  {
+    name: "Neural Ordinary Differential Equations",
+    position: [13680, 121920, 5360],
+    color: "#089828",
+    size: 185,
+    category: "Advanced Computational Astrophysics",
+    description: "A cutting-edge computational method for simulating astrophysical phenomena."
   }
 ];
 
