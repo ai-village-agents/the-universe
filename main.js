@@ -20316,6 +20316,33 @@ const cosmicSights = [
     color: '#8A2BE2',
     size: 172
   }
+,
+  {"name":"Hawking Radiation from Black Holes","category":"Quantum Gravity","description":"Hawking Radiation from Black.","position":[6100,120000,4100],"color":"#4169E1","size":140},
+  {"name":"Unruh Effect in Curved Spacetime","category":"Quantum Gravity","description":"Unruh Effect in Curved.","position":[6101,120020,4101],"color":"#4169E1","size":140},
+  {"name":"Vacuum Fluctuations near Event Horizons","category":"Quantum Gravity","description":"Vacuum Fluctuations near Event.","position":[6102,120040,4102],"color":"#4169E1","size":140},
+  {"name":"Black Hole Entropy Scaling Laws","category":"Quantum Gravity","description":"Black Hole Entropy Scaling.","position":[6103,120060,4103],"color":"#4169E1","size":140},
+  {"name":"Firewall Hypothesis Implications","category":"Quantum Gravity","description":"Firewall Hypothesis.","position":[6104,120080,4104],"color":"#4169E1","size":140},
+  {"name":"Quantum Entanglement in Wormholes","category":"Quantum Gravity","description":"Quantum Entanglement in.","position":[6105,120100,4105],"color":"#4169E1","size":140},
+  {"name":"Soft Hair on Black Holes","category":"Quantum Gravity","description":"Soft Hair on Black.","position":[6106,120120,4106],"color":"#4169E1","size":140},
+  {"name":"Loop Quantum Gravity Phenomenology","category":"Quantum Gravity","description":"Loop Quantum Gravity.","position":[6107,120140,4107],"color":"#4169E1","size":140},
+  {"name":"Planck-Scale Foam Structure","category":"Quantum Gravity","description":"Planck-Scale Foam.","position":[6108,120160,4108],"color":"#4169E1","size":140},
+  {"name":"Quantum Bounce Scenarios","category":"Quantum Gravity","description":"Quantum Bounce.","position":[6109,120180,4109],"color":"#4169E1","size":140},
+  {"name":"Asymptotic Safety in Quantum Gravity","category":"Quantum Gravity","description":"Asymptotic Safety in Quantum.","position":[6110,120200,4110],"color":"#4169E1","size":140},
+  {"name":"Causal Dynamical Triangulation","category":"Quantum Gravity","description":"Causal Dynamical.","position":[6111,120220,4111],"color":"#4169E1","size":140},
+  {"name":"String Theory Landscape Moduli","category":"Quantum Gravity","description":"String Theory Landscape.","position":[6112,120240,4112],"color":"#4169E1","size":140},
+  {"name":"Holographic Principle Applications","category":"Quantum Gravity","description":"Holographic Principle.","position":[6113,120260,4113],"color":"#4169E1","size":140},
+  {"name":"AdS/CFT Correspondence in Cosmology","category":"Quantum Gravity","description":"AdS/CFT Correspondence in.","position":[6114,120280,4114],"color":"#4169E1","size":140},
+  {"name":"Entanglement Entropy of Space","category":"Quantum Gravity","description":"Entanglement Entropy of.","position":[6115,120300,4115],"color":"#4169E1","size":140},
+  {"name":"Conformal Field Theory Boundary States","category":"Quantum Gravity","description":"Conformal Field Theory Boundary.","position":[6116,120320,4116],"color":"#4169E1","size":140},
+  {"name":"Chern-Simons Topological Gauge Theory","category":"Quantum Gravity","description":"Chern-Simons Topological Gauge.","position":[6117,120340,4117],"color":"#4169E1","size":140},
+  {"name":"Wheeler-DeWitt Equation Solutions","category":"Quantum Gravity","description":"Wheeler-DeWitt Equation.","position":[6118,120360,4118],"color":"#4169E1","size":140},
+  {"name":"Quantization of Gravitational Waves","category":"Quantum Gravity","description":"Quantization of Gravitational.","position":[6119,120380,4119],"color":"#4169E1","size":140},
+  {"name":"Tensor Perturbation Spectrum","category":"Quantum Gravity","description":"Tensor Perturbation.","position":[6120,120400,4120],"color":"#4169E1","size":140},
+  {"name":"Primordial Graviton Production","category":"Quantum Gravity","description":"Primordial Graviton.","position":[6121,120420,4121],"color":"#4169E1","size":140},
+  {"name":"Decoherence in Early Universe","category":"Quantum Gravity","description":"Decoherence in Early.","position":[6122,120440,4122],"color":"#4169E1","size":140},
+  {"name":"Wavefunction of the Universe","category":"Quantum Gravity","description":"Wavefunction of the.","position":[6123,120460,4123],"color":"#4169E1","size":140},
+  {"name":"Quantum Correlations in Cosmology","category":"Quantum Gravity","description":"Quantum Correlations in.","position":[6124,120480,4124],"color":"#4169E1","size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
