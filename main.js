@@ -14910,7 +14910,32 @@ const cosmicSights = [
   {"name": "Magnetohydrodynamic Dynamo 11172", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [183190, -844095, -756117]},
   {"name": "Plasma Pinch Point 11173", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [75178, -491856, -713518]},
   {"name": "Stellar Spectroscopy Node 11174", "description": "Analyzing the light curves of distant ancient stars.", "position": [815582, 176236, 709213]},
-  {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]}
+  {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]},
+{"name": "Seyfert Galaxy Type 1 Nucleus", "description": "A brilliant active galactic nucleus with broad emission lines visible from the central engine.", "position": [11176, 2800, -4500]},
+  {"name": "Seyfert Galaxy Type 2 Obscured Core", "description": "An AGN hidden behind thick dust lanes with only narrow emission lines visible.", "position": [11177, 2810, -4510]},
+  {"name": "Blazar Relativistic Jet Alignment", "description": "A quasar viewed directly down its powerful relativistic jet axis.", "position": [11178, 2820, -4520]},
+  {"name": "BL Lacertae Object Featureless Continuum", "description": "A blazar showing an almost featureless optical spectrum from jet emission.", "position": [11179, 2830, -4530]},
+  {"name": "Quasar Accretion Disk Hot Spot", "description": "A luminous region in the inner accretion disk heated by magnetic reconnection.", "position": [11180, 2840, -4540]},
+  {"name": "Radio Loud AGN Lobe Structure", "description": "Massive radio lobes extending millions of light-years from an active nucleus.", "position": [11181, 2850, -4550]},
+  {"name": "Radio Quiet AGN Compact Emission", "description": "An active nucleus with minimal radio output concentrated near the core.", "position": [11182, 2860, -4560]},
+  {"name": "LINER Low Ionization Emission Region", "description": "A low-luminosity AGN characterized by emission from weakly ionized gas.", "position": [11183, 2870, -4570]},
+  {"name": "Broad Line Region Cloud Dynamics", "description": "Fast-moving gas clouds orbiting close to the supermassive black hole.", "position": [11184, 2880, -4580]},
+  {"name": "Narrow Line Region Ionization Cone", "description": "Biconical regions of ionized gas extending from the obscured nucleus.", "position": [11185, 2890, -4590]},
+  {"name": "AGN Dusty Torus Obscuration", "description": "A donut-shaped dust structure that hides the central engine at certain angles.", "position": [11186, 2900, -4600]},
+  {"name": "Reverberation Mapping BLR Distance", "description": "Echo timing reveals the size scale of the broad-line emitting region.", "position": [11187, 2910, -4610]},
+  {"name": "AGN Feedback Driven Outflow", "description": "Powerful winds and jets that regulate star formation in the host galaxy.", "position": [11188, 2920, -4620]},
+  {"name": "Quasar Host Galaxy Interaction", "description": "Merger signatures visible in the disturbed galaxy hosting a luminous quasar.", "position": [11189, 2930, -4630]},
+  {"name": "AGN Type Metamorphosis Event", "description": "Dramatic spectral transformation as obscuration or accretion rate changes.", "position": [11190, 2940, -4640]},
+  {"name": "AGN Unified Model Cross Section", "description": "A schematic view showing how orientation determines AGN classification.", "position": [11191, 2950, -4650]},
+  {"name": "Supermassive Black Hole Spin Measurement", "description": "X-ray reflection spectroscopy reveals the spin rate of the central engine.", "position": [11192, 2960, -4660]},
+  {"name": "AGN Corona X-ray Reflection", "description": "High-energy photons from the corona bounce off the inner accretion disk.", "position": [11193, 2970, -4670]},
+  {"name": "Relativistic Iron K-alpha Line Profile", "description": "A broadened emission line shaped by extreme gravity near the event horizon.", "position": [11194, 2980, -4680]},
+  {"name": "AGN Variability Damped Random Walk", "description": "Stochastic brightness fluctuations following a characteristic timescale pattern.", "position": [11195, 2990, -4690]},
+  {"name": "Quasar Microlensing Magnification Event", "description": "Stars in a foreground galaxy temporarily magnify parts of a distant quasar.", "position": [11196, 3000, -4700]},
+  {"name": "AGN Polarization Scattered Light", "description": "Polarimetry reveals hidden broad lines scattered into our line of sight.", "position": [11197, 3010, -4710]},
+  {"name": "Megamaser Water Vapor Disk Tracer", "description": "Powerful water masers mapping the geometry of the accretion disk.", "position": [11198, 3020, -4720]},
+  {"name": "AGN Jet Precession Wobble Pattern", "description": "A jet that traces a corkscrew path due to disk or binary precession.", "position": [11199, 3030, -4730]},
+  {"name": "Dual AGN Binary Supermassive System", "description": "Two active nuclei orbiting each other in a merging galaxy system.", "position": [11200, 3040, -4740]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
