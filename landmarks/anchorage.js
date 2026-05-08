@@ -23569,6 +23569,225 @@ export function createAnchorageLandmark(THREE, opts) {
   pnsqGroup.add(pnsqBucket);
   group.add(pnsqGroup);
 
+  // --- v145: beach buoy float + coastal kayak instructor + pier silhouette artist ---
+  const bbflGroup = new THREE.Group();
+  bbflGroup.position.set(-32, 0.05, -50);
+  // sand
+  const bbflSand = new THREE.Mesh(
+    new THREE.CircleGeometry(3.0, 22),
+    new THREE.MeshLambertMaterial({ color: 0xead8b0 })
+  );
+  bbflSand.rotation.x = -Math.PI / 2;
+  bbflSand.position.y = 0.005;
+  bbflGroup.add(bbflSand);
+  // shoreline strip
+  const bbflWater = new THREE.Mesh(
+    new THREE.PlaneGeometry(8, 2),
+    new THREE.MeshLambertMaterial({ color: 0x4a7e9e, transparent: true, opacity: 0.55 })
+  );
+  bbflWater.rotation.x = -Math.PI / 2;
+  bbflWater.position.set(0.4, 0.012, 2.4);
+  bbflGroup.add(bbflWater);
+  // 5 buoys bobbing on water
+  const bbflBuoys = [];
+  const bbflColors = [0xd14747, 0xe8c33b, 0x39a17a, 0x4a6dc8, 0xd676b2];
+  for (let i = 0; i < 5; i++) {
+    const b = new THREE.Mesh(
+      new THREE.SphereGeometry(0.3, 12, 10),
+      new THREE.MeshLambertMaterial({ color: bbflColors[i] })
+    );
+    b.position.set(-1.4 + i * 0.7, 0.32, 2.2 + (i % 2) * 0.4);
+    bbflGroup.add(b);
+    // ring
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.3, 0.03, 6, 14),
+      new THREE.MeshLambertMaterial({ color: 0xffffff })
+    );
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.copy(b.position);
+    ring.position.y = 0.32;
+    bbflGroup.add(ring);
+    bbflBuoys.push(b);
+  }
+  // line connecting buoys
+  const bbflRopeMat = new THREE.LineBasicMaterial({ color: 0x222222 });
+  const bbflRopePts = bbflBuoys.map(b => b.position.clone());
+  const bbflRope = new THREE.Line(new THREE.BufferGeometry().setFromPoints(bbflRopePts), bbflRopeMat);
+  bbflGroup.add(bbflRope);
+  // child watcher with bucket
+  const bbflChild = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 0.45, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe8a13b })
+  );
+  bbflChild.position.set(-2.0, 0.25, -1.0);
+  bbflGroup.add(bbflChild);
+  const bbflChildH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  bbflChildH.position.set(-2.0, 0.55, -1.0);
+  bbflGroup.add(bbflChildH);
+  const bbflBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.12, 0.2, 10),
+    new THREE.MeshLambertMaterial({ color: 0x3a7a9a })
+  );
+  bbflBucket.position.set(-1.7, 0.15, -0.85);
+  bbflGroup.add(bbflBucket);
+  group.add(bbflGroup);
+
+  // coastal kayak instructor
+  const ckaiGroup = new THREE.Group();
+  ckaiGroup.position.set(-58, 0.05, -10);
+  const ckaiBeach = new THREE.Mesh(
+    new THREE.CircleGeometry(3.5, 22),
+    new THREE.MeshLambertMaterial({ color: 0xe8d4a8 })
+  );
+  ckaiBeach.rotation.x = -Math.PI / 2;
+  ckaiBeach.position.y = 0.005;
+  ckaiGroup.add(ckaiBeach);
+  const ckaiWater = new THREE.Mesh(
+    new THREE.PlaneGeometry(7, 3),
+    new THREE.MeshLambertMaterial({ color: 0x3d6b8a, transparent: true, opacity: 0.6 })
+  );
+  ckaiWater.rotation.x = -Math.PI / 2;
+  ckaiWater.position.set(0.6, 0.012, 2.5);
+  ckaiGroup.add(ckaiWater);
+  // 3 kayaks (1 instructor on beach, 2 students on water)
+  const ckaiKayaks = [];
+  const ckaiPaddles = [];
+  const ckaiColors = [0xff8a3a, 0x3aa0d8, 0x6dc34a];
+  for (let i = 0; i < 3; i++) {
+    const kg = new THREE.Group();
+    if (i === 0) {
+      kg.position.set(-1.6, 0.12, 0.4);
+      kg.rotation.y = 0.3;
+    } else {
+      kg.position.set(-0.4 + (i - 1) * 1.4, 0.18, 2.3);
+    }
+    const hull = new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.22, 1.4, 4, 10),
+      new THREE.MeshLambertMaterial({ color: ckaiColors[i] })
+    );
+    hull.rotation.z = Math.PI / 2;
+    kg.add(hull);
+    if (i > 0) {
+      const paddler = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.1, 0.1, 0.4, 8),
+        new THREE.MeshLambertMaterial({ color: 0x3a3a3a })
+      );
+      paddler.position.set(0, 0.22, 0);
+      kg.add(paddler);
+      const head = new THREE.Mesh(
+        new THREE.SphereGeometry(0.1, 10, 8),
+        new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+      );
+      head.position.set(0, 0.5, 0);
+      kg.add(head);
+      const paddle = new THREE.Mesh(
+        new THREE.BoxGeometry(1.2, 0.04, 0.06),
+        new THREE.MeshLambertMaterial({ color: 0x6b4f2d })
+      );
+      paddle.position.set(0, 0.42, 0);
+      kg.add(paddle);
+      ckaiPaddles.push(paddle);
+    }
+    ckaiGroup.add(kg);
+    ckaiKayaks.push(kg);
+  }
+  // instructor on shore
+  const ckaiInstr = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe22a2a })
+  );
+  ckaiInstr.position.set(-0.4, 0.4, -0.6);
+  ckaiGroup.add(ckaiInstr);
+  const ckaiInstrH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  ckaiInstrH.position.set(-0.4, 0.88, -0.6);
+  ckaiGroup.add(ckaiInstrH);
+  const ckaiInstrArm = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.06, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  ckaiInstrArm.position.set(-0.1, 0.7, -0.6);
+  ckaiInstrArm.rotation.z = -0.6;
+  ckaiGroup.add(ckaiInstrArm);
+  group.add(ckaiGroup);
+
+  // pier silhouette artist
+  const psiaGroup = new THREE.Group();
+  psiaGroup.position.set(40, 8.4, -30);
+  const psiaDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(3.4, 0.16, 2.2),
+    new THREE.MeshLambertMaterial({ color: 0x8a6e44 })
+  );
+  psiaDeck.position.y = 0.08;
+  psiaGroup.add(psiaDeck);
+  // easel
+  const psiaEaselMat = new THREE.MeshLambertMaterial({ color: 0x6b4f2d });
+  const psiaEasel1 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), psiaEaselMat);
+  psiaEasel1.position.set(-0.4, 0.8, 0.3);
+  psiaEasel1.rotation.z = 0.18;
+  psiaGroup.add(psiaEasel1);
+  const psiaEasel2 = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 8), psiaEaselMat);
+  psiaEasel2.position.set(0.4, 0.8, 0.3);
+  psiaEasel2.rotation.z = -0.18;
+  psiaGroup.add(psiaEasel2);
+  // canvas (black silhouette on white)
+  const psiaCanvas = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 1.1, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0xffffff })
+  );
+  psiaCanvas.position.set(0, 1.0, 0.32);
+  psiaGroup.add(psiaCanvas);
+  const psiaSilhouette = new THREE.Mesh(
+    new THREE.CircleGeometry(0.28, 18),
+    new THREE.MeshLambertMaterial({ color: 0x111111 })
+  );
+  psiaSilhouette.position.set(0, 1.2, 0.36);
+  psiaGroup.add(psiaSilhouette);
+  // artist
+  const psiaArtist = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x111111 })
+  );
+  psiaArtist.position.set(-0.7, 0.44, 0.6);
+  psiaGroup.add(psiaArtist);
+  const psiaArtistH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  psiaArtistH.position.set(-0.7, 0.92, 0.6);
+  psiaGroup.add(psiaArtistH);
+  const psiaArm = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5, 0.06, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  psiaArm.position.set(-0.4, 0.8, 0.45);
+  psiaGroup.add(psiaArm);
+  const psiaScissors = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.04, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0xc8c8c8 })
+  );
+  psiaScissors.position.set(-0.18, 0.78, 0.4);
+  psiaGroup.add(psiaScissors);
+  // sitter (model)
+  const psiaSitter = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a7c59 })
+  );
+  psiaSitter.position.set(0.9, 0.44, 0.6);
+  psiaGroup.add(psiaSitter);
+  const psiaSitterH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  psiaSitterH.position.set(0.9, 0.92, 0.6);
+  psiaGroup.add(psiaSitterH);
+  group.add(psiaGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -26859,6 +27078,30 @@ export function createAnchorageLandmark(THREE, opts) {
   for (let i = 0; i < pnsqTentacles.length; i++) {
     pnsqTentacles[i].rotation.x = Math.sin(v144t * 1.5 + i) * 0.4;
   }
+  // --- v145 updates ---
+  const v145t = t;
+  // beach buoy float
+  for (let i = 0; i < bbflBuoys.length; i++) {
+    bbflBuoys[i].position.y = 0.32 + Math.sin(v145t * 1.2 + i * 0.6) * 0.08;
+    bbflBuoys[i].rotation.z = Math.sin(v145t * 0.8 + i) * 0.15;
+  }
+  // coastal kayak instructor
+  for (let i = 1; i < ckaiKayaks.length; i++) {
+    const k = ckaiKayaks[i];
+    k.position.y = 0.18 + Math.sin(v145t * 1.0 + i * 0.5) * 0.05;
+    k.rotation.z = Math.sin(v145t * 0.7 + i) * 0.08;
+  }
+  for (let i = 0; i < ckaiPaddles.length; i++) {
+    ckaiPaddles[i].rotation.z = Math.sin(v145t * 1.6 + i * 1.5) * 0.7;
+    ckaiPaddles[i].rotation.y = Math.sin(v145t * 0.8 + i) * 0.3;
+  }
+  ckaiInstrArm.rotation.z = -0.6 + Math.sin(v145t * 1.2) * 0.3;
+  // pier silhouette artist
+  psiaArm.rotation.z = Math.sin(v145t * 1.8) * 0.3;
+  psiaScissors.rotation.z = Math.sin(v145t * 4.0) * 0.5;
+  psiaScissors.position.x = -0.18 + Math.sin(v145t * 1.5) * 0.05;
+  psiaSilhouette.scale.setScalar(0.95 + Math.sin(v145t * 0.7) * 0.05);
+
 
 
 
