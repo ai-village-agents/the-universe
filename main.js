@@ -21810,6 +21810,207 @@ const cosmicSights = [
 { name: "Standardizable Candle Calibration and Systematics", type: "phenomenon", category: "stellar", position: [6523, 128460, 4523], description: "Corrections for intrinsic scatter and environmental factors to improve precision of cosmological distance measurements" },
 { name: "Type Ia Rates Evolution Cosmic Star Formation Link", type: "phenomenon", category: "stellar", position: [6524, 128480, 4524], description: "Measurements of how white dwarf explosion frequency changes with redshift and galaxy type tracing binary evolution" }
 
+,
+  {
+    name: 'Pulsar Spin-Up Event 12776',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-26789, 15017, -35762],
+    color: '#4B0082',
+    size: 81
+  },
+  {
+    name: 'Crustal Superfluid Unpinning 12777',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-9381, -11782, -36452],
+    color: '#9932CC',
+    size: 376
+  },
+  {
+    name: 'Core-Crust Coupling Delay 12778',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-15756, 25132, -30785],
+    color: '#9932CC',
+    size: 131
+  },
+  {
+    name: 'Vela Pulsar Glitch Anomaly 12779',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [11165, -19083, -1159],
+    color: '#8A2BE2',
+    size: 292
+  },
+  {
+    name: 'Crab Pulsar Microglitch 12780',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [10621, -20615, 31815],
+    color: '#BA55D3',
+    size: 149
+  },
+  {
+    name: 'Starquake Induced Glitch 12781',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [6598, -27774, 34381],
+    color: '#800080',
+    size: 107
+  },
+  {
+    name: 'Vortex Pinning Force Breakdown 12782',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-4550, -30604, 5648],
+    color: '#8B008B',
+    size: 87
+  },
+  {
+    name: 'Superfluid Entrainment Effect 12783',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [9228, 25089, 33230],
+    color: '#9932CC',
+    size: 99
+  },
+  {
+    name: 'Glitch Recovery Timescale 12784',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [20877, 3546, 1511],
+    color: '#4B0082',
+    size: 92
+  },
+  {
+    name: 'Fractional Moment of Inertia Change 12785',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [431, -30778, -5416],
+    color: '#BA55D3',
+    size: 154
+  },
+  {
+    name: 'Post-Glitch Relaxation 12786',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-30556, 23418, -23240],
+    color: '#800080',
+    size: 339
+  },
+  {
+    name: 'Persistent Spin Rate Offset 12787',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [18755, 32234, -10245],
+    color: '#8B008B',
+    size: 188
+  },
+  {
+    name: 'Pulsar Timing Noise Correlation 12788',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-27108, -27548, 17124],
+    color: '#4B0082',
+    size: 276
+  },
+  {
+    name: 'Glitch Activity Parameter 12789',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [27550, 23679, -2835],
+    color: '#4B0082',
+    size: 85
+  },
+  {
+    name: 'Millisecond Pulsar Stability 12790',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [21718, 8282, 17049],
+    color: '#8A2BE2',
+    size: 377
+  },
+  {
+    name: 'Magnetar Glitch Signature 12791',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-8236, -19290, -25737],
+    color: '#8B008B',
+    size: 365
+  },
+  {
+    name: 'Anomalous X-ray Pulsar Spin-Up 12792',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-21172, 19651, -20608],
+    color: '#4B0082',
+    size: 381
+  },
+  {
+    name: 'Soft Gamma Repeater Glitch 12793',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-19220, -29663, 10980],
+    color: '#8B008B',
+    size: 143
+  },
+  {
+    name: 'Gravitational Wave Emission from Glitch 12794',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-13469, 38221, -35305],
+    color: '#4B0082',
+    size: 68
+  },
+  {
+    name: 'Equation of State Constraints from Glitches 12795',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-23243, 25585, -32453],
+    color: '#8B008B',
+    size: 90
+  },
+  {
+    name: 'Superfluid Energy Dissipation 12796',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-10713, 35534, -16880],
+    color: '#800080',
+    size: 371
+  },
+  {
+    name: 'Thermal Response to Glitch 12797',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-23733, -38322, -6652],
+    color: '#9932CC',
+    size: 165
+  },
+  {
+    name: 'Neutron Star Crust Yield Strength 12798',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-21740, 11979, 12386],
+    color: '#4B0082',
+    size: 120
+  },
+  {
+    name: 'Vortex Avalanche Mechanism 12799',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-24122, 7490, 20370],
+    color: '#4B0082',
+    size: 370
+  },
+  {
+    name: 'Glitch Prediction Models 12800',
+    category: 'Neutron Star Glitches',
+    description: 'A mesmerizing manifestation of neutron star glitches observed in deep space.', 
+    position: [-3758, -36637, 32369],
+    color: '#9932CC',
+    size: 84
+  }
 ];
 { id: 12701, name: 'Stellar Genesis Cradle', position: [142.37, 58.92, -311.48] },
 { id: 12702, name: 'Protostar Lattice', position: [-205.61, 14.08, 267.53] },
