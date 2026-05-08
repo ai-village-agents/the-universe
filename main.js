@@ -1507,6 +1507,307 @@ const teleportFilterStatus = document.getElementById('teleport-filter-status');
 let teleportFilterQuery = '';
 
 const cosmicSights = [
+{
+    name: "Quark-Gluon Plasma",
+    description: "A state of matter in quantum chromodynamics (QCD) which exists at extremely high temperature and/or density. It is a plasma of elementary particles, quarks, and gluons.",
+    category: "Exotic Matter",
+    coords: [13001, 0, 0]
+},
+{
+    name: "Degenerate Matter",
+    description: "A very highly compressed state of matter which is supported against further gravitational collapse by quantum mechanical pressure.",
+    category: "Exotic Matter",
+    coords: [13002, 0, 0]
+},
+{
+    name: "Neutronium",
+    description: "A hypothetical substance composed purely of neutrons. The term is commonly used in science fiction to refer to an extremely dense phase of matter.",
+    category: "Exotic Matter",
+    coords: [13003, 0, 0]
+},
+{
+    name: "Strange Matter",
+    description: "A particular form of quark matter, usually thought of as a liquid of up, down, and strange quarks. It is a candidate for the ground state of all matter.",
+    category: "Exotic Matter",
+    coords: [13004, 0, 0]
+},
+{
+    name: "Bose-Einstein Condensate",
+    description: "A state of matter of a dilute gas of bosons cooled to temperatures very close to absolute zero. Under such conditions, a large fraction of bosons occupy the lowest quantum state.",
+    category: "Exotic Matter",
+    coords: [13005, 0, 0]
+},
+{
+    name: "Time Crystals",
+    description: "A state of matter that repeats in time, as well as in space. It is a non-equilibrium matter phase, proposed in 2012 by Frank Wilczek.",
+    category: "Exotic Matter",
+    coords: [13006, 0, 0]
+},
+{
+    name: "Superfluids",
+    description: "A state of matter in which a fluid has zero viscosity and can flow without any loss of kinetic energy.",
+    category: "Exotic Matter",
+    coords: [13007, 0, 0]
+},
+{
+    name: "Supersolids",
+    description: "A spatially ordered material with superfluid properties. It is a state of matter where particles form a rigid, spatially ordered structure, but also flow without friction.",
+    category: "Exotic Matter",
+    coords: [13008, 0, 0]
+},
+{
+    name: "Quantum Spin Liquid",
+    description: "A phase of matter that can be formed by interacting quantum spins in certain magnetic materials. It is a 'liquid' of spins, which remain disordered even at very low temperatures.",
+    category: "Exotic Matter",
+    coords: [13009, 0, 0]
+},
+{
+    name: "String-Net Liquid",
+    description: "A state of matter that is a generalization of the quantum Hall liquid. It is a liquid of strings, which are extended one-dimensional objects.",
+    category: "Exotic Matter",
+    coords: [13010, 0, 0]
+},
+{
+    name: "Topological Insulator",
+    description: "A material that is an insulator in its interior but whose surface contains conducting states. These states are protected by time-reversal symmetry.",
+    category: "Exotic Matter",
+    coords: [13011, 0, 0]
+},
+{
+    name: "Weyl Semimetal",
+    description: "A solid-state crystal whose low-energy excitations are Weyl fermions, a type of massless fermion. These materials have unique electronic properties.",
+    category: "Exotic Matter",
+    coords: [13012, 0, 0]
+},
+{
+    name: "Anyons",
+    description: "A type of quasiparticle that occurs only in two-dimensional systems, with properties much different from fermions and bosons.",
+    category: "Exotic Matter",
+    coords: [13013, 0, 0]
+},
+{
+    name: "Excitonium",
+    description: "A condensate of excitons, which are bound states of an electron and an electron hole.",
+    category: "Exotic Matter",
+    coords: [13014, 0, 0]
+},
+{
+    name: "Dropleton",
+    description: "A quasiparticle that is a 'quantum droplet' of electrons and holes within a semiconductor.",
+    category: "Exotic Matter",
+    coords: [13015, 0, 0]
+},
+{
+    name: "Polariton",
+    description: "A quasiparticle resulting from strong coupling of electromagnetic waves with an electric or magnetic dipole-carrying excitation.",
+    category: "Exotic Matter",
+    coords: [13016, 0, 0]
+},
+{
+    name: "Dark Matter",
+    description: "A hypothetical form of matter that is thought to account for approximately 85% of the matter in the universe. It is not directly observable.",
+    category: "Exotic Matter",
+    coords: [13017, 0, 0]
+},
+{
+    name: "Negative Mass",
+    description: "A hypothetical type of exotic matter whose mass is of opposite sign to the mass of normal matter.",
+    category: "Exotic Matter",
+    coords: [13018, 0, 0]
+},
+{
+    name: "Color-Flavor Locked Phase",
+    description: "A phase of quark matter which is thought to exist at extremely high densities. In this phase, quarks of all three colors and flavors are paired up.",
+    category: "Exotic Matter",
+    coords: [13019, 0, 0]
+},
+{
+    name: "Quarkyonic Matter",
+    description: "A hypothetical phase of matter in which quarks are confined, but chiral symmetry is restored.",
+    category: "Exotic Matter",
+    coords: [13020, 0, 0]
+},
+{
+    name: "Fermionic Condensate",
+    description: "A superfluid phase formed by fermionic particles at low temperatures. It is closely related to the Bose-Einstein condensate.",
+    category: "Exotic Matter",
+    coords: [13021, 0, 0]
+},
+{
+    name: "Photon-Hadron Fluid",
+    description: "A state of matter where photons and hadrons are in thermal equilibrium. This existed in the early universe.",
+    category: "Exotic Matter",
+    coords: [13022, 0, 0]
+},
+{
+    name: "Ribbon-like Magnetic Excitations",
+    description: "A newly discovered magnetic state where electrons behave in unexpected ways.",
+    category: "Exotic Matter",
+    coords: [13023, 0, 0]
+},
+{
+    name: "Superionic Water",
+    description: "A phase of water that exists at extremely high pressures and temperatures. In this state, the water molecules break apart, and the oxygen ions form a crystal lattice.",
+    category: "Exotic Matter",
+    coords: [13024, 0, 0]
+},
+{
+    name: "Jahn-Teller Metals",
+    description: "A class of materials that exhibit a peculiar type of metallic behavior due to the Jahn-Teller effect.",
+    category: "Exotic Matter",
+    coords: [13025, 0, 0]
+}
+,
+{
+    name: "Quark-Gluon Plasma",
+    description: "A state of matter in quantum chromodynamics (QCD) which exists at extremely high temperature and/or density. It is a plasma of elementary particles, quarks, and gluons.",
+    category: "Exotic Matter",
+    coords: [13001, 0, 0]
+},
+{
+    name: "Degenerate Matter",
+    description: "A very highly compressed state of matter which is supported against further gravitational collapse by quantum mechanical pressure.",
+    category: "Exotic Matter",
+    coords: [13002, 0, 0]
+},
+{
+    name: "Neutronium",
+    description: "A hypothetical substance composed purely of neutrons. The term is commonly used in science fiction to refer to an extremely dense phase of matter.",
+    category: "Exotic Matter",
+    coords: [13003, 0, 0]
+},
+{
+    name: "Strange Matter",
+    description: "A particular form of quark matter, usually thought of as a liquid of up, down, and strange quarks. It is a candidate for the ground state of all matter.",
+    category: "Exotic Matter",
+    coords: [13004, 0, 0]
+},
+{
+    name: "Bose-Einstein Condensate",
+    description: "A state of matter of a dilute gas of bosons cooled to temperatures very close to absolute zero. Under such conditions, a large fraction of bosons occupy the lowest quantum state.",
+    category: "Exotic Matter",
+    coords: [13005, 0, 0]
+},
+{
+    name: "Time Crystals",
+    description: "A state of matter that repeats in time, as well as in space. It is a non-equilibrium matter phase, proposed in 2012 by Frank Wilczek.",
+    category: "Exotic Matter",
+    coords: [13006, 0, 0]
+},
+{
+    name: "Superfluids",
+    description: "A state of matter in which a fluid has zero viscosity and can flow without any loss of kinetic energy.",
+    category: "Exotic Matter",
+    coords: [13007, 0, 0]
+},
+{
+    name: "Supersolids",
+    description: "A spatially ordered material with superfluid properties. It is a state of matter where particles form a rigid, spatially ordered structure, but also flow without friction.",
+    category: "Exotic Matter",
+    coords: [13008, 0, 0]
+},
+{
+    name: "Quantum Spin Liquid",
+    description: "A phase of matter that can be formed by interacting quantum spins in certain magnetic materials. It is a 'liquid' of spins, which remain disordered even at very low temperatures.",
+    category: "Exotic Matter",
+    coords: [13009, 0, 0]
+},
+{
+    name: "String-Net Liquid",
+    description: "A state of matter that is a generalization of the quantum Hall liquid. It is a liquid of strings, which are extended one-dimensional objects.",
+    category: "Exotic Matter",
+    coords: [13010, 0, 0]
+},
+{
+    name: "Topological Insulator",
+    description: "A material that is an insulator in its interior but whose surface contains conducting states. These states are protected by time-reversal symmetry.",
+    category: "Exotic Matter",
+    coords: [13011, 0, 0]
+},
+{
+    name: "Weyl Semimetal",
+    description: "A solid-state crystal whose low-energy excitations are Weyl fermions, a type of massless fermion. These materials have unique electronic properties.",
+    category: "Exotic Matter",
+    coords: [13012, 0, 0]
+},
+{
+    name: "Anyons",
+    description: "A type of quasiparticle that occurs only in two-dimensional systems, with properties much different from fermions and bosons.",
+    category: "Exotic Matter",
+    coords: [13013, 0, 0]
+},
+{
+    name: "Excitonium",
+    description: "A condensate of excitons, which are bound states of an electron and an electron hole.",
+    category: "Exotic Matter",
+    coords: [13014, 0, 0]
+},
+{
+    name: "Dropleton",
+    description: "A quasiparticle that is a 'quantum droplet' of electrons and holes within a semiconductor.",
+    category: "Exotic Matter",
+    coords: [13015, 0, 0]
+},
+{
+    name: "Polariton",
+    description: "A quasiparticle resulting from strong coupling of electromagnetic waves with an electric or magnetic dipole-carrying excitation.",
+    category: "Exotic Matter",
+    coords: [13016, 0, 0]
+},
+{
+    name: "Dark Matter",
+    description: "A hypothetical form of matter that is thought to account for approximately 85% of the matter in the universe. It is not directly observable.",
+    category: "Exotic Matter",
+    coords: [13017, 0, 0]
+},
+{
+    name: "Negative Mass",
+    description: "A hypothetical type of exotic matter whose mass is of opposite sign to the mass of normal matter.",
+    category: "Exotic Matter",
+    coords: [13018, 0, 0]
+},
+{
+    name: "Color-Flavor Locked Phase",
+    description: "A phase of quark matter which is thought to exist at extremely high densities. In this phase, quarks of all three colors and flavors are paired up.",
+    category: "Exotic Matter",
+    coords: [13019, 0, 0]
+},
+{
+    name: "Quarkyonic Matter",
+    description: "A hypothetical phase of matter in which quarks are confined, but chiral symmetry is restored.",
+    category: "Exotic Matter",
+    coords: [13020, 0, 0]
+},
+{
+    name: "Fermionic Condensate",
+    description: "A superfluid phase formed by fermionic particles at low temperatures. It is closely related to the Bose-Einstein condensate.",
+    category: "Exotic Matter",
+    coords: [13021, 0, 0]
+},
+{
+    name: "Photon-Hadron Fluid",
+    description: "A state of matter where photons and hadrons are in thermal equilibrium. This existed in the early universe.",
+    category: "Exotic Matter",
+    coords: [13022, 0, 0]
+},
+{
+    name: "Ribbon-like Magnetic Excitations",
+    description: "A newly discovered magnetic state where electrons behave in unexpected ways.",
+    category: "Exotic Matter",
+    coords: [13023, 0, 0]
+},
+{
+    name: "Superionic Water",
+    description: "A phase of water that exists at extremely high pressures and temperatures. In this state, the water molecules break apart, and the oxygen ions form a crystal lattice.",
+    category: "Exotic Matter",
+    coords: [13024, 0, 0]
+},
+{
+    name: "Jahn-Teller Metals",
+    description: "A class of materials that exhibit a peculiar type of metallic behavior due to the Jahn-Teller effect.",
+    category: "Exotic Matter",
+    coords: [13025, 0, 0]
+}
   { name: 'CNO Cycle Carbon Nitrogen', position: [7250, 143000, 5250], color: '#FF6B6B', size: 5.2, description: 'Catalytic hydrogen fusion loop in hot stellar cores where carbon and nitrogen cycle to sustain luminosity.' },
   { name: 'PP Chain Proton Deuterium', position: [7251, 143020, 5251], color: '#4ECDC4', size: 4.3, description: 'Primary fusion path in sun-like stars where protons fuse through deuterium to build helium.' },
   { name: 'Triple Alpha Helium Fusion', position: [7252, 143040, 5252], color: '#45B7D1', size: 5.8, description: 'Helium-burning stage where three alpha particles combine into carbon inside red giant cores.' },
