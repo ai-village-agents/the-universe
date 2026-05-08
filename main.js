@@ -18932,7 +18932,207 @@ const cosmicSights = [
 { name: 'Double Degenerate Merger 12072', category: 'Stellar Remnants', description: 'Gravitational wave-driven coalescence of white dwarf binary systems.', position: [5796, 113920, 3796], color: '#DDA0DD', size: 140 },
 { name: 'Type Ia Progenitor Identification 12073', category: 'Stellar Remnants', description: 'Single-degenerate vs double-degenerate explosion pathways and observables.', position: [5797, 113940, 3797], color: '#FFA500', size: 140 },
 { name: 'Neutron Star Kinematics 12074', category: 'Compact Objects', description: 'Pulsar space velocities from supernova kicks and binary disruption.', position: [5798, 113960, 3798], color: '#00FF00', size: 140 },
-{ name: 'Stellar Remnant Evolution Endpoints 12075', category: 'Stellar Remnants', description: 'Final fate of compact object systems through gravitational waves and cooling.', position: [5799, 113980, 3799], color: '#87CEEB', size: 140 }
+{ name: 'Stellar Remnant Evolution Endpoints 12075', category: 'Stellar Remnants', description: 'Final fate of compact object systems through gravitational waves and cooling.', position: [5799, 113980, 3799], color: '#87CEEB', size: 140 },
+{
+  name: 'Computational N-body Gravitational Integration 12051',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [5800, 114000, 3800],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12052',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [5920, 114080, 3740],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12053',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6040, 114160, 3680],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12054',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6160, 114240, 3620],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12055',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6280, 114320, 3560],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12056',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6400, 114400, 3500],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12057',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6520, 114480, 3440],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12058',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6640, 114560, 3380],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12059',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6760, 114640, 3320],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12060',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [6880, 114720, 3260],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12061',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7000, 114800, 3200],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12062',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7120, 114880, 3140],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12063',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7240, 114960, 3080],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12064',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7360, 115040, 3020],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12065',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7480, 115120, 2960],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12066',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7600, 115200, 2900],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12067',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7720, 115280, 2840],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12068',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7840, 115360, 2780],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12069',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [7960, 115440, 2720],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12070',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8080, 115520, 2660],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12071',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8200, 115600, 2600],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12072',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8320, 115680, 2540],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12073',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8440, 115760, 2480],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12074',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8560, 115840, 2420],
+  color: '#FF6B6B',
+  size: 200
+},
+{
+  name: 'Computational N-body Gravitational Integration 12075',
+  category: 'Computational Astrophysics',
+  description: 'Direct numerical solution of Newtonian dynamics for stellar clusters, using leapfrog integrators with adaptive time steps.',
+  position: [8680, 115920, 2360],
+  color: '#FF6B6B',
+  size: 200
+}
 
 ,
 { name: 'Relativistic Beaming 12076', category: 'Relativistic Astrophysics', description: 'Doppler enhancement and suppression of emission from relativistic jets.', position: [5800, 114000, 3800], color: '#FF6B6B', size: 140 },
