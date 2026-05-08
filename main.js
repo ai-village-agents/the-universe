@@ -19889,6 +19889,207 @@ const cosmicSights = [
   { name: 'CMB Polarization Rotation Cosmic Birefringence', position: [155, -355, 78], color: '#4caf50', description: 'anomalous rotation of polarization angle from parity-violating physics' },
   { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
   { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
+,
+  {
+    name: 'Zero-Point Energy Matrix 12301',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-30428, -38639, -36565],
+    color: '#9370DB',
+    size: 97
+  },
+  {
+    name: 'Casimir Effect Anomaly 12302',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [17105, 31807, -30160],
+    color: '#DDA0DD',
+    size: 151
+  },
+  {
+    name: 'Quantum Foam Turbulence 12303',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-39806, -16628, -37977],
+    color: '#DDA0DD',
+    size: 161
+  },
+  {
+    name: 'Virtual Particle Genesis 12304',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-28277, -11607, -27168],
+    color: '#8A2BE2',
+    size: 244
+  },
+  {
+    name: 'Vacuum Energy Geyser 12305',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-39649, -32183, -35559],
+    color: '#4B0082',
+    size: 87
+  },
+  {
+    name: 'Dirac Sea Riptide 12306',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-18292, 31611, 37424],
+    color: '#4B0082',
+    size: 159
+  },
+  {
+    name: 'Subatomic Fluctuation Node 12307',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-26410, 34183, 5930],
+    color: '#BA55D3',
+    size: 195
+  },
+  {
+    name: 'Planck Scale Tremor 12308',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-32089, -552, -34657],
+    color: '#DDA0DD',
+    size: 233
+  },
+  {
+    name: 'Quantum Entanglement Web 12309',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [25971, 17432, 21521],
+    color: '#EE82EE',
+    size: 225
+  },
+  {
+    name: 'Vacuum Polarization Zone 12310',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-699, 18751, -38539],
+    color: '#BA55D3',
+    size: 90
+  },
+  {
+    name: 'Spontaneous Symmetry Breaking Void 12311',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [5172, -19882, 22096],
+    color: '#4B0082',
+    size: 238
+  },
+  {
+    name: 'Higgs Field Ripple 12312',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-13747, -19545, -25477],
+    color: '#EE82EE',
+    size: 373
+  },
+  {
+    name: 'String Theory Nexus 12313',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-38186, -6161, 32490],
+    color: '#BA55D3',
+    size: 186
+  },
+  {
+    name: 'M-Theory Membrane Collision 12314',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-9018, -23257, 349],
+    color: '#DDA0DD',
+    size: 360
+  },
+  {
+    name: 'Calabi-Yau Manifold Fold 12315',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [13394, 11314, -33043],
+    color: '#BA55D3',
+    size: 60
+  },
+  {
+    name: 'Tachyon Condensate Cloud 12316',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [11007, -24920, -38180],
+    color: '#DDA0DD',
+    size: 219
+  },
+  {
+    name: 'Hawking Radiation Echo 12317',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-37275, -5555, 10677],
+    color: '#EE82EE',
+    size: 102
+  },
+  {
+    name: 'Wormhole Genesis Point 12318',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-2161, -14511, -22029],
+    color: '#8A2BE2',
+    size: 200
+  },
+  {
+    name: 'Quantum Tunneling Gateway 12319',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [28436, -36124, -533],
+    color: '#EE82EE',
+    size: 132
+  },
+  {
+    name: 'Superposition State Collapse 12320',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-28710, -21850, 3568],
+    color: '#DDA0DD',
+    size: 373
+  },
+  {
+    name: 'Schrodingers Cat Paradox Zone 12321',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-7286, -903, 3956],
+    color: '#BA55D3',
+    size: 279
+  },
+  {
+    name: 'Heisenberg Uncertainty Field 12322',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [16004, 11442, 10341],
+    color: '#EE82EE',
+    size: 307
+  },
+  {
+    name: 'Bells Theorem Proving Ground 12323',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-28225, -39222, 18214],
+    color: '#8A2BE2',
+    size: 298
+  },
+  {
+    name: 'Quantum Teleportation Relay 12324',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-37959, -7283, -19272],
+    color: '#4B0082',
+    size: 328
+  },
+  {
+    name: 'Information Paradox Horizon 12325',
+    category: 'Quantum Vacuum Fluctuations',
+    description: 'A mesmerizing manifestation of quantum vacuum fluctuations observed in deep space.', 
+    position: [-36238, 6036, -12838],
+    color: '#9370DB',
+    size: 383
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
