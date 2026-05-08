@@ -26242,6 +26242,94 @@ export function createAnchorageLandmark(THREE, opts) {
   bdrnFinish.position.set(3.5, 1.5, 0);
   bdrnGroup.add(bdrnFinish);
 
+  // v160: Pier Compass Workshop (pcwk) — east pier
+  const pcwkGroup = new THREE.Group();
+  pcwkGroup.position.set(120, 0, -30);
+  const pcwkBench = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.9, 1.2),
+    new THREE.MeshLambertMaterial({ color: 0x6b4a2b })
+  );
+  pcwkBench.position.y = 0.45;
+  pcwkGroup.add(pcwkBench);
+  const pcwkCompass = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.5, 0.5, 0.08, 32),
+    new THREE.MeshLambertMaterial({ color: 0xeed9a8 })
+  );
+  pcwkCompass.position.set(0, 0.95, 0);
+  pcwkGroup.add(pcwkCompass);
+  const pcwkNeedle = new THREE.Mesh(
+    new THREE.BoxGeometry(0.9, 0.04, 0.08),
+    new THREE.MeshLambertMaterial({ color: 0xc23030 })
+  );
+  pcwkNeedle.position.set(0, 1.0, 0);
+  pcwkGroup.add(pcwkNeedle);
+  const pcwkLamp = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xffe0a0, emissive: 0xff9a3a, emissiveIntensity: 0.6 })
+  );
+  pcwkLamp.position.set(0.9, 1.4, 0);
+  pcwkGroup.add(pcwkLamp);
+  group.add(pcwkGroup);
+
+  // v160: Beach Starfish ID Station (bsid) — south beach
+  const bsidGroup = new THREE.Group();
+  bsidGroup.position.set(-30, 0, 90);
+  const bsidTable = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.7, 1.4),
+    new THREE.MeshLambertMaterial({ color: 0x8a6a40 })
+  );
+  bsidTable.position.y = 0.35;
+  bsidGroup.add(bsidTable);
+  const bsidStarMat = new THREE.MeshLambertMaterial({ color: 0xff7755 });
+  const bsidStars = [];
+  for (let i = 0; i < 5; i++) {
+    const arm = new THREE.Mesh(
+      new THREE.ConeGeometry(0.18, 0.5, 5),
+      bsidStarMat
+    );
+    const ang = (i / 5) * Math.PI * 2;
+    arm.position.set(Math.cos(ang) * 0.25 - 0.5, 0.75, Math.sin(ang) * 0.25);
+    arm.rotation.z = Math.PI / 2;
+    arm.rotation.y = ang;
+    bsidGroup.add(arm);
+    bsidStars.push(arm);
+  }
+  const bsidSign = new THREE.Mesh(
+    new THREE.BoxGeometry(1.2, 0.5, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0xfff7d6 })
+  );
+  bsidSign.position.set(0.7, 1.1, 0);
+  bsidGroup.add(bsidSign);
+  group.add(bsidGroup);
+
+  // v160: Coastal Jelly Tank (cjtk) — north shore
+  const cjtkGroup = new THREE.Group();
+  cjtkGroup.position.set(-90, 0, -50);
+  const cjtkTank = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.2, 1.2, 2.2, 24, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0x66c9ff, transparent: true, opacity: 0.35, side: THREE.DoubleSide })
+  );
+  cjtkTank.position.y = 1.1;
+  cjtkGroup.add(cjtkTank);
+  const cjtkBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.3, 1.3, 0.2, 24),
+    new THREE.MeshLambertMaterial({ color: 0x445566 })
+  );
+  cjtkBase.position.y = 0.1;
+  cjtkGroup.add(cjtkBase);
+  const cjtkJellies = [];
+  const cjtkJellyMat = new THREE.MeshLambertMaterial({ color: 0xffaadd, transparent: true, opacity: 0.7 });
+  for (let i = 0; i < 4; i++) {
+    const jelly = new THREE.Mesh(
+      new THREE.SphereGeometry(0.22, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2),
+      cjtkJellyMat
+    );
+    jelly.position.set(Math.cos(i) * 0.5, 1.0 + i * 0.3, Math.sin(i) * 0.5);
+    cjtkGroup.add(jelly);
+    cjtkJellies.push(jelly);
+  }
+  group.add(cjtkGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -29956,6 +30044,24 @@ export function createAnchorageLandmark(THREE, opts) {
     bdrnPilots[i].head.rotation.y = (drone.group.position.x - bdrnPilots[i].head.position.x) * 0.1;
   }
   bdrnFinish.position.y = 1.5 + Math.sin(v159t * 2.0) * 0.04;
+
+  // v160: pcwk compass needle slow rotation, lamp flicker
+  const v160t = t;
+  pcwkNeedle.rotation.y = Math.sin(v160t * 0.4) * 0.2 + v160t * 0.1;
+  pcwkLamp.material.emissiveIntensity = 0.5 + Math.sin(v160t * 6.0) * 0.15;
+
+  // v160: bsid starfish gentle bob
+  for (let i = 0; i < bsidStars.length; i++) {
+    bsidStars[i].position.y = 0.75 + Math.sin(v160t * 1.5 + i) * 0.04;
+  }
+
+  // v160: cjtk jellies bob and pulse
+  for (let i = 0; i < cjtkJellies.length; i++) {
+    cjtkJellies[i].position.y = 1.0 + i * 0.3 + Math.sin(v160t * 0.8 + i * 0.7) * 0.18;
+    const s = 1.0 + Math.sin(v160t * 1.4 + i) * 0.12;
+    cjtkJellies[i].scale.set(s, 0.9 + Math.sin(v160t * 1.4 + i) * 0.1, s);
+  }
+
 
 
 
