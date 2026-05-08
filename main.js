@@ -13456,7 +13456,107 @@ const cosmicSights = [
   {"name": "Magnetohydrodynamic Dynamo 11172", "description": "A massive churning dynamo generating incredible magnetic fields.", "position": [183190, -844095, -756117]},
   {"name": "Plasma Pinch Point 11173", "description": "A volatile region where magnetic forces compress plasma to extreme densities.", "position": [75178, -491856, -713518]},
   {"name": "Stellar Spectroscopy Node 11174", "description": "Analyzing the light curves of distant ancient stars.", "position": [815582, 176236, 709213]},
-  {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]}
+  {"name": "Hypervelocity Star Track 11175", "description": "The glowing trail left by a star ejected from a galactic center.", "position": [234526, 984993, -228945]},
+  {
+    "name": "Muon Veto Coincidence",
+    "position": [5450, 107000, 3450]
+  },
+  {
+    "name": "GeV Energy Threshold",
+    "position": [5451, 107020, 3451]
+  },
+  {
+    "name": "Silicon Microstrip Array",
+    "position": [5452, 107040, 3452]
+  },
+  {
+    "name": "Superconducting Toroid",
+    "position": [5453, 107060, 3453]
+  },
+  {
+    "name": "Liquid Argon Calorimeter",
+    "position": [5454, 107080, 3454]
+  },
+  {
+    "name": "Jet Energy Correction",
+    "position": [5455, 107100, 3455]
+  },
+  {
+    "name": "Transverse Momentum Cut",
+    "position": [5456, 107120, 3456]
+  },
+  {
+    "name": "Isolation Cone Selection",
+    "position": [5457, 107140, 3457]
+  },
+  {
+    "name": "Missing Transverse Energy",
+    "position": [5458, 107160, 3458]
+  },
+  {
+    "name": "Di-Lepton Invariant Mass",
+    "position": [5459, 107180, 3459]
+  },
+  {
+    "name": "Asymmetric Dilepton Decay",
+    "position": [5460, 107200, 3460]
+  },
+  {
+    "name": "Transverse Momentum Balance",
+    "position": [5461, 107220, 3461]
+  },
+  {
+    "name": "Pseudorapidity Coverage",
+    "position": [5462, 107240, 3462]
+  },
+  {
+    "name": "Angular Momentum Conservation",
+    "position": [5463, 107260, 3463]
+  },
+  {
+    "name": "Asymptotic Freedom Running",
+    "position": [5464, 107280, 3464]
+  },
+  {
+    "name": "Color Confinement Scale",
+    "position": [5465, 107300, 3465]
+  },
+  {
+    "name": "Quantum Chromodynamics Loop",
+    "position": [5466, 107320, 3466]
+  },
+  {
+    "name": "Cross Section Measurement",
+    "position": [5467, 107340, 3467]
+  },
+  {
+    "name": "Branching Ratio Determination",
+    "position": [5468, 107360, 3468]
+  },
+  {
+    "name": "Acceptance Efficiency Product",
+    "position": [5469, 107380, 3469]
+  },
+  {
+    "name": "Background Subtraction Technique",
+    "position": [5470, 107400, 3470]
+  },
+  {
+    "name": "Systematic Uncertainty Analysis",
+    "position": [5471, 107420, 3471]
+  },
+  {
+    "name": "Monte Carlo Event Generator",
+    "position": [5472, 107440, 3472]
+  },
+  {
+    "name": "Fast Detector Simulation",
+    "position": [5473, 107460, 3473]
+  },
+  {
+    "name": "Reconstructed Particle Momentum",
+    "position": [5474, 107480, 3474]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
