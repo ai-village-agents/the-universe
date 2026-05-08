@@ -20368,6 +20368,207 @@ const cosmicSights = [
   {"name":"Gravitational Wave Polarization Analyzer","position":[590,40,-850],"color":"#9d4edd","description":"An analyzer separating tensor polarization patterns across a network of detectors."},
   {"name":"Multi-Observatory Trigger Broker","position":[605,55,-865],"color":"#48cae4","description":"A broker routing alerts between gravitational-wave, neutrino, gamma-ray, optical, and radio observatories."},
   {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."}
+,
+  {
+    name: 'Cold Spot Core 12426',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-13748, -24443, 32347],
+    color: '#FFD700',
+    size: 72
+  },
+  {
+    name: 'Axis of Evil Alignment 12427',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [17179, 20598, -21163],
+    color: '#FFD700',
+    size: 225
+  },
+  {
+    name: 'CMB Dipole Void 12428',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [26286, 32033, -27085],
+    color: '#FFD700',
+    size: 378
+  },
+  {
+    name: 'Great Attractor Pull 12429',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [5932, -1305, -14721],
+    color: '#FF4500',
+    size: 225
+  },
+  {
+    name: 'Shapley Supercluster Filament 12430',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-21277, -6886, -30286],
+    color: '#FFA500',
+    size: 73
+  },
+  {
+    name: 'Dipole Repeller Void 12431',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-26805, 32065, 24393],
+    color: '#FF4500',
+    size: 302
+  },
+  {
+    name: 'CMB Quadrupole Anomaly 12432',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [31455, 28359, -27599],
+    color: '#FFA500',
+    size: 81
+  },
+  {
+    name: 'Octupole Alignment Phenomenon 12433',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-27327, 1299, -3399],
+    color: '#FF8C00',
+    size: 273
+  },
+  {
+    name: 'Hemispherical Power Asymmetry 12434',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [16236, -7068, -38308],
+    color: '#FF8C00',
+    size: 263
+  },
+  {
+    name: 'B Mode Polarization Signal 12435',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-2691, 32861, -18223],
+    color: '#FFD700',
+    size: 103
+  },
+  {
+    name: 'E Mode Polarization Swirl 12436',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [15915, 26525, -34454],
+    color: '#FF8C00',
+    size: 303
+  },
+  {
+    name: 'Primordial Gravitational Wave Imprint 12437',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [34102, 35390, -33422],
+    color: '#B8860B',
+    size: 72
+  },
+  {
+    name: 'Cosmic String Signature 12438',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [28428, -1032, 16187],
+    color: '#FFD700',
+    size: 334
+  },
+  {
+    name: 'SZ Effect Cluster 12439',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-6225, -34384, 22188],
+    color: '#FFD700',
+    size: 363
+  },
+  {
+    name: 'Kinematic SZ Anomaly 12440',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-7861, 38631, 5517],
+    color: '#FFA500',
+    size: 347
+  },
+  {
+    name: 'Thermal SZ Fluctuation 12441',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-36668, 4492, 19226],
+    color: '#B8860B',
+    size: 225
+  },
+  {
+    name: 'CMB Lensing Distortion 12442',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [36000, -8568, 6092],
+    color: '#FF4500',
+    size: 163
+  },
+  {
+    name: 'ISW Effect Anomaly 12443',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [17000, 23027, -33247],
+    color: '#FF8C00',
+    size: 253
+  },
+  {
+    name: 'Reionization Epoch Bubble 12444',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [31777, -14926, -6314],
+    color: '#FF4500',
+    size: 371
+  },
+  {
+    name: 'Dark Flow Trajectory 12445',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [7986, -23119, -27999],
+    color: '#FFD700',
+    size: 279
+  },
+  {
+    name: 'CMB Cold Spot Periphery 12446',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-31512, -31217, -21844],
+    color: '#FFA500',
+    size: 306
+  },
+  {
+    name: 'Sachs Wolfe Plateau 12447',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [27540, 23904, 33723],
+    color: '#FF4500',
+    size: 131
+  },
+  {
+    name: 'Acoustic Peak Resonance 12448',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [11841, -26134, 24740],
+    color: '#FFD700',
+    size: 246
+  },
+  {
+    name: 'Damping Tail Fluctuation 12449',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [572, 963, 30692],
+    color: '#B8860B',
+    size: 135
+  },
+  {
+    name: 'Primordial Non Gaussianity Signature 12450',
+    category: 'Cosmic Microwave Background Anomalies',
+    description: 'A mesmerizing manifestation of cosmic microwave background anomalies observed in deep space.', 
+    position: [-28465, 30114, -4936],
+    color: '#FFA500',
+    size: 174
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
