@@ -20420,6 +20420,207 @@ const cosmicSights = [
   { name: "TDE Binary Black Hole Signatures", type: "phenomenon", category: "transient", position: [4540, 1480, 3430], description: "Modified disruption dynamics revealing presence of binary supermassive black holes" },
   { name: "TDE Neutrino Emission Site", type: "phenomenon", category: "transient", position: [4550, 1490, 3440], description: "High-energy neutrino production in relativistic TDE jets" }
 
+,
+  {
+    name: 'Hot Jupiter Silicate Clouds 12476',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-21933, -38150, 3774],
+    color: '#8A2BE2',
+    size: 242
+  },
+  {
+    name: 'Water World Steam Envelope 12477',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [6069, 11530, -28659],
+    color: '#4B0082',
+    size: 159
+  },
+  {
+    name: 'Super Earth Iron Rain 12478',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-426, -8694, -21825],
+    color: '#00FFFF',
+    size: 330
+  },
+  {
+    name: 'Gas Giant Ammonia Haze 12479',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [6111, -1170, -36477],
+    color: '#00CED1',
+    size: 388
+  },
+  {
+    name: 'Ice Giant Methane Smog 12480',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [27774, 13442, -12670],
+    color: '#00BFFF',
+    size: 357
+  },
+  {
+    name: 'Carbon Planet Soot Layers 12481',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [27374, 8429, -32908],
+    color: '#FF1493',
+    size: 91
+  },
+  {
+    name: 'Lava World Rock Vapor 12482',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [2505, 21432, -15327],
+    color: '#F4A460',
+    size: 327
+  },
+  {
+    name: 'Terrestrial Nitrogen Dominance 12483',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-30073, 2192, -20892],
+    color: '#FF1493',
+    size: 346
+  },
+  {
+    name: 'Sub Neptune Hydrogen Helium 12484',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-22703, -5503, -6486],
+    color: '#778899',
+    size: 378
+  },
+  {
+    name: 'Ocean Planet Thick Vapor 12485',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [17339, 32533, -17624],
+    color: '#E6E6FA',
+    size: 195
+  },
+  {
+    name: 'Desert World Dust Storms 12486',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-447, -22547, -38870],
+    color: '#B0C4DE',
+    size: 258
+  },
+  {
+    name: 'Eyeball Planet Terminator Winds 12487',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [18451, -30968, -11062],
+    color: '#8A2BE2',
+    size: 221
+  },
+  {
+    name: 'Rogue Planet Frozen Atmosphere 12488',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-25909, 7178, -29515],
+    color: '#FFD700',
+    size: 119
+  },
+  {
+    name: 'Puffy Planet Low Density Gas 12489',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [39177, -36114, -31322],
+    color: '#E0FFFF',
+    size: 329
+  },
+  {
+    name: 'Mini Neptune Photochemical Haze 12490',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [10121, -23378, -23652],
+    color: '#DDA0DD',
+    size: 128
+  },
+  {
+    name: 'Tidally Locked Permanent Cyclone 12491',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [3975, -16227, 37544],
+    color: '#FF1493',
+    size: 133
+  },
+  {
+    name: 'Exo Venus Sulfuric Acid 12492',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [33216, 4799, -35194],
+    color: '#87CEEB',
+    size: 52
+  },
+  {
+    name: 'Exo Mars Thin Carbon Dioxide 12493',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [32810, 38132, 1124],
+    color: '#00BFFF',
+    size: 97
+  },
+  {
+    name: 'Chthonian Planet Stripped Core 12494',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-18921, 16161, 20068],
+    color: '#E0FFFF',
+    size: 200
+  },
+  {
+    name: 'Helium Planet Rare Gas 12495',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [2435, -33603, 5421],
+    color: '#B0C4DE',
+    size: 354
+  },
+  {
+    name: 'Diamond Planet Carbon Rich 12496',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [38956, -28627, -35813],
+    color: '#778899',
+    size: 373
+  },
+  {
+    name: 'Hycean Planet Hydrogen Ocean 12497',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-39704, 34664, -28527],
+    color: '#8A2BE2',
+    size: 84
+  },
+  {
+    name: 'Iron Planet Metallic Exosphere 12498',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [5430, 12624, -22845],
+    color: '#A9A9A9',
+    size: 339
+  },
+  {
+    name: 'Pulsar Planet Irradiated Gas 12499',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-17883, -14904, -16416],
+    color: '#2F4F4F',
+    size: 113
+  },
+  {
+    name: 'Super Jupiter Violent Storms 12500',
+    category: 'Exoplanetary Atmospheres',
+    description: 'A mesmerizing manifestation of exoplanetary atmospheres observed in deep space.', 
+    position: [-36828, 24763, -35866],
+    color: '#FF4500',
+    size: 266
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
