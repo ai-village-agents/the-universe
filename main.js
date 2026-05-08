@@ -21731,6 +21731,31 @@ const cosmicSights = [
     size: 277
   }
 ];
+{ id: 12701, name: 'Stellar Genesis Cradle', position: [142.37, 58.92, -311.48] },
+{ id: 12702, name: 'Protostar Lattice', position: [-205.61, 14.08, 267.53] },
+{ id: 12703, name: 'Nebula Accretion Spiral', position: [98.24, -72.15, 354.29] },
+{ id: 12704, name: 'Hydrogen Fusion Gate', position: [-362.48, 103.57, -189.64] },
+{ id: 12705, name: 'Helium Flash Beacon', position: [275.92, -45.33, 126.87] },
+{ id: 12706, name: 'Main Sequence Meridian', position: [-148.05, 212.49, -274.11] },
+{ id: 12707, name: 'Red Giant Bloom', position: [63.87, -189.72, 417.95] },
+{ id: 12708, name: 'Stellar Wind Cascade', position: [-318.66, 34.57, -356.42] },
+{ id: 12709, name: 'Mass Transfer Bridge', position: [241.03, 167.18, -92.51] },
+{ id: 12710, name: 'Blue Straggler Surge', position: [-64.29, -258.64, 303.88] },
+{ id: 12711, name: 'White Dwarf Ember', position: [186.77, 76.95, -428.63] },
+{ id: 12712, name: 'Nova Resonance Loop', position: [-412.58, -129.44, 148.12] },
+{ id: 12713, name: 'Supernova Remnant Shell', position: [52.61, 294.37, -217.46] },
+{ id: 12714, name: 'Neutron Star Gyre', position: [-273.92, 21.58, 382.77] },
+{ id: 12715, name: 'Pulsar Signal Array', position: [328.45, -211.63, -74.35] },
+{ id: 12716, name: 'Magnetar Flux Crown', position: [-97.14, 256.08, 268.41] },
+{ id: 12717, name: 'Binary Dance Nexus', position: [409.27, -63.52, 115.68] },
+{ id: 12718, name: 'Stellar Nursery Grove', position: [-238.66, 142.11, -341.27] },
+{ id: 12719, name: 'Accretion Disk Forge', position: [119.48, -334.75, 189.53] },
+{ id: 12720, name: 'Solar Flare Parabola', position: [-351.02, 188.94, -23.66] },
+{ id: 12721, name: 'Chromosphere Ribbon', position: [84.77, -118.53, -407.88] },
+{ id: 12722, name: 'Iron Core Collapse Vault', position: [-426.19, 72.08, 215.44] },
+{ id: 12723, name: 'Gravitational Wave Bloom', position: [276.55, -247.31, -162.87] },
+{ id: 12724, name: 'Protogalactic Outflow', position: [-182.04, 319.66, 94.28] },
+{ id: 12725, name: 'Stellar Recycling Loom', position: [137.86, -289.47, -256.19] }
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
 window.__universeCosmicSightsCount = cosmicSights.length;
