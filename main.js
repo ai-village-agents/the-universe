@@ -26083,7 +26083,32 @@ const cosmicSights = [
     position: [-21081, 35298, -4581],
     color: '#ff4500',
     size: 51
-  }
+  },
+{ name: 'BL Lacertae Blazar Variability', position: [8726, 1901, -5112], color: '#FF6B35', size: 5.2, description: 'BL Lac objects show featureless spectra and rapid variability from jet-dominated emission.' },
+    { name: 'FSRQ Flaring Episode', position: [-7214, 3088, 6901], color: '#E8553D', size: 5.0, description: 'Flat spectrum radio quasar flare with gamma-ray, optical, and radio brightening.' },
+    { name: 'OJ 287 Binary Black Hole Flare', position: [5192, -4215, 3877], color: '#FF4500', size: 5.4, description: 'Periodic optical outbursts from binary supermassive black hole orbital interaction.' },
+    { name: 'Intraday Variability Source', position: [-6033, 2755, -4198], color: '#DC143C', size: 4.8, description: 'Quasar showing brightness changes on timescales of hours from interstellar scintillation.' },
+    { name: 'Reverberation Mapping Campaign', position: [4411, -3622, 7012], color: '#B8860B', size: 5.0, description: 'Coordinated monitoring revealing BLR geometry through continuum-line time delays.' },
+    { name: 'Changing Look Quasar Transition', position: [-5188, 4901, -2766], color: '#9932CC', size: 5.3, description: 'Dramatic spectral type change from Type 1 to Type 2 on decade timescales.' },
+    { name: 'Microlensing Magnification Event', position: [7655, -1233, 4599], color: '#FFD700', size: 5.1, description: 'Stellar microlensing of quasar accretion disk revealing size and structure.' },
+    { name: 'Quasi-Periodic Oscillation Signal', position: [-3901, 5412, 6188], color: '#FF69B4', size: 4.9, description: 'Periodic X-ray brightness variations from inner accretion disk dynamics.' },
+    { name: 'Radio Jet Knot Motion', position: [6288, -5077, -1455], color: '#4169E1', size: 5.0, description: 'Superluminal apparent motion of VLBI components tracing relativistic jet flow.' },
+    { name: 'Optical Polarization Swing', position: [-4722, 1988, 5833], color: '#8A2BE2', size: 4.8, description: 'Rapid rotation of optical polarization angle during blazar flares.' },
+    { name: 'Gamma-Ray Blazar Outburst', position: [3199, 6101, -3944], color: '#00FF7F', size: 5.2, description: 'High-energy gamma emission spike from inverse Compton scattering in jet.' },
+    { name: 'Tidal Disruption Flare Decay', position: [-6911, -2344, 4677], color: '#FF6347', size: 5.0, description: 'Power-law decline of optical/UV emission from stellar debris fallback.' },
+    { name: 'AGN Dust Echo Reverberation', position: [5044, 3766, -6212], color: '#CD853F', size: 4.9, description: 'Infrared variability lagging optical by light-travel time to dusty torus.' },
+    { name: 'Seyfert Continuum Variability', position: [-2855, -4988, 7133], color: '#20B2AA', size: 4.7, description: 'Stochastic optical variations from accretion disk thermal fluctuations.' },
+    { name: 'X-Ray Binary Quasar Analog', position: [7812, 2199, 3066], color: '#FF1493', size: 5.1, description: 'Similar variability patterns linking stellar and supermassive black hole accretion.' },
+    { name: 'Radio Loud Quasar Core Flicker', position: [-5599, 4233, -1888], color: '#00CED1', size: 4.8, description: 'Compact VLBI core brightness variations on sub-parsec scales.' },
+    { name: 'Optical Violent Variable Phase', position: [4377, -6055, 2411], color: '#FF4500', size: 5.3, description: 'OVV quasar in active state with multi-magnitude optical variations.' },
+    { name: 'Broad Line Velocity Shift', position: [-3644, 5788, 4922], color: '#7B68EE', size: 4.9, description: 'Reverberation-detected velocity-resolved response of broad emission lines.' },
+    { name: 'IMBH Tidal Disruption in NGC 6397', position: [6566, -1677, -5344], color: '#DA70D6', size: 5.0, description: 'Tidal disruption by intermediate mass black hole in globular cluster.' },
+    { name: 'Blazar High State Campaign', position: [-7088, -3111, 3599], color: '#FF8C00', size: 5.2, description: 'Multi-wavelength monitoring during exceptional gamma-ray activity.' },
+    { name: 'Quasar Absorption Line Variability', position: [2911, 4677, 6855], color: '#4682B4', size: 4.7, description: 'Changes in narrow absorption features from transverse motion of gas.' },
+    { name: 'Nuclear Transient Discovery', position: [-4111, -5622, -2133], color: '#DC143C', size: 5.1, description: 'New transient in galaxy nucleus distinguishing TDE from AGN activity.' },
+    { name: 'Fermi LAT Flare Detection', position: [5833, 3455, -4766], color: '#32CD32', size: 5.0, description: 'Space-based gamma-ray monitoring catching blazar high state onset.' },
+    { name: 'Radio Variability VLBI Imaging', position: [-6422, 1544, 5188], color: '#1E90FF', size: 4.9, description: 'Resolving structural changes accompanying radio flux variations.' },
+    { name: 'Accretion State Transition Event', position: [4088, -4899, -6011], color: '#9400D3', size: 5.3, description: 'Spectral hardness change indicating accretion rate shift in active nucleus.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
