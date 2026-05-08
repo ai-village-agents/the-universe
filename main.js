@@ -22037,6 +22037,33 @@ const cosmicSights = [
     color: '#9932CC',
     size: 84
   }
+,
+{ name: "Reionization Epoch Physics Cosmic Renaissance", type: "phenomenon", category: "cosmological", position: [6600, 130000, 4600], description: "Ionization of neutral hydrogen by first stars and galaxies ending cosmic dark age and illuminating early universe" },
+{ name: "Lyman Alpha Emitters High-Redshift Galaxies", type: "phenomenon", category: "cosmological", position: [6601, 130020, 4601], description: "Early star-forming galaxies detectable through ultraviolet emission at cosmic dawn during reionization era" },
+{ name: "Quasar Absorption Lines Intergalactic Medium", type: "phenomenon", category: "cosmological", position: [6602, 130040, 4602], description: "Lyman-alpha forest imprinting reionization patchiness in high-redshift quasar spectra revealing ionization state" },
+{ name: "Patchy Reionization Structure Ionization Fronts", type: "phenomenon", category: "cosmological", position: [6603, 130060, 4603], description: "Inhomogeneous ionization driven by source clustering creating ionized bubbles expanding into neutral medium" },
+{ name: "Reionization Feedback Galaxy Formation Suppression", type: "phenomenon", category: "cosmological", position: [6604, 130080, 4604], description: "Photoionization heating suppressing gas cooling and star formation in low-mass dwarf galaxies after reionization" },
+{ name: "Constraining Reionization Polarization CMB", type: "phenomenon", category: "cosmological", position: [6605, 130100, 4605], description: "Measuring reionization optical depth through E-mode and B-mode polarization of cosmic microwave background" },
+{ name: "Spectral Energy Distribution Reionization Signature", type: "phenomenon", category: "cosmological", position: [6606, 130120, 4606], description: "UV dropout colors and Lyman break galaxies identifying early ionizing sources during reionization" },
+{ name: "Helium Reionization Second Ionization Event", type: "phenomenon", category: "cosmological", position: [6607, 130140, 4607], description: "Later ionization of primordial helium by harder-spectrum galaxies and quasars at intermediate redshift" },
+{ name: "Damping Wing Absorption Neutral Hydrogen", type: "phenomenon", category: "cosmological", position: [6608, 130160, 4608], description: "Extended Lyman-alpha damping wing absorption indicating large neutral hydrogen bubbles around galaxies" },
+{ name: "Resolved Ionized Region Imaging High-Redshift", type: "phenomenon", category: "cosmological", position: [6609, 130180, 4609], description: "Twenty-one centimeter observations mapping individual ionized bubbles expanding during reionization epoch" },
+{ name: "Quasar Host Galaxy Luminosity Reionization", type: "phenomenon", category: "cosmological", position: [6610, 130200, 4610], description: "Luminosity and stellar mass of quasars as primary ionizing sources during cosmic reionization" },
+{ name: "Radiative Transfer Simulation Reionization", type: "phenomenon", category: "cosmological", position: [6611, 130220, 4611], description: "Detailed numerical modeling of photon propagation through inhomogeneous medium during reionization" },
+{ name: "Reionization Completion Redshift Constraints", type: "phenomenon", category: "cosmological", position: [6612, 130240, 4612], description: "Measurements of when reionization finished at redshift 5-6 from various observational indicators" },
+{ name: "Ionizing Photon Budget Source Populations", type: "phenomenon", category: "cosmological", position: [6613, 130260, 4613], description: "Comparing ionizing photon production by galaxies versus quasars and black holes during reionization" },
+{ name: "Thomson Scattering Optical Depth Evolution", type: "phenomenon", category: "cosmological", position: [6614, 130280, 4614], description: "Time-integrated electron scattering optical depth revealing cumulative reionization history" },
+{ name: "Transverse Momentum Bispectrum Reionization", type: "phenomenon", category: "cosmological", position: [6615, 130300, 4615], description: "Three-point correlation functions of ionization field revealing non-Gaussianity from structure growth" },
+{ name: "Lyman Beta Emission Early Galaxies", type: "phenomenon", category: "cosmological", position: [6616, 130320, 4616], description: "Secondary Balmer series emissions from ionized hydrogen revealing star formation in reionization-era galaxies" },
+{ name: "Reionization Environmental Dependence Clustering", type: "phenomenon", category: "cosmological", position: [6617, 130340, 4617], description: "Larger ionized bubbles around massive galaxy clusters versus sparse void regions during reionization" },
+{ name: "X-ray Binary Contribution to Reionization", type: "phenomenon", category: "cosmological", position: [6618, 130360, 4618], description: "High-energy photons from accreting neutron stars and black holes aiding reionization of neutral medium" },
+{ name: "Dwarf Galaxy Faint Population Ionizing Sources", type: "phenomenon", category: "cosmological", position: [6619, 130380, 4619], description: "Low-mass galaxies potentially dominant reionization sources despite difficulty detecting them at high redshift" },
+{ name: "Escape Fraction Ionizing Photons Geometrical", type: "phenomenon", category: "cosmological", position: [6620, 130400, 4620], description: "Fraction of ionizing photons escaping galaxy halos into intergalactic medium driving reionization" },
+{ name: "Spectroscopic Confirmation Reionization Sources", type: "phenomenon", category: "cosmological", position: [6621, 130420, 4621], description: "Spectroscopic redshifts and emission line properties confirming ionization source population during epoch" },
+{ name: "Reionization Gravitational Wave Background", type: "phenomenon", category: "cosmological", position: [6622, 130440, 4622], description: "Stochastic gravitational wave background potentially generated by early structure formation and reionization" },
+{ name: "Future Observations Reionization Era", type: "phenomenon", category: "cosmological", position: [6623, 130460, 4623], description: "JWST and next-generation facilities promising detailed observations of reionization epoch galaxies and sources" },
+{ name: "Reionization Imprint Large-Scale Structure", type: "phenomenon", category: "cosmological", position: [6624, 130480, 4624], description: "Modified density perturbations and baryon acoustic oscillations imprinted by reionization feedback effects" }
+
 ];
 { id: 12701, name: 'Stellar Genesis Cradle', position: [142.37, 58.92, -311.48] },
 { id: 12702, name: 'Protostar Lattice', position: [-205.61, 14.08, 267.53] },
