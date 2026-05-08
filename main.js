@@ -19386,7 +19386,32 @@ const cosmicSights = [
   { name: 'Water World Stratospheric Moist Greenhouse', position: [310, -45, 215], color: '#e67e22', description: 'upper atmosphere water vapor feedback approaching moist greenhouse limit' },
   { name: 'Subsurface Brine Lens Dielectric Brightspot', position: [-140, -90, 170], color: '#a2d9ce', description: 'radar-bright subsurface brine lens within Europas ice matrix' },
   { name: 'Ocean Planet Obliquity-Driven Seasonal Thermocline', position: [-260, 40, 105], color: '#2980b9', description: 'seasonal thermal layer mixing driven by axial tilt variation' },
-  { name: 'Tidal Lock Ocean World Antistellar Convection Cell', position: [85, -115, 235], color: '#c0392b', description: 'deep ocean convection cell beneath permanent nightside ice shell' }
+  { name: 'Tidal Lock Ocean World Antistellar Convection Cell', position: [85, -115, 235], color: '#c0392b', description: 'deep ocean convection cell beneath permanent nightside ice shell' },
+  { name: 'Crab Pulsar Magnetic Polar Cap Hotspot', position: [-45, 120, -310], color: '#3498db', description: 'thermal X-ray hotspot from relativistic particle bombardment on neutron star polar cap' },
+  { name: 'Vela Pulsar Gamma-Ray Fan Beam', position: [65, -140, 280], color: '#9b59b6', description: 'outer-magnetospheric gamma-ray emission beam sweeping across sky' },
+  { name: 'Pulsar Wind Termination Shock Rim', position: [110, 90, -220], color: '#e74c3c', description: 'collision boundary between relativistic pulsar wind and surrounding supernova ejecta' },
+  { name: 'Crab Nebula Synchrotron Wisp Filament', position: [-48, 118, -308], color: '#1abc9c', description: 'magnetohydrodynamic shock propagating through synchrotron-emitting nebula plasma' },
+  { name: 'Vela X Pulsar Wind Nebula Arc', position: [62, -138, 278], color: '#f39c12', description: 'bow-shaped arc of pulsar wind shocked by interaction with reverse shock' },
+  { name: 'Pulsar Magnetospheric Pair Production Cascade', position: [15, 200, -150], color: '#e67e22', description: 'electron-positron avalanche in strong curved magnetic field near stellar surface' },
+  { name: 'Pulsar Glitch Spin-Up Jump', position: [-80, 40, 330], color: '#2ecc71', description: 'sudden angular momentum transfer from superfluid neutron vortex unpinning event' },
+  { name: 'Crab Nebula Torus-Jet Equatorial Outflow', position: [-50, 122, -312], color: '#16a085', description: 'collimated outflow along rotation axis confined by toroidal magnetic field' },
+  { name: 'Pulsar Braking Index Deviation Point', position: [25, -180, 190], color: '#c0392b', description: 'anomalous spin-down rate indicating changing magnetic dipole moment or torque' },
+  { name: 'Millisecond Pulsar Recycled Accretion Disk', position: [180, -70, -260], color: '#2980b9', description: 'reborn rapidly spinning neutron star with spun-up magnetic field from mass transfer' },
+  { name: 'Pulsar Wind Nebula Inner Knot', position: [108, 88, -218], color: '#8e44ad', description: 'bright stationary emission feature at base of Crab-like nebula jet' },
+  { name: 'Double Pulsar Relativistic Precession', position: [-130, 160, 140], color: '#d35400', description: 'geodetic and spin-orbit precession in binary neutron star system PSR J0737-3039' },
+  { name: 'Pulsar Magnetosphere Slot Gap Accelerator', position: [18, 205, -152], color: '#27ae60', description: 'narrow radiation zone between last closed field line and separatrix in outer gap' },
+  { name: 'Crab Nebula Anvil-Shock Brightening', position: [-46, 119, -309], color: '#2c3e50', description: 'periodic brightening event from MHD instability in post-shock flow' },
+  { name: 'Pulsar Nulling State Transition Front', position: [-75, 45, 325], color: '#f1c40f', description: 'abrupt cessation of radio emission due to magnetospheric state switching' },
+  { name: 'Vela Pulsar Proper Motion Bow Shock', position: [68, -142, 282], color: '#e91e63', description: 'interstellar medium ram-pressure bow shock ahead of supersonically moving pulsar' },
+  { name: 'Pulsar Giant Radio Pulse Storm', position: [-85, 55, 315], color: '#00bcd4', description: 'intermittent hundred-fold flux enhancement from coherent curvature radiation burst' },
+  { name: 'Pulsar Wind Nebula Expansion Asymmetry', position: [112, 92, -224], color: '#ff5722', description: 'bilateral asymmetry from supernova ejecta density gradient and pulsar kick velocity' },
+  { name: 'Magnetar SGR Giant Flare Afterglow Ring', position: [220, 130, -180], color: '#ff9800', description: 'relativistic ejecta shell becoming optically thin after soft gamma repeater burst' },
+  { name: 'Pulsar Subpulse Drifting Carousel', position: [-90, 60, 310], color: '#795548', description: 'rotating spark plasma pattern creating periodic subpulse drift in radio profile' },
+  { name: 'Pulsar Wind Shock Thermal X-Ray Rim', position: [105, 85, -215], color: '#607d8b', description: 'X-ray emitting rim of heated ejecta at pulsar wind termination shock boundary' },
+  { name: 'Black Widow Pulsar Companion Ablation Tail', position: [195, -80, -270], color: '#673ab7', description: 'cometary ion tail of evaporating brown-dwarf companion ablated by pulsar wind' },
+  { name: 'Pulsar Magnetospheric Polar Gap Spark', position: [20, 210, -155], color: '#3f51b5', description: 'electron discharge cascade from polar vacuum gap acceleration potential drop' },
+  { name: 'Pulsar Wind Nebula Helical Jet Wiggle', position: [115, 95, -225], color: '#009688', description: 'helical kink instability in magnetically dominated relativistic jet flow' },
+  { name: 'Rotating Radio Transient Null State', position: [-100, 70, 300], color: '#4caf50', description: 'episodically emitting neutron star spending most time in radio-quiescent state' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
