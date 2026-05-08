@@ -17141,6 +17141,207 @@ const cosmicSights = [
     color: "#9f3c67",
     size: 2.49
   }
+,
+  {
+    name: "Diamond Mantle Exoplanet #11751",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of diamond mantle exoplanet processes and internal exoplanetary dynamics.",
+    position: [3269.8, 2702.5, 2657.32],
+    color: "#62177e",
+    size: 1.44
+  },
+  {
+    name: "Iron Ocean Lava World #11752",
+    category: "Geology",
+    description: "Observation and geological modeling of iron ocean lava world processes and internal exoplanetary dynamics.",
+    position: [-4369.08, -507.8, -4373.11],
+    color: "#bb94f5",
+    size: 0.54
+  },
+  {
+    name: "Tidal Heating Fracture Zone #11753",
+    category: "Geology",
+    description: "Observation and geological modeling of tidal heating fracture zone processes and internal exoplanetary dynamics.",
+    position: [368.12, -69.67, 4862.38],
+    color: "#522ce1",
+    size: 1.01
+  },
+  {
+    name: "Cryovolcanic Ice Plume #11754",
+    category: "Astrobiology",
+    description: "Observation and geological modeling of cryovolcanic ice plume processes and internal exoplanetary dynamics.",
+    position: [-206.06, -4980.45, 632.73],
+    color: "#90f5d1",
+    size: 0.79
+  },
+  {
+    name: "Subsurface Ammonia Ocean #11755",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of subsurface ammonia ocean processes and internal exoplanetary dynamics.",
+    position: [2004.67, -4346.4, -1118.42],
+    color: "#89bd59",
+    size: 1.9
+  },
+  {
+    name: "Silicate Vapor Atmosphere #11756",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of silicate vapor atmosphere processes and internal exoplanetary dynamics.",
+    position: [1564.39, -2146.17, -1086.53],
+    color: "#5787d5",
+    size: 2.99
+  },
+  {
+    name: "Carbonate-Silicate Cycle Loop #11757",
+    category: "Geology",
+    description: "Observation and geological modeling of carbonate-silicate cycle loop processes and internal exoplanetary dynamics.",
+    position: [-4360.52, -3758.97, -492.6],
+    color: "#27de68",
+    size: 1.14
+  },
+  {
+    name: "Basaltic Crust Formation #11758",
+    category: "Geology",
+    description: "Observation and geological modeling of basaltic crust formation processes and internal exoplanetary dynamics.",
+    position: [-4201.16, -2435.09, 3456.4],
+    color: "#a88b90",
+    size: 2.9
+  },
+  {
+    name: "Super-Earth Lithosphere #11759",
+    category: "Geology",
+    description: "Observation and geological modeling of super-earth lithosphere processes and internal exoplanetary dynamics.",
+    position: [-2149.66, -2982.52, -146.2],
+    color: "#b64656",
+    size: 1.02
+  },
+  {
+    name: "Core-Mantle Boundary Layer #11760",
+    category: "Geology",
+    description: "Observation and geological modeling of core-mantle boundary layer processes and internal exoplanetary dynamics.",
+    position: [4514.99, 1811.89, 615.11],
+    color: "#456c9b",
+    size: 1.13
+  },
+  {
+    name: "Planetary Dynamo Magnetic Shield #11761",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of planetary dynamo magnetic shield processes and internal exoplanetary dynamics.",
+    position: [-3044.46, 2233.2, 1382.03],
+    color: "#c0fb0e",
+    size: 2.04
+  },
+  {
+    name: "Geothermal Vent Chimney #11762",
+    category: "Astrobiology",
+    description: "Observation and geological modeling of geothermal vent chimney processes and internal exoplanetary dynamics.",
+    position: [3916.48, 1455.52, 966.89],
+    color: "#1cec85",
+    size: 1.08
+  },
+  {
+    name: "Tectonic Plate Subduction Zone #11763",
+    category: "Geology",
+    description: "Observation and geological modeling of tectonic plate subduction zone processes and internal exoplanetary dynamics.",
+    position: [3558.5, -3936.77, -1625.84],
+    color: "#ab18e7",
+    size: 1.73
+  },
+  {
+    name: "Magma Ocean Cooling Crust #11764",
+    category: "Geology",
+    description: "Observation and geological modeling of magma ocean cooling crust processes and internal exoplanetary dynamics.",
+    position: [-4345.59, 3708.71, 4803.11],
+    color: "#c09f2c",
+    size: 1.56
+  },
+  {
+    name: "Impact Crater Ejecta Blanket #11765",
+    category: "Geology",
+    description: "Observation and geological modeling of impact crater ejecta blanket processes and internal exoplanetary dynamics.",
+    position: [4328.48, 1498.6, -597.3],
+    color: "#8c96ef",
+    size: 2.17
+  },
+  {
+    name: "Volcanic Outgassing Plume #11766",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of volcanic outgassing plume processes and internal exoplanetary dynamics.",
+    position: [-1430.13, 2233.42, -1519.05],
+    color: "#02aef2",
+    size: 0.86
+  },
+  {
+    name: "Sulfuric Acid Weathering Basin #11767",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of sulfuric acid weathering basin processes and internal exoplanetary dynamics.",
+    position: [4648.65, 4349.41, -1381.0],
+    color: "#1de9b7",
+    size: 1.5
+  },
+  {
+    name: "Methane Clathrate Deposit #11768",
+    category: "Astrobiology",
+    description: "Observation and geological modeling of methane clathrate deposit processes and internal exoplanetary dynamics.",
+    position: [-3988.13, 4953.18, -2365.69],
+    color: "#012c00",
+    size: 1.68
+  },
+  {
+    name: "Liquid Water Aquifer #11769",
+    category: "Astrobiology",
+    description: "Observation and geological modeling of liquid water aquifer processes and internal exoplanetary dynamics.",
+    position: [-1124.94, -4015.47, -1395.11],
+    color: "#c7fc33",
+    size: 2.43
+  },
+  {
+    name: "Heavy Metal Core Segregation #11770",
+    category: "Geology",
+    description: "Observation and geological modeling of heavy metal core segregation processes and internal exoplanetary dynamics.",
+    position: [-3081.63, -2866.44, 48.96],
+    color: "#0f7f22",
+    size: 2.14
+  },
+  {
+    name: "Radioactive Decay Heat Source #11771",
+    category: "Geology",
+    description: "Observation and geological modeling of radioactive decay heat source processes and internal exoplanetary dynamics.",
+    position: [-3146.75, -3123.28, 4717.02],
+    color: "#f59733",
+    size: 0.65
+  },
+  {
+    name: "Tidal Locking Deformation #11772",
+    category: "Geology",
+    description: "Observation and geological modeling of tidal locking deformation processes and internal exoplanetary dynamics.",
+    position: [418.4, 1217.35, -645.95],
+    color: "#b37b14",
+    size: 1.46
+  },
+  {
+    name: "Ice Shell Convection Current #11773",
+    category: "Geology",
+    description: "Observation and geological modeling of ice shell convection current processes and internal exoplanetary dynamics.",
+    position: [-2002.45, -4645.94, 2577.49],
+    color: "#78363f",
+    size: 0.84
+  },
+  {
+    name: "Amorphous Frost Sublimation #11774",
+    category: "Exoplanet Atmospheres",
+    description: "Observation and geological modeling of amorphous frost sublimation processes and internal exoplanetary dynamics.",
+    position: [-165.69, -1617.53, 2448.1],
+    color: "#3171f9",
+    size: 0.74
+  },
+  {
+    name: "Exotic High-Pressure Ice Phase #11775",
+    category: "Geology",
+    description: "Observation and geological modeling of exotic high-pressure ice phase processes and internal exoplanetary dynamics.",
+    position: [-976.11, 2412.96, -2060.5],
+    color: "#923adf",
+    size: 1.3
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
