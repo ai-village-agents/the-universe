@@ -23876,8 +23876,207 @@ const cosmicSights = [
 {name: "Inflation Axion Dilution", type: "phenomenon", category: "Inflationary Cosmology", position: [6996, 137920, 4996], description: "Post-inflationary axion abundance reduction from reheating"},
 {name: "Holographic Axion Models", type: "phenomenon", category: "Holographic Duality", position: [6997, 137940, 4997], description: "Gauge-gravity duality interpretation of axion physics"},
 {name: "Neutrino-Axion Mixing", type: "phenomenon", category: "Neutrino Physics", position: [6998, 137960, 4998], description: "Flavor oscillations from axion-neutrino coupling in dense environments"},
-{name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"}
-
+{name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"},
+  {
+    name: 'Finite-Difference Radiation Solver 13351',
+    category: 'computational_astrophysics',
+    description: 'High-order finite-difference radiation transport with flux limiters tuned for stellar envelopes.',
+    position: [13100, 128500, 7100],
+    color: '#00FF80',
+    size: 185
+  },
+  {
+    name: 'Spectral Gravitational Wave Code 13352',
+    category: 'computational_astrophysics',
+    description: 'Spectral Einstein solver using FFT-based operator splitting to evolve gravitational waveforms efficiently.',
+    position: [13220, 128585, 7040],
+    color: '#05F485',
+    size: 200
+  },
+  {
+    name: 'N-Body Parallel Algorithm 13353',
+    category: 'computational_astrophysics',
+    description: 'Hybrid tree and particle-mesh N-body algorithm balancing latency with domain-decomposed force solves.',
+    position: [13340, 128670, 6980],
+    color: '#0BEA8B',
+    size: 215
+  },
+  {
+    name: 'Adaptive Mesh Refinement Cluster 13354',
+    category: 'computational_astrophysics',
+    description: 'Block-structured AMR hierarchy that refines collapsing regions while keeping ghost exchanges balanced across nodes.',
+    position: [13460, 128755, 6920],
+    color: '#10DF90',
+    size: 230
+  },
+  {
+    name: 'GPU Accelerated MHD Simulator 13355',
+    category: 'computational_astrophysics',
+    description: 'GPU-first magnetohydrodynamics kernels with coalesced stencils to track shocks and magnetic tension.',
+    position: [13580, 128840, 6860],
+    color: '#15D495',
+    size: 245
+  },
+  {
+    name: 'Implicit-Explicit Shock Capturing Scheme 13356',
+    category: 'computational_astrophysics',
+    description: 'IMEX Runge-Kutta advance coupling stiff cooling with explicit advection for blast-wave fidelity.',
+    position: [13700, 128925, 6800],
+    color: '#1BCA9A',
+    size: 260
+  },
+  {
+    name: 'Monte Carlo Radiative Transfer GPU 13357',
+    category: 'computational_astrophysics',
+    description: 'Variance-reduced Monte Carlo packet transport with GPU stream compaction to cut noise in dusty media.',
+    position: [13820, 129010, 6740],
+    color: '#20BFA0',
+    size: 185
+  },
+  {
+    name: 'Spectral Element Hydrodynamics Kernel 13358',
+    category: 'computational_astrophysics',
+    description: 'Spectral element discretization using tensor-product bases and fused operator application for cache efficiency.',
+    position: [13940, 129095, 6680],
+    color: '#25B5A5',
+    size: 200
+  },
+  {
+    name: 'Domain-Decomposed Poisson Multigrid 13359',
+    category: 'computational_astrophysics',
+    description: 'Geometric multigrid Poisson solver overlapping restriction/prolongation with MPI halos.',
+    position: [14060, 129180, 6620],
+    color: '#2BAAAA',
+    size: 215
+  },
+  {
+    name: 'Fast Multipole Halo Gravity Engine 13360',
+    category: 'computational_astrophysics',
+    description: 'Fast multipole method tuned for clustered halos with SIMD multipole expansions and tiered buffers.',
+    position: [14180, 129265, 6560],
+    color: '#309FB0',
+    size: 230
+  },
+  {
+    name: 'Discontinuous Galerkin Accretion Disk Solver 13361',
+    category: 'computational_astrophysics',
+    description: 'High-order DG solver with slope limiting and Riemann solvers aligned to magnetized disk shear.',
+    position: [14300, 129350, 6500],
+    color: '#3595B5',
+    size: 245
+  },
+  {
+    name: 'Symplectic Long-Time Integrator 13362',
+    category: 'computational_astrophysics',
+    description: 'Symplectic mapping for long-horizon exoplanet architectures with compensated summations to tame drift.',
+    position: [14420, 129435, 6440],
+    color: '#3B8ABA',
+    size: 260
+  },
+  {
+    name: 'Lattice Boltzmann Plasma Nebula Pipeline 13363',
+    category: 'computational_astrophysics',
+    description: 'GPU-resident lattice Boltzmann plasma solver using warp-synchronous collision-stream steps.',
+    position: [14540, 129520, 6380],
+    color: '#4080C0',
+    size: 185
+  },
+  {
+    name: 'Parallel AMR Checkpoint Pipeline 13364',
+    category: 'computational_astrophysics',
+    description: 'Fault-tolerant checkpointing via parallel HDF5 with chunked snapshots of AMR blocks.',
+    position: [14660, 129605, 6320],
+    color: '#4575C5',
+    size: 200
+  },
+  {
+    name: 'In-Situ Cosmology Analysis Hub 13365',
+    category: 'computational_astrophysics',
+    description: 'In-situ analysis hooks computing power spectra and halo catalogs without disruptive I/O.',
+    position: [14780, 129690, 6260],
+    color: '#4B6ACA',
+    size: 215
+  },
+  {
+    name: 'CUDA-Aware MPI Halo Exchange Mesh 13366',
+    category: 'computational_astrophysics',
+    description: 'CUDA-aware MPI halo exchanges overlapping communication with volume updates for turbulent boxes.',
+    position: [14900, 129775, 6200],
+    color: '#5060CF',
+    size: 230
+  },
+  {
+    name: 'Pencil-Decomposed FFT Turbulence Suite 13367',
+    category: 'computational_astrophysics',
+    description: '3D FFT turbulence pipeline using pencil decompositions and slab remaps for strong scaling.',
+    position: [15020, 129860, 6140],
+    color: '#5555D5',
+    size: 245
+  },
+  {
+    name: 'Reduced-Order Waveform Generator 13368',
+    category: 'computational_astrophysics',
+    description: 'Reduced-order modeling of gravitational waveforms using greedy bases and SVD compression.',
+    position: [15140, 129945, 6080],
+    color: '#5B4ADA',
+    size: 260
+  },
+  {
+    name: 'Adaptive Time-Step Subcycling Driver 13369',
+    category: 'computational_astrophysics',
+    description: 'Adaptive subcycling that advances refined levels with conservative refluxing across interfaces.',
+    position: [15260, 130030, 6020],
+    color: '#6040DF',
+    size: 185
+  },
+  {
+    name: 'Kokkos Performance Portability Mesh 13370',
+    category: 'computational_astrophysics',
+    description: 'Performance-portable mesh operators expressed in Kokkos targeting GPUs and multicore hosts.',
+    position: [15380, 130115, 5960],
+    color: '#6535E5',
+    size: 200
+  },
+  {
+    name: 'Physics-Informed Preconditioner Lab 13371',
+    category: 'computational_astrophysics',
+    description: 'Preconditioned Krylov solvers embedding equation-of-state derivatives for stiff MHD systems.',
+    position: [15500, 130200, 5900],
+    color: '#6B2AEA',
+    size: 215
+  },
+  {
+    name: 'Hybrid TreePM Force Calculator 13372',
+    category: 'computational_astrophysics',
+    description: 'Hybrid TreePM force calculator using space-filling curves to minimize communication surfaces.',
+    position: [15620, 130285, 5840],
+    color: '#7020EF',
+    size: 230
+  },
+  {
+    name: 'Shock-Aligned Riemann Solver 13373',
+    category: 'computational_astrophysics',
+    description: 'Directionally split Riemann solver aligning reconstruction with shock normals to reduce dissipation.',
+    position: [15740, 130370, 5780],
+    color: '#7515F4',
+    size: 245
+  },
+  {
+    name: 'Tensor-Contraction Radiation Closure 13374',
+    category: 'computational_astrophysics',
+    description: 'Moment-based radiation closure accelerated by batched tensor contractions on accelerators.',
+    position: [15860, 130455, 5720],
+    color: '#7B0BFA',
+    size: 260
+  },
+  {
+    name: 'Exascale Performance Autotuning Grid 13375',
+    category: 'computational_astrophysics',
+    description: 'Autotuning grid that sweeps block sizes and tolerances to reach exascale throughput on new clusters.',
+    position: [15980, 130540, 5660],
+    color: '#8000FF',
+    size: 185
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
