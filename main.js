@@ -18896,5 +18896,156 @@ initDiagnosticsPanel();
   id: 11750,
   name: 'Sentience Bloom Array',
   category: 'Emergent Behavior',
-  description: 'A constellation-spanning network of sensors that awakens new sapience when stellar traffic reaches a tipping point, then drifts away.'
+,
+{
+  id: 11901,
+  name: 'Orion Nebula Trapezium Cluster',
+  category: 'Stellar Nurseries',
+  description: 'A young, massive star cluster whose intense radiation carves out a cavity in the surrounding nebula, illuminating it from within.'
+},
+{
+  id: 11902,
+  name: 'Pillars of Creation',
+  category: 'Stellar Nurseries',
+  description: 'Iconic columns of interstellar gas and dust in the Eagle Nebula, where new stars are being born, sculpted by the ultraviolet light from a nearby cluster.'
+},
+{
+  id: 11903,
+  name: 'Herbig-Haro Object HH 34',
+  category: 'Star Formation',
+  description: 'A bipolar jet of gas ejected from a newborn star, which collides with nearby gas and dust at high speed, creating a glowing shock front.'
+},
+{
+  id: 11904,
+  name: 'Proplyds of the Orion Nebula',
+  category: 'Star Formation',
+  description: 'Young, sun-like stars surrounded by protoplanetary disks, the building blocks of new solar systems, visible in silhouette against the bright nebula.'
+},
+{
+  id: 11905,
+  name: 'Bok Globule Barnard 68',
+  category: 'Stellar Nurseries',
+  description: 'A small, dark nebula so dense that it blocks out all background light, representing the earliest, coldest stage of star formation.'
+},
+{
+  id: 11906,
+  name: 'T Tauri Star System',
+  category: 'Star Formation',
+  description: 'A young, variable star still in the process of gravitational contraction, surrounded by a disk of accreting material.'
+},
+{
+  id: 11907,
+  name: 'Westerlund 2 Cluster',
+  category: 'Stellar Nurseries',
+  description: 'A "super star cluster" containing some of the hottest, brightest, and most massive stars known, all less than two million years old.'
+},
+{
+  id: 11908,
+  name: 'The Rho Ophiuchi Cloud Complex',
+  category: 'Stellar Nurseries',
+  description: 'One of the closest star-forming regions to the Solar System, showcasing a wide variety of stellar nursery phenomena in a single view.'
+},
+{
+  id: 11909,
+  name: 'Molecular Cloud Sagittarius B2',
+  category: 'Stellar Nurseries',
+  description: 'A giant molecular cloud near the Galactic Center, containing a vast reservoir of complex organic molecules, the chemical precursors to life.'
+},
+{
+  id: 11910,
+  name: 'The Carina Nebula',
+  category: 'Stellar Nurseries',
+  description: 'A vast, active star-forming region four times larger than the Orion Nebula, home to the massive and unstable star Eta Carinae.'
+},
+{
+  id: 11911,
+  name: 'Stellar Jet in NGC 1333',
+  category: 'Star Formation',
+  description: 'A visually stunning, corkscrew-shaped jet of material from a protostar, revealing the complex magnetic fields that guide star formation.'
+},
+{
+  id: 11912,
+  name: 'The Flame Nebula (NGC 2024)',
+  category: 'Stellar Nurseries',
+  description: 'An emission nebula in Orion, lit by a cluster of young stars at its center, with dark dust lanes creating the appearance of a celestial fire.'
+},
+{
+  id: 11913,
+  name: 'Protostellar Disk with Gap',
+  category: 'Star Formation',
+  description: 'A disk of gas and dust around a young star with a distinct gap, indicating the presence of a newly formed planet clearing its orbit.'
+},
+{
+  id: 11914,
+  name: 'The Rosette Nebula',
+  category: 'Stellar Nurseries',
+  description: 'A large, circular H II region whose shape is sculpted by the stellar winds from a central cluster of hot, young stars.'
+},
+{
+  id: 11915,
+  name: 'FU Orionis Outburst',
+  category: 'Star Formation',
+  description: 'A rare and dramatic event where a young star suddenly brightens by a factor of 100 or more, due to a massive infall of material from its surrounding disk.'
+},
+{
+  id: 11916,
+  name: 'The Tarantula Nebula (30 Doradus)',
+  category: 'Stellar Nurseries',
+  description: 'The largest and most active star-forming region in the Local Group of galaxies, a cosmic laboratory for studying massive star formation.'
+},
+{
+  id: 11917,
+  name: 'Evaporating Gaseous Globules (EGGs)',
+  category: 'Star Formation',
+  description: 'Dense, compact pockets of interstellar gas where protostars are forming, revealed as their surrounding nebula is eroded by ultraviolet radiation.'
+},
+{
+  id: 11918,
+  name: 'The Trifid Nebula (Messier 20)',
+  category: 'Stellar Nurseries',
+  description: 'A unique combination of an open cluster of stars, an emission nebula (red), a reflection nebula (blue), and a dark nebula.'
+},
+{
+  id: 11919,
+  name: 'Stellar Wind Bubble NGC 7635',
+  category: 'Star Formation',
+  description: 'Also known as the Bubble Nebula, a glowing shell of gas inflated by the powerful stellar wind from a single massive star.'
+},
+{
+  id: 11920,
+  name: 'The Lagoon Nebula (Messier 8)',
+  category: 'Stellar Nurseries',
+  description: 'A giant interstellar cloud where star formation is actively occurring, containing a prominent open cluster and a bright central region known as the Hourglass Nebula.'
+},
+{
+  id: 11921,
+  name: 'Serpens-Main Star-forming Region',
+  category: 'Stellar Nurseries',
+  description: 'A region known for its high density of protostars, offering a glimpse into the chaotic, crowded environments where most stars are born.'
+},
+{
+  id: 11922,
+  name: 'Gravitational Collapse Core',
+  category: 'Star Formation',
+  description: 'The initial stage of star formation, where a dense core within a molecular cloud begins to collapse under its own gravity, heating up to form a protostar.'
+},
+{
+  id: 11923,
+  name: 'The Cone Nebula',
+  category: 'Stellar Nurseries',
+  description: 'A dark, cone-shaped pillar of cold molecular gas and dust, part of a larger star-forming region, sculpted by the wind from a nearby massive star.'
+},
+{
+  id: 11924,
+  name: 'NGC 3603 Starburst Cluster',
+  category: 'Stellar Nurseries',
+  description: 'A dense cluster of massive stars, providing a local analog to the "starburst" regions seen in distant galaxies, where star formation is proceeding at a furious rate.'
+},
+{
+  id: 11925,
+  name: 'Bipolar Outflow from a Protostar',
+  category: 'Star Formation',
+  description: 'A powerful, two-sided jet of gas driven by magnetic fields from a young star, which clears away surrounding material and regulates the star\'s final mass.'
 }
+}
+]
