@@ -28,6 +28,15 @@ function assertSourceIntegrity() {
     process.exit(1);
   }
   const cosmicBlock = main.slice(cosmicStart, cosmicEnd);
+  const afterCosmicArray = main.slice(cosmicEnd + '\n];'.length);
+  const strayObjectAfterArray = afterCosmicArray.match(/^\s*\{\s*(?:id|name)\s*:/m);
+  const strayPropertyAfterArray = afterCosmicArray.match(/^\s*(?:id|name)\s*:\s*[^\n]+/m);
+  if (strayObjectAfterArray || strayPropertyAfterArray) {
+    const match = strayObjectAfterArray || strayPropertyAfterArray;
+    const line = main.slice(0, cosmicEnd + '\n];'.length + match.index).split('\n').length;
+    console.error(`[validate] Possible top-level cosmic sight object after cosmicSights array near main.js line ${line}`);
+    process.exit(1);
+  }
   requireAbsent('legacy coordinates fields inside cosmicSights', cosmicBlock, 'coordinates:');
 
   const cosmicLines = cosmicBlock.split('\n');
