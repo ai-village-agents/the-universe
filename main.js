@@ -17494,7 +17494,33 @@ const cosmicSights = [
       "name": "Hyper-Entanglement Photonic Systems",
       "description": "Entanglement in multiple degrees of freedom",
       "position": [5499, 107480, 3499]
-    }
+    },
+  {"name": "Ceres Dawn Mission Mapping", "description": "Bright spots and geology of the largest asteroid revealed by Dawn spacecraft.", "position": [1180, 1, 10]},
+  {"name": "Vesta South Pole Impact Geology", "description": "Giant impact crater covering most of Vesta's southern hemisphere.", "position": [1180, 2, 20]},
+  {"name": "Bennu Regolith Particle Distribution", "description": "OSIRIS-REx mission collected pristine material from near-Earth asteroid Bennu.", "position": [1180, 3, 30]},
+  {"name": "Ryugu Carbonaceous Composition", "description": "Hayabusa2 revealed ancient organic-rich material on asteroid Ryugu.", "position": [1180, 4, 40]},
+  {"name": "Apophis Close Approach 2029", "description": "Near-Earth asteroid will pass within geostationary satellite distance.", "position": [1180, 5, 50]},
+  {"name": "Psyche Iron-Nickel Core Exploration", "description": "NASA mission to explore metallic asteroid core remnant.", "position": [1180, 6, 60]},
+  {"name": "Trojan Asteroid Swarms", "description": "Asteroids trapped at Jupiter's L4 and L5 Lagrange points.", "position": [1180, 7, 70]},
+  {"name": "Main Belt Collision Families", "description": "Groups of asteroids sharing orbits from ancient breakup events.", "position": [1180, 8, 80]},
+  {"name": "Kuiper Belt Object Arrokoth", "description": "Contact binary KBO visited by New Horizons showing primordial accretion.", "position": [1180, 9, 90]},
+  {"name": "Comet 67P Churyumov-Gerasimenko", "description": "Rosetta mission revealed duck-shaped comet in unprecedented detail.", "position": [1180, 10, 100]},
+  {"name": "Comet Hale-Bopp Sodium Tail", "description": "Third distinct tail made of neutral sodium atoms.", "position": [1180, 11, 110]},
+  {"name": "Comet ISON Disintegration", "description": "Sun-grazing comet destroyed during perihelion passage.", "position": [1180, 12, 120]},
+  {"name": "Oort Cloud Reservoir", "description": "Spherical shell of icy bodies extending halfway to nearest star.", "position": [1180, 13, 130]},
+  {"name": "Interstellar Comet 2I/Borisov", "description": "First confirmed interstellar comet passing through our solar system.", "position": [1180, 14, 140]},
+  {"name": "Centaur Chariklo Ring System", "description": "First minor planet discovered to have its own ring system.", "position": [1180, 15, 150]},
+  {"name": "Active Asteroid 6478 Gault", "description": "Main belt asteroid with comet-like tails from rotational disruption.", "position": [1180, 16, 160]},
+  {"name": "Binary Asteroid Didymos System", "description": "Target of DART mission to test planetary defense techniques.", "position": [1180, 17, 170]},
+  {"name": "Cometary Outgassing Jets", "description": "Localized vents releasing gas and dust from comet nuclei.", "position": [1180, 18, 180]},
+  {"name": "Yarkovsky Effect Orbital Drift", "description": "Thermal radiation causes slow changes in asteroid orbits.", "position": [1180, 19, 190]},
+  {"name": "Near-Earth Object Survey", "description": "Systematic search for potentially hazardous asteroids.", "position": [1180, 20, 200]},
+  {"name": "Asteroid Spectral Classification", "description": "C-type, S-type, and M-type asteroids reveal composition diversity.", "position": [1180, 21, 210]},
+  {"name": "Comet Nucleus Albedo", "description": "Comet surfaces are among the darkest objects in the solar system.", "position": [1180, 22, 220]},
+  {"name": "Rubble Pile Asteroid Structure", "description": "Most asteroids are loosely bound aggregates rather than solid rock.", "position": [1180, 23, 230]},
+  {"name": "Comet Water Deuterium Ratio", "description": "Isotopic signatures reveal comet origins and solar system history.", "position": [1180, 24, 240]},
+  {"name": "Asteroid Mining Potential", "description": "Near-Earth asteroids contain valuable platinum-group metals and water.", "position": [1180, 25, 250]}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
