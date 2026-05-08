@@ -22744,6 +22744,207 @@ const cosmicSights = [
   { id: 13048, name: "Infall Region Galaxy Population", position: [0.58, -0.76, -0.31] },
   { id: 13049, name: "Cluster Baryon Fraction Measurement", position: [-0.33, 0.55, 0.77] },
   { id: 13050, name: "Hydrostatic Mass Bias Correction", position: [0.86, 0.41, -0.53] }
+,
+  {
+    name: 'Boötes Void Core 13026',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-6955, -37130, -25859],
+    color: '#141414',
+    size: 209
+  },
+  {
+    name: 'Eridanus Supervoid Anomaly 13027',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [25301, -24751, 13664],
+    color: '#050505',
+    size: 323
+  },
+  {
+    name: 'Taurus Void Nexus 13028',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [17617, -2972, -13763],
+    color: '#111111',
+    size: 78
+  },
+  {
+    name: 'Canis Major Void Echo 13029',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [17010, -38266, -6087],
+    color: '#1c1c1c',
+    size: 186
+  },
+  {
+    name: 'Local Void Abyss 13030',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [10253, 34876, 26284],
+    color: '#1c1c1c',
+    size: 114
+  },
+  {
+    name: 'Keenan-Barger-Cowie Void Center 13031',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [24642, 38540, 33825],
+    color: '#0a0a0a',
+    size: 61
+  },
+  {
+    name: 'Northern Local Supervoid Heart 13032',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [11457, -39964, 12230],
+    color: '#080808',
+    size: 110
+  },
+  {
+    name: 'Southern Local Supervoid Depths 13033',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [22355, 5550, -31148],
+    color: '#141414',
+    size: 52
+  },
+  {
+    name: 'Ophiuchus Void Singularity 13034',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [37961, 12089, 1482],
+    color: '#0f0f0f',
+    size: 144
+  },
+  {
+    name: 'Microscopium Void Trough 13035',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [32235, 8700, -31503],
+    color: '#0f0f0f',
+    size: 148
+  },
+  {
+    name: 'Sculptor Void Node 13036',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [19930, 29833, 33505],
+    color: '#0a0a0a',
+    size: 313
+  },
+  {
+    name: 'Fornax Void Expanse 13037',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-21885, 12899, 30087],
+    color: '#1c1c1c',
+    size: 350
+  },
+  {
+    name: 'Hercules Void Region 13038',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-32137, 35023, -21986],
+    color: '#000000',
+    size: 202
+  },
+  {
+    name: 'Columba Void Pocket 13039',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-38490, -18427, 15513],
+    color: '#1c1c1c',
+    size: 352
+  },
+  {
+    name: 'Puppis Void Corridor 13040',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [16767, -30187, 39289],
+    color: '#0f0f0f',
+    size: 339
+  },
+  {
+    name: 'Vela Void Structure 13041',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [31876, -6483, 24035],
+    color: '#202020',
+    size: 68
+  },
+  {
+    name: 'Antlia Void Domain 13042',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-13666, -3428, -39819],
+    color: '#000000',
+    size: 276
+  },
+  {
+    name: 'Hydra Void Basin 13043',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [21585, 9680, 1077],
+    color: '#141414',
+    size: 347
+  },
+  {
+    name: 'Centaurus Void Zone 13044',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-4863, 17695, 9514],
+    color: '#1c1c1c',
+    size: 391
+  },
+  {
+    name: 'Corvus Void Chasm 13045',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [8498, 5191, -15601],
+    color: '#080808',
+    size: 293
+  },
+  {
+    name: 'Virgo Void Outskirts 13046',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [13413, -21149, 32757],
+    color: '#141414',
+    size: 189
+  },
+  {
+    name: 'Coma Void Trench 13047',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-29601, 16783, 26720],
+    color: '#202020',
+    size: 127
+  },
+  {
+    name: 'Ursa Major Void Cavity 13048',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [34924, 5410, 26104],
+    color: '#050505',
+    size: 57
+  },
+  {
+    name: 'Leo Void Hollow 13049',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [34409, -2586, -28108],
+    color: '#000000',
+    size: 101
+  },
+  {
+    name: 'Corona Borealis Void Interior 13050',
+    category: 'Cosmological Void Centers',
+    description: 'A mesmerizing manifestation of cosmological void centers observed in deep space.',
+    position: [-31482, 32856, -28680],
+    color: '#141414',
+    size: 170
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
