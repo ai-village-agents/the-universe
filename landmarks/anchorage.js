@@ -24206,6 +24206,234 @@ export function createAnchorageLandmark(THREE, opts) {
   pdwhGroup.add(pdwhChildH);
   group.add(pdwhGroup);
 
+  // --- v148: pier puppeteer + beach treasure dig + coastal otter pup ---
+  const ppupGroup = new THREE.Group();
+  ppupGroup.position.set(42, 8.4, -10);
+  // stage box
+  const ppupStage = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 1.6, 0.5),
+    new THREE.MeshLambertMaterial({ color: 0x8a3a3a })
+  );
+  ppupStage.position.set(0, 0.8, 0);
+  ppupGroup.add(ppupStage);
+  // stage opening
+  const ppupOpening = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 1.0, 0.06),
+    new THREE.MeshLambertMaterial({ color: 0x111111 })
+  );
+  ppupOpening.position.set(0, 1.0, 0.27);
+  ppupGroup.add(ppupOpening);
+  // stage frame top
+  const ppupFrame = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.2, 0.08),
+    new THREE.MeshLambertMaterial({ color: 0xeac84a })
+  );
+  ppupFrame.position.set(0, 1.7, 0.3);
+  ppupGroup.add(ppupFrame);
+  // 2 puppets above stage
+  const ppupPuppets = [];
+  const ppupColors = [0xc8302a, 0x4a7c59];
+  for (let i = 0; i < 2; i++) {
+    const pg = new THREE.Group();
+    pg.position.set(-0.5 + i * 1.0, 1.2, 0.3);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.16, 12, 10),
+      new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+    );
+    head.position.y = 0.2;
+    pg.add(head);
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.16, 0.4, 8),
+      new THREE.MeshLambertMaterial({ color: ppupColors[i] })
+    );
+    body.position.y = -0.05;
+    pg.add(body);
+    const armL = new THREE.Mesh(
+      new THREE.BoxGeometry(0.06, 0.3, 0.06),
+      new THREE.MeshLambertMaterial({ color: ppupColors[i] })
+    );
+    armL.position.set(-0.18, -0.05, 0);
+    pg.add(armL);
+    const armR = new THREE.Mesh(
+      new THREE.BoxGeometry(0.06, 0.3, 0.06),
+      new THREE.MeshLambertMaterial({ color: ppupColors[i] })
+    );
+    armR.position.set(0.18, -0.05, 0);
+    pg.add(armR);
+    pg.userData = { armL, armR };
+    ppupGroup.add(pg);
+    ppupPuppets.push(pg);
+  }
+  // audience kids
+  const ppupKidColors = [0x4a6dc8, 0xe8c33b, 0xd676b2];
+  const ppupKids = [];
+  const ppupKidH = [];
+  for (let i = 0; i < 3; i++) {
+    const k = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.1, 0.12, 0.4, 8),
+      new THREE.MeshLambertMaterial({ color: ppupKidColors[i] })
+    );
+    k.position.set(-1.0 + i * 1.0, 0.25, 1.4);
+    ppupGroup.add(k);
+    ppupKids.push(k);
+    const h = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+    );
+    h.position.set(k.position.x, 0.6, 1.4);
+    ppupGroup.add(h);
+    ppupKidH.push(h);
+  }
+  group.add(ppupGroup);
+
+  // beach treasure dig
+  const btrdGroup = new THREE.Group();
+  btrdGroup.position.set(-58, 0.05, 14);
+  const btrdSand = new THREE.Mesh(
+    new THREE.CircleGeometry(2.4, 20),
+    new THREE.MeshLambertMaterial({ color: 0xe8d4a8 })
+  );
+  btrdSand.rotation.x = -Math.PI / 2;
+  btrdSand.position.y = 0.005;
+  btrdGroup.add(btrdSand);
+  // pit (darker circle)
+  const btrdPit = new THREE.Mesh(
+    new THREE.CircleGeometry(0.6, 18),
+    new THREE.MeshLambertMaterial({ color: 0x9a7a4a })
+  );
+  btrdPit.rotation.x = -Math.PI / 2;
+  btrdPit.position.set(0.2, 0.012, 0);
+  btrdGroup.add(btrdPit);
+  // treasure chest (partly buried)
+  const btrdChest = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 0.3, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0x6b4226 })
+  );
+  btrdChest.position.set(0.2, 0.16, 0);
+  btrdGroup.add(btrdChest);
+  const btrdLid = new THREE.Mesh(
+    new THREE.BoxGeometry(0.62, 0.06, 0.42),
+    new THREE.MeshLambertMaterial({ color: 0xa0793c })
+  );
+  btrdLid.position.set(0.2, 0.34, 0);
+  btrdGroup.add(btrdLid);
+  // gold sparkles
+  const btrdSparkMat = new THREE.MeshBasicMaterial({ color: 0xffeb6e, transparent: true, opacity: 0.0 });
+  const btrdSparks = [];
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2;
+    const sp = new THREE.Mesh(
+      new THREE.SphereGeometry(0.04, 8, 6),
+      btrdSparkMat.clone()
+    );
+    sp.position.set(0.2 + Math.cos(a) * 0.18, 0.4, Math.sin(a) * 0.12);
+    btrdGroup.add(sp);
+    btrdSparks.push(sp);
+  }
+  // digger
+  const btrdDigger = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.65, 8),
+    new THREE.MeshLambertMaterial({ color: 0xff7a3a })
+  );
+  btrdDigger.position.set(-0.9, 0.4, 0.5);
+  btrdGroup.add(btrdDigger);
+  const btrdDiggerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  btrdDiggerH.position.set(-0.9, 0.85, 0.5);
+  btrdGroup.add(btrdDiggerH);
+  // shovel
+  const btrdShovelGroup = new THREE.Group();
+  btrdShovelGroup.position.set(-0.55, 0.6, 0.4);
+  const btrdShaft = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 0.7, 6),
+    new THREE.MeshLambertMaterial({ color: 0x6b4226 })
+  );
+  btrdShaft.rotation.z = -0.5;
+  btrdShovelGroup.add(btrdShaft);
+  const btrdBlade = new THREE.Mesh(
+    new THREE.BoxGeometry(0.16, 0.18, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0x9a9a9a })
+  );
+  btrdBlade.position.set(0.3, -0.3, 0);
+  btrdShovelGroup.add(btrdBlade);
+  btrdGroup.add(btrdShovelGroup);
+  // metal detector observer
+  const btrdObs = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.15, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x4a4a8a })
+  );
+  btrdObs.position.set(1.4, 0.43, 0.5);
+  btrdGroup.add(btrdObs);
+  const btrdObsH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  btrdObsH.position.set(1.4, 0.9, 0.5);
+  btrdGroup.add(btrdObsH);
+  group.add(btrdGroup);
+
+  // coastal otter pup
+  const cotpGroup = new THREE.Group();
+  cotpGroup.position.set(-66, 0.05, 32);
+  // tide pool
+  const cotpPool = new THREE.Mesh(
+    new THREE.CircleGeometry(2.2, 24),
+    new THREE.MeshLambertMaterial({ color: 0x4a7e9e, transparent: true, opacity: 0.65 })
+  );
+  cotpPool.rotation.x = -Math.PI / 2;
+  cotpPool.position.y = 0.012;
+  cotpGroup.add(cotpPool);
+  // mom otter
+  const cotpMom = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.25, 0.7, 6, 10),
+    new THREE.MeshLambertMaterial({ color: 0x6b4226 })
+  );
+  cotpMom.rotation.z = Math.PI / 2;
+  cotpMom.position.set(-0.5, 0.25, 0);
+  cotpGroup.add(cotpMom);
+  const cotpMomH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0x4a2e1c })
+  );
+  cotpMomH.position.set(-1.05, 0.32, 0);
+  cotpGroup.add(cotpMomH);
+  // pup
+  const cotpPup = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.14, 0.35, 6, 10),
+    new THREE.MeshLambertMaterial({ color: 0xc89a7a })
+  );
+  cotpPup.rotation.z = Math.PI / 2;
+  cotpPup.position.set(-0.5, 0.45, 0);
+  cotpGroup.add(cotpPup);
+  const cotpPupH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0x9a6a4a })
+  );
+  cotpPupH.position.set(-0.78, 0.5, 0);
+  cotpGroup.add(cotpPupH);
+  // splashes
+  const cotpSplashMat = new THREE.MeshBasicMaterial({ color: 0xddeef6, transparent: true, opacity: 0.0 });
+  const cotpSplashes = [];
+  for (let i = 0; i < 5; i++) {
+    const s = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 8, 6),
+      cotpSplashMat.clone()
+    );
+    cotpGroup.add(s);
+    cotpSplashes.push(s);
+  }
+  // sea-foam edge
+  const cotpFoam = new THREE.Mesh(
+    new THREE.RingGeometry(2.0, 2.2, 24, 1),
+    new THREE.MeshBasicMaterial({ color: 0xf2f8f8, transparent: true, opacity: 0.5 })
+  );
+  cotpFoam.rotation.x = -Math.PI / 2;
+  cotpFoam.position.y = 0.013;
+  cotpGroup.add(cotpFoam);
+  group.add(cotpGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -27549,6 +27777,39 @@ export function createAnchorageLandmark(THREE, opts) {
   // pier driftwood horse - tail sway
   pdwhTailGroup.rotation.y = Math.sin(v147t * 0.8) * 0.3;
   pdwhChildH.rotation.y = Math.sin(v147t * 0.9) * 0.4;
+  // --- v148 updates ---
+  const v148t = t;
+  // pier puppeteer - puppet bobbing + arm flapping
+  for (let i = 0; i < ppupPuppets.length; i++) {
+    const p = ppupPuppets[i];
+    p.position.y = 1.2 + Math.sin(v148t * 1.5 + i * 1.5) * 0.1;
+    p.rotation.z = Math.sin(v148t * 1.2 + i) * 0.2;
+    p.userData.armL.rotation.z = Math.sin(v148t * 2.4 + i) * 0.7;
+    p.userData.armR.rotation.z = -Math.sin(v148t * 2.4 + i) * 0.7;
+  }
+  // kids look up
+  for (let i = 0; i < ppupKidH.length; i++) {
+    ppupKidH[i].rotation.y = Math.sin(v148t * 0.8 + i * 0.7) * 0.2;
+    ppupKidH[i].position.y = 0.6 + Math.sin(v148t * 1.5 + i) * 0.04;
+  }
+  // beach treasure dig
+  btrdShovelGroup.rotation.z = Math.sin(v148t * 1.6) * 0.4;
+  for (let i = 0; i < btrdSparks.length; i++) {
+    const phase = (v148t * 0.8 + i * 0.3) % 1.0;
+    btrdSparks[i].material.opacity = (1.0 - phase) * 0.9;
+    btrdSparks[i].position.y = 0.4 + phase * 0.4;
+  }
+  // coastal otter pup
+  cotpPup.position.y = 0.45 + Math.sin(v148t * 1.5) * 0.05;
+  cotpPupH.position.y = 0.5 + Math.sin(v148t * 1.5) * 0.05;
+  cotpMomH.rotation.y = Math.sin(v148t * 0.6) * 0.3;
+  for (let i = 0; i < cotpSplashes.length; i++) {
+    const phase = (v148t * 1.0 + i * 0.2) % 1.0;
+    const ang = i * 1.3;
+    cotpSplashes[i].position.set(-0.5 + Math.cos(ang) * 0.3, 0.5 + phase * 0.3, Math.sin(ang) * 0.3);
+    cotpSplashes[i].material.opacity = (1.0 - phase) * 0.7;
+  }
+
 
 
 
