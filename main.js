@@ -18855,6 +18855,32 @@ const cosmicSights = [
         position: [5650, 116740, 3650],
         category: "cosmic sight"
     }
+,
+  {"name":"Quantum Measurement Axiom 12026","category":"Quantum Foundations","description":"Observer collapse dynamics in isolated systems.","position":[5725,112500,3725],"color":"#4a90e2","size":140},
+  {"name":"Quantum Decoherence Cascade 12027","category":"Quantum Physics","description":"Environmental noise destroying quantum coherence.","position":[5726,112520,3726],"color":"#7b68ee","size":140},
+  {"name":"Quantum Tunneling Rate 12028","category":"Quantum Mechanics","description":"Probabilistic barrier penetration mechanism.","position":[5727,112540,3727],"color":"#6a5acd","size":140},
+  {"name":"Quantum Superposition Well 12029","category":"Quantum Foundations","description":"Multi-state coherent existence region.","position":[5728,112560,3728],"color":"#8a2be2","size":140},
+  {"name":"Double Slit Interference 12030","category":"Quantum Experiments","description":"Wave-particle duality demonstration chamber.","position":[5729,112580,3729],"color":"#9370db","size":140},
+  {"name":"Quantum Zeno Pause Zone 12031","category":"Quantum Dynamics","description":"Measurement-induced transition suppression.","position":[5730,112600,3730],"color":"#3cb371","size":140},
+  {"name":"Anti-Zeno Acceleration Field 12032","category":"Quantum Effects","description":"Enhanced transitions via measurement coupling.","position":[5731,112620,3731],"color":"#2e8b57","size":140},
+  {"name":"Quantum Eraser Paradox 12033","category":"Quantum Information","description":"Path-erasure and reappearance geometry.","position":[5732,112640,3732],"color":"#228b22","size":140},
+  {"name":"Quantum Phase Boundary 12034","category":"Condensed Matter","description":"Order-disorder transition threshold region.","position":[5733,112660,3733],"color":"#006400","size":140},
+  {"name":"Topological Entanglement Hub 12035","category":"Quantum Matter","description":"Non-local correlation preservation node.","position":[5734,112680,3734],"color":"#32cd32","size":140},
+  {"name":"Quantum Spin Vortex 12036","category":"Quantum Matter","description":"Magnetic frustration ground state region.","position":[5735,112700,3735],"color":"#ff6347","size":140},
+  {"name":"Critical Point Observatory 12037","category":"Phase Transitions","description":"Scale-invariant fluctuation detection station.","position":[5736,112720,3736],"color":"#dc143c","size":140},
+  {"name":"Adiabatic Evolution Track 12038","category":"Quantum Algorithms","description":"Slow ground-state following pathway.","position":[5737,112740,3737],"color":"#ff4500","size":140},
+  {"name":"Diabatic Crossing Zone 12039","category":"Quantum Dynamics","description":"Rapid quantum state transition region.","position":[5738,112760,3738],"color":"#ff8c00","size":140},
+  {"name":"Berry Phase Geometric Curl 12040","category":"Quantum Geometry","description":"Cyclic evolution gauge field accumulation.","position":[5739,112780,3739],"color":"#ffa500","size":140},
+  {"name":"Gauge Structure Manifold 12041","category":"Quantum Topology","description":"Berry phase geometric coordinate system.","position":[5740,112800,3740],"color":"#ffd700","size":140},
+  {"name":"Weak Value Amplification Node 12042","category":"Quantum Measurement","description":"Weak measurement enhancement interface.","position":[5741,112820,3741],"color":"#ffed4e","size":140},
+  {"name":"Continuous Monitoring Probe 12043","category":"Quantum Measurement","description":"Real-time state evolution tracking device.","position":[5742,112840,3742],"color":"#daa520","size":140},
+  {"name":"Quantum Feedback Loop 12044","category":"Quantum Information","description":"Measurement-based control mechanism.","position":[5743,112860,3743],"color":"#cd853f","size":140},
+  {"name":"Error Syndrome Detector 12045","category":"Quantum Computing","description":"Parity check measurement interface.","position":[5744,112880,3744],"color":"#8b4513","size":140},
+  {"name":"Stabilizer Code Framework 12046","category":"Quantum Computing","description":"Multi-qubit redundant encoding system.","position":[5745,112900,3745],"color":"#a0522d","size":140},
+  {"name":"Topological Code Lattice 12047","category":"Quantum Error Correction","description":"2D lattice topology-based error suppression.","position":[5746,112920,3746],"color":"#696969","size":140},
+  {"name":"Lattice Gauge Theory Node 12048","category":"Quantum Simulation","description":"Discretized gauge field simulator node.","position":[5747,112940,3747],"color":"#2f4f4f","size":140},
+  {"name":"Quantum Walk Dynamics 12049","category":"Quantum Algorithms","description":"Continuous/discrete quantum walk search.","position":[5748,112960,3748],"color":"#00ced1","size":140},
+  {"name":"Variational Optimizer Circuit 12050","category":"Quantum Computing","description":"QAOA parameterized circuit optimizer.","position":[5749,112980,3749],"color":"#20b2aa","size":140}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
