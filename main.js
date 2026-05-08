@@ -17748,6 +17748,207 @@ const cosmicSights = [
     color: '#CD853F',
     size: 160
   }
+,
+{
+    name: 'Stellar Mass-Radius Relation 11826',
+    category: 'Stellar Mass & Mortality',
+    description: 'The empirical relationship between stellar mass and physical radius in main-sequence stars.',
+    position: [5575, 109000, 3575],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Main Sequence Turnoff 11827',
+    category: 'Stellar Mass & Mortality',
+    description: 'The point on the HR diagram where stars of a given age leave the main sequence.',
+    position: [5576, 109020, 3576],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Red Giant Branch Evolution 11828',
+    category: 'Stellar Mass & Mortality',
+    description: 'The evolutionary phase where exhausted hydrogen shells cause stars to expand and cool.',
+    position: [5577, 109040, 3577],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Horizontal Branch Stars 11829',
+    category: 'Stellar Mass & Mortality',
+    description: 'A distinct population in the HR diagram representing helium-burning core stars.',
+    position: [5578, 109060, 3578],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Asymptotic Giant Branch 11830',
+    category: 'Stellar Mass & Mortality',
+    description: 'The late evolutionary phase where stars undergo mass loss and thermal pulses.',
+    position: [5579, 109080, 3579],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Stellar Lifetime Scaling 11831',
+    category: 'Stellar Mass & Mortality',
+    description: 'The inverse cubic relation between stellar mass and main-sequence lifetime.',
+    position: [5580, 109100, 3580],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Eddington Luminosity Limit 11832',
+    category: 'Stellar Mass & Mortality',
+    description: 'The maximum luminosity at which radiation pressure balances gravity in stellar interiors.',
+    position: [5581, 109120, 3581],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Zero-Age Main Sequence 11833',
+    category: 'Stellar Mass & Mortality',
+    description: 'The locus of stars just beginning hydrogen fusion, zero age in stellar evolution.',
+    position: [5582, 109140, 3582],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Post-AGB Nebula Formation 11834',
+    category: 'Stellar Mass & Mortality',
+    description: 'The planetary nebulae created when AGB stars shed their envelopes.',
+    position: [5583, 109160, 3583],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'White Dwarf Cooling Track 11835',
+    category: 'Stellar Mass & Mortality',
+    description: 'The evolutionary path of white dwarfs as they gradually radiate away stored thermal energy.',
+    position: [5584, 109180, 3584],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Stellar Core Helium Flash 11836',
+    category: 'Stellar Mass & Mortality',
+    description: 'The explosive ignition of helium fusion at the tip of the red giant branch.',
+    position: [5585, 109200, 3585],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Chandrasekhar Mass Limit 11837',
+    category: 'Stellar Mass & Mortality',
+    description: 'The maximum mass (~1.4 solar masses) for stable white dwarf support.',
+    position: [5586, 109220, 3586],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Pair-Instability Supernovae 11838',
+    category: 'Stellar Mass & Mortality',
+    description: 'Thermonuclear explosions triggered by pair production in very massive star cores.',
+    position: [5587, 109240, 3587],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Pulsational Pair Instability 11839',
+    category: 'Stellar Mass & Mortality',
+    description: 'Repeated thermal pulses preceding the final supernova explosion in massive stars.',
+    position: [5588, 109260, 3588],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Initial Mass Function 11840',
+    category: 'Stellar Mass & Mortality',
+    description: 'The distribution of stellar masses at birth in a stellar population.',
+    position: [5589, 109280, 3589],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Stellar Rotation Evolution 11841',
+    category: 'Stellar Mass & Mortality',
+    description: 'The spin-down of stars due to magnetic braking and angular momentum loss.',
+    position: [5590, 109300, 3590],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Rapid Proton-Capture Process 11842',
+    category: 'Stellar Mass & Mortality',
+    description: 'Nuclear fusion by successive proton captures in explosive stellar environments.',
+    position: [5591, 109320, 3591],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Core Collapse Nucleosynthesis 11843',
+    category: 'Stellar Mass & Mortality',
+    description: 'Rapid nucleosynthesis occurring during the core collapse preceding supernovae.',
+    position: [5592, 109340, 3592],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Fallback Accretion 11844',
+    category: 'Stellar Mass & Mortality',
+    description: 'Material falling back onto neutron stars or black holes after a supernova.',
+    position: [5593, 109360, 3593],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Neutron Star Maximum Mass 11845',
+    category: 'Stellar Mass & Mortality',
+    description: 'The upper mass limit for neutron stars before collapse to black holes.',
+    position: [5594, 109380, 3594],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Wolf-Rayet Star Evolution 11846',
+    category: 'Stellar Mass & Mortality',
+    description: 'Massive stars that have shed their hydrogen envelopes, showing strong winds.',
+    position: [5595, 109400, 3595],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Luminous Blue Variable Phase 11847',
+    category: 'Stellar Mass & Mortality',
+    description: 'An unstable phase of very massive stars with extreme variability.',
+    position: [5596, 109420, 3596],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Stellar Core Rotation 11848',
+    category: 'Stellar Mass & Mortality',
+    description: 'The differential rotation between stellar cores and envelopes.',
+    position: [5597, 109440, 3597],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Thermonuclear Runaway 11849',
+    category: 'Stellar Mass & Mortality',
+    description: 'Uncontrolled nuclear fusion in white dwarf accretion layers.',
+    position: [5598, 109460, 3598],
+    color: '#3366FF',
+    size: 140
+  },
+  {
+    name: 'Stellar Mass Mortality Synthesis 11850',
+    category: 'Stellar Mass & Mortality',
+    description: 'The comprehensive understanding of how stellar mass determines evolutionary fate and death.',
+    position: [5599, 109480, 3599],
+    color: '#3366FF',
+    size: 140
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
