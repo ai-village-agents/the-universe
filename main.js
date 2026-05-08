@@ -16887,7 +16887,132 @@ const cosmicSights = [
   { name: 'Quantum Walk Search Graph', position: [5347, 104940, 3347], color: '#C8E6C9', size: 5.2, description: 'Sight 11548.' },
   { name: 'Adiabatic Quantum Computation State', position: [5348, 104960, 3348], color: '#F0F4C3', size: 5.2, description: 'Sight 11549.' },
   { name: 'Quantum Annealing Optimization Landscape', position: [5349, 104980, 3349], color: '#FFECB3', size: 5.2, description: 'Sight 11550.' }
-
+,
+  {
+    name: "Hot Jupiter Atmospheric Thermal Inversion",
+    description: "A layer in a gas giant's upper atmosphere where temperature paradoxically increases with altitude due to absorption of stellar radiation by titanium oxide and vanadium oxide.",
+    position: [3947, -2841, 6123]
+  },
+  {
+    name: "Exoplanet Transmission Spectroscopy Transit",
+    description: "The measurement of starlight filtering through a planet's atmosphere during transit, revealing atomic and molecular fingerprints.",
+    position: [-5172, 4318, -2156]
+  },
+  {
+    name: "Exoplanet Secondary Eclipse Spectrum",
+    description: "The thermal emission spectrum of a planet observed when it passes behind its host star, separating planetary light from stellar light.",
+    position: [2836, 5472, -4189]
+  },
+  {
+    name: "Super-Earth Outgassed Steam Atmosphere",
+    description: "A thick envelope of water vapor released by volcanic activity or magma oceans on a massive rocky planet with significant internal heat.",
+    position: [-6214, -1937, 3845]
+  },
+  {
+    name: "Exoplanet Biosignature Oxygen Triplet",
+    description: "The telltale 0.76-micron absorption feature of molecular oxygen, a strong but imperfect indicator of biological photosynthesis.",
+    position: [4728, -3621, -2874]
+  },
+  {
+    name: "Methane Disequilibrium Biosignature",
+    description: "An atmospheric methane abundance far exceeding what geological processes could sustain, suggesting active methanogenic life.",
+    position: [-3847, 5183, 1936]
+  },
+  {
+    name: "Red Dwarf Exoplanet Habitability Zone",
+    description: "The narrow orbital band around a cool M-dwarf star where liquid water could exist, tempered by stellar flares and tidal locking.",
+    position: [2156, -4837, 5712]
+  },
+  {
+    name: "Exoplanet Photochemical Haze Layer",
+    description: "A high-altitude smog of hydrocarbon particles produced by ultraviolet-driven chemistry, potentially obscuring deeper atmospheric features.",
+    position: [-5412, 2847, -4236]
+  },
+  {
+    name: "Exoplanet Atmospheric Escape Tail",
+    description: "The trailing stream of ionized hydrogen and helium blown away from a close-orbiting planet by intense stellar wind and extreme ultraviolet heating.",
+    position: [6128, -2156, 3487]
+  },
+  {
+    name: "Mini-Neptune Hydrogen-Helium Envelope",
+    description: "A puffy, low-mass atmosphere of primordial gases surrounding a rocky core, intermediate between Earth and Neptune in composition.",
+    position: [-4723, 3915, -5178]
+  },
+  {
+    name: "Exoplanet Atmospheric Rossiter-McLaughlin",
+    description: "The subtle distortion of stellar spectral lines during transit, revealing whether a planet's orbit is aligned with the star's equator.",
+    position: [3548, -5637, 2193]
+  },
+  {
+    name: "Tidally Locked Exoplanet Terminator Line",
+    description: "The permanent boundary between day and night on a synchronously rotating world, where temperature gradients drive extreme atmospheric circulation.",
+    position: [-2189, 4873, -3715]
+  },
+  {
+    name: "Exoplanet Atmospheric Metallicity Gradient",
+    description: "The variation in heavy-element abundance with altitude or latitude, tracing the planet's formation history and migration path.",
+    position: [6125, -1349, 4531]
+  },
+  {
+    name: "Exoplanet Phosphine Biosignature Anomaly",
+    description: "A controversial detection of phosphine gas in a planet's upper atmosphere, difficult to produce geologically or photochemically in large quantities.",
+    position: [-3859, 2718, -5937]
+  },
+  {
+    name: "Gas Giant Stratospheric Water Vapor",
+    description: "The unexpected presence of water in the upper stratosphere of a hot Jupiter, possibly delivered by icy cometary impacts or upward convection.",
+    position: [4973, -4131, 1842]
+  },
+  {
+    name: "Exoplanet High-Resolution Doppler Spectrum",
+    description: "A finely resolved stellar spectrum during transit, capturing individual molecular lines shifted by the planet's orbital motion.",
+    position: [-1738, 5347, -2683]
+  },
+  {
+    name: "Sub-Neptune Core-Atmosphere Boundary",
+    description: "The ill-defined transition between a rocky interior and a volatile-rich envelope, where supercritical fluids blur the distinction between surface and sky.",
+    position: [5437, -2879, 4198]
+  },
+  {
+    name: "Exoplanet Atmospheric Circulation Jet Stream",
+    description: "A high-velocity east-west wind band encircling a rotating planet, driven by temperature differences between the substellar point and nightside.",
+    position: [-6219, 3564, -1847]
+  },
+  {
+    name: "Exoplanet Cloud Condensation Nucleus Population",
+    description: "The ensemble of microscopic particles that seed cloud formation in an alien atmosphere, determining opacity and albedo.",
+    position: [2783, -4517, 5341]
+  },
+  {
+    name: "Exoplanet Runaway Greenhouse Threshold",
+    description: "The critical stellar flux beyond which a planet's oceans boil and water vapor feedback drives irreversible atmospheric collapse.",
+    position: [-4138, 5827, -2159]
+  },
+  {
+    name: "Exoplanet Spectral Unmixing Retrieval",
+    description: "A mathematical inversion technique that extracts temperature, pressure, and composition profiles from observed spectra.",
+    position: [3671, -1941, 4715]
+  },
+  {
+    name: "Exoplanet Albedo Phase Curve",
+    description: "The variation in reflected starlight as a planet orbits, mapping the distribution of clouds, continents, and oceans across its surface.",
+    position: [-5347, 4179, -3292]
+  },
+  {
+    name: "Exoplanet Atmospheric Sodium Doublet",
+    description: "The narrow pair of absorption lines at 589 nanometers, often the first atomic signature detected in a transiting exoplanet's atmosphere.",
+    position: [4531, -3767, 5128]
+  },
+  {
+    name: "Exoplanet Temperate Subsurface Ocean Indicator",
+    description: "A combination of tidal heating, ice shell thickness, and geothermal flux suggesting a habitable liquid water body beneath a frozen surface.",
+    position: [-2873, 5237, -4514]
+  },
+  {
+    name: "Exoplanet Direct Imaging Coronagraphic Mask",
+    description: "The tiny dark spot created by a starshade or coronagraph, blocking stellar light to reveal the faint reflected glow of a nearby planet.",
+    position: [5713, -2459, 3895]
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
