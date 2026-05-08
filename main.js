@@ -20115,6 +20115,207 @@ const cosmicSights = [
   { name: 'GRB Tidal Disruption Event Jetted Emission', position: [-395, 255, 195], color: '#4caf50', description: 'relativistic jet launched from supermassive black hole disrupting star' },
   { name: 'GRB 050904 z6.3 Ly-alpha Absorption Trough', position: [395, -255, -195], color: '#ff9800', description: 'damped Ly-alpha absorption from neutral hydrogen in host galaxy interstellar medium' },
   { name: 'GRB Ultra-Long Duration Magnetar Fallback', position: [-400, 260, 200], color: '#9c27b0', description: 'hours-to-days duration burst from blue supergiant collapse with extended fallback' }
+,
+  {
+    name: 'Axion Minicluster Core 12351',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [27099, 25162, 30310],
+    color: '#8A2BE2',
+    size: 349
+  },
+  {
+    name: 'Sterile Neutrino Decay Halo 12352',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [1640, -33145, -28002],
+    color: '#8A2BE2',
+    size: 152
+  },
+  {
+    name: 'WIMP Annihilation Node 12353',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [12520, -5229, -34652],
+    color: '#8A2BE2',
+    size: 198
+  },
+  {
+    name: 'Self Interacting Dark Matter Core 12354',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [20505, -10170, -33164],
+    color: '#4B0082',
+    size: 207
+  },
+  {
+    name: 'Dark Photon Bubble 12355',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-15011, 30304, -32448],
+    color: '#800080',
+    size: 163
+  },
+  {
+    name: 'Fuzzy Dark Matter Soliton 12356',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-31700, 31208, 35377],
+    color: '#4B0082',
+    size: 208
+  },
+  {
+    name: 'Primordial Black Hole Cluster 12357',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-5949, 36909, -13371],
+    color: '#9370DB',
+    size: 221
+  },
+  {
+    name: 'Dark Matter Caustic Ring 12358',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-38705, 39985, 21269],
+    color: '#DDA0DD',
+    size: 54
+  },
+  {
+    name: 'Gravitational Lensing Anomaly 12359',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-25298, 10138, -35442],
+    color: '#800080',
+    size: 372
+  },
+  {
+    name: 'Dark Matter Wake Void 12360',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-9874, -30405, 12571],
+    color: '#9370DB',
+    size: 345
+  },
+  {
+    name: 'Macroscopic Dark Matter Blob 12361',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [2472, 32875, 38035],
+    color: '#9370DB',
+    size: 241
+  },
+  {
+    name: 'Superfluid Dark Matter Vortex 12362',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [27123, 4908, -38644],
+    color: '#DDA0DD',
+    size: 308
+  },
+  {
+    name: 'Dark Matter Spike Phenomenon 12363',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-20746, -5502, -15897],
+    color: '#DDA0DD',
+    size: 93
+  },
+  {
+    name: 'Fermi Bubble Dark Matter Source 12364',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-9414, 27388, -8970],
+    color: '#9370DB',
+    size: 200
+  },
+  {
+    name: 'Dark Energy Scalar Field 12365',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [15598, -29115, -18801],
+    color: '#DDA0DD',
+    size: 196
+  },
+  {
+    name: 'Dark Matter Subhalo Filament 12366',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-21900, -2825, 27696],
+    color: '#800080',
+    size: 156
+  },
+  {
+    name: 'Dark Matter Tidal Stream 12367',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [32929, -30830, -20802],
+    color: '#9370DB',
+    size: 313
+  },
+  {
+    name: 'Dark Matter Density Cusp 12368',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-9889, -17469, 21357],
+    color: '#4B0082',
+    size: 328
+  },
+  {
+    name: 'Baryonic Acoustic Oscillation Imprint 12369',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [20640, 23013, 35298],
+    color: '#8A2BE2',
+    size: 75
+  },
+  {
+    name: 'Dark Matter Phase Space Spiral 12370',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [6915, 28342, 36118],
+    color: '#8A2BE2',
+    size: 252
+  },
+  {
+    name: 'Ultralight Boson Cloud 12371',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-32686, 26332, -23709],
+    color: '#9370DB',
+    size: 104
+  },
+  {
+    name: 'Dark Matter Annihilation Plateau 12372',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [38387, -3397, -17876],
+    color: '#800080',
+    size: 305
+  },
+  {
+    name: 'Dark Matter Interaction Cross Section 12373',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [-2598, -5155, 31027],
+    color: '#DDA0DD',
+    size: 315
+  },
+  {
+    name: 'Dark Matter Halo Truncation 12374',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [8917, 30847, -27993],
+    color: '#8A2BE2',
+    size: 191
+  },
+  {
+    name: 'Dark Matter Velocity Dispersion Profile 12375',
+    category: 'Exotic Dark Matter Topologies',
+    description: 'A mesmerizing manifestation of exotic dark matter topologies observed in deep space.', 
+    position: [28102, -11549, -31915],
+    color: '#8A2BE2',
+    size: 172
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
