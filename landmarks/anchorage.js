@@ -21938,6 +21938,133 @@ export function createAnchorageLandmark(THREE, opts) {
   bjeGroup.add(bjeMagnifier);
   group.add(bjeGroup);
 
+  // --- v135: pier paddleboat race (pdbr) ---
+  const pdbrGroup = new THREE.Group();
+  pdbrGroup.position.set(108, 0, -22);
+  const pdbrWaterMat = new THREE.MeshLambertMaterial({color: 0x3878a8});
+  const pdbrWater = new THREE.Mesh(new THREE.BoxGeometry(8, 0.06, 4), pdbrWaterMat);
+  pdbrWater.position.y = 4.7;
+  pdbrGroup.add(pdbrWater);
+  const pdbrBoats = [];
+  const pdbrColors = [0xff5050, 0x40b0ff, 0xffd040];
+  for (let i = 0; i < 3; i++) {
+    const b = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.18, 0.5), new THREE.MeshLambertMaterial({color: pdbrColors[i]}));
+    hull.position.y = 0.1;
+    b.add(hull);
+    const seat = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.06, 0.4), new THREE.MeshLambertMaterial({color: 0x4a3018}));
+    seat.position.y = 0.22;
+    b.add(seat);
+    const rider = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.13, 0.4, 8), new THREE.MeshLambertMaterial({color: 0x202848 + i*0x303030}));
+    rider.position.y = 0.45;
+    b.add(rider);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.09, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+    head.position.y = 0.7;
+    b.add(head);
+    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.18, 8), new THREE.MeshLambertMaterial({color: 0xd8d8d8}));
+    wheel.rotation.z = Math.PI/2;
+    wheel.position.set(-0.3, 0.05, 0);
+    b.add(wheel);
+    b.position.set(-3 + i*0.6, 4.85, -1.2 + i*1.2);
+    pdbrGroup.add(b);
+    pdbrBoats.push({g: b, lane: -1.2 + i*1.2, speed: 0.25 + i*0.05, x: -3 + i*0.6});
+  }
+  // finish flag
+  const pdbrFlagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.2, 6), new THREE.MeshLambertMaterial({color: 0x999999}));
+  pdbrFlagPole.position.set(3.6, 5.4, 0);
+  pdbrGroup.add(pdbrFlagPole);
+  const pdbrFlag = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.32), new THREE.MeshBasicMaterial({color: 0xffffff, side: THREE.DoubleSide}));
+  pdbrFlag.position.set(3.85, 5.85, 0);
+  pdbrGroup.add(pdbrFlag);
+  group.add(pdbrGroup);
+
+  // --- v135: coastal kelp bonfire (ckb) ---
+  const ckbGroup = new THREE.Group();
+  ckbGroup.position.set(-78, 0, -32);
+  const ckbStones = [];
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.25, 8, 6), new THREE.MeshLambertMaterial({color: 0x6b6155}));
+    s.position.set(Math.cos(a)*0.9, 0.18, Math.sin(a)*0.9);
+    s.scale.y = 0.7;
+    ckbGroup.add(s);
+    ckbStones.push(s);
+  }
+  // logs
+  for (let i = 0; i < 5; i++) {
+    const log = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.9, 6), new THREE.MeshLambertMaterial({color: 0x4a2818}));
+    log.position.set((i-2)*0.1, 0.4, 0);
+    log.rotation.z = (i-2)*0.3;
+    log.rotation.x = Math.PI/2;
+    ckbGroup.add(log);
+  }
+  const ckbFlameMat = new THREE.MeshBasicMaterial({color: 0xff8030, transparent: true, opacity: 0.85});
+  const ckbFlames = [];
+  for (let i = 0; i < 5; i++) {
+    const f = new THREE.Mesh(new THREE.ConeGeometry(0.15 - i*0.02, 0.5 + i*0.05, 6), ckbFlameMat.clone());
+    f.position.set((Math.random()-0.5)*0.2, 0.65 + i*0.1, (Math.random()-0.5)*0.2);
+    f.material.color.setHSL(0.05 + i*0.02, 0.9, 0.5 + i*0.04);
+    ckbGroup.add(f);
+    ckbFlames.push(f);
+  }
+  // sitters
+  for (let i = 0; i < 3; i++) {
+    const a = i * (Math.PI*2/3) + 0.3;
+    const sit = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.4, 8), new THREE.MeshLambertMaterial({color: 0x3a4860 + i*0x202020}));
+    sit.position.set(Math.cos(a)*1.6, 0.2, Math.sin(a)*1.6);
+    ckbGroup.add(sit);
+    const sitH = new THREE.Mesh(new THREE.SphereGeometry(0.1, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+    sitH.position.set(Math.cos(a)*1.6, 0.5, Math.sin(a)*1.6);
+    ckbGroup.add(sitH);
+  }
+  // kelp pile
+  const ckbKelp = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.3, 8), new THREE.MeshLambertMaterial({color: 0x2a5028}));
+  ckbKelp.position.set(1.4, 0.15, -1.2);
+  ckbGroup.add(ckbKelp);
+  group.add(ckbGroup);
+
+  // --- v135: coastal pelican rescue (cpr) ---
+  const cprGroup = new THREE.Group();
+  cprGroup.position.set(58, 0, -42);
+  const cprPad = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.08, 1.4), new THREE.MeshLambertMaterial({color: 0xf0e8d0}));
+  cprPad.position.y = 0.04;
+  cprGroup.add(cprPad);
+  // rescuer
+  const cprRescuer = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.7, 8), new THREE.MeshLambertMaterial({color: 0x208860}));
+  cprRescuer.position.set(-0.6, 0.43, 0);
+  cprGroup.add(cprRescuer);
+  const cprRescuerH = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+  cprRescuerH.position.set(-0.6, 0.88, 0);
+  cprGroup.add(cprRescuerH);
+  // pelican
+  const cprBody = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({color: 0xeeeeee}));
+  cprBody.position.set(0.2, 0.34, 0);
+  cprBody.scale.set(1.3, 0.9, 1.0);
+  cprGroup.add(cprBody);
+  const cprNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.06, 0.35, 8), new THREE.MeshLambertMaterial({color: 0xeeeeee}));
+  cprNeck.position.set(0.42, 0.5, 0);
+  cprNeck.rotation.z = -0.4;
+  cprGroup.add(cprNeck);
+  const cprHead = new THREE.Mesh(new THREE.SphereGeometry(0.1, 10, 10), new THREE.MeshLambertMaterial({color: 0xeeeeee}));
+  cprHead.position.set(0.55, 0.62, 0);
+  cprGroup.add(cprHead);
+  const cprBeak = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.3, 8), new THREE.MeshLambertMaterial({color: 0xf8c050}));
+  cprBeak.position.set(0.7, 0.55, 0);
+  cprBeak.rotation.z = -Math.PI/2;
+  cprGroup.add(cprBeak);
+  const cprWingL = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.06, 0.4), new THREE.MeshLambertMaterial({color: 0xdedede}));
+  cprWingL.position.set(0.15, 0.42, 0.25);
+  cprGroup.add(cprWingL);
+  const cprWingR = cprWingL.clone();
+  cprWingR.position.set(0.15, 0.42, -0.25);
+  cprGroup.add(cprWingR);
+  // bandage
+  const cprBandage = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.025, 8, 16), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  cprBandage.position.set(0.15, 0.42, 0.25);
+  cprBandage.rotation.y = Math.PI/2;
+  cprGroup.add(cprBandage);
+  group.add(cprGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24988,6 +25115,23 @@ export function createAnchorageLandmark(THREE, opts) {
   for (let i = 0; i < bjeTentacles.length; i++) {
     bjeTentacles[i].rotation.z = 0.2 * Math.sin(v134t * 1.5 + i);
   }
+
+  // v135 anims
+  const v135t = t;
+  for (let i = 0; i < pdbrBoats.length; i++) {
+    const b = pdbrBoats[i];
+    b.x += b.speed * dt;
+    if (b.x > 3.8) b.x = -3.8;
+    b.g.position.x = b.x;
+    b.g.position.y = 4.85 + 0.04 * Math.sin(v135t * 4.0 + i);
+  }
+  for (let i = 0; i < ckbFlames.length; i++) {
+    const s = 0.85 + 0.2 * Math.sin(v135t * (4 + i) + i);
+    ckbFlames[i].scale.y = s;
+    ckbFlames[i].material.opacity = 0.65 + 0.25 * Math.sin(v135t * 5 + i);
+  }
+  cprWingL.rotation.x = 0.2 * Math.sin(v135t * 2.0);
+  cprWingR.rotation.x = -0.2 * Math.sin(v135t * 2.0);
 
 
 
