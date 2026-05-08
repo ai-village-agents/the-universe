@@ -18435,6 +18435,147 @@ export function createAnchorageLandmark(THREE, opts) {
   spmGroup.add(spmHalo);
   group.add(spmGroup);
 
+  // --- v112: pier puzzle competition (ppc) + coastal weather vane workshop (cwvw) + beach lemonade stand (bls) ---
+  const ppcGroup = new THREE.Group();
+  ppcGroup.position.set(11, 0.5, -39);
+  const ppcTableMat = new THREE.MeshLambertMaterial({color: 0x8b5a2b});
+  const ppcTable = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.1, 1.4), ppcTableMat);
+  ppcTable.position.y = 0.85;
+  ppcGroup.add(ppcTable);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.85, 0.08), ppcTableMat);
+    leg.position.set((i % 2 ? 1 : -1) * 1.0, 0.42, (i < 2 ? 1 : -1) * 0.6);
+    ppcGroup.add(leg);
+  }
+  const ppcPuzzleMat = new THREE.MeshLambertMaterial({color: 0xf2c982});
+  const ppcPieces = [];
+  for (let i = 0; i < 18; i++) {
+    const p = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.18), ppcPuzzleMat);
+    p.position.set(-0.9 + (i % 6) * 0.3, 0.92, -0.45 + Math.floor(i / 6) * 0.3);
+    ppcPieces.push(p);
+    ppcGroup.add(p);
+  }
+  const ppcSolverColors = [0xe74c3c, 0x3498db, 0x2ecc71];
+  const ppcSolvers = [];
+  for (let i = 0; i < 3; i++) {
+    const s = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8), new THREE.MeshLambertMaterial({color: ppcSolverColors[i]}));
+    body.position.y = 0.35;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.85;
+    s.add(body); s.add(head);
+    s.position.set(-1.0 + i * 1.0, 0, -0.95);
+    ppcSolvers.push(s);
+    ppcGroup.add(s);
+  }
+  const ppcTimerMat = new THREE.MeshStandardMaterial({color: 0x1a1a1a, emissive: 0x00ff66, emissiveIntensity: 0.6});
+  const ppcTimer = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.25, 0.05), ppcTimerMat);
+  ppcTimer.position.set(0, 1.6, 0.6);
+  ppcGroup.add(ppcTimer);
+  const ppcPost = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.5, 0.06), ppcTableMat);
+  ppcPost.position.set(0, 0.75, 0.6);
+  ppcGroup.add(ppcPost);
+  group.add(ppcGroup);
+
+  const cwvwGroup = new THREE.Group();
+  cwvwGroup.position.set(-44, 0.5, 14);
+  const cwvwBenchMat = new THREE.MeshLambertMaterial({color: 0x6b4226});
+  const cwvwBench = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.1, 1.0), cwvwBenchMat);
+  cwvwBench.position.y = 0.8;
+  cwvwGroup.add(cwvwBench);
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.8, 0.08), cwvwBenchMat);
+    leg.position.set((i % 2 ? 1 : -1) * 1.1, 0.4, (i < 2 ? 1 : -1) * 0.4);
+    cwvwGroup.add(leg);
+  }
+  const cwvwCopperMat = new THREE.MeshStandardMaterial({color: 0xb87333, metalness: 0.7, roughness: 0.4});
+  const cwvwVanes = [];
+  for (let i = 0; i < 3; i++) {
+    const v = new THREE.Group();
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.8, 6), cwvwCopperMat);
+    post.position.y = 0.4;
+    const arrow = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.3, 5), cwvwCopperMat);
+    arrow.rotation.z = Math.PI / 2;
+    arrow.position.set(0.25, 0.85, 0);
+    const tail = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.18, 0.02), cwvwCopperMat);
+    tail.position.set(-0.18, 0.85, 0);
+    v.add(post); v.add(arrow); v.add(tail);
+    v.position.set(-0.9 + i * 0.9, 0.85, 0);
+    cwvwVanes.push(v);
+    cwvwGroup.add(v);
+  }
+  const cwvwSmith = new THREE.Group();
+  const cwvwSBody = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 0.8, 8), new THREE.MeshLambertMaterial({color: 0x556b2f}));
+  cwvwSBody.position.y = 0.4;
+  const cwvwSHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+  cwvwSHead.position.y = 0.95;
+  cwvwSmith.add(cwvwSBody); cwvwSmith.add(cwvwSHead);
+  cwvwSmith.position.set(0, 0, -0.9);
+  cwvwGroup.add(cwvwSmith);
+  const cwvwHammer = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, 0.18), new THREE.MeshLambertMaterial({color: 0x444444}));
+  cwvwHammer.position.set(0.25, 0.95, -0.7);
+  cwvwGroup.add(cwvwHammer);
+  const cwvwSparkMat = new THREE.MeshBasicMaterial({color: 0xffaa00, transparent: true, opacity: 0.8});
+  const cwvwSparks = [];
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.025, 4, 4), cwvwSparkMat.clone());
+    s.position.set(0.2 + Math.random() * 0.2, 0.9 + Math.random() * 0.3, 0);
+    cwvwSparks.push(s);
+    cwvwGroup.add(s);
+  }
+  group.add(cwvwGroup);
+
+  const blsGroup = new THREE.Group();
+  blsGroup.position.set(40, 0.5, 28);
+  const blsStandMat = new THREE.MeshLambertMaterial({color: 0xf4a460});
+  const blsCounter = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.9, 0.7), blsStandMat);
+  blsCounter.position.y = 0.45;
+  blsGroup.add(blsCounter);
+  const blsRoof = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 1.0), new THREE.MeshLambertMaterial({color: 0xffe066}));
+  blsRoof.position.y = 1.65;
+  blsGroup.add(blsRoof);
+  const blsPostL = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.75, 0.06), blsStandMat);
+  blsPostL.position.set(-1.0, 1.27, -0.4);
+  const blsPostR = blsPostL.clone(); blsPostR.position.x = 1.0;
+  blsGroup.add(blsPostL); blsGroup.add(blsPostR);
+  const blsPitcherMat = new THREE.MeshLambertMaterial({color: 0xfff8a0, transparent: true, opacity: 0.7});
+  const blsPitcher = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.16, 0.4, 12), blsPitcherMat);
+  blsPitcher.position.set(-0.5, 1.1, 0);
+  blsGroup.add(blsPitcher);
+  const blsLemonMat = new THREE.MeshLambertMaterial({color: 0xfff44f});
+  const blsLemons = [];
+  for (let i = 0; i < 6; i++) {
+    const l = new THREE.Mesh(new THREE.SphereGeometry(0.07, 6, 6), blsLemonMat);
+    l.position.set(0.3 + (i % 3) * 0.18, 0.95, -0.18 + Math.floor(i / 3) * 0.16);
+    blsLemons.push(l);
+    blsGroup.add(l);
+  }
+  const blsCups = [];
+  const blsCupMat = new THREE.MeshLambertMaterial({color: 0xffffff});
+  for (let i = 0; i < 4; i++) {
+    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.04, 0.12, 8), blsCupMat);
+    c.position.set(-0.1 + i * 0.12, 0.97, 0.2);
+    blsCups.push(c);
+    blsGroup.add(c);
+  }
+  const blsSign = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 0.04), new THREE.MeshLambertMaterial({color: 0xffffff}));
+  blsSign.position.set(0, 1.4, -0.36);
+  blsGroup.add(blsSign);
+  const blsKidColors = [0xff6b6b, 0x4ecdc4];
+  const blsKids = [];
+  for (let i = 0; i < 2; i++) {
+    const k = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8), new THREE.MeshLambertMaterial({color: blsKidColors[i]}));
+    body.position.y = 0.28;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 8, 8), new THREE.MeshLambertMaterial({color: 0xfdbcb4}));
+    head.position.y = 0.7;
+    k.add(body); k.add(head);
+    k.position.set(-0.4 + i * 0.8, 0, -0.5);
+    blsKids.push(k);
+    blsGroup.add(k);
+  }
+  group.add(blsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -21013,6 +21154,21 @@ export function createAnchorageLandmark(THREE, opts) {
       fl.material.opacity = pulse < 0.18 ? 1.0 - pulse * 5.0 : 0.0;
     });
     spmHalo.scale.setScalar(1.0 + 0.05 * Math.sin(v111t * 0.6));
+  // --- v112 updates ---
+  const v112t = elapsed;
+  ppcSolvers.forEach((s, i) => { s.position.y = Math.abs(Math.sin(v112t * 1.5 + i)) * 0.04; });
+  ppcPieces.forEach((p, i) => { p.rotation.y = Math.sin(v112t * 0.8 + i * 0.4) * 0.3; });
+  ppcTimerMat.emissiveIntensity = 0.4 + 0.4 * Math.abs(Math.sin(v112t * 2.5));
+  cwvwVanes.forEach((v, i) => { v.rotation.y = Math.sin(v112t * 0.5 + i * 1.2) * 0.6; });
+  cwvwHammer.position.y = 0.95 + Math.abs(Math.sin(v112t * 4)) * 0.15;
+  cwvwHammer.rotation.x = Math.sin(v112t * 4) * 0.4;
+  cwvwSparks.forEach((s, i) => {
+    s.position.y = 0.9 + ((v112t * 1.5 + i * 0.3) % 0.6);
+    s.material.opacity = Math.max(0, 0.8 - ((v112t * 1.5 + i * 0.3) % 0.6) * 1.4);
+  });
+  blsLemons.forEach((l, i) => { l.position.y = 0.95 + Math.sin(v112t * 1.2 + i) * 0.02; });
+  blsKids.forEach((k, i) => { k.position.y = Math.abs(Math.sin(v112t * 1.8 + i * 1.5)) * 0.05; });
+
 
 
 
