@@ -22518,6 +22518,207 @@ const cosmicSights = [
 { name: "Radial Temperature Gradient", type: "phenomenon", category: "high_energy", position: [6798, 133960, 4798], description: "Disk temperature decreasing with radius in thin accretion regime" },
 { name: "Magnetic Reconnection Flares", type: "phenomenon", category: "high_energy", position: [6799, 133980, 4799], description: "Rapid energy release from coronal field lines producing X-ray brightening" }
 
+,
+  {
+    name: 'Primordial Filament 12976',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [24542, -36106, 1101],
+    color: '#2980b9',
+    size: 122
+  },
+  {
+    name: 'Dark Matter Bridge 12977',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [25890, 39991, 3498],
+    color: '#bdc3c7',
+    size: 289
+  },
+  {
+    name: 'Intergalactic Strand 12978',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [30525, -3829, 25748],
+    color: '#2980b9',
+    size: 332
+  },
+  {
+    name: 'Galactic Node Connector 12979',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [8931, 29870, -33652],
+    color: '#9b59b6',
+    size: 280
+  },
+  {
+    name: 'Supercluster Tether 12980',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-24337, 11477, 16340],
+    color: '#9b59b6',
+    size: 275
+  },
+  {
+    name: 'Void Boundary Web 12981',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-34558, -22571, 29900],
+    color: '#ecf0f1',
+    size: 154
+  },
+  {
+    name: 'Baryonic Thread 12982',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [36493, 28574, 4840],
+    color: '#3498db',
+    size: 308
+  },
+  {
+    name: 'Cosmic Synapse 12983',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [38863, 17699, -17536],
+    color: '#3498db',
+    size: 377
+  },
+  {
+    name: 'Quasar Connecting Filament 12984',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-11057, 34479, -31807],
+    color: '#ecf0f1',
+    size: 381
+  },
+  {
+    name: 'Galactic Artery 12985',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [18071, 708, 2421],
+    color: '#9b59b6',
+    size: 127
+  },
+  {
+    name: 'Laniakea Strand 12986',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [17614, 2583, -3318],
+    color: '#2980b9',
+    size: 368
+  },
+  {
+    name: 'Deep Space Webbing 12987',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-39634, 22506, -4306],
+    color: '#8e44ad',
+    size: 389
+  },
+  {
+    name: 'Cosmic Lattice 12988',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-5743, 4595, 28050],
+    color: '#ecf0f1',
+    size: 271
+  },
+  {
+    name: 'Filamentary Structure 12989',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-6649, -3725, -5259],
+    color: '#2980b9',
+    size: 62
+  },
+  {
+    name: 'Great Attractor Tether 12990',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [11732, -39523, -3736],
+    color: '#ecf0f1',
+    size: 133
+  },
+  {
+    name: 'Cosmological Thread 12991',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [31756, 600, 28695],
+    color: '#8e44ad',
+    size: 391
+  },
+  {
+    name: 'Intergalactic Pathway 12992',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [14288, -12949, -15914],
+    color: '#8e44ad',
+    size: 251
+  },
+  {
+    name: 'Galactic Superhighway 12993',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [18278, -5843, -18369],
+    color: '#9b59b6',
+    size: 382
+  },
+  {
+    name: 'Dark Energy Web 12994',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [30342, 5272, -4721],
+    color: '#3498db',
+    size: 113
+  },
+  {
+    name: 'Nebular Filament 12995',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-248, 6110, 31019],
+    color: '#3498db',
+    size: 73
+  },
+  {
+    name: 'Cosmic Scaffolding 12996',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [437, -18656, -37165],
+    color: '#ecf0f1',
+    size: 323
+  },
+  {
+    name: 'Galactic Web Node 12997',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-28365, 2554, 28764],
+    color: '#bdc3c7',
+    size: 53
+  },
+  {
+    name: 'Void Thread 12998',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-39917, -22817, 13393],
+    color: '#bdc3c7',
+    size: 196
+  },
+  {
+    name: 'Supercluster Bridge 12999',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-35945, -26939, -16630],
+    color: '#bdc3c7',
+    size: 317
+  },
+  {
+    name: 'Primordial Webbing 13000',
+    category: 'Cosmic Web Filaments',
+    description: 'A mesmerizing manifestation of cosmic web filaments observed in deep space.', 
+    position: [-18551, -33989, 3799],
+    color: '#9b59b6',
+    size: 332
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
