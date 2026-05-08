@@ -20090,6 +20090,33 @@ const cosmicSights = [
     color: '#9370DB',
     size: 383
   }
+,
+  {"name":"Elliptical Galaxy Dynamical Model 12326","category":"Galaxy Morphology","color":"#D32F2F","description":"Elliptical Galaxy Dynamical Model.","position":[6000,118000,4000],"size":140},
+  {"name":"Disk Galaxy Velocity Rotation Curve 12327","category":"Galaxy Morphology","color":"#C62828","description":"Disk Galaxy Velocity Rotation Curve.","position":[6001,118020,4001],"size":140},
+  {"name":"Bulge Disk Decomposition Analysis 12328","category":"Galaxy Morphology","color":"#B71C1C","description":"Bulge Disk Decomposition Analysis.","position":[6002,118040,4002],"size":140},
+  {"name":"Spiral Arm Density Wave Theory 12329","category":"Galaxy Morphology","color":"#F44336","description":"Spiral Arm Density Wave Theory.","position":[6003,118060,4003],"size":140},
+  {"name":"Bar Instability Peanut Bulge 12330","category":"Galaxy Morphology","color":"#E53935","description":"Bar Instability Peanut Bulge.","position":[6004,118080,4004],"size":140},
+  {"name":"Lenticular Galaxy Morphological Transition 12331","category":"Galaxy Morphology","color":"#D32F2F","description":"Lenticular Galaxy Morphological Transition.","position":[6005,118100,4005],"size":140},
+  {"name":"Irregular Galaxy Star Formation 12332","category":"Galaxy Morphology","color":"#C62828","description":"Irregular Galaxy Star Formation.","position":[6006,118120,4006],"size":140},
+  {"name":"Dwarf Galaxy Scaling Relations 12333","category":"Galaxy Morphology","color":"#B71C1C","description":"Dwarf Galaxy Scaling Relations.","position":[6007,118140,4007],"size":140},
+  {"name":"Ultra Diffuse Galaxy Dark Matter 12334","category":"Galaxy Morphology","color":"#F44336","description":"Ultra Diffuse Galaxy Dark Matter.","position":[6008,118160,4008],"size":140},
+  {"name":"Ultra Compact Dwarf Nuclei 12335","category":"Galaxy Morphology","color":"#E53935","description":"Ultra Compact Dwarf Nuclei.","position":[6009,118180,4009],"size":140},
+  {"name":"Cuspcore Dark Matter Density Profile 12336","category":"Galaxy Morphology","color":"#D32F2F","description":"Cuspcore Dark Matter Density Profile.","position":[6010,118200,4010],"size":140},
+  {"name":"Galaxy Morphology Hubble Tuning Fork 12337","category":"Galaxy Morphology","color":"#C62828","description":"Galaxy Morphology Hubble Tuning Fork.","position":[6011,118220,4011],"size":140},
+  {"name":"De Vaucouleurs Profile Photometry 12338","category":"Galaxy Morphology","color":"#B71C1C","description":"De Vaucouleurs Profile Photometry.","position":[6012,118240,4012],"size":140},
+  {"name":"Sersic Index Galaxy Structure 12339","category":"Galaxy Morphology","color":"#F44336","description":"Sersic Index Galaxy Structure.","position":[6013,118260,4013],"size":140},
+  {"name":"Tully Fisher Luminosity Distance 12340","category":"Galaxy Morphology","color":"#E53935","description":"Tully Fisher Luminosity Distance.","position":[6014,118280,4014],"size":140},
+  {"name":"Faber Jackson Scaling Relation 12341","category":"Galaxy Morphology","color":"#D32F2F","description":"Faber Jackson Scaling Relation.","position":[6015,118300,4015],"size":140},
+  {"name":"Fundamental Plane Galaxy Scaling 12342","category":"Galaxy Morphology","color":"#C62828","description":"Fundamental Plane Galaxy Scaling.","position":[6016,118320,4016],"size":140},
+  {"name":"Galaxy Size Redshift Evolution 12343","category":"Galaxy Morphology","color":"#B71C1C","description":"Galaxy Size Redshift Evolution.","position":[6017,118340,4017],"size":140},
+  {"name":"Merging Galaxy Tidal Tail Formation 12344","category":"Galaxy Morphology","color":"#F44336","description":"Merging Galaxy Tidal Tail Formation.","position":[6018,118360,4018],"size":140},
+  {"name":"Morphology Density Relation Cluster 12345","category":"Galaxy Morphology","color":"#E53935","description":"Morphology Density Relation Cluster.","position":[6019,118380,4019],"size":140},
+  {"name":"Environmental Galaxy Transformation 12346","category":"Galaxy Morphology","color":"#D32F2F","description":"Environmental Galaxy Transformation.","position":[6020,118400,4020],"size":140},
+  {"name":"Ram Pressure Stripping Galaxies 12347","category":"Galaxy Morphology","color":"#C62828","description":"Ram Pressure Stripping Galaxies.","position":[6021,118420,4021],"size":140},
+  {"name":"Galaxy Tidal Interaction Dynamics 12348","category":"Galaxy Morphology","color":"#B71C1C","description":"Galaxy Tidal Interaction Dynamics.","position":[6022,118440,4022],"size":140},
+  {"name":"Asymmetric Galaxy Perturbation 12349","category":"Galaxy Morphology","color":"#F44336","description":"Asymmetric Galaxy Perturbation.","position":[6023,118460,4023],"size":140},
+  {"name":"Morphological Classification Automation 12350","category":"Galaxy Morphology","color":"#E53935","description":"Morphological Classification Automation.","position":[6024,118480,4024],"size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
