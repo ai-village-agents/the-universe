@@ -23347,6 +23347,228 @@ export function createAnchorageLandmark(THREE, opts) {
   pshwGroup.add(pshwSign);
   group.add(pshwGroup);
 
+  // --- v144: pier whale watch + beach sandpiper flock + pier night squid ---
+  const pwwhGroup = new THREE.Group();
+  pwwhGroup.position.set(38, 8.4, -54);
+  // deck
+  const pwwhDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(4.6, 0.18, 2.8),
+    new THREE.MeshLambertMaterial({ color: 0x8b6f47 })
+  );
+  pwwhDeck.position.y = 0.09;
+  pwwhGroup.add(pwwhDeck);
+  // rail
+  const pwwhRailMat = new THREE.MeshLambertMaterial({ color: 0x5a3f25 });
+  for (let i = -1; i <= 1; i += 2) {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.6, 0.1), pwwhRailMat);
+    post.position.set(2.0 * i, 0.48, 1.3);
+    pwwhGroup.add(post);
+  }
+  const pwwhRailTop = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.06, 0.06), pwwhRailMat);
+  pwwhRailTop.position.set(0, 0.78, 1.3);
+  pwwhGroup.add(pwwhRailTop);
+  // 3 watchers
+  const pwwhWatchers = [];
+  const pwwhWatcherH = [];
+  const pwwhBinos = [];
+  const pwwhColors = [0x2c5282, 0x974f4f, 0x4a7c59];
+  for (let i = 0; i < 3; i++) {
+    const w = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.14, 0.7, 8),
+      new THREE.MeshLambertMaterial({ color: pwwhColors[i] })
+    );
+    w.position.set(-1.4 + i * 1.4, 0.44, 0.9);
+    pwwhGroup.add(w);
+    pwwhWatchers.push(w);
+    const h = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+    );
+    h.position.set(w.position.x, 0.92, 0.9);
+    pwwhGroup.add(h);
+    pwwhWatcherH.push(h);
+    const bino = new THREE.Mesh(
+      new THREE.BoxGeometry(0.16, 0.08, 0.1),
+      new THREE.MeshLambertMaterial({ color: 0x111111 })
+    );
+    bino.position.set(w.position.x, 0.92, 1.02);
+    pwwhGroup.add(bino);
+    pwwhBinos.push(bino);
+  }
+  // ocean (offshore relative)
+  const pwwhOcean = new THREE.Mesh(
+    new THREE.PlaneGeometry(18, 14),
+    new THREE.MeshLambertMaterial({ color: 0x1e4a6a, transparent: true, opacity: 0.55 })
+  );
+  pwwhOcean.rotation.x = -Math.PI / 2;
+  pwwhOcean.position.set(0, -7.3, 8);
+  pwwhGroup.add(pwwhOcean);
+  // whale (sub-group so dive arc works)
+  const pwwhWhaleGroup = new THREE.Group();
+  pwwhWhaleGroup.position.set(0, -7.0, 8);
+  const pwwhWhale = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.6, 2.4, 6, 12),
+    new THREE.MeshLambertMaterial({ color: 0x2a3f55 })
+  );
+  pwwhWhale.rotation.z = Math.PI / 2;
+  pwwhWhaleGroup.add(pwwhWhale);
+  const pwwhFluke = new THREE.Mesh(
+    new THREE.BoxGeometry(0.06, 0.45, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0x1f2f3f })
+  );
+  pwwhFluke.position.set(-1.6, 0, 0);
+  pwwhWhaleGroup.add(pwwhFluke);
+  // spout (transparent set at construction)
+  const pwwhSpoutMat = new THREE.MeshBasicMaterial({ color: 0xeaf6ff, transparent: true, opacity: 0.0 });
+  const pwwhSpout = new THREE.Mesh(new THREE.ConeGeometry(0.25, 1.4, 8), pwwhSpoutMat);
+  pwwhSpout.position.set(0.4, 1.1, 0);
+  pwwhWhaleGroup.add(pwwhSpout);
+  pwwhGroup.add(pwwhWhaleGroup);
+  // sign
+  const pwwhSign = new THREE.Mesh(
+    new THREE.BoxGeometry(1.0, 0.4, 0.05),
+    new THREE.MeshLambertMaterial({ color: 0xf2e2c2 })
+  );
+  pwwhSign.position.set(-2.0, 0.95, 1.32);
+  pwwhGroup.add(pwwhSign);
+  group.add(pwwhGroup);
+
+  // beach sandpiper flock
+  const bspfGroup = new THREE.Group();
+  bspfGroup.position.set(-46, 0.05, 32);
+  const bspfSand = new THREE.Mesh(
+    new THREE.CircleGeometry(3.5, 22),
+    new THREE.MeshLambertMaterial({ color: 0xe2cfa6 })
+  );
+  bspfSand.rotation.x = -Math.PI / 2;
+  bspfSand.position.y = 0.005;
+  bspfGroup.add(bspfSand);
+  // wet sheen
+  const bspfWet = new THREE.Mesh(
+    new THREE.CircleGeometry(2.2, 20),
+    new THREE.MeshLambertMaterial({ color: 0xb6d6dc, transparent: true, opacity: 0.5 })
+  );
+  bspfWet.rotation.x = -Math.PI / 2;
+  bspfWet.position.set(0.6, 0.012, 0.4);
+  bspfGroup.add(bspfWet);
+  const bspfBirds = [];
+  const bspfLegs = [];
+  const bspfBeaks = [];
+  const bspfBodyMat = new THREE.MeshLambertMaterial({ color: 0xc9b896 });
+  const bspfLegMat = new THREE.MeshLambertMaterial({ color: 0x2a2a2a });
+  for (let i = 0; i < 14; i++) {
+    const a = (i / 14) * Math.PI * 2 + (i * 0.3);
+    const r = 0.7 + (i % 3) * 0.5;
+    const bg = new THREE.Group();
+    bg.position.set(Math.cos(a) * r, 0.18, Math.sin(a) * r);
+    bg.rotation.y = a + Math.PI / 2;
+    const body = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 8, 6),
+      bspfBodyMat
+    );
+    body.scale.set(1.2, 1, 0.8);
+    bg.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 8, 6),
+      bspfBodyMat
+    );
+    head.position.set(0.12, 0.06, 0);
+    bg.add(head);
+    const beak = new THREE.Mesh(
+      new THREE.ConeGeometry(0.015, 0.1, 6),
+      new THREE.MeshLambertMaterial({ color: 0x111111 })
+    );
+    beak.rotation.z = -Math.PI / 2;
+    beak.position.set(0.2, 0.06, 0);
+    bg.add(beak);
+    bspfBeaks.push(beak);
+    const legL = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.16, 5), bspfLegMat);
+    legL.position.set(0, -0.1, 0.04);
+    bg.add(legL);
+    const legR = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.16, 5), bspfLegMat);
+    legR.position.set(0, -0.1, -0.04);
+    bg.add(legR);
+    bspfLegs.push({ L: legL, R: legR });
+    bspfBirds.push(bg);
+    bspfGroup.add(bg);
+  }
+  group.add(bspfGroup);
+
+  // pier night squid
+  const pnsqGroup = new THREE.Group();
+  pnsqGroup.position.set(48, 8.4, 22);
+  const pnsqDeck = new THREE.Mesh(
+    new THREE.BoxGeometry(3.6, 0.18, 2.4),
+    new THREE.MeshLambertMaterial({ color: 0x6f5538 })
+  );
+  pnsqDeck.position.y = 0.09;
+  pnsqGroup.add(pnsqDeck);
+  // lantern post
+  const pnsqPost = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 1.6, 8),
+    new THREE.MeshLambertMaterial({ color: 0x3a2a1a })
+  );
+  pnsqPost.position.set(-1.4, 0.99, 0);
+  pnsqGroup.add(pnsqPost);
+  const pnsqLanternMat = new THREE.MeshStandardMaterial({ color: 0xfff2a0, emissive: 0xffaa44, emissiveIntensity: 1.4 });
+  const pnsqLantern = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 10, 8),
+    pnsqLanternMat
+  );
+  pnsqLantern.position.set(-1.4, 1.85, 0);
+  pnsqGroup.add(pnsqLantern);
+  // jigger
+  const pnsqJigger = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x355d8a })
+  );
+  pnsqJigger.position.set(0.4, 0.44, 0.2);
+  pnsqGroup.add(pnsqJigger);
+  const pnsqJiggerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xe8c6a0 })
+  );
+  pnsqJiggerH.position.set(0.4, 0.92, 0.2);
+  pnsqGroup.add(pnsqJiggerH);
+  // jig line
+  const pnsqLineMat = new THREE.LineBasicMaterial({ color: 0xffffff });
+  const pnsqLineGeo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0.6, 0.92, 0.2),
+    new THREE.Vector3(0.8, -7.0, 0.2)
+  ]);
+  const pnsqLine = new THREE.Line(pnsqLineGeo, pnsqLineMat);
+  pnsqGroup.add(pnsqLine);
+  // squid (sub-group)
+  const pnsqSquidGroup = new THREE.Group();
+  pnsqSquidGroup.position.set(0.8, -7.0, 0.2);
+  const pnsqSquidMat = new THREE.MeshStandardMaterial({ color: 0xe8a4c4, emissive: 0x884466, emissiveIntensity: 0.7 });
+  const pnsqSquidBody = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.6, 8),
+    pnsqSquidMat
+  );
+  pnsqSquidBody.rotation.x = Math.PI;
+  pnsqSquidGroup.add(pnsqSquidBody);
+  const pnsqTentacles = [];
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2;
+    const tent = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.005, 0.4, 5),
+      pnsqSquidMat
+    );
+    tent.position.set(Math.cos(a) * 0.1, -0.3, Math.sin(a) * 0.1);
+    pnsqSquidGroup.add(tent);
+    pnsqTentacles.push(tent);
+  }
+  pnsqGroup.add(pnsqSquidGroup);
+  // bucket
+  const pnsqBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.18, 0.3, 10),
+    new THREE.MeshLambertMaterial({ color: 0x4a4a4a })
+  );
+  pnsqBucket.position.set(-0.4, 0.24, -0.6);
+  pnsqGroup.add(pnsqBucket);
+  group.add(pnsqGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -26607,6 +26829,37 @@ export function createAnchorageLandmark(THREE, opts) {
   pshwFin.position.z = pshwShark.position.z + 0.2;
   pshwWatcherH.rotation.y = 0.4 * Math.sin(v143t * 0.6);
   pshwBino.rotation.y = 0.4 * Math.sin(v143t * 0.6);
+  // --- v144 updates ---
+  const v144t = t;
+  // pier whale watch
+  pwwhWhaleGroup.position.x = -3 + Math.sin(v144t * 0.18) * 6;
+  pwwhWhaleGroup.position.y = -7.0 + Math.sin(v144t * 0.4) * 0.4;
+  pwwhWhaleGroup.rotation.y = Math.sin(v144t * 0.18) * 0.4;
+  const pwwhDive = (Math.sin(v144t * 0.4) + 1) * 0.5;
+  pwwhSpoutMat.opacity = Math.max(0, Math.sin(v144t * 0.4)) * 0.7;
+  pwwhSpout.scale.y = 0.6 + pwwhDive * 0.8;
+  for (let i = 0; i < pwwhWatchers.length; i++) {
+    pwwhBinos[i].rotation.y = Math.sin(v144t * 0.5 + i) * 0.3;
+    pwwhBinos[i].position.y = 0.92 + Math.sin(v144t * 0.7 + i) * 0.02;
+    pwwhWatcherH[i].rotation.y = Math.sin(v144t * 0.5 + i) * 0.3;
+  }
+  // sandpiper flock
+  for (let i = 0; i < bspfBirds.length; i++) {
+    const bg = bspfBirds[i];
+    const phase = v144t * 1.2 + i * 0.5;
+    bg.position.y = 0.18 + Math.abs(Math.sin(phase)) * 0.05;
+    bspfLegs[i].L.rotation.x = Math.sin(phase) * 0.6;
+    bspfLegs[i].R.rotation.x = -Math.sin(phase) * 0.6;
+    bspfBeaks[i].position.y = 0.06 + Math.sin(phase * 2) * 0.04 - 0.02;
+  }
+  // pier night squid
+  pnsqLanternMat.emissiveIntensity = 1.2 + Math.sin(v144t * 2.1) * 0.3;
+  pnsqSquidGroup.position.y = -7.0 + Math.sin(v144t * 0.7) * 0.5;
+  pnsqSquidGroup.rotation.y = v144t * 0.6;
+  for (let i = 0; i < pnsqTentacles.length; i++) {
+    pnsqTentacles[i].rotation.x = Math.sin(v144t * 1.5 + i) * 0.4;
+  }
+
 
 
 
