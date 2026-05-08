@@ -23449,6 +23449,33 @@ const cosmicSights = [
 { name: "Crystallization Release Energy", type: "phenomenon", category: "stellar_evolution", position: [6873, 135460, 4873], description: "Latent heat of phase transition during carbon-oxygen core crystallization, extending white dwarf luminosity lifespan substantially" },
 { name: "Binary Orbital Decay Rate", type: "phenomenon", category: "stellar_remnants", position: [6874, 135480, 4874], description: "Gravitational wave-driven orbital shrinkage in white dwarf binary systems, predicting merger timescales and Roche lobe overflow" }
 
+,
+{name: "Primordial Black Hole Formation Rate", type: "phenomenon", category: "Cosmology", position: [6950, 137000, 4950], description: "Early universe primordial BH production mechanisms and mass distribution"},
+{name: "Planck Mass Threshold Effects", type: "phenomenon", category: "Quantum Cosmology", position: [6951, 137020, 4951], description: "Critical mass scales for primordial BH nucleation during inflation"},
+{name: "Scalar Field Collapse Dynamics", type: "phenomenon", category: "Quantum Field Theory", position: [6952, 137040, 4952], description: "Non-linear scalar field collapse leading to primordial BH formation"},
+{name: "Density Fluctuation Amplitude", type: "phenomenon", category: "Perturbation Theory", position: [6953, 137060, 4953], description: "Primordial power spectrum amplitude constraints from BH formation"},
+{name: "Hawking Evaporation Temperature", type: "phenomenon", category: "Black Hole Physics", position: [6954, 137080, 4954], description: "Evaporation timescales for primordial BH with various initial masses"},
+{name: "Stochastic Inflation Dynamics", type: "phenomenon", category: "Inflationary Cosmology", position: [6955, 137100, 4955], description: "Stochastic fluctuations producing enhanced density perturbations for PBH"},
+{name: "Critical Collapse Threshold", type: "phenomenon", category: "General Relativity", position: [6956, 137120, 4956], description: "Minimal amplitude for density fluctuation to form a black hole"},
+{name: "PBH Mass Spectrum Formation", type: "phenomenon", category: "Cosmology", position: [6957, 137140, 4957], description: "Distribution of primordial BH masses from formation mechanisms"},
+{name: "Gravitational Wave Background Signal", type: "phenomenon", category: "Gravitational Waves", position: [6958, 137160, 4958], description: "LIGO-detectable GW signature from primordial BH merger networks"},
+{name: "Dark Matter Candidate Role", type: "phenomenon", category: "Particle Physics", position: [6959, 137180, 4959], description: "Primordial BH as dark matter component across mass ranges"},
+{name: "Constraints from Microlensing", type: "phenomenon", category: "Observational Astronomy", position: [6960, 137200, 4960], description: "OGLE and MOA surveys constraining intermediate-mass PBH"},
+{name: "Isocurvature Perturbation Effects", type: "phenomenon", category: "Cosmological Perturbations", position: [6961, 137220, 4961], description: "Primordial BH formation from isocurvature rather than adiabatic modes"},
+{name: "Inflation Field Energy Density", type: "phenomenon", category: "Inflationary Cosmology", position: [6962, 137240, 4962], description: "Reheating temperature constraints enabling PBH production"},
+{name: "Quantum Fluctuation Amplification", type: "phenomenon", category: "Quantum Cosmology", position: [6963, 137260, 4963], description: "Mechanism for quantum metric fluctuations to seed PBH"},
+{name: "Quintessence Dark Energy Role", type: "phenomenon", category: "Dark Energy", position: [6964, 137280, 4964], description: "Alternative scalar field dynamics affecting PBH formation epoch"},
+{name: "Intermediate Mass Black Hole Bridge", type: "phenomenon", category: "Black Hole Physics", position: [6965, 137300, 4965], description: "IMBH assembly pathway from merging primordial BH populations"},
+{name: "Spin Parameter Distribution", type: "phenomenon", category: "Black Hole Thermodynamics", position: [6966, 137320, 4966], description: "Expected angular momentum distribution for primordial BH"},
+{name: "Particle Relics from PBH Decay", type: "phenomenon", category: "Astroparticle Physics", position: [6967, 137340, 4967], description: "Exotic particle production from primordial BH evaporation"},
+{name: "Leptogenesis Connection", type: "phenomenon", category: "Early Universe Physics", position: [6968, 137360, 4968], description: "Baryon asymmetry generation linked to PBH formation epoch"},
+{name: "Nucleosynthesis Modification", type: "phenomenon", category: "Nuclear Cosmology", position: [6969, 137380, 4969], description: "Primordial BBN abundance alterations from PBH heating"},
+{name: "Axion Production Enhancement", type: "phenomenon", category: "Particle Physics", position: [6970, 137400, 4970], description: "Increased axion abundance in PBH-dominated formation scenarios"},
+{name: "Graviton Emission Spectrum", type: "phenomenon", category: "Quantum Gravity", position: [6971, 137420, 4971], description: "GW frequency spectrum from primordial BH binary coalescence"},
+{name: "Entropy Bounds Violation Tests", type: "phenomenon", category: "Thermodynamics", position: [6972, 137440, 4972], description: "Primordial BH as test case for holographic entropy bounds"},
+{name: "Quantum Hair Conservation", type: "phenomenon", category: "Quantum Information", position: [6973, 137460, 4973], description: "Information storage in primordial BH initial configurations"},
+{name: "Formation Rate Peak Redshift", type: "phenomenon", category: "Cosmology", position: [6974, 137480, 4974], description: "Epoch of maximum PBH production relative to standard cosmology"}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
