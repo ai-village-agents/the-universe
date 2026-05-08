@@ -18854,7 +18854,208 @@ const cosmicSights = [
         name: "Lensing Application: Kappa Map Void Imprint",
         position: [5650, 116740, 3650],
         category: "cosmic sight"
-    }
+    },
+  {
+    name: 'Computational N-body Gravitational Integration',
+    category: 'Computational Astrophysics',
+    description: 'Direct numerical solution of Newtonian dynamics for stellar clusters and galaxy mergers using symplectic integrators and adaptive timestepping.',
+    position: [50000, -35000, 25000],
+    color: '#FF6B6B',
+    size: 200
+  },
+  {
+    name: 'Lagrangian SPH Hydrodynamic Solver',
+    category: 'Computational Astrophysics',
+    description: 'Smoothed Particle Hydrodynamics implementation for astrophysical gas dynamics with artificial viscosity and kernel-based gradient estimation.',
+    position: [50120, -34920, 24940],
+    color: '#4ECDC4',
+    size: 210
+  },
+  {
+    name: 'Adaptive Mesh Refinement Grid Hierarchy',
+    category: 'Computational Astrophysics',
+    description: 'Multi-level spatial discretization method that dynamically refines resolution near shocks, density peaks, and ionization fronts in cosmological simulations.',
+    position: [50240, -34840, 24880],
+    color: '#45B7D1',
+    size: 220
+  },
+  {
+    name: 'Monte Carlo Photon Transport Code',
+    category: 'Computational Astrophysics',
+    description: 'Statistical radiative transfer simulation tracking individual photon packets through scattering atmospheres and dusty nebulae with polarization tracking.',
+    position: [50360, -34760, 24820],
+    color: '#96CEB4',
+    size: 230
+  },
+  {
+    name: 'MHD Solver with Constrained Transport',
+    category: 'Computational Astrophysics',
+    description: 'Magnetohydrodynamic numerical scheme preserving divergence-free magnetic fields for solar corona modeling and accretion disk dynamo simulations.',
+    position: [50480, -34680, 24760],
+    color: '#FFEAA7',
+    size: 240
+  },
+  {
+    name: 'Cosmic Ray Propagation Framework',
+    category: 'Computational Astrophysics',
+    description: 'Stochastic differential equation solver for charged particle transport through Galactic magnetic turbulence with spallation and energy loss processes.',
+    position: [50600, -34600, 24700],
+    color: '#DDA0DD',
+    size: 200
+  },
+  {
+    name: 'Stellar Evolution Synthesis Pipeline',
+    category: 'Computational Astrophysics',
+    description: 'Modular code integrating nuclear reaction networks, convection theory, and mass loss prescriptions across all stellar evolutionary phases.',
+    position: [50720, -34520, 24640],
+    color: '#98D8C8',
+    size: 210
+  },
+  {
+    name: 'Interstellar Chemistry Network Integrator',
+    category: 'Computational Astrophysics',
+    description: 'Stiff ODE solver for molecular formation pathways in cold clouds, including gas-phase reactions, grain surface processes, and photodissociation.',
+    position: [50840, -34440, 24580],
+    color: '#F7DC6F',
+    size: 220
+  },
+  {
+    name: 'Nested Sampling Evidence Calculator',
+    category: 'Computational Astrophysics',
+    description: 'Bayesian inference algorithm for model comparison and marginalized likelihood estimation in high-dimensional parameter spaces of exoplanet systems.',
+    position: [50960, -34360, 24520],
+    color: '#BB8FCE',
+    size: 230
+  },
+  {
+    name: 'MCMC Cosmological Parameter Sampler',
+    category: 'Computational Astrophysics',
+    description: 'Markov Chain Monte Carlo implementation exploring posterior distributions of ΛCDM parameters from CMB, BAO, and supernova data.',
+    position: [51080, -34280, 24460],
+    color: '#85C1E9',
+    size: 240
+  },
+  {
+    name: 'Neural Network Cosmological Emulator',
+    category: 'Computational Astrophysics',
+    description: 'Deep learning surrogate model trained on N-body simulations providing instantaneous matter power spectrum predictions for likelihood evaluation.',
+    position: [51200, -34200, 24400],
+    color: '#F8C471',
+    size: 200
+  },
+  {
+    name: 'Discrete Element Dust Aggregation',
+    category: 'Computational Astrophysics',
+    description: 'Algorithm simulating fractal grain growth through ballistic aggregation and restructuring in protoplanetary disks and interstellar clouds.',
+    position: [51320, -34120, 24340],
+    color: '#82E0AA',
+    size: 210
+  },
+  {
+    name: 'PIC Plasma Simulation Code',
+    category: 'Computational Astrophysics',
+    description: 'Particle-in-Cell electromagnetic plasma simulation tracking charged particle orbits and self-consistent fields in solar wind and magnetospheres.',
+    position: [51440, -34040, 24280],
+    color: '#F1948A',
+    size: 220
+  },
+  {
+    name: 'FFT-based Poisson Solver',
+    category: 'Computational Astrophysics',
+    description: 'Fast Fourier Transform-based gravitational potential solver for periodic cosmological volumes with spectral accuracy and O(N log N) scaling.',
+    position: [51560, -33960, 24220],
+    color: '#85C1E9',
+    size: 230
+  },
+  {
+    name: 'Treecode Multipole Approximation',
+    category: 'Computational Astrophysics',
+    description: 'Barnes-Hut octree algorithm approximating long-range gravitational forces with adaptive multipole expansions for efficient N-body computations.',
+    position: [51680, -33880, 24160],
+    color: '#D7BDE2',
+    size: 240
+  },
+  {
+    name: 'Radiative Cooling Module',
+    category: 'Computational Astrophysics',
+    description: 'Lookup table and analytic function module for atomic and molecular line cooling in interstellar gas across temperature and density regimes.',
+    position: [51800, -33800, 24100],
+    color: '#F9E79F',
+    size: 200
+  },
+  {
+    name: 'Shock-Capturing Scheme',
+    category: 'Computational Astrophysics',
+    description: 'High-resolution Godunov-type finite volume method preserving sharp discontinuities in supernova remnants and astrophysical jet simulations.',
+    position: [51920, -33720, 24040],
+    color: '#A9DFBF',
+    size: 210
+  },
+  {
+    name: 'MPI Parallelization Framework',
+    category: 'Computational Astrophysics',
+    description: 'Message Passing Interface implementation distributing domain decomposition across compute nodes for petascale cosmological structure formation runs.',
+    position: [52040, -33640, 23980],
+    color: '#F5CBA7',
+    size: 220
+  },
+  {
+    name: 'Gaussian Random Field Generator',
+    category: 'Computational Astrophysics',
+    description: 'Algorithm synthesizing correlated Gaussian random fields with specified power spectrum for generating initial conditions in large-scale structure simulations.',
+    position: [52160, -33560, 23920],
+    color: '#D6DBDF',
+    size: 230
+  },
+  {
+    name: 'Virtual Observatory Data Pipeline',
+    category: 'Computational Astrophysics',
+    description: 'Data reduction and analysis pipeline standardizing heterogeneous astronomical catalogs into unified tables for cross-survey statistical studies.',
+    position: [52280, -33480, 23860],
+    color: '#AED6F1',
+    size: 240
+  },
+  {
+    name: 'Multi-Model Inference Engine',
+    category: 'Computational Astrophysics',
+    description: 'Hierarchical Bayesian framework combining multiple physical models with different systematics to derive robust constraints on cosmological parameters.',
+    position: [52400, -33400, 23800],
+    color: '#FAD7A0',
+    size: 200
+  },
+  {
+    name: 'GPU-Accelerated Kernel Library',
+    category: 'Computational Astrophysics',
+    description: 'CUDA/OpenCL kernels accelerating compute-intensive loops in radiation hydrodynamics, particle methods, and spectral synthesis calculations.',
+    position: [52520, -33320, 23740],
+    color: '#ABEBC6',
+    size: 210
+  },
+  {
+    name: 'Multi-Physics Coupling Interface',
+    category: 'Computational Astrophysics',
+    description: 'Software architecture coupling radiation transport, magnetohydrodynamics, and nuclear burning modules for multi-physics stellar explosion simulations.',
+    position: [52640, -33240, 23680],
+    color: '#F5B7B1',
+    size: 220
+  },
+  {
+    name: 'Uncertainty Propagation Analysis Tool',
+    category: 'Computational Astrophysics',
+    description: 'Sensitivity analysis and error propagation through complex simulation pipelines using adjoint methods and polynomial chaos expansions.',
+    position: [52760, -33160, 23620],
+    color: '#D2B4DE',
+    size: 230
+  },
+  {
+    name: 'Astrophysical Code Verification Suite',
+    category: 'Computational Astrophysics',
+    description: 'Comprehensive test battery comparing numerical solutions against analytical benchmarks for convergence, stability, and conservation properties.',
+    position: [52880, -33080, 23560],
+    color: '#A3E4D7',
+    size: 240
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
