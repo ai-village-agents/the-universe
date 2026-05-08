@@ -19187,6 +19187,208 @@ const cosmicSights = [
   { name: 'Subsurface Brine Lens Dielectric Brightspot', position: [-140, -90, 170], color: '#a2d9ce', description: 'radar-bright subsurface brine lens within Europas ice matrix' },
   { name: 'Ocean Planet Obliquity-Driven Seasonal Thermocline', position: [-260, 40, 105], color: '#2980b9', description: 'seasonal thermal layer mixing driven by axial tilt variation' },
   { name: 'Tidal Lock Ocean World Antistellar Convection Cell', position: [85, -115, 235], color: '#c0392b', description: 'deep ocean convection cell beneath permanent nightside ice shell' }
+,
+  {
+    name: 'Hawking-Unruh Radiation Coupling 12126',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Investigation into coupling mechanisms between Hawking radiation and Unruh effect in accelerated frames.',
+    position: [5850, 115000, 3850],
+    color: '#FF1744',
+    size: 140
+  },
+  {
+    name: 'Wormhole Stabilization Exotic Matter 12127',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Exotic matter configurations required for wormhole throat stabilization and traversability conditions.',
+    position: [5851, 115020, 3851],
+    color: '#D32F2F',
+    size: 140
+  },
+  {
+    name: 'Casimir Effect Quantum Engineering 12128',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Engineering applications of Casimir effect for quantum-scale device manipulation and metrology.',
+    position: [5852, 115040, 3852],
+    color: '#F57C00',
+    size: 140
+  },
+  {
+    name: 'Boson Star Formation Dynamics 12129',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Formation mechanisms and stability properties of boson star configurations in scalar field theories.',
+    position: [5853, 115060, 3853],
+    color: '#FBC02D',
+    size: 140
+  },
+  {
+    name: 'Tachyon Condensation String Theory 12130',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Tachyon condensation processes in string theory and their role in brane dynamics and decay.',
+    position: [5854, 115080, 3854],
+    color: '#AFB42B',
+    size: 140
+  },
+  {
+    name: 'Naked Singularity Cosmic Censorship 12131',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Naked singularity formation and cosmic censorship conjecture violations in General Relativity.',
+    position: [5855, 115100, 3855],
+    color: '#689F38',
+    size: 140
+  },
+  {
+    name: 'Quark-Gluon Plasma Thermodynamics 12132',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Thermodynamic properties and phase transitions in extreme density quark-gluon plasma states.',
+    position: [5856, 115120, 3856],
+    color: '#388E3C',
+    size: 140
+  },
+  {
+    name: 'Topological Defect Cosmology 12133',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Cosmic strings, domain walls, and monopoles as topological defects in early universe cosmology.',
+    position: [5857, 115140, 3857],
+    color: '#00897B',
+    size: 140
+  },
+  {
+    name: 'Pentaquark Exotic Hadron Spectroscopy 12134',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Spectroscopic properties and decay modes of pentaquark and other exotic hadron configurations.',
+    position: [5858, 115160, 3858],
+    color: '#0097A7',
+    size: 140
+  },
+  {
+    name: 'Kaluza-Klein Compactification Geometry 12135',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Extra-dimensional compactification geometries and tower of Kaluza-Klein resonance particles.',
+    position: [5859, 115180, 3859],
+    color: '#00BCD4',
+    size: 140
+  },
+  {
+    name: 'Technicolor Extended Standard Model 12136',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Technicolor theories and extended electroweak symmetry breaking mechanisms in beyond-Standard-Model physics.',
+    position: [5860, 115200, 3860],
+    color: '#0288D1',
+    size: 140
+  },
+  {
+    name: 'Sterile Neutrino Dark Matter 12137',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Sterile neutrino candidates and their cosmological implications for dark matter constraints.',
+    position: [5861, 115220, 3861],
+    color: '#1976D2',
+    size: 140
+  },
+  {
+    name: 'Braneworld Gravity Modification 12138',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Randall-Sundrum and braneworld models modifying gravitational interaction at sub-millimeter scales.',
+    position: [5862, 115240, 3862],
+    color: '#3F51B5',
+    size: 140
+  },
+  {
+    name: 'Superconducting Phase Quantum Vortex 12139',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Quantum vortex dynamics and exotic quantum phenomena in superconducting phases of matter.',
+    position: [5863, 115260, 3863],
+    color: '#512DA8',
+    size: 140
+  },
+  {
+    name: 'Color Glass Condensate Saturation 12140',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Color glass condensate physics and gluon saturation phenomena at high-energy nuclear collisions.',
+    position: [5864, 115280, 3864],
+    color: '#7B1FA2',
+    size: 140
+  },
+  {
+    name: 'Axion Electrodynamics CP Violation 12141',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Axion coupling to electromagnetism and strong CP problem solution constraints from astrophysics.',
+    position: [5865, 115300, 3865],
+    color: '#C2185B',
+    size: 140
+  },
+  {
+    name: 'Gravitino Supersymmetry Cosmology 12142',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Gravitino production, decay, and constraints in supersymmetric cosmological models.',
+    position: [5866, 115320, 3866],
+    color: '#D81B60',
+    size: 140
+  },
+  {
+    name: 'Moduli Field Reheating Dynamics 12143',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Moduli field oscillations and universe reheating in string theory cosmology frameworks.',
+    position: [5867, 115340, 3867],
+    color: '#E91E63',
+    size: 140
+  },
+  {
+    name: 'Holographic Principle AdS/CFT 12144',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Holographic duality between AdS bulk gravity and CFT boundary gauge theory correspondence.',
+    position: [5868, 115360, 3868],
+    color: '#EC407A',
+    size: 140
+  },
+  {
+    name: 'Negative Energy Warp Drive Metric 12145',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Alcubierre metric and negative energy density requirements for faster-than-light spacetime warping.',
+    position: [5869, 115380, 3869],
+    color: '#F06292',
+    size: 140
+  },
+  {
+    name: 'Spin Foam Quantum Geometry 12146',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Spin foam models and quantum geometry formalism in loop quantum gravity framework.',
+    position: [5870, 115400, 3870],
+    color: '#F48FB1',
+    size: 140
+  },
+  {
+    name: 'Planck Scale Physics Quantum Foam 12147',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Planck-scale quantum fluctuations and spacetime foam structure at fundamental length scales.',
+    position: [5871, 115420, 3871],
+    color: '#F8BBD0',
+    size: 140
+  },
+  {
+    name: 'Gravitational Leptogenesis Asymmetry 12148',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Gravitational leptogenesis mechanism for matter-antimatter asymmetry generation in early universe.',
+    position: [5872, 115440, 3872],
+    color: '#FCE4EC',
+    size: 140
+  },
+  {
+    name: 'Skyrmion Topological Soliton 12149',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Skyrmion configurations as topological solitons in non-linear field theories and condensed matter.',
+    position: [5873, 115460, 3873],
+    color: '#FF69B4',
+    size: 140
+  },
+  {
+    name: 'Bouncing Cosmology Pre-Big-Bang 12150',
+    category: 'Exotic Phenomena & Frontier Physics',
+    description: 'Bouncing universe cosmologies and pre-big-bang scenarios as alternatives to cosmic inflation.',
+    position: [5874, 115480, 3874],
+    color: '#FF1493',
+    size: 140
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
