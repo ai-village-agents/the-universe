@@ -16060,7 +16060,32 @@ const cosmicSights = [
       -4682.35,
       8907.88
     ]
-  }
+  },
+{"name": "Protoplanetary Disk Midplane Settling", "description": "Dust grains gradually drift toward the disk midplane, forming a thin dense layer where planetesimal growth accelerates through gravitational instabilities.", "position": [-4521, 1823, 3912]},
+  {"name": "T Tauri Disk Accretion Streamer", "description": "Magnetospheric funnels channel disk material onto the young star surface, creating hot spots that produce characteristic emission line variability.", "position": [3845, -2156, 4287]},
+  {"name": "Herbig Ae Be Disk Flaring", "description": "The outer disk surface curves upward to intercept stellar radiation, creating a warm superheated atmosphere above the cold midplane.", "position": [-2934, 4012, -1567]},
+  {"name": "Transition Disk Inner Cavity", "description": "A cleared central gap suggests planet formation has begun, with residual dust creating a sharp inner wall that glows in infrared.", "position": [4123, -1289, 3456]},
+  {"name": "Disk Gap Planetary Carving", "description": "A forming giant planet clears its orbital path, creating observable dark lanes in the dust distribution visible in millimeter wavelength imaging.", "position": [-3567, 2789, -4123]},
+  {"name": "Spiral Arm Density Wave Disk", "description": "Gravitational perturbations from embedded planets or companions drive grand design spiral patterns through the circumstellar material.", "position": [2456, 3912, 1678]},
+  {"name": "Disk Vortex Dust Trap", "description": "Anticyclonic vortices in the gas disk concentrate dust particles, potentially triggering rapid planetesimal formation through streaming instability.", "position": [-4234, -1567, 2934]},
+  {"name": "Snow Line Water Ice Condensation", "description": "Beyond this critical radius, water vapor freezes onto dust grains, dramatically increasing solid surface density and planet-building potential.", "position": [3678, 2345, -3789]},
+  {"name": "CO Ice Line Carbon Monoxide Freeze", "description": "Further from the star, carbon monoxide condenses, marking a compositional boundary that influences the volatile content of forming planets.", "position": [-1923, -4156, 3234]},
+  {"name": "Disk Photoevaporation Wind", "description": "High-energy stellar radiation heats the disk surface, driving a thermal wind that gradually disperses the gas over millions of years.", "position": [4567, -789, -2456]},
+  {"name": "Debris Disk Collision Cascade", "description": "Asteroid-sized bodies collide destructively, grinding down to dust that reveals ongoing dynamical activity long after gas dispersal.", "position": [-3123, 3456, 1789]},
+  {"name": "Beta Pictoris Debris Belt", "description": "This famous edge-on system shows warped dust bands indicating gravitational influence from at least two directly imaged planets.", "position": [2789, -3234, 4012]},
+  {"name": "Fomalhaut Dust Ring Offset", "description": "The sharp inner edge and center offset of this debris ring provided early indirect evidence for a shepherding planetary body.", "position": [-4456, 1234, -3567]},
+  {"name": "Vega Excess Infrared Emission", "description": "The prototype debris disk, Vega's thermal excess revealed that mature stars can retain substantial dust from ongoing collisions.", "position": [1567, 4234, 2123]},
+  {"name": "Epsilon Eridani Dust Clumps", "description": "Azimuthal brightness variations in this nearby debris disk suggest resonant trapping by an unseen outer planet.", "position": [-2678, -3789, -1456]},
+  {"name": "Zodiacal Dust Band Asteroid Origin", "description": "Our own solar system's dust bands trace back to specific asteroid families, revealing collisional history through infrared observations.", "position": [3912, 1456, 3345]},
+  {"name": "Exozodiacal Light Hot Dust", "description": "Near-infrared excess from very close-in dust challenges formation theories, requiring continuous replenishment from evaporating comets.", "position": [-1234, 4567, -2789]},
+  {"name": "Disk Shadowing Self Illumination", "description": "Inner disk warps cast shadows on outer regions, creating azimuthal brightness variations that rotate with the inner disk precession.", "position": [4345, -2567, 1234]},
+  {"name": "Grain Growth Spectral Slope Change", "description": "As particles coagulate from micron to millimeter sizes, the spectral energy distribution shifts, tracing the first steps toward planets.", "position": [-3789, 2123, 4456]},
+  {"name": "Polarimetric Disk Scattering", "description": "Polarized light imaging reveals disk structure through the scattering properties of dust grains at various heights above the midplane.", "position": [2234, -4012, -3123]},
+  {"name": "ALMA Disk Continuum Ring", "description": "Atacama Large Millimeter Array observations resolve concentric ring structures suggesting multiple planets sculpting the dust distribution.", "position": [-4012, -1789, 2567]},
+  {"name": "Disk Velocity Kink Planet Detection", "description": "Kinematic deviations in molecular line emission pinpoint embedded planets through their local gravitational influence on gas motions.", "position": [1789, 3567, -4234]},
+  {"name": "Disk Magnetic Braking Angular Momentum", "description": "Magnetic field coupling to ionized disk material extracts angular momentum, regulating accretion rates and disk evolution timescales.", "position": [-2345, -2934, 3678]},
+  {"name": "MRI Turbulence Magneto Rotational", "description": "The magneto-rotational instability drives turbulent mixing in ionized disk regions, enabling angular momentum transport and sustained accretion.", "position": [3234, 1012, -1923]},
+  {"name": "Disk Lifetime Dispersal Timescale", "description": "Statistical studies reveal typical disk lifetimes of a few million years, setting the clock for giant planet core formation.", "position": [1456, -3345, 2789]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
