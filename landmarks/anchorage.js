@@ -22200,6 +22200,127 @@ export function createAnchorageLandmark(THREE, opts) {
   crfyGroup.add(crfyBoat);
   group.add(crfyGroup);
 
+  // --- v137: pier scrimshaw artist (psca) ---
+  const pscaGroup = new THREE.Group();
+  pscaGroup.position.set(132, 0, 4);
+  const pscaPlat = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.16, 1.4), new THREE.MeshLambertMaterial({color: 0x6b4226}));
+  pscaPlat.position.y = 5.36;
+  pscaGroup.add(pscaPlat);
+  const pscaBench = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.6, 0.5), new THREE.MeshLambertMaterial({color: 0x4a3018}));
+  pscaBench.position.set(0, 5.74, 0);
+  pscaGroup.add(pscaBench);
+  const pscaBone = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.10, 0.45, 10), new THREE.MeshLambertMaterial({color: 0xf5ebcd}));
+  pscaBone.position.set(0, 6.07, 0);
+  pscaBone.rotation.z = 0.3;
+  pscaGroup.add(pscaBone);
+  const pscaArtist = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.7, 8), new THREE.MeshLambertMaterial({color: 0x603020}));
+  pscaArtist.position.set(0, 5.84, -0.55);
+  pscaGroup.add(pscaArtist);
+  const pscaArtistH = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+  pscaArtistH.position.set(0, 6.27, -0.55);
+  pscaGroup.add(pscaArtistH);
+  const pscaArm = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.4, 6), new THREE.MeshLambertMaterial({color: 0xe0b890}));
+  pscaArm.position.set(0, 6.05, -0.3);
+  pscaArm.rotation.x = -Math.PI/3;
+  pscaGroup.add(pscaArm);
+  const pscaTool = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.18, 6), new THREE.MeshLambertMaterial({color: 0xc8c8c8}));
+  pscaTool.position.set(0, 6.07, -0.05);
+  pscaTool.rotation.x = -Math.PI/3;
+  pscaGroup.add(pscaTool);
+  const pscaShavings = [];
+  for (let i = 0; i < 8; i++) {
+    const sh = new THREE.Mesh(new THREE.SphereGeometry(0.018, 6, 6), new THREE.MeshLambertMaterial({color: 0xf0e6c0}));
+    sh.position.set((Math.random()-0.5)*0.4, 5.97 + Math.random()*0.05, (Math.random()-0.5)*0.3);
+    pscaGroup.add(sh);
+    pscaShavings.push(sh);
+  }
+  const pscaLamp = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.22, 0.18), new THREE.MeshBasicMaterial({color: 0xffe080}));
+  pscaLamp.position.set(0.4, 6.18, 0.2);
+  pscaGroup.add(pscaLamp);
+  group.add(pscaGroup);
+
+  // --- v137: coastal harbor watch tower (chwt) ---
+  const chwtGroup = new THREE.Group();
+  chwtGroup.position.set(-118, 0, -52);
+  const chwtBase = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 1.0, 0.5, 12), new THREE.MeshLambertMaterial({color: 0x6a6055}));
+  chwtBase.position.y = 0.25;
+  chwtGroup.add(chwtBase);
+  const chwtShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.6, 3.5, 12), new THREE.MeshLambertMaterial({color: 0xe8d8c0}));
+  chwtShaft.position.y = 2.25;
+  chwtGroup.add(chwtShaft);
+  for (let i = 0; i < 3; i++) {
+    const stripe = new THREE.Mesh(new THREE.CylinderGeometry(0.51, 0.55, 0.2, 12), new THREE.MeshLambertMaterial({color: 0xc04040}));
+    stripe.position.y = 0.8 + i*1.0;
+    chwtGroup.add(stripe);
+  }
+  const chwtCabin = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.55, 0.7, 12), new THREE.MeshLambertMaterial({color: 0x404040}));
+  chwtCabin.position.y = 4.2;
+  chwtGroup.add(chwtCabin);
+  const chwtWindows = new THREE.Mesh(new THREE.CylinderGeometry(0.66, 0.66, 0.3, 16, 1, true), new THREE.MeshBasicMaterial({color: 0xa0e0ff, transparent: true, opacity: 0.6, side: THREE.DoubleSide}));
+  chwtWindows.position.y = 4.2;
+  chwtGroup.add(chwtWindows);
+  const chwtBeacon = new THREE.Mesh(new THREE.SphereGeometry(0.25, 12, 10), new THREE.MeshBasicMaterial({color: 0xffe080}));
+  chwtBeacon.position.y = 4.7;
+  chwtGroup.add(chwtBeacon);
+  const chwtBeamPivot = new THREE.Group();
+  chwtBeamPivot.position.set(0, 4.7, 0);
+  const chwtBeam = new THREE.Mesh(new THREE.ConeGeometry(0.4, 3.0, 12, 1, true), new THREE.MeshBasicMaterial({color: 0xfff080, transparent: true, opacity: 0.25, side: THREE.DoubleSide}));
+  chwtBeam.position.set(1.5, 0, 0);
+  chwtBeam.rotation.z = -Math.PI/2;
+  chwtBeamPivot.add(chwtBeam);
+  chwtGroup.add(chwtBeamPivot);
+  const chwtRoof = new THREE.Mesh(new THREE.ConeGeometry(0.7, 0.5, 12), new THREE.MeshLambertMaterial({color: 0xc04040}));
+  chwtRoof.position.y = 5.05;
+  chwtGroup.add(chwtRoof);
+  group.add(chwtGroup);
+
+  // --- v137: coastal storm warden (csw) ---
+  const cswGroup = new THREE.Group();
+  cswGroup.position.set(-46, 0, -62);
+  const cswPad = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.1, 1.2), new THREE.MeshLambertMaterial({color: 0x504848}));
+  cswPad.position.y = 0.05;
+  cswGroup.add(cswPad);
+  const cswWarden = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xffd040}));
+  cswWarden.position.set(-0.3, 0.52, 0);
+  cswGroup.add(cswWarden);
+  const cswWardenH = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({color: 0xe8b890}));
+  cswWardenH.position.set(-0.3, 1.06, 0);
+  cswGroup.add(cswWardenH);
+  const cswHat = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.1, 12), new THREE.MeshLambertMaterial({color: 0xffd040}));
+  cswHat.position.set(-0.3, 1.18, 0);
+  cswGroup.add(cswHat);
+  const cswHatBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.04, 12), new THREE.MeshLambertMaterial({color: 0xffd040}));
+  cswHatBrim.position.set(-0.3, 1.13, 0);
+  cswGroup.add(cswHatBrim);
+  const cswVanePole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 6), new THREE.MeshLambertMaterial({color: 0x303030}));
+  cswVanePole.position.set(0.5, 0.9, 0);
+  cswGroup.add(cswVanePole);
+  // vane sub-group (rotates as a unit)
+  const cswVane = new THREE.Group();
+  cswVane.position.set(0.5, 1.7, 0);
+  const cswArrow = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.4, 6), new THREE.MeshLambertMaterial({color: 0xc04040}));
+  cswArrow.position.set(0.2, 0, 0);
+  cswArrow.rotation.z = -Math.PI/2;
+  cswVane.add(cswArrow);
+  const cswTail = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.1, 0.02), new THREE.MeshLambertMaterial({color: 0x404060}));
+  cswTail.position.set(-0.1, 0, 0);
+  cswVane.add(cswTail);
+  cswGroup.add(cswVane);
+  // anemometer
+  const cswAnemHub = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), new THREE.MeshLambertMaterial({color: 0x303030}));
+  cswAnemHub.position.set(0.5, 1.3, 0);
+  cswGroup.add(cswAnemHub);
+  const cswCups = [];
+  for (let i = 0; i < 3; i++) {
+    const a = (i / 3) * Math.PI * 2;
+    const cup = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6, 0, Math.PI*2, 0, Math.PI/2), new THREE.MeshLambertMaterial({color: 0xc8c8c8}));
+    cup.position.set(0.5 + Math.cos(a)*0.15, 1.3, Math.sin(a)*0.15);
+    cup.rotation.x = -Math.PI/2;
+    cswGroup.add(cup);
+    cswCups.push(cup);
+  }
+  group.add(cswGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -25287,6 +25408,20 @@ export function createAnchorageLandmark(THREE, opts) {
   const ferryX = -2.5 + 5 * (0.5 + 0.5 * Math.sin(v136t * 0.3));
   crfyBoat.position.x = ferryX;
   crfyBoat.position.y = 0.13 + 0.02 * Math.sin(v136t * 2.0);
+
+  // v137 anims
+  const v137t = t;
+  pscaArm.rotation.z = 0.1 * Math.sin(v137t * 6.0);
+  pscaTool.rotation.z = 0.1 * Math.sin(v137t * 6.0);
+  pscaLamp.material.color.setHSL(0.13, 0.8, 0.6 + 0.05 * Math.sin(v137t * 4.0));
+  chwtBeamPivot.rotation.y = v137t * 1.2;
+  chwtBeacon.material.color.setHSL(0.13, 0.9, 0.55 + 0.1 * Math.sin(v137t * 4.0));
+  cswVane.rotation.y = 0.6 * Math.sin(v137t * 0.6);
+  for (let i = 0; i < cswCups.length; i++) {
+    const a = (i / 3) * Math.PI * 2 + v137t * 3.0;
+    cswCups[i].position.x = 0.5 + Math.cos(a) * 0.15;
+    cswCups[i].position.z = Math.sin(a) * 0.15;
+  }
 
 
 
