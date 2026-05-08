@@ -23449,6 +23449,207 @@ const cosmicSights = [
 { name: "Crystallization Release Energy", type: "phenomenon", category: "stellar_evolution", position: [6873, 135460, 4873], description: "Latent heat of phase transition during carbon-oxygen core crystallization, extending white dwarf luminosity lifespan substantially" },
 { name: "Binary Orbital Decay Rate", type: "phenomenon", category: "stellar_remnants", position: [6874, 135480, 4874], description: "Gravitational wave-driven orbital shrinkage in white dwarf binary systems, predicting merger timescales and Roche lobe overflow" }
 
+,
+  {
+    name: 'Antennae Galaxies Core 13201',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-7439, -23946, 10915],
+    color: '#40e0d0',
+    size: 350
+  },
+  {
+    name: 'Mice Galaxies Bridge 13202',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-17373, -32630, -27969],
+    color: '#e0ffff',
+    size: 340
+  },
+  {
+    name: 'Cartwheel Galaxy Ring 13203',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-21890, 35932, 24114],
+    color: '#40e0d0',
+    size: 195
+  },
+  {
+    name: 'Atoms for Peace Halo 13204',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-4008, -21362, 32639],
+    color: '#b0c4de',
+    size: 74
+  },
+  {
+    name: 'NGC 520 Node 13205',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-18158, 32323, 24366],
+    color: '#7fffd4',
+    size: 269
+  },
+  {
+    name: 'Arp 220 Nucleus 13206',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-1311, -10649, 24789],
+    color: '#00ced1',
+    size: 373
+  },
+  {
+    name: 'Tadpole Galaxy Tail 13207',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [24733, -9613, -11784],
+    color: '#5f9ea0',
+    size: 322
+  },
+  {
+    name: 'NGC 6240 Binary 13208',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-26320, 29607, -4165],
+    color: '#40e0d0',
+    size: 90
+  },
+  {
+    name: 'NGC 3256 Starburst 13209',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-15388, -23499, 10593],
+    color: '#e0ffff',
+    size: 381
+  },
+  {
+    name: 'Mayalls Object Ring 13210',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-34440, 24036, 37657],
+    color: '#b0c4de',
+    size: 164
+  },
+  {
+    name: 'NGC 2623 Center 13211',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-17381, -33827, -12394],
+    color: '#48d1cc',
+    size: 342
+  },
+  {
+    name: 'NGC 3690 Pair 13212',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [39343, 14597, 37792],
+    color: '#7fffd4',
+    size: 142
+  },
+  {
+    name: 'NGC 6050 Cluster 13213',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-6267, -37324, 38183],
+    color: '#48d1cc',
+    size: 330
+  },
+  {
+    name: 'UGC 10214 Stream 13214',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [3850, -34733, -35314],
+    color: '#7fffd4',
+    size: 239
+  },
+  {
+    name: 'NGC 6670 Tail 13215',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [26891, 19666, -30188],
+    color: '#48d1cc',
+    size: 209
+  },
+  {
+    name: 'NGC 4676 Cloud 13216',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [25671, 24967, 12642],
+    color: '#7fffd4',
+    size: 253
+  },
+  {
+    name: 'Stephans Quintet Shock 13217',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-20781, -12018, -34879],
+    color: '#4682b4',
+    size: 274
+  },
+  {
+    name: 'Seyferts Sextet Halo 13218',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-9975, -28293, -35606],
+    color: '#4682b4',
+    size: 249
+  },
+  {
+    name: 'NGC 2207 Spiral 13219',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [36326, -18847, -37344],
+    color: '#00ced1',
+    size: 138
+  },
+  {
+    name: 'IC 2163 Distortion 13220',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [24668, 37789, 5178],
+    color: '#f0ffff',
+    size: 99
+  },
+  {
+    name: 'NGC 6872 Bar 13221',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-14184, 16714, 33637],
+    color: '#40e0d0',
+    size: 249
+  },
+  {
+    name: 'IC 4970 Disruption 13222',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [-32459, 24732, -24910],
+    color: '#00ced1',
+    size: 189
+  },
+  {
+    name: 'NGC 4038 Nucleus 13223',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [18645, 28249, 14299],
+    color: '#7fffd4',
+    size: 246
+  },
+  {
+    name: 'NGC 4039 Arc 13224',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [38444, 9044, -25328],
+    color: '#40e0d0',
+    size: 285
+  },
+  {
+    name: 'Sombrero Ring Disturbance 13225',
+    category: 'Galactic Collision Remnants',
+    description: 'A mesmerizing manifestation of galactic collision remnants observed in deep space.', 
+    position: [35932, 26040, 27294],
+    color: '#5f9ea0',
+    size: 163
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
