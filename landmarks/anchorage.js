@@ -22979,6 +22979,168 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(csboGroup);
 
+  // --- v142: beach lantern release (blntr) ---
+  const blntrGroup = new THREE.Group();
+  blntrGroup.position.set(-280, 0.05, 30);
+  const blntrLanterns = [];
+  const blntrLanternMat = new THREE.MeshStandardMaterial({ color: 0xffe082, emissive: 0xffb300, emissiveIntensity: 0.9, transparent: true, opacity: 0.9 });
+  for (let i = 0; i < 12; i++) {
+    const l = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.18, 0.22, 0.4, 10),
+      blntrLanternMat.clone()
+    );
+    l.position.set(-3 + (i % 4) * 2, 1.5 + Math.floor(i / 4) * 0.8, -0.5 + Math.floor(i / 4) * 0.5);
+    blntrLanterns.push(l);
+    blntrGroup.add(l);
+  }
+  const blntrPeople = [];
+  const blntrPeopleH = [];
+  const blntrPeopleColors = [0xc62828, 0x1565c0, 0x2e7d32, 0xff8f00];
+  for (let i = 0; i < 4; i++) {
+    const p = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.28, 0.36, 1.0, 8),
+      new THREE.MeshLambertMaterial({ color: blntrPeopleColors[i] })
+    );
+    p.position.set(-3 + i * 2, 0.5, -1.5);
+    blntrPeople.push(p);
+    blntrGroup.add(p);
+    const h = new THREE.Mesh(
+      new THREE.SphereGeometry(0.2, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+    );
+    h.position.set(-3 + i * 2, 1.2, -1.5);
+    blntrPeopleH.push(h);
+    blntrGroup.add(h);
+  }
+  group.add(blntrGroup);
+
+  // --- v142: pier gull feeder (pgfd) ---
+  const pgfdGroup = new THREE.Group();
+  pgfdGroup.position.set(105, 4.0, 250);
+  const pgfdBench = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.1, 0.5),
+    new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+  );
+  pgfdBench.position.set(0, 0.4, 0);
+  pgfdGroup.add(pgfdBench);
+  const pgfdFeeder = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.42, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x1565c0 })
+  );
+  pgfdFeeder.position.set(0, 1.0, 0);
+  pgfdGroup.add(pgfdFeeder);
+  const pgfdFeederH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffccbc })
+  );
+  pgfdFeederH.position.set(0, 1.8, 0);
+  pgfdGroup.add(pgfdFeederH);
+  const pgfdHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.25, 0.3, 0.1, 12),
+    new THREE.MeshLambertMaterial({ color: 0x4e342e })
+  );
+  pgfdHat.position.set(0, 2.0, 0);
+  pgfdGroup.add(pgfdHat);
+  const pgfdGulls = [];
+  for (let i = 0; i < 7; i++) {
+    const g = new THREE.Mesh(
+      new THREE.SphereGeometry(0.15, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xfafafa })
+    );
+    const a = (i / 7) * Math.PI * 2;
+    g.position.set(Math.cos(a) * 1.5, 1.5 + Math.sin(i) * 0.4, Math.sin(a) * 1.5);
+    pgfdGulls.push(g);
+    pgfdGroup.add(g);
+    // wings
+    const wing = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.4, 0.1),
+      new THREE.MeshLambertMaterial({ color: 0xfafafa, side: THREE.DoubleSide })
+    );
+    wing.position.copy(g.position);
+    g.userData.wing = wing;
+    pgfdGroup.add(wing);
+  }
+  const pgfdCrumbs = [];
+  for (let i = 0; i < 6; i++) {
+    const c = new THREE.Mesh(
+      new THREE.SphereGeometry(0.04, 6, 6),
+      new THREE.MeshLambertMaterial({ color: 0xfff59d })
+    );
+    c.position.set(-0.5 + Math.random() * 1.0, 0.5, 0.6 + Math.random() * 0.4);
+    pgfdCrumbs.push(c);
+    pgfdGroup.add(c);
+  }
+  group.add(pgfdGroup);
+
+  // --- v142: pier wishing well (pwsh) ---
+  const pwshGroup = new THREE.Group();
+  pwshGroup.position.set(160, 4.0, -245);
+  const pwshBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.9, 1.0, 0.7, 16),
+    new THREE.MeshLambertMaterial({ color: 0x607d8b })
+  );
+  pwshBase.position.y = 0.35;
+  pwshGroup.add(pwshBase);
+  const pwshWater = new THREE.Mesh(
+    new THREE.CircleGeometry(0.85, 16),
+    new THREE.MeshStandardMaterial({ color: 0x01579b, emissive: 0x00838f, emissiveIntensity: 0.4, transparent: true, opacity: 0.85 })
+  );
+  pwshWater.rotation.x = -Math.PI / 2;
+  pwshWater.position.y = 0.71;
+  pwshGroup.add(pwshWater);
+  const pwshPostL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 1.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0x4e342e })
+  );
+  pwshPostL.position.set(-0.85, 1.4, 0);
+  pwshGroup.add(pwshPostL);
+  const pwshPostR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 1.4, 6),
+    new THREE.MeshLambertMaterial({ color: 0x4e342e })
+  );
+  pwshPostR.position.set(0.85, 1.4, 0);
+  pwshGroup.add(pwshPostR);
+  const pwshRoof = new THREE.Mesh(
+    new THREE.ConeGeometry(1.2, 0.6, 4),
+    new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+  );
+  pwshRoof.position.set(0, 2.4, 0);
+  pwshRoof.rotation.y = Math.PI / 4;
+  pwshGroup.add(pwshRoof);
+  const pwshBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.16, 0.3, 10),
+    new THREE.MeshLambertMaterial({ color: 0x424242 })
+  );
+  pwshBucket.position.set(0, 1.6, 0);
+  pwshGroup.add(pwshBucket);
+  const pwshRopeMat = new THREE.MeshLambertMaterial({ color: 0xffe082 });
+  const pwshRope = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 0.4, 4),
+    pwshRopeMat
+  );
+  pwshRope.position.set(0, 1.95, 0);
+  pwshGroup.add(pwshRope);
+  const pwshWisher = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.36, 1.0, 8),
+    new THREE.MeshLambertMaterial({ color: 0xff7043 })
+  );
+  pwshWisher.position.set(1.4, 0.5, 0.6);
+  pwshGroup.add(pwshWisher);
+  const pwshWisherH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  pwshWisherH.position.set(1.4, 1.2, 0.6);
+  pwshGroup.add(pwshWisherH);
+  const pwshCoinMat = new THREE.MeshStandardMaterial({ color: 0xffeb3b, metalness: 0.7, roughness: 0.3 });
+  const pwshCoin = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.01, 12),
+    pwshCoinMat
+  );
+  pwshCoin.position.set(0.7, 1.4, 0.3);
+  pwshGroup.add(pwshCoin);
+  group.add(pwshGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -26184,6 +26346,34 @@ export function createAnchorageLandmark(THREE, opts) {
   csboSand.forEach((s, i) => {
     s.position.y = 0.7 + 0.05 * Math.sin(v141t * 2.0 + i);
   });
+
+  // --- v142 update ---
+  const v142t = t;
+  blntrLanterns.forEach((l, i) => {
+    l.position.y = 1.5 + Math.floor(i / 4) * 0.8 + 0.3 * Math.sin(v142t * 0.6 + i * 0.5) + v142t * 0.05;
+    l.rotation.y = v142t * 0.2 + i;
+    if (l.position.y > 8) l.position.y = 1.5;
+  });
+
+  pgfdGulls.forEach((g, i) => {
+    const a = (i / 7) * Math.PI * 2 + v142t * 0.3;
+    g.position.x = Math.cos(a) * 1.5;
+    g.position.z = Math.sin(a) * 1.5;
+    g.position.y = 1.5 + 0.3 * Math.sin(v142t * 1.5 + i);
+    if (g.userData.wing) {
+      g.userData.wing.position.copy(g.position);
+      g.userData.wing.rotation.z = 0.5 * Math.sin(v142t * 6.0 + i);
+      g.userData.wing.rotation.y = -a + Math.PI / 2;
+    }
+  });
+
+  pwshWater.material.emissiveIntensity = 0.4 + 0.2 * Math.sin(v142t * 1.0);
+  pwshBucket.position.y = 1.6 + 0.05 * Math.sin(v142t * 1.2);
+  pwshRope.position.y = 1.95 + 0.05 * Math.sin(v142t * 1.2);
+  pwshWisher.rotation.y = -0.2 + 0.1 * Math.sin(v142t * 0.8);
+  pwshCoin.rotation.y = v142t * 4.0;
+  pwshCoin.position.y = 1.4 - (v142t % 1.5) * 0.3;
+
 
 
 
