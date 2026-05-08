@@ -20096,6 +20096,176 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pgsGroup);
 
+
+  // --- v124: Pier Shadow Lantern Parade (pslp) ---
+  const pslpGroup = new THREE.Group();
+  pslpGroup.position.set(108, 1.0, -16);
+  const pslpLanternColors = [0xffaa55, 0xff6655, 0xffd060, 0xff8866, 0xffe080];
+  const pslpLanterns = [];
+  const pslpPoles = [];
+  const pslpWalkers = [];
+  const pslpWalkerHeads = [];
+  for (let i = 0; i < 8; i++) {
+    const angle = (i / 8) * Math.PI * 2;
+    const r = 3.5 + (i % 2) * 0.4;
+    const px = Math.cos(angle) * r;
+    const pz = Math.sin(angle) * r;
+    const walker = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+      new THREE.MeshLambertMaterial({ color: 0x223355 + i * 0x111111 })
+    );
+    walker.position.set(px, 0.35, pz);
+    pslpGroup.add(walker);
+    pslpWalkers.push(walker);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    head.position.set(px, 0.82, pz);
+    pslpGroup.add(head);
+    pslpWalkerHeads.push(head);
+    const pole = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 1.1, 6),
+      new THREE.MeshLambertMaterial({ color: 0x553322 })
+    );
+    pole.position.set(px + 0.18, 0.95, pz);
+    pslpGroup.add(pole);
+    pslpPoles.push(pole);
+    const lanternMat = new THREE.MeshStandardMaterial({
+      color: pslpLanternColors[i % pslpLanternColors.length],
+      emissive: pslpLanternColors[i % pslpLanternColors.length],
+      emissiveIntensity: 0.7,
+      transparent: true,
+      opacity: 0.92
+    });
+    const lantern = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 10, 8),
+      lanternMat
+    );
+    lantern.position.set(px + 0.18, 1.45, pz);
+    pslpGroup.add(lantern);
+    pslpLanterns.push(lantern);
+  }
+  group.add(pslpGroup);
+
+  // --- v124: Coastal Kelp Drying Rack (ckdr) ---
+  const ckdrGroup = new THREE.Group();
+  ckdrGroup.position.set(-58, 0.6, 78);
+  const ckdrPostMat = new THREE.MeshLambertMaterial({ color: 0x6b4226 });
+  for (let i = 0; i < 4; i++) {
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.08, 0.1, 1.6, 8),
+      ckdrPostMat
+    );
+    post.position.set(-1.5 + i * 1.0, 0.8, 0);
+    ckdrGroup.add(post);
+  }
+  const ckdrBeam = new THREE.Mesh(
+    new THREE.BoxGeometry(3.2, 0.08, 0.08),
+    ckdrPostMat
+  );
+  ckdrBeam.position.set(0, 1.55, 0);
+  ckdrGroup.add(ckdrBeam);
+  const ckdrKelpColors = [0x3a5a2f, 0x4a6e3a, 0x2f4a26, 0x55814a, 0x3f6532];
+  const ckdrKelps = [];
+  for (let i = 0; i < 14; i++) {
+    const kelpMat = new THREE.MeshLambertMaterial({
+      color: ckdrKelpColors[i % ckdrKelpColors.length]
+    });
+    const kelp = new THREE.Mesh(
+      new THREE.BoxGeometry(0.06, 0.9 + Math.random() * 0.3, 0.04),
+      kelpMat
+    );
+    const x = -1.4 + i * 0.21;
+    kelp.position.set(x, 1.1, 0);
+    ckdrGroup.add(kelp);
+    ckdrKelps.push(kelp);
+  }
+  const ckdrHarvester = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.24, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: 0x5a4422 })
+  );
+  ckdrHarvester.position.set(2.2, 0.4, 0.4);
+  ckdrGroup.add(ckdrHarvester);
+  const ckdrHHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  ckdrHHead.position.set(2.2, 0.9, 0.4);
+  ckdrGroup.add(ckdrHHead);
+  const ckdrBucket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.18, 0.3, 10),
+    new THREE.MeshLambertMaterial({ color: 0x886633 })
+  );
+  ckdrBucket.position.set(2.5, 0.18, 0.55);
+  ckdrGroup.add(ckdrBucket);
+  group.add(ckdrGroup);
+
+  // --- v124: Beach Rope-Skipping Team (brst) ---
+  const brstGroup = new THREE.Group();
+  brstGroup.position.set(45, 0.4, 92);
+  const brstPlayerColors = [0xff6655, 0x55aaff, 0xffcc55, 0x66dd99, 0xcc66ee, 0xee9966];
+  const brstPlayers = [];
+  const brstHeads = [];
+  const brstRopeMat = new THREE.MeshLambertMaterial({ color: 0xeeddaa });
+  // Two turners
+  const brstTurnerA = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: brstPlayerColors[0] })
+  );
+  brstTurnerA.position.set(-2.0, 0.4, 0);
+  brstGroup.add(brstTurnerA);
+  const brstTurnerAHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  brstTurnerAHead.position.set(-2.0, 0.9, 0);
+  brstGroup.add(brstTurnerAHead);
+  brstHeads.push(brstTurnerAHead);
+  const brstTurnerB = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: brstPlayerColors[1] })
+  );
+  brstTurnerB.position.set(2.0, 0.4, 0);
+  brstGroup.add(brstTurnerB);
+  const brstTurnerBHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  brstTurnerBHead.position.set(2.0, 0.9, 0);
+  brstGroup.add(brstTurnerBHead);
+  brstHeads.push(brstTurnerBHead);
+  // Rope arc segments (animate by raising/lowering)
+  const brstRopeSegs = [];
+  for (let s = 0; s < 8; s++) {
+    const seg = new THREE.Mesh(
+      new THREE.SphereGeometry(0.04, 6, 4),
+      brstRopeMat
+    );
+    const x = -1.7 + (s / 7) * 3.4;
+    seg.position.set(x, 0.7, 0);
+    brstGroup.add(seg);
+    brstRopeSegs.push(seg);
+  }
+  // Three jumpers in middle
+  for (let i = 0; i < 3; i++) {
+    const jumper = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.16, 0.2, 0.65, 8),
+      new THREE.MeshLambertMaterial({ color: brstPlayerColors[2 + i] })
+    );
+    jumper.position.set(-0.7 + i * 0.7, 0.35, 0);
+    brstGroup.add(jumper);
+    brstPlayers.push(jumper);
+    const jhead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.13, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    jhead.position.set(-0.7 + i * 0.7, 0.78, 0);
+    brstGroup.add(jhead);
+    brstHeads.push(jhead);
+  }
+  group.add(brstGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -22818,6 +22988,50 @@ export function createAnchorageLandmark(THREE, opts) {
   pgsGlow.scale.setScalar(1 + Math.sin(v123t * 4) * 0.15);
   pgsGlow.material.opacity = 0.4 + Math.sin(v123t * 4) * 0.15;
   pgsBlob.scale.setScalar(1 + Math.sin(v123t * 0.8) * 0.1);
+  // v124 animation
+  const v124t = t;
+  // pslp: walkers walk in circle, lanterns sway and pulse
+  for (let i = 0; i < pslpWalkers.length; i++) {
+    const baseAngle = (i / pslpWalkers.length) * Math.PI * 2;
+    const a = baseAngle + v124t * 0.15;
+    const r = 3.5 + (i % 2) * 0.4;
+    const px = Math.cos(a) * r;
+    const pz = Math.sin(a) * r;
+    pslpWalkers[i].position.x = px;
+    pslpWalkers[i].position.z = pz;
+    pslpWalkers[i].position.y = 0.35 + Math.sin(v124t * 4 + i) * 0.04;
+    pslpWalkerHeads[i].position.x = px;
+    pslpWalkerHeads[i].position.z = pz;
+    pslpWalkerHeads[i].position.y = 0.82 + Math.sin(v124t * 4 + i) * 0.04;
+    const lx = px + Math.cos(a + Math.PI / 2) * 0.18;
+    const lz = pz + Math.sin(a + Math.PI / 2) * 0.18;
+    pslpPoles[i].position.x = lx;
+    pslpPoles[i].position.z = lz;
+    pslpLanterns[i].position.x = lx + Math.sin(v124t * 2 + i) * 0.05;
+    pslpLanterns[i].position.z = lz;
+    pslpLanterns[i].material.emissiveIntensity = 0.6 + Math.sin(v124t * 3 + i * 1.3) * 0.25;
+  }
+  // ckdr: kelp sway gently
+  for (let i = 0; i < ckdrKelps.length; i++) {
+    ckdrKelps[i].rotation.z = Math.sin(v124t * 1.2 + i * 0.4) * 0.08;
+  }
+  ckdrHHead.position.y = 0.9 + Math.sin(v124t * 1.8) * 0.02;
+  // brst: rope spins, jumpers bounce
+  for (let s = 0; s < brstRopeSegs.length; s++) {
+    const x = -1.7 + (s / 7) * 3.4;
+    const phase = v124t * 4;
+    // Rope makes circular motion in y-z plane, with arc shape
+    const arc = Math.sin((s / 7) * Math.PI);
+    brstRopeSegs[s].position.x = x;
+    brstRopeSegs[s].position.y = 0.5 + Math.sin(phase) * arc * 0.7;
+    brstRopeSegs[s].position.z = Math.cos(phase) * arc * 0.7;
+  }
+  for (let i = 0; i < brstPlayers.length; i++) {
+    const bounce = Math.max(0, Math.sin(v124t * 4 + i * 0.3));
+    brstPlayers[i].position.y = 0.35 + bounce * 0.3;
+    brstHeads[2 + i].position.y = 0.78 + bounce * 0.3;
+  }
+
 
 
 
