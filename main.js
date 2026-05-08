@@ -22517,7 +22517,32 @@ const cosmicSights = [
 { name: "Mass-to-Spin Power Ratio", type: "phenomenon", category: "high_energy", position: [6797, 133940, 4797], description: "Accretion efficiency dependence on black hole spin and accretion rate" },
 { name: "Radial Temperature Gradient", type: "phenomenon", category: "high_energy", position: [6798, 133960, 4798], description: "Disk temperature decreasing with radius in thin accretion regime" },
 { name: "Magnetic Reconnection Flares", type: "phenomenon", category: "high_energy", position: [6799, 133980, 4799], description: "Rapid energy release from coronal field lines producing X-ray brightening" }
-
+,
+  { name: "Galactic Dynamo Alpha Effect 13051", description: "A galactic magnetic field phenomenon.", position: [-762.01, 504.02, 495.11] },
+  { name: "Magnetic Helicity Cascade 13052", description: "A galactic magnetic field phenomenon.", position: [444.3, 158.18, -442.3] },
+  { name: "Cosmic Ray Streaming Instability 13053", description: "A galactic magnetic field phenomenon.", position: [-856.42, -609.77, -461.21] },
+  { name: "Interstellar Field Reversal Front 13054", description: "A galactic magnetic field phenomenon.", position: [467.44, -414.81, 314.03] },
+  { name: "Molecular Cloud Magnetization 13055", description: "A galactic magnetic field phenomenon.", position: [-662.62, 577.19, 34.06] },
+  { name: "Protostellar Disk Magnetorotational 13056", description: "A galactic magnetic field phenomenon.", position: [641.87, -467.64, 329.76] },
+  { name: "Galactic Halo Magnetic Bridge 13057", description: "A galactic magnetic field phenomenon.", position: [-649.43, -84.67, 115.01] },
+  { name: "Supernova Remnant Field Amplification 13058", description: "A galactic magnetic field phenomenon.", position: [224.04, -890.3, 156.13] },
+  { name: "Pulsar Wind Magnetic Bubble 13059", description: "A galactic magnetic field phenomenon.", position: [-486.43, -54.84, -407.51] },
+  { name: "Intergalactic Field Filament 13060", description: "A galactic magnetic field phenomenon.", position: [795.81, 628.75, 589.18] },
+  { name: "Stellar Coronal Mass Ejection 13061", description: "A galactic magnetic field phenomenon.", position: [-387.06, -502.09, 232.66] },
+  { name: "Solar Wind Magnetic Sector 13062", description: "A galactic magnetic field phenomenon.", position: [140.9, 266.82, 376.25] },
+  { name: "Planetary Magnetopause Boundary 13063", description: "A galactic magnetic field phenomenon.", position: [128.11, 152.96, -705.68] },
+  { name: "Accretion Disk Magnetocentrifugal 13064", description: "A galactic magnetic field phenomenon.", position: [650.8, 9.83, 177.15] },
+  { name: "Relativistic Jet Magnetic Collimation 13065", description: "A galactic magnetic field phenomenon.", position: [624.48, -267.64, -828.94] },
+  { name: "Gamma-Ray Burst Magnetic Engine 13066", description: "A galactic magnetic field phenomenon.", position: [-498.34, 547.84, 100.11] },
+  { name: "Neutron Star Magnetosphere Gap 13067", description: "A galactic magnetic field phenomenon.", position: [-759.56, 31.99, 217.12] },
+  { name: "White Dwarf Magnetic Channel 13068", description: "A galactic magnetic field phenomenon.", position: [653.68, 554.59, 803.7] },
+  { name: "Red Giant Dynamo Shutdown 13069", description: "A galactic magnetic field phenomenon.", position: [726.69, 64.89, 827.53] },
+  { name: "T Tauri Star Magnetopause 13070", description: "A galactic magnetic field phenomenon.", position: [829.12, 41.14, -293.12] },
+  { name: "Brown Dwarf Radio Burst 13071", description: "A galactic magnetic field phenomenon.", position: [546.85, -167.49, -313.23] },
+  { name: "Exoplanet Magnetospheric Aurora 13072", description: "A galactic magnetic field phenomenon.", position: [-312.06, 529.98, -736.82] },
+  { name: "Tidal Disruption Event Magnetism 13073", description: "A galactic magnetic field phenomenon.", position: [-755.7, -715.59, 825.46] },
+  { name: "Active Galactic Nucleus Field Line 13074", description: "A galactic magnetic field phenomenon.", position: [-699.9, 382.62, -61.46] },
+  { name: "Primordial Magnetic Field Seed 13075", description: "A galactic magnetic field phenomenon.", position: [371.81, -215.4, -600.08] }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
