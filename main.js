@@ -16210,7 +16210,32 @@ const cosmicSights = [
     "name": "Titanian Dune Field Corridor",
     "description": "Vast parallel ridges of organic sand stretching across the equatorial deserts of Titan.",
     "position": [25138.66, -29341.22, 42156.11]
-  }
+  },
+{"name": "Brown Dwarf Deuterium Burning Core", "description": "These failed stars fuse deuterium briefly in their cores, generating just enough energy to slow gravitational contraction before cooling eternally.", "position": [-3912, 2456, 4123]},
+  {"name": "L Dwarf Atmospheric Dust Clouds", "description": "Iron and silicate grains condense in these cool atmospheres, creating thick cloud decks that dramatically redden the spectral energy distribution.", "position": [4234, -1678, 3567]},
+  {"name": "T Dwarf Methane Absorption Band", "description": "Below 1400 Kelvin, methane dominates the near-infrared spectrum, creating characteristic absorption features that define this spectral class.", "position": [-2567, 3912, -1234]},
+  {"name": "Y Dwarf Ammonia Ice Formation", "description": "The coldest brown dwarfs approach planetary temperatures, with ammonia clouds and water ice forming in their frigid upper atmospheres.", "position": [3678, 1234, -4012]},
+  {"name": "Brown Dwarf Binary Orbital Dynamics", "description": "Closely orbiting brown dwarf pairs provide direct mass measurements through astrometric and radial velocity monitoring campaigns.", "position": [-4123, -2345, 2789]},
+  {"name": "Substellar Mass Function Turnover", "description": "The initial mass function peaks and declines in the brown dwarf regime, constraining star formation theories at the hydrogen-burning limit.", "position": [1567, 4234, 1456]},
+  {"name": "Brown Dwarf Lithium Test Detection", "description": "Lithium absorption lines confirm substellar status, as this fragile element survives only in objects too cool for sustained nuclear fusion.", "position": [-3234, -1789, 3912]},
+  {"name": "Ultracool Dwarf Magnetic Activity", "description": "Despite lacking a radiative-convective boundary, some brown dwarfs show surprising radio and X-ray emission indicating strong magnetic fields.", "position": [2789, 3456, -2678]},
+  {"name": "Brown Dwarf Weather Pattern Variability", "description": "Infrared brightness fluctuations reveal rotating cloud features and storms, providing glimpses of exotic meteorology on substellar worlds.", "position": [-1456, -4012, 1789]},
+  {"name": "Brown Dwarf Rotation Rate Spindown", "description": "Angular momentum evolution tracks magnetic braking efficiency, with isolated brown dwarfs maintaining rapid rotation over billions of years.", "position": [4012, -789, -3456]},
+  {"name": "Free Floating Planetary Mass Object", "description": "Objects below the deuterium-burning limit drift through space unbound to any star, blurring the boundary between planets and brown dwarfs.", "position": [-2123, 2789, 4234]},
+  {"name": "Brown Dwarf Desert Companion Scarcity", "description": "A puzzling deficit of brown dwarf companions to Sun-like stars at close separations challenges formation theories for substellar objects.", "position": [3456, -3123, 1012]},
+  {"name": "Benchmark Brown Dwarf Age Calibration", "description": "Brown dwarfs in clusters with known ages serve as evolutionary benchmarks, calibrating luminosity-mass-age relationships.", "position": [-4234, 1567, -2345]},
+  {"name": "Brown Dwarf Convective Interior Mixing", "description": "Fully convective interiors efficiently transport heat and homogenize composition, affecting cooling rates and atmospheric abundances.", "position": [1234, 4012, 3234]},
+  {"name": "Brown Dwarf Radius Inflation Puzzle", "description": "Some brown dwarfs appear larger than models predict, possibly due to magnetic inhibition of convection or tidal heating in binaries.", "position": [-3567, -2678, -1567]},
+  {"name": "Brown Dwarf Aurorae Radio Emission", "description": "Highly polarized radio pulses indicate auroral processes driven by magnetospheric currents, similar to giant planet radio bursts.", "position": [2345, 1789, -4123]},
+  {"name": "Spectral Type L-T Transition Clearing", "description": "A dramatic brightening in the near-infrared marks cloud deck breakup as brown dwarfs cool through the L-to-T spectral boundary.", "position": [-1012, -3456, 2456]},
+  {"name": "Brown Dwarf Disk Remnant Detection", "description": "Mid-infrared excesses reveal circumstellar disks around young brown dwarfs, suggesting planet formation may occur even around substellar hosts.", "position": [3912, 2123, -1789]},
+  {"name": "Brown Dwarf Companion Direct Imaging", "description": "High-contrast adaptive optics reveal faint brown dwarf companions hidden in stellar glare, constraining their orbital and physical properties.", "position": [-2789, 3678, 3012]},
+  {"name": "Brown Dwarf Population Kinematics Age", "description": "Velocity dispersion measurements reveal brown dwarf populations spanning thin disk to halo ages, tracing Galactic chemical evolution.", "position": [1789, -4234, -789]},
+  {"name": "Alkali Metal Brown Dwarf Spectral Lines", "description": "Sodium and potassium resonance lines shape the optical spectrum, with pressure-broadened wings extending across hundreds of nanometers.", "position": [-4012, 789, 1234]},
+  {"name": "Brown Dwarf Gravity Surface Indicator", "description": "Spectral line shapes and molecular band strengths diagnose surface gravity, distinguishing young low-mass objects from older brown dwarfs.", "position": [2678, -2456, 3789]},
+  {"name": "Brown Dwarf Metallicity Atmospheric Effect", "description": "Metal-poor brown dwarfs show bluer colors and altered cloud properties, linking substellar atmospheres to Galactic chemical enrichment.", "position": [-1789, 3012, -3678]},
+  {"name": "Brown Dwarf Cooling Sequence Evolution", "description": "Without sustained fusion, brown dwarfs fade predictably along cooling tracks, with luminosity and temperature declining over cosmic timescales.", "position": [3123, -1234, 2012]},
+  {"name": "Hydrogen Burning Minimum Mass Boundary", "description": "At roughly 75 Jupiter masses, the core temperature finally sustains proton-proton fusion, marking the transition from brown dwarf to red dwarf star.", "position": [-2456, -3234, -2123]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
