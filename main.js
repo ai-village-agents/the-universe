@@ -19888,7 +19888,208 @@ const cosmicSights = [
   { name: 'CMB COrE+ Probe Spectral Resolution', position: [-155, 355, -78], color: '#009688', description: 'proposed CMB spectrometer for measuring spectral distortions at 10^-8 level' },
   { name: 'CMB Polarization Rotation Cosmic Birefringence', position: [155, -355, 78], color: '#4caf50', description: 'anomalous rotation of polarization angle from parity-violating physics' },
   { name: 'CMB Doppler Peaks Acoustic Oscillation', position: [-160, 360, -80], color: '#ff9800', description: 'series of temperature peaks from photon-baryon oscillations before recombination' },
-  { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' }
+  { name: 'CMB Recombination Era Hydrogen Ionization', position: [160, -360, 80], color: '#9c27b0', description: 'redshift z~1100 surface of last scattering when universe became transparent' },
+  {
+    name: 'Direct Detection Underground Laboratory',
+    category: 'Dark Matter Detection Methods',
+    description: 'Deep underground facility shielded from cosmic rays housing ultra-sensitive particle detectors.',
+    position: [4720, 2130, -3250],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Liquid Xenon Time Projection Chamber',
+    category: 'Dark Matter Detection Methods',
+    description: 'Dual-phase detector measuring ionization and scintillation from WIMP nuclear recoils.',
+    position: [-3810, 3050, 4020],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'Cryogenic Bolometer Array',
+    category: 'Dark Matter Detection Methods',
+    description: 'Millikelvin detector measuring phonon signals from particle interactions in crystals.',
+    position: [2890, -3980, 3410],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Bubble Chamber Superheated Detector',
+    category: 'Dark Matter Detection Methods',
+    description: 'Metastable fluid nucleating bubbles upon nuclear recoil energy deposition.',
+    position: [-4450, 2680, -3130],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Directional Recoil Observatory',
+    category: 'Dark Matter Detection Methods',
+    description: 'Low-pressure gas detector tracking nuclear recoil directions for WIMP wind signature.',
+    position: [3520, -2770, 4180],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Axion Haloscope Cavity',
+    category: 'Dark Matter Detection Methods',
+    description: 'Resonant microwave cavity converting galactic axions to photons in strong magnetic field.',
+    position: [-2950, 4110, 3350],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'WIMP Annual Modulation Signal',
+    category: 'Dark Matter Detection Methods',
+    description: 'Yearly variation in detection rate from Earth orbital motion through dark matter halo.',
+    position: [4080, 3180, -3520],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Neutrino Floor Limit Region',
+    category: 'Dark Matter Detection Methods',
+    description: 'Detection threshold where coherent neutrino scattering creates irreducible background.',
+    position: [-3640, -3150, 4050],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Spin-Dependent Scattering Target',
+    category: 'Dark Matter Detection Methods',
+    description: 'Fluorine or lithium detector sensitive to axial-vector WIMP-nucleon interactions.',
+    position: [3090, 4030, 2920],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Spin-Independent Cross Section Bound',
+    category: 'Dark Matter Detection Methods',
+    description: 'Exclusion limit on scalar WIMP-nucleon coupling from null detection results.',
+    position: [-4200, 2450, 3710],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'Nuclear Recoil Calibration Source',
+    category: 'Dark Matter Detection Methods',
+    description: 'Neutron generator providing known-energy recoils for detector response characterization.',
+    position: [3760, -3670, 2680],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Electron Recoil Discrimination Filter',
+    category: 'Dark Matter Detection Methods',
+    description: 'Background rejection technique separating electronic from nuclear recoil events.',
+    position: [-2800, 3850, -3920],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Fiducial Volume Definition Zone',
+    category: 'Dark Matter Detection Methods',
+    description: 'Inner detector region with reduced background from self-shielding by outer material.',
+    position: [4290, 2320, 3640],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Light WIMP Search Region',
+    category: 'Dark Matter Detection Methods',
+    description: 'Low-threshold analysis targeting sub-GeV dark matter with reduced nuclear recoil energy.',
+    position: [-3470, -3440, 3580],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'Migdal Effect Enhancement Zone',
+    category: 'Dark Matter Detection Methods',
+    description: 'Electronic excitation accompanying nuclear recoils extending sensitivity to light WIMPs.',
+    position: [2740, 4160, -3280],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Bremsstrahlung Signal Channel',
+    category: 'Dark Matter Detection Methods',
+    description: 'Photon emission from accelerated nuclei providing additional detection signature.',
+    position: [-4060, 2890, 3420],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Inelastic Dark Matter Threshold',
+    category: 'Dark Matter Detection Methods',
+    description: 'Kinematic constraint on endothermic scattering to excited dark matter states.',
+    position: [3280, -3250, 4020],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Dark Photon Absorption Signal',
+    category: 'Dark Matter Detection Methods',
+    description: 'Electronic excitation from hidden photon dark matter converting in detector material.',
+    position: [-2620, 4040, 3550],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'Sterile Neutrino X-ray Search',
+    category: 'Dark Matter Detection Methods',
+    description: 'Telescope observation seeking monoenergetic keV photons from dark matter decay.',
+    position: [4150, 2960, -3170],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Primordial Black Hole Lensing Survey',
+    category: 'Dark Matter Detection Methods',
+    description: 'Microlensing observations constraining compact dark matter in stellar mass range.',
+    position: [-3750, -2880, 4120],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Self-Interacting Dark Matter Halo',
+    category: 'Dark Matter Detection Methods',
+    description: 'Galaxy cluster core revealing dark matter self-scattering through density profiles.',
+    position: [3040, 3890, 3150],
+    color: '#8B4513',
+    size: 250
+  },
+  {
+    name: 'Ultralight Axion Soliton Core',
+    category: 'Dark Matter Detection Methods',
+    description: 'Ultra-light axion wave interference creating solitonic cores in dwarf galaxies.',
+    position: [-4320, 2210, -3490],
+    color: '#9A5324',
+    size: 250
+  },
+  {
+    name: 'Warm Dark Matter Velocity Damping Scale',
+    category: 'Dark Matter Detection Methods',
+    description: 'Small-scale structure suppression revealing thermal relic velocity distribution.',
+    position: [2560, -4100, 3280],
+    color: '#A96235',
+    size: 250
+  },
+  {
+    name: 'Dark Matter Spike Near Black Hole',
+    category: 'Dark Matter Detection Methods',
+    description: 'Enhanced density cusp from adiabatic growth of central massive black hole.',
+    position: [-3180, 3740, 3820],
+    color: '#B87146',
+    size: 250
+  },
+  {
+    name: 'Velocity Distribution Measurement Station',
+    category: 'Dark Matter Detection Methods',
+    description: 'Stellar kinematics observatory mapping local dark matter phase space structure.',
+    position: [4020, -2590, -3780],
+    color: '#8B4513',
+    size: 250
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
