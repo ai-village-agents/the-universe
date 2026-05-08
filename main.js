@@ -24380,6 +24380,207 @@ const cosmicSights = [
   { name: 'Magnetar Crustal Toroidal Field', position: [8423, 154450, 6423], color: '#E15D44', size: 5.1, description: 'Interior toroidal magnetic field component driving crustal stresses and bursts.' },
   { name: 'Magnetar Atmosphere Vacuum Polarization', position: [8424, 154470, 6424], color: '#7FCDCD', size: 5.4, description: 'QED effect where extreme magnetic field polarizes vacuum affecting photon propagation.' },
   { name: 'Magnetar Persistent X-Ray Halo', position: [8425, 154490, 6425], color: '#BC243C', size: 5.5, description: 'Scattered X-ray halo around magnetar from intervening interstellar dust grains.' }
+,
+  {
+    name: 'GW170817 Afterglow 13426',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [22714, 2701, 39421],
+    color: '#ffd700',
+    size: 119
+  },
+  {
+    name: 'Macronova AT2017gfo 13427',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-28328, -5878, -37731],
+    color: '#d2691e',
+    size: 111
+  },
+  {
+    name: 'Neutron Star Merger Remnant 13428',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [10986, -602, -3854],
+    color: '#ff4500',
+    size: 381
+  },
+  {
+    name: 'R-process Nucleosynthesis Cloud 13429',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [28566, 21028, 35445],
+    color: '#800000',
+    size: 149
+  },
+  {
+    name: 'Strontium Rich Nebula 13430',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-12271, -8011, -29134],
+    color: '#d2691e',
+    size: 337
+  },
+  {
+    name: 'Lanthanide Peak Emission 13431',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [2414, 26724, 8026],
+    color: '#ffd700',
+    size: 473
+  },
+  {
+    name: 'Blue Kilonova Shell 13432',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-22403, -10742, 13871],
+    color: '#ffd700',
+    size: 496
+  },
+  {
+    name: 'Red Kilonova Outflow 13433',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-32544, -18074, 25485],
+    color: '#ffd700',
+    size: 498
+  },
+  {
+    name: 'Hypermassive Neutron Star Collapse 13434',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [39200, 27115, -16769],
+    color: '#d2691e',
+    size: 423
+  },
+  {
+    name: 'Short GRB 130603B Associated Kilonova 13435',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-10490, -12051, 29834],
+    color: '#d2691e',
+    size: 142
+  },
+  {
+    name: 'GRB 050709 Optical Transient 13436',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [4134, -38709, -39370],
+    color: '#8b4513',
+    size: 436
+  },
+  {
+    name: 'GRB 060614 Long-Short GRB Remnant 13437',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-38170, -35686, -21167],
+    color: '#daa520',
+    size: 117
+  },
+  {
+    name: 'Heavy Element Factory 13438',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [22673, 32708, -24461],
+    color: '#ffd700',
+    size: 417
+  },
+  {
+    name: 'Gold Forging Plasma 13439',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-38026, -3281, 25889],
+    color: '#ffd700',
+    size: 349
+  },
+  {
+    name: 'Platinum Rich Debris 13440',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [5690, 35143, -34118],
+    color: '#daa520',
+    size: 368
+  },
+  {
+    name: 'Uranium Synthesis Zone 13441',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-13217, -17348, 1844],
+    color: '#ff4500',
+    size: 259
+  },
+  {
+    name: 'Dynamical Ejecta Cloud 13442',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-8807, -33075, -133],
+    color: '#daa520',
+    size: 298
+  },
+  {
+    name: 'Disk Wind Outflow 13443',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-15631, 29420, 25252],
+    color: '#ff4500',
+    size: 461
+  },
+  {
+    name: 'Polar Ejecta Plume 13444',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [28004, -15500, 29169],
+    color: '#ff4500',
+    size: 293
+  },
+  {
+    name: 'Equatorial Ejecta Torus 13445',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [-34437, -25246, 27430],
+    color: '#b8860b',
+    size: 343
+  },
+  {
+    name: 'Radioactive Decay Powered Glow 13446',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [25540, 29869, -24902],
+    color: '#ff4500',
+    size: 199
+  },
+  {
+    name: 'Neutrino Driven Wind Remnant 13447',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [11574, -19423, 10868],
+    color: '#daa520',
+    size: 439
+  },
+  {
+    name: 'Magnetar Powered Macronova 13448',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [37703, -4361, 14117],
+    color: '#d2691e',
+    size: 171
+  },
+  {
+    name: 'Black Hole Accretion Disk Remnant 13449',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [9359, -17700, -15975],
+    color: '#ff8c00',
+    size: 480
+  },
+  {
+    name: 'Tidal Tail Ejecta 13450',
+    category: 'Kilonova Remnants',
+    description: 'A mesmerizing manifestation of kilonova remnants observed in deep space.', 
+    position: [7596, 18309, -22767],
+    color: '#8b4513',
+    size: 490
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
