@@ -22290,6 +22290,207 @@ const cosmicSights = [
   { name: "GRB Spectral Lag Measurement", type: "phenomenon", category: "transient", position: [6320, 2320, 4320], description: "Time delay between high and low energy photon arrival" },
   { name: "Afterglow Spectroscopic Redshift", type: "phenomenon", category: "transient", position: [6330, 2330, 4330], description: "Precise distance determination from absorption or emission lines" },
   { name: "GRB Luminosity Correlation Zone", type: "phenomenon", category: "transient", position: [6340, 2340, 4340], description: "Region where burst properties follow standardizable energy relations" }
+,
+  {
+    name: 'Goldilocks Prime 12926',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [7031, -7491, 37836],
+    color: '#27ae60',
+    size: 133
+  },
+  {
+    name: 'Astrobiology Hub 12927',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-5671, 37084, 12910],
+    color: '#2980b9',
+    size: 318
+  },
+  {
+    name: 'Bio Signature Belt 12928',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [24122, 31066, -16973],
+    color: '#1abc9c',
+    size: 321
+  },
+  {
+    name: 'Genesis Ring 12929',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [11596, -5036, 33269],
+    color: '#2980b9',
+    size: 288
+  },
+  {
+    name: 'Eden System 12930',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [17851, -29032, -24159],
+    color: '#16a085',
+    size: 199
+  },
+  {
+    name: 'Aqueous Exoplanet Array 12931',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-7086, 12546, -13861],
+    color: '#27ae60',
+    size: 201
+  },
+  {
+    name: 'Carbon Based Nursery 12932',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-26115, 32426, -28281],
+    color: '#2980b9',
+    size: 331
+  },
+  {
+    name: 'Terraformed Expanse 12933',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [37014, -39777, -22063],
+    color: '#16a085',
+    size: 238
+  },
+  {
+    name: 'Habitable Torus 12934',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [20666, -38418, -977],
+    color: '#16a085',
+    size: 111
+  },
+  {
+    name: 'Stellar Sanctuary 12935',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [7124, 17790, -30539],
+    color: '#3498db',
+    size: 101
+  },
+  {
+    name: 'Life Bearing Cluster 12936',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-36758, -37524, 6810],
+    color: '#2ecc71',
+    size: 358
+  },
+  {
+    name: 'Oasis Nebula 12937',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-37092, -25887, 25885],
+    color: '#16a085',
+    size: 396
+  },
+  {
+    name: 'Verdant Sector 12938',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [6747, 38631, 30000],
+    color: '#16a085',
+    size: 269
+  },
+  {
+    name: 'Biosphere Matrix 12939',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [36298, -22792, 39729],
+    color: '#27ae60',
+    size: 280
+  },
+  {
+    name: 'Habitability Sphere 12940',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [21291, 39603, 28074],
+    color: '#2980b9',
+    size: 167
+  },
+  {
+    name: 'Organic Chemistry Cloud 12941',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [17958, -19849, -7947],
+    color: '#1abc9c',
+    size: 235
+  },
+  {
+    name: 'Galactic Cradle 12942',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-8, 264, 21000],
+    color: '#2980b9',
+    size: 161
+  },
+  {
+    name: 'Xeno Flora Preserve 12943',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [35411, -84, -29445],
+    color: '#16a085',
+    size: 199
+  },
+  {
+    name: 'Water World Archetype 12944',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-8541, -25363, 36900],
+    color: '#2ecc71',
+    size: 380
+  },
+  {
+    name: 'Panspermia Source 12945',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-2743, -29748, -23181],
+    color: '#1abc9c',
+    size: 263
+  },
+  {
+    name: 'Temperate Zone 12946',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-11270, 37815, -32649],
+    color: '#2980b9',
+    size: 380
+  },
+  {
+    name: 'Habitable Exomoon System 12947',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [31141, 32197, -32831],
+    color: '#2980b9',
+    size: 193
+  },
+  {
+    name: 'Chlorophyll Signature 12948',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-39489, 22503, 9326],
+    color: '#27ae60',
+    size: 57
+  },
+  {
+    name: 'Biotic Core 12949',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-36862, -38998, -24082],
+    color: '#2ecc71',
+    size: 177
+  },
+  {
+    name: 'Flourishing System 12950',
+    category: 'Galactic Habitable Zones',
+    description: 'A mesmerizing manifestation of galactic habitable zones observed in deep space.', 
+    position: [-10841, -16914, 5411],
+    color: '#16a085',
+    size: 272
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
