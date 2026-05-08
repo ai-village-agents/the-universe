@@ -20266,6 +20266,216 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(brstGroup);
 
+
+  // --- v125: Coastal Whale-Watching Crew (cwwc) ---
+  const cwwcGroup = new THREE.Group();
+  cwwcGroup.position.set(-92, 0.3, 38);
+  // Boat
+  const cwwcBoat = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.4, 0.9),
+    new THREE.MeshLambertMaterial({ color: 0xddccaa })
+  );
+  cwwcBoat.position.set(0, 0.2, 0);
+  cwwcGroup.add(cwwcBoat);
+  const cwwcCabin = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.55, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0x6b8aaf })
+  );
+  cwwcCabin.position.set(-0.3, 0.65, 0);
+  cwwcGroup.add(cwwcCabin);
+  const cwwcRailMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const cwwcRailF = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.05, 0.05),
+    cwwcRailMat
+  );
+  cwwcRailF.position.set(0, 0.5, 0.45);
+  cwwcGroup.add(cwwcRailF);
+  const cwwcRailB = cwwcRailF.clone();
+  cwwcRailB.position.z = -0.45;
+  cwwcGroup.add(cwwcRailB);
+  // Crew on rail
+  const cwwcCrewColors = [0xff7755, 0x55ccaa, 0xffcc55, 0x6688ee, 0xee66cc];
+  const cwwcCrew = [];
+  const cwwcCrewHeads = [];
+  for (let i = 0; i < 5; i++) {
+    const c = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.13, 0.16, 0.55, 8),
+      new THREE.MeshLambertMaterial({ color: cwwcCrewColors[i] })
+    );
+    c.position.set(0.6 - i * 0.35, 0.7, 0.4);
+    cwwcGroup.add(c);
+    cwwcCrew.push(c);
+    const h = new THREE.Mesh(
+      new THREE.SphereGeometry(0.11, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    h.position.set(0.6 - i * 0.35, 1.05, 0.4);
+    cwwcGroup.add(h);
+    cwwcCrewHeads.push(h);
+  }
+  // Whale (orca-like) breaching
+  const cwwcWhaleBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.55, 14, 10),
+    new THREE.MeshLambertMaterial({ color: 0x222233 })
+  );
+  cwwcWhaleBody.scale.set(2.0, 0.7, 0.9);
+  cwwcWhaleBody.position.set(5, 0.0, 1.5);
+  cwwcGroup.add(cwwcWhaleBody);
+  const cwwcWhaleBelly = new THREE.Mesh(
+    new THREE.SphereGeometry(0.4, 12, 8),
+    new THREE.MeshLambertMaterial({ color: 0xeeeedd })
+  );
+  cwwcWhaleBelly.scale.set(1.5, 0.5, 0.6);
+  cwwcWhaleBelly.position.set(5, -0.18, 1.5);
+  cwwcGroup.add(cwwcWhaleBelly);
+  const cwwcWhaleFin = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.45, 4),
+    new THREE.MeshLambertMaterial({ color: 0x222233 })
+  );
+  cwwcWhaleFin.position.set(5, 0.45, 1.5);
+  cwwcGroup.add(cwwcWhaleFin);
+  // Spray particles
+  const cwwcSpray = [];
+  const cwwcSprayMat = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.6
+  });
+  for (let i = 0; i < 8; i++) {
+    const drop = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 6, 4),
+      cwwcSprayMat.clone()
+    );
+    drop.position.set(5, 1.0, 1.5);
+    cwwcGroup.add(drop);
+    cwwcSpray.push(drop);
+  }
+  group.add(cwwcGroup);
+
+  // --- v125: Pier Wedding Photographer (pwp) ---
+  const pwpGroup = new THREE.Group();
+  pwpGroup.position.set(125, 1.0, 22);
+  // Bride and groom
+  const pwpBride = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.32, 0.85, 10),
+    new THREE.MeshLambertMaterial({ color: 0xfff5f8 })
+  );
+  pwpBride.position.set(-0.4, 0.42, 0);
+  pwpGroup.add(pwpBride);
+  const pwpBrideHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  pwpBrideHead.position.set(-0.4, 1.0, 0);
+  pwpGroup.add(pwpBrideHead);
+  const pwpVeil = new THREE.Mesh(
+    new THREE.ConeGeometry(0.3, 0.4, 10, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+  );
+  pwpVeil.position.set(-0.4, 1.05, -0.05);
+  pwpGroup.add(pwpVeil);
+  const pwpGroom = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.85, 8),
+    new THREE.MeshLambertMaterial({ color: 0x222233 })
+  );
+  pwpGroom.position.set(0.2, 0.42, 0);
+  pwpGroup.add(pwpGroom);
+  const pwpGroomHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  pwpGroomHead.position.set(0.2, 1.0, 0);
+  pwpGroup.add(pwpGroomHead);
+  // Photographer with camera
+  const pwpPhotog = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x554466 })
+  );
+  pwpPhotog.position.set(2.0, 0.35, 0);
+  pwpGroup.add(pwpPhotog);
+  const pwpPhotogHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  pwpPhotogHead.position.set(2.0, 0.85, 0);
+  pwpGroup.add(pwpPhotogHead);
+  const pwpCamera = new THREE.Mesh(
+    new THREE.BoxGeometry(0.22, 0.16, 0.18),
+    new THREE.MeshLambertMaterial({ color: 0x111111 })
+  );
+  pwpCamera.position.set(1.78, 0.78, 0);
+  pwpGroup.add(pwpCamera);
+  const pwpFlash = new THREE.Mesh(
+    new THREE.BoxGeometry(0.06, 0.04, 0.06),
+    new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      emissive: 0xffffff,
+      emissiveIntensity: 0.0
+    })
+  );
+  pwpFlash.position.set(1.78, 0.86, 0.08);
+  pwpGroup.add(pwpFlash);
+  // Bouquet
+  const pwpBouquetColors = [0xff66aa, 0xffaacc, 0xffeebb, 0xeeccff];
+  const pwpBouquet = [];
+  for (let i = 0; i < 5; i++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.05, 6, 5),
+      new THREE.MeshLambertMaterial({ color: pwpBouquetColors[i % pwpBouquetColors.length] })
+    );
+    f.position.set(-0.55 + (i % 3) * 0.04, 0.55 + Math.floor(i / 3) * 0.05, 0.18 + (i % 2) * 0.03);
+    pwpGroup.add(f);
+    pwpBouquet.push(f);
+  }
+  group.add(pwpGroup);
+
+  // --- v125: Beach Paddleboard Yoga (bpy) ---
+  const bpyGroup = new THREE.Group();
+  bpyGroup.position.set(-32, 0.05, 110);
+  const bpyBoardColors = [0xffaa55, 0x55aaff, 0xaaff66, 0xffcc44];
+  const bpyBoards = [];
+  const bpyYogis = [];
+  const bpyArms = [];
+  for (let i = 0; i < 4; i++) {
+    const board = new THREE.Mesh(
+      new THREE.BoxGeometry(1.4, 0.08, 0.45),
+      new THREE.MeshLambertMaterial({ color: bpyBoardColors[i] })
+    );
+    const bx = -3.0 + i * 2.0;
+    const bz = (i % 2) * 0.8;
+    board.position.set(bx, 0.04, bz);
+    bpyGroup.add(board);
+    bpyBoards.push(board);
+    // Yogi in tree pose
+    const yogi = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.16, 0.5, 8),
+      new THREE.MeshLambertMaterial({ color: 0x66aacc + i * 0x110011 })
+    );
+    yogi.position.set(bx, 0.35, bz);
+    bpyGroup.add(yogi);
+    bpyYogis.push(yogi);
+    const yhead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.11, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    yhead.position.set(bx, 0.7, bz);
+    bpyGroup.add(yhead);
+    // Arms raised
+    const armL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, 0.45, 6),
+      new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+    );
+    armL.position.set(bx - 0.08, 0.85, bz);
+    armL.rotation.z = 0.2;
+    bpyGroup.add(armL);
+    const armR = armL.clone();
+    armR.position.x = bx + 0.08;
+    armR.rotation.z = -0.2;
+    bpyGroup.add(armR);
+    bpyArms.push(armL, armR);
+  }
+  group.add(bpyGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -23031,6 +23241,47 @@ export function createAnchorageLandmark(THREE, opts) {
     brstPlayers[i].position.y = 0.35 + bounce * 0.3;
     brstHeads[2 + i].position.y = 0.78 + bounce * 0.3;
   }
+  // v125 animation
+  const v125t = t;
+  // cwwc: boat sway, whale breach cycle
+  cwwcBoat.position.y = 0.2 + Math.sin(v125t * 1.0) * 0.05;
+  cwwcBoat.rotation.z = Math.sin(v125t * 1.0) * 0.05;
+  cwwcCabin.position.y = 0.65 + Math.sin(v125t * 1.0) * 0.05;
+  cwwcRailF.position.y = 0.5 + Math.sin(v125t * 1.0) * 0.05;
+  cwwcRailB.position.y = 0.5 + Math.sin(v125t * 1.0) * 0.05;
+  for (let i = 0; i < cwwcCrew.length; i++) {
+    cwwcCrew[i].position.y = 0.7 + Math.sin(v125t * 1.0) * 0.05;
+    cwwcCrewHeads[i].position.y = 1.05 + Math.sin(v125t * 1.0) * 0.05;
+  }
+  const cwwcCycle = (Math.sin(v125t * 0.6) + 1) * 0.5;
+  const cwwcWhaleY = -0.5 + cwwcCycle * 1.5;
+  cwwcWhaleBody.position.y = cwwcWhaleY;
+  cwwcWhaleBelly.position.y = cwwcWhaleY - 0.18;
+  cwwcWhaleFin.position.y = cwwcWhaleY + 0.45;
+  cwwcWhaleBody.rotation.z = -cwwcCycle * 0.4;
+  cwwcWhaleBelly.rotation.z = -cwwcCycle * 0.4;
+  cwwcWhaleFin.rotation.z = -cwwcCycle * 0.4;
+  for (let i = 0; i < cwwcSpray.length; i++) {
+    const sphase = (v125t * 1.5 + i * 0.4) % 2;
+    const upActive = cwwcCycle > 0.7 ? 1 : 0;
+    cwwcSpray[i].position.y = cwwcWhaleY + 0.5 + sphase * 0.3 * upActive;
+    cwwcSpray[i].position.x = 5 + Math.cos(i) * 0.3 * upActive;
+    cwwcSpray[i].position.z = 1.5 + Math.sin(i) * 0.3 * upActive;
+    cwwcSpray[i].material.opacity = upActive ? Math.max(0, 0.7 - sphase * 0.4) : 0;
+  }
+  // pwp: photographer flash strobe, bride sway
+  const flashOn = (v125t % 2.5) < 0.08 ? 1.0 : 0.0;
+  pwpFlash.material.emissiveIntensity = flashOn;
+  pwpBride.rotation.y = Math.sin(v125t * 0.5) * 0.05;
+  pwpVeil.rotation.y = Math.sin(v125t * 0.7) * 0.08;
+  pwpGroom.rotation.y = Math.sin(v125t * 0.5 + 0.3) * 0.03;
+  // bpy: yogis sway gently on boards
+  for (let i = 0; i < bpyBoards.length; i++) {
+    bpyBoards[i].position.y = 0.04 + Math.sin(v125t * 1.2 + i * 0.5) * 0.03;
+    bpyBoards[i].rotation.x = Math.sin(v125t * 1.0 + i) * 0.04;
+    bpyYogis[i].rotation.z = Math.sin(v125t * 0.8 + i * 0.6) * 0.06;
+  }
+
 
 
 
