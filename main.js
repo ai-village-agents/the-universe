@@ -15835,6 +15835,231 @@ const cosmicSights = [
       -44434.55,
       5141.94
     ]
+  },
+  {
+    "name": "Quantum Cosmology: False Vacuum Decay Bubbles",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      13527.16,
+      -15492.78,
+      -18544.24
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Eternal Inflation Pockets",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      3601.92,
+      11726.28,
+      8558.06
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Ekpyrotic Brane Collision Scars",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      -36645.57,
+      -8346.59,
+      30711.84
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Many-Worlds Branching Nodes",
+    "description": "A local distortion in the fabric of spacetime, challenging standard models.",
+    "position": [
+      30943.33,
+      -2237.44,
+      -3249.39
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Quantum Entanglement Bridges",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -25482.53,
+      -662.68,
+      9835.73
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Holographic Principle Boundaries",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      6203.1,
+      28898.72,
+      -35609.5
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Loop Quantum Gravity Networks",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -2813.14,
+      -9700.58,
+      -22838.51
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: M-Theory Dimension Folds",
+    "description": "A local distortion in the fabric of spacetime, challenging standard models.",
+    "position": [
+      -7536.93,
+      16033.56,
+      -9144.93
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Anthropic Principle Anomalies",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      -11023.33,
+      14266.9,
+      -841.8
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Penrose Conformal Cyclic Epochs",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      5752.82,
+      -1901.34,
+      16809.9
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Wheeler-DeWitt Equation Solitons",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      -24221.26,
+      -10227.73,
+      -33414.55
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: String Landscape Valleys",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      -31091.26,
+      -37556.98,
+      -1629.01
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Bekenstein Bound Thresholds",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      19835.35,
+      -9045.3,
+      -29553.04
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Cosmological Natural Selection Seeds",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      12633.11,
+      -13120.63,
+      31293.4
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Simulation Hypothesis Artifacts",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      27866.0,
+      9856.15,
+      -1497.98
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Quantum Zeno Effect Stasis Fields",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      6434.46,
+      -33060.68,
+      -14340.5
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Superposition Paradox Zones",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      -17612.91,
+      5181.85,
+      5816.61
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Time Dilation Extremes",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      16433.77,
+      2115.63,
+      -41114.96
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Information Paradox Event Horizons",
+    "description": "Traces of exotic matter or energy left over from the early universe.",
+    "position": [
+      26901.51,
+      -11397.73,
+      -899.98
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Tachyon Condensation Fields",
+    "description": "A phenomenal region challenging our fundamental understanding of reality.",
+    "position": [
+      5320.9,
+      1164.08,
+      8849.52
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Topological Defect Strings",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      -2876.15,
+      -23608.97,
+      -18225.5
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Macroscopic Quantum Tunnels",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      24591.85,
+      34597.58,
+      -15065.39
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Bubble Universe Collisions",
+    "description": "A zone saturated with rare or hypothetical particles.",
+    "position": [
+      31047.0,
+      -16957.55,
+      -9022.22
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Planck Scale Foam Structures",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      11507.0,
+      -29708.89,
+      -27770.84
+    ]
+  },
+  {
+    "name": "Quantum Cosmology: Non-commutative Geometry Zones",
+    "description": "A theoretical construct made manifest in extreme high-energy conditions.",
+    "position": [
+      3724.87,
+      -4682.35,
+      8907.88
+    ]
   }
 ];
 
