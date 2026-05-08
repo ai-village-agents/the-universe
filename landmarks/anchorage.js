@@ -21712,6 +21712,118 @@ export function createAnchorageLandmark(THREE, opts) {
   clkrGroup.add(clkrBucket);
   group.add(clkrGroup);
 
+
+  // v133: beach windsock display (bwd)
+  const bwdGroup = new THREE.Group();
+  bwdGroup.position.set(132, 0, 232);
+  // 5 windsock poles
+  const bwdPoleMat = new THREE.MeshLambertMaterial({ color: 0xb0a08a });
+  const bwdSocks = [];
+  const bwdSockColors = [0xff5060, 0xffaa30, 0xffe040, 0x40c060, 0x4080e0];
+  for (let i = 0; i < 5; i++) {
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 3.0, 8), bwdPoleMat);
+    pole.position.set(-2 + i, 1.5, 0);
+    bwdGroup.add(pole);
+    // windsock cone
+    const sock = new THREE.Mesh(new THREE.ConeGeometry(0.18, 1.0, 10, 1, true), new THREE.MeshLambertMaterial({ color: bwdSockColors[i], side: THREE.DoubleSide }));
+    sock.rotation.z = -Math.PI / 2;
+    sock.position.set(-2 + i + 0.6, 2.95, 0);
+    bwdGroup.add(sock);
+    bwdSocks.push(sock);
+  }
+  // a child watching
+  const bwdChild = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.9, 8), new THREE.MeshLambertMaterial({ color: 0x40b0a0 }));
+  bwdChild.position.set(0, 0.45, 1.6);
+  bwdGroup.add(bwdChild);
+  const bwdChildH = new THREE.Mesh(new THREE.SphereGeometry(0.18, 7, 6), new THREE.MeshLambertMaterial({ color: 0xf0c8a0 }));
+  bwdChildH.position.set(0, 1.05, 1.6);
+  bwdGroup.add(bwdChildH);
+  group.add(bwdGroup);
+
+  // v133: coastal walrus colony (cwlc)
+  const cwlcGroup = new THREE.Group();
+  cwlcGroup.position.set(-360, 0, -160);
+  // big rock
+  const cwlcRock = new THREE.Mesh(new THREE.SphereGeometry(2.4, 10, 8), new THREE.MeshLambertMaterial({ color: 0x6a5a50 }));
+  cwlcRock.position.set(0, 0.6, 0);
+  cwlcRock.scale.y = 0.5;
+  cwlcGroup.add(cwlcRock);
+  // walruses
+  const cwlcWalMat = new THREE.MeshLambertMaterial({ color: 0x8a6850 });
+  const cwlcTuskMat = new THREE.MeshLambertMaterial({ color: 0xf0e8d0 });
+  const cwlcWalruses = [];
+  for (let i = 0; i < 5; i++) {
+    const wg = new THREE.Group();
+    const ang = i * 1.25;
+    wg.position.set(Math.cos(ang) * 1.6, 0.9, Math.sin(ang) * 0.9);
+    wg.rotation.y = ang;
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.7, 10, 7), cwlcWalMat);
+    body.scale.set(1.5, 0.6, 0.7);
+    wg.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.32, 9, 7), cwlcWalMat);
+    head.position.set(1.0, 0.1, 0);
+    wg.add(head);
+    const tuskL = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.3, 6), cwlcTuskMat);
+    tuskL.position.set(1.2, -0.1, -0.1);
+    tuskL.rotation.x = Math.PI;
+    wg.add(tuskL);
+    const tuskR = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.3, 6), cwlcTuskMat);
+    tuskR.position.set(1.2, -0.1, 0.1);
+    tuskR.rotation.x = Math.PI;
+    wg.add(tuskR);
+    cwlcGroup.add(wg);
+    cwlcWalruses.push({ group: wg, head, body });
+  }
+  group.add(cwlcGroup);
+
+  // v133: coastal ferry dock (cfd)
+  const cfdGroup = new THREE.Group();
+  cfdGroup.position.set(-280, 0.2, 200);
+  // water
+  const cfdWater = new THREE.Mesh(new THREE.PlaneGeometry(10, 6), new THREE.MeshBasicMaterial({ color: 0x305070, transparent: true, opacity: 0.5 }));
+  cfdWater.rotation.x = -Math.PI / 2;
+  cfdWater.position.y = 0.1;
+  cfdGroup.add(cfdWater);
+  // ferry
+  const cfdHull = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.8, 1.6), new THREE.MeshLambertMaterial({ color: 0xe8e0c8 }));
+  cfdHull.position.set(0, 0.6, 0);
+  cfdGroup.add(cfdHull);
+  // upper deck
+  const cfdDeck = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.6, 1.4), new THREE.MeshLambertMaterial({ color: 0x4a6a8a }));
+  cfdDeck.position.set(0, 1.3, 0);
+  cfdGroup.add(cfdDeck);
+  // bridge
+  const cfdBridge = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.6, 1.2), new THREE.MeshLambertMaterial({ color: 0xf0e8d0 }));
+  cfdBridge.position.set(1.2, 1.9, 0);
+  cfdGroup.add(cfdBridge);
+  // windows
+  const cfdWindowMat = new THREE.MeshBasicMaterial({ color: 0x80c0f0, transparent: true, opacity: 0.7 });
+  const cfdWindows = [];
+  for (let i = 0; i < 6; i++) {
+    const w = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.3), cfdWindowMat);
+    w.position.set(-2.0 + i * 0.7, 1.3, 0.71);
+    cfdGroup.add(w);
+    cfdWindows.push(w);
+  }
+  // ramp
+  const cfdRamp = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.6), new THREE.MeshLambertMaterial({ color: 0x808080 }));
+  cfdRamp.position.set(-3.0, 0.3, 0.7);
+  cfdRamp.rotation.z = -0.18;
+  cfdGroup.add(cfdRamp);
+  // 3 boarding passengers
+  const cfdPaxColors = [0xa050a0, 0x60a0c0, 0xc0a060];
+  const cfdPax = [];
+  for (let i = 0; i < 3; i++) {
+    const p = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 1.0, 8), new THREE.MeshLambertMaterial({ color: cfdPaxColors[i] }));
+    p.position.set(-3.7 - i * 0.5, 0.5, 0.7);
+    cfdGroup.add(p);
+    const ph = new THREE.Mesh(new THREE.SphereGeometry(0.16, 7, 6), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+    ph.position.set(-3.7 - i * 0.5, 1.13, 0.7);
+    cfdGroup.add(ph);
+    cfdPax.push({ p, ph, x: -3.7 - i * 0.5 });
+  }
+  group.add(cfdGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24720,6 +24832,30 @@ export function createAnchorageLandmark(THREE, opts) {
   // clkr - keeper hand reaches
   clkrKeeper.rotation.z = Math.sin(v132t * 1.8) * 0.05;
   clkrKeeperH.position.x = -0.1 + Math.sin(v132t * 1.2) * 0.04;
+
+  // v133 updates
+  const v133t = t;
+  // bwd - windsocks twist with wind
+  for (let i = 0; i < bwdSocks.length; i++) {
+    bwdSocks[i].rotation.x = Math.sin(v133t * 0.8 + i * 0.5) * 0.25;
+    bwdSocks[i].position.y = 2.95 + Math.sin(v133t * 1.2 + i) * 0.04;
+  }
+  bwdChildH.rotation.y = Math.sin(v133t * 0.6) * 0.3;
+  // cwlc - walruses breathe
+  for (let i = 0; i < cwlcWalruses.length; i++) {
+    cwlcWalruses[i].body.scale.y = 0.6 + Math.sin(v133t * 1.0 + i * 0.7) * 0.04;
+    cwlcWalruses[i].head.position.y = 0.1 + Math.sin(v133t * 1.2 + i * 0.5) * 0.04;
+  }
+  // cfd - ferry bobs, passengers shuffle forward
+  cfdHull.position.y = 0.6 + Math.sin(v133t * 0.8) * 0.04;
+  cfdDeck.position.y = 1.3 + Math.sin(v133t * 0.8) * 0.04;
+  cfdBridge.position.y = 1.9 + Math.sin(v133t * 0.8) * 0.04;
+  cfdWater.material.opacity = 0.45 + Math.sin(v133t * 0.6) * 0.06;
+  for (let i = 0; i < cfdPax.length; i++) {
+    const off = ((v133t * 0.5 + i * 0.7) % 1) * 0.3;
+    cfdPax[i].p.position.x = cfdPax[i].x + off;
+    cfdPax[i].ph.position.x = cfdPax[i].x + off;
+  }
 
 
 
