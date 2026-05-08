@@ -16060,6 +16060,231 @@ const cosmicSights = [
       -4682.35,
       8907.88
     ]
+  },
+  {
+    "name": "Lensing Application: Galaxy Cluster Mass Tomography",
+    "description": "Reconstructs projected cluster mass from multiply lensed arcs and weak shear.",
+    "position": [
+      -18642.37,
+      9342.18,
+      14221.55
+    ]
+  },
+  {
+    "name": "Lensing Application: Dark Matter Halo Mapping",
+    "description": "Uses lens distortions to trace invisible halo structure around galaxies.",
+    "position": [
+      22104.63,
+      -6512.74,
+      11804.92
+    ]
+  },
+  {
+    "name": "Lensing Application: Strong Lens Time-Delay Cosmography",
+    "description": "Measures cosmological distances from arrival-time differences between lensed images.",
+    "position": [
+      -24811.48,
+      17055.26,
+      -9324.44
+    ]
+  },
+  {
+    "name": "Lensing Application: Einstein Ring Source Reconstruction",
+    "description": "Recovers the unlensed source morphology from a nearly complete Einstein ring.",
+    "position": [
+      13276.82,
+      25418.67,
+      -14773.51
+    ]
+  },
+  {
+    "name": "Lensing Application: Microlensing Exoplanet Census",
+    "description": "Finds planets through short-lived stellar magnification anomalies.",
+    "position": [
+      -9176.55,
+      -21440.83,
+      18452.09
+    ]
+  },
+  {
+    "name": "Lensing Application: Quasar Accretion Disk Micromagnification",
+    "description": "Uses stellar microlenses to resolve quasar disk size and temperature structure.",
+    "position": [
+      28761.34,
+      8419.27,
+      6731.48
+    ]
+  },
+  {
+    "name": "Lensing Application: Weak Shear Cosmic Web Survey",
+    "description": "Infers large-scale matter filaments from coherent background galaxy shearing.",
+    "position": [
+      -30124.72,
+      -4728.61,
+      -12003.77
+    ]
+  },
+  {
+    "name": "Lensing Application: Arclet Redshift Stack Calibration",
+    "description": "Combines faint lensed arclets to improve redshift and mass model calibration.",
+    "position": [
+      16420.95,
+      -18316.44,
+      -23681.52
+    ]
+  },
+  {
+    "name": "Lensing Application: Subhalo Perturbation Detection",
+    "description": "Identifies dark substructure from milliarcsecond image deflections in strong lenses.",
+    "position": [
+      -13751.29,
+      29831.74,
+      4118.63
+    ]
+  },
+  {
+    "name": "Lensing Application: Caustic Crossing Stellar Radius Probe",
+    "description": "Uses caustic sweeps to constrain the size of a lensed star.",
+    "position": [
+      9368.54,
+      11542.77,
+      28604.18
+    ]
+  },
+  {
+    "name": "Lensing Application: Lensed Supernova Reappearance Forecast",
+    "description": "Predicts repeat supernova image arrivals from lens model geometry.",
+    "position": [
+      -27492.08,
+      6327.11,
+      24317.66
+    ]
+  },
+  {
+    "name": "Lensing Application: CMB Lensing Convergence Map",
+    "description": "Builds a projected matter map from subtle distortions in the microwave background.",
+    "position": [
+      31852.47,
+      -14117.25,
+      -5836.14
+    ]
+  },
+  {
+    "name": "Lensing Application: Magnification Bias Galaxy Count Test",
+    "description": "Measures lensing through source-count enhancements above a flux threshold.",
+    "position": [
+      -6124.83,
+      -32508.56,
+      9726.35
+    ]
+  },
+  {
+    "name": "Lensing Application: Shear Peak Cluster Finder",
+    "description": "Uses peaks in weak-lensing shear fields to identify massive clusters.",
+    "position": [
+      20118.72,
+      22147.91,
+      -26544.29
+    ]
+  },
+  {
+    "name": "Lensing Application: Flexion Field Tidal Gradient Recovery",
+    "description": "Tracks higher-order image warping to recover small-scale tidal structure.",
+    "position": [
+      -22893.66,
+      -16621.38,
+      -18147.75
+    ]
+  },
+  {
+    "name": "Lensing Application: Line-of-Sight Structure Deprojection",
+    "description": "Separates primary lens mass from intervening line-of-sight contributions.",
+    "position": [
+      14841.57,
+      32774.63,
+      12098.44
+    ]
+  },
+  {
+    "name": "Lensing Application: Baryonic Feedback Lensing Residual",
+    "description": "Compares lensing maps against simulations to isolate baryonic back-reaction.",
+    "position": [
+      -33306.91,
+      2418.56,
+      15362.77
+    ]
+  },
+  {
+    "name": "Lensing Application: Shear-Ratio Geometry Test",
+    "description": "Uses source redshift bins to constrain geometry through shear amplitude ratios.",
+    "position": [
+      7453.26,
+      -27055.18,
+      -30126.64
+    ]
+  },
+  {
+    "name": "Lensing Application: Wave-Optics Microlens Interference",
+    "description": "Models diffraction-era lensing fringes for compact-wave sources.",
+    "position": [
+      26490.38,
+      15972.43,
+      21447.58
+    ]
+  },
+  {
+    "name": "Lensing Application: Cluster Merger Lensing Shock Front",
+    "description": "Connects mass-map discontinuities with merger-driven intracluster shock structure.",
+    "position": [
+      -15762.75,
+      36104.29,
+      -7281.95
+    ]
+  },
+  {
+    "name": "Lensing Application: Delensed Standard Siren Localization",
+    "description": "Removes magnification uncertainty from gravitational-wave distance estimates.",
+    "position": [
+      18326.14,
+      -23612.47,
+      29118.82
+    ]
+  },
+  {
+    "name": "Lensing Application: High-Redshift Galaxy Natural Telescope",
+    "description": "Uses foreground clusters to amplify otherwise inaccessible early galaxies.",
+    "position": [
+      -29144.58,
+      -11870.39,
+      24762.51
+    ]
+  },
+  {
+    "name": "Lensing Application: Quad-Image Fermat Surface Model",
+    "description": "Fits image positions and delays on the lensing Fermat potential surface.",
+    "position": [
+      11607.84,
+      28455.61,
+      -31772.08
+    ]
+  },
+  {
+    "name": "Lensing Application: Satellite Galaxy Tidal Lens",
+    "description": "Measures how satellite halos perturb the host lens potential.",
+    "position": [
+      -8451.17,
+      6723.95,
+      -34866.42
+    ]
+  },
+  {
+    "name": "Lensing Application: Kappa Map Void Imprint",
+    "description": "Searches projected lensing convergence maps for matter deficits around voids.",
+    "position": [
+      35218.93,
+      -9044.28,
+      13564.73
+    ]
   }
 ];
 
