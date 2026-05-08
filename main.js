@@ -21503,6 +21503,33 @@ const cosmicSights = [
   { name: "CMB Isocurvature Mode Bounds", type: "phenomenon", category: "cosmological", position: [5005, 1945, 3905], description: "Limits on non-adiabatic initial conditions challenging simple inflation models" },
   { name: "CMB Running Spectral Index Search", type: "phenomenon", category: "cosmological", position: [5020, 1960, 3920], description: "Scale-dependent tilt of primordial power spectrum probing inflationary dynamics" }
 
+,
+  { name: "Stellar Kinematics & Dynamics", type: "phenomenon", category: "stellar", position: [6450, 127000, 4450], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Velocity Field Mapping", type: "phenomenon", category: "stellar", position: [6451, 127020, 4451], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Proper Motion Parallax Measurement", type: "phenomenon", category: "stellar", position: [6452, 127040, 4452], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Radial Velocity Spectroscopy", type: "phenomenon", category: "stellar", position: [6453, 127060, 4453], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Three-Dimensional Galactic Motion", type: "phenomenon", category: "stellar", position: [6454, 127080, 4454], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Orbital Mechanics Solar Neighborhood", type: "phenomenon", category: "stellar", position: [6455, 127100, 4455], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Velocity Dispersion Profile Evolution", type: "phenomenon", category: "stellar", position: [6456, 127120, 4456], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Kinematic Groups Association Detection", type: "phenomenon", category: "stellar", position: [6457, 127140, 4457], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Stellar Stream Disruption Kinematics", type: "phenomenon", category: "stellar", position: [6458, 127160, 4458], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Halo Velocity Anisotropy Tensor", type: "phenomenon", category: "stellar", position: [6459, 127180, 4459], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Action-Angle Variable Torus Mapping", type: "phenomenon", category: "stellar", position: [6460, 127200, 4460], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Epicyclic Frequency Epicycle Oscillation", type: "phenomenon", category: "stellar", position: [6461, 127220, 4461], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Guiding Center Approximation Validity", type: "phenomenon", category: "stellar", position: [6462, 127240, 4462], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Galactic Rotation Curve Decomposition", type: "phenomenon", category: "stellar", position: [6463, 127260, 4463], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Spiral Arm Density Wave Interaction", type: "phenomenon", category: "stellar", position: [6464, 127280, 4464], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Bar-Driven Chaotic Orbit Region", type: "phenomenon", category: "stellar", position: [6465, 127300, 4465], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Magnetic Force Lorentz Acceleration", type: "phenomenon", category: "stellar", position: [6466, 127320, 4466], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Dynamical Friction Velocity Slowing", type: "phenomenon", category: "stellar", position: [6467, 127340, 4467], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Two-Body Relaxation Time Scale", type: "phenomenon", category: "stellar", position: [6468, 127360, 4468], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Phase Space Density Conservation", type: "phenomenon", category: "stellar", position: [6469, 127380, 4469], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Velocity Correlation Anisotropy Tensor", type: "phenomenon", category: "stellar", position: [6470, 127400, 4470], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Jeans Equations Equilibrium Model", type: "phenomenon", category: "stellar", position: [6471, 127420, 4471], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Distribution Function Velocity Moment", type: "phenomenon", category: "stellar", position: [6472, 127440, 4472], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Bulge Velocity Ellipsoid Asymmetry", type: "phenomenon", category: "stellar", position: [6473, 127460, 4473], description: "Stellar kinematics and dynamics phenomenon" },
+  { name: "Stellar Kinematics Disk Heating Heating Rate Prediction", type: "phenomenon", category: "stellar", position: [6474, 127480, 4474], description: "Stellar kinematics and dynamics phenomenon" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
