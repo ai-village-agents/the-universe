@@ -22631,6 +22631,194 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pcvsGroup);
 
+  // --- v140: beach picnic (bpcn) ---
+  const bpcnGroup = new THREE.Group();
+  bpcnGroup.position.set(-220, 0.05, 110);
+  const bpcnBlanket = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.0, 2.4),
+    new THREE.MeshLambertMaterial({ color: 0xc62828, side: THREE.DoubleSide })
+  );
+  bpcnBlanket.rotation.x = -Math.PI / 2;
+  bpcnGroup.add(bpcnBlanket);
+  const bpcnCheck = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.9, 2.3),
+    new THREE.MeshLambertMaterial({ color: 0xfafafa, side: THREE.DoubleSide, transparent: true, opacity: 0.3 })
+  );
+  bpcnCheck.rotation.x = -Math.PI / 2;
+  bpcnCheck.position.y = 0.01;
+  bpcnGroup.add(bpcnCheck);
+  const bpcnBasket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.36, 0.34, 10),
+    new THREE.MeshLambertMaterial({ color: 0x8d6e63 })
+  );
+  bpcnBasket.position.set(-1.0, 0.17, 0);
+  bpcnGroup.add(bpcnBasket);
+  const bpcnHandle = new THREE.Mesh(
+    new THREE.TorusGeometry(0.3, 0.04, 6, 12, Math.PI),
+    new THREE.MeshLambertMaterial({ color: 0x6d4c41 })
+  );
+  bpcnHandle.position.set(-1.0, 0.34, 0);
+  bpcnHandle.rotation.x = Math.PI / 2;
+  bpcnGroup.add(bpcnHandle);
+  const bpcnA = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.36, 0.9, 8),
+    new THREE.MeshLambertMaterial({ color: 0x2e7d32 })
+  );
+  bpcnA.position.set(0.6, 0.45, -0.7);
+  bpcnA.rotation.z = -Math.PI / 8;
+  bpcnGroup.add(bpcnA);
+  const bpcnAH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  bpcnAH.position.set(0.8, 0.95, -0.7);
+  bpcnGroup.add(bpcnAH);
+  const bpcnB = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.36, 0.9, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffb300 })
+  );
+  bpcnB.position.set(0.6, 0.45, 0.7);
+  bpcnB.rotation.z = Math.PI / 8;
+  bpcnGroup.add(bpcnB);
+  const bpcnBH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffccbc })
+  );
+  bpcnBH.position.set(0.8, 0.95, 0.7);
+  bpcnGroup.add(bpcnBH);
+  const bpcnFood = [];
+  const bpcnFoodColors = [0xfff176, 0xef5350, 0x66bb6a, 0xab47bc];
+  for (let i = 0; i < 4; i++) {
+    const f = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 8, 6),
+      new THREE.MeshLambertMaterial({ color: bpcnFoodColors[i] })
+    );
+    f.position.set(-0.2 + i * 0.18, 0.08, 0.2);
+    bpcnFood.push(f);
+    bpcnGroup.add(f);
+  }
+  const bpcnBottle = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.07, 0.4, 8),
+    new THREE.MeshLambertMaterial({ color: 0x1b5e20, transparent: true, opacity: 0.7 })
+  );
+  bpcnBottle.position.set(0.0, 0.2, -0.3);
+  bpcnGroup.add(bpcnBottle);
+  group.add(bpcnGroup);
+
+  // --- v140: pier oyster shucker (poys) ---
+  const poysGroup = new THREE.Group();
+  poysGroup.position.set(135, 4.0, -255);
+  const poysTable = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.15, 1.0),
+    new THREE.MeshLambertMaterial({ color: 0x5d4037 })
+  );
+  poysTable.position.y = 0.7;
+  poysGroup.add(poysTable);
+  const poysLegMat = new THREE.MeshLambertMaterial({ color: 0x4e342e });
+  for (let i = 0; i < 4; i++) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.7, 0.1), poysLegMat);
+    leg.position.set(i % 2 === 0 ? -0.85 : 0.85, 0.35, i < 2 ? -0.4 : 0.4);
+    poysGroup.add(leg);
+  }
+  const poysIce = new THREE.Mesh(
+    new THREE.BoxGeometry(1.5, 0.1, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0xb3e5fc, transparent: true, opacity: 0.8 })
+  );
+  poysIce.position.set(0, 0.83, 0);
+  poysGroup.add(poysIce);
+  const poysShells = [];
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2),
+      new THREE.MeshLambertMaterial({ color: 0xe0e0e0 })
+    );
+    s.position.set(-0.6 + (i % 4) * 0.4, 0.88, -0.25 + Math.floor(i / 4) * 0.5);
+    s.rotation.x = Math.PI;
+    poysShells.push(s);
+    poysGroup.add(s);
+  }
+  const poysShucker = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.32, 0.42, 1.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x01579b })
+  );
+  poysShucker.position.set(-0.3, 0.6, -1.1);
+  poysGroup.add(poysShucker);
+  const poysShuckerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+  );
+  poysShuckerH.position.set(-0.3, 1.4, -1.1);
+  poysGroup.add(poysShuckerH);
+  const poysApron = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide })
+  );
+  poysApron.position.set(-0.3, 0.6, -0.85);
+  poysGroup.add(poysApron);
+  const poysKnife = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.02, 0.04),
+    new THREE.MeshStandardMaterial({ color: 0xeceff1, metalness: 0.7, roughness: 0.2 })
+  );
+  poysKnife.position.set(0.0, 0.85, -0.7);
+  poysGroup.add(poysKnife);
+  const poysCustomer = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.36, 1.1, 8),
+    new THREE.MeshLambertMaterial({ color: 0xc62828 })
+  );
+  poysCustomer.position.set(0.0, 0.55, 1.1);
+  poysGroup.add(poysCustomer);
+  const poysCustomerH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.2, 8, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffccbc })
+  );
+  poysCustomerH.position.set(0.0, 1.3, 1.1);
+  poysGroup.add(poysCustomerH);
+  group.add(poysGroup);
+
+  // --- v140: beach kite festival (bkfe) ---
+  const bkfeGroup = new THREE.Group();
+  bkfeGroup.position.set(-150, 0.05, -180);
+  const bkfeColors = [0xef5350, 0x42a5f5, 0xffeb3b, 0x66bb6a, 0xab47bc, 0xff7043];
+  const bkfeKites = [];
+  const bkfeStrings = [];
+  const bkfeFlyers = [];
+  const bkfeFlyerH = [];
+  for (let i = 0; i < 6; i++) {
+    const k = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.0, 1.4),
+      new THREE.MeshLambertMaterial({ color: bkfeColors[i], side: THREE.DoubleSide })
+    );
+    const a = (i / 6) * Math.PI * 2;
+    const r = 5.0;
+    k.position.set(Math.cos(a) * r, 5.5 + Math.sin(i) * 0.5, Math.sin(a) * r);
+    k.rotation.z = Math.PI / 4;
+    k.rotation.y = -a;
+    bkfeKites.push(k);
+    bkfeGroup.add(k);
+    const flyer = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.28, 0.36, 1.0, 8),
+      new THREE.MeshLambertMaterial({ color: bkfeColors[(i + 3) % 6] })
+    );
+    flyer.position.set(Math.cos(a) * r * 0.5, 0.5, Math.sin(a) * r * 0.5);
+    bkfeFlyers.push(flyer);
+    bkfeGroup.add(flyer);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.2, 8, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffe0b2 })
+    );
+    head.position.set(Math.cos(a) * r * 0.5, 1.2, Math.sin(a) * r * 0.5);
+    bkfeFlyerH.push(head);
+    bkfeGroup.add(head);
+    const stringGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(Math.cos(a) * r * 0.5, 1.4, Math.sin(a) * r * 0.5),
+      k.position.clone()
+    ]);
+    const str = new THREE.Line(stringGeo, new THREE.LineBasicMaterial({ color: 0xfafafa }));
+    bkfeStrings.push(str);
+    bkfeGroup.add(str);
+  }
+  group.add(bkfeGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -25782,6 +25970,37 @@ export function createAnchorageLandmark(THREE, opts) {
   pcvsArm.rotation.x = Math.PI / 2.6 + 0.2 * Math.sin(v139t * 4.0);
   pcvsChisel.position.x = 0.05 + 0.1 * Math.sin(v139t * 4.0);
   pcvsBlock.rotation.y = 0.05 * Math.sin(v139t * 0.6);
+
+  // --- v140 update ---
+  const v140t = t;
+  bpcnA.rotation.y = 0.1 * Math.sin(v140t * 0.8);
+  bpcnB.rotation.y = -0.1 * Math.sin(v140t * 0.8 + 0.5);
+  bpcnFood.forEach((f, i) => {
+    f.position.y = 0.08 + 0.02 * Math.sin(v140t * 1.5 + i);
+  });
+
+  poysKnife.rotation.y = 0.4 * Math.sin(v140t * 5.0);
+  poysShucker.rotation.y = 0.06 * Math.sin(v140t * 1.2);
+  poysCustomer.rotation.y = 0.05 * Math.sin(v140t * 0.7);
+
+  bkfeKites.forEach((k, i) => {
+    const a = (i / 6) * Math.PI * 2;
+    const r = 5.0;
+    const phase = v140t * 0.5 + i;
+    k.position.x = Math.cos(a) * r + 0.4 * Math.sin(phase);
+    k.position.y = 5.5 + Math.sin(i) * 0.5 + 0.5 * Math.sin(phase * 1.3);
+    k.position.z = Math.sin(a) * r + 0.4 * Math.cos(phase);
+    k.rotation.z = Math.PI / 4 + 0.2 * Math.sin(phase);
+    const fly = bkfeFlyers[i];
+    bkfeStrings[i].geometry.setFromPoints([
+      new THREE.Vector3(fly.position.x, 1.4, fly.position.z),
+      k.position.clone()
+    ]);
+  });
+  bkfeFlyerH.forEach((h, i) => {
+    h.rotation.y = v140t * 0.3 + i;
+  });
+
 
 
 
