@@ -20394,6 +20394,33 @@ const cosmicSights = [
   {"name":"Gravitational Wave Polarization Analyzer","position":[590,40,-850],"color":"#9d4edd","description":"An analyzer separating tensor polarization patterns across a network of detectors."},
   {"name":"Multi-Observatory Trigger Broker","position":[605,55,-865],"color":"#48cae4","description":"A broker routing alerts between gravitational-wave, neutrino, gamma-ray, optical, and radio observatories."},
   {"name":"Messenger Concordance Cosmology Forum","position":[620,30,-880],"color":"#90e0ef","description":"A forum where every cosmic messenger votes on a shared, concordant expansion history."}
+,
+  {"name":"Solar Wind Stream Interaction Region","position":[635,45,-895],"color":"#6ec6ff","description":"A compressed boundary where fast and slow solar-wind streams collide and pile magnetic structure together."},
+  {"name":"Heliospheric Current Sheet Fold","position":[650,60,-910],"color":"#8ad8ff","description":"A warped fold in the Sun's magnetic equator rippling outward through the heliosphere."},
+  {"name":"Corotating Interaction Region Shock","position":[665,35,-925],"color":"#ffd166","description":"A recurrent shock front driven by rotating fast-wind streams overtaking slower plasma."},
+  {"name":"Interplanetary CME Magnetic Cloud","position":[680,50,-940],"color":"#ff8fab","description":"A twisted magnetic cloud carrying the interplanetary imprint of a coronal mass ejection."},
+  {"name":"Geomagnetic Storm Main Phase Ring","position":[695,25,-955],"color":"#c77dff","description":"An energized ring-current zone marking the deepest phase of a geomagnetic storm."},
+  {"name":"Magnetotail Reconnection X-Line","position":[710,40,-970],"color":"#9d4edd","description":"A distant reconnection line in Earth's magnetotail where stored magnetic energy snaps free."},
+  {"name":"Solar Energetic Particle Injection Front","position":[725,15,-985],"color":"#f94144","description":"A racing particle front carrying relativistic ions and electrons away from an eruptive solar source."},
+  {"name":"Forbush Decrease Recovery Envelope","position":[740,30,-1000],"color":"#90be6d","description":"A broad recovery envelope following the cosmic-ray dip produced by an interplanetary disturbance."},
+  {"name":"Auroral Substorm Expansion Arc","position":[755,5,-1015],"color":"#52ffa8","description":"A brightening auroral arc unfurling across polar skies during substorm expansion."},
+  {"name":"Plasmaspheric Drainage Plume","position":[770,20,-1030],"color":"#80ffdb","description":"A peeled-back plume of cold dense plasma drawn sunward during geomagnetic activity."},
+  {"name":"Radiation Belt Chorus Burst","position":[785,-5,-1045],"color":"#72ddf7","description":"A packet of whistler-mode chorus waves reshaping energetic particles in the outer radiation belt."},
+  {"name":"Magnetopause Compression Pulse","position":[800,10,-1060],"color":"#48bfe3","description":"A sharp compression pulse striking the magnetopause as solar-wind pressure suddenly rises."},
+  {"name":"Bow Shock Foreshock Turbulence","position":[815,-15,-1075],"color":"#56cfe1","description":"A turbulent foreshock upstream of Earth's bow shock filled with reflected particles and waves."},
+  {"name":"Polar Cap Patch Convection","position":[830,0,-1090],"color":"#64dfdf","description":"A convecting island of dense ionospheric plasma crossing the polar cap under high-latitude forcing."},
+  {"name":"Ionospheric Storm Enhanced Density Ridge","position":[845,-25,-1105],"color":"#80ffdb","description":"A storm-time ridge of boosted ionospheric density stretching along disturbed midlatitude paths."},
+  {"name":"Thermospheric Joule Heating Surge","position":[860,-10,-1120],"color":"#ffb703","description":"A surge of upper-atmosphere heating driven by storm electric fields and auroral currents."},
+  {"name":"Delta Spot Magnetic Shear Complex","position":[875,-35,-1135],"color":"#fb8500","description":"A stressed delta-spot complex where opposite polarities crowd together and store eruptive energy."},
+  {"name":"Filament Eruption Launch Channel","position":[890,-20,-1150],"color":"#ff6b6b","description":"A launch channel where a destabilized filament rises into the corona and escapes as a CME."},
+  {"name":"Coronal Hole Fast Wind Source","position":[905,-45,-1165],"color":"#a8dadc","description":"A dark open-field coronal hole feeding fast solar wind into interplanetary space."},
+  {"name":"CME Sheath Turbulence Zone","position":[920,-30,-1180],"color":"#bde0fe","description":"A turbulent sheath of shocked plasma piled ahead of an interplanetary coronal mass ejection."},
+  {"name":"Heliospheric Plasma Sheet Crossing","position":[935,-55,-1195],"color":"#cdb4db","description":"A crossing through the dense wavering plasma sheet draped around the heliospheric current sheet."},
+  {"name":"Ground Induced Current Corridor","position":[950,-40,-1210],"color":"#ffd6a5","description":"A corridor where geomagnetically induced currents couple space weather disturbances into power grids."},
+  {"name":"Space Weather Forecast Ensemble Node","position":[965,-65,-1225],"color":"#f1fa8c","description":"A forecasting node where ensemble models compare solar, heliospheric, and geomagnetic storm scenarios."},
+  {"name":"Lagrange Solar Monitor Sentinel","position":[980,-50,-1240],"color":"#90e0ef","description":"A sentinel stationed near a Sun-Earth Lagrange point to watch incoming disturbances before they arrive."},
+  {"name":"Magnetospheric Recovery Quieting Zone","position":[995,-75,-1255],"color":"#caf0f8","description":"A quieting zone where disturbed currents relax and the magnetosphere settles after a major storm."}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
