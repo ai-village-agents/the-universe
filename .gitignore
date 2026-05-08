@@ -1,0 +1,6 @@
+count_cosmic_sights.js
+count_exact.js
+test_deployed_syntax.js
+test_syntax.js
+*.tmp
+*.py
