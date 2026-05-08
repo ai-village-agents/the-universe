@@ -21003,6 +21003,218 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(pmbGroup);
 
+
+  // --- v128: Pier Mosaic Artist (pma) ---
+  const pmaGroup = new THREE.Group();
+  pmaGroup.position.set(118, 1.0, 38);
+  // Frame
+  const pmaFrameMat = new THREE.MeshLambertMaterial({ color: 0x553322 });
+  const pmaFrame = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 1.6, 0.06),
+    pmaFrameMat
+  );
+  pmaFrame.position.set(0, 0.95, 0);
+  pmaGroup.add(pmaFrame);
+  // Mosaic tiles
+  const pmaTileColors = [0x4488cc, 0x66bbdd, 0xcc7755, 0xeeaa66, 0x55aa77, 0xeecc55, 0xaa66bb, 0x4466aa];
+  const pmaTiles = [];
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 10; col++) {
+      const tile = new THREE.Mesh(
+        new THREE.BoxGeometry(0.16, 0.16, 0.04),
+        new THREE.MeshLambertMaterial({
+          color: pmaTileColors[(row * 10 + col) % pmaTileColors.length]
+        })
+      );
+      tile.position.set(-0.85 + col * 0.18, 0.28 + row * 0.18, 0.05);
+      pmaGroup.add(tile);
+      pmaTiles.push(tile);
+    }
+  }
+  // Easel legs
+  const pmaLeg = new THREE.Mesh(
+    new THREE.BoxGeometry(0.08, 0.5, 0.08),
+    pmaFrameMat
+  );
+  pmaLeg.position.set(-0.7, 0.0, -0.4);
+  pmaGroup.add(pmaLeg);
+  const pmaLegR = pmaLeg.clone();
+  pmaLegR.position.set(0.7, 0.0, -0.4);
+  pmaGroup.add(pmaLegR);
+  // Artist
+  const pmaArtist = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.7, 8),
+    new THREE.MeshLambertMaterial({ color: 0x884466 })
+  );
+  pmaArtist.position.set(2.0, 0.35, 0.4);
+  pmaGroup.add(pmaArtist);
+  const pmaAHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  pmaAHead.position.set(2.0, 0.85, 0.4);
+  pmaGroup.add(pmaAHead);
+  // Tray of tiles
+  const pmaTray = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 0.05, 0.4),
+    new THREE.MeshLambertMaterial({ color: 0xaa8855 })
+  );
+  pmaTray.position.set(2.5, 0.35, 0.4);
+  pmaGroup.add(pmaTray);
+  // Floating tile being placed
+  const pmaFlyTile = new THREE.Mesh(
+    new THREE.BoxGeometry(0.14, 0.14, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0xeecc55 })
+  );
+  pmaFlyTile.position.set(1.3, 0.7, 0.2);
+  pmaGroup.add(pmaFlyTile);
+  group.add(pmaGroup);
+
+  // --- v128: Beach Gull Feeding (bgf) ---
+  const bgfGroup = new THREE.Group();
+  bgfGroup.position.set(85, 0.5, 105);
+  // Person with bag of crumbs
+  const bgfPerson = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.75, 8),
+    new THREE.MeshLambertMaterial({ color: 0x88aacc })
+  );
+  bgfPerson.position.set(0, 0.4, 0);
+  bgfGroup.add(bgfPerson);
+  const bgfPHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.14, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xffd6b0 })
+  );
+  bgfPHead.position.set(0, 0.92, 0);
+  bgfGroup.add(bgfPHead);
+  const bgfBag = new THREE.Mesh(
+    new THREE.BoxGeometry(0.18, 0.22, 0.14),
+    new THREE.MeshLambertMaterial({ color: 0xeebb77 })
+  );
+  bgfBag.position.set(0.25, 0.55, 0);
+  bgfGroup.add(bgfBag);
+  // Crumbs on ground
+  const bgfCrumbs = [];
+  for (let i = 0; i < 12; i++) {
+    const c = new THREE.Mesh(
+      new THREE.SphereGeometry(0.04, 5, 4),
+      new THREE.MeshLambertMaterial({ color: 0xddbb88 })
+    );
+    c.position.set(1.5 + (Math.random() - 0.5) * 1.6, 0.04, (Math.random() - 0.5) * 1.6);
+    bgfGroup.add(c);
+    bgfCrumbs.push(c);
+  }
+  // Gulls
+  const bgfGulls = [];
+  const bgfGullWings = [];
+  for (let i = 0; i < 6; i++) {
+    const gull = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 10, 8),
+      new THREE.MeshLambertMaterial({ color: 0xffffff })
+    );
+    gull.scale.set(1, 0.6, 1.4);
+    const angle = (i / 6) * Math.PI * 2;
+    const startY = i < 3 ? 0.15 : 1.2;
+    gull.position.set(1.5 + Math.cos(angle) * 1.0, startY, Math.sin(angle) * 1.0);
+    bgfGroup.add(gull);
+    bgfGulls.push(gull);
+    // Wings
+    const wing = new THREE.Mesh(
+      new THREE.BoxGeometry(0.4, 0.04, 0.12),
+      new THREE.MeshLambertMaterial({ color: 0xeeeeee })
+    );
+    wing.position.set(gull.position.x, gull.position.y + 0.04, gull.position.z);
+    bgfGroup.add(wing);
+    bgfGullWings.push(wing);
+    // Beak
+    const beak = new THREE.Mesh(
+      new THREE.ConeGeometry(0.03, 0.1, 5),
+      new THREE.MeshLambertMaterial({ color: 0xffaa44 })
+    );
+    beak.position.set(gull.position.x, gull.position.y + 0.05, gull.position.z + 0.16);
+    beak.rotation.x = Math.PI / 2;
+    bgfGroup.add(beak);
+  }
+  group.add(bgfGroup);
+
+  // --- v128: Coastal Heron Stalking (chs) ---
+  const chsGroup = new THREE.Group();
+  chsGroup.position.set(-65, 0.2, 102);
+  // Shallow water patch
+  const chsWater = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.2, 2.2, 0.08, 24),
+    new THREE.MeshStandardMaterial({
+      color: 0x5577aa,
+      transparent: true,
+      opacity: 0.6,
+      metalness: 0.3,
+      roughness: 0.2
+    })
+  );
+  chsWater.position.set(0, 0.04, 0);
+  chsGroup.add(chsWater);
+  // Reeds
+  const chsReedMat = new THREE.MeshLambertMaterial({ color: 0x556633 });
+  const chsReeds = [];
+  for (let i = 0; i < 12; i++) {
+    const r = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.025, 1.0 + Math.random() * 0.3, 5),
+      chsReedMat
+    );
+    const angle = (i / 12) * Math.PI * 2;
+    r.position.set(Math.cos(angle) * (1.8 + Math.random() * 0.4), 0.55, Math.sin(angle) * (1.8 + Math.random() * 0.4));
+    chsGroup.add(r);
+    chsReeds.push(r);
+  }
+  // Heron
+  const chsHeronBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xaaaabb })
+  );
+  chsHeronBody.scale.set(1.2, 0.9, 0.7);
+  chsHeronBody.position.set(0, 0.95, 0);
+  chsGroup.add(chsHeronBody);
+  const chsHeronLegL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.025, 0.025, 0.95, 5),
+    new THREE.MeshLambertMaterial({ color: 0xaa9966 })
+  );
+  chsHeronLegL.position.set(-0.06, 0.46, 0);
+  chsGroup.add(chsHeronLegL);
+  const chsHeronLegR = chsHeronLegL.clone();
+  chsHeronLegR.position.set(0.06, 0.46, 0);
+  chsGroup.add(chsHeronLegR);
+  const chsHeronNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.06, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0xbbbbcc })
+  );
+  chsHeronNeck.position.set(0.15, 1.25, 0);
+  chsHeronNeck.rotation.z = -0.3;
+  chsGroup.add(chsHeronNeck);
+  const chsHeronHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 10, 8),
+    new THREE.MeshLambertMaterial({ color: 0xddddee })
+  );
+  chsHeronHead.position.set(0.3, 1.45, 0);
+  chsGroup.add(chsHeronHead);
+  const chsHeronBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.03, 0.22, 6),
+    new THREE.MeshLambertMaterial({ color: 0xffaa33 })
+  );
+  chsHeronBeak.position.set(0.45, 1.4, 0);
+  chsHeronBeak.rotation.z = -Math.PI / 2;
+  chsGroup.add(chsHeronBeak);
+  // Fish swimming
+  const chsFish = [];
+  for (let i = 0; i < 4; i++) {
+    const fish = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 8, 6),
+      new THREE.MeshLambertMaterial({ color: 0x66ccdd })
+    );
+    fish.scale.set(1.5, 0.5, 0.7);
+    chsGroup.add(fish);
+    chsFish.push(fish);
+  }
+  group.add(chsGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -23884,6 +24096,57 @@ export function createAnchorageLandmark(THREE, opts) {
     pmbWaves[i].scale.setScalar(1 + phase * 5);
     pmbWaves[i].material.opacity = Math.max(0, 0.5 - phase * 0.5);
   }
+  // v128 animation
+  const v128t = t;
+  // pma: artist subtle motion, fly tile bounces
+  pmaAHead.position.y = 0.85 + Math.sin(v128t * 1.2) * 0.02;
+  pmaFlyTile.position.x = 1.3 + Math.sin(v128t * 1.5) * 0.5;
+  pmaFlyTile.position.y = 0.7 + Math.sin(v128t * 3) * 0.15;
+  pmaFlyTile.rotation.z = v128t * 0.5;
+  // Mosaic shimmer (slight color pulse)
+  for (let i = 0; i < pmaTiles.length; i++) {
+    const phase = (v128t * 0.5 + i * 0.05) % 5;
+    if (phase < 0.3) {
+      pmaTiles[i].position.z = 0.05 + (0.3 - phase) * 0.05;
+    } else {
+      pmaTiles[i].position.z = 0.05;
+    }
+  }
+  // bgf: gulls bob up/down, wings flap
+  for (let i = 0; i < bgfGulls.length; i++) {
+    const baseY = i < 3 ? 0.15 : 1.2;
+    bgfGulls[i].position.y = baseY + Math.sin(v128t * 4 + i) * 0.15;
+    bgfGullWings[i].position.y = bgfGulls[i].position.y + 0.04;
+    bgfGullWings[i].rotation.z = Math.sin(v128t * 12 + i * 0.5) * 0.4;
+    // Flying gulls move in arcs
+    if (i >= 3) {
+      const angle = (i / 6) * Math.PI * 2 + v128t * 0.3;
+      bgfGulls[i].position.x = 1.5 + Math.cos(angle) * 1.4;
+      bgfGulls[i].position.z = Math.sin(angle) * 1.4;
+      bgfGullWings[i].position.x = bgfGulls[i].position.x;
+      bgfGullWings[i].position.z = bgfGulls[i].position.z;
+    }
+  }
+  bgfPHead.rotation.y = Math.sin(v128t * 0.5) * 0.3;
+  // chs: heron statue-still, then sudden strike, fish swim away
+  const strike = Math.max(0, Math.sin(v128t * 0.4) - 0.85) * 6;
+  chsHeronNeck.rotation.z = -0.3 - strike * 1.2;
+  chsHeronHead.position.x = 0.3 + strike * 0.3;
+  chsHeronHead.position.y = 1.45 - strike * 0.6;
+  chsHeronBeak.position.x = 0.45 + strike * 0.3;
+  chsHeronBeak.position.y = 1.4 - strike * 0.6;
+  for (let i = 0; i < chsFish.length; i++) {
+    const angle = (i / chsFish.length) * Math.PI * 2 + v128t * 0.7;
+    chsFish[i].position.x = Math.cos(angle) * 1.5;
+    chsFish[i].position.z = Math.sin(angle) * 1.5;
+    chsFish[i].position.y = 0.06 + Math.sin(v128t * 2 + i) * 0.02;
+    chsFish[i].rotation.y = -angle + Math.PI / 2;
+  }
+  for (let i = 0; i < chsReeds.length; i++) {
+    chsReeds[i].rotation.z = Math.sin(v128t * 0.8 + i * 0.4) * 0.06;
+  }
+  chsWater.material.opacity = 0.55 + Math.sin(v128t * 1.0) * 0.08;
+
 
 
 
