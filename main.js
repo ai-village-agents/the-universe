@@ -24305,6 +24305,33 @@ const cosmicSights = [
     color: '#8a2be2',
     size: 270
   }
+,
+{ name: "Strong Lens System Geometry", type: "phenomenon", category: "Gravitational Lensing", position: [7050, 139000, 5050], description: "Physical configuration of lensing systems where Einstein radius exceeds kiloparsec scales, producing multiple images and high magnification factors" },
+{ name: "Circular Ring Image", type: "phenomenon", category: "Gravitational Lensing", position: [7051, 139020, 5051], description: "Symmetric lensing configuration when source, lens, and observer are perfectly aligned, producing continuous ring image of background galaxy" },
+{ name: "Source Plane Reconstruction", type: "phenomenon", category: "Gravitational Lensing", position: [7052, 139040, 5052], description: "Inverse mapping technique to recover unlensed source morphology from multiple lensed images using iterative algorithms" },
+{ name: "Lens Mass Distribution", type: "phenomenon", category: "Gravitational Lensing", position: [7053, 139060, 5053], description: "Three-dimensional mass profile of gravitational lens derived from observed image geometries and time delays" },
+{ name: "Critical Curve Topology", type: "phenomenon", category: "Gravitational Lensing", position: [7054, 139080, 5054], description: "Caustic structure forming boundaries between image regions with different numbers of lensed images" },
+{ name: "Microlensing Variability", type: "phenomenon", category: "Gravitational Lensing", position: [7055, 139100, 5055], description: "Short-timescale photometric fluctuations caused by stellar-mass objects transiting lensing potential" },
+{ name: "Time Delay Measurement", type: "phenomenon", category: "Gravitational Lensing", position: [7056, 139120, 5056], description: "Differential arrival times between multiple images constraining Hubble constant and lens redshift distribution" },
+{ name: "Dark Matter Substructure", type: "phenomenon", category: "Gravitational Lensing", position: [7057, 139140, 5057], description: "Small-scale mass clumps detected via anomalous flux ratios and perturbed image positions in lens systems" },
+{ name: "Lensed Supernova Imaging", type: "phenomenon", category: "Gravitational Lensing", position: [7058, 139160, 5058], description: "Superposition of multiple supernova explosions appearing at different times due to gravitational lensing delays" },
+{ name: "Flux Ratio Anomaly", type: "phenomenon", category: "Gravitational Lensing", position: [7059, 139180, 5059], description: "Deviation from smooth lens predictions indicating substructure perturbations in otherwise symmetric systems" },
+{ name: "Cluster Mass Decomposition", type: "phenomenon", category: "Gravitational Lensing", position: [7060, 139200, 5060], description: "Separation of smooth cluster halo and substructure contributions to total mass using weak and strong lensing data" },
+{ name: "Weak Lensing Shear Field", type: "phenomenon", category: "Gravitational Lensing", position: [7061, 139220, 5061], description: "Small-amplitude distortions of background galaxy shapes from integrated mass along line of sight" },
+{ name: "Power Spectrum Reconstruction", type: "phenomenon", category: "Gravitational Lensing", position: [7062, 139240, 5062], description: "Recovery of three-dimensional matter power spectrum from two-dimensional weak lensing convergence maps" },
+{ name: "Shear Calibration Systematics", type: "phenomenon", category: "Gravitational Lensing", position: [7063, 139260, 5063], description: "Systematic uncertainties in shape measurement algorithms limiting weak lensing cosmological constraining power" },
+{ name: "Lens Equation Nonlinearity", type: "phenomenon", category: "Gravitational Lensing", position: [7064, 139280, 5064], description: "Multiple solution nature of lens equation producing discrete set of image positions for given source position" },
+{ name: "Schwarzian Potential Lens", type: "phenomenon", category: "Gravitational Lensing", position: [7065, 139300, 5065], description: "Lensing from compact objects where relativistic effects produce image properties beyond Newtonian expectations" },
+{ name: "Quad Image Configuration", type: "phenomenon", category: "Gravitational Lensing", position: [7066, 139320, 5066], description: "Four-image lensing system with central saddle-point configuration common in cluster strong lensing" },
+{ name: "Fold Caustic Crossing", type: "phenomenon", category: "Gravitational Lensing", position: [7067, 139340, 5067], description: "Source crossing fold caustic producing sudden appearance or disappearance of image pair" },
+{ name: "Cusp Caustic Singularity", type: "phenomenon", category: "Gravitational Lensing", position: [7068, 139360, 5068], description: "Cusp singularity in caustic where arbitrarily high magnification possible, relevant to quasar lensing statistics" },
+{ name: "Foreground Halo Correlation", type: "phenomenon", category: "Gravitational Lensing", position: [7069, 139380, 5069], description: "Statistical weak lensing correlation between foreground and background galaxies constraining halo masses" },
+{ name: "Cluster Halo Ellipticity", type: "phenomenon", category: "Gravitational Lensing", position: [7070, 139400, 5070], description: "Aspherical mass distribution of galaxy clusters detected through anisotropic lensing signal" },
+{ name: "Substructure Mass Function", type: "phenomenon", category: "Gravitational Lensing", position: [7071, 139420, 5071], description: "Abundance of dark matter subhalos inferred from microlensing event statistics in quasar systems" },
+{ name: "Extinction Map Correlation", type: "phenomenon", category: "Gravitational Lensing", position: [7072, 139440, 5072], description: "Correlation between dust extinction and weak lensing convergence tracing large-scale structure" },
+{ name: "Axion Dark Matter Exclusion", type: "phenomenon", category: "Gravitational Lensing", position: [7073, 139460, 5073], description: "Constraints on axion mass from non-observation of wave-optics lensing signatures in stellar systems" },
+{ name: "Primordial Black Hole Microlensing", type: "phenomenon", category: "Gravitational Lensing", position: [7074, 139480, 5074], description: "Distinctive photometric signature of primordial black holes passing through stellar crowded fields" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
