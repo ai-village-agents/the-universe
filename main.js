@@ -21503,6 +21503,207 @@ const cosmicSights = [
   { name: "CMB Isocurvature Mode Bounds", type: "phenomenon", category: "cosmological", position: [5005, 1945, 3905], description: "Limits on non-adiabatic initial conditions challenging simple inflation models" },
   { name: "CMB Running Spectral Index Search", type: "phenomenon", category: "cosmological", position: [5020, 1960, 3920], description: "Scale-dependent tilt of primordial power spectrum probing inflationary dynamics" }
 
+,
+  {
+    name: 'Vacuum Polarization Anomaly 12651',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-13091, 21929, 24821],
+    color: '#00BFFF',
+    size: 104
+  },
+  {
+    name: 'Casimir Effect Void 12652',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-31754, 4495, 8189],
+    color: '#00BFFF',
+    size: 102
+  },
+  {
+    name: 'Hawking Radiation Plume 12653',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-2470, -28438, 26334],
+    color: '#00BFFF',
+    size: 281
+  },
+  {
+    name: 'Unruh Effect Horizon 12654',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [220, -8337, -34710],
+    color: '#0000CD',
+    size: 190
+  },
+  {
+    name: 'Schwinger Pair Production 12655',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [30632, 21739, -25431],
+    color: '#4169E1',
+    size: 259
+  },
+  {
+    name: 'Higgs Field Fluctuation 12656',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-22907, 22280, -39475],
+    color: '#4169E1',
+    size: 269
+  },
+  {
+    name: 'Axion Cloud 12657',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [14675, -30867, 22825],
+    color: '#00BFFF',
+    size: 254
+  },
+  {
+    name: 'WIMP Dark Matter Halo 12658',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [39448, -9063, 15372],
+    color: '#000080',
+    size: 78
+  },
+  {
+    name: 'Magnetic Monopole Remnant 12659',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-9119, 21499, 2746],
+    color: '#4169E1',
+    size: 145
+  },
+  {
+    name: 'Cosmic String Segment 12660',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [27486, -39892, -15986],
+    color: '#000080',
+    size: 292
+  },
+  {
+    name: 'Domain Wall Boundary 12661',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [10129, 12927, 7610],
+    color: '#4169E1',
+    size: 223
+  },
+  {
+    name: 'False Vacuum Bubble 12662',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [3075, -13554, 32082],
+    color: '#00BFFF',
+    size: 344
+  },
+  {
+    name: 'Electroweak Symmetry Breaking 12663',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-440, 2029, -39992],
+    color: '#4169E1',
+    size: 173
+  },
+  {
+    name: 'QCD Phase Transition 12664',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-11508, -12135, -5904],
+    color: '#4169E1',
+    size: 52
+  },
+  {
+    name: 'Chiral Symmetry Condensate 12665',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [8097, -10099, -22512],
+    color: '#00FFFF',
+    size: 89
+  },
+  {
+    name: 'Instantons and Sphalerons 12666',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [4377, -37075, 10123],
+    color: '#000080',
+    size: 83
+  },
+  {
+    name: 'Baryogenesis Asymmetry 12667',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-25693, 7401, -5393],
+    color: '#1E90FF',
+    size: 372
+  },
+  {
+    name: 'Leptogenesis Signature 12668',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [21722, 9295, -17740],
+    color: '#00BFFF',
+    size: 251
+  },
+  {
+    name: 'Grand Unified Monopole 12669',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [32125, -28100, -36520],
+    color: '#000080',
+    size: 261
+  },
+  {
+    name: 'Supersymmetric Neutralino 12670',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-448, -29636, 30237],
+    color: '#00FFFF',
+    size: 166
+  },
+  {
+    name: 'Gravitino Decay 12671',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-31046, 11491, 36684],
+    color: '#00FFFF',
+    size: 95
+  },
+  {
+    name: 'Kaluza Klein Mode 12672',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-15766, 17204, -768],
+    color: '#4169E1',
+    size: 96
+  },
+  {
+    name: 'Brane Collision Echo 12673',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [24650, -36270, 24270],
+    color: '#000080',
+    size: 54
+  },
+  {
+    name: 'Tachyon Condensation Field 12674',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-30227, 34558, -515],
+    color: '#1E90FF',
+    size: 191
+  },
+  {
+    name: 'Dilaton Fluctuation 12675',
+    category: 'Quantum Field Excitations',
+    description: 'A mesmerizing manifestation of quantum field excitations observed in deep space.', 
+    position: [-233, -11804, -27501],
+    color: '#4169E1',
+    size: 277
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
