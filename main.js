@@ -17167,6 +17167,207 @@ const cosmicSights = [
   {"name": "Cosmic Element Ratio Observatory", "description": "A vantage point revealing the universal abundance pattern shaped by stellar nucleosynthesis.", "position": [-4567, 1234, -3421]},
   {"name": "Magnesium-24 Production Shell", "description": "The stellar region where carbon fusion creates magnesium through neon intermediate states.", "position": [3421, -1234, 2654]}
 
+,
+  {
+    name: 'Silicate Super-Earth Mantle Plume 11726',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [10146, -22447, -18051],
+    color: '#B22222',
+    size: 385
+  },
+  {
+    name: 'Carbon Planet Diamond Anvil 11727',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [5190, -8491, 37663],
+    color: '#800000',
+    size: 320
+  },
+  {
+    name: 'Iron Core Cooling Contraction 11728',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-26173, -7438, 16172],
+    color: '#4682B4',
+    size: 77
+  },
+  {
+    name: 'Tidal Heating Magma Ocean 11729',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-33744, 698, 35527],
+    color: '#800000',
+    size: 235
+  },
+  {
+    name: 'Cryovolcanic Methane Eruption 11730',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-15732, 23848, -36702],
+    color: '#CD5C5C',
+    size: 255
+  },
+  {
+    name: 'Subduction Zone Trench Formation 11731',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-34386, 34050, 32733],
+    color: '#DAA520',
+    size: 355
+  },
+  {
+    name: 'Continental Drift Archipelago 11732',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [23626, -10237, 8466],
+    color: '#B22222',
+    size: 288
+  },
+  {
+    name: 'Shield Volcano Caldera Collapse 11733',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [5485, -9141, 1546],
+    color: '#20B2AA',
+    size: 227
+  },
+  {
+    name: 'Impact Basin Magma Flooding 11734',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-28051, -14531, -25414],
+    color: '#FF7F50',
+    size: 294
+  },
+  {
+    name: 'Global Plate Tectonic Network 11735',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [1710, -2866, 17407],
+    color: '#D2691E',
+    size: 223
+  },
+  {
+    name: 'Stagnant Lid Convection Regime 11736',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-36661, 33089, 24993],
+    color: '#A0522D',
+    size: 148
+  },
+  {
+    name: 'Episodic Overturn Resurfacing 11737',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-6727, 37597, -5204],
+    color: '#2E8B57',
+    size: 163
+  },
+  {
+    name: 'Volatile Degassing Plume 11738',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [1889, -32215, -21162],
+    color: '#8B4513',
+    size: 81
+  },
+  {
+    name: 'Crustal Delamination Sinking 11739',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [5843, -34771, -10262],
+    color: '#800000',
+    size: 333
+  },
+  {
+    name: 'Orogenic Belt Mountain Building 11740',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-32494, -4809, -31582],
+    color: '#708090',
+    size: 196
+  },
+  {
+    name: 'Rift Valley Graben Formation 11741',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-25848, 1713, 28382],
+    color: '#3CB371',
+    size: 163
+  },
+  {
+    name: 'Transform Fault Earthquake Swarm 11742',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [26625, -13883, 19012],
+    color: '#FF7F50',
+    size: 295
+  },
+  {
+    name: 'Hotspot Island Chain Emergence 11743',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [15573, 39518, -16000],
+    color: '#F08080',
+    size: 310
+  },
+  {
+    name: 'Basaltic Flood Province Eruption 11744',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [39119, 10577, -10696],
+    color: '#2E8B57',
+    size: 64
+  },
+  {
+    name: 'Granitic Crust Differentiator 11745',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-32466, -10435, -32844],
+    color: '#A0522D',
+    size: 206
+  },
+  {
+    name: 'Serpentinization Hydrothermal Vent 11746',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [1263, 37128, -35746],
+    color: '#DAA520',
+    size: 251
+  },
+  {
+    name: 'Carbonate-Silicate Cycle Regulator 11747',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [29481, 27193, 29690],
+    color: '#F4A460',
+    size: 372
+  },
+  {
+    name: 'Lithospheric Flexure Bulge 11748',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [16814, -31247, -24472],
+    color: '#8B0000',
+    size: 373
+  },
+  {
+    name: 'Asthenospheric Melt Channeling 11749',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [-289, -7978, 23824],
+    color: '#800000',
+    size: 229
+  },
+  {
+    name: 'Core-Mantle Boundary D" Layer 11750',
+    category: 'Stellar Remnants',
+    description: 'A manifestation of exoplanetary geology & tectonics observed in distant star systems, showcasing dynamic geological processes.',
+    position: [19867, 13975, -12894],
+    color: '#8FBC8F',
+    size: 125
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
