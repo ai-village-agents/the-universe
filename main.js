@@ -16210,6 +16210,231 @@ const cosmicSights = [
     "name": "Titanian Dune Field Corridor",
     "description": "Vast parallel ridges of organic sand stretching across the equatorial deserts of Titan.",
     "position": [25138.66, -29341.22, 42156.11]
+  },
+  {
+    "name": "Astrobiology: Silicon-Based Lifeforms",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      9727.61,
+      -6332.73,
+      12420.91
+    ]
+  },
+  {
+    "name": "Astrobiology: Methane-Breathing Microbes",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      12703.16,
+      -2032.99,
+      -5572.9
+    ]
+  },
+  {
+    "name": "Astrobiology: Ammonia-Solvent Biospheres",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -27722.43,
+      -29547.59,
+      -8902.2
+    ]
+  },
+  {
+    "name": "Astrobiology: Extreme Extremophiles",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      20960.3,
+      -8453.65,
+      -28958.62
+    ]
+  },
+  {
+    "name": "Astrobiology: Subsurface Ocean Ecosystems",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      -32062.64,
+      11709.83,
+      12215.6
+    ]
+  },
+  {
+    "name": "Astrobiology: Chemosynthetic Thermal Vents",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      -22274.34,
+      7588.47,
+      11724.62
+    ]
+  },
+  {
+    "name": "Astrobiology: Phototropic Airborne Organisms",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      -6502.46,
+      5691.38,
+      -9432.03
+    ]
+  },
+  {
+    "name": "Astrobiology: Radiotrophic Fungi",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      790.15,
+      -11556.65,
+      -6094.7
+    ]
+  },
+  {
+    "name": "Astrobiology: Lithoautotrophic Bacteria",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      -7171.02,
+      8607.52,
+      -4130.88
+    ]
+  },
+  {
+    "name": "Astrobiology: Panspermia Cometary Delivery",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -24625.2,
+      -2278.82,
+      -33624.14
+    ]
+  },
+  {
+    "name": "Astrobiology: Prebiotic Chemistry Pools",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      -37788.67,
+      -25343.88,
+      -13980.8
+    ]
+  },
+  {
+    "name": "Astrobiology: Chirality Selection Sites",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      -24368.03,
+      19210.01,
+      33880.43
+    ]
+  },
+  {
+    "name": "Astrobiology: Exotic Genetic Alphabets",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -25165.15,
+      -31297.5,
+      -24478.12
+    ]
+  },
+  {
+    "name": "Astrobiology: Crystalline Life Structures",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      14459.51,
+      3516.31,
+      8053.94
+    ]
+  },
+  {
+    "name": "Astrobiology: Plasma-Based Organisms",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      5332.96,
+      11796.87,
+      -20051.03
+    ]
+  },
+  {
+    "name": "Astrobiology: Silicon-Dioxide Shell Formers",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      23026.82,
+      8730.2,
+      -6360.89
+    ]
+  },
+  {
+    "name": "Astrobiology: Sulfur-Metabolizing Ecosystems",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      10347.92,
+      -25975.11,
+      29450.4
+    ]
+  },
+  {
+    "name": "Astrobiology: Iron-Oxidizing Biofilms",
+    "description": "A location showcasing theoretical forms of life beyond Earth.",
+    "position": [
+      14902.86,
+      -17241.95,
+      6617.16
+    ]
+  },
+  {
+    "name": "Astrobiology: Arsenic-Tolerant Microbes",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      25134.44,
+      18403.17,
+      -6164.87
+    ]
+  },
+  {
+    "name": "Astrobiology: Halophilic Algal Blooms",
+    "description": "A biosphere utilizing non-standard chemical pathways for survival.",
+    "position": [
+      11627.14,
+      25272.75,
+      -3375.67
+    ]
+  },
+  {
+    "name": "Astrobiology: Cryophilic Permafrost Bacteria",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -14381.69,
+      39007.65,
+      -11340.32
+    ]
+  },
+  {
+    "name": "Astrobiology: Thermophilic Geyser Life",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -5023.19,
+      2246.6,
+      -23782.77
+    ]
+  },
+  {
+    "name": "Astrobiology: Acidophilic Cave Dwellers",
+    "description": "A celestial phenomenon hinting at the origins and spread of life.",
+    "position": [
+      -20321.9,
+      20150.76,
+      17989.06
+    ]
+  },
+  {
+    "name": "Astrobiology: Alkaliphilic Lake Ecosystems",
+    "description": "A world demonstrating the extreme adaptability of hypothetical organisms.",
+    "position": [
+      -10946.37,
+      -26821.4,
+      -19023.68
+    ]
+  },
+  {
+    "name": "Astrobiology: Magnetotactic Bacteria Swarms",
+    "description": "An environment capable of supporting exotic biological processes.",
+    "position": [
+      -13.57,
+      15179.02,
+      -4283.04
+    ]
   }
 ];
 
