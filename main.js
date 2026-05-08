@@ -18527,6 +18527,207 @@ const cosmicSights = [
     color: '#40E0D0',
     size: 265
   }
+,
+  {
+    name: 'HESS Galactic Survey',
+    category: 'Very High Energy Gamma Rays',
+    description: 'High Energy Stereoscopic System in Namibia mapping TeV gamma ray sources across the Galactic plane.',
+    position: [3200, 1310, -3450],
+    color: '#9400D3',
+    size: 255
+  },
+  {
+    name: 'MAGIC Telescope Array',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Major Atmospheric Gamma Imaging Cherenkov telescopes on La Palma detecting VHE gamma rays.',
+    position: [3210, 1315, -3460],
+    color: '#8B008B',
+    size: 250
+  },
+  {
+    name: 'VERITAS Observatory',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Very Energetic Radiation Imaging Telescope Array System in Arizona for TeV astronomy.',
+    position: [3220, 1320, -3470],
+    color: '#9932CC',
+    size: 245
+  },
+  {
+    name: 'CTA Northern Array',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Cherenkov Telescope Array North site on La Palma with improved sensitivity and resolution.',
+    position: [3230, 1325, -3480],
+    color: '#BA55D3',
+    size: 260
+  },
+  {
+    name: 'CTA Southern Array',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Cherenkov Telescope Array South site in Chile providing full sky VHE coverage.',
+    position: [3240, 1330, -3490],
+    color: '#9400D3',
+    size: 265
+  },
+  {
+    name: 'Crab Nebula TeV Standard Candle',
+    category: 'Very High Energy Gamma Rays',
+    description: 'The Crab pulsar wind nebula serves as calibration source for VHE gamma ray astronomy.',
+    position: [3250, 1335, -3500],
+    color: '#8B008B',
+    size: 270
+  },
+  {
+    name: 'Galactic PeVatron Candidate',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Sources accelerating cosmic rays to PeV energies identified through gamma ray emission.',
+    position: [3260, 1340, -3510],
+    color: '#9932CC',
+    size: 255
+  },
+  {
+    name: 'TeV Blazar Flare',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Rapid VHE gamma ray variability from blazars revealing jet physics and emission mechanisms.',
+    position: [3270, 1345, -3520],
+    color: '#BA55D3',
+    size: 250
+  },
+  {
+    name: 'Gamma Ray Binary System',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Binary star systems producing periodic TeV emission through pulsar or microquasar mechanisms.',
+    position: [3280, 1350, -3530],
+    color: '#9400D3',
+    size: 245
+  },
+  {
+    name: 'Supernova Remnant Shell Emission',
+    category: 'Very High Energy Gamma Rays',
+    description: 'VHE gamma rays from shock-accelerated particles in expanding supernova remnant shells.',
+    position: [3290, 1355, -3540],
+    color: '#8B008B',
+    size: 260
+  },
+  {
+    name: 'Pulsar Wind Nebula TeV Halo',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Extended TeV emission halos surrounding pulsar wind nebulae from escaped electrons.',
+    position: [3300, 1360, -3550],
+    color: '#9932CC',
+    size: 255
+  },
+  {
+    name: 'Starburst Galaxy VHE Detection',
+    category: 'Very High Energy Gamma Rays',
+    description: 'TeV gamma rays from intense star formation regions in nearby starburst galaxies.',
+    position: [3310, 1365, -3560],
+    color: '#BA55D3',
+    size: 250
+  },
+  {
+    name: 'Radio Galaxy TeV Lobes',
+    category: 'Very High Energy Gamma Rays',
+    description: 'VHE emission from relativistic plasma in the extended lobes of radio galaxies.',
+    position: [3320, 1370, -3570],
+    color: '#9400D3',
+    size: 245
+  },
+  {
+    name: 'Gamma Ray Burst Afterglow VHE',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Late-time TeV emission detected from gamma ray burst afterglows by MAGIC and HESS.',
+    position: [3330, 1375, -3580],
+    color: '#8B008B',
+    size: 265
+  },
+  {
+    name: 'Dark Matter Annihilation Search',
+    category: 'Very High Energy Gamma Rays',
+    description: 'VHE observations of dwarf galaxies and galactic center searching for dark matter signals.',
+    position: [3340, 1380, -3590],
+    color: '#9932CC',
+    size: 250
+  },
+  {
+    name: 'Extragalactic Background Light Absorption',
+    category: 'Very High Energy Gamma Rays',
+    description: 'VHE photon absorption by infrared background constraining cosmic star formation history.',
+    position: [3350, 1385, -3600],
+    color: '#BA55D3',
+    size: 255
+  },
+  {
+    name: 'Lorentz Invariance Test via VHE',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Using distant VHE sources to test quantum gravity effects on photon propagation.',
+    position: [3360, 1390, -3610],
+    color: '#9400D3',
+    size: 240
+  },
+  {
+    name: 'HAWC Water Cherenkov Survey',
+    category: 'Very High Energy Gamma Rays',
+    description: 'High-Altitude Water Cherenkov observatory providing continuous VHE sky monitoring.',
+    position: [3370, 1395, -3620],
+    color: '#8B008B',
+    size: 260
+  },
+  {
+    name: 'LHAASO Ultra High Energy Detection',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Large High Altitude Air Shower Observatory detecting photons above 100 TeV.',
+    position: [3380, 1400, -3630],
+    color: '#9932CC',
+    size: 275
+  },
+  {
+    name: 'Fermi-LAT GeV Catalog Source',
+    category: 'Very High Energy Gamma Rays',
+    description: 'High-energy gamma ray sources from Fermi Large Area Telescope serving as VHE targets.',
+    position: [3390, 1405, -3640],
+    color: '#BA55D3',
+    size: 245
+  },
+  {
+    name: 'Unidentified TeV Source',
+    category: 'Very High Energy Gamma Rays',
+    description: 'VHE gamma ray sources without clear counterparts challenging current emission models.',
+    position: [3400, 1410, -3650],
+    color: '#9400D3',
+    size: 250
+  },
+  {
+    name: 'Galactic Center VHE Ridge',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Extended TeV emission along the Galactic center region tracing cosmic ray sea.',
+    position: [3410, 1415, -3660],
+    color: '#8B008B',
+    size: 265
+  },
+  {
+    name: 'TeV Inverse Compton Emission Zone',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Regions where relativistic electrons upscatter ambient photons to VHE energies.',
+    position: [3420, 1420, -3670],
+    color: '#9932CC',
+    size: 240
+  },
+  {
+    name: 'Hadronic Pion Decay Signature',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Spectral features indicating proton acceleration and pion production in cosmic accelerators.',
+    position: [3430, 1425, -3680],
+    color: '#BA55D3',
+    size: 255
+  },
+  {
+    name: 'TeV Photon Horizon Measurement',
+    category: 'Very High Energy Gamma Rays',
+    description: 'Determining the maximum distance observable at TeV energies due to pair production.',
+    position: [3440, 1430, -3690],
+    color: '#9400D3',
+    size: 250
+  }
 
 ,
 {
