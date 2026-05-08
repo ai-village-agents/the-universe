@@ -25488,6 +25488,251 @@ export function createAnchorageLandmark(THREE, opts) {
   bygaBlock.position.set(-0.25, 0.05, -2.2);
   bygaGroup.add(bygaBlock);
 
+
+  // === v156 scene 1: pier glassworks (glassblower) ===
+  const pglwGroup = new THREE.Group();
+  pglwGroup.position.set(-30.0, 1.85, -8.5);
+  group.add(pglwGroup);
+  // workbench
+  const pglwBench = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.5, 0.9),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  pglwBench.position.y = 0.25;
+  pglwGroup.add(pglwBench);
+  // furnace box
+  const pglwFurnace = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.7, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  pglwFurnace.position.set(-0.65, 0.85, 0);
+  pglwGroup.add(pglwFurnace);
+  // furnace mouth (glow)
+  const pglwMouth = new THREE.Mesh(
+    new THREE.CircleGeometry(0.18, 16),
+    new THREE.MeshBasicMaterial({ color: 0xff7820, side: THREE.DoubleSide })
+  );
+  pglwMouth.position.set(-0.65, 0.9, 0.36);
+  pglwGroup.add(pglwMouth);
+  // glow inside (animated emissive sphere)
+  const pglwGlow = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0xffd070, transparent: true, opacity: 0.85 })
+  );
+  pglwGlow.position.set(-0.65, 0.9, 0.36);
+  pglwGroup.add(pglwGlow);
+  // blowing rod (animated rotation as blower spins it)
+  const pglwRodGroup = new THREE.Group();
+  pglwRodGroup.position.set(0, 0.7, 0);
+  pglwGroup.add(pglwRodGroup);
+  const pglwRod = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 1.4, 8),
+    new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.3, metalness: 0.7 })
+  );
+  pglwRod.rotation.z = Math.PI / 2;
+  pglwRodGroup.add(pglwRod);
+  // hot glass orb on rod end
+  const pglwOrb = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 14, 12),
+    new THREE.MeshStandardMaterial({ color: 0xff6420, emissive: 0xff7830, emissiveIntensity: 0.7, roughness: 0.3 })
+  );
+  pglwOrb.position.set(0.7, 0, 0);
+  pglwRodGroup.add(pglwOrb);
+  // glassblower
+  const pglwArtist = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.18, 0.6, 10),
+    new THREE.MeshLambertMaterial({ color: 0x444444 })
+  );
+  pglwArtist.position.set(0.85, 0.3, 0.5);
+  pglwGroup.add(pglwArtist);
+  const pglwArtistHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.11, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  pglwArtistHead.position.set(0.85, 0.7, 0.5);
+  pglwGroup.add(pglwArtistHead);
+  // shelf with finished glass pieces
+  const pglwShelf = new THREE.Mesh(
+    new THREE.BoxGeometry(1.4, 0.04, 0.3),
+    new THREE.MeshLambertMaterial({ color: 0x6b3a1f })
+  );
+  pglwShelf.position.set(0.5, 0.95, -0.4);
+  pglwGroup.add(pglwShelf);
+  const pglwGlassColors = [0x6ab8d0, 0xb87aa8, 0x6ad08a, 0xd0b06a];
+  for (let i = 0; i < 4; i++) {
+    const piece = new THREE.Mesh(
+      new THREE.SphereGeometry(0.075, 12, 10),
+      new THREE.MeshStandardMaterial({ color: pglwGlassColors[i], transparent: true, opacity: 0.78, roughness: 0.15 })
+    );
+    piece.position.set(-0.1 + i * 0.3, 1.04, -0.4);
+    piece.scale.set(1, 1.4, 1);
+    pglwGroup.add(piece);
+  }
+  // ember sparks (animated)
+  const pglwSparks = [];
+  const pglwSparkMatBase = new THREE.MeshBasicMaterial({ color: 0xffaa30, transparent: true, opacity: 0.8 });
+  for (let i = 0; i < 8; i++) {
+    const m = pglwSparkMatBase.clone();
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.022, 6, 6), m);
+    s.position.set(-0.65, 0.9, 0.36);
+    s.userData = { phase: i * 0.4, dx: (Math.random() - 0.5) * 0.4, dz: (Math.random() - 0.5) * 0.3 };
+    pglwGroup.add(s);
+    pglwSparks.push(s);
+  }
+
+  // === v156 scene 2: coastal feather collector ===
+  const cftcGroup = new THREE.Group();
+  cftcGroup.position.set(35.0, 0, 22.0);
+  group.add(cftcGroup);
+  // collector figure (kneeling)
+  const cftcBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.22, 0.42, 10),
+    new THREE.MeshLambertMaterial({ color: 0x6a8aa4 })
+  );
+  cftcBody.position.set(0, 0.21, 0);
+  cftcGroup.add(cftcBody);
+  const cftcHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.13, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  cftcHead.position.set(0, 0.55, 0);
+  cftcGroup.add(cftcHead);
+  // straw hat
+  const cftcHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.22, 0.04, 14),
+    new THREE.MeshLambertMaterial({ color: 0xc9a36a })
+  );
+  cftcHat.position.set(0, 0.68, 0);
+  cftcGroup.add(cftcHat);
+  const cftcHatTop = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.1, 0.12, 0.12, 14),
+    new THREE.MeshLambertMaterial({ color: 0xc9a36a })
+  );
+  cftcHatTop.position.set(0, 0.75, 0);
+  cftcGroup.add(cftcHatTop);
+  // basket of feathers
+  const cftcBasket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.25, 0.2, 14),
+    new THREE.MeshLambertMaterial({ color: 0x9c6d3a })
+  );
+  cftcBasket.position.set(0.45, 0.12, 0.2);
+  cftcGroup.add(cftcBasket);
+  // feathers in basket (sticking up at angles)
+  const cftcFeatherColors = [0xffffff, 0xeed080, 0x6a6a6a, 0xb84a4a, 0x4a8aa4];
+  const cftcFeathers = [];
+  for (let i = 0; i < 5; i++) {
+    const featherG = new THREE.Group();
+    featherG.position.set(0.45 + (Math.random() - 0.5) * 0.15, 0.22, 0.2 + (Math.random() - 0.5) * 0.15);
+    cftcGroup.add(featherG);
+    // feather shaft
+    const shaft = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.005, 0.005, 0.32, 6),
+      new THREE.MeshLambertMaterial({ color: 0x8a6a4a })
+    );
+    shaft.position.y = 0.16;
+    featherG.add(shaft);
+    // vane
+    const vane = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.06, 0.28),
+      new THREE.MeshLambertMaterial({ color: cftcFeatherColors[i], side: THREE.DoubleSide })
+    );
+    vane.position.y = 0.16;
+    featherG.add(vane);
+    featherG.rotation.z = (Math.random() - 0.5) * 0.6;
+    cftcFeathers.push(featherG);
+  }
+  // single feather floating on the wind (animated)
+  const cftcFloatFeather = new THREE.Group();
+  cftcFloatFeather.position.set(-1.5, 1.5, 0.5);
+  cftcGroup.add(cftcFloatFeather);
+  const cftcFloatShaft = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.005, 0.005, 0.28, 6),
+    new THREE.MeshLambertMaterial({ color: 0x8a6a4a })
+  );
+  cftcFloatFeather.add(cftcFloatShaft);
+  const cftcFloatVane = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.06, 0.25),
+    new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide })
+  );
+  cftcFloatFeather.add(cftcFloatVane);
+  // sand patch
+  const cftcSand = new THREE.Mesh(
+    new THREE.CircleGeometry(1.5, 24),
+    new THREE.MeshLambertMaterial({ color: 0xe2c896 })
+  );
+  cftcSand.rotation.x = -Math.PI / 2;
+  cftcSand.position.y = 0.01;
+  cftcGroup.add(cftcSand);
+
+  // === v156 scene 3: beach kelp lantern garland ===
+  const bkplGroup = new THREE.Group();
+  bkplGroup.position.set(8.5, 0, 26.0);
+  group.add(bkplGroup);
+  // 2 driftwood posts holding garland string
+  const bkplPostL = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.09, 2.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x6b5a4a })
+  );
+  bkplPostL.position.set(-2.0, 1.1, 0);
+  bkplGroup.add(bkplPostL);
+  const bkplPostR = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.09, 2.2, 8),
+    new THREE.MeshLambertMaterial({ color: 0x6b5a4a })
+  );
+  bkplPostR.position.set(2.0, 1.1, 0);
+  bkplGroup.add(bkplPostR);
+  // garland line (catenary approximated by short segments)
+  const bkplLineMat = new THREE.LineBasicMaterial({ color: 0x4a3a2a });
+  const bkplLineGeo = new THREE.BufferGeometry();
+  const bkplPts = [];
+  for (let i = 0; i <= 20; i++) {
+    const tt = i / 20;
+    const x = -2.0 + tt * 4.0;
+    const sag = -0.25 * Math.sin(tt * Math.PI);
+    bkplPts.push(x, 2.0 + sag, 0);
+  }
+  bkplLineGeo.setAttribute('position', new THREE.Float32BufferAttribute(bkplPts, 3));
+  const bkplLine = new THREE.Line(bkplLineGeo, bkplLineMat);
+  bkplGroup.add(bkplLine);
+  // kelp lanterns (cylinders + bulb glow), spaced along the garland
+  const bkplLanternColors = [0xffe098, 0xffb070, 0xffd070, 0xff9070, 0xc9e0a0, 0xa0c9e0, 0xffe098];
+  const bkplLanterns = [];
+  for (let i = 0; i < 7; i++) {
+    const tt = (i + 1) / 8;
+    const x = -2.0 + tt * 4.0;
+    const sag = -0.25 * Math.sin(tt * Math.PI);
+    // lantern shell (kelp wrap = green-brown band)
+    const shell = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.09, 0.09, 0.18, 12, 1, true),
+      new THREE.MeshLambertMaterial({ color: 0x4a6a3a, side: THREE.DoubleSide, transparent: true, opacity: 0.85 })
+    );
+    shell.position.set(x, 2.0 + sag - 0.18, 0);
+    bkplGroup.add(shell);
+    // bulb inside
+    const bulbMat = new THREE.MeshStandardMaterial({ color: bkplLanternColors[i], emissive: bkplLanternColors[i], emissiveIntensity: 0.8, transparent: true, opacity: 0.9 });
+    const bulb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 12, 10),
+      bulbMat
+    );
+    bulb.position.set(x, 2.0 + sag - 0.18, 0);
+    bkplGroup.add(bulb);
+    bkplLanterns.push({ shell, bulb, phase: i * 0.7 });
+  }
+  // small bonfire under garland (decorative)
+  const bkplFireRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.35, 0.06, 6, 16),
+    new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+  );
+  bkplFireRing.position.y = 0.08;
+  bkplFireRing.rotation.x = Math.PI / 2;
+  bkplGroup.add(bkplFireRing);
+  const bkplFlame = new THREE.Mesh(
+    new THREE.ConeGeometry(0.18, 0.4, 10),
+    new THREE.MeshBasicMaterial({ color: 0xff8030, transparent: true, opacity: 0.85 })
+  );
+  bkplFlame.position.y = 0.3;
+  bkplGroup.add(bkplFlame);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -29069,6 +29314,47 @@ export function createAnchorageLandmark(THREE, opts) {
   bygaInstrArmR.rotation.z = -(bygaArmAng + 0.1);
   bygaInstrArmL.position.y = 0.55 + Math.sin(bygaArmAng) * 0.18;
   bygaInstrArmR.position.y = 0.55 + Math.sin(bygaArmAng) * 0.18;
+
+  // v156 scene 1 anim: glassblower spinning rod, glow pulsing, sparks rising
+  const v156t = t;
+  pglwRodGroup.rotation.x = v156t * 1.6;
+  pglwOrb.scale.setScalar(1 + Math.sin(v156t * 4.0) * 0.08);
+  pglwGlow.scale.setScalar(1 + Math.sin(v156t * 3.0) * 0.15);
+  pglwGlow.material.opacity = 0.7 + Math.sin(v156t * 3.0) * 0.15;
+  for (let i = 0; i < pglwSparks.length; i++) {
+    const s = pglwSparks[i];
+    const phase = (v156t * 0.8 + s.userData.phase) % 1.5;
+    s.position.x = -0.65 + s.userData.dx * phase;
+    s.position.z = 0.36 + s.userData.dz * phase * 0.6;
+    s.position.y = 0.9 + phase * 0.7;
+    s.material.opacity = Math.max(0, 0.8 - phase * 0.55);
+  }
+
+  // v156 scene 2 anim: floating feather drifts in a slow figure-8, twirling; basket feathers sway
+  cftcFloatFeather.position.x = -1.5 + Math.sin(v156t * 0.4) * 0.6;
+  cftcFloatFeather.position.z = 0.5 + Math.sin(v156t * 0.8) * 0.4;
+  cftcFloatFeather.position.y = 1.5 + Math.sin(v156t * 0.5) * 0.18;
+  cftcFloatFeather.rotation.y = v156t * 0.7;
+  cftcFloatFeather.rotation.z = Math.sin(v156t * 1.2) * 0.4;
+  for (let i = 0; i < cftcFeathers.length; i++) {
+    cftcFeathers[i].rotation.z = Math.sin(v156t * 0.8 + i * 0.5) * 0.18 + ((i % 2) - 0.5) * 0.4;
+  }
+  cftcHead.rotation.y = Math.sin(v156t * 0.5) * 0.4;
+
+  // v156 scene 3 anim: lanterns sway gently, bulbs flicker; flame flicker
+  for (let i = 0; i < bkplLanterns.length; i++) {
+    const L = bkplLanterns[i];
+    const sway = Math.sin(v156t * 0.7 + L.phase) * 0.04;
+    L.shell.rotation.z = sway;
+    L.bulb.rotation.z = sway;
+    L.shell.position.x += 0; // no x shift; rotation suffices
+    const flick = 0.7 + Math.sin(v156t * 5.0 + L.phase * 1.7) * 0.18;
+    L.bulb.material.emissiveIntensity = flick;
+  }
+  bkplFlame.scale.y = 1 + Math.sin(v156t * 6.0) * 0.18;
+  bkplFlame.scale.x = 1 + Math.sin(v156t * 7.0) * 0.06;
+  bkplFlame.material.opacity = 0.78 + Math.sin(v156t * 7.0) * 0.07;
+
 
 
 
