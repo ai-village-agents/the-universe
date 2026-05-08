@@ -20316,6 +20316,33 @@ const cosmicSights = [
     color: '#8A2BE2',
     size: 172
   }
+,
+  {"name":"Relativistic Jet Bulk Lorentz Factor","category":"Relativistic Astrophysics","description":"Relativistic Jet Bulk Lorentz.","position":[6025,118500,4025],"color":"#FF6B6B","size":140},
+  {"name":"Jet-Accretion Disk Coupling","category":"Relativistic Astrophysics","description":"Jet-Accretion Disk.","position":[6026,118520,4026],"color":"#FF6B6B","size":140},
+  {"name":"Inverse Compton Scattering in Jets","category":"Relativistic Astrophysics","description":"Inverse Compton Scattering in.","position":[6027,118540,4027],"color":"#FF6B6B","size":140},
+  {"name":"Synchrotron Radiation from Jet Electrons","category":"Relativistic Astrophysics","description":"Synchrotron Radiation from Jet.","position":[6028,118560,4028],"color":"#FF6B6B","size":140},
+  {"name":"Precession of Relativistic Jets","category":"Relativistic Astrophysics","description":"Precession of Relativistic.","position":[6029,118580,4029],"color":"#FF6B6B","size":140},
+  {"name":"Jet Propagation through Dense Environments","category":"Relativistic Astrophysics","description":"Jet Propagation through Dense.","position":[6030,118600,4030],"color":"#FF6B6B","size":140},
+  {"name":"Beaming and Doppler Boosting Effects","category":"Relativistic Astrophysics","description":"Beaming and Doppler Boosting.","position":[6031,118620,4031],"color":"#FF6B6B","size":140},
+  {"name":"Plasma Instabilities in Relativistic Jets","category":"Relativistic Astrophysics","description":"Plasma Instabilities in Relativistic.","position":[6032,118640,4032],"color":"#FF6B6B","size":140},
+  {"name":"Jet Composition Measurement Techniques","category":"Relativistic Astrophysics","description":"Jet Composition Measurement.","position":[6033,118660,4033],"color":"#FF6B6B","size":140},
+  {"name":"Superluminal Motion Illusions in Jets","category":"Relativistic Astrophysics","description":"Superluminal Motion Illusions in.","position":[6034,118680,4034],"color":"#FF6B6B","size":140},
+  {"name":"Magnetic Reconnection in Jet Cores","category":"Relativistic Astrophysics","description":"Magnetic Reconnection in Jet.","position":[6035,118700,4035],"color":"#FF6B6B","size":140},
+  {"name":"Particle Acceleration at Jet Shocks","category":"Relativistic Astrophysics","description":"Particle Acceleration at Jet.","position":[6036,118720,4036],"color":"#FF6B6B","size":140},
+  {"name":"Faraday Rotation in Polarized Jet Emission","category":"Relativistic Astrophysics","description":"Faraday Rotation in Polarized Jet.","position":[6037,118740,4037],"color":"#FF6B6B","size":140},
+  {"name":"Jets from Microquasars","category":"Relativistic Astrophysics","description":"Jets from.","position":[6038,118760,4038],"color":"#FF6B6B","size":140},
+  {"name":"Gigahertz-Peaked Spectrum Sources","category":"Relativistic Astrophysics","description":"Gigahertz-Peaked Spectrum.","position":[6039,118780,4039],"color":"#FF6B6B","size":140},
+  {"name":"Double-Lobed Radio Morphologies","category":"Relativistic Astrophysics","description":"Double-Lobed Radio.","position":[6040,118800,4040],"color":"#FF6B6B","size":140},
+  {"name":"Core Jet Deceleration Mechanisms","category":"Relativistic Astrophysics","description":"Core Jet Deceleration.","position":[6041,118820,4041],"color":"#FF6B6B","size":140},
+  {"name":"Jets from Neutron Star Mergers","category":"Relativistic Astrophysics","description":"Jets from Neutron Star.","position":[6042,118840,4042],"color":"#FF6B6B","size":140},
+  {"name":"Kinetic Luminosity of Jets","category":"Relativistic Astrophysics","description":"Kinetic Luminosity of.","position":[6043,118860,4043],"color":"#FF6B6B","size":140},
+  {"name":"Jet-Driven Outflows in Galaxies","category":"Relativistic Astrophysics","description":"Jet-Driven Outflows in.","position":[6044,118880,4044],"color":"#FF6B6B","size":140},
+  {"name":"Multi-Wavelength Jet Emission Models","category":"Relativistic Astrophysics","description":"Multi-Wavelength Jet Emission.","position":[6045,118900,4045],"color":"#FF6B6B","size":140},
+  {"name":"Spectral Energy Distribution Evolution","category":"Relativistic Astrophysics","description":"Spectral Energy Distribution.","position":[6046,118920,4046],"color":"#FF6B6B","size":140},
+  {"name":"Variability Timescales in Jet Sources","category":"Relativistic Astrophysics","description":"Variability Timescales in Jet.","position":[6047,118940,4047],"color":"#FF6B6B","size":140},
+  {"name":"VLBI Observations of Jet Substructure","category":"Relativistic Astrophysics","description":"VLBI Observations of Jet.","position":[6048,118960,4048],"color":"#FF6B6B","size":140},
+  {"name":"Jet-Powered Nebula Ionization","category":"Relativistic Astrophysics","description":"Jet-Powered Nebula.","position":[6049,118980,4049],"color":"#FF6B6B","size":140}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
