@@ -20315,7 +20315,33 @@ const cosmicSights = [
     position: [28102, -11549, -31915],
     color: '#8A2BE2',
     size: 172
-  }
+  },
+  { name: "Chromospheric Network Boundary", type: "phenomenon", category: "stellar", position: [4260, 1201, 3150], description: "The edges of supergranular cells visible in solar chromosphere imaging" },
+  { name: "Granular Convection Pattern", type: "phenomenon", category: "stellar", position: [4261, 1202, 3151], description: "Convective cell pattern on stellar surfaces showing hot rising and cool sinking plasma" },
+  { name: "Stellar Limb Darkening Profile", type: "phenomenon", category: "stellar", position: [4262, 1203, 3152], description: "Gradual decrease in surface brightness from stellar center to edge due to optical depth effects" },
+  { name: "Temperature Minimum Region", type: "phenomenon", category: "stellar", position: [4263, 1204, 3153], description: "The coolest layer between photosphere and chromosphere in stellar atmospheres" },
+  { name: "Coronal Wind Base Acceleration", type: "phenomenon", category: "stellar", position: [4264, 1205, 3154], description: "The region where stellar wind transitions from subsonic to supersonic flow" },
+  { name: "Open Magnetic Field Boundary", type: "phenomenon", category: "stellar", position: [4265, 1206, 3155], description: "The interface between open and closed magnetic field regions in stellar coronae" },
+  { name: "Transition Region Emission Line", type: "phenomenon", category: "stellar", position: [4266, 1207, 3156], description: "Spectral features from the steep temperature gradient between chromosphere and corona" },
+  { name: "Stellar Magnetic Carpet", type: "phenomenon", category: "stellar", position: [4267, 1208, 3157], description: "Network of small-scale mixed polarity magnetic features covering stellar surfaces" },
+  { name: "Spicule Forest Region", type: "phenomenon", category: "stellar", position: [4268, 1209, 3158], description: "Dense collection of chromospheric jets extending into the lower corona" },
+  { name: "Penumbral Filament Structure", type: "phenomenon", category: "stellar", position: [4269, 1210, 3159], description: "Radially aligned magnetic features surrounding sunspot umbrae" },
+  { name: "Umbral Dot Oscillation", type: "phenomenon", category: "stellar", position: [4270, 1211, 3160], description: "Brightness fluctuations from magneto-convective elements within sunspot umbrae" },
+  { name: "Ellerman Bomb Event", type: "phenomenon", category: "stellar", position: [4271, 1212, 3161], description: "Small-scale magnetic reconnection events in active region photospheres" },
+  { name: "Chromospheric Flare Wave", type: "phenomenon", category: "stellar", position: [4272, 1213, 3162], description: "Chromospheric wave propagating from flare sites at coronal Alfven speeds" },
+  { name: "EUV Coronal Dimming", type: "phenomenon", category: "stellar", position: [4273, 1214, 3163], description: "Reduced emission following coronal mass ejections due to plasma evacuation" },
+  { name: "High Latitude Filament Channel", type: "phenomenon", category: "stellar", position: [4274, 1215, 3164], description: "Long-lived prominence structure marking polarity inversion lines near stellar poles" },
+  { name: "Sigmoid Active Region", type: "phenomenon", category: "stellar", position: [4275, 1216, 3165], description: "S-shaped coronal loop configuration indicating stored magnetic energy" },
+  { name: "Catastrophic Loop Cooling", type: "phenomenon", category: "stellar", position: [4276, 1217, 3166], description: "Cool plasma condensing and falling along coronal loop magnetic field lines" },
+  { name: "Moss Emission Pattern", type: "phenomenon", category: "stellar", position: [4277, 1218, 3167], description: "Footpoint emission from hot coronal loops visible in transition region wavelengths" },
+  { name: "Coronal Jet Propagation", type: "phenomenon", category: "stellar", position: [4278, 1219, 3168], description: "Collimated plasma ejection following magnetic reconnection at coronal bright points" },
+  { name: "Prominence Oscillation Mode", type: "phenomenon", category: "stellar", position: [4279, 1220, 3169], description: "Magnetohydrodynamic oscillation in suspended chromospheric material" },
+  { name: "Plage Brightness Enhancement", type: "phenomenon", category: "stellar", position: [4280, 1221, 3170], description: "Chromospheric brightening associated with active region magnetic concentrations" },
+  { name: "Facula Contrast Region", type: "phenomenon", category: "stellar", position: [4281, 1222, 3171], description: "Bright photospheric features near stellar limb from magnetic flux tube emission" },
+  { name: "Supergranular Flow Pattern", type: "phenomenon", category: "stellar", position: [4282, 1223, 3172], description: "Large-scale convective circulation cells visible in stellar velocity fields" },
+  { name: "Acoustic Wave Cutoff Layer", type: "phenomenon", category: "stellar", position: [4283, 1224, 3173], description: "Atmospheric height where acoustic oscillations become evanescent" },
+  { name: "Stellar Acoustic Cavity Mode", type: "phenomenon", category: "stellar", position: [4284, 1225, 3174], description: "Standing wave pattern trapped between stellar surface and acoustic cutoff" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
