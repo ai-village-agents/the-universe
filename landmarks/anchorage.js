@@ -24540,6 +24540,100 @@ export function createAnchorageLandmark(THREE, opts) {
   cwrwGroup.add(cwrwScissors);
   group.add(cwrwGroup);
 
+  // v150 pier shipwright apprentice (pswa)
+  const pswaGroup = new THREE.Group();
+  pswaGroup.position.set(38, 7.6, 56);
+  const pswaPlank = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 1.2), new THREE.MeshLambertMaterial({color: 0x8a6e4a}));
+  pswaGroup.add(pswaPlank);
+  const pswaHull = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.4, 1.6, 12, 1, false, 0, Math.PI), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  pswaHull.rotation.z = Math.PI / 2;
+  pswaHull.rotation.y = Math.PI;
+  pswaHull.position.set(0, 0.5, 0);
+  pswaGroup.add(pswaHull);
+  const pswaApp = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0xc09060}));
+  pswaApp.position.set(-0.7, 0.5, 0.6);
+  pswaGroup.add(pswaApp);
+  const pswaHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pswaHead.position.set(-0.7, 1.05, 0.6);
+  pswaGroup.add(pswaHead);
+  const pswaArmGroup = new THREE.Group();
+  pswaArmGroup.position.set(-0.5, 0.85, 0.4);
+  const pswaArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.55, 6), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pswaArm.position.set(0.25, 0, 0);
+  pswaArm.rotation.z = -1.2;
+  pswaArmGroup.add(pswaArm);
+  const pswaPlane = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.06, 0.1), new THREE.MeshStandardMaterial({color: 0xa0a0a0, metalness: 0.6, roughness: 0.3}));
+  pswaPlane.position.set(0.5, 0, 0);
+  pswaArmGroup.add(pswaPlane);
+  pswaGroup.add(pswaArmGroup);
+  const pswaShavings = [];
+  for (let i = 0; i < 6; i++) {
+    const sh = new THREE.Mesh(new THREE.TorusGeometry(0.04, 0.012, 4, 8), new THREE.MeshLambertMaterial({color: 0xe8c890}));
+    sh.position.set(-0.2 + Math.random() * 0.4, 0.06, 0.2 + Math.random() * 0.4);
+    sh.rotation.x = Math.random() * Math.PI;
+    pswaGroup.add(sh);
+    pswaShavings.push(sh);
+  }
+  group.add(pswaGroup);
+
+  // v150 beach surf school (bsfs)
+  const bsfsGroup = new THREE.Group();
+  bsfsGroup.position.set(-58, 0.6, -48);
+  const bsfsBoardCount = 4;
+  const bsfsBoards = [];
+  const bsfsKids = [];
+  for (let i = 0; i < bsfsBoardCount; i++) {
+    const board = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.05, 0.4), new THREE.MeshLambertMaterial({color: i % 2 === 0 ? 0xffd24a : 0xff6f4a}));
+    board.position.set(i * 1.0 - 1.5, 0.1, 0);
+    bsfsGroup.add(board);
+    bsfsBoards.push(board);
+    const kid = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.55, 8), new THREE.MeshLambertMaterial({color: 0x4a8aff}));
+    kid.position.set(i * 1.0 - 1.5, 0.4, 0);
+    bsfsGroup.add(kid);
+    const kidHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+    kidHead.position.set(i * 1.0 - 1.5, 0.78, 0);
+    bsfsGroup.add(kidHead);
+    bsfsKids.push({body: kid, head: kidHead, base: i * 1.0 - 1.5});
+  }
+  const bsfsTeacher = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.95, 8), new THREE.MeshLambertMaterial({color: 0xff4a4a}));
+  bsfsTeacher.position.set(0, 0.6, 1.2);
+  bsfsGroup.add(bsfsTeacher);
+  const bsfsTeacherHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bsfsTeacherHead.position.set(0, 1.25, 1.2);
+  bsfsGroup.add(bsfsTeacherHead);
+  group.add(bsfsGroup);
+
+  // v150 coastal tide chart (ctch)
+  const ctchGroup = new THREE.Group();
+  ctchGroup.position.set(-32, 0.8, 76);
+  const ctchPost = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.6, 0.1), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  ctchPost.position.set(0, 0.8, 0);
+  ctchGroup.add(ctchPost);
+  const ctchBoard = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.9, 0.06), new THREE.MeshLambertMaterial({color: 0xe8d4a8}));
+  ctchBoard.position.set(0, 1.4, 0);
+  ctchGroup.add(ctchBoard);
+  const ctchFrame = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.0, 0.04), new THREE.MeshLambertMaterial({color: 0x4a6e8a}));
+  ctchFrame.position.set(0, 1.4, -0.02);
+  ctchGroup.add(ctchFrame);
+  const ctchWaveDots = [];
+  for (let i = 0; i < 12; i++) {
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), new THREE.MeshLambertMaterial({color: 0x2a8aff}));
+    dot.position.set(-0.5 + i * 0.09, 1.4 + Math.sin(i * 0.7) * 0.15, 0.04);
+    ctchGroup.add(dot);
+    ctchWaveDots.push(dot);
+  }
+  const ctchPointer = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.16, 6), new THREE.MeshStandardMaterial({color: 0xffd24a, emissive: 0xff8800, emissiveIntensity: 0.5}));
+  ctchPointer.position.set(-0.5, 1.4, 0.08);
+  ctchPointer.rotation.z = -Math.PI / 2;
+  ctchGroup.add(ctchPointer);
+  const ctchReader = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x6e8a4a}));
+  ctchReader.position.set(0.9, 0.5, 0.4);
+  ctchGroup.add(ctchReader);
+  const ctchReaderHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  ctchReaderHead.position.set(0.9, 1.05, 0.4);
+  ctchGroup.add(ctchReaderHead);
+  group.add(ctchGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -27940,6 +28034,26 @@ export function createAnchorageLandmark(THREE, opts) {
   for (let i = 0; i < cwrwBerries.length; i++) {
     cwrwBerries[i].position.y = 0.05 + Math.sin(v149t * 2.0 + i * 0.7) * 0.02;
   }
+
+  // v150 shipwright apprentice anim
+  const v150t = t;
+  pswaArmGroup.rotation.z = Math.sin(v150t * 4.0) * 0.3;
+  for (let i = 0; i < pswaShavings.length; i++) {
+    pswaShavings[i].rotation.y = v150t * 0.5 + i;
+  }
+
+  // v150 surf school anim
+  for (let i = 0; i < bsfsKids.length; i++) {
+    const k = bsfsKids[i];
+    k.body.rotation.z = Math.sin(v150t * 2.0 + i * 0.6) * 0.15;
+    k.head.position.x = k.base + Math.sin(v150t * 2.0 + i * 0.6) * 0.08;
+  }
+
+  // v150 tide chart anim
+  for (let i = 0; i < ctchWaveDots.length; i++) {
+    ctchWaveDots[i].position.y = 1.4 + Math.sin(v150t * 0.8 + i * 0.7) * 0.15;
+  }
+  ctchPointer.position.x = -0.5 + ((v150t * 0.15) % 1.0);
 
 
 
