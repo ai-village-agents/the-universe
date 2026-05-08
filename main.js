@@ -22518,6 +22518,33 @@ const cosmicSights = [
 { name: "Radial Temperature Gradient", type: "phenomenon", category: "high_energy", position: [6798, 133960, 4798], description: "Disk temperature decreasing with radius in thin accretion regime" },
 { name: "Magnetic Reconnection Flares", type: "phenomenon", category: "high_energy", position: [6799, 133980, 4799], description: "Rapid energy release from coronal field lines producing X-ray brightening" }
 
+,
+{ name: "Stellar Convection Zone Structure", type: "phenomenon", category: "stellar", position: [6800, 134000, 4800], description: "Turbulent energy transport layer beneath stellar photosphere where convection dominates" },
+{ name: "Granulation Pattern Dynamics", type: "phenomenon", category: "stellar", position: [6801, 134020, 4801], description: "Cellular pattern of rising hot gas and sinking cooler gas at stellar surface" },
+{ name: "Supergranulation Cells", type: "phenomenon", category: "stellar", position: [6802, 134040, 4802], description: "Large-scale convective structures spanning thousands of kilometers on solar surface" },
+{ name: "Mesogranulation Intermediate Scale", type: "phenomenon", category: "stellar", position: [6803, 134060, 4803], description: "Mid-scale convective pattern intermediate between granulation and supergranulation" },
+{ name: "Rayleigh-Bénard Instability", type: "phenomenon", category: "stellar", position: [6804, 134080, 4804], description: "Convective instability when hot fluid underlies cooler fluid in gravitational field" },
+{ name: "Brunt-Väisälä Oscillation Frequency", type: "phenomenon", category: "stellar", position: [6805, 134100, 4805], description: "Natural oscillation frequency of stable layers defining convective boundary structure" },
+{ name: "Convective Overshoot Region", type: "phenomenon", category: "stellar", position: [6806, 134120, 4806], description: "Zone where convective elements penetrate beyond formal convection zone boundary" },
+{ name: "Turbulent Mixing Length", type: "phenomenon", category: "stellar", position: [6807, 134140, 4807], description: "Characteristic distance for turbulent element travel before mixing with surroundings" },
+{ name: "Stellar Rotation from Convection", type: "phenomenon", category: "stellar", position: [6808, 134160, 4808], description: "Convective turbulence coupling to rotation creates angular momentum transport" },
+{ name: "Meridional Circulation Flows", type: "phenomenon", category: "stellar", position: [6809, 134180, 4809], description: "Large-scale poleward flow in upper convection zone driven by temperature gradient" },
+{ name: "Convective Core Boundary", type: "phenomenon", category: "stellar", position: [6810, 134200, 4810], description: "Sharp interface between radiative and convective regions in massive stars" },
+{ name: "Envelope Convection in Red Giants", type: "phenomenon", category: "stellar", position: [6811, 134220, 4811], description: "Deep convective envelope extending from surface nearly to hydrogen-burning shell" },
+{ name: "Surface Velocity Gradients", type: "phenomenon", category: "stellar", position: [6812, 134240, 4812], description: "Differential velocities in stellar granulation creating shear and acoustic wave generation" },
+{ name: "Acoustic Wave Damping", type: "phenomenon", category: "stellar", position: [6813, 134260, 4813], description: "Dissipation of acoustic oscillations by viscosity in upper stellar convection zone" },
+{ name: "Convective Dynamo Field Generation", type: "phenomenon", category: "stellar", position: [6814, 134280, 4814], description: "Magnetic field amplification through turbulent shear in convective zones" },
+{ name: "Rotational Shear Layers", type: "phenomenon", category: "stellar", position: [6815, 134300, 4815], description: "Strong velocity gradients between differentially rotating convection and radiative zones" },
+{ name: "Thermodynamic Buoyancy Force", type: "phenomenon", category: "stellar", position: [6816, 134320, 4816], description: "Density difference driving upward motion of heated fluid in convection" },
+{ name: "Stellar Granule Brightness Variation", type: "phenomenon", category: "stellar", position: [6817, 134340, 4817], description: "Intensity difference between bright rising and dark descending granules" },
+{ name: "Plasma Beta in Convection", type: "phenomenon", category: "stellar", position: [6818, 134360, 4818], description: "Ratio of gas pressure to magnetic pressure determining convective dynamics" },
+{ name: "Turbulent Kinetic Energy Spectrum", type: "phenomenon", category: "stellar", position: [6819, 134380, 4819], description: "Power-law distribution of kinetic energy across convective length scales" },
+{ name: "Convective Heat Flux Efficiency", type: "phenomenon", category: "stellar", position: [6820, 134400, 4820], description: "Fraction of stellar luminosity transported by convection versus radiation" },
+{ name: "Entropy Gradient Stability", type: "phenomenon", category: "stellar", position: [6821, 134420, 4821], description: "Entropy jump across convection zone boundary controlling mixing depth" },
+{ name: "Horizontal Wavelength Spectrum", type: "phenomenon", category: "stellar", position: [6822, 134440, 4822], description: "Distribution of convective cell sizes ranging from granulation to supergranulation" },
+{ name: "Compressibility Effects in Convection", type: "phenomenon", category: "stellar", position: [6823, 134460, 4823], description: "Density stratification reducing convective speeds and altering circulation patterns" },
+{ name: "Viscous Dissipation Rate", type: "phenomenon", category: "stellar", position: [6824, 134480, 4824], description: "Energy conversion rate from convective motion to heat through viscous friction" }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
