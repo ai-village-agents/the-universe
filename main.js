@@ -23878,6 +23878,207 @@ const cosmicSights = [
 {name: "Neutrino-Axion Mixing", type: "phenomenon", category: "Neutrino Physics", position: [6998, 137960, 4998], description: "Flavor oscillations from axion-neutrino coupling in dense environments"},
 {name: "Primordial Black Hole Axion Halos", type: "phenomenon", category: "Black Hole Physics", position: [6999, 137980, 4999], description: "Superfluid axion cloud formation around primordial black holes"}
 
+,
+  {
+    name: 'Guitar Nebula Shock 13276',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-10912, 5197, -31664],
+    color: '#b22222',
+    size: 214
+  },
+  {
+    name: 'Black Widow Bow 13277',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-23864, 23819, -21894],
+    color: '#b22222',
+    size: 159
+  },
+  {
+    name: 'PSR J0437 Shock 13278',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-23337, 14867, -3891],
+    color: '#cd5c5c',
+    size: 68
+  },
+  {
+    name: 'Vela Pulsar Front 13279',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [28095, 1039, -16608],
+    color: '#f08080',
+    size: 106
+  },
+  {
+    name: 'Crab Pulsar Halo 13280',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [7803, -17526, 1151],
+    color: '#cd5c5c',
+    size: 122
+  },
+  {
+    name: 'PSR B1957 Shock 13281',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [36666, 34917, -22859],
+    color: '#cd5c5c',
+    size: 176
+  },
+  {
+    name: 'PSR J2124 Front 13282',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [26434, 29524, 30416],
+    color: '#8b0000',
+    size: 60
+  },
+  {
+    name: 'Mouse Nebula Shock 13283',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [15343, -18169, -31770],
+    color: '#ff0000',
+    size: 251
+  },
+  {
+    name: 'Frying Pan Shock 13284',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-26138, -14777, 7924],
+    color: '#ff4500',
+    size: 100
+  },
+  {
+    name: 'PSR J1930 Front 13285',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-25315, 16566, 25984],
+    color: '#f08080',
+    size: 269
+  },
+  {
+    name: 'PSR B2224 Shock 13286',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-7768, -35010, 32293],
+    color: '#8b0000',
+    size: 60
+  },
+  {
+    name: 'PSR J1741 Front 13287',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [24765, 11345, -3133],
+    color: '#ff0000',
+    size: 383
+  },
+  {
+    name: 'Geminga Bow Shock 13288',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [12054, 15025, 23429],
+    color: '#fa8072',
+    size: 161
+  },
+  {
+    name: 'PSR B1951 Shock 13289',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [1270, 21619, 20676],
+    color: '#ff6347',
+    size: 167
+  },
+  {
+    name: 'PSR J0357 Front 13290',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-9793, -39317, -6933],
+    color: '#ff0000',
+    size: 70
+  },
+  {
+    name: 'PSR J1509 Shock 13291',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-23688, 29818, -26918],
+    color: '#cd5c5c',
+    size: 366
+  },
+  {
+    name: 'PSR J1124 Front 13292',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-22982, 33265, 32555],
+    color: '#f08080',
+    size: 84
+  },
+  {
+    name: 'PSR J1809 Shock 13293',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-28701, 1048, 28474],
+    color: '#dc143c',
+    size: 158
+  },
+  {
+    name: 'PSR B0355 Front 13294',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-21490, 26278, -36088],
+    color: '#ff6347',
+    size: 303
+  },
+  {
+    name: 'PSR J2055 Shock 13295',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [13404, 27441, -13853],
+    color: '#ff0000',
+    size: 289
+  },
+  {
+    name: 'PSR J1709 Front 13296',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-37105, -27980, 24703],
+    color: '#ff4500',
+    size: 268
+  },
+  {
+    name: 'PSR B1706 Shock 13297',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [18546, 8001, -6697],
+    color: '#ff4500',
+    size: 282
+  },
+  {
+    name: 'PSR J1045 Front 13298',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [-20402, -37813, 3921],
+    color: '#ff0000',
+    size: 301
+  },
+  {
+    name: 'PSR J2229 Shock 13299',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [22360, 17220, 16963],
+    color: '#ff6347',
+    size: 150
+  },
+  {
+    name: 'PSR B1046 Front 13300',
+    category: 'Pulsar Bow Shocks',
+    description: 'A mesmerizing manifestation of pulsar bow shocks observed in deep space.', 
+    position: [34122, 7371, -4768],
+    color: '#f08080',
+    size: 277
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
