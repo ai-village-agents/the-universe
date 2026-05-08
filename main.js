@@ -16585,7 +16585,32 @@ const cosmicSights = [
     name: "Geomagnetic Storm Main Phase Dip",
     description: "The deep minimum in Earth's surface magnetic field when a coronal mass ejection ring current envelops the planet.",
     position: [5710, -2456, 3892]
-  }
+  },
+  {"name": "FRB Dispersion Measure Distance", "description": "Fast radio bursts accumulate dispersion as they traverse intergalactic plasma, with higher DM values indicating greater cosmological distances.", "position": [2845, -1567, 3421]},
+  {"name": "Magnetar Giant Flare Radio Burst", "description": "Galactic magnetar SGR 1935+2154 produced an FRB-like burst, confirming magnetars as at least one source class for these enigmatic signals.", "position": [-3012, 2234, -1789]},
+  {"name": "Repeating FRB Source Periodicity", "description": "Some repeating FRBs show periodic activity windows, suggesting orbital modulation or precession in their neutron star sources.", "position": [1678, -2890, 2567]},
+  {"name": "FRB Host Galaxy Localization", "description": "Arcsecond-precision interferometric localization places FRBs in diverse galactic environments, from spiral arms to globular cluster outskirts.", "position": [-2456, 1345, -3234]},
+  {"name": "FRB Scintillation Propagation Effect", "description": "Multi-path scattering through turbulent plasma causes FRB intensity fluctuations, probing electron density variations along the line of sight.", "position": [3234, -2012, 1456]},
+  {"name": "FRB Rotation Measure Magnetization", "description": "Faraday rotation of polarized FRB emission reveals magnetic field strengths in host galaxies and intervening cosmic structures.", "position": [-1890, 3456, -2678]},
+  {"name": "FRB Plasma Lens Magnification", "description": "Compact plasma structures can gravitationally lens FRBs, producing dramatic brightness amplification and complex temporal substructure.", "position": [2567, -1234, 3890]},
+  {"name": "FRB Sub-burst Drift Rate", "description": "Downward frequency drift within FRB sub-pulses traces emission geometry, potentially mapping magnetospheric radius-to-frequency relationships.", "position": [-3456, 2789, -1012]},
+  {"name": "FRB Circular Polarization Signature", "description": "Variable circular polarization in FRBs constrains emission mechanisms, distinguishing coherent curvature radiation from synchrotron maser models.", "position": [1234, -3678, 2123]},
+  {"name": "FRB Persistent Radio Source Association", "description": "Some repeating FRBs coincide with compact persistent radio sources, possibly magnetar wind nebulae or young supernova remnants.", "position": [-2678, 1890, -3456]},
+  {"name": "FRB Scattering Tail Turbulence", "description": "Exponential pulse broadening reveals turbulent plasma screens, with scattering timescales encoding host galaxy and circumsource medium properties.", "position": [3789, -2567, 1678]},
+  {"name": "FRB Wait Time Distribution", "description": "Statistical clustering of burst arrival times in repeaters follows non-Poissonian patterns, hinting at underlying source activity cycles.", "position": [-1456, 3234, -2890]},
+  {"name": "FRB Luminosity Function Constraint", "description": "The FRB rate-energy distribution spans many orders of magnitude, with implications for source populations and emission physics.", "position": [2012, -1789, 3567]},
+  {"name": "FRB Cosmological Probe Potential", "description": "As standardizable transients with measurable DM, FRBs offer independent constraints on cosmic expansion and baryon distribution.", "position": [-3234, 2456, -1234]},
+  {"name": "FRB Missing Baryon Detection", "description": "Cumulative DM measurements from localized FRBs have detected the missing cosmic baryons residing in diffuse intergalactic medium.", "position": [1567, -3012, 2789]},
+  {"name": "FRB Magnetar Wind Nebula", "description": "Persistent radio emission surrounding some FRB sources resembles scaled-up pulsar wind nebulae powered by extreme magnetar spindown.", "position": [-2890, 1678, -3789]},
+  {"name": "FRB Supernova Remnant Environment", "description": "Young magnetars embedded in supernova ejecta may produce FRBs modified by dense surrounding plasma structures.", "position": [3456, -2234, 1012]},
+  {"name": "FRB Binary Orbital Modulation", "description": "Periodic FRB activity windows suggest some sources reside in binary systems where orbital geometry affects emission visibility.", "position": [-1012, 3890, -2456]},
+  {"name": "FRB Maser Emission Mechanism", "description": "Coherent amplification of radio emission through maser processes can explain the extreme brightness temperatures of fast radio bursts.", "position": [2234, -1456, 3012]},
+  {"name": "FRB Synchrotron Maser Model", "description": "Relativistic shock waves in magnetar magnetospheres can trigger synchrotron maser instabilities producing millisecond radio bursts.", "position": [-3567, 2012, -1567]},
+  {"name": "FRB Coherent Curvature Radiation", "description": "Bunched particle emission along curved magnetic field lines in magnetar magnetospheres offers an alternative FRB generation mechanism.", "position": [1890, -3456, 2345]},
+  {"name": "FRB Magnetospheric Origin", "description": "Proximity of emission to the neutron star surface is indicated by rapid variability and high rotation measures in some FRBs.", "position": [-2345, 1234, -3678]},
+  {"name": "FRB Shock Wave Interaction", "description": "FRBs may arise when relativistic magnetar flare ejecta interact with surrounding material, converting kinetic energy to coherent radio.", "position": [3678, -2890, 1789]},
+  {"name": "FRB Galactic Halo Contribution", "description": "Dispersion from the Milky Way halo contributes tens of DM units to extragalactic FRB measurements, requiring careful modeling.", "position": [-1678, 3567, -2234]},
+  {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
