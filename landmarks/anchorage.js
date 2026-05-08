@@ -24942,6 +24942,286 @@ export function createAnchorageLandmark(THREE, opts) {
   csgrGroup.add(csgrVetHead);
   group.add(csgrGroup);
 
+
+  // === v154 scene 1: pier hot chocolate stand ===
+  const phctGroup = new THREE.Group();
+  phctGroup.position.set(-26.5, 1.85, -3.4);
+  group.add(phctGroup);
+  // counter
+  const phctCounter = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.5, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0x6b3a1f })
+  );
+  phctCounter.position.y = 0.25;
+  phctGroup.add(phctCounter);
+  // top stripe
+  const phctTop = new THREE.Mesh(
+    new THREE.BoxGeometry(1.65, 0.08, 0.75),
+    new THREE.MeshLambertMaterial({ color: 0xf5e1c2 })
+  );
+  phctTop.position.y = 0.54;
+  phctGroup.add(phctTop);
+  // canopy (red/white awning)
+  const phctCanopy = new THREE.Mesh(
+    new THREE.BoxGeometry(1.8, 0.05, 0.85),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  phctCanopy.position.y = 1.4;
+  phctGroup.add(phctCanopy);
+  // canopy posts
+  for (let i = 0; i < 4; i++) {
+    const phctPost = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, 0.85, 6),
+      new THREE.MeshLambertMaterial({ color: 0x4b2a14 })
+    );
+    phctPost.position.set((i % 2 === 0 ? -0.85 : 0.85), 0.95, (i < 2 ? -0.4 : 0.4));
+    phctGroup.add(phctPost);
+  }
+  // chimney pot of cocoa
+  const phctPot = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.32, 16),
+    new THREE.MeshStandardMaterial({ color: 0x9d7a4a, roughness: 0.45, metalness: 0.6 })
+  );
+  phctPot.position.set(-0.5, 0.74, 0);
+  phctGroup.add(phctPot);
+  // cocoa surface
+  const phctCocoa = new THREE.Mesh(
+    new THREE.CircleGeometry(0.17, 18),
+    new THREE.MeshLambertMaterial({ color: 0x3a1e0e })
+  );
+  phctCocoa.rotation.x = -Math.PI / 2;
+  phctCocoa.position.set(-0.5, 0.91, 0);
+  phctGroup.add(phctCocoa);
+  // steam puffs (animated)
+  const phctSteamMatBase = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
+  const phctSteamPuffs = [];
+  for (let i = 0; i < 5; i++) {
+    const m = phctSteamMatBase.clone();
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(0.07 + i * 0.012, 8, 8), m);
+    puff.position.set(-0.5, 0.95 + i * 0.12, 0);
+    puff.userData = { phase: i * 0.7, base: 0.95 + i * 0.12 };
+    phctGroup.add(puff);
+    phctSteamPuffs.push(puff);
+  }
+  // cup with marshmallow on counter
+  const phctCup = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.06, 0.11, 12),
+    new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+  );
+  phctCup.position.set(0.55, 0.56, 0);
+  phctGroup.add(phctCup);
+  const phctMarsh = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 0.04, 10),
+    new THREE.MeshLambertMaterial({ color: 0xfff8ee })
+  );
+  phctMarsh.position.set(0.55, 0.625, 0);
+  phctGroup.add(phctMarsh);
+  // sign
+  const phctSign = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.7, 0.18),
+    new THREE.MeshBasicMaterial({ color: 0xfff2c8, side: THREE.DoubleSide })
+  );
+  phctSign.position.set(0, 1.12, 0.43);
+  phctGroup.add(phctSign);
+  // customer
+  const phctCustBody = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.13, 0.16, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0x8b2a3a })
+  );
+  phctCustBody.position.set(1.2, 0.28, 0.3);
+  phctGroup.add(phctCustBody);
+  const phctCustHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefcfa8 })
+  );
+  phctCustHead.position.set(1.2, 0.66, 0.3);
+  phctGroup.add(phctCustHead);
+  // little cup of cocoa they hold (animated)
+  const phctHeldCup = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.04, 0.08, 10),
+    new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+  );
+  phctHeldCup.position.set(1.05, 0.5, 0.32);
+  phctGroup.add(phctHeldCup);
+
+  // === v154 scene 2: coastal pelican dive ===
+  const cpldGroup = new THREE.Group();
+  cpldGroup.position.set(33.5, 0, -19.0);
+  group.add(cpldGroup);
+  // small rock the pelican perches on / dives near
+  const cpldRock = new THREE.Mesh(
+    new THREE.DodecahedronGeometry(0.85, 0),
+    new THREE.MeshLambertMaterial({ color: 0x6b6555 })
+  );
+  cpldRock.position.set(0, 0.45, 0);
+  cpldRock.scale.set(1.2, 0.55, 1.0);
+  cpldGroup.add(cpldRock);
+  // water ripple
+  const cpldRippleMat = new THREE.MeshBasicMaterial({ color: 0xa8d0e0, transparent: true, opacity: 0.55, side: THREE.DoubleSide });
+  const cpldRipples = [];
+  for (let i = 0; i < 3; i++) {
+    const r = new THREE.Mesh(new THREE.RingGeometry(0.05, 0.08, 24), cpldRippleMat.clone());
+    r.rotation.x = -Math.PI / 2;
+    r.position.set(2.5, 0.05, 0);
+    r.userData = { phase: i * 0.9 };
+    cpldGroup.add(r);
+    cpldRipples.push(r);
+  }
+  // pelican: body
+  const cpldPelican = new THREE.Group();
+  cpldPelican.position.set(2.5, 4.5, 0);
+  cpldGroup.add(cpldPelican);
+  const cpldBody = new THREE.Mesh(
+    new THREE.SphereGeometry(0.28, 14, 12),
+    new THREE.MeshLambertMaterial({ color: 0xefe6d0 })
+  );
+  cpldBody.scale.set(1.4, 0.85, 0.9);
+  cpldPelican.add(cpldBody);
+  // head
+  const cpldHead = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xefe6d0 })
+  );
+  cpldHead.position.set(0.32, 0.08, 0);
+  cpldPelican.add(cpldHead);
+  // beak (long)
+  const cpldBeak = new THREE.Mesh(
+    new THREE.ConeGeometry(0.06, 0.36, 8),
+    new THREE.MeshLambertMaterial({ color: 0xd6a850 })
+  );
+  cpldBeak.position.set(0.55, 0.04, 0);
+  cpldBeak.rotation.z = -Math.PI / 2;
+  cpldPelican.add(cpldBeak);
+  // wings (left, right)
+  const cpldWingMat = new THREE.MeshLambertMaterial({ color: 0x8a8270 });
+  const cpldWingL = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 0.18), cpldWingMat);
+  cpldWingL.position.set(-0.05, 0.05, -0.22);
+  cpldPelican.add(cpldWingL);
+  const cpldWingR = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.04, 0.18), cpldWingMat);
+  cpldWingR.position.set(-0.05, 0.05, 0.22);
+  cpldPelican.add(cpldWingR);
+  // tail
+  const cpldTail = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.2, 6), cpldWingMat);
+  cpldTail.position.set(-0.34, 0.0, 0);
+  cpldTail.rotation.z = Math.PI / 2;
+  cpldPelican.add(cpldTail);
+  // splash sphere (animated, hidden initially)
+  const cpldSplashMat = new THREE.MeshBasicMaterial({ color: 0xe0eef5, transparent: true, opacity: 0.0 });
+  const cpldSplash = new THREE.Mesh(new THREE.SphereGeometry(0.5, 12, 10), cpldSplashMat);
+  cpldSplash.position.set(2.5, 0.1, 0);
+  cpldGroup.add(cpldSplash);
+
+  // === v154 scene 3: beach picnic blanket ===
+  const bpknGroup = new THREE.Group();
+  bpknGroup.position.set(-2.5, 0, 28.0);
+  group.add(bpknGroup);
+  // blanket (red/white check pattern via stripes)
+  const bpknBlanket = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.6, 2.1),
+    new THREE.MeshLambertMaterial({ color: 0xb83a2a })
+  );
+  bpknBlanket.rotation.x = -Math.PI / 2;
+  bpknBlanket.position.y = 0.02;
+  bpknGroup.add(bpknBlanket);
+  // white check stripes (long, thin slabs)
+  for (let i = -2; i <= 2; i++) {
+    const stripeH = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.6, 0.18),
+      new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+    );
+    stripeH.rotation.x = -Math.PI / 2;
+    stripeH.position.set(0, 0.025, i * 0.42);
+    bpknGroup.add(stripeH);
+  }
+  for (let i = -2; i <= 2; i++) {
+    const stripeV = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.18, 2.1),
+      new THREE.MeshLambertMaterial({ color: 0xf2efe7 })
+    );
+    stripeV.rotation.x = -Math.PI / 2;
+    stripeV.position.set(i * 0.52, 0.026, 0);
+    bpknGroup.add(stripeV);
+  }
+  // wicker basket
+  const bpknBasket = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.32, 0.25, 16),
+    new THREE.MeshLambertMaterial({ color: 0x9c6d3a })
+  );
+  bpknBasket.position.set(-0.85, 0.15, -0.5);
+  bpknGroup.add(bpknBasket);
+  const bpknLid = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.3, 0.3, 0.04, 16),
+    new THREE.MeshLambertMaterial({ color: 0x7a4f24 })
+  );
+  bpknLid.position.set(-0.85, 0.29, -0.5);
+  bpknGroup.add(bpknLid);
+  // handle
+  const bpknHandle = new THREE.Mesh(
+    new THREE.TorusGeometry(0.12, 0.02, 6, 16, Math.PI),
+    new THREE.MeshLambertMaterial({ color: 0x7a4f24 })
+  );
+  bpknHandle.position.set(-0.85, 0.32, -0.5);
+  bpknHandle.rotation.x = -Math.PI / 2;
+  bpknGroup.add(bpknHandle);
+  // wine bottle
+  const bpknBottle = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.07, 0.32, 12),
+    new THREE.MeshStandardMaterial({ color: 0x2a4a2c, roughness: 0.4 })
+  );
+  bpknBottle.position.set(-0.2, 0.18, -0.4);
+  bpknGroup.add(bpknBottle);
+  const bpknNeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.025, 0.04, 0.1, 10),
+    new THREE.MeshStandardMaterial({ color: 0x2a4a2c, roughness: 0.4 })
+  );
+  bpknNeck.position.set(-0.2, 0.39, -0.4);
+  bpknGroup.add(bpknNeck);
+  // baguette
+  const bpknBread = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.06, 0.06, 0.55, 10),
+    new THREE.MeshLambertMaterial({ color: 0xd9b478 })
+  );
+  bpknBread.position.set(0.3, 0.07, -0.2);
+  bpknBread.rotation.z = Math.PI / 2;
+  bpknGroup.add(bpknBread);
+  // apple (animated wobble)
+  const bpknApple = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0xc23a2a })
+  );
+  bpknApple.position.set(0.5, 0.1, 0.3);
+  bpknGroup.add(bpknApple);
+  const bpknApple2 = new THREE.Mesh(
+    new THREE.SphereGeometry(0.08, 12, 12),
+    new THREE.MeshLambertMaterial({ color: 0x4ea33a })
+  );
+  bpknApple2.position.set(0.7, 0.1, 0.15);
+  bpknGroup.add(bpknApple2);
+  // cheese wheel
+  const bpknCheese = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.14, 0.14, 0.06, 16),
+    new THREE.MeshLambertMaterial({ color: 0xf0d56a })
+  );
+  bpknCheese.position.set(0.15, 0.07, 0.5);
+  bpknGroup.add(bpknCheese);
+  // butterfly visiting (animated)
+  const bpknButter = new THREE.Group();
+  bpknButter.position.set(0.0, 0.5, 0.3);
+  bpknGroup.add(bpknButter);
+  const bpknWingL = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.14, 0.1),
+    new THREE.MeshBasicMaterial({ color: 0xff7aa8, side: THREE.DoubleSide })
+  );
+  bpknWingL.position.x = -0.08;
+  bpknButter.add(bpknWingL);
+  const bpknWingR = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.14, 0.1),
+    new THREE.MeshBasicMaterial({ color: 0xff7aa8, side: THREE.DoubleSide })
+  );
+  bpknWingR.position.x = 0.08;
+  bpknButter.add(bpknWingR);
+
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -28426,6 +28706,66 @@ export function createAnchorageLandmark(THREE, opts) {
   csgrWingL.rotation.z = Math.sin(v153t * 1.5) * 0.15;
   csgrWingR.rotation.z = -Math.sin(v153t * 1.5) * 0.15;
   csgrGull.position.y = 0.85 + Math.sin(v153t * 1.0) * 0.02;
+
+  // v154 scene 1 anim: phct steam puffs rising + customer cup tilt
+  const v154t = t;
+  for (let i = 0; i < phctSteamPuffs.length; i++) {
+    const p = phctSteamPuffs[i];
+    const phase = (v154t * 0.6 + p.userData.phase) % 2.0;
+    p.position.y = p.userData.base + phase * 0.25;
+    p.material.opacity = Math.max(0, 0.55 - phase * 0.27);
+    p.scale.setScalar(1 + phase * 0.5);
+  }
+  phctHeldCup.rotation.z = Math.sin(v154t * 0.9) * 0.12;
+  phctHeldCup.position.y = 0.5 + Math.sin(v154t * 0.9) * 0.015;
+  phctCustHead.rotation.y = Math.sin(v154t * 0.4) * 0.18;
+
+  // v154 scene 2 anim: pelican dive cycle
+  // dive cycle: 0..3s falling, 3..3.4s splash, 3.4..6s flying back up
+  const cpldCycle = (v154t * 0.45) % 6.0;
+  if (cpldCycle < 3.0) {
+    // dive: from 4.5 down to 0.2
+    const f = cpldCycle / 3.0;
+    cpldPelican.position.y = 4.5 - f * 4.3;
+    cpldPelican.rotation.z = -f * 0.7; // tilt forward
+    cpldWingL.rotation.z = Math.sin(v154t * 8.0) * 0.4;
+    cpldWingR.rotation.z = -Math.sin(v154t * 8.0) * 0.4;
+    cpldSplash.material.opacity = 0;
+  } else if (cpldCycle < 3.4) {
+    // splash
+    cpldPelican.position.y = -0.5;
+    cpldPelican.visible = false;
+    const sf = (cpldCycle - 3.0) / 0.4;
+    cpldSplash.scale.setScalar(0.5 + sf * 1.5);
+    cpldSplash.material.opacity = Math.max(0, 0.9 - sf * 0.9);
+  } else {
+    // rise back
+    cpldPelican.visible = true;
+    const f = (cpldCycle - 3.4) / 2.6;
+    cpldPelican.position.y = -0.5 + f * 5.0;
+    cpldPelican.rotation.z = -0.7 + f * 0.7;
+    cpldWingL.rotation.z = Math.sin(v154t * 12.0) * 0.6;
+    cpldWingR.rotation.z = -Math.sin(v154t * 12.0) * 0.6;
+    cpldSplash.material.opacity = 0;
+  }
+  for (let i = 0; i < cpldRipples.length; i++) {
+    const r = cpldRipples[i];
+    const phase = (v154t * 0.7 + r.userData.phase) % 2.5;
+    r.scale.setScalar(0.5 + phase * 1.5);
+    r.material.opacity = Math.max(0, 0.55 - phase * 0.22);
+  }
+
+  // v154 scene 3 anim: butterfly figure-8 over picnic blanket; wing flap; apple wobble
+  const bpknFlap = Math.sin(v154t * 18.0) * 0.6;
+  bpknWingL.rotation.y = -bpknFlap;
+  bpknWingR.rotation.y = bpknFlap;
+  bpknButter.position.x = Math.sin(v154t * 0.8) * 0.7;
+  bpknButter.position.z = 0.3 + Math.sin(v154t * 1.6) * 0.5;
+  bpknButter.position.y = 0.5 + Math.sin(v154t * 2.0) * 0.08;
+  bpknButter.rotation.y = Math.sin(v154t * 0.8 + Math.PI / 2);
+  bpknApple.position.y = 0.1 + Math.abs(Math.sin(v154t * 1.4)) * 0.012;
+  bpknApple2.position.y = 0.1 + Math.abs(Math.sin(v154t * 1.4 + 1.2)) * 0.012;
+
 
 
 
