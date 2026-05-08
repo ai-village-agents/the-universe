@@ -24304,7 +24304,32 @@ const cosmicSights = [
     position: [-25019, 2379, 24050],
     color: '#8a2be2',
     size: 270
-  }
+  },
+  { name: "Luhman 16A Methane Band", description: "A methane absorption band in the atmosphere of Luhman 16A tracing cold chemistry.", position: [-418.09, 3.84, -354.31] },
+  { name: "Luhman 16B Water Vapor Cloud", description: "A water vapor cloud detected in Luhman 16B's turbulent atmosphere.", position: [-58.34, -143.85, -209.52] },
+  { name: "WISE 0855-0714 Ice Cloud", description: "Ice clouds in the coldest known brown dwarf WISE 0855-0714.", position: [-243.49, -193.2, -154.93] },
+  { name: "WISE 1049-5319 Ammonia Band", description: "An ammonia absorption feature in the spectrum of WISE 1049-5319.", position: [186.84, -180.32, -359.4] },
+  { name: "DENIS-P J1058.7-1548 Dust Storm", description: "A dust storm event in DENIS-P J1058.7-1548 driven by atmospheric convection.", position: [286.81, -185.95, 325.0] },
+  { name: "2MASS J0415-0935 Iron Cloud", description: "Iron condensate clouds in the atmosphere of 2MASS J0415-0935.", position: [342.5, 144.82, 177.82] },
+  { name: "2MASS J2244+2043 Silicate Haze", description: "Silicate haze particles suspended in the upper atmosphere of 2MASS J2244+2043.", position: [168.62, 151.76, 428.81] },
+  { name: "SDSS J1416+1348 Sulfide Layer", description: "A sulfide chemical layer detected in the spectrum of SDSS J1416+1348.", position: [-377.29, -36.43, 182.88] },
+  { name: "CFBDSIR 1458+1013 Phosphine Trace", description: "Trace phosphine molecules in CFBDSIR 1458+1013's reducing atmosphere.", position: [-268.93, 188.16, 321.56] },
+  { name: "ULAS J0034-0052 Sodium Absorption", description: "Sodium absorption lines in ULAS J0034-0052 revealing atmospheric pressure.", position: [-139.83, 25.0, -270.48] },
+  { name: "WISE J0304-2705 Potassium Wing", description: "Potassium wing absorption in WISE J0304-2705's optical spectrum.", position: [328.57, -26.41, -370.43] },
+  { name: "SDSS J1511+0607 Titanium Oxide", description: "Titanium oxide bands in SDSS J1511+0607 indicating high atmospheric temperature.", position: [-315.86, 212.37, -316.88] },
+  { name: "WISE J1541-2250 Vanadium Band", description: "Vanadium oxide absorption features in WISE J1541-2250.", position: [-195.99, 126.65, -163.45] },
+  { name: "2MASS J2139+0220 Chromium Line", description: "Chromium emission lines in 2MASS J2139+0220 during a magnetic event.", position: [315.88, -160.95, 79.46] },
+  { name: "WISE J0521+1025 Rubidium Line", description: "Rubidium absorption in WISE J0521+1025 tracing alkali metal chemistry.", position: [38.55, -24.01, 200.3] },
+  { name: "ULAS J1335+1135 Cesium Absorption", description: "Cesium absorption lines in ULAS J1335+1135's near-infrared spectrum.", position: [-193.05, 138.0, 375.8] },
+  { name: "WISE J0146+4234 Lithium Depletion", description: "Lithium depletion boundary observed in WISE J0146+4234.", position: [-272.49, 41.24, -138.7] },
+  { name: "SDSS J1254-0122 Carbon Monoxide", description: "Carbon monoxide molecular bands in SDSS J1254-0122's atmosphere.", position: [-442.57, 29.15, -222.54] },
+  { name: "CFBDS J0059-0114 Diatomic Carbon", description: "Diatomic carbon emission in CFBDS J0059-0114's upper atmosphere.", position: [-316.89, -50.66, 69.89] },
+  { name: "WISE J0350-5658 Hot Spot Anomaly", description: "A persistent hot spot anomaly on WISE J0350-5658's photosphere.", position: [-146.24, -89.87, -55.4] },
+  { name: "2MASS J1231+0847 Auroral Emission", description: "Auroral emission in 2MASS J1231+0847 driven by magnetospheric activity.", position: [167.2, 220.68, -292.48] },
+  { name: "SDSS J1624+0029 Flare Event", description: "A bright flare event observed in SDSS J1624+0029's chromosphere.", position: [-11.14, 89.25, 336.03] },
+  { name: "WISE J0825+2805 Patchy Cloud", description: "Patchy cloud cover creating rotational variability in WISE J0825+2805.", position: [351.13, -242.1, 49.33] },
+  { name: "ULAS J2238+0012 Circulation Cell", description: "Large-scale circulation cells in ULAS J2238+0012's atmosphere.", position: [351.72, 218.08, -254.65] },
+  { name: "CFBDS J1021+1614 Gravity Darkening", description: "Gravity darkening effects at the equator of CFBDS J1021+1614.", position: [-196.83, 222.39, -182.95] },
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
