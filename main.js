@@ -16610,7 +16610,133 @@ const cosmicSights = [
   {"name": "FRB Magnetospheric Origin", "description": "Proximity of emission to the neutron star surface is indicated by rapid variability and high rotation measures in some FRBs.", "position": [-2345, 1234, -3678]},
   {"name": "FRB Shock Wave Interaction", "description": "FRBs may arise when relativistic magnetar flare ejecta interact with surrounding material, converting kinetic energy to coherent radio.", "position": [3678, -2890, 1789]},
   {"name": "FRB Galactic Halo Contribution", "description": "Dispersion from the Milky Way halo contributes tens of DM units to extragalactic FRB measurements, requiring careful modeling.", "position": [-1678, 3567, -2234]},
-  {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]}
+  {"name": "FRB All-Sky Survey Discovery Rate", "description": "Current radio surveys detect thousands of FRBs annually, with next-generation telescopes promising to reveal the full cosmic FRB population.", "position": [2678, -1890, 3234]},
+  {
+    "name": "Computational N-body Gravitational Integration",
+    "description": "Direct numerical solution of Newtonian dynamics for stellar clusters and galaxy mergers using symplectic integrators and adaptive timestepping.",
+    "position": [36000, -24000, 18000]
+  },
+  {
+    "name": "Lagrangian SPH Hydrodynamic Solver",
+    "description": "Smoothed Particle Hydrodynamics implementation for astrophysical gas dynamics with artificial viscosity and kernel-based gradient estimation.",
+    "position": [36120, -23920, 17940]
+  },
+  {
+    "name": "Adaptive Mesh Refinement Grid Hierarchy",
+    "description": "Multi-level spatial discretization method that dynamically refines resolution near shocks, density peaks, and ionization fronts in cosmological simulations.",
+    "position": [36240, -23840, 17880]
+  },
+  {
+    "name": "Monte Carlo Photon Transport Code",
+    "description": "Statistical radiative transfer simulation tracking individual photon packets through scattering atmospheres and dusty nebulae with polarization tracking.",
+    "position": [36360, -23760, 17820]
+  },
+  {
+    "name": "MHD Solver with Constrained Transport",
+    "description": "Magnetohydrodynamic numerical scheme preserving divergence-free magnetic fields for solar corona modeling and accretion disk dynamo simulations.",
+    "position": [36480, -23680, 17760]
+  },
+  {
+    "name": "Cosmic Ray Propagation Framework",
+    "description": "Stochastic differential equation solver for charged particle transport through Galactic magnetic turbulence with spallation and energy loss processes.",
+    "position": [36600, -23600, 17700]
+  },
+  {
+    "name": "Stellar Evolution Synthesis Pipeline",
+    "description": "Modular code integrating nuclear reaction networks, convection theory, and mass loss prescriptions across all stellar evolutionary phases.",
+    "position": [36720, -23520, 17640]
+  },
+  {
+    "name": "Interstellar Chemistry Network Integrator",
+    "description": "Stiff ODE solver for molecular formation pathways in cold clouds, including gas-phase reactions, grain surface processes, and photodissociation.",
+    "position": [36840, -23440, 17580]
+  },
+  {
+    "name": "Nested Sampling Evidence Calculator",
+    "description": "Bayesian inference algorithm for model comparison and marginalized likelihood estimation in high-dimensional parameter spaces of exoplanet systems.",
+    "position": [36960, -23360, 17520]
+  },
+  {
+    "name": "MCMC Cosmological Parameter Sampler",
+    "description": "Markov Chain Monte Carlo implementation exploring posterior distributions of ΛCDM parameters from CMB, BAO, and supernova data.",
+    "position": [37080, -23280, 17460]
+  },
+  {
+    "name": "Neural Network Cosmological Emulator",
+    "description": "Deep learning surrogate model trained on N-body simulations providing instantaneous matter power spectrum predictions for likelihood evaluation.",
+    "position": [37200, -23200, 17400]
+  },
+  {
+    "name": "Discrete Element Dust Aggregation",
+    "description": "Granular dynamics simulation of micron-sized particle collisions, sticking, and fragmentation in protoplanetary disks and debris rings.",
+    "position": [37320, -23120, 17340]
+  },
+  {
+    "name": "PIC Plasma Kinetic Simulation",
+    "description": "Particle-in-Cell method solving Vlasov-Maxwell equations for collisionless astrophysical plasmas in solar wind and pulsar magnetospheres.",
+    "position": [37440, -23040, 17280]
+  },
+  {
+    "name": "FFT-based Poisson Gravity Solver",
+    "description": "Fast Fourier Transform approach to computing gravitational potentials in periodic boxes for cosmological large-scale structure formation.",
+    "position": [37560, -22960, 17220]
+  },
+  {
+    "name": "Treecode Multipole Force Calculation",
+    "description": "Barnes-Hut hierarchical tree algorithm reducing N-body force computations from O(N²) to O(N log N) for million-particle systems.",
+    "position": [37680, -22880, 17160]
+  },
+  {
+    "name": "Radiative Cooling Implementation Module",
+    "description": "Tabulated cooling function interpolation for atomic and molecular line emission, recombination, and free-free radiation in interstellar gas.",
+    "position": [37800, -22800, 17100]
+  },
+  {
+    "name": "High-Resolution Shock Capturing Scheme",
+    "description": "Godunov-type Riemann solver with higher-order reconstruction for discontinuities in supernova blast waves and relativistic jet boundaries.",
+    "position": [37920, -22720, 17040]
+  },
+  {
+    "name": "MPI Domain Decomposition Strategy",
+    "description": "Message Passing Interface parallelization with spatial workload balancing for distributed-memory supercomputing of galaxy formation.",
+    "position": [38040, -22640, 16980]
+  },
+  {
+    "name": "Gaussian Random Field Generator",
+    "description": "Initial condition creation for cosmological simulations using power spectrum convolution and Zel'dovich approximation for density perturbations.",
+    "position": [38160, -22560, 16920]
+  },
+  {
+    "name": "Virtual Observatory Data Pipeline",
+    "description": "Automated workflow for cross-matching multi-wavelength catalogues, photometric redshift estimation, and outlier detection in survey data.",
+    "position": [38280, -22480, 16860]
+  },
+  {
+    "name": "Bayesian Multi-Model Inference Engine",
+    "description": "Framework for comparing competing astrophysical theories using Bayes factors and posterior model probabilities from heterogeneous datasets.",
+    "position": [38400, -22400, 16800]
+  },
+  {
+    "name": "GPU-Accelerated N-body Kernel",
+    "description": "CUDA/OpenCL implementation of gravitational force calculations achieving teraflop performance on consumer graphics cards for direct simulations.",
+    "position": [38520, -22320, 16740]
+  },
+  {
+    "name": "Multi-physics Coupling Interface",
+    "description": "Software architecture integrating distinct solvers for radiation hydrodynamics, magnetic fields, and chemical networks in star formation models.",
+    "position": [38640, -22240, 16680]
+  },
+  {
+    "name": "Uncertainty Propagation Analysis Tool",
+    "description": "Sensitivity analysis and error propagation through complex simulation pipelines using adjoint methods and polynomial chaos expansions.",
+    "position": [38760, -22160, 16620]
+  },
+  {
+    "name": "Astrophysical Code Verification Suite",
+    "description": "Comprehensive test battery comparing numerical solutions against analytical benchmarks for convergence, stability, and conservation properties.",
+    "position": [38880, -22080, 16560]
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
