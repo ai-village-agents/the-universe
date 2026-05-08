@@ -17761,6 +17761,167 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(psdGroup);
 
+  // v108: pier night magician show (pnms)
+  const pnmsGroup = new THREE.Group();
+  pnmsGroup.position.set(-26, 1.6, -16);
+  const pnmsStageMat = new THREE.MeshStandardMaterial({ color: 0x2a1840, roughness: 0.6 });
+  const pnmsStage = new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.4, 0.2, 24), pnmsStageMat);
+  pnmsGroup.add(pnmsStage);
+  const pnmsCurtainMat = new THREE.MeshStandardMaterial({ color: 0x6a0d2a, roughness: 0.85, side: THREE.DoubleSide });
+  const pnmsCurtain = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 2.0), pnmsCurtainMat);
+  pnmsCurtain.position.set(0, 1.1, -1.0);
+  pnmsGroup.add(pnmsCurtain);
+  const pnmsMagician = new THREE.Group();
+  pnmsMagician.position.set(0, 0.1, 0);
+  const pnmsCloak = new THREE.Mesh(new THREE.ConeGeometry(0.34, 1.0, 14), new THREE.MeshStandardMaterial({ color: 0x1a0030 }));
+  pnmsCloak.position.y = 0.5;
+  pnmsMagician.add(pnmsCloak);
+  const pnmsHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 12), new THREE.MeshStandardMaterial({ color: 0xf2c899 }));
+  pnmsHead.position.y = 1.14;
+  pnmsMagician.add(pnmsHead);
+  const pnmsTopHat = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.3, 14), new THREE.MeshStandardMaterial({ color: 0x080018 }));
+  pnmsTopHat.position.y = 1.35;
+  pnmsMagician.add(pnmsTopHat);
+  const pnmsTopHatBrim = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.20, 0.03, 14), new THREE.MeshStandardMaterial({ color: 0x080018 }));
+  pnmsTopHatBrim.position.y = 1.20;
+  pnmsMagician.add(pnmsTopHatBrim);
+  const pnmsWand = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.32, 8), new THREE.MeshStandardMaterial({ color: 0x111111 }));
+  pnmsWand.rotation.z = -1.2;
+  pnmsWand.position.set(0.20, 0.95, 0.05);
+  pnmsMagician.add(pnmsWand);
+  const pnmsWandTip = new THREE.Mesh(new THREE.SphereGeometry(0.04, 10, 8), new THREE.MeshBasicMaterial({ color: 0xfff0a0 }));
+  pnmsWandTip.position.set(0.34, 1.10, 0.05);
+  pnmsMagician.add(pnmsWandTip);
+  pnmsGroup.add(pnmsMagician);
+  const pnmsSparkles = [];
+  const pnmsSparkleMat = new THREE.MeshBasicMaterial({ color: 0xffe680, transparent: true, opacity: 1.0 });
+  for (let i = 0; i < 14; i++) {
+    const s = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), pnmsSparkleMat.clone());
+    const ang = (i / 14) * Math.PI * 2;
+    s.position.set(0.34 + Math.cos(ang) * 0.4, 1.1 + Math.sin(ang * 1.3) * 0.3, 0.05 + Math.sin(ang) * 0.2);
+    s.userData = { phase: i * 0.45, base: s.position.clone() };
+    pnmsSparkles.push(s);
+    pnmsGroup.add(s);
+  }
+  const pnmsAudience = [];
+  for (let i = 0; i < 5; i++) {
+    const a = new THREE.Group();
+    a.position.set(-1.5 + i * 0.7, 0, 1.6);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 0.7, 10), new THREE.MeshStandardMaterial({ color: [0x4a2a8a, 0x2a4a8a, 0x8a4a2a, 0x4a8a2a, 0x8a2a6a][i] }));
+    body.position.y = 0.35;
+    a.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 10), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.82;
+    a.add(head);
+    pnmsAudience.push(a);
+    pnmsGroup.add(a);
+  }
+  group.add(pnmsGroup);
+
+  // v108: beach calligraphy teacher (bct)
+  const bctGroup = new THREE.Group();
+  bctGroup.position.set(20, 0.3, 22);
+  const bctMat = new THREE.MeshStandardMaterial({ color: 0x6b4226, roughness: 0.85 });
+  const bctTable = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.06, 1.0), bctMat);
+  bctTable.position.y = 0.5;
+  bctGroup.add(bctTable);
+  for (let lx = -1.0; lx <= 1.0; lx += 2.0) {
+    for (let lz = -0.4; lz <= 0.4; lz += 0.8) {
+      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8), bctMat);
+      leg.position.set(lx, 0.24, lz);
+      bctGroup.add(leg);
+    }
+  }
+  const bctScrollMat = new THREE.MeshStandardMaterial({ color: 0xfaf3dd, roughness: 0.95 });
+  const bctScroll1 = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.4), bctScrollMat);
+  bctScroll1.rotation.x = -Math.PI / 2;
+  bctScroll1.position.set(-0.4, 0.535, 0);
+  bctGroup.add(bctScroll1);
+  const bctScroll2 = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.4), bctScrollMat);
+  bctScroll2.rotation.x = -Math.PI / 2;
+  bctScroll2.position.set(0.6, 0.535, 0.1);
+  bctGroup.add(bctScroll2);
+  const bctInkPotMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.4 });
+  const bctInk = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.1, 12), bctInkPotMat);
+  bctInk.position.set(-1.0, 0.59, 0.3);
+  bctGroup.add(bctInk);
+  const bctBrushHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.34, 8), new THREE.MeshStandardMaterial({ color: 0xa86a32 }));
+  bctBrushHandle.rotation.z = Math.PI / 2.2;
+  bctBrushHandle.position.set(-0.7, 0.56, 0.36);
+  bctGroup.add(bctBrushHandle);
+  const bctTeacher = new THREE.Group();
+  bctTeacher.position.set(0, 0, -0.85);
+  const bctTBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.8, 12), new THREE.MeshStandardMaterial({ color: 0x33323e }));
+  bctTBody.position.y = 0.4;
+  bctTeacher.add(bctTBody);
+  const bctTHead = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  bctTHead.position.y = 0.93;
+  bctTeacher.add(bctTHead);
+  bctGroup.add(bctTeacher);
+  const bctStudent = new THREE.Group();
+  bctStudent.position.set(0.6, 0, 0.85);
+  const bctSBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.7, 12), new THREE.MeshStandardMaterial({ color: 0xc24a8a }));
+  bctSBody.position.y = 0.35;
+  bctStudent.add(bctSBody);
+  const bctSHead = new THREE.Mesh(new THREE.SphereGeometry(0.12, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  bctSHead.position.y = 0.82;
+  bctStudent.add(bctSHead);
+  bctGroup.add(bctStudent);
+  const bctInkDrops = [];
+  const bctInkDropMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 1.0 });
+  for (let i = 0; i < 8; i++) {
+    const d = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 6), bctInkDropMat.clone());
+    d.position.set(-0.7 + (i % 4) * 0.18 - 0.3, 0.535, -0.05 + Math.floor(i / 4) * 0.1);
+    d.userData = { phase: i * 0.6 };
+    bctInkDrops.push(d);
+    bctGroup.add(d);
+  }
+  group.add(bctGroup);
+
+  // v108: coastal rain garden (crg)
+  const crgGroup = new THREE.Group();
+  crgGroup.position.set(-32, 0.2, 18);
+  const crgBasin = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 1.8, 0.18, 26), new THREE.MeshStandardMaterial({ color: 0x4a3a28, roughness: 0.95 }));
+  crgGroup.add(crgBasin);
+  const crgPuddleMat = new THREE.MeshStandardMaterial({ color: 0x4a7090, roughness: 0.2, transparent: true, opacity: 0.85 });
+  const crgPuddle = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.5, 0.08, 26), crgPuddleMat);
+  crgPuddle.position.y = 0.10;
+  crgGroup.add(crgPuddle);
+  const crgRipples = [];
+  const crgRippleMat = new THREE.MeshBasicMaterial({ color: 0x9ed0e8, transparent: true, opacity: 0.7, side: THREE.DoubleSide });
+  for (let i = 0; i < 6; i++) {
+    const r = new THREE.Mesh(new THREE.RingGeometry(0.08, 0.10, 22), crgRippleMat.clone());
+    r.rotation.x = -Math.PI / 2;
+    r.position.set(Math.cos(i * 1.5) * 0.6, 0.15, Math.sin(i * 1.5) * 0.6);
+    r.userData = { phase: i * 0.7 };
+    crgRipples.push(r);
+    crgGroup.add(r);
+  }
+  const crgPlants = [];
+  const crgGrassMat = new THREE.MeshStandardMaterial({ color: 0x3a7030, roughness: 0.8 });
+  const crgFlowerColors = [0xff6e9a, 0xffd23f, 0x9a6effff & 0xffffff, 0xff8c42, 0xc04ee0];
+  for (let i = 0; i < 16; i++) {
+    const ang = (i / 16) * Math.PI * 2;
+    const r = 1.85 + Math.random() * 0.3;
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.025, 0.45, 6), crgGrassMat);
+    stem.position.set(Math.cos(ang) * r, 0.32, Math.sin(ang) * r);
+    crgPlants.push(stem);
+    crgGroup.add(stem);
+    if (i % 2 === 0) {
+      const flower = new THREE.Mesh(new THREE.SphereGeometry(0.06, 10, 8), new THREE.MeshStandardMaterial({ color: crgFlowerColors[(i / 2) % crgFlowerColors.length] }));
+      flower.position.set(Math.cos(ang) * r, 0.56, Math.sin(ang) * r);
+      crgGroup.add(flower);
+    }
+  }
+  const crgSign = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.3), new THREE.MeshStandardMaterial({ color: 0xfff8df, roughness: 0.9, side: THREE.DoubleSide }));
+  crgSign.position.set(2.1, 0.7, 0);
+  crgSign.rotation.y = -0.4;
+  crgGroup.add(crgSign);
+  const crgSignPost = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.6, 8), new THREE.MeshStandardMaterial({ color: 0x6b4226 }));
+  crgSignPost.position.set(2.1, 0.4, 0);
+  crgGroup.add(crgSignPost);
+  group.add(crgGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -20248,6 +20409,28 @@ export function createAnchorageLandmark(THREE, opts) {
           const n = psdNotes[i];
           n.position.y = n.userData.baseY + ((v107t * 0.6 + n.userData.phase) % 2.0);
           n.material.opacity = Math.max(0.0, 1.0 - ((v107t * 0.6 + n.userData.phase) % 2.0) * 0.5);
+    // v108 updates
+    const v108t = t;
+    pnmsSparkles.forEach((s, i) => {
+      const base = s.userData.base;
+      const ph = v108t * 2.5 + s.userData.phase;
+      s.position.x = base.x + Math.cos(ph) * 0.06;
+      s.position.y = base.y + Math.sin(ph * 1.4) * 0.08;
+      s.material.opacity = 0.6 + 0.4 * Math.sin(ph * 1.7);
+    });
+    pnmsAudience.forEach((a, i) => {
+      a.position.y = Math.sin(v108t * 0.8 + i * 0.5) * 0.04;
+    });
+    pnmsMagician.rotation.y = Math.sin(v108t * 0.6) * 0.25;
+    bctInkDrops.forEach((d, i) => {
+      d.material.opacity = 0.5 + 0.5 * Math.sin(v108t * 0.7 + d.userData.phase);
+    });
+    bctTeacher.rotation.y = Math.sin(v108t * 0.5) * 0.15;
+    crgRipples.forEach((r, i) => {
+      const ph = (v108t * 1.2 + r.userData.phase) % 2.0;
+      r.scale.setScalar(0.5 + ph * 4.0);
+      r.material.opacity = Math.max(0.0, 0.7 - ph * 0.35);
+    });
         }
 
 
