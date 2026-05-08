@@ -16735,7 +16735,33 @@ const cosmicSights = [
     name: "Supersymmetric Dark Matter Relic",
     description: "A surviving population of the lightest supersymmetric particles, frozen out of equilibrium in the early hot universe.",
     position: [5713, -2459, 3895]
-  }
+  },
+  {"name": "Binary Neutron Star Inspiral", "description": "Two neutron stars spiraling together emit gravitational waves at increasing frequency, culminating in a violent merger detectable across cosmic distances.", "position": [3145, -2678, 1890]},
+  {"name": "Binary Black Hole Coalescence", "description": "The final plunge and merger of two black holes produces the loudest gravitational wave signals, briefly outshining all electromagnetic sources combined.", "position": [-2456, 1567, -3234]},
+  {"name": "Neutron Star Black Hole Merger", "description": "Mixed binary mergers produce asymmetric gravitational wave signatures and may leave neutron star material for electromagnetic counterpart observations.", "position": [1789, -3012, 2345]},
+  {"name": "Gravitational Wave Ringdown Phase", "description": "After merger, the remnant black hole settles through damped oscillations whose frequencies encode the final mass and spin.", "position": [-3567, 2234, -1456]},
+  {"name": "Continuous Wave Pulsar Emission", "description": "Rapidly rotating neutron stars with asymmetric mass distributions emit persistent gravitational waves at twice their spin frequency.", "position": [2012, -1345, 3678]},
+  {"name": "Stochastic Gravitational Wave Background", "description": "The superposition of countless unresolved sources creates a random gravitational wave noise floor encoding cosmic merger history.", "position": [-1678, 3456, -2890]},
+  {"name": "Extreme Mass Ratio Inspiral", "description": "A stellar-mass object spiraling into a supermassive black hole traces the curved spacetime geometry over thousands of observable orbits.", "position": [3234, -2012, 1234]},
+  {"name": "Supermassive Black Hole Binary", "description": "Galaxy mergers produce supermassive black hole pairs whose low-frequency gravitational waves ripple through pulsar timing observations.", "position": [-2890, 1890, -3567]},
+  {"name": "Gravitational Wave Memory Effect", "description": "Passing gravitational waves leave permanent spacetime displacement, a subtle DC offset measurable through precision interferometry.", "position": [1456, -3678, 2567]},
+  {"name": "Kilonova Electromagnetic Counterpart", "description": "Neutron star merger gravitational wave events produce optical transients powered by radioactive decay of freshly synthesized heavy elements.", "position": [-3012, 2678, -1789]},
+  {"name": "Gamma Ray Burst GW Association", "description": "Short gamma-ray bursts coincident with gravitational waves confirm compact binary mergers as their progenitors through multi-messenger detection.", "position": [2567, -1234, 3890]},
+  {"name": "LIGO Detector Sensitivity Curve", "description": "Ground-based interferometers achieve strain sensitivity of 10^-23, detecting spacetime distortions smaller than a proton diameter.", "position": [-1234, 3234, -2456]},
+  {"name": "LISA Space Antenna Constellation", "description": "Three spacecraft separated by millions of kilometers will detect millihertz gravitational waves from massive black hole mergers.", "position": [3678, -2890, 1567]},
+  {"name": "Pulsar Timing Array Detection", "description": "Correlations in radio pulse arrival times from millisecond pulsars reveal nanohertz gravitational waves from supermassive black hole binaries.", "position": [-2234, 1012, -3890]},
+  {"name": "Gravitational Wave Polarization Modes", "description": "General relativity predicts two tensor polarizations, while alternative theories allow additional scalar and vector modes testable through detector networks.", "position": [1890, -3456, 2012]},
+  {"name": "Black Hole Spin Measurement", "description": "Gravitational wave phase evolution constrains the spin magnitudes and orientations of merging black holes through higher-order waveform harmonics.", "position": [-3456, 2345, -1012]},
+  {"name": "Neutron Star Equation of State", "description": "Tidal deformation during inspiral imprints on gravitational waves, constraining the ultra-dense matter equation of state.", "position": [2345, -1678, 3456]},
+  {"name": "Gravitational Wave Standard Siren", "description": "Binary merger distances measured through gravitational waves provide independent cosmic distance ladders when combined with electromagnetic redshifts.", "position": [-1567, 3890, -2678]},
+  {"name": "Post-Merger Remnant Oscillations", "description": "Hypermassive neutron star remnants may briefly survive merger, emitting high-frequency gravitational waves before collapse.", "position": [3012, -2456, 1345]},
+  {"name": "Gravitational Wave Source Localization", "description": "Multiple detector timing triangulation constrains source sky positions to tens of square degrees, enabling electromagnetic follow-up searches.", "position": [-2678, 1456, -3234]},
+  {"name": "Intermediate Mass Black Hole Merger", "description": "Gravitational waves from hundred-solar-mass black hole mergers bridge stellar and supermassive populations with distinctive ringdown signatures.", "position": [1234, -3234, 2890]},
+  {"name": "Gravitational Wave Lensing Magnification", "description": "Strong gravitational lensing can magnify and multiply gravitational wave signals from distant sources, probing dark matter substructure.", "position": [-3890, 2012, -1234]},
+  {"name": "Primordial Gravitational Wave Background", "description": "Inflation-generated gravitational waves from the early universe would produce a distinctive stochastic background across all frequencies.", "position": [2678, -1890, 3567]},
+  {"name": "Core Collapse Supernova GW Emission", "description": "Asymmetric core collapse and subsequent proto-neutron star convection generate burst-like gravitational wave signals.", "position": [-1012, 3567, -2345]},
+  {"name": "Gravitational Wave Cosmography", "description": "Statistical analysis of gravitational wave source populations constrains cosmic expansion history and large-scale structure formation.", "position": [3456, -2234, 1678]}
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
