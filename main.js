@@ -21250,6 +21250,207 @@ const cosmicSights = [
     color: '#FF4500',
     size: 127
   }
+,
+  {
+    name: 'Lyman Alpha Forest Cloud 12601',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-6745, -32614, -3092],
+    color: '#DC143C',
+    size: 67
+  },
+  {
+    name: 'Warm Hot Intergalactic Medium 12602',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [17361, -37281, -15159],
+    color: '#696969',
+    size: 377
+  },
+  {
+    name: 'Cosmic Web Filament Gas 12603',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [37455, 11353, 35204],
+    color: '#F0FFFF',
+    size: 229
+  },
+  {
+    name: 'Intergalactic Magnetic Field Void 12604',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-30903, -5708, -34356],
+    color: '#00FFFF',
+    size: 94
+  },
+  {
+    name: 'Extragalactic Background Light 12605',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-2108, 27854, -1869],
+    color: '#FFFFFF',
+    size: 270
+  },
+  {
+    name: 'Intergalactic Dust Grain 12606',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [2168, 35426, -18299],
+    color: '#B0E0E6',
+    size: 371
+  },
+  {
+    name: 'Supercluster Intergalactic Bridge 12607',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [16541, -38157, -16915],
+    color: '#483D8B',
+    size: 228
+  },
+  {
+    name: 'Damped Lyman Alpha System 12608',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-34724, -11694, 36046],
+    color: '#A9A9A9',
+    size: 304
+  },
+  {
+    name: 'Intergalactic Star Wanderer 12609',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-10590, 17039, -18414],
+    color: '#A9A9A9',
+    size: 287
+  },
+  {
+    name: 'Intergalactic Plasma Flow 12610',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-22635, -36385, -28445],
+    color: '#DDA0DD',
+    size: 110
+  },
+  {
+    name: 'IGM Cooling Flow 12611',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [20609, 20480, 11273],
+    color: '#FF6347',
+    size: 351
+  },
+  {
+    name: 'Cosmic Ray Extragalactic Propagation 12612',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [32667, 2623, 35077],
+    color: '#FFFACD',
+    size: 335
+  },
+  {
+    name: 'Dark Matter Filament Intergalactic 12613',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-39783, 4050, -17685],
+    color: '#696969',
+    size: 145
+  },
+  {
+    name: 'Giant Radio Galaxy Plume 12614',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [2832, -9789, -10030],
+    color: '#87CEEB',
+    size: 373
+  },
+  {
+    name: 'Galaxy Cluster X Ray Halo 12615',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-36912, -17322, -2478],
+    color: '#F0FFFF',
+    size: 350
+  },
+  {
+    name: 'Sunyaev Zeldovich Effect Gas 12616',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [7350, 24561, 16312],
+    color: '#696969',
+    size: 159
+  },
+  {
+    name: 'Intergalactic Metal Enrichment 12617',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [16969, 12570, -39400],
+    color: '#FF4500',
+    size: 355
+  },
+  {
+    name: 'First Light Reionization Bubble 12618',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-17894, 19887, 23987],
+    color: '#87CEEB',
+    size: 371
+  },
+  {
+    name: 'Gunn Peterson Trough Hydrogen 12619',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [3759, 35501, 29024],
+    color: '#FF00FF',
+    size: 186
+  },
+  {
+    name: 'IGM Baryon Acoustic Oscillation 12620',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [34424, -37613, -24507],
+    color: '#FF1493',
+    size: 129
+  },
+  {
+    name: 'Void Galaxy Intergalactic Medium 12621',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [33163, 3389, -1852],
+    color: '#FF1493',
+    size: 152
+  },
+  {
+    name: 'Extragalactic Jet Termination Shock 12622',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [-33325, 7818, 10084],
+    color: '#FF4500',
+    size: 283
+  },
+  {
+    name: 'Intergalactic Gas Cloud Condensation 12623',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [32264, 13465, 22451],
+    color: '#BDB76B',
+    size: 140
+  },
+  {
+    name: 'Cosmic Web Node Accumulation 12624',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [35271, -16391, -15735],
+    color: '#98FB98',
+    size: 136
+  },
+  {
+    name: 'IGM Helium Reionization Zone 12625',
+    category: 'Intergalactic Medium Structures',
+    description: 'A mesmerizing manifestation of intergalactic medium structures observed in deep space.', 
+    position: [34107, 25986, -13016],
+    color: '#FF6347',
+    size: 57
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
