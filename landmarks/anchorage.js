@@ -17620,6 +17620,147 @@ export function createAnchorageLandmark(THREE, opts) {
   }
   group.add(dbscGroup);
 
+  // v107: whale tail breach moment (wtb) - dramatic tail above waves
+  const wtbGroup = new THREE.Group();
+  wtbGroup.position.set(-78, 0, -55);
+  // Splash ring
+  const wtbSplashMat = new THREE.MeshBasicMaterial({ color: 0xddeeff, transparent: true, opacity: 0.7, side: THREE.DoubleSide });
+  const wtbSplash = new THREE.Mesh(new THREE.RingGeometry(2.2, 4.0, 24), wtbSplashMat);
+  wtbSplash.rotation.x = -Math.PI / 2;
+  wtbSplash.position.y = 0.15;
+  wtbGroup.add(wtbSplash);
+  // Whale tail (peduncle + flukes)
+  const wtbTail = new THREE.Group();
+  wtbTail.position.y = 0;
+  const wtbPed = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 1.1, 4.5, 12), new THREE.MeshLambertMaterial({ color: 0x2a3a4a }));
+  wtbPed.position.y = 2.0;
+  wtbTail.add(wtbPed);
+  const fluke = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.4, 1.6), new THREE.MeshLambertMaterial({ color: 0x223040 }));
+  fluke.position.y = 4.2;
+  wtbTail.add(fluke);
+  // Sloped tip via two angled boxes
+  const flukeL = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.35, 1.4), new THREE.MeshLambertMaterial({ color: 0x223040 }));
+  flukeL.position.set(-2.4, 4.4, 0);
+  flukeL.rotation.z = 0.3;
+  wtbTail.add(flukeL);
+  const flukeR = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.35, 1.4), new THREE.MeshLambertMaterial({ color: 0x223040 }));
+  flukeR.position.set(2.4, 4.4, 0);
+  flukeR.rotation.z = -0.3;
+  wtbTail.add(flukeR);
+  wtbGroup.add(wtbTail);
+  // Spray particles
+  const wtbSpray = [];
+  const wtbSprayMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 });
+  for (let i = 0; i < 8; i++) {
+    const drop = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 6), wtbSprayMat.clone());
+    const ang = (i / 8) * Math.PI * 2;
+    drop.position.set(Math.cos(ang) * 2.5, 1.5, Math.sin(ang) * 2.5);
+    drop.userData = { ang, base: 1.5 };
+    wtbGroup.add(drop);
+    wtbSpray.push(drop);
+  }
+  group.add(wtbGroup);
+
+  // v107: coastal succulent garden (csg)
+  const csgGroup = new THREE.Group();
+  csgGroup.position.set(-22, 0.05, -42);
+  // Wooden planter
+  const csgPlanter = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.5, 1.6), new THREE.MeshLambertMaterial({ color: 0x8b6f47 }));
+  csgPlanter.position.y = 0.25;
+  csgGroup.add(csgPlanter);
+  // Soil
+  const csgSoil = new THREE.Mesh(new THREE.BoxGeometry(3.7, 0.2, 1.3), new THREE.MeshLambertMaterial({ color: 0x4a3322 }));
+  csgSoil.position.y = 0.55;
+  csgGroup.add(csgSoil);
+  // Various succulents
+  const csgPlants = [];
+  const succColors = [0x66aa55, 0x88cc77, 0x4a8855, 0x99bb66, 0xaaccaa, 0x77aa88];
+  for (let i = 0; i < 12; i++) {
+    const px = -1.7 + (i % 6) * 0.7 + (Math.random() - 0.5) * 0.1;
+    const pz = -0.55 + Math.floor(i / 6) * 1.0;
+    const c = succColors[i % succColors.length];
+    if (i % 3 === 0) {
+      // Rosette
+      const ros = new THREE.Group();
+      ros.position.set(px, 0.7, pz);
+      for (let j = 0; j < 7; j++) {
+        const petal = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.25, 5), new THREE.MeshLambertMaterial({ color: c }));
+        const ja = (j / 7) * Math.PI * 2;
+        petal.position.set(Math.cos(ja) * 0.12, 0.05, Math.sin(ja) * 0.12);
+        petal.rotation.x = Math.PI / 2;
+        petal.rotation.z = ja;
+        ros.add(petal);
+      }
+      csgGroup.add(ros);
+      csgPlants.push(ros);
+    } else if (i % 3 === 1) {
+      // Tall column cactus
+      const col = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.5, 8), new THREE.MeshLambertMaterial({ color: c }));
+      col.position.set(px, 0.9, pz);
+      csgGroup.add(col);
+      csgPlants.push(col);
+    } else {
+      // Round bulbous
+      const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 8), new THREE.MeshLambertMaterial({ color: c }));
+      bulb.position.set(px, 0.78, pz);
+      csgGroup.add(bulb);
+      csgPlants.push(bulb);
+    }
+  }
+  // Small sign
+  const csgSign = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.3), new THREE.MeshLambertMaterial({ color: 0xeeeecc, side: THREE.DoubleSide }));
+  csgSign.position.set(0, 1.2, -1.0);
+  csgGroup.add(csgSign);
+  const csgPost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.9, 6), new THREE.MeshLambertMaterial({ color: 0x6a4a2a }));
+  csgPost.position.set(0, 0.95, -1.0);
+  csgGroup.add(csgPost);
+  group.add(csgGroup);
+
+  // v107: pier saxophone duet (psd)
+  const psdGroup = new THREE.Group();
+  psdGroup.position.set(20, 1.6, -16); // on pier deck level
+  // Two musicians side by side
+  const psdMusicians = [];
+  for (let i = 0; i < 2; i++) {
+    const m = new THREE.Group();
+    m.position.set((i - 0.5) * 1.6, 0, 0);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.32, 0.92, 10), new THREE.MeshLambertMaterial({ color: i === 0 ? 0x2a2a3a : 0x553344 }));
+    body.position.y = 1.0;
+    m.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshLambertMaterial({ color: 0xffd1a3 }));
+    head.position.y = 1.65;
+    m.add(head);
+    const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.27, 0.18, 12), new THREE.MeshLambertMaterial({ color: 0x222222 }));
+    hat.position.y = 1.86;
+    m.add(hat);
+    // Saxophone (curved approximated by 2 cylinders + bell)
+    const saxBody = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.5, 8), new THREE.MeshLambertMaterial({ color: 0xddaa44 }));
+    saxBody.position.set(0.15, 1.15, 0.3);
+    saxBody.rotation.x = 0.5;
+    m.add(saxBody);
+    const saxNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 0.35, 8), new THREE.MeshLambertMaterial({ color: 0xddaa44 }));
+    saxNeck.position.set(0.15, 1.4, 0.15);
+    saxNeck.rotation.x = 1.0;
+    m.add(saxNeck);
+    const saxBell = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.22, 12, 1, true), new THREE.MeshLambertMaterial({ color: 0xeebb55, side: THREE.DoubleSide }));
+    saxBell.position.set(0.15, 0.85, 0.45);
+    saxBell.rotation.x = -0.6;
+    m.add(saxBell);
+    psdGroup.add(m);
+    psdMusicians.push(m);
+  }
+  // Music notes floating up
+  const psdNotes = [];
+  const psdNoteMat = new THREE.MeshBasicMaterial({ color: 0xffeeaa, transparent: true, opacity: 0.9 });
+  for (let i = 0; i < 5; i++) {
+    const n = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), psdNoteMat.clone());
+    n.position.set(0.3 + (Math.random() - 0.5) * 0.6, 2.3 + i * 0.3, 0.4);
+    n.userData = { phase: i * 0.7, baseY: 2.3 + i * 0.3 };
+    psdGroup.add(n);
+    psdNotes.push(n);
+  }
+  group.add(psdGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -20091,6 +20232,24 @@ export function createAnchorageLandmark(THREE, opts) {
         for (let i = 0; i < dbscAudience.length; i++) {
           dbscAudience[i].position.y = 0.7 + Math.sin(v106t * 1.5 + i * 0.7) * 0.04;
         }
+        // v107: whale tail breach gentle bob, succulent garden idle, sax duet sway + notes
+        const v107t = t * 1.0;
+        wtbTail.rotation.x = Math.sin(v107t * 0.4) * 0.08;
+        wtbSplash.material.opacity = 0.55 + Math.sin(v107t * 0.6) * 0.2;
+        for (let i = 0; i < wtbSpray.length; i++) {
+          const drop = wtbSpray[i];
+          drop.position.y = drop.userData.base + Math.sin(v107t * 1.6 + drop.userData.ang) * 0.5;
+          drop.material.opacity = 0.5 + Math.sin(v107t * 1.2 + drop.userData.ang) * 0.3;
+        }
+        for (let i = 0; i < psdMusicians.length; i++) {
+          psdMusicians[i].rotation.y = Math.sin(v107t * 1.0 + i * Math.PI) * 0.18;
+        }
+        for (let i = 0; i < psdNotes.length; i++) {
+          const n = psdNotes[i];
+          n.position.y = n.userData.baseY + ((v107t * 0.6 + n.userData.phase) % 2.0);
+          n.material.opacity = Math.max(0.0, 1.0 - ((v107t * 0.6 + n.userData.phase) % 2.0) * 0.5);
+        }
+
 
 
         // v98 anim
