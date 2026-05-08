@@ -21585,6 +21585,133 @@ export function createAnchorageLandmark(THREE, opts) {
   pfbGroup.add(pfbFinial);
   group.add(pfbGroup);
 
+
+  // v132: coastal fishing net repair (cfnr)
+  const cfnrGroup = new THREE.Group();
+  cfnrGroup.position.set(-340, 0, -82);
+  // a horizontal beam they're stretching the net on
+  const cfnrBeamMat = new THREE.MeshLambertMaterial({ color: 0x6a4a2a });
+  const cfnrBeamL = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 1.6, 8), cfnrBeamMat);
+  cfnrBeamL.position.set(-2.0, 0.8, 0);
+  cfnrGroup.add(cfnrBeamL);
+  const cfnrBeamR = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 1.6, 8), cfnrBeamMat);
+  cfnrBeamR.position.set(2.0, 0.8, 0);
+  cfnrGroup.add(cfnrBeamR);
+  const cfnrBeamTop = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 4.4, 8), cfnrBeamMat);
+  cfnrBeamTop.rotation.z = Math.PI / 2;
+  cfnrBeamTop.position.set(0, 1.55, 0);
+  cfnrGroup.add(cfnrBeamTop);
+  // net (mesh of small spheres on a plane to suggest knots)
+  const cfnrNetMat = new THREE.MeshBasicMaterial({ color: 0x404040, transparent: true, opacity: 0.4, side: THREE.DoubleSide });
+  const cfnrNet = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 1.4), cfnrNetMat);
+  cfnrNet.position.set(0, 0.85, 0);
+  cfnrGroup.add(cfnrNet);
+  const cfnrKnots = [];
+  for (let i = 0; i < 24; i++) {
+    const k = new THREE.Mesh(new THREE.SphereGeometry(0.04, 5, 4), new THREE.MeshLambertMaterial({ color: 0x303030 }));
+    k.position.set(-1.8 + (i % 8) * 0.5, 0.4 + Math.floor(i / 8) * 0.45, 0);
+    cfnrGroup.add(k);
+    cfnrKnots.push(k);
+  }
+  // two repairers
+  const cfnrA = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.2, 8), new THREE.MeshLambertMaterial({ color: 0x506098 }));
+  cfnrA.position.set(-1.4, 0.6, 0.6);
+  cfnrGroup.add(cfnrA);
+  const cfnrAH = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xe8be96 }));
+  cfnrAH.position.set(-1.4, 1.35, 0.6);
+  cfnrGroup.add(cfnrAH);
+  const cfnrB = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.2, 8), new THREE.MeshLambertMaterial({ color: 0xa05030 }));
+  cfnrB.position.set(1.4, 0.6, 0.6);
+  cfnrGroup.add(cfnrB);
+  const cfnrBH = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xd8a880 }));
+  cfnrBH.position.set(1.4, 1.35, 0.6);
+  cfnrGroup.add(cfnrBH);
+  group.add(cfnrGroup);
+
+  // v132: beach sandcastle competition (bsc)
+  const bscGroup = new THREE.Group();
+  bscGroup.position.set(-160, 0, 244);
+  const bscSandMat = new THREE.MeshLambertMaterial({ color: 0xe8d4a0 });
+  const bscCastles = [];
+  for (let c = 0; c < 4; c++) {
+    const cg = new THREE.Group();
+    cg.position.set(-3 + c * 2, 0, 0);
+    // base
+    const base = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 1.0), bscSandMat);
+    base.position.y = 0.2;
+    cg.add(base);
+    // towers
+    for (let tw = 0; tw < 4; tw++) {
+      const tx = (tw % 2 === 0 ? -0.4 : 0.4);
+      const tz = (tw < 2 ? -0.4 : 0.4);
+      const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.5, 8), bscSandMat);
+      tower.position.set(tx, 0.65, tz);
+      cg.add(tower);
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.25, 8), bscSandMat);
+      cone.position.set(tx, 1.0, tz);
+      cg.add(cone);
+    }
+    // central keep
+    const keep = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.4), bscSandMat);
+    keep.position.y = 0.7;
+    cg.add(keep);
+    // tiny flag
+    const flagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.4, 4), new THREE.MeshBasicMaterial({ color: 0x808080 }));
+    flagPole.position.set(0, 1.2, 0);
+    cg.add(flagPole);
+    const flag = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.12), new THREE.MeshLambertMaterial({ color: [0xff6080, 0x60c0ff, 0xffe060, 0x80e080][c], side: THREE.DoubleSide }));
+    flag.position.set(0.1, 1.32, 0);
+    cg.add(flag);
+    bscGroup.add(cg);
+    bscCastles.push({ group: cg, flag });
+  }
+  // judge
+  const bscJudge = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 1.4, 8), new THREE.MeshLambertMaterial({ color: 0x404060 }));
+  bscJudge.position.set(0, 0.7, 1.6);
+  bscGroup.add(bscJudge);
+  const bscJudgeH = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 7), new THREE.MeshLambertMaterial({ color: 0xf0c8a0 }));
+  bscJudgeH.position.set(0, 1.55, 1.6);
+  bscGroup.add(bscJudgeH);
+  const bscClipboard = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.04, 0.32), new THREE.MeshLambertMaterial({ color: 0xe8e0c8 }));
+  bscClipboard.position.set(-0.3, 1.0, 1.6);
+  bscClipboard.rotation.z = -0.3;
+  bscGroup.add(bscClipboard);
+  group.add(bscGroup);
+
+  // v132: coastal lighthouse keeper repair (clkr)
+  const clkrGroup = new THREE.Group();
+  clkrGroup.position.set(-380, 4, 16);
+  // ladder leaning on lighthouse (ladder only here)
+  const clkrLadderMat = new THREE.MeshLambertMaterial({ color: 0xb8946a });
+  const clkrLadder = new THREE.Mesh(new THREE.BoxGeometry(0.06, 4.0, 0.4), clkrLadderMat);
+  clkrLadder.rotation.z = -0.18;
+  clkrLadder.position.set(0.2, 2.0, 0);
+  clkrGroup.add(clkrLadder);
+  const clkrRails = [];
+  for (let i = 0; i < 8; i++) {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.05), clkrLadderMat);
+    rung.position.set(0.2 - Math.sin(0.18) * (i * 0.5 - 2), 0.4 + i * 0.5, 0);
+    clkrGroup.add(rung);
+    clkrRails.push(rung);
+  }
+  // keeper on ladder
+  const clkrKeeper = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 1.2, 8), new THREE.MeshLambertMaterial({ color: 0xc0a060 }));
+  clkrKeeper.position.set(-0.1, 2.6, 0.3);
+  clkrGroup.add(clkrKeeper);
+  const clkrKeeperH = new THREE.Mesh(new THREE.SphereGeometry(0.2, 7, 6), new THREE.MeshLambertMaterial({ color: 0xd8a880 }));
+  clkrKeeperH.position.set(-0.1, 3.35, 0.3);
+  clkrGroup.add(clkrKeeperH);
+  // tool belt
+  const clkrBelt = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.04, 6, 12), new THREE.MeshLambertMaterial({ color: 0x4a3030 }));
+  clkrBelt.position.set(-0.1, 2.3, 0.3);
+  clkrBelt.rotation.x = Math.PI / 2;
+  clkrGroup.add(clkrBelt);
+  // bucket below
+  const clkrBucket = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.18, 0.3, 10), new THREE.MeshLambertMaterial({ color: 0x808088 }));
+  clkrBucket.position.set(0.5, 0.15, 0.4);
+  clkrGroup.add(clkrBucket);
+  group.add(clkrGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -24576,6 +24703,23 @@ export function createAnchorageLandmark(THREE, opts) {
   // pfb - flag waves
   pfbFlag.rotation.y = Math.sin(v131t * 1.5) * 0.3;
   pfbFlag.position.x = 0.85 + Math.sin(v131t * 2.0) * 0.08;
+
+  // v132 updates
+  const v132t = t;
+  // cfnr - net sways gently
+  cfnrNet.position.x = Math.sin(v132t * 0.8) * 0.06;
+  for (let i = 0; i < cfnrKnots.length; i++) {
+    cfnrKnots[i].position.x = (-1.8 + (i % 8) * 0.5) + Math.sin(v132t * 0.8 + i * 0.2) * 0.03;
+  }
+  // bsc - flags wave
+  for (let i = 0; i < bscCastles.length; i++) {
+    bscCastles[i].flag.rotation.y = Math.sin(v132t * 1.5 + i * 0.7) * 0.5;
+  }
+  // judge head nods
+  bscJudgeH.rotation.x = Math.sin(v132t * 1.2) * 0.18;
+  // clkr - keeper hand reaches
+  clkrKeeper.rotation.z = Math.sin(v132t * 1.8) * 0.05;
+  clkrKeeperH.position.x = -0.1 + Math.sin(v132t * 1.2) * 0.04;
 
 
 
