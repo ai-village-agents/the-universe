@@ -17318,6 +17318,157 @@ const cosmicSights = [
       "description": "Rate of orbital element diffusion in chaos",
       "position": [5474, 106980, 3474]
     }
+,
+    {
+      "id": 11726,
+      "name": "Bell's Theorem Violations",
+      "description": "Experimental violations of Bell inequalities",
+      "position": [5475, 107000, 3475]
+    },
+    {
+      "id": 11727,
+      "name": "Quantum Entanglement Two Qubits",
+      "description": "Bell state preparation and characterization",
+      "position": [5476, 107020, 3476]
+    },
+    {
+      "id": 11728,
+      "name": "CHSH Inequality Tests",
+      "description": "Clauser-Horne-Shimony-Holt inequality violations",
+      "position": [5477, 107040, 3477]
+    },
+    {
+      "id": 11729,
+      "name": "Quantum Steering Paradox",
+      "description": "Einstein-Podolsky-Rosen steering phenomena",
+      "position": [5478, 107060, 3478]
+    },
+    {
+      "id": 11730,
+      "name": "Hardy's Paradox Quantum",
+      "description": "Quantum correlations in Hardy's setup",
+      "position": [5479, 107080, 3479]
+    },
+    {
+      "id": 11731,
+      "name": "Quantum Nonlocality GHZ States",
+      "description": "Greenberger-Horne-Zeilinger multipartite entanglement",
+      "position": [5480, 107100, 3480]
+    },
+    {
+      "id": 11732,
+      "name": "W State Entanglement",
+      "description": "Symmetric three-qubit entangled states",
+      "position": [5481, 107120, 3481]
+    },
+    {
+      "id": 11733,
+      "name": "Quantum Contextuality Tests",
+      "description": "Kochen-Specker contextuality experiments",
+      "position": [5482, 107140, 3482]
+    },
+    {
+      "id": 11734,
+      "name": "Loopholes Bell Tests",
+      "description": "Closing loopholes in Bell inequality experiments",
+      "position": [5483, 107160, 3483]
+    },
+    {
+      "id": 11735,
+      "name": "Photonic Entanglement Sources",
+      "description": "Parametric down-conversion and entangled photon pairs",
+      "position": [5484, 107180, 3484]
+    },
+    {
+      "id": 11736,
+      "name": "Quantum Teleportation Protocols",
+      "description": "Teleporting quantum states via entanglement",
+      "position": [5485, 107200, 3485]
+    },
+    {
+      "id": 11737,
+      "name": "Entanglement Swapping Circuits",
+      "description": "Creating entanglement between non-interacting systems",
+      "position": [5486, 107220, 3486]
+    },
+    {
+      "id": 11738,
+      "name": "Quantum Key Distribution Entanglement",
+      "description": "E91 protocol and secure communication",
+      "position": [5487, 107240, 3487]
+    },
+    {
+      "id": 11739,
+      "name": "Entanglement Purification Methods",
+      "description": "Increasing purity of entangled states",
+      "position": [5488, 107260, 3488]
+    },
+    {
+      "id": 11740,
+      "name": "Quantum Error Correction Codes",
+      "description": "Protecting entangled states from decoherence",
+      "position": [5489, 107280, 3489]
+    },
+    {
+      "id": 11741,
+      "name": "Quantifying Entanglement Entropy",
+      "description": "Entanglement entropy measures and calculations",
+      "position": [5490, 107300, 3490]
+    },
+    {
+      "id": 11742,
+      "name": "Monogamy Entanglement",
+      "description": "Limits on sharing entanglement in networks",
+      "position": [5491, 107320, 3491]
+    },
+    {
+      "id": 11743,
+      "name": "Genuine Multipartite Entanglement",
+      "description": "True many-body entanglement detection",
+      "position": [5492, 107340, 3492]
+    },
+    {
+      "id": 11744,
+      "name": "Graph State Entanglement",
+      "description": "Cluster states for measurement-based computing",
+      "position": [5493, 107360, 3493]
+    },
+    {
+      "id": 11745,
+      "name": "Persistent Entanglement Storage",
+      "description": "Long-lived quantum memory for entanglement",
+      "position": [5494, 107380, 3494]
+    },
+    {
+      "id": 11746,
+      "name": "Entanglement Assisted Metrology",
+      "description": "Quantum-enhanced precision measurements",
+      "position": [5495, 107400, 3495]
+    },
+    {
+      "id": 11747,
+      "name": "Quantum Advantage Entanglement",
+      "description": "Computational speedup from entanglement",
+      "position": [5496, 107420, 3496]
+    },
+    {
+      "id": 11748,
+      "name": "Topological Entanglement Entropy",
+      "description": "Long-range entanglement in topological phases",
+      "position": [5497, 107440, 3497]
+    },
+    {
+      "id": 11749,
+      "name": "Time-Bin Entanglement Photons",
+      "description": "Entanglement in time-energy degrees of freedom",
+      "position": [5498, 107460, 3498]
+    },
+    {
+      "id": 11750,
+      "name": "Hyper-Entanglement Photonic Systems",
+      "description": "Entanglement in multiple degrees of freedom",
+      "position": [5499, 107480, 3499]
+    }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
