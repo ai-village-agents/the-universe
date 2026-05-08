@@ -18654,6 +18654,282 @@ const cosmicSights = [
         position: [5650, 116740, 3650],
         category: "cosmic sight"
     }
+,
+  { name: 'Placeholder 11951', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11952', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11953', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11954', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11955', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11956', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11957', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11958', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11959', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11960', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11961', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11962', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11963', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11964', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11965', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11966', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11967', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11968', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11969', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11970', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11971', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11972', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11973', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11974', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11975', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11976', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11977', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11978', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11979', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11980', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11981', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11982', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11983', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11984', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11985', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11986', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11987', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11988', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11989', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11990', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11991', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11992', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11993', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11994', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11995', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11996', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11997', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11998', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 11999', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12000', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12001', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12002', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12003', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12004', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12005', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12006', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12007', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12008', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12009', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12010', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12011', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12012', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12013', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12014', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12015', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12016', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12017', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12018', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12019', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12020', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12021', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12022', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12023', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12024', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  { name: 'Placeholder 12025', category: 'Placeholder', description: '...', position: [0,0,0], color: '#000', size: 1 },
+  {
+    name: 'Boötes Supervoid Core 12026',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12026, mapping the ultimate scale of the universe.',
+    position: [-24819, -19795, -4324],
+    color: '#EE82EE',
+    size: 1205
+  },
+  {
+    name: 'Eridanus Cold Spot Anomaly 12027',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12027, mapping the ultimate scale of the universe.',
+    position: [10998, -25262, -35370],
+    color: '#F8F8FF',
+    size: 519
+  },
+  {
+    name: 'Sloan Great Wall Filament 12028',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12028, mapping the ultimate scale of the universe.',
+    position: [16271, 13562, -17422],
+    color: '#8B008B',
+    size: 538
+  },
+  {
+    name: 'Hercules-Corona Borealis Structure 12029',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12029, mapping the ultimate scale of the universe.',
+    position: [-11654, 31990, -17537],
+    color: '#FF69B4',
+    size: 835
+  },
+  {
+    name: 'Laniakea Supercluster Node 12030',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12030, mapping the ultimate scale of the universe.',
+    position: [-8405, -15491, 17320],
+    color: '#C71585',
+    size: 895
+  },
+  {
+    name: 'Perseus-Pisces Spine 12031',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12031, mapping the ultimate scale of the universe.',
+    position: [9816, -15127, -7624],
+    color: '#800080',
+    size: 888
+  },
+  {
+    name: 'Shapley Attractor Basin 12032',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12032, mapping the ultimate scale of the universe.',
+    position: [-23403, -18199, -18724],
+    color: '#E6E6FA',
+    size: 201
+  },
+  {
+    name: 'Dipole Repeller Void 12033',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12033, mapping the ultimate scale of the universe.',
+    position: [15651, 23041, 19233],
+    color: '#8B008B',
+    size: 415
+  },
+  {
+    name: 'Local Sheet Intersection 12034',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12034, mapping the ultimate scale of the universe.',
+    position: [-25863, -37017, 4003],
+    color: '#191970',
+    size: 847
+  },
+  {
+    name: 'Coma Cluster Bridge 12035',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12035, mapping the ultimate scale of the universe.',
+    position: [-20401, 19600, 21746],
+    color: '#F8F8FF',
+    size: 408
+  },
+  {
+    name: 'Sculptor Void Periphery 12036',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12036, mapping the ultimate scale of the universe.',
+    position: [12140, 23196, -29016],
+    color: '#D8BFD8',
+    size: 1029
+  },
+  {
+    name: 'Canis Major Overdensity 12037',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12037, mapping the ultimate scale of the universe.',
+    position: [9165, 6922, 10113],
+    color: '#4B0082',
+    size: 1016
+  },
+  {
+    name: 'Great Attractor Core 12038',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12038, mapping the ultimate scale of the universe.',
+    position: [-24803, 30128, 20327],
+    color: '#DDA0DD',
+    size: 1186
+  },
+  {
+    name: 'Norma Cluster Hub 12039',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12039, mapping the ultimate scale of the universe.',
+    position: [3380, -31746, 26436],
+    color: '#DA70D6',
+    size: 744
+  },
+  {
+    name: 'Hydra-Centaurus Supercluster 12040',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12040, mapping the ultimate scale of the universe.',
+    position: [-34155, 12007, 8097],
+    color: '#4B0082',
+    size: 1023
+  },
+  {
+    name: 'Virgo Supercluster Apex 12041',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12041, mapping the ultimate scale of the universe.',
+    position: [25373, 24194, 32280],
+    color: '#F8F8FF',
+    size: 1290
+  },
+  {
+    name: 'Fornax Wall Alignment 12042',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12042, mapping the ultimate scale of the universe.',
+    position: [-12158, -26357, -19436],
+    color: '#6A5ACD',
+    size: 512
+  },
+  {
+    name: 'Micro-Void Network Zero 12043',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12043, mapping the ultimate scale of the universe.',
+    position: [20905, 553, 17274],
+    color: '#191970',
+    size: 307
+  },
+  {
+    name: 'Cosmic Web Intersection Alpha 12044',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12044, mapping the ultimate scale of the universe.',
+    position: [32993, -3036, -11127],
+    color: '#EE82EE',
+    size: 1059
+  },
+  {
+    name: 'Dark Matter Filament Nexus 12045',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12045, mapping the ultimate scale of the universe.',
+    position: [8725, 23306, -24193],
+    color: '#191970',
+    size: 1058
+  },
+  {
+    name: 'Intergalactic Plasma Bridge 12046',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12046, mapping the ultimate scale of the universe.',
+    position: [-9662, -32699, 20451],
+    color: '#D8BFD8',
+    size: 698
+  },
+  {
+    name: 'Baryonic Acoustic Oscillation Peak 12047',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12047, mapping the ultimate scale of the universe.',
+    position: [-11772, -6294, 22627],
+    color: '#D8BFD8',
+    size: 317
+  },
+  {
+    name: 'Primordial Density Fluctuation Zone 12048',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12048, mapping the ultimate scale of the universe.',
+    position: [-28744, -20312, 10289],
+    color: '#E6E6FA',
+    size: 1210
+  },
+  {
+    name: 'Lyman-Alpha Forest Web 12049',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12049, mapping the ultimate scale of the universe.',
+    position: [9821, -8481, -13365],
+    color: '#191970',
+    size: 652
+  },
+  {
+    name: 'Hyper-Scale Void Terminus 12050',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 12050, mapping the ultimate scale of the universe.',
+    position: [-694, 3570, 11060],
+    color: '#191970',
+    size: 890
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
