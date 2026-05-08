@@ -18259,6 +18259,182 @@ export function createAnchorageLandmark(THREE, opts) {
   btpGroup.add(btpSignPostR);
   group.add(btpGroup);
 
+  // v111: beach badminton tournament (bbt)
+  const bbtGroup = new THREE.Group();
+  bbtGroup.position.set(-26, 0.3, 26);
+  const bbtNetMat = new THREE.MeshStandardMaterial({ color: 0xfaf3dd, roughness: 0.6, side: THREE.DoubleSide });
+  const bbtNet = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 0.6), bbtNetMat);
+  bbtNet.position.set(0, 0.85, 0);
+  bbtGroup.add(bbtNet);
+  const bbtPostL = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.4, 8), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+  bbtPostL.position.set(-1.5, 0.7, 0);
+  bbtGroup.add(bbtPostL);
+  const bbtPostR = bbtPostL.clone();
+  bbtPostR.position.x = 1.5;
+  bbtGroup.add(bbtPostR);
+  const bbtCourtMat = new THREE.MeshStandardMaterial({ color: 0xeacf8a, roughness: 0.95 });
+  const bbtCourt = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 8.0), bbtCourtMat);
+  bbtCourt.rotation.x = -Math.PI / 2;
+  bbtCourt.position.y = 0.01;
+  bbtGroup.add(bbtCourt);
+  const bbtPlayers = [];
+  const bbtPColors = [0xff5a3a, 0x4a8aff, 0xffd23f, 0x4ae07a];
+  for (let i = 0; i < 4; i++) {
+    const p = new THREE.Group();
+    p.position.set(-1.5 + (i % 2) * 3.0, 0, -2.0 + Math.floor(i / 2) * 4.0);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.7, 12), new THREE.MeshStandardMaterial({ color: bbtPColors[i] }));
+    body.position.y = 0.35;
+    p.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.83;
+    p.add(head);
+    const racketHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.3, 6), new THREE.MeshStandardMaterial({ color: 0x4a3020 }));
+    racketHandle.rotation.z = -0.6;
+    racketHandle.position.set(0.18, 0.7, 0);
+    p.add(racketHandle);
+    const racketHead = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.012, 6, 16), new THREE.MeshStandardMaterial({ color: 0xcfcfcf }));
+    racketHead.rotation.x = Math.PI / 2;
+    racketHead.position.set(0.30, 0.85, 0);
+    p.add(racketHead);
+    p.userData = { phase: i * 0.5 };
+    bbtPlayers.push(p);
+    bbtGroup.add(p);
+  }
+  const bbtShuttle = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.12, 8), new THREE.MeshStandardMaterial({ color: 0xfaf3dd }));
+  bbtShuttle.position.set(0, 1.2, 0);
+  bbtGroup.add(bbtShuttle);
+  const bbtScore = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.5), new THREE.MeshStandardMaterial({ color: 0x222222, side: THREE.DoubleSide }));
+  bbtScore.position.set(2.4, 1.4, -2.0);
+  bbtScore.rotation.y = -0.5;
+  bbtGroup.add(bbtScore);
+  const bbtScorePost = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.4, 8), new THREE.MeshStandardMaterial({ color: 0x6b3410 }));
+  bbtScorePost.position.set(2.4, 0.7, -2.0);
+  bbtGroup.add(bbtScorePost);
+  group.add(bbtGroup);
+
+  // v111: coastal lifeguard chair restoration (clcr)
+  const clcrGroup = new THREE.Group();
+  clcrGroup.position.set(40, 0.3, 16);
+  const clcrChairFrameMat = new THREE.MeshStandardMaterial({ color: 0xeae2c4, roughness: 0.85 });
+  const clcrLegFL = new THREE.Mesh(new THREE.BoxGeometry(0.10, 2.4, 0.10), clcrChairFrameMat);
+  clcrLegFL.position.set(-0.6, 1.2, 0.4);
+  clcrGroup.add(clcrLegFL);
+  const clcrLegFR = clcrLegFL.clone();
+  clcrLegFR.position.x = 0.6;
+  clcrGroup.add(clcrLegFR);
+  const clcrLegBL = clcrLegFL.clone();
+  clcrLegBL.position.set(-0.6, 1.2, -0.4);
+  clcrGroup.add(clcrLegBL);
+  const clcrLegBR = clcrLegFL.clone();
+  clcrLegBR.position.set(0.6, 1.2, -0.4);
+  clcrGroup.add(clcrLegBR);
+  const clcrSeat = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.9), clcrChairFrameMat);
+  clcrSeat.position.set(0, 2.0, 0);
+  clcrGroup.add(clcrSeat);
+  const clcrBack = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.2, 0.08), clcrChairFrameMat);
+  clcrBack.position.set(0, 2.6, -0.4);
+  clcrGroup.add(clcrBack);
+  const clcrPaintCanMat = new THREE.MeshStandardMaterial({ color: 0xc04a4a, roughness: 0.5 });
+  const clcrPaintCan1 = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.26, 14), clcrPaintCanMat);
+  clcrPaintCan1.position.set(-1.4, 0.13, 0.6);
+  clcrGroup.add(clcrPaintCan1);
+  const clcrPaintCan2 = clcrPaintCan1.clone();
+  clcrPaintCan2.material = new THREE.MeshStandardMaterial({ color: 0xfaf3dd, roughness: 0.5 });
+  clcrPaintCan2.position.set(-1.0, 0.13, 0.7);
+  clcrGroup.add(clcrPaintCan2);
+  const clcrTarp = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 1.4), new THREE.MeshStandardMaterial({ color: 0x4a4a4a, roughness: 0.95, side: THREE.DoubleSide }));
+  clcrTarp.rotation.x = -Math.PI / 2;
+  clcrTarp.position.set(-0.3, 0.02, 0.7);
+  clcrGroup.add(clcrTarp);
+  const clcrWorker = new THREE.Group();
+  clcrWorker.position.set(0.3, 0, 0.6);
+  const clcrWBody = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.85, 12), new THREE.MeshStandardMaterial({ color: 0x4a8a2a }));
+  clcrWBody.position.y = 0.42;
+  clcrWorker.add(clcrWBody);
+  const clcrWHead = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+  clcrWHead.position.y = 1.0;
+  clcrWorker.add(clcrWHead);
+  const clcrWHat = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.04, 14), new THREE.MeshStandardMaterial({ color: 0xff8c2e }));
+  clcrWHat.position.y = 1.18;
+  clcrWorker.add(clcrWHat);
+  const clcrBrush = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 6), new THREE.MeshStandardMaterial({ color: 0x4a3020 }));
+  clcrBrush.rotation.z = -0.7;
+  clcrBrush.position.set(0.30, 0.95, 0);
+  clcrWorker.add(clcrBrush);
+  clcrGroup.add(clcrWorker);
+  const clcrLadder = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.8, 0.06), new THREE.MeshStandardMaterial({ color: 0xa86a3a }));
+  clcrLadder.position.set(1.0, 0.9, 0.6);
+  clcrLadder.rotation.z = -0.2;
+  clcrGroup.add(clcrLadder);
+  const clcrLadder2 = clcrLadder.clone();
+  clcrLadder2.position.x = 1.4;
+  clcrGroup.add(clcrLadder2);
+  for (let i = 0; i < 4; i++) {
+    const rung = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.45, 6), new THREE.MeshStandardMaterial({ color: 0xa86a3a }));
+    rung.rotation.z = Math.PI / 2;
+    rung.position.set(1.2, 0.3 + i * 0.4, 0.6);
+    clcrGroup.add(rung);
+  }
+  group.add(clcrGroup);
+
+  // v111: sunset photography meetup (spm)
+  const spmGroup = new THREE.Group();
+  spmGroup.position.set(-12, 0.3, 30);
+  const spmPhotographers = [];
+  const spmFlashes = [];
+  const spmFlashMat = new THREE.MeshBasicMaterial({ color: 0xffe680, transparent: true, opacity: 0.0 });
+  const spmPColors = [0x8a4a2a, 0x4a4a8a, 0x4a8a4a, 0x8a4a8a, 0x6a6a3a, 0x4a8a8a];
+  for (let i = 0; i < 6; i++) {
+    const ang = (i / 6) * Math.PI * 0.7 - Math.PI * 0.35;
+    const r = 2.4;
+    const px = Math.cos(ang) * r;
+    const pz = Math.sin(ang) * r + 1.0;
+    const p = new THREE.Group();
+    p.position.set(px, 0, pz);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.8, 12), new THREE.MeshStandardMaterial({ color: spmPColors[i] }));
+    body.position.y = 0.4;
+    p.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), new THREE.MeshStandardMaterial({ color: 0xeac28a }));
+    head.position.y = 0.93;
+    p.add(head);
+    const tripL1 = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.7, 6), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+    tripL1.position.set(0.20, 0.35, 0.10);
+    tripL1.rotation.set(0.2, 0, -0.15);
+    p.add(tripL1);
+    const tripL2 = tripL1.clone();
+    tripL2.position.set(0.30, 0.35, -0.10);
+    tripL2.rotation.set(-0.2, 0, -0.25);
+    p.add(tripL2);
+    const tripL3 = tripL1.clone();
+    tripL3.position.set(0.40, 0.35, 0);
+    tripL3.rotation.set(0, 0, -0.05);
+    p.add(tripL3);
+    const cam = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.12, 0.10), new THREE.MeshStandardMaterial({ color: 0x111111 }));
+    cam.position.set(0.30, 0.78, 0);
+    p.add(cam);
+    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.10, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+    lens.rotation.z = Math.PI / 2;
+    lens.position.set(0.40, 0.78, 0);
+    p.add(lens);
+    const flash = new THREE.Mesh(new THREE.SphereGeometry(0.08, 10, 8), spmFlashMat.clone());
+    flash.position.set(0.45, 0.78, 0);
+    flash.userData = { phase: i * 1.1 };
+    spmFlashes.push(flash);
+    p.add(flash);
+    p.lookAt(0, 0.5, -10);
+    spmPhotographers.push(p);
+    spmGroup.add(p);
+  }
+  const spmSunMat = new THREE.MeshBasicMaterial({ color: 0xff6e3a });
+  const spmSun = new THREE.Mesh(new THREE.SphereGeometry(1.4, 22, 18), spmSunMat);
+  spmSun.position.set(0, 1.4, -12);
+  spmGroup.add(spmSun);
+  const spmHaloMat = new THREE.MeshBasicMaterial({ color: 0xffaa6a, transparent: true, opacity: 0.45, side: THREE.DoubleSide });
+  const spmHalo = new THREE.Mesh(new THREE.RingGeometry(1.6, 2.4, 32), spmHaloMat);
+  spmHalo.position.set(0, 1.4, -11.9);
+  spmGroup.add(spmHalo);
+  group.add(spmGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -20821,6 +20997,23 @@ export function createAnchorageLandmark(THREE, opts) {
       const ph = v110t * 2.0 + i * 0.7;
       s.scale.y = 1.0 - Math.max(0, Math.cos(ph * 2)) * 0.3;
     });
+    // v111 updates
+    const v111t = t;
+    bbtPlayers.forEach((p, i) => {
+      p.position.y = Math.abs(Math.sin(v111t * 1.5 + p.userData.phase)) * 0.12;
+    });
+    const bbtSwingY = 1.6 + Math.sin(v111t * 1.2) * 0.4;
+    const bbtSwingX = Math.sin(v111t * 0.6) * 1.2;
+    bbtShuttle.position.set(bbtSwingX, bbtSwingY, Math.cos(v111t * 0.6) * 2.0);
+    bbtShuttle.rotation.x = v111t * 6.0;
+    clcrWorker.rotation.y = Math.sin(v111t * 0.5) * 0.2;
+    clcrBrush.rotation.z = -0.7 + Math.sin(v111t * 1.5) * 0.4;
+    spmFlashes.forEach((fl, i) => {
+      const pulse = ((v111t * 0.6 + fl.userData.phase) % 4.0);
+      fl.material.opacity = pulse < 0.18 ? 1.0 - pulse * 5.0 : 0.0;
+    });
+    spmHalo.scale.setScalar(1.0 + 0.05 * Math.sin(v111t * 0.6));
+
 
 
         }
