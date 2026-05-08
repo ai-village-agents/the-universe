@@ -18654,6 +18654,207 @@ const cosmicSights = [
         position: [5650, 116740, 3650],
         category: "cosmic sight"
     }
+,
+  {
+    name: 'Boötes Supervoid Core 11951',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11951, mapping the ultimate scale of the universe.',
+    position: [9020, 16553, 31974],
+    color: '#FFFFFF',
+    size: 348
+  },
+  {
+    name: 'Eridanus Cold Spot Anomaly 11952',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11952, mapping the ultimate scale of the universe.',
+    position: [-11354, 15700, 37093],
+    color: '#F8F8FF',
+    size: 498
+  },
+  {
+    name: 'Sloan Great Wall Filament 11953',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11953, mapping the ultimate scale of the universe.',
+    position: [38847, 22318, 11145],
+    color: '#8B008B',
+    size: 1405
+  },
+  {
+    name: 'Hercules-Corona Borealis Structure 11954',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11954, mapping the ultimate scale of the universe.',
+    position: [17385, 2362, -34849],
+    color: '#DDA0DD',
+    size: 1329
+  },
+  {
+    name: 'Laniakea Supercluster Node 11955',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11955, mapping the ultimate scale of the universe.',
+    position: [-625, -8546, -24719],
+    color: '#000080',
+    size: 1260
+  },
+  {
+    name: 'Perseus-Pisces Spine 11956',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11956, mapping the ultimate scale of the universe.',
+    position: [-3662, -2043, -33009],
+    color: '#8A2BE2',
+    size: 660
+  },
+  {
+    name: 'Shapley Attractor Basin 11957',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11957, mapping the ultimate scale of the universe.',
+    position: [-28419, 21864, 10661],
+    color: '#D8BFD8',
+    size: 855
+  },
+  {
+    name: 'Dipole Repeller Void 11958',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11958, mapping the ultimate scale of the universe.',
+    position: [-31143, 765, 12591],
+    color: '#191970',
+    size: 688
+  },
+  {
+    name: 'Local Sheet Intersection 11959',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11959, mapping the ultimate scale of the universe.',
+    position: [-9277, 1718, -21583],
+    color: '#000080',
+    size: 594
+  },
+  {
+    name: 'Coma Cluster Bridge 11960',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11960, mapping the ultimate scale of the universe.',
+    position: [-24933, 9974, 38021],
+    color: '#E6E6FA',
+    size: 315
+  },
+  {
+    name: 'Sculptor Void Periphery 11961',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11961, mapping the ultimate scale of the universe.',
+    position: [23090, -18062, -25767],
+    color: '#8B008B',
+    size: 622
+  },
+  {
+    name: 'Canis Major Overdensity 11962',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11962, mapping the ultimate scale of the universe.',
+    position: [-37932, -34714, 17170],
+    color: '#191970',
+    size: 1293
+  },
+  {
+    name: 'Great Attractor Core 11963',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11963, mapping the ultimate scale of the universe.',
+    position: [-3931, -4383, -36095],
+    color: '#6A5ACD',
+    size: 1000
+  },
+  {
+    name: 'Norma Cluster Hub 11964',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11964, mapping the ultimate scale of the universe.',
+    position: [-27865, -2579, 24267],
+    color: '#E6E6FA',
+    size: 643
+  },
+  {
+    name: 'Hydra-Centaurus Supercluster 11965',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11965, mapping the ultimate scale of the universe.',
+    position: [8462, -19994, -8082],
+    color: '#C71585',
+    size: 750
+  },
+  {
+    name: 'Virgo Supercluster Apex 11966',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11966, mapping the ultimate scale of the universe.',
+    position: [34804, -30370, 6820],
+    color: '#9932CC',
+    size: 1258
+  },
+  {
+    name: 'Fornax Wall Alignment 11967',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11967, mapping the ultimate scale of the universe.',
+    position: [2165, -23926, -17127],
+    color: '#FFFFFF',
+    size: 959
+  },
+  {
+    name: 'Micro-Void Network Zero 11968',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11968, mapping the ultimate scale of the universe.',
+    position: [-23915, -6500, -22453],
+    color: '#9932CC',
+    size: 266
+  },
+  {
+    name: 'Cosmic Web Intersection Alpha 11969',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11969, mapping the ultimate scale of the universe.',
+    position: [15090, -11306, -19706],
+    color: '#FF1493',
+    size: 1432
+  },
+  {
+    name: 'Dark Matter Filament Nexus 11970',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11970, mapping the ultimate scale of the universe.',
+    position: [26112, 6387, 21568],
+    color: '#F8F8FF',
+    size: 1330
+  },
+  {
+    name: 'Intergalactic Plasma Bridge 11971',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11971, mapping the ultimate scale of the universe.',
+    position: [-20272, 35794, 22815],
+    color: '#F8F8FF',
+    size: 503
+  },
+  {
+    name: 'Baryonic Acoustic Oscillation Peak 11972',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11972, mapping the ultimate scale of the universe.',
+    position: [22818, 14240, 3244],
+    color: '#DDA0DD',
+    size: 385
+  },
+  {
+    name: 'Primordial Density Fluctuation Zone 11973',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11973, mapping the ultimate scale of the universe.',
+    position: [16059, -38089, 20596],
+    color: '#C71585',
+    size: 292
+  },
+  {
+    name: 'Lyman-Alpha Forest Web 11974',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11974, mapping the ultimate scale of the universe.',
+    position: [38385, 16958, 24885],
+    color: '#E6E6FA',
+    size: 946
+  },
+  {
+    name: 'Hyper-Scale Void Terminus 11975',
+    category: 'Cosmic Web Topologies & Void Structures',
+    description: 'A colossal cosmic structure discovered at index 11975, mapping the ultimate scale of the universe.',
+    position: [-35485, -14805, -665],
+    color: '#FF1493',
+    size: 490
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
