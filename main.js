@@ -26084,6 +26084,32 @@ const cosmicSights = [
     color: '#ff4500',
     size: 51
   }
+,
+  {"name":"Adaptive mesh refinement for multi\u2011scale astrophysical simulations","x":13400,"y":130000,"z":7400,"color":"#00ffff","size":200,"category":"computational_astrophysics"},
+  {"name":"Discontinuous Galerkin methods for hyperbolic conservation laws","x":13520,"y":130085,"z":7340,"color":"#0af4ff","size":213,"category":"computational_astrophysics"},
+  {"name":"Finite volume schemes with high\u2011order reconstruction","x":13640,"y":130170,"z":7280,"color":"#15e9ff","size":226,"category":"computational_astrophysics"},
+  {"name":"Monte Carlo radiative transfer with variance reduction","x":13760,"y":130255,"z":7220,"color":"#1fdfff","size":239,"category":"computational_astrophysics"},
+  {"name":"N\u2011body tree codes with hierarchical time\u2011stepping","x":13880,"y":130340,"z":7160,"color":"#2ad4ff","size":252,"category":"computational_astrophysics"},
+  {"name":"Particle\u2011in\u2011cell methods for plasma astrophysics","x":14000,"y":130425,"z":7100,"color":"#35c9ff","size":265,"category":"computational_astrophysics"},
+  {"name":"Spectral methods for global magnetohydrodynamics","x":14120,"y":130510,"z":7040,"color":"#3fbfff","size":278,"category":"computational_astrophysics"},
+  {"name":"Implicit\u2011explicit (IMEX) time integration for stiff systems","x":14240,"y":130595,"z":6980,"color":"#4ab4ff","size":200,"category":"computational_astrophysics"},
+  {"name":"Multigrid solvers for elliptic partial differential equations","x":14360,"y":130680,"z":6920,"color":"#55aaff","size":213,"category":"computational_astrophysics"},
+  {"name":"Domain decomposition for massively parallel computation","x":14480,"y":130765,"z":6860,"color":"#5f9fff","size":226,"category":"computational_astrophysics"},
+  {"name":"Fast multipole method for gravitational interactions","x":14600,"y":130850,"z":6800,"color":"#6a94ff","size":239,"category":"computational_astrophysics"},
+  {"name":"Wavelet\u2011based adaptive numerical schemes","x":14720,"y":130935,"z":6740,"color":"#748aff","size":252,"category":"computational_astrophysics"},
+  {"name":"Artificial viscosity and shock\u2011capturing techniques","x":14840,"y":131020,"z":6680,"color":"#7f7fff","size":265,"category":"computational_astrophysics"},
+  {"name":"Moving mesh methods for Lagrangian hydrodynamics","x":14960,"y":131105,"z":6620,"color":"#8a74ff","size":278,"category":"computational_astrophysics"},
+  {"name":"Smooth particle hydrodynamics with kernel improvements","x":15080,"y":131190,"z":6560,"color":"#946aff","size":200,"category":"computational_astrophysics"},
+  {"name":"Mesh\u2011free methods for complex geometry problems","x":15200,"y":131275,"z":6500,"color":"#9f5fff","size":213,"category":"computational_astrophysics"},
+  {"name":"High\u2011order finite difference WENO schemes","x":15320,"y":131360,"z":6440,"color":"#aa55ff","size":226,"category":"computational_astrophysics"},
+  {"name":"Boundary element methods for potential fields","x":15440,"y":131445,"z":6380,"color":"#b44aff","size":239,"category":"computational_astrophysics"},
+  {"name":"Lattice Boltzmann methods for fluid dynamics","x":15560,"y":131530,"z":6320,"color":"#bf3fff","size":252,"category":"computational_astrophysics"},
+  {"name":"Reduced\u2011order modeling for parameter space exploration","x":15680,"y":131615,"z":6260,"color":"#c935ff","size":265,"category":"computational_astrophysics"},
+  {"name":"Uncertainty quantification via polynomial chaos expansion","x":15800,"y":131700,"z":6200,"color":"#d42aff","size":278,"category":"computational_astrophysics"},
+  {"name":"Multi\u2011fidelity surrogate modeling","x":15920,"y":131785,"z":6140,"color":"#df1fff","size":200,"category":"computational_astrophysics"},
+  {"name":"Ensemble Kalman filters for data assimilation","x":16040,"y":131870,"z":6080,"color":"#e915ff","size":213,"category":"computational_astrophysics"},
+  {"name":"Adjoint\u2011based gradient optimization","x":16160,"y":131955,"z":6020,"color":"#f40aff","size":226,"category":"computational_astrophysics"},
+  {"name":"Automatic differentiation for sensitivity analysis","x":16280,"y":132040,"z":5960,"color":"#ff00ff","size":239,"category":"computational_astrophysics"}
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
