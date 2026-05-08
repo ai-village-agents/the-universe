@@ -20848,6 +20848,207 @@ const cosmicSights = [
     color: '#00FFFF',
     size: 199
   }
+,
+  {
+    name: 'Stellar Halo Ancient Stars 12526',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [32669, -27751, 22929],
+    color: '#DC143C',
+    size: 76
+  },
+  {
+    name: 'Dark Matter Halo Isothermal 12527',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [20963, 21948, 16600],
+    color: '#FFC0CB',
+    size: 116
+  },
+  {
+    name: 'Galactic Corona Hot Gas 12528',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [25365, -5273, -9601],
+    color: '#CD853F',
+    size: 276
+  },
+  {
+    name: 'High Velocity Cloud Fall 12529',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [38465, 3499, -9410],
+    color: '#7B68EE',
+    size: 181
+  },
+  {
+    name: 'Magellanic Stream Tail 12530',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-39722, 3422, 24758],
+    color: '#FFC0CB',
+    size: 76
+  },
+  {
+    name: 'Globular Cluster Swarm 12531',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-27172, -4838, 20137],
+    color: '#FF69B4',
+    size: 252
+  },
+  {
+    name: 'Halo Tidal Stream 12532',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [34955, 9419, 16779],
+    color: '#4682B4',
+    size: 204
+  },
+  {
+    name: 'Galactic Wind Outflow 12533',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-26223, 26269, -2364],
+    color: '#F5DEB3',
+    size: 101
+  },
+  {
+    name: 'Circumgalactic Medium 12534',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [5346, 34453, -4586],
+    color: '#C0C0C0',
+    size: 160
+  },
+  {
+    name: 'Thick Disk Interface 12535',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-13073, -25550, -13696],
+    color: '#000000',
+    size: 154
+  },
+  {
+    name: 'Halo White Dwarfs 12536',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-1853, 10334, 15495],
+    color: '#C0C0C0',
+    size: 285
+  },
+  {
+    name: 'Metal Poor Halo Stars 12537',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [39004, -27627, 32160],
+    color: '#FF1493',
+    size: 140
+  },
+  {
+    name: 'Cosmic Ray Halo 12538',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-27821, 2951, 15256],
+    color: '#D2B48C',
+    size: 195
+  },
+  {
+    name: 'Radio Halo Emission 12539',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [18563, 9154, -15201],
+    color: '#8A2BE2',
+    size: 299
+  },
+  {
+    name: 'X Ray Corona 12540',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [4503, 13118, 2350],
+    color: '#A9A9A9',
+    size: 316
+  },
+  {
+    name: 'Halo Substructure 12541',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [16026, -30958, -26583],
+    color: '#C0C0C0',
+    size: 379
+  },
+  {
+    name: 'Dwarf Spheroidal Satellite 12542',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-17049, -11444, -15461],
+    color: '#708090',
+    size: 300
+  },
+  {
+    name: 'Stellar Stream Sagittarius 12543',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-9693, -21455, 21793],
+    color: '#FF69B4',
+    size: 82
+  },
+  {
+    name: 'Monoceros Ring 12544',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [23714, -13652, 36050],
+    color: '#000000',
+    size: 70
+  },
+  {
+    name: 'Orphan Stream 12545',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-27308, -1214, 20445],
+    color: '#C0C0C0',
+    size: 58
+  },
+  {
+    name: 'Palomar 5 Tidal Tails 12546',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-30106, 12449, 37447],
+    color: '#8FBC8F',
+    size: 188
+  },
+  {
+    name: 'GD-1 Stellar Stream 12547',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [16270, 2209, 25901],
+    color: '#FF4500',
+    size: 218
+  },
+  {
+    name: 'Helmi Streams 12548',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-13848, 431, -24425],
+    color: '#4682B4',
+    size: 209
+  },
+  {
+    name: 'Sequoia Dwarf Galaxy Remains 12549',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [16007, 13691, 37278],
+    color: '#FF4500',
+    size: 263
+  },
+  {
+    name: 'Gaia Enceladus Sausage 12550',
+    category: 'Galactic Halos and Coronae',
+    description: 'A mesmerizing manifestation of galactic halos and coronae observed in deep space.', 
+    position: [-12643, -33387, 37717],
+    color: '#C0C0C0',
+    size: 366
+  }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
