@@ -24434,6 +24434,112 @@ export function createAnchorageLandmark(THREE, opts) {
   cotpGroup.add(cotpFoam);
   group.add(cotpGroup);
 
+  // v149 pier kite repair (pkrp)
+  const pkrpGroup = new THREE.Group();
+  pkrpGroup.position.set(34, 7.6, -64);
+  const pkrpDeck = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.1, 1.6), new THREE.MeshLambertMaterial({color: 0x8a6e4a}));
+  pkrpGroup.add(pkrpDeck);
+  const pkrpRepairer = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.95, 8), new THREE.MeshLambertMaterial({color: 0x4a6e8a}));
+  pkrpRepairer.position.set(-0.4, 0.55, 0);
+  pkrpGroup.add(pkrpRepairer);
+  const pkrpHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pkrpHead.position.set(-0.4, 1.18, 0);
+  pkrpGroup.add(pkrpHead);
+  const pkrpKite = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.6), new THREE.MeshLambertMaterial({color: 0xff6f4a, side: THREE.DoubleSide}));
+  pkrpKite.position.set(0.5, 0.85, 0);
+  pkrpKite.rotation.z = 0.3;
+  pkrpGroup.add(pkrpKite);
+  const pkrpTail = [];
+  for (let i = 0; i < 5; i++) {
+    const seg = new THREE.Mesh(new THREE.PlaneGeometry(0.1, 0.06), new THREE.MeshLambertMaterial({color: 0xffd24a, side: THREE.DoubleSide}));
+    seg.position.set(0.5 + i * 0.12, 0.55 - i * 0.04, 0.01);
+    pkrpGroup.add(seg);
+    pkrpTail.push(seg);
+  }
+  const pkrpArmGroup = new THREE.Group();
+  pkrpArmGroup.position.set(-0.3, 0.95, 0);
+  const pkrpArm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.5, 6), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  pkrpArm.position.set(0.2, 0, 0);
+  pkrpArm.rotation.z = -1.0;
+  pkrpArmGroup.add(pkrpArm);
+  pkrpGroup.add(pkrpArmGroup);
+  const pkrpSpool = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.1, 12), new THREE.MeshLambertMaterial({color: 0x8a4a2a}));
+  pkrpSpool.rotation.z = Math.PI / 2;
+  pkrpSpool.position.set(0.6, 0.15, 0);
+  pkrpGroup.add(pkrpSpool);
+  group.add(pkrpGroup);
+
+  // v149 beach driftwood drum (bddm)
+  const bddmGroup = new THREE.Group();
+  bddmGroup.position.set(-72, 1.2, 38);
+  const bddmDrummer = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.85, 8), new THREE.MeshLambertMaterial({color: 0x6e4a8a}));
+  bddmDrummer.position.set(0, 0.5, 0);
+  bddmGroup.add(bddmDrummer);
+  const bddmHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bddmHead.position.set(0, 1.05, 0);
+  bddmGroup.add(bddmHead);
+  const bddmDrum = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.28, 0.55, 16), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  bddmDrum.position.set(0.45, 0.4, 0);
+  bddmGroup.add(bddmDrum);
+  const bddmDrumTop = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.04, 16), new THREE.MeshLambertMaterial({color: 0xe8d4a8}));
+  bddmDrumTop.position.set(0.45, 0.69, 0);
+  bddmGroup.add(bddmDrumTop);
+  const bddmHandsGroup = new THREE.Group();
+  bddmHandsGroup.position.set(0.45, 0.85, 0);
+  const bddmHandL = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bddmHandL.position.set(-0.12, 0, 0);
+  bddmHandsGroup.add(bddmHandL);
+  const bddmHandR = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  bddmHandR.position.set(0.12, 0, 0);
+  bddmHandsGroup.add(bddmHandR);
+  bddmGroup.add(bddmHandsGroup);
+  const bddmRipples = [];
+  for (let i = 0; i < 4; i++) {
+    const r = new THREE.Mesh(new THREE.RingGeometry(0.3 + i * 0.15, 0.34 + i * 0.15, 24), new THREE.MeshBasicMaterial({color: 0xffd24a, transparent: true, opacity: 0.45 - i * 0.1, side: THREE.DoubleSide}));
+    r.rotation.x = -Math.PI / 2;
+    r.position.set(0.45, 0.71 + i * 0.005, 0);
+    r.material = r.material.clone();
+    bddmGroup.add(r);
+    bddmRipples.push(r);
+  }
+  group.add(bddmGroup);
+
+  // v149 coastal wreath weaver (cwrw)
+  const cwrwGroup = new THREE.Group();
+  cwrwGroup.position.set(-46, 1.0, -78);
+  const cwrwTable = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.9), new THREE.MeshLambertMaterial({color: 0x9a7a5a}));
+  cwrwTable.position.set(0, 0.6, 0);
+  cwrwGroup.add(cwrwTable);
+  const cwrwLeg1 = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.6, 0.08), new THREE.MeshLambertMaterial({color: 0x6e4a2a}));
+  cwrwLeg1.position.set(0.6, 0.3, 0.35); cwrwGroup.add(cwrwLeg1);
+  const cwrwLeg2 = cwrwLeg1.clone(); cwrwLeg2.position.set(-0.6, 0.3, 0.35); cwrwGroup.add(cwrwLeg2);
+  const cwrwLeg3 = cwrwLeg1.clone(); cwrwLeg3.position.set(0.6, 0.3, -0.35); cwrwGroup.add(cwrwLeg3);
+  const cwrwLeg4 = cwrwLeg1.clone(); cwrwLeg4.position.set(-0.6, 0.3, -0.35); cwrwGroup.add(cwrwLeg4);
+  const cwrwWeaver = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.9, 8), new THREE.MeshLambertMaterial({color: 0x4a8a6e}));
+  cwrwWeaver.position.set(0, 0.45, 0.65);
+  cwrwGroup.add(cwrwWeaver);
+  const cwrwHead = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 10), new THREE.MeshLambertMaterial({color: 0xffd9b3}));
+  cwrwHead.position.set(0, 1.05, 0.65);
+  cwrwGroup.add(cwrwHead);
+  const cwrwWreathGroup = new THREE.Group();
+  cwrwWreathGroup.position.set(0, 0.66, 0);
+  const cwrwWreath = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.07, 10, 32), new THREE.MeshLambertMaterial({color: 0x2a6e4a}));
+  cwrwWreath.rotation.x = -Math.PI / 2;
+  cwrwWreathGroup.add(cwrwWreath);
+  const cwrwBerries = [];
+  for (let i = 0; i < 8; i++) {
+    const ang = (i / 8) * Math.PI * 2;
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 6), new THREE.MeshLambertMaterial({color: 0xff4a6e}));
+    b.position.set(Math.cos(ang) * 0.32, 0.05, Math.sin(ang) * 0.32);
+    cwrwWreathGroup.add(b);
+    cwrwBerries.push(b);
+  }
+  cwrwGroup.add(cwrwWreathGroup);
+  const cwrwScissors = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.04, 0.04), new THREE.MeshStandardMaterial({color: 0xc0c0c0, metalness: 0.7, roughness: 0.3}));
+  cwrwScissors.position.set(0.5, 0.66, 0);
+  cwrwGroup.add(cwrwScissors);
+  group.add(cwrwGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -27808,6 +27914,31 @@ export function createAnchorageLandmark(THREE, opts) {
     const ang = i * 1.3;
     cotpSplashes[i].position.set(-0.5 + Math.cos(ang) * 0.3, 0.5 + phase * 0.3, Math.sin(ang) * 0.3);
     cotpSplashes[i].material.opacity = (1.0 - phase) * 0.7;
+  }
+
+  // v149 pier kite repair anim
+  const v149t = t;
+  pkrpKite.rotation.z = 0.3 + Math.sin(v149t * 1.5) * 0.15;
+  pkrpKite.position.y = 0.85 + Math.sin(v149t * 1.2) * 0.05;
+  for (let i = 0; i < pkrpTail.length; i++) {
+    pkrpTail[i].rotation.z = Math.sin(v149t * 2.5 + i * 0.5) * 0.4;
+  }
+  pkrpArmGroup.rotation.z = Math.sin(v149t * 2.8) * 0.25;
+  pkrpSpool.rotation.x = v149t * 0.8;
+
+  // v149 driftwood drum anim
+  bddmHandsGroup.position.y = 0.85 + Math.abs(Math.sin(v149t * 5.0)) * 0.18;
+  for (let i = 0; i < bddmRipples.length; i++) {
+    const phase = ((v149t * 0.6) + i * 0.25) % 1.0;
+    bddmRipples[i].scale.setScalar(0.4 + phase * 1.2);
+    bddmRipples[i].material.opacity = (1.0 - phase) * 0.5;
+  }
+
+  // v149 wreath weaver anim
+  cwrwWreathGroup.rotation.y = v149t * 0.4;
+  cwrwWreathGroup.position.y = 0.66 + Math.sin(v149t * 1.5) * 0.02;
+  for (let i = 0; i < cwrwBerries.length; i++) {
+    cwrwBerries[i].position.y = 0.05 + Math.sin(v149t * 2.0 + i * 0.7) * 0.02;
   }
 
 
