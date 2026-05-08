@@ -19412,6 +19412,208 @@ const cosmicSights = [
   { name: 'Pulsar Magnetospheric Polar Gap Spark', position: [20, 210, -155], color: '#3f51b5', description: 'electron discharge cascade from polar vacuum gap acceleration potential drop' },
   { name: 'Pulsar Wind Nebula Helical Jet Wiggle', position: [115, 95, -225], color: '#009688', description: 'helical kink instability in magnetically dominated relativistic jet flow' },
   { name: 'Rotating Radio Transient Null State', position: [-100, 70, 300], color: '#4caf50', description: 'episodically emitting neutron star spending most time in radio-quiescent state' }
+,
+  {
+    name: 'Topological Insulator Surface States 12151',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Surface electronic states in topological insulators robust against disorder and defects.',
+    position: [5875, 115500, 3875],
+    color: '#FF5722',
+    size: 140
+  },
+  {
+    name: 'Graphene Phonon Dispersion Relation 12152',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Phonon modes and thermal transport properties in single-layer graphene sheets.',
+    position: [5876, 115520, 3876],
+    color: '#FF6F00',
+    size: 140
+  },
+  {
+    name: 'Quantum Dot Exciton Fine Structure 12153',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Exciton binding and fine structure splitting in artificially confined quantum dots.',
+    position: [5877, 115540, 3877],
+    color: '#FF8F00',
+    size: 140
+  },
+  {
+    name: 'Superconducting Josephson Tunneling 12154',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Josephson effect and coherent quantum tunneling across superconductor junctions.',
+    position: [5878, 115560, 3878],
+    color: '#FFA726',
+    size: 140
+  },
+  {
+    name: 'Metamaterial Negative Refractive Index 12155',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Engineered metamaterials exhibiting negative refractive index and anomalous dispersion.',
+    position: [5879, 115580, 3879],
+    color: '#FFB74D',
+    size: 140
+  },
+  {
+    name: 'Perovskite Halide Optoelectronics 12156',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Organic-inorganic perovskites for high-efficiency solar cells and light emission.',
+    position: [5880, 115600, 3880],
+    color: '#FFCA28',
+    size: 140
+  },
+  {
+    name: 'MoS2 Monolayer Valley Electronics 12157',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Valley-selective optical excitation and photonics in transition metal dichalcogenides.',
+    position: [5881, 115620, 3881],
+    color: '#FFD54F',
+    size: 140
+  },
+  {
+    name: 'Quantum Hall Effect Landau Levels 12158',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Integer and fractional quantum Hall effects arising from Landau level quantization.',
+    position: [5882, 115640, 3882],
+    color: '#FFEB3B',
+    size: 140
+  },
+  {
+    name: 'Silicon Photonics Integrated Circuits 12159',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Integrated silicon-based photonic devices for quantum information processing.',
+    position: [5883, 115660, 3883],
+    color: '#FFF59D',
+    size: 140
+  },
+  {
+    name: 'Spintronics Giant Magnetoresistance 12160',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Giant magnetoresistance in magnetic multilayers for spin-dependent transport.',
+    position: [5884, 115680, 3884],
+    color: '#FFFDE7',
+    size: 140
+  },
+  {
+    name: 'Antiferromagnetic Topological Spintronics 12161',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Topological properties and spintronic applications in antiferromagnetic systems.',
+    position: [5885, 115700, 3885],
+    color: '#C6FF00',
+    size: 140
+  },
+  {
+    name: 'Organic Electronics Charge Transport 12162',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Charge transport mechanisms in organic semiconductors and conjugated polymers.',
+    position: [5886, 115720, 3886],
+    color: '#AEEA00',
+    size: 140
+  },
+  {
+    name: 'Quantum Computing Qubit Coherence 12163',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Decoherence mechanisms and coherence time optimization in superconducting qubits.',
+    position: [5887, 115740, 3887],
+    color: '#76FF03',
+    size: 140
+  },
+  {
+    name: 'Photonic Crystal Bandgap Engineering 12164',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Photonic bandgaps and cavity mode engineering in periodic optical structures.',
+    position: [5888, 115760, 3888],
+    color: '#64DD17',
+    size: 140
+  },
+  {
+    name: 'Plasmonic Nanoparticle Resonance 12165',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Surface plasmon resonances and enhanced electromagnetic fields in metal nanoparticles.',
+    position: [5889, 115780, 3889],
+    color: '#4CAF50',
+    size: 140
+  },
+  {
+    name: 'Two-Dimensional Materials Heterostructures 12166',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'van der Waals heterostructures and interlayer coupling in 2D material stacks.',
+    position: [5890, 115800, 3890],
+    color: '#388E3C',
+    size: 140
+  },
+  {
+    name: 'Quantum Cascade Laser Design 12167',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Intersubband transitions and quantum cascade laser engineering for infrared emission.',
+    position: [5891, 115820, 3891],
+    color: '#2E7D32',
+    size: 140
+  },
+  {
+    name: 'Dilute Magnetic Semiconductors Ferromagnetism 12168',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Ferromagnetism in doped semiconductors and spin-polarized carrier interactions.',
+    position: [5892, 115840, 3892],
+    color: '#1B5E20',
+    size: 140
+  },
+  {
+    name: 'Quantum Well Superlatice Band Structure 12169',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Artificial band structure design through quantum wells and superlattice engineering.',
+    position: [5893, 115860, 3893],
+    color: '#00BCD4',
+    size: 140
+  },
+  {
+    name: 'Skyrmion Magnetic Textures Dynamics 12170',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Magnetic skyrmion dynamics and topology in ferromagnetic thin films.',
+    position: [5894, 115880, 3894],
+    color: '#0097A7',
+    size: 140
+  },
+  {
+    name: 'Diamond Nitrogen-Vacancy Center Sensing 12171',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'NV center spin states in diamond for quantum sensing and magnetometry.',
+    position: [5895, 115900, 3895],
+    color: '#00838F',
+    size: 140
+  },
+  {
+    name: 'Ionic Liquid Electrochemistry Interface 12172',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Electrochemical behavior and interface physics in room-temperature ionic liquids.',
+    position: [5896, 115920, 3896],
+    color: '#006064',
+    size: 140
+  },
+  {
+    name: 'Graphene Nanoribbons Electronic Structure 12173',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Edge effects and electronic structure engineering in graphene nanoribbons.',
+    position: [5897, 115940, 3897],
+    color: '#004D40',
+    size: 140
+  },
+  {
+    name: 'Majorana Fermion Topological Qubits 12174',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Majorana zero modes and topological protection in quantum computing architectures.',
+    position: [5898, 115960, 3898],
+    color: '#1A237E',
+    size: 140
+  },
+  {
+    name: 'Nonlinear Optical Parametric Conversion 12175',
+    category: 'Advanced Materials & Quantum Engineering',
+    description: 'Parametric down-conversion and sum-frequency generation in nonlinear crystals.',
+    position: [5899, 115980, 3899],
+    color: '#0D47A1',
+    size: 140
+  }
+
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
