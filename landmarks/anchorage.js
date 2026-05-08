@@ -23788,6 +23788,196 @@ export function createAnchorageLandmark(THREE, opts) {
   psiaGroup.add(psiaSitterH);
   group.add(psiaGroup);
 
+  // --- v146: beach hammock + coastal navigation marker + coastal fog horn ---
+  const bhmkGroup = new THREE.Group();
+  bhmkGroup.position.set(-50, 0.05, 50);
+  // sand patch
+  const bhmkSand = new THREE.Mesh(
+    new THREE.CircleGeometry(2.6, 20),
+    new THREE.MeshLambertMaterial({ color: 0xead7a8 })
+  );
+  bhmkSand.rotation.x = -Math.PI / 2;
+  bhmkSand.position.y = 0.005;
+  bhmkGroup.add(bhmkSand);
+  // 2 palm trees as posts
+  const bhmkTrunkMat = new THREE.MeshLambertMaterial({ color: 0x6b4226 });
+  const bhmkLeafMat = new THREE.MeshLambertMaterial({ color: 0x2d7d4f });
+  const bhmkTrunkL = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 3.0, 10), bhmkTrunkMat);
+  bhmkTrunkL.position.set(-1.6, 1.5, 0);
+  bhmkGroup.add(bhmkTrunkL);
+  const bhmkTrunkR = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 3.0, 10), bhmkTrunkMat);
+  bhmkTrunkR.position.set(1.6, 1.5, 0);
+  bhmkGroup.add(bhmkTrunkR);
+  for (let s = 0; s < 2; s++) {
+    const tx = s === 0 ? -1.6 : 1.6;
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2;
+      const leaf = new THREE.Mesh(
+        new THREE.ConeGeometry(0.15, 0.9, 6),
+        bhmkLeafMat
+      );
+      leaf.position.set(tx + Math.cos(a) * 0.4, 3.2, Math.sin(a) * 0.4);
+      leaf.rotation.x = Math.PI / 2 - 0.2;
+      leaf.rotation.y = a;
+      bhmkGroup.add(leaf);
+    }
+  }
+  // hammock (sub-group so it can sway)
+  const bhmkHammockGroup = new THREE.Group();
+  bhmkHammockGroup.position.set(0, 1.6, 0);
+  const bhmkBed = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.05, 0.7),
+    new THREE.MeshLambertMaterial({ color: 0xd97755 })
+  );
+  bhmkBed.position.y = -0.3;
+  bhmkHammockGroup.add(bhmkBed);
+  const bhmkRopeMat = new THREE.LineBasicMaterial({ color: 0x4a3522 });
+  const bhmkRopeL = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-1.6, 0.4, 0), new THREE.Vector3(-1.2, -0.3, 0)]),
+    bhmkRopeMat
+  );
+  bhmkHammockGroup.add(bhmkRopeL);
+  const bhmkRopeR = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(1.6, 0.4, 0), new THREE.Vector3(1.2, -0.3, 0)]),
+    bhmkRopeMat
+  );
+  bhmkHammockGroup.add(bhmkRopeR);
+  // person lounging
+  const bhmkPerson = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.18, 1.0, 4, 10),
+    new THREE.MeshLambertMaterial({ color: 0x4477aa })
+  );
+  bhmkPerson.rotation.z = Math.PI / 2;
+  bhmkPerson.position.set(0, -0.18, 0);
+  bhmkHammockGroup.add(bhmkPerson);
+  const bhmkPersonH = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xf3c8a0 })
+  );
+  bhmkPersonH.position.set(-0.7, -0.12, 0);
+  bhmkHammockGroup.add(bhmkPersonH);
+  // sun hat
+  const bhmkHat = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.28, 0.28, 0.04, 14),
+    new THREE.MeshLambertMaterial({ color: 0xe8c878 })
+  );
+  bhmkHat.position.set(-0.7, 0.05, 0);
+  bhmkHammockGroup.add(bhmkHat);
+  bhmkGroup.add(bhmkHammockGroup);
+  group.add(bhmkGroup);
+
+  // coastal navigation marker
+  const cnmkGroup = new THREE.Group();
+  cnmkGroup.position.set(-30, 0.05, -68);
+  // rocky base
+  const cnmkRock = new THREE.Mesh(
+    new THREE.DodecahedronGeometry(1.2, 0),
+    new THREE.MeshLambertMaterial({ color: 0x68615a })
+  );
+  cnmkRock.position.y = 0.8;
+  cnmkRock.rotation.set(0.3, 0.7, 0.1);
+  cnmkGroup.add(cnmkRock);
+  // tower (red and white bands)
+  const cnmkTowerGroup = new THREE.Group();
+  cnmkTowerGroup.position.set(0, 1.4, 0);
+  for (let i = 0; i < 5; i++) {
+    const ring = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.32, 0.32, 0.5, 12),
+      new THREE.MeshLambertMaterial({ color: i % 2 === 0 ? 0xc8302a : 0xf2f2f2 })
+    );
+    ring.position.y = i * 0.5;
+    cnmkTowerGroup.add(ring);
+  }
+  cnmkGroup.add(cnmkTowerGroup);
+  // top cage
+  const cnmkCage = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.36, 0.36, 0.4, 8, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0x222222, side: THREE.DoubleSide })
+  );
+  cnmkCage.position.set(0, 3.85, 0);
+  cnmkGroup.add(cnmkCage);
+  const cnmkLightMat = new THREE.MeshStandardMaterial({ color: 0xfff4cc, emissive: 0xffaa44, emissiveIntensity: 1.2 });
+  const cnmkLight = new THREE.Mesh(
+    new THREE.SphereGeometry(0.22, 12, 10),
+    cnmkLightMat
+  );
+  cnmkLight.position.set(0, 3.85, 0);
+  cnmkGroup.add(cnmkLight);
+  // top finial
+  const cnmkFinial = new THREE.Mesh(
+    new THREE.ConeGeometry(0.32, 0.5, 8),
+    new THREE.MeshLambertMaterial({ color: 0x222222 })
+  );
+  cnmkFinial.position.set(0, 4.3, 0);
+  cnmkGroup.add(cnmkFinial);
+  // beam (rotates)
+  const cnmkBeam = new THREE.Mesh(
+    new THREE.ConeGeometry(0.5, 5.0, 12, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xfff4cc, transparent: true, opacity: 0.18, side: THREE.DoubleSide })
+  );
+  cnmkBeam.rotation.z = Math.PI / 2;
+  cnmkBeam.position.set(2.5, 3.85, 0);
+  const cnmkBeamGroup = new THREE.Group();
+  cnmkBeamGroup.position.set(0, 3.85, 0);
+  cnmkBeam.position.set(2.5, 0, 0);
+  cnmkBeamGroup.add(cnmkBeam);
+  cnmkGroup.add(cnmkBeamGroup);
+  group.add(cnmkGroup);
+
+  // coastal fog horn
+  const cfghGroup = new THREE.Group();
+  cfghGroup.position.set(-44, 0.05, -38);
+  // platform
+  const cfghBase = new THREE.Mesh(
+    new THREE.BoxGeometry(2.2, 0.3, 1.6),
+    new THREE.MeshLambertMaterial({ color: 0x6b6b6b })
+  );
+  cfghBase.position.y = 0.15;
+  cfghGroup.add(cfghBase);
+  // mounting box
+  const cfghBox = new THREE.Mesh(
+    new THREE.BoxGeometry(1.2, 0.8, 0.8),
+    new THREE.MeshLambertMaterial({ color: 0xaa3a2a })
+  );
+  cfghBox.position.set(0, 0.7, 0);
+  cfghGroup.add(cfghBox);
+  // horn
+  const cfghHorn = new THREE.Mesh(
+    new THREE.ConeGeometry(0.4, 1.2, 14, 1, true),
+    new THREE.MeshLambertMaterial({ color: 0xc8c8c8, side: THREE.DoubleSide })
+  );
+  cfghHorn.rotation.z = -Math.PI / 2;
+  cfghHorn.position.set(0.95, 0.7, 0);
+  cfghGroup.add(cfghHorn);
+  // sound waves (concentric circles)
+  const cfghWaves = [];
+  const cfghWaveMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.0 });
+  for (let i = 0; i < 3; i++) {
+    const w = new THREE.Mesh(
+      new THREE.RingGeometry(0.5, 0.55, 24, 1),
+      cfghWaveMat.clone()
+    );
+    w.rotation.y = -Math.PI / 2;
+    w.position.set(1.6, 0.7, 0);
+    cfghGroup.add(w);
+    cfghWaves.push(w);
+  }
+  // fog mist
+  const cfghMist = new THREE.Mesh(
+    new THREE.SphereGeometry(2.5, 14, 10),
+    new THREE.MeshBasicMaterial({ color: 0xe0eaf2, transparent: true, opacity: 0.18 })
+  );
+  cfghMist.position.set(2.0, 1.0, 0);
+  cfghGroup.add(cfghMist);
+  // sign
+  const cfghSign = new THREE.Mesh(
+    new THREE.BoxGeometry(0.6, 0.3, 0.04),
+    new THREE.MeshLambertMaterial({ color: 0xf2e2c2 })
+  );
+  cfghSign.position.set(-0.7, 0.6, 0.45);
+  cfghGroup.add(cfghSign);
+  group.add(cfghGroup);
+
   // --- v21 init complete ----------------------------------------------------
 
   // --- v15 init complete ----------------------------------------------------
@@ -27101,6 +27291,21 @@ export function createAnchorageLandmark(THREE, opts) {
   psiaScissors.rotation.z = Math.sin(v145t * 4.0) * 0.5;
   psiaScissors.position.x = -0.18 + Math.sin(v145t * 1.5) * 0.05;
   psiaSilhouette.scale.setScalar(0.95 + Math.sin(v145t * 0.7) * 0.05);
+  // --- v146 updates ---
+  const v146t = t;
+  // beach hammock - sway
+  bhmkHammockGroup.rotation.z = Math.sin(v146t * 0.6) * 0.08;
+  bhmkHammockGroup.position.x = Math.sin(v146t * 0.6) * 0.08;
+  // coastal navigation marker - rotating beam + flicker
+  cnmkBeamGroup.rotation.y = v146t * 0.7;
+  cnmkLightMat.emissiveIntensity = 1.0 + Math.sin(v146t * 4.0) * 0.4;
+  // coastal fog horn - sound waves expand and fade
+  for (let i = 0; i < cfghWaves.length; i++) {
+    const phase = (v146t * 0.6 + i * 0.4) % 1.0;
+    cfghWaves[i].scale.setScalar(0.5 + phase * 4.0);
+    cfghWaves[i].material.opacity = (1.0 - phase) * 0.55;
+  }
+
 
 
 
