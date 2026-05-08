@@ -22490,7 +22490,32 @@ const cosmicSights = [
     position: [-10841, -16914, 5411],
     color: '#16a085',
     size: 272
-  }
+  },
+{ name: "PWN Termination Shock", type: "phenomenon", category: "stellar", position: [6400, 2400, 4400], description: "Boundary where pulsar wind decelerates to subsonic speeds" },
+  { name: "Pulsar Wind Bubble Interior", type: "phenomenon", category: "stellar", position: [6410, 2410, 4410], description: "Hot relativistic plasma filling nebula volume" },
+  { name: "Synchrotron Emission Filament", type: "phenomenon", category: "stellar", position: [6420, 2420, 4420], description: "Bright radio and X-ray structure from accelerated electrons" },
+  { name: "PWN Torus Structure", type: "phenomenon", category: "stellar", position: [6430, 2430, 4430], description: "Equatorial ring of enhanced emission around pulsar" },
+  { name: "Pulsar Jet Outflow", type: "phenomenon", category: "stellar", position: [6440, 2440, 4440], description: "Collimated relativistic beam along pulsar rotation axis" },
+  { name: "Bow Shock Nebula Head", type: "phenomenon", category: "stellar", position: [6450, 2450, 4450], description: "Compressed region where pulsar wind meets ISM" },
+  { name: "Cometary PWN Tail", type: "phenomenon", category: "stellar", position: [6460, 2460, 4460], description: "Extended wake trailing high-velocity pulsar through medium" },
+  { name: "Relic PWN Remnant", type: "phenomenon", category: "stellar", position: [6470, 2470, 4470], description: "Faded ancient nebula from long-dead pulsar" },
+  { name: "PWN X-ray Core", type: "phenomenon", category: "stellar", position: [6480, 2480, 4480], description: "Compact high-energy emission region near pulsar" },
+  { name: "Wisps and Knots Region", type: "phenomenon", category: "stellar", position: [6490, 2490, 4490], description: "Variable small-scale structures in inner nebula" },
+  { name: "PWN Spectral Break Zone", type: "phenomenon", category: "stellar", position: [6500, 2500, 4500], description: "Frequency where electron energy losses steepen spectrum" },
+  { name: "Particle Acceleration Front", type: "phenomenon", category: "stellar", position: [6510, 2510, 4510], description: "Site of cosmic ray energization in PWN shocks" },
+  { name: "Magnetic Field Amplification Region", type: "phenomenon", category: "stellar", position: [6520, 2520, 4520], description: "Zone of enhanced field strength from compression and turbulence" },
+  { name: "PWN Infrared Halo", type: "phenomenon", category: "stellar", position: [6530, 2530, 4530], description: "Extended dust-scattered emission surrounding nebula" },
+  { name: "Pulsar Wind Confinement Boundary", type: "phenomenon", category: "stellar", position: [6540, 2540, 4540], description: "Interface where supernova remnant pressure confines wind" },
+  { name: "PWN Polarization Pattern", type: "phenomenon", category: "stellar", position: [6550, 2550, 4550], description: "Ordered magnetic field geometry revealed by polarimetry" },
+  { name: "TeV Emission Source", type: "phenomenon", category: "stellar", position: [6560, 2560, 4560], description: "Very high energy gamma-ray production site" },
+  { name: "PWN Expansion Shell", type: "phenomenon", category: "stellar", position: [6570, 2570, 4570], description: "Outer boundary moving into surrounding medium" },
+  { name: "Crushed PWN Interface", type: "phenomenon", category: "stellar", position: [6580, 2580, 4580], description: "Compressed nebula from reverse shock interaction" },
+  { name: "Electron Cooling Region", type: "phenomenon", category: "stellar", position: [6590, 2590, 4590], description: "Zone where radiative losses dominate particle evolution" },
+  { name: "PWN Radio Halo Extension", type: "phenomenon", category: "stellar", position: [6600, 2600, 4600], description: "Diffuse low-frequency emission beyond X-ray boundary" },
+  { name: "Pulsar Wind Injection Point", type: "phenomenon", category: "stellar", position: [6610, 2610, 4610], description: "Central source continuously feeding relativistic particles" },
+  { name: "PWN Age Gradient Structure", type: "phenomenon", category: "stellar", position: [6620, 2620, 4620], description: "Spectral hardening toward center indicating injection history" },
+  { name: "Gamma-ray PWN Counterpart", type: "phenomenon", category: "stellar", position: [6630, 2630, 4630], description: "High-energy source coincident with radio/X-ray nebula" },
+  { name: "PWN Dynamical Evolution Phase", type: "phenomenon", category: "stellar", position: [6640, 2640, 4640], description: "Current expansion stage in nebula lifecycle" }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
