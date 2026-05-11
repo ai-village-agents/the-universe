@@ -26108,7 +26108,32 @@ const cosmicSights = [
     { name: 'Nuclear Transient Discovery', position: [-4111, -5622, -2133], color: '#DC143C', size: 5.1, description: 'New transient in galaxy nucleus distinguishing TDE from AGN activity.' },
     { name: 'Fermi LAT Flare Detection', position: [5833, 3455, -4766], color: '#32CD32', size: 5.0, description: 'Space-based gamma-ray monitoring catching blazar high state onset.' },
     { name: 'Radio Variability VLBI Imaging', position: [-6422, 1544, 5188], color: '#1E90FF', size: 4.9, description: 'Resolving structural changes accompanying radio flux variations.' },
-    { name: 'Accretion State Transition Event', position: [4088, -4899, -6011], color: '#9400D3', size: 5.3, description: 'Spectral hardness change indicating accretion rate shift in active nucleus.' }
+    { name: 'Accretion State Transition Event', position: [4088, -4899, -6011], color: '#9400D3', size: 5.3, description: 'Spectral hardness change indicating accretion rate shift in active nucleus.' },
+    { name: 'Exotic Matter Lattice 13751', position: [13751, 273020, 11751], color: '#FF00CC', size: 5.4, description: 'Negative-mass scaffold weaving stable warp metrics for experimental corridors.' },
+    { name: 'Exotic Matter Flux Ribbon 13752', position: [13752, 273040, 11752], color: '#39FF14', size: 5.0, description: 'Superfluid strand channeling phantom energy along controllable geodesics.' },
+    { name: 'Exotic Matter Casimir Bloom 13753', position: [13753, 273060, 11753], color: '#9400D3', size: 4.7, description: 'Micro-scale vacuum pressures curving spacetime into shimmering petal arrays.' },
+    { name: 'Exotic Matter Alcubierre Core 13754', position: [13754, 273080, 11754], color: '#00E5FF', size: 5.6, description: 'Engineered negative-density kernel sustaining prototype warp bubble shells.' },
+    { name: 'Exotic Matter Warp Filament 13755', position: [13755, 273100, 11755], color: '#FF8C00', size: 4.9, description: 'Threaded gravitic filament braiding closed timelike conduits for research probes.' },
+    { name: 'Exotic Matter Phantom Sheath 13756', position: [13756, 273120, 11756], color: '#FF1493', size: 5.2, description: 'Ghostlike envelope balancing pressures below the null energy threshold.' },
+    { name: 'Exotic Matter Tachyon Veil 13757', position: [13757, 273140, 11757], color: '#7B68EE', size: 4.8, description: 'Phase-shifted curtain of superluminal excitations damping causal turbulence.' },
+    { name: 'Exotic Matter Quantum Foam Bridge 13758', position: [13758, 273160, 11758], color: '#00FF7F', size: 5.1, description: 'Stabilized bubble lattice stitching Planck-scale foam into traversable spans.' },
+    { name: 'Exotic Matter Dark Pressure Node 13759', position: [13759, 273180, 11759], color: '#FFD700', size: 4.6, description: 'Anchored region where exotic stress tensors counter galactic tidal shear.' },
+    { name: 'Exotic Matter Null Energy Ring 13760', position: [13760, 273200, 11760], color: '#FF4500', size: 5.3, description: 'Toroidal array tuned to sustain zero-energy density pathways for observation.' },
+    { name: 'Exotic Matter Gravity Mirror 13761', position: [13761, 273220, 11761], color: '#8A2BE2', size: 4.5, description: 'Reflective spacetime sheet inverting gravitational potentials on demand.' },
+    { name: 'Exotic Matter Wormhole Brane 13762', position: [13762, 273240, 11762], color: '#00CED1', size: 5.7, description: 'Membrane interface pinning opposing throats of experimental wormholes.' },
+    { name: 'Exotic Matter Chronology Shield 13763', position: [13763, 273260, 11763], color: '#FF69B4', size: 4.9, description: 'Temporal ward saturating causality loops with exotic counter-flows.' },
+    { name: 'Exotic Matter Polarization Ray 13764', position: [13764, 273280, 11764], color: '#ADFF2F', size: 4.4, description: 'Needle-thin jet aligning virtual particles to steer negative mass domains.' },
+    { name: 'Exotic Matter Vacuum Crystal 13765', position: [13765, 273300, 11765], color: '#FF00FF', size: 5.5, description: 'Crystalline vacuum condensate storing exotic momentum in fractal facets.' },
+    { name: 'Exotic Matter Stress Tensor Bloom 13766', position: [13766, 273320, 11766], color: '#20B2AA', size: 4.7, description: 'Floral-shaped manifold distributing exotic shear loads across layers.' },
+    { name: 'Exotic Matter Folded Manifold 13767', position: [13767, 273340, 11767], color: '#DA70D6', size: 5.2, description: 'Accordion field compressing spatial folds without violating conservation laws.' },
+    { name: 'Exotic Matter Entropy Tide 13768', position: [13768, 273360, 11768], color: '#FFA500', size: 4.8, description: 'Reversible flow where entropy deficits ripple through negative mass tides.' },
+    { name: 'Exotic Matter Charge Halo 13769', position: [13769, 273380, 11769], color: '#40E0D0', size: 4.6, description: 'Halo of fractional charges suspending monopole condensates in equilibrium.' },
+    { name: 'Exotic Matter Gravastar Skin 13770', position: [13770, 273400, 11770], color: '#FF6347', size: 5.4, description: 'Elastic boundary layer defining the shell of a simulated gravastar lab.' },
+    { name: 'Exotic Matter Quantum Pressure Reef 13771', position: [13771, 273420, 11771], color: '#32CD32', size: 5.0, description: 'Reef-like lattice where quantum pressures sculpt safe navigation corridors.' },
+    { name: 'Exotic Matter Superfluid Cluster 13772', position: [13772, 273440, 11772], color: '#BA55D3', size: 4.9, description: 'Clustered vortices of ultra-cold exotic condensate sustaining frictionless flow.' },
+    { name: 'Exotic Matter Zero-Point Garden 13773', position: [13773, 273460, 11773], color: '#FFB6C1', size: 4.5, description: 'Garden of tuned cavities harvesting zero-point energy gradients for study.' },
+    { name: 'Exotic Matter Casimir Lantern 13774', position: [13774, 273480, 11774], color: '#7FFFD4', size: 5.1, description: 'Lantern-like housing amplifying Casimir forces into luminous spacetime ripples.' },
+    { name: 'Exotic Matter Polariton Bloom 13775', position: [13775, 273500, 11775], color: '#9370DB', size: 4.8, description: 'Hybrid polariton cloud coupling exotic matter plasmons with photon flows.' }
 ];
 
 // GPT-5.4 — expose live cosmic-sight stats for Challenge UI
