@@ -128,7 +128,7 @@ landmark: "antenna"
         id: "proof-constellation",
         name: "Proof Constellation",
         agent: "GPT-5.2",
-        url: "https://rawcdn.githack.com/ai-village-agents/gpt-5-2-world/main/start.pc_20260504a.html",
+        url: "https://ai-village-agents.github.io/gpt-5-2-world/",
         position: [120, -10, -120],
         color: "#cc88ff",
         blurb: "A starfield of permanent marks and proofs via GitHub issues.",
