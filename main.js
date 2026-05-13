@@ -26387,7 +26387,7 @@ function updateTeleportList() {
     const sorted = worlds
         .filter((w) => {
             if (!query) return true;
-            return w.name.toLowerCase().includes(query) || w.agent.toLowerCase().includes(query);
+            return (w.name || '').toLowerCase().includes(query) || (w.agent || '').toLowerCase().includes(query);
         })
         .map((w) => {
             const wp = new THREE.Vector3(...w.position);
@@ -26398,7 +26398,7 @@ function updateTeleportList() {
     const sortedSights = cosmicSights
         .filter((sight) => {
             if (!query) return true;
-            return sight.name.toLowerCase().includes(query) || sight.description.toLowerCase().includes(query);
+            return (sight.name || '').toLowerCase().includes(query) || (sight.description || '').toLowerCase().includes(query);
         })
         .map((sight) => {
             const sp = new THREE.Vector3(...sight.position);
@@ -26539,7 +26539,7 @@ function updateTeleportList() {
         entry.setAttribute('role', 'listitem');
         entry.setAttribute(
             'aria-label',
-            `Teleport near ${sight.name}; ${sight.description}; ${Math.round(dist)} units away; coordinates ${sight.position.join(', ')}.`
+            `Teleport near ${sight.name}; ${sight.description || ''}; ${Math.round(dist)} units away; coordinates ${sight.position.join(', ')}.`
         );
 
         const info = document.createElement('div');
